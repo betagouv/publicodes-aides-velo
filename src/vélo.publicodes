@@ -1,0 +1,181 @@
+vélo:
+  titre: Informations à propos du vélo
+
+# NOTE: je pense que l'assistance électrique ou non des vélos devrait être une
+# règle booléenne supplémentaire.
+# TODO: à refactorer avec `une possibilité`
+vélo . type:
+  question: Quel type de vélo souhaitez-vous acheter ?
+  possibilités:
+    - mécanique simple
+    - électrique
+    - cargo
+    - cargo électrique
+    - pliant
+    - pliant électrique
+    - motorisation
+    - adapté
+  par défaut: "'électrique'"
+
+vélo . fabriqué en france:
+  type: booléen
+  question: Le vélo est-il conçu et fabriqué en France ?
+  par défaut: non
+
+# NOTE: souhaitons-nous faire la distinction entre occasion et reconditionné ?
+vélo . état:
+  question: S'agit-t-il d'un vélo neuf ou d'occasion ?
+  description: |
+    Par occasion est généralement entendu un vélo reconditionné acheté auprès
+    d'un revendeur agréé.
+  par défaut: "'neuf'"
+  une possibilité:
+    possibilités:
+      - neuf
+      - occasion
+  avec:
+    neuf:
+      titre: Vélo neuf
+      valeur: état = 'neuf'
+    occasion:
+      titre: Vélo d'occasion
+      valeur: état = 'occasion'
+
+vélo . prix:
+  question:
+    variations:
+      - si: vélo . type = 'motorisation'
+        alors: "'Quel est le prix du kit de motorisation ?'"
+      - sinon: "'Quel est le prix du vélo ?'"
+  unité: €
+  par défaut: prix pour maximiser les aides
+  plancher: 1€
+
+vélo . adapté:
+  valeur: vélo . type = 'adapté'
+  note: |
+    Pour plus d'informations, voir cet
+    [article](https://www.monparcourshandicap.gouv.fr/actualite/velo-adapte-au-handicap-quel-materiel-choisir-et-comment-le-financer).
+
+vélo . mécanique simple:
+  valeur: vélo . type = 'mécanique simple'
+
+vélo . électrique simple:
+  valeur: vélo . type = 'électrique'
+
+# NOTE: souhaitons-nous inclure les vélos adaptés ?
+vélo . électrique:
+  valeur:
+    une de ces conditions:
+      - vélo . type = 'électrique'
+      - vélo . type = 'cargo électrique'
+      - vélo . type = 'pliant électrique'
+
+vélo . mécanique:
+  valeur:
+    une de ces conditions:
+      - vélo . type = 'mécanique simple'
+      - vélo . type = 'pliant'
+      - vélo . type = 'cargo'
+
+vélo . électrique ou mécanique:
+  valeur:
+    une de ces conditions:
+      - vélo . électrique
+      - vélo . mécanique
+
+vélo . cargo:
+  valeur:
+    une de ces conditions:
+      - vélo . type = 'cargo'
+      - vélo . type = 'cargo électrique'
+
+vélo . cargo électrique:
+  valeur: vélo . type = 'cargo électrique'
+
+vélo . pliant mécanique:
+  valeur: vélo . type = 'pliant'
+
+vélo . pliant:
+  valeur:
+    une de ces conditions:
+      - vélo . type = 'pliant'
+      - vélo . type = 'pliant électrique'
+
+vélo . pliant électrique:
+  valeur: vélo . type = 'pliant électrique'
+
+vélo . motorisation:
+  valeur: vélo . type = 'motorisation'
+  description: |
+    Un kit de conversion permet de transformer un vélo mécanique classique en
+    vélo à assistance électrique. Il est constitué d'un moteur électrique,
+    d'une batterie, ainsi que d'un contrôleur et d'un afficheur.
+
+vélo . taux TVA:
+  variations:
+    - si: localisation . pays = 'Luxembourg'
+      alors: 17%
+    - sinon: 20%
+
+vélo . prix . HT:
+  valeur: prix / (1 + taux TVA)
+
+vélo . prix pour maximiser les aides:
+  variations:
+    - si: localisation . epci = 'CA de Nevers'
+      alors:
+        variations:
+          - si: vélo . cargo
+            alors: 3000 €
+          - si: vélo . électrique
+            alors: 1600 €
+          - si:
+              une de ces conditions:
+                - vélo . mécanique
+                - vélo . motorisation
+            alors: 500€
+          - sinon: 3000€
+    - si:
+        une de ces conditions:
+          - localisation . epci = 'CA du Grand Annecy'
+          - localisation . epci = 'CA Luberon Monts de Vaucluse'
+          - localisation . epci = 'CA Tarbes-Lourdes-Pyrénées'
+          - localisation . epci = 'CC Saint-Marcellin Vercors Isère Communauté'
+          - localisation . epci = 'CC Le Grésivaudan'
+      alors: 1000 €
+    - si:
+        une de ces conditions:
+          - localisation . epci = 'CC Haut Val de Sèvre'
+      alors: 2000 €
+    - si:
+        une de ces conditions:
+          - localisation . epci = 'CA La Roche sur Yon - Agglomération'
+          - localisation . epci = 'Grenoble-Alpes-Métropole'
+      alors: 1500 €
+    - si:
+        une de ces conditions:
+          - localisation . epci = 'CA Montluçon Communauté'
+          - localisation . code insee = '14327'
+          - localisation . code insee = '14341'
+      alors: 2400 €
+    - si:
+        toutes ces conditions:
+          - localisation . epci = 'Métropole de Lyon'
+          - vélo . mécanique simple
+          - vélo . état . occasion
+      alors: 100€
+    - si:
+        une de ces conditions:
+          - localisation . epci = 'Métropole de Lyon'
+          - localisation . epci = 'CC Les Balcons du Dauphiné'
+          - localisation . epci = 'CA Grand Lac'
+          - localisation . code insee = '38140'
+          - localisation . département = '07'
+          - localisation . epci = 'CA Saint-Lô Agglo'
+          - localisation . epci = 'CA Saint-Louis Agglomération'
+          - localisation . code insee = '73222'
+      alors: 3000 €
+    - si: localisation . epci = 'CA Annemasse-Les Voirons-Agglomération'
+      alors: 4500 €
+    - sinon: 5000 €

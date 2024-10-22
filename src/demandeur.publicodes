@@ -1,0 +1,102 @@
+demandeur:
+  titre: Profil du demandeur
+  description: |
+    Paramètres permettant de personnaliser les résultats en fonction de la
+    situation de l'utilisateur·ice. Ils sont nécessaires pour le calcul de
+    certaines aides.
+
+demandeur . bénéficie du forfait mobilités durables:
+  type: booléen
+  question: Percevez-vous le forfait mobilités durables ?
+  description: |
+    Le forfait mobilités durables est une prise en charge par vous employeur
+    des frais liés à vos déplacements domicile-travail réalisés à vélo.
+    
+    [En savoir plus](/forfait-mobilite-durable).
+  par défaut: oui
+
+demandeur . bénéficiaire du RSA:
+  type: booléen
+  question: Percevez-vous le RSA ?
+  par défaut: non
+
+demandeur . bénéficiaire de minima sociaux:
+  type: booléen
+  question: Percevez-vous le RSA, l'AAH, l'ASS ou ASPA ?
+  description: |
+    RSA : Revenu de solidarité active
+    AAH : Allocation aux adultes handicapés
+    ASS : Allocation de solidarité spécifique
+    ASPA : Allocation de solidarit aux personnes âgées
+  par défaut: non
+
+demandeur . en situation de handicap:
+  type: booléen
+  question: Êtes-vous en situation de handicap ?
+  description: |
+    Pour certaines aides, les conditions de ressources sont ignorées pour les
+    personnes en situation de handicap.
+
+    Vous pouvez également consulter [Mon parcours
+    handicap](https://www.monparcourshandicap.gouv.fr/actualite/velo-adapte-au-handicap-quel-materiel-choisir-et-comment-le-financer)
+    pour plus d'informations sur les différents matériels et les moyens de les
+    financer.
+  par défaut: non
+
+demandeur . statut:
+  question: Quel est votre statut ?
+  une possibilité:
+    possibilités:
+      - étudiant
+      - apprenti
+      - demandeur d'emploi
+      - salarié
+      - retraité
+      - autre
+  par défaut: "'autre'"
+  avec:
+    étudiant:
+      titre: Étudiant·e
+      valeur: statut = 'étudiant'
+    apprenti:
+      titre: Apprenti·e
+      valeur: statut = 'apprenti'
+    demandeur d'emploi:
+      titre: Demandeureuse d'emploi
+      valeur: statut = 'demandeur d'emploi'
+    salarié:
+      titre: Salarié·e
+      valeur: statut = 'salarié'
+    retraité:
+      titre: Retraité·e
+      valeur: statut = 'retraité'
+    autre:
+      titre: Autre
+      valeur: statut = 'autre'
+
+
+demandeur . âge:
+  type: nombre
+  question: Quel est votre âge ?
+  par défaut: 30 an
+  note: |
+    Il se pourrait que certaines règles soient conditionnées par l'âge du
+    demandeur mais que ce ne soit pas pris en compte dans toutes les règles. 
+
+demandeur . âge . majeur:
+  valeur: demandeur . âge >= 18 an
+
+demandeur . âge . mineur:
+  valeur: demandeur . âge < 18 an
+
+demandeur . âge . de 15 à 25 ans: 
+  valeur:
+    toutes ces conditions:
+      - demandeur . âge >= 15 an
+      - demandeur . âge <= 25 an
+
+demandeur . âge . de 18 à 25 ans:
+  valeur:
+    toutes ces conditions:
+      - demandeur . âge >= 18 an
+      - demandeur . âge <= 25 an

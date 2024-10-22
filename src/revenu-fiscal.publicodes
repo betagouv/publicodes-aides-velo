@@ -1,0 +1,15 @@
+# NOTE: ne devrait-on pas plutôt avoir 'quotient familial' calculée à partir de
+# 'revenu fiscal de référence' et 'personnes dans le foyer fiscal' ? ->
+# potentiel de breaking silencieux
+revenu fiscal de référence:
+  titre: Revenu fiscal de référence par part (quotient familial)
+  question: Quel est votre revenu fiscal de référence par part (quotient familial) ?
+  description: |
+    [Revenu fiscal de
+    référence](https://www.economie.gouv.fr/particuliers/revenu-imposable-revenu-fiscal-reference)
+    divisé par le nombre de parts fiscales.
+
+    Voir également le [calcul du quotient
+    familial](https://www.economie.gouv.fr/particuliers/quotient-familial).
+  par défaut: 800 €/an
+

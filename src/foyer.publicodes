@@ -1,0 +1,19 @@
+foyer:
+  titre: Foyer fiscal
+  description: |
+    Informations relatives à la composition du foyer fiscal de
+    l'utilisateur·ice.
+
+foyer . personnes:
+  type: entier
+  titre: Nombre de personnes
+  question: Combien de personnes composent votre foyer fiscal ?
+  par défaut: 1
+
+foyer . imposable:
+  titre: Imposition du foyer en 2024
+  valeur: revenu fiscal de référence >= 11295 €/an
+  note: |
+    ### Source
+    
+    [Infographie - Impôt sur le revenu : barème 2024](https://www.service-public.fr/particuliers/vosdroits/F1419)
