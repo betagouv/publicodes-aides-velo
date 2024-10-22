@@ -1,0 +1,29 @@
+{
+  "name": "@betagouv/aides-velo",
+  "description": "Modèle Publicodes pour le calcul des aides vélo en France",
+  "version": "0.1.0",
+  "author": "Emile Rolley <emile.rolley@beta.gouv.fr>",
+  "license": "Apache-2.0",
+  "type": "module",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "files": [
+    "build"
+  ],
+  "scripts": {
+    "compile": "publicodes compile",
+    "test": "vitest --globals"
+  },
+  "peerDependencies": {
+    "publicodes": "^1.5.1"
+  },
+  "devDependencies": {
+    "@publicodes/tools": "^1.2.5",
+    "vitest": "^2.1.2",
+    "@types/jest": "^29.5.13"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
+
