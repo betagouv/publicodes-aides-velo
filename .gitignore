@@ -1,2 +1,5 @@
 node_modules
+src/data/*.json
+src/compiled-rules
+src/data
 build

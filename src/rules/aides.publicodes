@@ -5425,7 +5425,7 @@ aides . saintes:
       allouée.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CA de Saintes'
+      - localisation . epci = 'CA "Saintes - Grandes Rives - L'Agglo"'
       - demandeur . âge . majeur
       - une de ces conditions:
           - vélo . électrique
@@ -6068,7 +6068,7 @@ aides . la roche sur yon:
 # NOTE: valide jusqu'au 31 décembre 2024, à vérifier en 2025
 aides . cholet:
   remplace: intercommunalité
-  titre: Agglomération du Choletais
+  titre: Cholet Agglomération
   description: |
     Subvention pour l'achat d'un vélo neuf à assistance électrique. Le vélo
     devra être acheté auprès d'un revendeur professionnel partenaire de cette
@@ -6077,7 +6077,7 @@ aides . cholet:
     Fin de l'opération le 31 décembre 2024.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CA Agglomération du Choletais'
+      - localisation . epci = 'CA Cholet Agglomération'
       - demandeur . âge . majeur
       - vélo . état . neuf
       - une de ces conditions:
@@ -8460,7 +8460,7 @@ aides . saulieu:
     Le dossier est à déposer dans les trentes jours suivants l'achat.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC de Saulieu'
+      - localisation . epci = 'CC de Saulieu-Morvan'
       - demandeur . âge . majeur
       - vélo . électrique
       - vélo . état . neuf
