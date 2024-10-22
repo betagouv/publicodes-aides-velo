@@ -1,75 +1,77 @@
 import Engine from "publicodes";
-import rules from "../build";
+
+import { data, rules } from "../src";
 // TODO:
-// import collectivites from "../../../../src/infrastructure/data/aides-collectivities.json";
 // import miniatures from "../../../../src/infrastructure/data/miniatures.json";
 import assert from "assert";
 
 describe("Aides Vélo", () => {
-  const engine = new Engine(rules);
+  const engine = new Engine(rules.default);
 
-  // describe("Généralités", () => {
-  //   const rulesToIgnore = [
-  //     "aides . montant",
-  //     "aides . état",
-  //     "aides . région",
-  //     "aides . département",
-  //     "aides . commune",
-  //     "aides . intercommunalité",
-  //     "aides . forfait mobilités durables",
-  //   ];
-  //
-  //   it("devrait y avoir une entrée pour chaque aide dans le fichier 'aides-collectivities.json'", () => {
-  //     // NOTE: should be generated at compile time
-  //     const noNeedToAssociatesLoc = [
-  //       ...rulesToIgnore,
-  //       "aides . bonus vélo",
-  //       "aides . prime à la conversion",
-  //     ];
-  //
-  //     Object.keys(rules).forEach((key) => {
-  //       if (
-  //         key.startsWith("aides .") &&
-  //         key.split(" . ").length === 2 &&
-  //         !noNeedToAssociatesLoc.includes(key)
-  //       ) {
-  //         expect(collectivites[key]).not.toBeUndefined();
-  //       }
-  //     });
-  //   });
-  //
-  //   it.skip("'devrait y avoir une entrée pour chaque aide dans 'miniatures.json'", () => {
-  //     // NOTE: should be generated at compile time
-  //     // TODO: improve the generation script to manage missing cities
-  //     Object.keys(rules).forEach((key) => {
-  //       if (
-  //         key.startsWith("aides .") &&
-  //         key.split(" . ").length === 2 &&
-  //         !rulesToIgnore.includes(key)
-  //       ) {
-  //         if (!miniatures[key]) {
-  //           console.log(key);
-  //         }
-  //         expect(miniatures[key]).not.toBeUndefined();
-  //       }
-  //     });
-  //   });
-  //
-  //   it("devrait y avoir un lien valide pour chaque aides", () => {
-  //     Object.entries(rules).forEach(([key, rule]) => {
-  //       if (
-  //         key.startsWith("aides .") &&
-  //         key.split(" . ").length === 2 &&
-  //         !rulesToIgnore.includes(key)
-  //       ) {
-  //         if (!rule["lien"]) {
-  //           console.log(key);
-  //         }
-  //         expect(rule["lien"]).toMatch(/^https?:\/\//);
-  //       }
-  //     });
-  //   });
-  // });
+  describe("Généralités", () => {
+    const rulesToIgnore: rules.RuleName[] = [
+      "aides . montant",
+      "aides . état",
+      "aides . région",
+      "aides . département",
+      "aides . commune",
+      "aides . intercommunalité",
+      "aides . forfait mobilités durables",
+    ];
+
+    it("devrait y avoir une entrée pour chaque aide dans le fichier 'aides-collectivities.json'", () => {
+      // NOTE: should be generated at compile time
+      const noNeedToAssociatesLoc: rules.RuleName[] = [
+        ...rulesToIgnore,
+        "aides . bonus vélo",
+        "aides . prime à la conversion",
+      ];
+
+      Object.keys(rules).forEach((key) => {
+        if (
+          key.startsWith("aides .") &&
+          key.split(" . ").length === 2 &&
+          // TODO: improve publicodes typing
+          // @ts-ignore
+          !noNeedToAssociatesLoc.includes(key)
+        ) {
+          expect(data.aidesAvecLocalisation[key]).not.toBeUndefined();
+        }
+      });
+    });
+    //
+    //   it.skip("'devrait y avoir une entrée pour chaque aide dans 'miniatures.json'", () => {
+    //     // NOTE: should be generated at compile time
+    //     // TODO: improve the generation script to manage missing cities
+    //     Object.keys(rules).forEach((key) => {
+    //       if (
+    //         key.startsWith("aides .") &&
+    //         key.split(" . ").length === 2 &&
+    //         !rulesToIgnore.includes(key)
+    //       ) {
+    //         if (!miniatures[key]) {
+    //           console.log(key);
+    //         }
+    //         expect(miniatures[key]).not.toBeUndefined();
+    //       }
+    //     });
+    //   });
+    //
+    //   it("devrait y avoir un lien valide pour chaque aides", () => {
+    //     Object.entries(rules).forEach(([key, rule]) => {
+    //       if (
+    //         key.startsWith("aides .") &&
+    //         key.split(" . ").length === 2 &&
+    //         !rulesToIgnore.includes(key)
+    //       ) {
+    //         if (!rule["lien"]) {
+    //           console.log(key);
+    //         }
+    //         expect(rule["lien"]).toMatch(/^https?:\/\//);
+    //       }
+    //     });
+    //   });
+  });
 
   describe("Bonus Vélo", () => {
     const baseSituation = {
