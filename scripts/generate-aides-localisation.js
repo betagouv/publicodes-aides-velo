@@ -76,13 +76,9 @@ function extractCollectivityFromAST(rule) {
       }
       if (node.nodeKind === "operation" && node.operationKind === "=") {
         for (let kind of collectityKinds) {
-          // TODO: improve publicodes typing
-          // @ts-ignore
           if (node.explanation[0]?.dottedName === `localisation . ${kind}`) {
             return {
               kind,
-              // TODO: improve publicodes typing
-              // @ts-ignore
               value: node.explanation[1]?.nodeValue,
             };
           }

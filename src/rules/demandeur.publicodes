@@ -46,13 +46,12 @@ demandeur . en situation de handicap:
 demandeur . statut:
   question: Quel est votre statut ?
   une possibilité:
-    possibilités:
-      - étudiant
-      - apprenti
-      - demandeur d'emploi
-      - salarié
-      - retraité
-      - autre
+    - étudiant
+    - apprenti
+    - demandeur d'emploi
+    - salarié
+    - retraité
+    - autre
   par défaut: "'autre'"
   avec:
     étudiant:

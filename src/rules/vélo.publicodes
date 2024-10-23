@@ -6,50 +6,31 @@ vélo:
 # TODO: à refactorer avec `une possibilité`
 vélo . type:
   question: Quel type de vélo souhaitez-vous acheter ?
-  possibilités:
-    - mécanique simple
-    - électrique
-    - cargo
-    - cargo électrique
-    - pliant
-    - pliant électrique
-    - motorisation
-    - adapté
-  par défaut: "'électrique'"
-
-vélo . fabriqué en france:
-  type: booléen
-  question: Le vélo est-il conçu et fabriqué en France ?
-  par défaut: non
-
-# NOTE: souhaitons-nous faire la distinction entre occasion et reconditionné ?
-vélo . état:
-  question: S'agit-t-il d'un vélo neuf ou d'occasion ?
-  description: |
-    Par occasion est généralement entendu un vélo reconditionné acheté auprès
-    d'un revendeur agréé.
-  par défaut: "'neuf'"
   une possibilité:
     possibilités:
-      - neuf
-      - occasion
+      - mécanique simple
+      - électrique
+      - cargo
+      - cargo électrique
+      - pliant
+      - pliant électrique
+      - motorisation
+      - adapté
+  par défaut: "'électrique'"
   avec:
-    neuf:
-      titre: Vélo neuf
-      valeur: état = 'neuf'
-    occasion:
-      titre: Vélo d'occasion
-      valeur: état = 'occasion'
-
-vélo . prix:
-  question:
-    variations:
-      - si: vélo . type = 'motorisation'
-        alors: "'Quel est le prix du kit de motorisation ?'"
-      - sinon: "'Quel est le prix du vélo ?'"
-  unité: €
-  par défaut: prix pour maximiser les aides
-  plancher: 1€
+    # NOTE: simple définition des règles correspondantes à chaque type de vélo,
+    # ce qui est nécessaire pour le mécanisme 'une possibilité'. Par soucis de
+    # simplicité et de retrocompatibilité, je n'ai pas refactorisé les règles
+    # existantes permettant de factoriser les comparaisons entre les différents
+    # types de vélos.
+    mécanique simple:
+    électrique:
+    cargo:
+    cargo électrique:
+    pliant:
+    pliant électrique:
+    motorisation:
+    adapté:
 
 vélo . adapté:
   valeur: vélo . type = 'adapté'
@@ -111,6 +92,40 @@ vélo . motorisation:
     Un kit de conversion permet de transformer un vélo mécanique classique en
     vélo à assistance électrique. Il est constitué d'un moteur électrique,
     d'une batterie, ainsi que d'un contrôleur et d'un afficheur.
+
+
+vélo . fabriqué en france:
+  type: booléen
+  question: Le vélo est-il conçu et fabriqué en France ?
+  par défaut: non
+
+# NOTE: souhaitons-nous faire la distinction entre occasion et reconditionné ?
+vélo . état:
+  question: S'agit-t-il d'un vélo neuf ou d'occasion ?
+  description: |
+    Par occasion est généralement entendu un vélo reconditionné acheté auprès
+    d'un revendeur agréé.
+  par défaut: "'neuf'"
+  une possibilité:
+    - neuf
+    - occasion
+  avec:
+    neuf:
+      titre: Vélo neuf
+      valeur: état = 'neuf'
+    occasion:
+      titre: Vélo d'occasion
+      valeur: état = 'occasion'
+
+vélo . prix:
+  question:
+    variations:
+      - si: vélo . type = 'motorisation'
+        alors: "'Quel est le prix du kit de motorisation ?'"
+      - sinon: "'Quel est le prix du vélo ?'"
+  unité: €
+  par défaut: prix pour maximiser les aides
+  plancher: 1€
 
 vélo . taux TVA:
   variations:

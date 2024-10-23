@@ -1,14 +1,15 @@
-import Engine from "publicodes";
+import Engine, { Rule } from "publicodes";
 import assert from "assert";
 
-import { data, rules } from "../src";
-import { RuleName } from "../build";
+import { AideRuleNames, RuleName, data, rules } from "../src";
 
 describe("Aides Vélo", () => {
-  const engine = new Engine(rules.default);
+  const engine = new Engine(rules);
+  const ruleNames = Object.keys(rules) as RuleName[];
+  const ruleEntries = Object.entries(rules) as [RuleName, Rule][];
 
   describe("Généralités", () => {
-    const rulesToIgnore: rules.RuleName[] = [
+    const rulesToIgnore: RuleName[] = [
       "aides . montant",
       "aides . état",
       "aides . région",
@@ -20,22 +21,21 @@ describe("Aides Vélo", () => {
 
     it("devrait y avoir une entrée pour chaque aide dans le fichier 'aides-collectivities.json'", () => {
       // NOTE: should be generated at compile time
-      const noNeedToAssociatesLoc: rules.RuleName[] = [
+      const noNeedToAssociatesLoc: RuleName[] = [
         ...rulesToIgnore,
         "aides . bonus vélo",
         "aides . prime à la conversion",
       ];
 
-      Object.keys(rules).forEach((key: rules.RuleName) => {
+      ruleNames.forEach((key: RuleName) => {
         if (
-          key typeof data.AidesRuleName &&
           key.startsWith("aides .") &&
           key.split(" . ").length === 2 &&
-          // TODO: improve publicodes typing
-          // @ts-ignore
-          !noNeedToAssociatesLoc.includes(key) &&
+          !noNeedToAssociatesLoc.includes(key)
         ) {
-          expect(data.aidesAvecLocalisation[key]).not.toBeUndefined();
+          expect(
+            data.aidesAvecLocalisation[key as AideRuleNames],
+          ).not.toBeUndefined();
         }
       });
     });
@@ -43,22 +43,22 @@ describe("Aides Vélo", () => {
     it.skip("'devrait y avoir une entrée pour chaque aide dans 'miniatures.json'", () => {
       // NOTE: should be generated at compile time
       // TODO: improve the generation script to manage missing cities
-      Object.keys(engine.getParsedRules()).forEach((key) => {
+      ruleNames.forEach((key) => {
         if (
           key.startsWith("aides .") &&
           key.split(" . ").length === 2 &&
           !rulesToIgnore.includes(key)
         ) {
-          if (!data.miniatures[key]) {
+          if (!data.miniatures[key as AideRuleNames]) {
             console.log(key);
           }
-          expect(miniatures[key]).not.toBeUndefined();
+          expect(data.miniatures[key as AideRuleNames]).not.toBeUndefined();
         }
       });
     });
 
     it("devrait y avoir un lien valide pour chaque aides", () => {
-      Object.entries(rules).forEach(([key, rule]) => {
+      ruleEntries.forEach(([key, rule]) => {
         if (
           key.startsWith("aides .") &&
           key.split(" . ").length === 2 &&

@@ -52,13 +52,25 @@ localisation . région:
   par défaut: "''"
 
 localisation . pays:
-  valeur:
+  question: Quel est le votre pays ?
+  une possibilité:
+    - France
+    - Monaco
+    - Luxembourg
+  par défaut:
     variations:
       - si: code insee = '99138'
         alors: "'Monaco'"
       - si: code insee = '99137'
         alors: "'Luxembourg'"
       - sinon: "'France'"
+  avec:
+    France:
+    Monaco:
+    Luxembourg:
 
-localisation . ZFE: non
+localisation . ZFE: 
+  type: boolean
+  question: Êtes-vous dans une zone à faibles émissions (ZFE) ?
+  par défaut: non
 
