@@ -6,9 +6,9 @@
  */
 import fs from "fs";
 
-import { getDataPath, slugify, writeJsonData } from "./utils.ts";
+import { getDataPath, slugify } from "./utils.ts";
 
-// import villeInZFE from "../../data-fetch/zones-faibles-emissions/codes-insee.js";
+import communesInZFE from "./data-fetch/zones-faibles-emissions/communeZFE.ts";
 import untypedCommunes from "@etalab/decoupage-administratif/data/communes.json" assert { type: "json" };
 import epci from "@etalab/decoupage-administratif/data/epci.json" assert { type: "json" };
 
@@ -43,12 +43,6 @@ const duplicateCommunesNames = communes
   .map(({ nom }) => slugify(nom))
   .sort()
   .filter((cur, i, arr) => cur === arr[i - 1]);
-// .reduce((acc, cur, i, arr) => {
-//   if (cur === arr[i - 1] && cur !== acc[acc.length - 1]) {
-//     acc.push(cur);
-//   }
-//   return acc;
-// }, []);
 
 const communesInEpci = Object.fromEntries(
   epci.flatMap(({ nom, membres }) => membres.map(({ code }) => [code, nom])),
@@ -85,7 +79,8 @@ export default function generateCommunesData() {
           c.type === "commune-actuelle" &&
           c.codesPostaux &&
           c.population &&
-          !c.code?.startsWith("97"),
+          // NOTE: is this correct? Aids aren't eligible for the DROM?
+          c.zone === "metro",
       )
       .map((c) => {
         if (villesAvecArrondissements[c.nom]) {
@@ -102,7 +97,7 @@ export default function generateCommunesData() {
           departement: c.departement,
           region: c.region,
           population: c.population,
-          zfe: false, //TODO: villeInZFE.includes(c.code),
+          zfe: communesInZFE.includes(c.code),
           ...(communesInEpci[c.code] ? { epci: communesInEpci[c.code] } : {}),
           codesPostaux: uniq(c.codesPostaux).sort(
             (a, b) => countTrailingZeros(b) - countTrailingZeros(a),
