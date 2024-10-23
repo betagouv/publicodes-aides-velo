@@ -100,7 +100,12 @@ aides . prime à la conversion:
   applicable si:
     toutes ces conditions:
       - localisation . pays = 'France'
-      - vélo . électrique
+      - une de ces conditions:
+          - revenu fiscal de référence <= 24900 €/an
+          - demandeur . en situation de handicap
+      - une de ces conditions:
+          - vélo . électrique
+          - vélo . adapté
   titre: Prime à la conversion
   description: |
     Pour bénéficier de cette « prime à la casse » vous devez détruire un
@@ -113,10 +118,13 @@ aides . prime à la conversion:
   valeur: 40% * vélo . prix
   plafond:
     variations:
-      - si: revenu fiscal de référence <= 6358 €/an
+      - si: 
+          une de ces conditions:
+            - revenu fiscal de référence <= 7100 €/an
+            - demandeur . en situation de handicap
         alors: 3000€
       - sinon: 1500€
-  lien: https://www.service-public.fr/particuliers/vosdroits/F36827
+  lien: https://www.service-public.fr/particuliers/actualites/A17058
 
 aides . prime à la conversion . surprime ZFE:
   applicable si:
