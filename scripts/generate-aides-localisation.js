@@ -3,52 +3,45 @@
  */
 
 import fs from "node:fs";
-import Publicodes, { RuleNode, reduceAST } from "publicodes";
-
-import { rules, data } from "../src";
+import Publicodes, { reduceAST } from "publicodes";
 
 import epci from "@etalab/decoupage-administratif/data/epci.json" assert { type: "json" };
 import departements from "@etalab/decoupage-administratif/data/departements.json" assert { type: "json" };
 import regions from "@etalab/decoupage-administratif/data/regions.json" assert { type: "json" };
-import { getDataPath } from "./utils";
+import { getDataPath } from "./utils.js";
 
-type Collectivity = data.Localisation["collectivity"];
+import rules from "../src/compiled-rules";
+import communes from "../src/data/communes.json";
 
-const engine = new Publicodes(rules.default);
-const ruleNames: rules.RuleName[] = Object.keys(
-  rules.default,
-) as rules.RuleName[];
+const engine = new Publicodes(rules);
+const ruleNames = Object.keys(rules);
+const communesSorted = communes.sort((a, b) => b.population - a.population);
 
-const aidesRuleNames: rules.RuleName[] = ruleNames.filter(
-  (ruleName: rules.RuleName) => {
-    if (ruleName.startsWith("aides .")) {
-      if (!engine.getRule(ruleName).rawNode.titre) {
-        if (ruleName.split(" . ").length === 2) {
-          console.warn(`No title for ${ruleName}`);
-        }
-        return false;
+const aidesRuleNames = ruleNames.filter((ruleName) => {
+  if (ruleName.startsWith("aides .")) {
+    if (!engine.getRule(ruleName).rawNode.titre) {
+      if (ruleName.split(" . ").length === 2) {
+        console.warn(`No title for ${ruleName}`);
       }
-      return true;
+      return false;
     }
-    return false;
-  },
+    return true;
+  }
+  return false;
+});
+
+const res = Object.fromEntries(
+  aidesRuleNames.map((ruleName) => [
+    ruleName,
+    associateCollectivityMetadata(engine.getRule(ruleName)),
+  ]),
 );
 
-export default function () {
-  const res = Object.fromEntries(
-    aidesRuleNames.map((ruleName) => [
-      ruleName,
-      associateCollectivityMetadata(engine.getRule(ruleName)),
-    ]),
-  );
+fs.writeFileSync(getDataPath("aides-collectivities.json"), JSON.stringify(res));
 
-  fs.writeFileSync(
-    getDataPath("aides-collectivities.json"),
-    JSON.stringify(res),
-  );
-}
+/// Utils
 
-function associateCollectivityMetadata(rule: RuleNode) {
+function associateCollectivityMetadata(rule) {
   const collectivity = extractCollectivityFromAST(rule);
   if (!collectivity) {
     return;
@@ -67,14 +60,22 @@ function associateCollectivityMetadata(rule: RuleNode) {
   };
 }
 
-function extractCollectivityFromAST(rule: RuleNode): Collectivity | undefined {
-  const localisation: Collectivity | null = reduceAST(
-    (acc: Collectivity | null, node) => {
+function extractCollectivityFromAST(rule) {
+  const collectityKinds = [
+    "pays",
+    "région",
+    "département",
+    "epci",
+    "code insee",
+  ];
+
+  const localisation = reduceAST(
+    (acc, node) => {
       if (acc) {
         return acc;
       }
       if (node.nodeKind === "operation" && node.operationKind === "=") {
-        for (let kind of data.collectityKinds) {
+        for (let kind of collectityKinds) {
           // TODO: improve publicodes typing
           // @ts-ignore
           if (node.explanation[0]?.dottedName === `localisation . ${kind}`) {
@@ -111,14 +112,7 @@ function extractCollectivityFromAST(rule: RuleNode): Collectivity | undefined {
   return localisation;
 }
 
-const communesSorted = data.communes.sort(
-  (a, b) => b.population - a.population,
-);
-
-function getInseeCodeForCollectivity({
-  kind,
-  value,
-}: Collectivity): string | undefined {
+function getInseeCodeForCollectivity({ kind, value }) {
   switch (kind) {
     case "région":
       return regions.find(({ code }) => code === value)?.chefLieu;
@@ -131,7 +125,7 @@ function getInseeCodeForCollectivity({
   }
 }
 
-function getCommune(codeInsee?: string): data.Commune | undefined {
+function getCommune(codeInsee) {
   if (!codeInsee) {
     return;
   }
@@ -140,7 +134,7 @@ function getCommune(codeInsee?: string): data.Commune | undefined {
 
 // TODO: a bit fragile, we should sync this logic with
 // `engine.evaluate('localisation . pays')
-function getCountry(rule: RuleNode): "france" | "monaco" | "luxembourg" {
+function getCountry(rule) {
   return rule.dottedName === "aides . monaco"
     ? "monaco"
     : rule.dottedName === "aides . luxembourg"

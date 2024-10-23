@@ -11,7 +11,8 @@
     "build"
   ],
   "scripts": {
-    "compile": "publicodes compile",
+    "postinstall": "yarn run compile && bun scripts/postinstall.js",
+    "compile": "publicodes compile -o ./src/compiled-rules",
     "test": "vitest run --globals"
   },
   "peerDependencies": {
@@ -21,6 +22,7 @@
     "@etalab/decoupage-administratif": "^4.0.0",
     "@publicodes/tools": "^1.2.5",
     "@types/jest": "^29.5.13",
+    "bun": "^1.1.32",
     "sharp": "^0.33.5",
     "vitest": "^2.1.2"
   },
@@ -29,6 +31,9 @@
       "./src/rules/"
     ],
     "output": "./src/compiled-rules"
+  },
+  "engines": {
+    "node": ">=20"
   },
   "publishConfig": {
     "access": "public"
