@@ -21,7 +21,14 @@
     "@etalab/decoupage-administratif": "^4.0.0",
     "@publicodes/tools": "^1.2.5",
     "@types/jest": "^29.5.13",
+    "sharp": "^0.33.5",
     "vitest": "^2.1.2"
+  },
+  "publicodes": {
+    "files": [
+      "./src/rules/"
+    ],
+    "output": "./src/compiled-rules"
   },
   "publishConfig": {
     "access": "public"

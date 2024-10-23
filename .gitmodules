@@ -1,0 +1,3 @@
+[submodule "scripts/data-fetch/miniatures/aides-jeunes"]
+	path = scripts/data-fetch/miniatures/aides-jeunes
+	url = https://github.com/betagouv/aides-jeunes

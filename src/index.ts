@@ -6,6 +6,7 @@
  * wrapper functions, and the types.
  */
 
+// TODO: est-ce que l'on ne souhaiterait pas pouvoir tout exposer ici ?
 export * as rules from "./compiled-rules";
 
 export * as data from "./data";

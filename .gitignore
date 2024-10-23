@@ -3,3 +3,4 @@ src/data/*.json
 src/compiled-rules
 src/data
 build
+static/miniatures

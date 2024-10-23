@@ -1,9 +1,8 @@
 import Engine from "publicodes";
+import assert from "assert";
 
 import { data, rules } from "../src";
-// TODO:
-// import miniatures from "../../../../src/infrastructure/data/miniatures.json";
-import assert from "assert";
+import { RuleName } from "../build";
 
 describe("Aides Vélo", () => {
   const engine = new Engine(rules.default);
@@ -27,50 +26,51 @@ describe("Aides Vélo", () => {
         "aides . prime à la conversion",
       ];
 
-      Object.keys(rules).forEach((key) => {
+      Object.keys(rules).forEach((key: rules.RuleName) => {
         if (
+          key typeof data.AidesRuleName &&
           key.startsWith("aides .") &&
           key.split(" . ").length === 2 &&
           // TODO: improve publicodes typing
           // @ts-ignore
-          !noNeedToAssociatesLoc.includes(key)
+          !noNeedToAssociatesLoc.includes(key) &&
         ) {
           expect(data.aidesAvecLocalisation[key]).not.toBeUndefined();
         }
       });
     });
-    //
-    //   it.skip("'devrait y avoir une entrée pour chaque aide dans 'miniatures.json'", () => {
-    //     // NOTE: should be generated at compile time
-    //     // TODO: improve the generation script to manage missing cities
-    //     Object.keys(rules).forEach((key) => {
-    //       if (
-    //         key.startsWith("aides .") &&
-    //         key.split(" . ").length === 2 &&
-    //         !rulesToIgnore.includes(key)
-    //       ) {
-    //         if (!miniatures[key]) {
-    //           console.log(key);
-    //         }
-    //         expect(miniatures[key]).not.toBeUndefined();
-    //       }
-    //     });
-    //   });
-    //
-    //   it("devrait y avoir un lien valide pour chaque aides", () => {
-    //     Object.entries(rules).forEach(([key, rule]) => {
-    //       if (
-    //         key.startsWith("aides .") &&
-    //         key.split(" . ").length === 2 &&
-    //         !rulesToIgnore.includes(key)
-    //       ) {
-    //         if (!rule["lien"]) {
-    //           console.log(key);
-    //         }
-    //         expect(rule["lien"]).toMatch(/^https?:\/\//);
-    //       }
-    //     });
-    //   });
+
+    it.skip("'devrait y avoir une entrée pour chaque aide dans 'miniatures.json'", () => {
+      // NOTE: should be generated at compile time
+      // TODO: improve the generation script to manage missing cities
+      Object.keys(engine.getParsedRules()).forEach((key) => {
+        if (
+          key.startsWith("aides .") &&
+          key.split(" . ").length === 2 &&
+          !rulesToIgnore.includes(key)
+        ) {
+          if (!data.miniatures[key]) {
+            console.log(key);
+          }
+          expect(miniatures[key]).not.toBeUndefined();
+        }
+      });
+    });
+
+    it("devrait y avoir un lien valide pour chaque aides", () => {
+      Object.entries(rules).forEach(([key, rule]) => {
+        if (
+          key.startsWith("aides .") &&
+          key.split(" . ").length === 2 &&
+          !rulesToIgnore.includes(key)
+        ) {
+          if (!rule["lien"]) {
+            console.log(key);
+          }
+          expect(rule["lien"]).toMatch(/^https?:\/\//);
+        }
+      });
+    });
   });
 
   describe("Bonus Vélo", () => {
