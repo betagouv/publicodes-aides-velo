@@ -38,6 +38,7 @@ export type { AideRuleNames, Commune, Localisation } from "./data";
  * @param url The URL of the aid (as defined in the Publicodes rules).
  * @param collectivity The collectivity that provides the aid.
  * @param amount The amount of the aid in euros.
+ * @param logo The miniature URL of the collectivity providing the aid.
  */
 export type Aide = {
   id: AideRuleNames;
@@ -50,6 +51,7 @@ export type Aide = {
     code?: string;
   };
   amount: number;
+  logo?: string;
 };
 
 const aidesAvecLocalisationEntries = Object.entries(
@@ -126,6 +128,7 @@ export class AidesVeloEngine {
           description: rule.rawNode.description,
           url: (rule.rawNode as any).lien,
           collectivity,
+          logo: data.miniatures[ruleName],
         };
       });
   }
