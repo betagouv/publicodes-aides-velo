@@ -8951,30 +8951,31 @@ aides . cévennes gangeoises et suménoises:
       - sinon: 300€
   lien: https://cdcgangesumene.fr/au-quotidien/mobilite/velo/
 
-aides . monmorillon:
+aides . montmorillon:
   remplace: commune
   titre: Ville de Montmorillon
   description: |
     Dispositif d'aide à l'acquisition d'un vélo et des accessoires afférents
     (2024).
-  applicable si: localisation . code insee = '86164'
-  variations:
-    - si: vélo . électrique
-      alors:
-        valeur: 20% * vélo . prix . HT
-        plafond: 150€
-    - si: vélo . motorisation
-      alors:
-        valeur: 20% * vélo . prix . HT
-        plafond: 150€
-    - si: vélo . adapté
-      alors:
-        valeur: 30% * vélo . prix . HT
-        plafond: 300€
-    - si: vélo . mécanique
-      alors:
-        valeur: 50% * vélo . prix
-        plafond: 100€
+  applicable si: localisation . code insee = '86165'
+  valeur:
+    variations:
+      - si: vélo . électrique
+        alors:
+          valeur: 20% * vélo . prix . HT
+          plafond: 150€
+      - si: vélo . motorisation
+        alors:
+          valeur: 20% * vélo . prix . HT
+          plafond: 150€
+      - si: vélo . adapté
+        alors:
+          valeur: 30% * vélo . prix . HT
+          plafond: 300€
+      - si: vélo . mécanique
+        alors:
+          valeur: 50% * vélo . prix
+          plafond: 100€
   lien: https://www.montmorillon.fr/plan-velo/
 
 aides . monaco:

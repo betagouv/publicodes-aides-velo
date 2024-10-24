@@ -14,18 +14,37 @@ yarn install @betagouv/aides-velo publicodes
 
 ## Usage
 
+A noter que par soucis de praticité, ce paquet expose en plus des règles
+Publicodes, une fonction wrapper `aidesVelo` qui permet de récupérer la liste
+des aides élligibles pour une situation donnée.
+
+### Avec la fonction `aidesVelo`
+
+TODO
+
+### Avec les règles Publicodes
+
 ```typescript
 import { Engine } from "publicodes";
-import rules from "@betagouv/aides-velo";
+import { rules } from "@betagouv/aides-velo";
 
 const engine = new Engine(rules);
 
-console.log(engine.evaluate("salaire net").nodeValue);
-// 1957.5
+engine.setSituation({
+  "localisation . epci": "'CA du Grand Angoulême'",
+  "vélo . type": "'électrique'",
+  "vélo . état": "'occasion'",
+  "vélo . prix": 1000,
+  "revenu fiscal de référence": "200 €/mois",
+});
 
-engine.setSituation({ "salaire brut": 4000 });
-console.log(engine.evaluate("salaire net").nodeValue);
-// 3120
+const result = engine.evaluate("aides . grand angouleme");
+
+console.log(result.nodeValue);
+// 400
+
+console.log(formatValue(result));
+// 400 €
 ```
 
 ## Development
