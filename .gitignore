@@ -1,6 +1,7 @@
 node_modules
+build
+dist
 src/data/*.json
 src/compiled-rules
-build
 static/miniatures
 scripts/data-fetch/miniatures/aides-jeunes

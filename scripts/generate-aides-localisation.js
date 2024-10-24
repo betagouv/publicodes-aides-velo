@@ -10,7 +10,7 @@ import departements from "@etalab/decoupage-administratif/data/departements.json
 import regions from "@etalab/decoupage-administratif/data/regions.json" assert { type: "json" };
 import { getDataPath } from "./utils.js";
 
-import rules from "../src/compiled-rules";
+import rules from "../build";
 import communes from "../src/data/communes.json";
 
 const engine = new Publicodes(rules);

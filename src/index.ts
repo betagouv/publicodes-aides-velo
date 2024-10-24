@@ -11,8 +11,8 @@ import { AideRuleNames, Localisation } from "./data";
 
 // Export the compiled rules and the types.
 
-import compiledRules, { Questions, RuleName } from "./compiled-rules";
-export type { Questions, RuleName } from "./compiled-rules";
+import compiledRules, { Questions, RuleName } from "../build";
+export type { Questions, RuleName } from "../build";
 /**
  * Publicodes rules compiled in a single JSON object.
  */

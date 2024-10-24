@@ -9,6 +9,10 @@
     "esModuleInterop": true,
     "resolveJsonModule": true
   },
+  "include": [
+    "src/**/*.ts",
+    "build/*.js"
+  ],
   "exclude": [
     "node_modules"
   ]
