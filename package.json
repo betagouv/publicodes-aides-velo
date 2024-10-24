@@ -22,6 +22,7 @@
     "compile:rules": "publicodes compile src/rules",
     "postinstall": "yarn run compile:rules && bun scripts/postinstall.js",
     "test": "yarn run compile:rules && vitest run --globals",
+    "precompile": "yarn run compile:rules && bun scripts/postinstall.js",
     "compile": "tsup"
   },
   "dependencies": {
