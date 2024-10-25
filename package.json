@@ -5,21 +5,20 @@
   "author": "Emile Rolley <emile.rolley@beta.gouv.fr>",
   "license": "Apache-2.0",
   "type": "module",
-  "main": "./dist/src/index.js",
-  "module": "./dist/src/index.js",
   "types": "./dist/src/index.d.ts",
+  "main": "./dist/src/index.cjs",
+  "module": "./dist/src/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/src/index.d.ts",
+      "require": "./dist/src/index.cjs",
+      "import": "./dist/src/index.js"
+    }
+  },
   "files": [
     "dist",
     "publicodes-build"
   ],
-  "exports": {
-    ".": {
-      "types": "./dist/src/index.d.ts",
-      "module": "./dist/src/index.js",
-      "import": "./dist/src/index.js",
-      "require": "./dist/src/index.cjs"
-    }
-  },
   "scripts": {
     "compile:rules": "publicodes compile src/rules",
     "generate": "yarn run compile:rules && bun scripts/generate.js",
@@ -29,9 +28,6 @@
     "compile": "tsup"
   },
   "dependencies": {
-    "publicodes": "^1.5.1"
-  },
-  "peerDependencies": {
     "publicodes": "^1.5.1"
   },
   "devDependencies": {
