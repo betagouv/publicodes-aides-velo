@@ -1,4 +1,4 @@
-import { AidesVeloEngine } from "../src";
+import { Aide, AideRuleNames, AidesVeloEngine } from "../src";
 
 describe("AidesVeloEngine", () => {
   describe("new AidesVeloEngine()", () => {
@@ -84,8 +84,8 @@ describe("AidesVeloEngine", () => {
       const aides = engine.computeAides();
 
       expect(aides).toHaveLength(2);
-      expect(aides[0].id).toEqual("aides . bonus vélo");
-      expect(aides[1].id).toEqual("aides . prime à la conversion");
+      expect(contain(aides, "aides . bonus vélo")).toBeTruthy();
+      expect(contain(aides, "aides . prime à la conversion")).toBeTruthy();
     });
 
     describe("with specific inputs", () => {
@@ -106,15 +106,127 @@ describe("AidesVeloEngine", () => {
           .computeAides();
 
         expect(aides).toHaveLength(4);
+        expect(contain(aides, "aides . montmorillon")).toBeTruthy();
+        expect(contain(aides, "aides . vienne gartempe")).toBeTruthy();
+      });
+
+      it("Angers - vélo électrique avec abonnement TER", async () => {
+        const engine = globalTestEngine.shallowCopy();
+        const commune = AidesVeloEngine.getCommuneByName("Angers");
+        expect(commune).toBeDefined();
+
+        const aides = engine
+          .setInputs({
+            "localisation . code insee": commune?.code,
+            "localisation . epci": commune?.epci ?? undefined,
+            "localisation . département": commune?.departement,
+            "localisation . région": commune?.region,
+            "localisation . pays": "France",
+            "vélo . type": "électrique",
+          })
+          .computeAides();
+
+        expect(aides).toHaveLength(4);
+        expect(contain(aides, "aides . bonus vélo")).toBeTruthy();
+        expect(contain(aides, "aides . prime à la conversion")).toBeTruthy();
+        expect(contain(aides, "aides . pays de la loire")).toBeTruthy();
+        expect(contain(aides, "aides . angers")).toBeTruthy();
+      });
+
+      it("Angers - vélo électrique sans abonnement TER", async () => {
+        const engine = globalTestEngine.shallowCopy();
+        const commune = AidesVeloEngine.getCommuneByName("Angers");
+        expect(commune).toBeDefined();
+
+        const aides = engine
+          .setInputs({
+            "localisation . code insee": commune?.code,
+            "localisation . epci": commune?.epci ?? undefined,
+            "localisation . département": commune?.departement,
+            "localisation . région": commune?.region,
+            "localisation . pays": "France",
+            "vélo . type": "électrique",
+            "aides . pays de la loire . abonné TER": false,
+          })
+          .computeAides();
+
+        expect(aides).toHaveLength(3);
+        expect(contain(aides, "aides . bonus vélo")).toBeTruthy();
+        expect(contain(aides, "aides . prime à la conversion")).toBeTruthy();
+        expect(contain(aides, "aides . angers")).toBeTruthy();
+      });
+
+      it("Toulouse - vélo adapté et en situation de handicap", async () => {
+        const engine = globalTestEngine.shallowCopy();
+        const commune = AidesVeloEngine.getCommuneByName("Toulouse");
+        expect(commune).toBeDefined();
+
+        const aides = engine
+          .setInputs({
+            "localisation . code insee": commune?.code,
+            "localisation . epci": commune?.epci ?? undefined,
+            "localisation . département": commune?.departement,
+            "localisation . région": commune?.region,
+            "localisation . pays": "France",
+            "vélo . type": "adapté",
+            "demandeur . en situation de handicap": true,
+          })
+          .computeAides();
+
+        expect(aides).toHaveLength(3);
         expect(
-          aides.filter(
-            ({ title }) =>
-              title.toLowerCase().includes("montmorillon") ||
-              // Communauté de communes Vienne et Gartempe à laquelle Montmorillon appartient
-              title.toLowerCase().includes("vienne et gartempe"),
+          contain(
+            aides,
+            "aides . bonus vélo",
+            ({ description }) => description?.includes("adapté") ?? false,
           ),
-        ).toHaveLength(2);
+        ).toBeTruthy();
+        expect(contain(aides, "aides . occitanie vélo adapté")).toBeTruthy();
+      });
+
+      it("Montpellier - vélo adapté et en situation de handicap", async () => {
+        const engine = globalTestEngine.shallowCopy();
+        const commune = AidesVeloEngine.getCommuneByName("Montpellier");
+        expect(commune).toBeDefined();
+
+        const aides = engine
+          .setInputs({
+            "localisation . code insee": commune?.code,
+            "localisation . epci": commune?.epci ?? undefined,
+            "localisation . département": commune?.departement,
+            "localisation . région": commune?.region,
+            "localisation . pays": "France",
+            "vélo . type": "adapté",
+            "demandeur . en situation de handicap": true,
+          })
+          .computeAides();
+
+        expect(aides).toHaveLength(5);
+        expect(
+          contain(aides, "aides . bonus vélo", ({ description }) =>
+            description?.includes("adapté"),
+          ),
+        ).toBeTruthy();
+        expect(contain(aides, "aides . prime à la conversion")).toBeTruthy();
+        expect(contain(aides, "aides . occitanie vélo adapté")).toBeTruthy();
+        expect(
+          contain(
+            aides,
+            "aides . département hérault vélo adapté",
+            ({ description }) =>
+              description?.includes("Chèque Hérault Handi-Vélo"),
+          ),
+        ).toBeTruthy();
+        expect(contain(aides, "aides . montpellier vélo adapté")).toBeTruthy();
       });
     });
   });
 });
+
+function contain(
+  aides: Aide[],
+  id: AideRuleNames,
+  fn?: (aide: Aide) => boolean | undefined,
+): boolean {
+  return aides.some((aide) => aide.id === id && (!fn || fn(aide) === true));
+}

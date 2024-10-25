@@ -6,30 +6,29 @@ import rawMiniatures from "./miniatures.json" assert { type: "json" };
  * A commune in France with its population, region, departement, EPCI, and
  * postal codes.
  *
- * @param code The INSEE code
- * @param nom The name
- * @param departement The departement code (e.g. "75" for Paris)
- * @param region The region code (e.g. "11" for Île-de-France)
- * @param population The size of the population
- * @param zfe Whether the commune is in a low-emission zone
- * @param epci The EPCI name (e.g. "Métropole du Grand Paris")
- * @param codesPostaux The postal codes (e.g. ["75001", "75002"])
- * @param slug The slugified name (e.g. "paris")
- *
  * @note This is filtered and transformed data from the
  * `@etalab/decoupage-administratif` package so please refer to
  * https://unpkg.com/@etalab/decoupage-administratif@4.0.0/data/communes.json
  * if you have a doubt about the format of the data.
  */
 export type Commune = {
+  /** The INSEE code */
   code: string;
+  /** The name (as defined in `@etalab/decoupage-administratif`) */
   nom: string;
+  /** The departement code (e.g. "75" for Paris) */
   departement: string;
+  /** The region code (e.g. "11" for Île-de-France) */
   region: string;
+  /** The size of the population */
   population: number;
+  /** Whether the commune is in a low-emission zone */
   zfe: boolean;
+  /** The EPCI name (e.g. "Métropole du Grand Paris") */
   epci: string | null;
+  /** The postal codes (e.g. ["75001", "75002"]) */
   codesPostaux: string[];
+  /** The slugified name (e.g. "le-chatelet-sur-sormonne") */
   slug: string;
 };
 
@@ -40,6 +39,7 @@ export type Commune = {
  * situation before evaluating the rules.
  */
 export type Localisation = {
+  /** The collectivity scale and value */
   collectivity: {
     kind: "pays" | "région" | "département" | "epci" | "code insee";
     value: string;
@@ -47,8 +47,11 @@ export type Localisation = {
   };
   country: "france" | "monaco" | "luxembourg";
   codeInsee?: string;
+  /** The departement code (e.g. "75" for Paris) */
   departement?: string;
+  /** The slugified name (e.g. "le-chatelet-sur-sormonne") */
   slug: string;
+  /** The size of the population */
   population: number;
 };
 
@@ -77,4 +80,11 @@ export const aidesAvecLocalisation = collectivities as Record<
   Localisation
 >;
 
+/**
+ * The list of all miniatures file name corresponding to the collectivities
+ * providing the aids.
+ *
+ * TODO: host the images on a CDN and provide the full URL instead of the
+ * filename.
+ */
 export const miniatures = rawMiniatures as Record<AideRuleNames, string>;
