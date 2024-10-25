@@ -5,8 +5,9 @@
   "author": "Emile Rolley <emile.rolley@beta.gouv.fr>",
   "license": "Apache-2.0",
   "type": "module",
-  "main": "dist/src/index.js",
-  "types": "dist/src/index.d.ts",
+  "main": "./dist/src/index.js",
+  "module": "./dist/src/index.js",
+  "types": "./dist/src/index.d.ts",
   "files": [
     "dist",
     "publicodes-build"
