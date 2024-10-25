@@ -20,9 +20,10 @@
   },
   "scripts": {
     "compile:rules": "publicodes compile src/rules",
-    "postinstall": "yarn run compile:rules && bun scripts/postinstall.js",
-    "test": "yarn run compile:rules && vitest run --globals",
-    "precompile": "yarn run compile:rules && bun scripts/postinstall.js",
+    "generate": "yarn run compile:rules && bun scripts/generate.js",
+    "pretest": "yarn run generate",
+    "test": "vitest run --globals",
+    "precompile": "yarn run generate",
     "compile": "tsup"
   },
   "dependencies": {
@@ -33,7 +34,7 @@
   },
   "devDependencies": {
     "@etalab/decoupage-administratif": "^4.0.0",
-    "@publicodes/tools": "^1.3.0-0",
+    "@publicodes/tools": "^1.3.0-1",
     "@types/jest": "^29.5.13",
     "bun": "^1.1.32",
     "sharp": "^0.33.5",
@@ -48,7 +49,7 @@
     "entry": [
       "src/index.ts",
       "src/data/index.ts",
-      "build/index.js"
+      "publicodes-build/index.js"
     ],
     "format": [
       "cjs",

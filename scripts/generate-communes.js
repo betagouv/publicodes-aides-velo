@@ -6,7 +6,8 @@
  */
 import fs from "fs";
 
-import { getDataPath, slugify } from "./utils.js";
+import { getDataPath } from "./utils.js";
+import { slugify } from "../src/lib/utils.ts";
 
 import communesInZFE from "./data-fetch/zones-faibles-emissions/communeZFE.js";
 import communes from "@etalab/decoupage-administratif/data/communes.json" assert { type: "json" };
