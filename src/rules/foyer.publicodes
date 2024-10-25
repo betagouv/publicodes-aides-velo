@@ -6,13 +6,13 @@ foyer:
 
 foyer . personnes:
   type: entier
-  titre: Nombre de personnes
-  question: Combien de personnes composent votre foyer fiscal ?
+  titre: Nombre de personnes dans le foyer fiscal
+  question: Combien de personnes composent votre ménage ?
   par défaut: 1
 
 foyer . imposable:
   titre: Imposition du foyer en 2024
-  valeur: revenu fiscal de référence >= 11295 €/an
+  valeur: revenu fiscal de référence par part >= 11295 €/an
   note: |
     ### Source
     

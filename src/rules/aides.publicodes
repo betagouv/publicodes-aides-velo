@@ -42,7 +42,7 @@ aides . montant:
 plafond état: 
   titre: Plafond du Bonus Vélo pour 2024
   description: |
-    Plafond fixé par l'État sur le revenu fiscal de référence par part pour
+    Plafond fixé par l'État sur le revenu fiscal de référence par part par part pour
     bénéficier du Bonus vélo.
   valeur: 15400 €/an  
 
@@ -58,7 +58,7 @@ aides . bonus vélo:
           - vélo . électrique ou mécanique
           - vélo . adapté
       - une de ces conditions:
-          - revenu fiscal de référence <= plafond état
+          - revenu fiscal de référence par part <= plafond état
           - demandeur . en situation de handicap
   valeur: 40% * vélo . prix
   plafond:
@@ -72,7 +72,7 @@ aides . bonus vélo:
           variations:
             - si: 
                 une de ces conditions:
-                  - revenu fiscal de référence <= 7100 €/an
+                  - revenu fiscal de référence par part <= 7100 €/an
                   - demandeur . en situation de handicap
               alors: 2000€
             - sinon: 1000€
@@ -81,7 +81,7 @@ aides . bonus vélo:
           variations:
             - si: 
                 une de ces conditions:
-                  - revenu fiscal de référence <= 7100 €/an
+                  - revenu fiscal de référence par part <= 7100 €/an
                   - demandeur . en situation de handicap
               alors: 400€
             - sinon: 300€
@@ -89,7 +89,7 @@ aides . bonus vélo:
           variations:
             - si: 
                 une de ces conditions:
-                  - revenu fiscal de référence <= 7100 €/an
+                  - revenu fiscal de référence par part <= 7100 €/an
                   - demandeur . en situation de handicap
               alors: 150€
             - sinon: 0€
@@ -101,7 +101,7 @@ aides . prime à la conversion:
     toutes ces conditions:
       - localisation . pays = 'France'
       - une de ces conditions:
-          - revenu fiscal de référence <= 24900 €/an
+          - revenu fiscal de référence par part <= 24900 €/an
           - demandeur . en situation de handicap
       - une de ces conditions:
           - vélo . électrique
@@ -120,7 +120,7 @@ aides . prime à la conversion:
     variations:
       - si: 
           une de ces conditions:
-            - revenu fiscal de référence <= 7100 €/an
+            - revenu fiscal de référence par part <= 7100 €/an
             - demandeur . en situation de handicap
         alors: 3000€
       - sinon: 1500€
@@ -186,7 +186,7 @@ aides . occitanie:
   applicable si:
     toutes ces conditions:
       - localisation . région = '76'
-      - revenu fiscal de référence <= 14089 €/an
+      - revenu fiscal de référence par part <= 14089 €/an
       - vélo . état . neuf
       - vélo . électrique
   valeur: 200€
@@ -295,7 +295,7 @@ aides . paris:
       - localisation . code insee = '75056'
       - vélo . état . neuf
       - une de ces conditions:
-          - revenu fiscal de référence <= 6300 €/an
+          - revenu fiscal de référence par part <= 6300 €/an
           - vélo . adapté
   valeur:
     variations:
@@ -338,7 +338,7 @@ aides . lyon:
   applicable si: 
     toutes ces conditions:
       - localisation . epci = 'Métropole de Lyon'
-      - revenu fiscal de référence <= 24900 €/an
+      - revenu fiscal de référence par part <= 24900 €/an
   variations:
     - si:
         toutes ces conditions:
@@ -350,7 +350,7 @@ aides . lyon:
         valeur: 50% * vélo . prix
         plafond:
           variations:
-            - si: revenu fiscal de référence <= 19600 €/an
+            - si: revenu fiscal de référence par part <= 19600 €/an
               alors: 1000€
             - sinon: 200€
     - si:
@@ -364,7 +364,7 @@ aides . lyon:
         valeur: 50% * vélo . prix
         plafond: 
           variations:
-            - si: revenu fiscal de référence <= 19600 €/an
+            - si: revenu fiscal de référence par part <= 19600 €/an
               alors: 500€
             - sinon: 100€
     - si: 
@@ -375,7 +375,7 @@ aides . lyon:
         valeur: 50% * vélo . prix
         plafond: 
           variations:
-            - si: revenu fiscal de référence <= 19600 €/an
+            - si: revenu fiscal de référence par part <= 19600 €/an
               alors: 800€
             - sinon: 200€
     - si:
@@ -387,7 +387,7 @@ aides . lyon:
         valeur: 50% * vélo . prix
         plafond: 
           variations:
-            - si: revenu fiscal de référence <= 19600 €/an
+            - si: revenu fiscal de référence par part <= 19600 €/an
               alors: 300€
             - sinon: 100€
     - si: 
@@ -395,7 +395,7 @@ aides . lyon:
           - vélo . mécanique
           - vélo . état . occasion
           - vélo . prix <= 150€
-          - revenu fiscal de référence <= 19600 €/an
+          - revenu fiscal de référence par part <= 19600 €/an
       alors:
         valeur: vélo . prix
         plafond: 100€
@@ -511,7 +511,7 @@ aides . pays mornantais:
           - vélo . adapté
   valeur:
     variations:
-      - si: revenu fiscal de référence <= Anah . plafond ménage modeste
+      - si: revenu fiscal de référence par part <= Anah . plafond ménage modeste
         alors: 400€
       - sinon: 250€
   lien: https://www.cc-paysmornantais.fr/velo-electrique-on-vous-aide.html
@@ -527,7 +527,7 @@ aides . mornant:
     toutes ces conditions:
       - localisation . code insee = '69141'
       - vélo . état . neuf
-      - revenu fiscal de référence < 1600 €/mois
+      - revenu fiscal de référence par part < 1600 €/mois
       - une de ces conditions:
           - vélo . électrique
           - vélo . cargo
@@ -535,7 +535,7 @@ aides . mornant:
   valeur: vélo . prix
   plafond:
     variations:
-      - si: revenu fiscal de référence < 550 €/mois
+      - si: revenu fiscal de référence par part < 550 €/mois
         alors: 300€
       # TODO: pas clair si c'est 100€ ou 250€ ici
       - sinon: 250€
@@ -714,7 +714,7 @@ aides . bordeaux:
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'Bordeaux Métropole'
-      - revenu fiscal de référence <= 24900 €/an
+      - revenu fiscal de référence par part <= 24900 €/an
       - une de ces conditions:
           - vélo . électrique
           - vélo . pliant
@@ -729,9 +729,9 @@ aides . bordeaux:
             - vélo . motorisation
         alors: 
           variations:
-            - si: revenu fiscal de référence <= 7100 €/an
+            - si: revenu fiscal de référence par part <= 7100 €/an
               alors: 250€
-            - si: revenu fiscal de référence <= 15400 €/an
+            - si: revenu fiscal de référence par part <= 15400 €/an
               alors: 200€
             - sinon: 100€
       - si:
@@ -740,9 +740,9 @@ aides . bordeaux:
             - vélo . adapté
         alors:
           variations:
-            - si: revenu fiscal de référence <= 7100 €/an
+            - si: revenu fiscal de référence par part <= 7100 €/an
               alors: 350€
-            - si: revenu fiscal de référence <= 15400 €/an
+            - si: revenu fiscal de référence par part <= 15400 €/an
               alors: 250€
             - sinon: 100€
       - sinon: 0€
@@ -760,7 +760,7 @@ aides . mérignac:
   applicable si:
     toutes ces conditions:
       - localisation . code insee = '33281'
-      - revenu fiscal de référence <= 24900 €/an
+      - revenu fiscal de référence par part <= 24900 €/an
       - une de ces conditions:
           - vélo . électrique
           - vélo . pliant
@@ -775,9 +775,9 @@ aides . mérignac:
             - vélo . motorisation
         alors: 
           variations:
-            - si: revenu fiscal de référence <= 7100 €/an
+            - si: revenu fiscal de référence par part <= 7100 €/an
               alors: 250€
-            - si: revenu fiscal de référence <= 15400 €/an
+            - si: revenu fiscal de référence par part <= 15400 €/an
               alors: 200€
             - sinon: 100€
       - si:
@@ -786,9 +786,9 @@ aides . mérignac:
             - vélo . adapté
         alors:
           variations:
-            - si: revenu fiscal de référence <= 7100 €/an
+            - si: revenu fiscal de référence par part <= 7100 €/an
               alors: 350€
-            - si: revenu fiscal de référence <= 15400 €/an
+            - si: revenu fiscal de référence par part <= 15400 €/an
               alors: 250€
             - sinon: 100€
       - sinon: 0€
@@ -861,7 +861,7 @@ aides . cenon:
   applicable si:
     toutes ces conditions:
       - localisation . code insee = '33119'
-      - revenu fiscal de référence < 2200 €/mois
+      - revenu fiscal de référence par part < 2200 €/mois
       - vélo . prix >= 800 €
       - une de ces conditions:
           - vélo . cargo
@@ -887,11 +887,11 @@ aides . la cali:
   applicable si: 
     toutes ces conditions:
       - localisation . epci = 'CA du Libournais'
-      - revenu fiscal de référence <= 26000 €/an
+      - revenu fiscal de référence par part <= 26000 €/an
   valeur: 40% * vélo . prix
   plafond:
     variations:
-      - si: revenu fiscal de référence <= 7100 €/an
+      - si: revenu fiscal de référence par part <= 7100 €/an
         alors:
           variations:
             - si: 
@@ -906,7 +906,7 @@ aides . la cali:
               alors: 300€
             - si: vélo . mécanique
               alors: 200€
-      - si: revenu fiscal de référence <= 15400 €/an
+      - si: revenu fiscal de référence par part <= 15400 €/an
         alors:
           variations:
             - si: 
@@ -1044,9 +1044,9 @@ aides . nantes:
   applicable si: 
     toutes ces conditions:
       - localisation . epci = 'Nantes Métropole'
-      - revenu fiscal de référence <= 900 €/mois
+      - revenu fiscal de référence par part <= 900 €/mois
   variations:
-    - si: revenu fiscal de référence <= 350 €/mois
+    - si: revenu fiscal de référence par part <= 350 €/mois
       alors:
         valeur: 90% * vélo . prix
         plafond:
@@ -1064,7 +1064,7 @@ aides . nantes:
             - si: vélo . mécanique
               alors: 150 €
             - sinon: 0 €
-    - si: revenu fiscal de référence <= 500 €/mois
+    - si: revenu fiscal de référence par part <= 500 €/mois
       alors:
         valeur: 70% * vélo . prix
         plafond:
@@ -1082,7 +1082,7 @@ aides . nantes:
             - si: vélo . mécanique
               alors: 120 €
             - sinon: 0 €
-    - si: revenu fiscal de référence <= 750 €/mois
+    - si: revenu fiscal de référence par part <= 750 €/mois
       alors:
         valeur: 50% * vélo . prix
         plafond:
@@ -1134,7 +1134,7 @@ aides . pornic:
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'CA Pornic Agglo Pays de Retz'
-      - revenu fiscal de référence <= 1200 €/mois
+      - revenu fiscal de référence par part <= 1200 €/mois
       - une de ces conditions:
           - vélo . cargo
           - vélo . adapté
@@ -1154,7 +1154,7 @@ aides . pornic:
           - vélo . électrique
       alors:
         variations:
-          - si: revenu fiscal de référence <= 600 €/mois
+          - si: revenu fiscal de référence par part <= 600 €/mois
             alors:
               valeur: 30% * vélo . prix
               plafond: 300 €
@@ -1172,7 +1172,7 @@ aides . toulouse:
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'Toulouse Métropole'
-      - revenu fiscal de référence <= 35052 €/an
+      - revenu fiscal de référence par part <= 35052 €/an
       - une de ces conditions:
           - vélo . électrique ou mécanique
           - vélo . motorisation
@@ -1184,13 +1184,13 @@ aides . toulouse:
       - si: vélo . cargo électrique
         alors:
           variations:
-            - si: revenu fiscal de référence <= 18800 €/an
+            - si: revenu fiscal de référence par part <= 18800 €/an
               alors: 600€
             - sinon: 500€
       - si: vélo . cargo
         alors:
           variations:
-            - si: revenu fiscal de référence <= 18800 €/an
+            - si: revenu fiscal de référence par part <= 18800 €/an
               alors: 400€
             - sinon: 350€
       - si: 
@@ -1199,13 +1199,13 @@ aides . toulouse:
             - vélo . motorisation
         alors:
           variations:
-            - si: revenu fiscal de référence <= 18800 €/an
+            - si: revenu fiscal de référence par part <= 18800 €/an
               alors: 250€
             - sinon: 200€
       - si: vélo . mécanique
         alors:
           variations:
-            - si: revenu fiscal de référence <= 18800 €/an
+            - si: revenu fiscal de référence par part <= 18800 €/an
               alors: 100€
             - sinon: 0€
       - sinon: 0€
@@ -1226,7 +1226,7 @@ aides . grenoble:
           - localisation . epci = 'Grenoble-Alpes-Métropole'
           - localisation . epci = 'CC Le Grésivaudan'
       - une de ces conditions:
-          - revenu fiscal de référence <= 22983 €/an
+          - revenu fiscal de référence par part <= 22983 €/an
           - demandeur . en situation de handicap
   valeur:
     variations:
@@ -1241,10 +1241,10 @@ aides . grenoble:
           variations:
             - si:
                 une de ces conditions:
-                  - revenu fiscal de référence <= 6358 €/an
+                  - revenu fiscal de référence par part <= 6358 €/an
                   - demandeur . en situation de handicap
               alors: 1500€ 
-            - si: revenu fiscal de référence <= 14089 €/an
+            - si: revenu fiscal de référence par part <= 14089 €/an
               alors: 1200€
             - sinon: 900€
       - si:
@@ -1256,10 +1256,10 @@ aides . grenoble:
           variations:
             - si:
                 une de ces conditions:
-                  - revenu fiscal de référence <= 6358 €/an
+                  - revenu fiscal de référence par part <= 6358 €/an
                   - demandeur . en situation de handicap
               alors: 600€
-            - si: revenu fiscal de référence <= 14089 €/an
+            - si: revenu fiscal de référence par part <= 14089 €/an
               alors: 450€
             - sinon: 300€
       - si:
@@ -1271,10 +1271,10 @@ aides . grenoble:
           variations:
             - si:
                 une de ces conditions:
-                  - revenu fiscal de référence <= 6358 €/an
+                  - revenu fiscal de référence par part <= 6358 €/an
                   - demandeur . en situation de handicap
               alors: 750€
-            - si: revenu fiscal de référence <= 14089 €/an
+            - si: revenu fiscal de référence par part <= 14089 €/an
               alors: 600€
             - sinon: 450€
       - si:
@@ -1286,10 +1286,10 @@ aides . grenoble:
           variations:
             - si: 
                 une de ces conditions:
-                  - revenu fiscal de référence <= 6358 €/an
+                  - revenu fiscal de référence par part <= 6358 €/an
                   - demandeur . en situation de handicap
               alors: 120€
-            - si: revenu fiscal de référence <= 14089 €/an
+            - si: revenu fiscal de référence par part <= 14089 €/an
               alors: 90€
             - sinon: 45€
       - si:
@@ -1302,10 +1302,10 @@ aides . grenoble:
           variations:
             - si: 
                 une de ces conditions:
-                  - revenu fiscal de référence <= 6358 €/an
+                  - revenu fiscal de référence par part <= 6358 €/an
                   - demandeur . en situation de handicap
               alors: 150€ 
-            - si: revenu fiscal de référence <= 14089 €/an
+            - si: revenu fiscal de référence par part <= 14089 €/an
               alors: 120€
             - sinon: 90€
       - sinon: 0€
@@ -1330,17 +1330,17 @@ aides . strasbourg:
       - si: vélo . électrique
         alors:
           variations:
-            - si: revenu fiscal de référence <= 7100 €/an
+            - si: revenu fiscal de référence par part <= 7100 €/an
               alors: 500€
-            - si: revenu fiscal de référence <= 15400 €/an
+            - si: revenu fiscal de référence par part <= 15400 €/an
               alors: 400€
-            - si: revenu fiscal de référence <= 20000 €/an
+            - si: revenu fiscal de référence par part <= 20000 €/an
               alors: 300€
             - sinon: 0€
       - si:
           toutes ces conditions:
             - vélo . motorisation
-            - revenu fiscal de référence <= 20000 €/an
+            - revenu fiscal de référence par part <= 20000 €/an
         alors: 150€
       - sinon: 0€
   lien: https://www.strasbourg.eu/aides-achat
@@ -1389,9 +1389,9 @@ aides . geispolsheim:
           - vélo . cargo
           - vélo . électrique
   variations:
-    - si: revenu fiscal de référence <= 6385 €/an
+    - si: revenu fiscal de référence par part <= 6385 €/an
       alors: 250€
-    - si: revenu fiscal de référence <= 14089 €/an
+    - si: revenu fiscal de référence par part <= 14089 €/an
       alors: 200€
     - sinon: 100€
   lien: https://www.geispolsheim.fr/fr/subventions-transport-et-velo-a-assistance-electrique
@@ -1409,9 +1409,9 @@ aides . geispolsheim:
 #           - vélo . cargo
 #           - vélo . électrique
 #   variations:
-#     - si: revenu fiscal de référence <= 560 €/mois
+#     - si: revenu fiscal de référence par part <= 560 €/mois
 #       alors: 120€
-#     - si: revenu fiscal de référence <= 764 €/mois
+#     - si: revenu fiscal de référence par part <= 764 €/mois
 #       alors: 100€
 #     - sinon: 80€
 #   lien: https://hangenbieten.fr/wp-content/uploads/2021/03/SKM_C30821031516140.pdf#page=4
@@ -1528,7 +1528,7 @@ aides . pays de saverne:
     toutes ces conditions:
       - localisation . epci = 'CC du Pays de Saverne'
       - vélo . électrique
-      - revenu fiscal de référence <= 15400 €/an
+      - revenu fiscal de référence par part <= 15400 €/an
   valeur: 100€
   plafond: 10% * vélo . prix
   lien: http://www.paysdesaverne.fr/Actions/VelosElec/2019-04-VAE-velo-saverne.htm
@@ -1587,17 +1587,17 @@ aides . vendenheim:
       - si: vélo . électrique
         alors:
           variations:
-            - si: revenu fiscal de référence <= 500 €/mois
+            - si: revenu fiscal de référence par part <= 500 €/mois
               alors: 300€
-            - si: revenu fiscal de référence <= 700 €/mois
+            - si: revenu fiscal de référence par part <= 700 €/mois
               alors: 275€
             - sinon: 250€
       - si: vélo . mécanique
         alors:
           variations:
-            - si: revenu fiscal de référence <= 500 €/mois
+            - si: revenu fiscal de référence par part <= 500 €/mois
               alors: 100€
-            - si: revenu fiscal de référence <= 700 €/mois
+            - si: revenu fiscal de référence par part <= 700 €/mois
               alors: 90€
             - sinon: 80€
       - sinon: 0€
@@ -1690,7 +1690,7 @@ aides . bretagne romantique:
       - localisation . epci = 'CC Bretagne Romantique'
       - vélo . état . neuf
       - vélo . électrique
-      - revenu fiscal de référence <= 15400 €/an
+      - revenu fiscal de référence par part <= 15400 €/an
   valeur: 100€
   plafond: vélo . prix
   lien: https://bretagneromantique.fr/prime-velo/
@@ -1707,7 +1707,7 @@ aides . fougères:
       - localisation . epci = 'CA Fougères Agglomération'
       - vélo . électrique
       - vélo . état . neuf
-      - revenu fiscal de référence <= 15400 €/an
+      - revenu fiscal de référence par part <= 15400 €/an
   valeur: 20% * vélo . prix
   plafond: 200 €
   lien: https://fougeres-agglo.bzh/mobilites-transports/mobilites-durables-et-alternatives/les-aides-financieres-pour-lachat-dun-velo-electrique/
@@ -1721,13 +1721,13 @@ aides . quimper:
       - localisation . epci = 'CA Quimper Bretagne Occidentale'
       - vélo . électrique
       - vélo . état . neuf
-      - revenu fiscal de référence <= 26350 €/an
+      - revenu fiscal de référence par part <= 26350 €/an
   variations:
-    - si: revenu fiscal de référence <= 13489 €/an
+    - si: revenu fiscal de référence par part <= 13489 €/an
       alors:
         valeur: 50% * vélo . prix
         plafond: 500€
-    - si: revenu fiscal de référence <= 20000 €/an
+    - si: revenu fiscal de référence par part <= 20000 €/an
       alors:
         valeur: 40% * vélo . prix
         plafond: 400€
@@ -1745,7 +1745,7 @@ aides . quimperlé:
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'CA Quimperlé Communauté'
-      - revenu fiscal de référence <= 26446 €/an
+      - revenu fiscal de référence par part <= 26446 €/an
       - une de ces conditions:
           - toutes ces conditions:
               - vélo . cargo
@@ -1786,7 +1786,7 @@ aides . caen:
   applicable si:
     toutes ces conditions:
       - localisation . code insee = '14118'
-      - revenu fiscal de référence <= 15400 €/an
+      - revenu fiscal de référence par part <= 15400 €/an
       - vélo . état . neuf
       - une de ces conditions:
           - vélo . électrique
@@ -1808,7 +1808,7 @@ aides . caen jeune:
   applicable si:
     toutes ces conditions:
       - localisation . code insee = '14118'
-      - revenu fiscal de référence <= 15400 €/an
+      - revenu fiscal de référence par part <= 15400 €/an
       - demandeur . âge . de 18 à 25 ans
       - vélo . mécanique simple
       - vélo . état . occasion
@@ -1846,7 +1846,7 @@ aides . caen la mer:
     toutes ces conditions:
       - localisation . epci = 'CU Caen la Mer'
       - demandeur . âge . majeur
-      - revenu fiscal de référence <= 13489 €/an
+      - revenu fiscal de référence par part <= 13489 €/an
       - aides . commune > 0€
       - vélo . état . neuf
       - vélo . électrique
@@ -1868,7 +1868,7 @@ aides . thue et mue:
       - vélo . état . neuf
   valeur:
     variations:
-      - si: revenu fiscal de référence <= 13489 €/an
+      - si: revenu fiscal de référence par part <= 13489 €/an
         alors: 150€
       - sinon: 100€
   lien: https://www.thueetmue.fr/aide-lachat-dun-velo-electrique
@@ -1887,7 +1887,7 @@ aides . hermanville-sur-mer:
     toutes ces conditions:
       - localisation . code insee = '14325'
       - vélo . électrique
-      - revenu fiscal de référence <= 14089 €/an
+      - revenu fiscal de référence par part <= 14089 €/an
   valeur: 25% * vélo . prix
   plafond: 250 €
   lien: https://www.hermanvillesurmer.fr/Dossier-de-demande-d-aide-pour-l-achat-d-un-velo-a-assistance-electrique-VAE_a988.html
@@ -1928,7 +1928,7 @@ aides . ifs:
   applicable si:
     toutes ces conditions:
       - localisation . code insee = '14341'
-      - revenu fiscal de référence <= 24000€/an
+      - revenu fiscal de référence par part <= 24000€/an
       - vélo . état . neuf
       - vélo . électrique
       - vélo . prix <= 2500€
@@ -1947,10 +1947,10 @@ aides . mondeville:
   applicable si:
     toutes ces conditions:
       - localisation . code insee = '14437'
-      - revenu fiscal de référence <= 19565 €/an
+      - revenu fiscal de référence par part <= 19565 €/an
   valeur:
     variations:
-      - si: revenu fiscal de référence <= 7740 €/an
+      - si: revenu fiscal de référence par part <= 7740 €/an
         alors: 
           variations:
             - si: vélo . cargo
@@ -1959,7 +1959,7 @@ aides . mondeville:
               alors: 300€
             - si: vélo . mécanique simple
               alors: 50€
-      - si: revenu fiscal de référence <= 11040 €/an
+      - si: revenu fiscal de référence par part <= 11040 €/an
         alors:
           variations:
             - si: vélo . cargo
@@ -1967,7 +1967,7 @@ aides . mondeville:
             - si: vélo . électrique
               alors: 200€
             - sinon: 0€
-      - si: revenu fiscal de référence <= 13489 €/an
+      - si: revenu fiscal de référence par part <= 13489 €/an
         alors:
           variations:
             - si: vélo . cargo
@@ -1997,7 +1997,7 @@ aides . flers:
       - localisation . epci = 'CA Flers Agglo'
       - vélo . électrique ou mécanique
       - demandeur . âge . majeur
-      - revenu fiscal de référence <= 20000 €/an
+      - revenu fiscal de référence par part <= 20000 €/an
   valeur: 30% * vélo . prix
   plafond: 200€
   lien: https://www.flers-agglo.fr/mon-quotidien/mobilite/se-deplacer-a-velo/aide-acquisition-velos/
@@ -2115,7 +2115,7 @@ aides . belfort:
 #       - localisation . code insee = '14488'
 #       - vélo . électrique
 #   variations:
-#     - si: revenu fiscal de référence <= 21640 €/an
+#     - si: revenu fiscal de référence par part <= 21640 €/an
 #       alors: 200€
 #     - sinon: 100€
 #   lien: http://ouistreham-rivabella.fr/wp-content/uploads/2019/05/Dossier-de-subvention-velos.pdf
@@ -2132,7 +2132,7 @@ aides . verson:
     toutes ces conditions:
       - localisation . code insee = '14738'
       - demandeur . âge . majeur
-      - revenu fiscal de référence <= 13489 €/an
+      - revenu fiscal de référence par part <= 13489 €/an
       - vélo . état . neuf
       - vélo . électrique ou mécanique
   variations:
@@ -2151,7 +2151,7 @@ aides . saint-germain la blanche herbe:
   applicable si:
     toutes ces conditions:
       - localisation . code insee = '14587'
-      - revenu fiscal de référence <= 15400 €/an
+      - revenu fiscal de référence par part <= 15400 €/an
       - vélo . état . neuf
       - vélo . électrique
   valeur: 100€
@@ -2168,9 +2168,9 @@ aides . coeur de nacre:
       - localisation . epci = 'CC Coeur de Nacre'
       - vélo . électrique
   variations:
-    - si: revenu fiscal de référence <= 15000 €/an
+    - si: revenu fiscal de référence par part <= 15000 €/an
       alors: 200€
-    - si: revenu fiscal de référence <= 30000 €/an
+    - si: revenu fiscal de référence par part <= 30000 €/an
       alors: 100€
     - sinon: 50€
   lien: https://www.courseulles-sur-mer.com/aide-a-lacquisition-dun-velo-a-assistance-electrique-vae/
@@ -2236,7 +2236,7 @@ aides . louvigny:
   applicable si:
     toutes ces conditions:
       - localisation . code insee = '14383'
-      - revenu fiscal de référence <= 13489 €/an
+      - revenu fiscal de référence par part <= 13489 €/an
       - une de ces conditions:
           - vélo . mécanique simple
           - toutes ces conditions:
@@ -2254,11 +2254,11 @@ aides . honfleur:
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'CC du Pays de Honfleur-Beuzeville'
-      - revenu fiscal de référence <= 2000 €/mois
+      - revenu fiscal de référence par part <= 2000 €/mois
       - demandeur . âge . majeur
       - vélo . électrique
   variations:
-    - si: revenu fiscal de référence <= 1000 €/mois
+    - si: revenu fiscal de référence par part <= 1000 €/mois
       alors:
         valeur: 15% * vélo . prix
         plafond: 190€
@@ -2293,7 +2293,7 @@ aides . montbéliard agglo:
       - localisation . epci = 'CA Pays de Montbéliard Agglomération'
       - vélo . électrique
       - vélo . prix <= 3000€
-      - revenu fiscal de référence <= 1800 €/mois
+      - revenu fiscal de référence par part <= 1800 €/mois
   valeur: 100€
   lien: https://aidevelo.agglo-montbeliard.fr/
 
@@ -2321,7 +2321,7 @@ aides . vienne gartempe:
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'CC Vienne et Gartempe'
-      - revenu fiscal de référence <= 15400 €/an
+      - revenu fiscal de référence par part <= 15400 €/an
       - vélo . électrique
   valeur:
     variations:
@@ -2366,7 +2366,7 @@ aides . pont-de-beauvoisin:
     toutes ces conditions:
       - localisation . code insee = '38315'
       - demandeur . âge . majeur
-      - revenu fiscal de référence <= 30000 €/an
+      - revenu fiscal de référence par part <= 30000 €/an
       - vélo . électrique
       - vélo . état . neuf
   valeur: 100€
@@ -2390,7 +2390,7 @@ aides . saint-marcellin vercors isère:
               - vélo . mécanique
               - vélo . prix <= 1500€
   variations:
-    - si: revenu fiscal de référence <= 14089 €/an
+    - si: revenu fiscal de référence par part <= 14089 €/an
       alors: 200 €
     - sinon: 100 €
   plafond: 50% * vélo . prix
@@ -2869,7 +2869,7 @@ aides . vallons du lyonnais:
   valeur: 50% * vélo . prix
   plafond: 
     variations:
-      - si: revenu fiscal de référence <= 15400 €/an
+      - si: revenu fiscal de référence par part <= 15400 €/an
         alors: 400€
       - sinon: 200€
   lien: https://www.ccvl.fr/vivre-au-quotidien/mobilites/vae-aides-a-lachat-et-location-longue-duree/
@@ -2947,7 +2947,7 @@ aides . département hérault:
       - demandeur . âge . majeur
       - vélo . électrique
       - vélo . état . neuf
-      - revenu fiscal de référence <= 25660 €/an
+      - revenu fiscal de référence par part <= 25660 €/an
   valeur: 250€
   note: |
     ### Note sur le plafond
@@ -3022,7 +3022,7 @@ aides . sète:
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'CA Sète Agglopôle Méditerranée'
-      - revenu fiscal de référence <= 28797 €/an
+      - revenu fiscal de référence par part <= 28797 €/an
       - vélo . prix < 3000€
       - une de ces conditions:
           - vélo . électrique
@@ -3120,9 +3120,9 @@ aides . romagnat:
 #       - demandeur . âge . majeur
 #       - vélo . électrique
 #   variations:
-#     - si: revenu fiscal de référence <= 16200 €/an
+#     - si: revenu fiscal de référence par part <= 16200 €/an
 #     alors: 300€
-#     - si: revenu fiscal de référence <= 27000 €/an
+#     - si: revenu fiscal de référence par part <= 27000 €/an
 #       alors: 150€
 #     - sinon: 0€
 #   plafond: vélo . prix
@@ -3140,14 +3140,14 @@ aides . cournon d'auvergne:
   applicable si:
     toutes ces conditions:
       - localisation . code insee = '63124'
-      - revenu fiscal de référence <= 2967 €/mois
+      - revenu fiscal de référence par part <= 2967 €/mois
       - vélo . état . neuf
       - vélo . électrique
   valeur:
     variations:
-      - si: revenu fiscal de référence <= 1365 €/mois
+      - si: revenu fiscal de référence par part <= 1365 €/mois
         alors: 200€
-      - si: revenu fiscal de référence <= 2142 €/mois
+      - si: revenu fiscal de référence par part <= 2142 €/mois
         alors: 150€
       - sinon: 100€
   plafond: vélo . prix
@@ -3383,10 +3383,10 @@ aides . lescar:
   applicable si:
     toutes ces conditions: 
       - localisation . code insee = '64335'
-      - revenu fiscal de référence <= 20000 €/an
+      - revenu fiscal de référence par part <= 20000 €/an
       - aides . pau > 0€
   variations:
-    - si: revenu fiscal de référence < 12000 €/an
+    - si: revenu fiscal de référence par part < 12000 €/an
       alors:
         variations:
           - si: 
@@ -3399,7 +3399,7 @@ aides . lescar:
                 - vélo . électrique
                 - vélo . pliant
             alors: 300€
-    - si: revenu fiscal de référence < 16000 €/an
+    - si: revenu fiscal de référence par part < 16000 €/an
       alors:
         variations:
           - si: 
@@ -3447,19 +3447,19 @@ aides . bidart:
       - si: vélo . cargo électrique
         alors:
           variations:
-            - si: revenu fiscal de référence < 28000 €/an
+            - si: revenu fiscal de référence par part < 28000 €/an
               alors: 500€
             - sinon: 400€
       - si: vélo . électrique
         alors:
           variations:
-            - si: revenu fiscal de référence < 28000 €/an
+            - si: revenu fiscal de référence par part < 28000 €/an
               alors: 400€
             - sinon: 300€
       - si: vélo . mécanique
         alors:
           variations:
-            - si: revenu fiscal de référence < 28000 €/an
+            - si: revenu fiscal de référence par part < 28000 €/an
               alors: 200€
             - sinon: 100€
       - sinon: 0€
@@ -3511,7 +3511,7 @@ aides . coeur de maurienne arvan:
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'CC Coeur de Maurienne Arvan'
-      - revenu fiscal de référence <= 15400 €/an
+      - revenu fiscal de référence par part <= 15400 €/an
       - vélo . électrique
   valeur: 40% * vélo . prix
   plafond: 400€
@@ -3557,11 +3557,11 @@ aides . bourg-saint-maurice:
             - vélo . adapté
         alors:
           variations:
-            - si: revenu fiscal de référence < 600 €/mois
+            - si: revenu fiscal de référence par part < 600 €/mois
               alors: 800 €
-            - si: revenu fiscal de référence < 1000 €/mois
+            - si: revenu fiscal de référence par part < 1000 €/mois
               alors: 700 €
-            - si: revenu fiscal de référence < 1400 €/mois
+            - si: revenu fiscal de référence par part < 1400 €/mois
               alors: 600 €
             - sinon: 500 €
       - si:
@@ -3570,21 +3570,21 @@ aides . bourg-saint-maurice:
             - vélo . pliant
         alors:
           variations:
-            - si: revenu fiscal de référence < 600 €/mois
+            - si: revenu fiscal de référence par part < 600 €/mois
               alors: 300 €
-            - si: revenu fiscal de référence < 1000 €/mois
+            - si: revenu fiscal de référence par part < 1000 €/mois
               alors: 250 €
-            - si: revenu fiscal de référence < 1400 €/mois
+            - si: revenu fiscal de référence par part < 1400 €/mois
               alors: 200 €
             - sinon: 150 €
       - si: vélo . électrique
         alors:
           variations:
-            - si: revenu fiscal de référence < 600 €/mois
+            - si: revenu fiscal de référence par part < 600 €/mois
               alors: 600 €
-            - si: revenu fiscal de référence < 1000 €/mois
+            - si: revenu fiscal de référence par part < 1000 €/mois
               alors: 500 €
-            - si: revenu fiscal de référence < 1400 €/mois
+            - si: revenu fiscal de référence par part < 1400 €/mois
               alors: 400 €
             - sinon: 300 €
   lien: https://www.bourgsaintmaurice.fr/transports/subvention-achat-velo
@@ -3716,23 +3716,23 @@ aides . clisson:
       - vélo . état . neuf
   valeur:
     variations:
-      - si: revenu fiscal de référence <= 400 €/mois
+      - si: revenu fiscal de référence par part <= 400 €/mois
         alors:
           valeur: 80% * vélo . prix
           plafond: 300 €
-      - si: revenu fiscal de référence <= 600 €/mois
+      - si: revenu fiscal de référence par part <= 600 €/mois
         alors:
           valeur: 60% * vélo . prix
           plafond: 250 €
-      - si: revenu fiscal de référence <= 1000 €/mois
+      - si: revenu fiscal de référence par part <= 1000 €/mois
         alors:
           valeur: 50% * vélo . prix
           plafond: 200 €
-      - si: revenu fiscal de référence <= 1400 €/mois
+      - si: revenu fiscal de référence par part <= 1400 €/mois
         alors:
           valeur: 40% * vélo . prix
           plafond: 180 €
-      - si: revenu fiscal de référence <= 1800 €/mois
+      - si: revenu fiscal de référence par part <= 1800 €/mois
         alors:
           valeur: 30% * vélo . prix
           plafond: 150 €
@@ -3755,11 +3755,11 @@ aides . sèvre et loire:
       - vélo . électrique
   valeur:
     variations:
-      - si: revenu fiscal de référence <= 750€/mois
+      - si: revenu fiscal de référence par part <= 750€/mois
         alors:
           valeur: 30% * vélo . prix
           plafond: 200€
-      - si: revenu fiscal de référence <= 1500€/mois
+      - si: revenu fiscal de référence par part <= 1500€/mois
         alors:
           valeur: 20% * vélo . prix
           plafond: 150€
@@ -3790,7 +3790,7 @@ aides . pays ancenis:
     toutes ces conditions:
       - localisation . epci = "CC du Pays d'Ancenis"
       - demandeur . âge . majeur
-      - revenu fiscal de référence <= 14089 €/an
+      - revenu fiscal de référence par part <= 14089 €/an
       - une de ces conditions:
           - vélo . électrique
           - vélo . cargo
@@ -3805,12 +3805,12 @@ aides . pays ancenis:
             - vélo . adapté
         alors:
           variations:
-            - si: revenu fiscal de référence <= 6358 €/an
+            - si: revenu fiscal de référence par part <= 6358 €/an
               alors: 400€
             - sinon: 300€
       - sinon:
           variations:
-            - si: revenu fiscal de référence <= 6358 €/an
+            - si: revenu fiscal de référence par part <= 6358 €/an
               alors: 300€
             - sinon: 200€
   lien: https://www.pays-ancenis.com/mon-quotidien/deplacements/deplacements/a-velo/aide-a-lachat-dun-velo
@@ -3906,7 +3906,7 @@ aides . sophia antipolis:
                 valeur: 25% * vélo . prix
                 plafond: 400€
             - sinon: 0€ # NOTE: les personnes en situation de handicap n'ont pas droit à l'aide pour les vélos mécaniques ?
-      - si: revenu fiscal de référence <= 6358 €/an
+      - si: revenu fiscal de référence par part <= 6358 €/an
         alors:
           variations:
             - si:
@@ -3923,7 +3923,7 @@ aides . sophia antipolis:
             - sinon:
                 valeur: 40% * vélo . prix
                 plafond: 150€
-      - si: revenu fiscal de référence <= 14089 €/an
+      - si: revenu fiscal de référence par part <= 14089 €/an
         alors:
           variations:
             - si:
@@ -3938,7 +3938,7 @@ aides . sophia antipolis:
                 valeur: 40% * vélo . prix
                 plafond: 300€
             - sinon: 0€
-      - si: revenu fiscal de référence <= 19200 €/an
+      - si: revenu fiscal de référence par part <= 19200 €/an
         alors:
           variations:
             - si:
@@ -4001,7 +4001,7 @@ aides . mandelieu:
   valeur: 25% * vélo . prix
   plafond:
     variations:
-      - si: revenu fiscal de référence <= 15400 €/an
+      - si: revenu fiscal de référence par part <= 15400 €/an
         alors: 100€
       - sinon: 150€
   lien: https://www.mandelieu.fr/17219-pistes-cyclable-et-plan-velo.htm
@@ -4053,11 +4053,11 @@ aides . aubervilliers:
 #       - localisation . code insee = '92063'
 #       - vélo . électrique
 #   variations:
-#     - si: revenu fiscal de référence <= 20000 €/an
+#     - si: revenu fiscal de référence par part <= 20000 €/an
 #       alors:
 #         valeur: 40% * vélo . prix
 #         plafond: 500€
-#     - si: revenu fiscal de référence <= 30000 €/an
+#     - si: revenu fiscal de référence par part <= 30000 €/an
 #       alors:
 #         valeur: 30% * vélo . prix
 #         plafond: 300€
@@ -4077,9 +4077,9 @@ aides . aubervilliers:
 #           - vélo . électrique
 #           - vélo . motorisation
 #   variations:
-#     - si: revenu fiscal de référence < 20000 €/an
+#     - si: revenu fiscal de référence par part < 20000 €/an
 #       alors: 25% * vélo . prix
-#     - si: revenu fiscal de référence < 40000 €/an
+#     - si: revenu fiscal de référence par part < 40000 €/an
 #       alors: 20% * vélo . prix
 #     - sinon: 15% * vélo . prix
 #   plafond: 300€
@@ -4108,27 +4108,27 @@ aides . mons en baroeul:
             - vélo . adapté
         alors:
           variations:
-            - si: revenu fiscal de référence < 893 €/mois
+            - si: revenu fiscal de référence par part < 893 €/mois
               alors: 
                 valeur: 40% * vélo . prix
                 plafond: 500€
-            - si: revenu fiscal de référence <= 1180 €/mois
+            - si: revenu fiscal de référence par part <= 1180 €/mois
               alors: 
                 valeur: 30% * vélo . prix
                 plafond: 500€
-            - si: revenu fiscal de référence <= 1365 €/mois
+            - si: revenu fiscal de référence par part <= 1365 €/mois
               alors: 
                 valeur: 30% * vélo . prix
                 plafond: 450€
-            - si: revenu fiscal de référence <= 1575 €/mois
+            - si: revenu fiscal de référence par part <= 1575 €/mois
               alors: 
                 valeur: 20% * vélo . prix
                 plafond: 400€
-            - si: revenu fiscal de référence <= 1890 €/mois
+            - si: revenu fiscal de référence par part <= 1890 €/mois
               alors: 
                 valeur: 15% * vélo . prix
                 plafond: 350€
-            - si: revenu fiscal de référence <= 3000 €/mois
+            - si: revenu fiscal de référence par part <= 3000 €/mois
               alors: 
                 valeur: 10% * vélo . prix
                 plafond: 300€
@@ -4136,23 +4136,23 @@ aides . mons en baroeul:
       - si: vélo . électrique
         alors:
           variations:
-            - si: revenu fiscal de référence < 893 €/mois
+            - si: revenu fiscal de référence par part < 893 €/mois
               alors: 
                 valeur: 50% * vélo . prix
                 plafond: 500€
-            - si: revenu fiscal de référence <= 1180 €/mois
+            - si: revenu fiscal de référence par part <= 1180 €/mois
               alors: 
                 valeur: 40% * vélo . prix
                 plafond: 400€
-            - si: revenu fiscal de référence <= 1365 €/mois
+            - si: revenu fiscal de référence par part <= 1365 €/mois
               alors: 
                 valeur: 35% * vélo . prix
                 plafond: 350€
-            - si: revenu fiscal de référence <= 1575 €/mois
+            - si: revenu fiscal de référence par part <= 1575 €/mois
               alors: 
                 valeur: 25% * vélo . prix
                 plafond: 250€
-            - si: revenu fiscal de référence <= 1890 €/mois
+            - si: revenu fiscal de référence par part <= 1890 €/mois
               alors: 
                 valeur: 15% * vélo . prix
                 plafond: 150€
@@ -4160,19 +4160,19 @@ aides . mons en baroeul:
       - si: vélo . mécanique
         alors:
           variations:
-            - si: revenu fiscal de référence < 893 €/mois
+            - si: revenu fiscal de référence par part < 893 €/mois
               alors: 
                 valeur: 50% * vélo . prix
                 plafond: 250€
-            - si: revenu fiscal de référence <= 1180 €/mois
+            - si: revenu fiscal de référence par part <= 1180 €/mois
               alors: 
                 valeur: 30% * vélo . prix
                 plafond: 150€
-            - si: revenu fiscal de référence <= 1575 €/mois
+            - si: revenu fiscal de référence par part <= 1575 €/mois
               alors: 
                 valeur: 20% * vélo . prix
                 plafond: 100€
-            - si: revenu fiscal de référence <= 1890 €/mois
+            - si: revenu fiscal de référence par part <= 1890 €/mois
               alors: 
                 valeur: 10% * vélo . prix
                 plafond: 50€
@@ -4380,7 +4380,7 @@ aides . les herbiers:
       - localisation . epci = 'CC du Pays des Herbiers'
       - demandeur . âge . majeur
       - une de ces conditions:
-          - revenu fiscal de référence <= 15400 €/an
+          - revenu fiscal de référence par part <= 15400 €/an
           - demandeur . en situation de handicap
       - une de ces conditions:
           - vélo . électrique
@@ -4575,7 +4575,7 @@ aides . annecy:
     toutes ces conditions:
       - localisation . epci = 'CA du Grand Annecy'
       - demandeur . âge . majeur
-      - revenu fiscal de référence
+      - revenu fiscal de référence par part
   valeur:
     somme:
       - bonus PMR
@@ -4588,7 +4588,7 @@ aides . annecy:
                 - vélo . prix <= 6000€
             alors:
               variations:
-                - si: revenu fiscal de référence < 18000 €/an
+                - si: revenu fiscal de référence par part < 18000 €/an
                   alors: 600€
                 - sinon: 400€
           - si:
@@ -4598,7 +4598,7 @@ aides . annecy:
                 - vélo . prix <= 4000€
             alors:
               variations:
-                - si: revenu fiscal de référence < 18000 €/an
+                - si: revenu fiscal de référence par part < 18000 €/an
                   alors: 400€
                 - sinon: 200€
           - si:
@@ -4610,7 +4610,7 @@ aides . annecy:
                 - vélo . prix <= 3500€
             alors:
               variations:
-                - si: revenu fiscal de référence < 18000 €/an
+                - si: revenu fiscal de référence par part < 18000 €/an
                   alors: 300€
                 - sinon: 200€
           - si:
@@ -4620,9 +4620,9 @@ aides . annecy:
                 - vélo . prix <= 2000 €
             alors:
               variations:
-                - si: revenu fiscal de référence < 14089 €/an
+                - si: revenu fiscal de référence par part < 14089 €/an
                   alors: 150€
-                - si: revenu fiscal de référence < 18000 €/an
+                - si: revenu fiscal de référence par part < 18000 €/an
                   alors: 100€
                 - sinon: 0€
           - si:
@@ -4633,9 +4633,9 @@ aides . annecy:
                 - vélo . prix <= 1500 €
             alors: 
               variations:
-                - si: revenu fiscal de référence < 14089 €/an
+                - si: revenu fiscal de référence par part < 14089 €/an
                   alors: 150€
-                - si: revenu fiscal de référence < 18000 €/an 
+                - si: revenu fiscal de référence par part < 18000 €/an 
                   alors: 100€
                 - sinon: 0€
           - si:
@@ -4644,9 +4644,9 @@ aides . annecy:
                 - vélo . état . occasion
             alors: 
               variations:
-                - si: revenu fiscal de référence < 14089 €/an
+                - si: revenu fiscal de référence par part < 14089 €/an
                   alors: 70€
-                - si: revenu fiscal de référence < 18000 €/an 
+                - si: revenu fiscal de référence par part < 18000 €/an 
                   alors: 50€
                 - sinon: 0€
           - sinon: 0€
@@ -4699,7 +4699,7 @@ aides . arve salève:
       - demandeur . âge > 12 an
   valeur:
     variations:
-      - si: revenu fiscal de référence <= 14089 €/an
+      - si: revenu fiscal de référence par part <= 14089 €/an
         alors:
           variations:
             # TODO: faire la distinction entre vélo adapté VAE ou non.
@@ -4714,7 +4714,7 @@ aides . arve salève:
             - si: vélo . mécanique
               alors: 200€
             - sinon: 0€
-      - si: revenu fiscal de référence <= 20000 €/an
+      - si: revenu fiscal de référence par part <= 20000 €/an
         alors:
           variations:
             - si: vélo . adapté
@@ -4728,7 +4728,7 @@ aides . arve salève:
             - si: vélo . mécanique
               alors: 150€
             - sinon: 0€
-      - si: revenu fiscal de référence <= 30000 €/an
+      - si: revenu fiscal de référence par part <= 30000 €/an
         alors:
           variations:
             - si: vélo . adapté
@@ -4775,11 +4775,11 @@ aides . cluses arve et montagnes:
     toutes ces conditions:
       - localisation . epci = 'CC Cluses-Arve et Montagnes'
       - demandeur . âge . majeur
-      - revenu fiscal de référence <= 36000 €/an
+      - revenu fiscal de référence par part <= 36000 €/an
   valeur:
     somme:
       - variations:
-          - si: revenu fiscal de référence <= 20000 €/an
+          - si: revenu fiscal de référence par part <= 20000 €/an
             alors:
               variations:
                 - si:
@@ -4867,7 +4867,7 @@ aides . combloux:
     toutes ces conditions:
       - localisation . code insee = '74083'
       - demandeur . âge >= 16 an
-      - revenu fiscal de référence <= 74545 €/an
+      - revenu fiscal de référence par part <= 74545 €/an
       - vélo . état . neuf
       - vélo . électrique
   valeur: 200€
@@ -5012,9 +5012,9 @@ aides . anjou bleu:
       - vélo . état . neuf
       - vélo . électrique
       - variations:
-          - si: foyer . personnes < 2
-            alors: revenu fiscal de référence <= 17009 €/an
-          - sinon: revenu fiscal de référence <= 15400 €/an
+          - si: revenu fiscal de référence par part . nombre de parts < 2
+            alors: revenu fiscal de référence par part <= 17009 €/an
+          - sinon: revenu fiscal de référence par part <= 15400 €/an
   valeur: 20% * vélo . prix
   plafond: 
     variations:
@@ -5037,7 +5037,7 @@ aides . limoges metropole:
     toutes ces conditions:
       - localisation . epci = 'CU Limoges Métropole'
       - demandeur . âge . majeur
-      - revenu fiscal de référence <= 21470 €/an
+      - revenu fiscal de référence par part <= 21470 €/an
   valeur:
     variations:
       - si: vélo . cargo
@@ -5190,7 +5190,7 @@ aides . cotentin:
     toutes ces conditions:
       - localisation . epci = 'CA du Cotentin'
       - vélo . électrique
-      - revenu fiscal de référence <= 750 €/mois
+      - revenu fiscal de référence par part <= 750 €/mois
   valeur: 40% * vélo . prix
   plafond: 350 €
   lien: https://www.capcotentin.fr/velo/
@@ -5211,7 +5211,7 @@ aides . cotentin:
 #   variations:
 #     - si: vélo . cargo
 #       alors: 400 €
-#     - si: revenu fiscal de référence <= plafond état
+#     - si: revenu fiscal de référence par part <= plafond état
 #       alors: 200 €
 #     - sinon: 100 €
 #   plafond: 20% * vélo . prix
@@ -5233,19 +5233,19 @@ aides . granville:
     toutes ces conditions:
       - localisation . code insee = '50218'
       - vélo . électrique ou mécanique
-      - revenu fiscal de référence < 28285 €/an
+      - revenu fiscal de référence par part < 28285 €/an
       - une de ces conditions:
           - demandeur . âge . majeur
           - demandeur . statut . apprenti
   valeur: 
     variations:
-      - si: revenu fiscal de référence <= 15400€/an
+      - si: revenu fiscal de référence par part <= 15400€/an
         alors:
           variations:
             - si: vélo . électrique
               alors: 600€
             - sinon: 250€
-      - si: revenu fiscal de référence <= 21542€/an
+      - si: revenu fiscal de référence par part <= 21542€/an
         alors:
           variations:
             - si: vélo . électrique
@@ -5254,7 +5254,7 @@ aides . granville:
       - sinon: 100€
   plafond:
     variations:
-      - si: revenu fiscal de référence <= 15400€/an
+      - si: revenu fiscal de référence par part <= 15400€/an
         alors: 75% * vélo . prix
       - sinon: 50% * vélo . prix
   abattement: aides . état
@@ -5293,7 +5293,7 @@ aides . saint-pair-sur-mer:
   description: |
     Prime de 200€ pour l'acquisition d'un vélo à assistance électrique et
     mécanique (uniquement pour les personnes en situation de handicap ou ayant
-    un revenu fiscal de référence par part inférieur ou égal à 6 358 €).
+    un revenu fiscal de référence par part par part inférieur ou égal à 6 358 €).
 
     La prime est élligible pour les Saint Pairais majeur ayant un revenu fiscal
     de référence par part inférieur ou égal à 14 089 € ou étant en situation de
@@ -5303,7 +5303,7 @@ aides . saint-pair-sur-mer:
       - localisation . code insee = '50532'
       - vélo . électrique ou mécanique
       - une de ces conditions:
-          - revenu fiscal de référence <= 14089 €/an
+          - revenu fiscal de référence par part <= 14089 €/an
           - demandeur . en situation de handicap
   valeur: 
     variations:
@@ -5311,7 +5311,7 @@ aides . saint-pair-sur-mer:
         alors: 200€
       - si: 
           une de ces conditions:
-            - revenu fiscal de référence <= 6358 €/an
+            - revenu fiscal de référence par part <= 6358 €/an
             - demandeur . en situation de handicap
         alors: 
           valeur: 40% * vélo . prix
@@ -5328,7 +5328,7 @@ aides . aunis atlantique:
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'CC Aunis Atlantique'
-      - revenu fiscal de référence <= 13489 €/an
+      - revenu fiscal de référence par part <= 13489 €/an
       - demandeur . âge . majeur
       - vélo . électrique
       - vélo . état . neuf
@@ -5401,7 +5401,7 @@ aides . rochefort:
     toutes ces conditions:
       - localisation . epci = 'CA Rochefort Océan'
       - demandeur . âge . majeur
-      - revenu fiscal de référence <= 15400 €/an
+      - revenu fiscal de référence par part <= 15400 €/an
   valeur: 40% * vélo . prix
   plafond:
     variations:
@@ -5468,7 +5468,7 @@ aides . dieppe:
     variations:
       - si: vélo . cargo
         alors: 150€
-      - si: revenu fiscal de référence <= 13489 €/an
+      - si: revenu fiscal de référence par part <= 13489 €/an
         alors: 100€
       - sinon: 50€
   lien: https://www.dieppe.fr/menus/vie-quotidienne-3/developpement-durable-49/aide-municipale-pour-acquerir-un-velo
@@ -5622,7 +5622,7 @@ aides . bassin d'arcachon nord:
     toutes ces conditions:
       - localisation . epci = "CA du Bassin d'Arcachon Nord"
       - demandeur . âge . majeur
-      - revenu fiscal de référence <= 24700€/an
+      - revenu fiscal de référence par part <= 24700€/an
       - une de ces conditions:
           - vélo . électrique
           - vélo . motorisation
@@ -5642,7 +5642,7 @@ aides . grand cubzaguais:
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'CC du Grand Cubzaguais'
-      - revenu fiscal de référence <= 19200 €/an
+      - revenu fiscal de référence par part <= 19200 €/an
       - vélo . électrique ou mécanique
   valeur: 50% * vélo . prix
   plafond:
@@ -5675,7 +5675,7 @@ aides . bourges:
       - localisation . epci = 'CA Bourges Plus'
       - une de ces conditions:
           - demandeur . en situation de handicap
-          - revenu fiscal de référence <= 31593 €/an
+          - revenu fiscal de référence par part <= 31593 €/an
   valeur: 50% * vélo . prix
   plafond:
     variations:
@@ -5868,7 +5868,7 @@ aides . dieulefit-bourdeaux:
       - si: 
           toutes ces conditions:
             - vélo . cargo
-            - revenu fiscal de référence <= 25000 €/an
+            - revenu fiscal de référence par part <= 25000 €/an
         alors: 200€
       - si: 
           une de ces conditions:
@@ -5876,9 +5876,9 @@ aides . dieulefit-bourdeaux:
             - vélo . motorisation
         alors: 
           variations:
-            - si: revenu fiscal de référence <= 14000 €/an
+            - si: revenu fiscal de référence par part <= 14000 €/an
               alors: 150€
-            - si: revenu fiscal de référence <= 25000 €/an
+            - si: revenu fiscal de référence par part <= 25000 €/an
               alors: 100€
             - sinon: 0€
       - si: vélo . mécanique
@@ -5939,7 +5939,7 @@ aides . annonay:
     variations:
       - si:
           une de ces conditions:
-            - revenu fiscal de référence <= 14089 €/an
+            - revenu fiscal de référence par part <= 14089 €/an
             - demandeur . en situation de handicap
         alors: 300€
       - sinon: 150€
@@ -5989,7 +5989,7 @@ aides . lanester:
       - vélo . électrique ou mécanique
   valeur:
     variations:
-      - si: revenu fiscal de référence <= 15400 €/an
+      - si: revenu fiscal de référence par part <= 15400 €/an
         alors:
           variations:
             - si: vélo . cargo
@@ -6106,7 +6106,7 @@ aides . saumur val de loire:
       - localisation . epci = 'CA Saumur Val de Loire'
       - demandeur . âge . majeur
       - vélo . électrique
-      - revenu fiscal de référence <= 15400 €/an
+      - revenu fiscal de référence par part <= 15400 €/an
   valeur: 10% * vélo . prix
   plafond: 100€
   lien: https://www.saumurvaldeloire.fr/se-deplacer-a-velo
@@ -6125,7 +6125,7 @@ aides . loire layon aubance:
     toutes ces conditions:
       - localisation . epci = 'CC Loire Layon Aubance'
       - demandeur . âge . majeur
-      - revenu fiscal de référence <= 15400 €/an
+      - revenu fiscal de référence par part <= 15400 €/an
   valeur: 40% * vélo . prix
   plafond:
     variations:
@@ -6388,7 +6388,7 @@ aides . gruson:
       - vélo . état . neuf
   valeur:
     variations:
-      - si: revenu fiscal de référence <= 13489 €/an
+      - si: revenu fiscal de référence par part <= 13489 €/an
         alors: 300€
       - sinon: 200€
   plafond: vélo . prix
@@ -6794,15 +6794,15 @@ aides . nanterre:
             - vélo . état . occasion
         alors:
           variations:
-            - si: revenu fiscal de référence <= 6108 €/an
+            - si: revenu fiscal de référence par part <= 6108 €/an
               alors:
                 valeur: 80% * vélo . prix
                 plafond: 240€
-            - si: revenu fiscal de référence <= 16572 €/an
+            - si: revenu fiscal de référence par part <= 16572 €/an
               alors:
                 valeur: 60% * vélo . prix
                 plafond: 180€
-            - si: revenu fiscal de référence <= 26532 €/an
+            - si: revenu fiscal de référence par part <= 26532 €/an
               alors:
                 valeur: 40% * vélo . prix
                 plafond: 120€
@@ -6813,15 +6813,15 @@ aides . nanterre:
             - vélo . état . neuf
         alors:
           variations:
-            - si: revenu fiscal de référence <= 6108 €/an
+            - si: revenu fiscal de référence par part <= 6108 €/an
               alors:
                 valeur: 80% * vélo . prix
                 plafond: 220€
-            - si: revenu fiscal de référence <= 16572 €/an
+            - si: revenu fiscal de référence par part <= 16572 €/an
               alors:
                 valeur: 60% * vélo . prix
                 plafond: 160€
-            - si: revenu fiscal de référence <= 26532 €/an
+            - si: revenu fiscal de référence par part <= 26532 €/an
               alors:
                 valeur: 40% * vélo . prix
                 plafond: 100€
@@ -6997,7 +6997,7 @@ aides . mennecy:
       - vélo . état . neuf
   valeur:
     variations:
-      - si: revenu fiscal de référence <= 761 €/mois
+      - si: revenu fiscal de référence par part <= 761 €/mois
         alors: 50€
       - sinon: 30€
   lien: https://www.mennecy.fr/vie-pratique/environnement/mobilites-douces/subvention-velo/
@@ -7017,7 +7017,7 @@ aides . betheny:
     toutes ces conditions:
       - localisation . code insee = '51055'
       - demandeur . âge . majeur
-      - revenu fiscal de référence <= 14089 €/an
+      - revenu fiscal de référence par part <= 14089 €/an
       - une de ces conditions:
           - vélo . électrique ou mécanique
           - vélo . adapté
@@ -7058,20 +7058,20 @@ aides . brest:
       - si: vélo . cargo électrique
         alors:
           variations:
-            - si: revenu fiscal de référence <= 6538 €/an
+            - si: revenu fiscal de référence par part <= 6538 €/an
               alors: 500 €
-            - si: revenu fiscal de référence <= 14089 €/an
+            - si: revenu fiscal de référence par part <= 14089 €/an
               alors: 400 €
-            - si: revenu fiscal de référence <= 22983 €/an
+            - si: revenu fiscal de référence par part <= 22983 €/an
               alors: 200 €
             - sinon: 0 €
       - sinon:
           variations:
-            - si: revenu fiscal de référence <= 6538 €/an
+            - si: revenu fiscal de référence par part <= 6538 €/an
               alors:
                 valeur: 30% * vélo . prix
                 plafond: 300 €
-            - si: revenu fiscal de référence <= 14089 €/an
+            - si: revenu fiscal de référence par part <= 14089 €/an
               alors:
                 valeur: 20% * vélo . prix
                 plafond: 150 €
@@ -7099,29 +7099,29 @@ aides . relecq-kerhuon:
       - si: vélo . cargo
         alors:
           variations:
-            - si: revenu fiscal de référence <= 1012 €/mois
+            - si: revenu fiscal de référence par part <= 1012 €/mois
               alors: 300 €
-            - si: revenu fiscal de référence <= 1291 €/mois
+            - si: revenu fiscal de référence par part <= 1291 €/mois
               alors: 250 €
-            - si: revenu fiscal de référence <= 1544 €/mois
+            - si: revenu fiscal de référence par part <= 1544 €/mois
               alors: 200 €
             - sinon: 150 €
       - si: vélo . électrique
         alors:
           variations:
-            - si: revenu fiscal de référence <= 1012 €/mois
+            - si: revenu fiscal de référence par part <= 1012 €/mois
               alors: 250 €
-            - si: revenu fiscal de référence <= 1291 €/mois
+            - si: revenu fiscal de référence par part <= 1291 €/mois
               alors: 200 €
-            - si: revenu fiscal de référence <= 1544 €/mois
+            - si: revenu fiscal de référence par part <= 1544 €/mois
               alors: 150 €
             - sinon: 100 €
       - si: vélo . mécanique
         alors:
           variations:
-            - si: revenu fiscal de référence <= 1012 €/mois
+            - si: revenu fiscal de référence par part <= 1012 €/mois
               alors: 100 €
-            - si: revenu fiscal de référence <= 1544 €/mois
+            - si: revenu fiscal de référence par part <= 1544 €/mois
               alors: 75 €
             - sinon: 50 €
   lien: https://www.lerelecqkerhuon.bzh/environnement-et-cadre-de-vie/se-deplacer/a-velo/
@@ -7145,16 +7145,16 @@ aides . plougastel-daoulas:
       - si: vélo . cargo
         alors: 
           variations:
-            - si: revenu fiscal de référence <= 1010 €/mois
+            - si: revenu fiscal de référence par part <= 1010 €/mois
               alors: 350 €
-            - si: revenu fiscal de référence <= 1384 €/mois
+            - si: revenu fiscal de référence par part <= 1384 €/mois
               alors: 250 €
             - sinon: 200 €
       - sinon:
           variations:
-            - si: revenu fiscal de référence <= 1010 €/mois
+            - si: revenu fiscal de référence par part <= 1010 €/mois
               alors: 250 €
-            - si: revenu fiscal de référence <= 1384 €/mois
+            - si: revenu fiscal de référence par part <= 1384 €/mois
               alors: 175 €
             - sinon: 100 €
   lien: https://ville-plougastel.bzh/mon-quotidien/developpement-durable/dispositif-daides/
@@ -7171,7 +7171,7 @@ aides . pays d'iroise:
       - localisation . epci = "CC du Pays d'Iroise"
       - demandeur . âge . majeur
       - une de ces conditions:
-          - revenu fiscal de référence <= 14089 €/an
+          - revenu fiscal de référence par part <= 14089 €/an
           - demandeur . en situation de handicap
       - une de ces conditions:
           - vélo . électrique
@@ -7194,7 +7194,7 @@ aides . haute-cornouaille:
     toutes ces conditions:
       - localisation . epci = 'CC de Haute Cornouaille'
       - demandeur . âge . majeur
-      - revenu fiscal de référence <= 14089 €/an
+      - revenu fiscal de référence par part <= 14089 €/an
       - vélo . électrique
       - vélo . état . neuf
   valeur: 20% * vélo . prix
@@ -7247,7 +7247,7 @@ aides . baie du mont saint-michel:
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'CC du Pays de Dol et de la Baie du Mont Saint-Michel'
-      - revenu fiscal de référence <= 14089 €/an
+      - revenu fiscal de référence par part <= 14089 €/an
       - demandeur . âge . majeur
       - vélo . état . neuf
       - une de ces conditions:
@@ -7281,7 +7281,7 @@ aides . montfort:
       - si: vélo . électrique
         alors:
           variations:
-            - si: revenu fiscal de référence <= plafond état
+            - si: revenu fiscal de référence par part <= plafond état
               alors: 150 €
             - sinon: 50 €
       - sinon:
@@ -7291,12 +7291,12 @@ aides . montfort:
               - si: vélo . état . neuf
                 alors:
                   variations:
-                    - si: revenu fiscal de référence <= plafond état
+                    - si: revenu fiscal de référence par part <= plafond état
                       alors: 100 €
                     - sinon: 50 €
               - sinon:
                   variations:
-                    - si: revenu fiscal de référence <= plafond état
+                    - si: revenu fiscal de référence par part <= plafond état
                       alors: 80 €
                     - sinon: 20 €
   lien: https://www.montfortcommunaute.bzh/mes-demarches/mobilite-deplacements/aide-a-lachat-dun-vae/
@@ -7319,7 +7319,7 @@ aides . liffré-cormier:
           - vélo . adapté
   valeur:
     variations:
-      - si: revenu fiscal de référence <= 14089 €/an
+      - si: revenu fiscal de référence par part <= 14089 €/an
         alors: 200€
       - sinon: 100€
   plafond: 40% * vélo . prix
@@ -7339,7 +7339,7 @@ aides . vallons de haute bretagne:
       - vélo . état . neuf
   valeur:
     variations:
-      - si: revenu fiscal de référence <= plafond état
+      - si: revenu fiscal de référence par part <= plafond état
         alors: 200€
       - sinon: 100€
   lien: https://www.vallons-de-haute-bretagne-communaute.fr/les-velos-a-assistance-electrique/
@@ -7364,7 +7364,7 @@ aides . cote d'emeraude:
   applicable si:
     toutes ces conditions:
       - localisation . epci = "CC Côte d'Emeraude"
-      - revenu fiscal de référence <= 20000€/an
+      - revenu fiscal de référence par part <= 20000€/an
       - vélo . état . neuf
       - une de ces conditions:
           - vélo . électrique ou mécanique
@@ -7447,11 +7447,11 @@ aides . morlaix:
           - vélo . adapté # TODO: vélo adapté électrique
   valeur:
     variations:
-      - si: revenu fiscal de référence <= 7100 €/an
+      - si: revenu fiscal de référence par part <= 7100 €/an
         alors: 500 €
-      - si: revenu fiscal de référence <= 15400 €/an
+      - si: revenu fiscal de référence par part <= 15400 €/an
         alors: 300 €
-      - si: revenu fiscal de référence <= 23100 €/an
+      - si: revenu fiscal de référence par part <= 23100 €/an
         alors: 200 €
       - sinon: 100 €
   plafond: 40% * vélo . prix
@@ -7483,7 +7483,7 @@ aides . crozon:
     toutes ces conditions:
       - localisation . epci = "CC Presqu'île de Crozon-Aulne maritime"
       - demandeur . âge . majeur
-      - revenu fiscal de référence <= 14089 €/an
+      - revenu fiscal de référence par part <= 14089 €/an
       - une de ces conditions:
           - vélo . électrique ou mécanique
           - vélo . adapté
@@ -7503,7 +7503,7 @@ aides . saint-jacques de la lande:
     toutes ces conditions:
       - localisation . code insee = '35281'
       - demandeur . âge >= 15 an
-      - revenu fiscal de référence <= 1800 €/mois
+      - revenu fiscal de référence par part <= 1800 €/mois
       - vélo . électrique ou mécanique
   valeur: 50% * vélo . prix
   plafond:
@@ -7649,11 +7649,11 @@ aides . amboise:
   formule:
     produit:
       - variations:
-          - si: revenu fiscal de référence <= 500 €/mois
+          - si: revenu fiscal de référence par part <= 500 €/mois
             alors: 50%
-          - si: revenu fiscal de référence <= 800 €/mois
+          - si: revenu fiscal de référence par part <= 800 €/mois
             alors: 40%
-          - si: revenu fiscal de référence <= 1100 €/mois
+          - si: revenu fiscal de référence par part <= 1100 €/mois
             alors: 30%
           - sinon: 0%
       - valeur: vélo . prix
@@ -7748,7 +7748,7 @@ aides . pontivy:
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'CC Pontivy Communauté'
-      - revenu fiscal de référence <= 25000 €/an
+      - revenu fiscal de référence par part <= 25000 €/an
       - vélo . électrique ou mécanique
   valeur: vélo . prix
   plafond: 
@@ -7784,7 +7784,7 @@ aides . auray quiberon:
       - localisation . epci = 'CC Auray Quiberon Terre Atlantique'
       - demandeur . âge . majeur
       - une de ces conditions:
-          - revenu fiscal de référence <= 20000 €/an
+          - revenu fiscal de référence par part <= 20000 €/an
           - demandeur . en situation de handicap
       - une de ces conditions:
           - vélo . électrique ou mécanique
@@ -7819,10 +7819,10 @@ aides . grand villeneuvois:
       - si: vélo . électrique
         alors:
           variations:
-            - si: revenu fiscal de référence <= plafond état
+            - si: revenu fiscal de référence par part <= plafond état
               alors: 200€
             - sinon: 100€
-      - si: revenu fiscal de référence <= plafond état
+      - si: revenu fiscal de référence par part <= plafond état
         alors: 50€
       - sinon: 0€
   lien: https://www.grand-villeneuvois.fr/aide-a-l-achat-d-un-velo-a-assistance-electrique-335.html
@@ -7894,7 +7894,7 @@ aides . grand angouleme:
       - localisation . epci = 'CA du Grand Angoulême'
       - demandeur . âge . majeur
       - une de ces conditions:
-          - revenu fiscal de référence <= 2000 €/mois
+          - revenu fiscal de référence par part <= 2000 €/mois
           - demandeur . statut . apprenti
           - demandeur . statut . étudiant
       - vélo . électrique ou mécanique
@@ -7905,13 +7905,13 @@ aides . grand angouleme:
           variations:
             - si: 
                 une de ces conditions:
-                  - revenu fiscal de référence <= 2000 €/mois
+                  - revenu fiscal de référence par part <= 2000 €/mois
                   - demandeur . statut . apprenti
                   - demandeur . statut . étudiant
               alors:
                 valeur: 50% * vélo . prix
                 plafond: 400 €
-            - si: revenu fiscal de référence <= 1500 €/mois
+            - si: revenu fiscal de référence par part <= 1500 €/mois
               alors:
                 valeur: 30% * vélo . prix
                 plafond: 300 €
@@ -7932,7 +7932,7 @@ aides . massif du vercors:
     toutes ces conditions:
       - localisation . epci = 'CC du Massif du Vercors'
       - demandeur . âge . majeur
-      - revenu fiscal de référence <= 21805 €/an
+      - revenu fiscal de référence par part <= 21805 €/an
       - vélo . électrique
   valeur:
     variations:
@@ -8134,9 +8134,9 @@ aides . labège:
       - vélo . état . neuf
   valeur:
     variations:
-      - si: revenu fiscal de référence <= 20400€/an
+      - si: revenu fiscal de référence par part <= 20400€/an
         alors: 200€
-      - si: revenu fiscal de référence <= 36000€/an
+      - si: revenu fiscal de référence par part <= 36000€/an
         alors: 150€
       - sinon: 100€
   lien: http://www.labege.fr/dans-ma-ville/aide-a-la-mobilite/
@@ -8171,7 +8171,7 @@ aides . couesnon:
       - vélo . électrique
   valeur:
     variations:
-      - si: revenu fiscal de référence <= plafond état
+      - si: revenu fiscal de référence par part <= plafond état
         alors: 100€
       - sinon: 50€
   lien: https://www.couesnon-marchesdebretagne.fr/attractivite-territoriale/mobilites/
@@ -8187,7 +8187,7 @@ aides . avant-monts:
       - localisation . epci = 'CC Les Avant-Monts'
       - demandeur . âge . majeur
       - vélo . électrique
-      - revenu fiscal de référence <= 24000 €/an
+      - revenu fiscal de référence par part <= 24000 €/an
   valeur: 100€
   plafond: vélo . prix
   lien: https://www.avant-monts.fr/vivre-sinstaller/environnement/mobilite/
@@ -8210,7 +8210,7 @@ aides . vallées de l'orne et de l'odon:
             - vélo . cargo
             - vélo . adapté
         alors: 300€
-      - si: revenu fiscal de référence <= 20805€/an
+      - si: revenu fiscal de référence par part <= 20805€/an
         alors: 200€
       - sinon: 0€
   lien: https://cdc.vallees-orne-odon.fr/environnement/transition-energetique/aide-acquisition-velo/
@@ -8244,9 +8244,9 @@ aides . haut-béarn:
       - vélo . électrique ou mécanique
       - vélo . état . neuf
   variations:
-    - si: revenu fiscal de référence <= 15000€/an
+    - si: revenu fiscal de référence par part <= 15000€/an
       alors: 200€
-    - si: revenu fiscal de référence <= 25000€/an
+    - si: revenu fiscal de référence par part <= 25000€/an
       alors: 100€
     - sinon: 50€
   lien: https://www.hautbearn.fr/vivre-habiter/se-deplacer/velos-a-assistance-electrique
@@ -8314,7 +8314,7 @@ aides . villers-sur-mer:
 #       - localisation . code insee = '13100'
 #       - demandeur . âge . majeur
 #       - vélo . électrique ou mécanique
-#       - revenu fiscal de référence <= plafond état
+#       - revenu fiscal de référence par part <= plafond état
 #   valeur: 200€
 #  lien: https://www.mairie-saintremydeprovence.com/200-euros-daide-pour-un-velo-a-assistance-electrique/
 
@@ -8344,7 +8344,7 @@ aides . pays de châteaugiron:
       - vélo . électrique
       - demandeur . âge . majeur
       - vélo . état . neuf
-      - revenu fiscal de référence <= plafond état
+      - revenu fiscal de référence par part <= plafond état
   valeur: 200€
   lien: https://www.communaute.paysdechateaugiron.bzh/velo-a-assistance-electrique/
 
@@ -8450,7 +8450,7 @@ aides . castelnau de médoc:
     toutes ces conditions:
       - localisation . code insee = '33104'
       - demandeur . âge . majeur
-      - revenu fiscal de référence <= plafond état
+      - revenu fiscal de référence par part <= plafond état
       - vélo . état . neuf
       - vélo . électrique
   valeur: 100€
@@ -8521,7 +8521,7 @@ aides . pays orne moselle:
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'CC du Pays Orne Moselle'
-      - revenu fiscal de référence <= plafond état
+      - revenu fiscal de référence par part <= plafond état
       - demandeur . âge . majeur
       - aides . bonus vélo > 0€
       - vélo . électrique ou mécanique
@@ -8545,7 +8545,7 @@ aides . bram:
       - localisation . code insee = '11049'
       - demandeur . âge >= 16 an
       - vélo . état . neuf
-      - revenu fiscal de référence <= 35052 €/an
+      - revenu fiscal de référence par part <= 35052 €/an
       - une de ces conditions:
           - vélo . électrique ou mécanique
           - toutes ces conditions:
@@ -8557,24 +8557,24 @@ aides . bram:
       - si: vélo . adapté
         alors:
           variations:
-            - si: revenu fiscal de référence <= 18000 €/an
+            - si: revenu fiscal de référence par part <= 18000 €/an
               alors: 300€ + 150€
             - sinon: 250€ + 150€
       - si: vélo . électrique
         alors:
           variations:
-            - si: revenu fiscal de référence <= 18000 €/an
+            - si: revenu fiscal de référence par part <= 18000 €/an
               alors: 300€
             - sinon: 250€
       - si: vélo . électrique
         alors:
           variations:
-            - si: revenu fiscal de référence <= 18000 €/an
+            - si: revenu fiscal de référence par part <= 18000 €/an
               alors: 300€
             - sinon: 250€
       - sinon:
           variations:
-            - si: revenu fiscal de référence <= 18000 €/an
+            - si: revenu fiscal de référence par part <= 18000 €/an
               alors: 150€
             - sinon: 100€
   lien: https://www.villedebram.fr/actualite/une-aide-a-lachat-de-velos-pour-les-bramais/
@@ -8768,10 +8768,10 @@ aides . fier et usses:
   applicable si: 
     toutes ces conditions:
       - localisation . epci = 'CC Fier et Usses'
-      - revenu fiscal de référence <= 30000 €/an
+      - revenu fiscal de référence par part <= 30000 €/an
   valeur:
     variations:
-      - si: revenu fiscal de référence <= 14089€/an
+      - si: revenu fiscal de référence par part <= 14089€/an
         alors:
           variations:
             - si: vélo . cargo électrique
@@ -8783,7 +8783,7 @@ aides . fier et usses:
             - si: vélo . motorisation
               alors: 200€
             - sinon: 0€
-      - si: revenu fiscal de référence <= 23000€/an
+      - si: revenu fiscal de référence par part <= 23000€/an
         alors:
           variations:
             - si: vélo . cargo électrique
@@ -8823,11 +8823,11 @@ aides . pays de cruseilles:
             - vélo . prix <= 4500€
         alors:
           variations:
-            - si: revenu fiscal de référence <= 7100€/an
+            - si: revenu fiscal de référence par part <= 7100€/an
               alors: 700€
-            - si: revenu fiscal de référence <= 15400€/an
+            - si: revenu fiscal de référence par part <= 15400€/an
               alors: 600€
-            - si: revenu fiscal de référence <= 20000€/an
+            - si: revenu fiscal de référence par part <= 20000€/an
               alors: 400€
             - sinon: 0€
       - si:
@@ -8837,11 +8837,11 @@ aides . pays de cruseilles:
             - vélo . prix <= 3000€
         alors:
           variations:
-            - si: revenu fiscal de référence <= 7100€/an
+            - si: revenu fiscal de référence par part <= 7100€/an
               alors: 400€
-            - si: revenu fiscal de référence <= 15400€/an
+            - si: revenu fiscal de référence par part <= 15400€/an
               alors: 300€
-            - si: revenu fiscal de référence <= 20000€/an
+            - si: revenu fiscal de référence par part <= 20000€/an
               alors: 200€
             - sinon: 0€
       - si:
@@ -8851,11 +8851,11 @@ aides . pays de cruseilles:
             - vélo . prix <= 3000€
         alors:
           variations:
-            - si: revenu fiscal de référence <= 7100€/an
+            - si: revenu fiscal de référence par part <= 7100€/an
               alors: 400€
-            - si: revenu fiscal de référence <= 15400€/an
+            - si: revenu fiscal de référence par part <= 15400€/an
               alors: 300€
-            - si: revenu fiscal de référence <= 20000€/an
+            - si: revenu fiscal de référence par part <= 20000€/an
               alors: 200€
             - sinon: 0€
       - si:
@@ -8865,11 +8865,11 @@ aides . pays de cruseilles:
             - vélo . prix <= 1200€
         alors:
           variations:
-            - si: revenu fiscal de référence <= 7100€/an
+            - si: revenu fiscal de référence par part <= 7100€/an
               alors: 200€
-            - si: revenu fiscal de référence <= 15400€/an
+            - si: revenu fiscal de référence par part <= 15400€/an
               alors: 150€
-            - si: revenu fiscal de référence <= 20000€/an
+            - si: revenu fiscal de référence par part <= 20000€/an
               alors: 100€
             - sinon: 0€
       - sinon: 0€
@@ -8884,9 +8884,9 @@ aides . tulle:
       - localisation . epci = 'CA Tulle Agglo'
       - vélo . électrique
   variations:
-    - si: revenu fiscal de référence <= 1799€/mois
+    - si: revenu fiscal de référence par part <= 1799€/mois
       alors: 200€
-    - si: revenu fiscal de référence <= 2999€/mois
+    - si: revenu fiscal de référence par part <= 2999€/mois
       alors: 150€
     - sinon: 100€
   lien: https://www.tulleagglo.fr/actualites/lagglo-a-velo/
@@ -8946,7 +8946,7 @@ aides . cévennes gangeoises et suménoises:
   plancher: 0€
   plafond:
     variations:
-      - si: revenu fiscal de référence <= 27478€/an
+      - si: revenu fiscal de référence par part <= 27478€/an
         alors: 350€
       - sinon: 300€
   lien: https://cdcgangesumene.fr/au-quotidien/mobilite/velo/
@@ -9014,7 +9014,7 @@ aides . grand besançon:
     toutes ces conditions:
       - localisation . epci = 'CU Grand Besançon Métropole'
       - demandeur . âge . majeur
-      - revenu fiscal de référence <= 20781€/an
+      - revenu fiscal de référence par part <= 20781€/an
       - vélo . état . neuf
       - vélo . électrique
   valeur: 25% * vélo . prix
@@ -9024,5 +9024,3 @@ aides . grand besançon:
         alors: 400€
       - sinon: 200€
   lien: https://www.grandbesancon.fr/demarche-administrative/subvention-pour-lachat-dun-velo-electrique/
-
-
