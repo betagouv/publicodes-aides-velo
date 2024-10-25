@@ -25,6 +25,16 @@ describe("AidesVeloEngine", () => {
     });
   });
 
+  describe("getCommuneByName()", () => {
+    it("should managed to find a commune by its name even if not slugified", () => {
+      expect(AidesVeloEngine.getCommuneByName("Paris")?.nom).toEqual("Paris");
+      expect(AidesVeloEngine.getCommuneByName("paris")?.nom).toEqual("Paris");
+      expect(
+        AidesVeloEngine.getCommuneByName("SENNECEY LES DIJON")?.nom,
+      ).toEqual("Sennecey-lès-Dijon");
+    });
+  });
+
   describe("getAllAidesIn()", () => {
     it("should return all aids in France by default", () => {
       const engine = globalTestEngine.shallowCopy();

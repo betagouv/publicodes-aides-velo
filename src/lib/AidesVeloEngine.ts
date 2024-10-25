@@ -11,7 +11,8 @@ import {
   RuleName,
   rules,
 } from "..";
-import { Situation } from "../../build";
+import { Situation } from "../../publicodes-build";
+import { slugify } from "./utils";
 
 /**
  * Represents an aid with its metadata.
@@ -226,9 +227,7 @@ export class AidesVeloEngine {
    * @returns The commune if found, `undefined` otherwise.
    */
   static getCommuneByName(name: string): Commune | undefined {
-    return data.communes.find(
-      ({ nom }) => nom.toLowerCase() === name.toLowerCase(),
-    );
+    return data.communes.find(({ slug }) => slug === slugify(name));
   }
 
   /**

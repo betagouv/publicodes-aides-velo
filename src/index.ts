@@ -8,8 +8,8 @@
 
 // Export the compiled rules and the types.
 
-import compiledRules from "../build";
-export type { Questions, RuleName } from "../build";
+import compiledRules from "../publicodes-build";
+export type { Questions, RuleName } from "../publicodes-build";
 /**
  * Publicodes rules compiled in a single JSON object.
  */
@@ -19,6 +19,10 @@ export const rules = compiledRules;
 
 export * as data from "./data";
 export type { AideRuleNames, Commune, Localisation } from "./data";
+
+// Export the utils functions.
+
+export { slugify } from "./lib/utils";
 
 // Export the AidesVeloEngine class and the Aide type.
 
