@@ -2,7 +2,8 @@
 
 ![NPM Version](https://img.shields.io/npm/v/%40betagouv%2Faides-velo) [![jsDocs.io](https://img.shields.io/badge/jsDocs.io-reference-blue)](https://www.jsdocs.io/package/@betagouv/aides-velo)
 
-Modèle Publicodes pour le calcul des aides vélo en France.
+Modèle [Publicodes](https://publi.codes) pour le calcul des aides vélo en
+France.
 
 > [!NOTE]
 > Ce modèle est la continuité de celui de [Mes Aides

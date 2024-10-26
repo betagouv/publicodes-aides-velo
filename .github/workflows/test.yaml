@@ -1,4 +1,4 @@
-name: Compile, test and check format
+name: Test package
 
 on: push
 
@@ -12,13 +12,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           cache: yarn
-      - run: yarn install --immutable
-
-      - name: Compile package
-        run: yarn compile
+      - run: yarn install --frozen-lockfile
 
       - name: Test the package
         run: yarn test
-
-      # - name: Check file formatting
-      #   run: yarn format:check

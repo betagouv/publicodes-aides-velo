@@ -1,0 +1,37 @@
+name: Publish package to npmjs
+
+on:
+  workflow_run:
+    workflows: ["Test package"]
+    types:
+      - completed
+    branches:
+      - main
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+      - uses: actions/setup-node@v3
+        with:
+          cache: yarn
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Compile package
+        run: yarn compile
+
+      - name: Publish package
+        uses: JS-DevTools/npm-publish@v3
+        id: npm-publish
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+
+      - name: Create GitHub release
+        if: ${{ steps.npm-publish.outputs.type }}
+        uses: softprops/action-gh-release@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
