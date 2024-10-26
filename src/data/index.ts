@@ -25,7 +25,7 @@ export type Commune = {
   /** Whether the commune is in a low-emission zone */
   zfe: boolean;
   /** The EPCI name (e.g. "Métropole du Grand Paris") */
-  epci: string | null;
+  epci?: string;
   /** The postal codes (e.g. ["75001", "75002"]) */
   codesPostaux: string[];
   /** The slugified name (e.g. "le-chatelet-sur-sormonne") */
