@@ -37,3 +37,4 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           tag_name: ${{ steps.npm-publish.outputs.version }}
+          generate_release_notes: true
