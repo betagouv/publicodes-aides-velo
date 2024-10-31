@@ -56,8 +56,12 @@ export type Localisation = {
 };
 
 /**
- * The list of all communes in France with their population, region, departement,
- * and EPCI.
+ * The list of all communes in France with their population, region,
+ * departement, and EPCI.
+ *
+ * @note This will probably be extracted to a separate package to avoid
+ * importing the whole `communes.json` file (which is quite large) or simply
+ * rely directly on the `@etalab/decoupage-administratif` package.
  */
 export const communes = rawCommunes as Commune[];
 

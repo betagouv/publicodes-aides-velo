@@ -104,6 +104,10 @@ export class AidesVeloEngine {
       .filter(([, { country: aideCountry }]) => aideCountry === country)
       .map(([ruleName]) => {
         const rule = this.engine.getRule(ruleName);
+        // PERF: could simplify this by simply extracting the collectivity from
+        // the AST instead of the data object. And removing Luxembourg and
+        // Monaco to avoid needing to import the whole
+        // aides-collectivities.json file?
         const collectivity = data.aidesAvecLocalisation[ruleName].collectivity;
 
         return {
@@ -225,6 +229,9 @@ export class AidesVeloEngine {
    *
    * @param name The name of the commune (e.g. "Paris").
    * @returns The commune if found, `undefined` otherwise.
+   *
+   * @note This would probably be extracted to a separate package to avoid
+   * importing the whole 'data.communes' JSON object (which is quite large).
    */
   static getCommuneByName(name: string): Commune | undefined {
     return data.communes.find(({ slug }) => slug === slugify(name));
@@ -239,6 +246,9 @@ export class AidesVeloEngine {
    * @note The INSEE code is not the same as the postal code. It's a unique
    * identifier for each commune in France in contrast to the postal code which
    * can be shared by multiple communes.
+   *
+   * @note This would probably be extracted to a separate package to avoid
+   * importing the whole 'data.communes' JSON object (which is quite large).
    */
   static getCommuneByInseeCode(inseeCode: string): Commune | undefined {
     return data.communes.find(({ code }) => code === inseeCode);
