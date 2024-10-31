@@ -28,7 +28,9 @@ demandeur . bénéficiaire de minima sociaux:
     AAH : Allocation aux adultes handicapés
     ASS : Allocation de solidarité spécifique
     ASPA : Allocation de solidarit aux personnes âgées
-  par défaut: non
+  par défaut:
+    une de ces conditions:
+      - bénéficiaire du RSA
 
 demandeur . en situation de handicap:
   type: booléen
