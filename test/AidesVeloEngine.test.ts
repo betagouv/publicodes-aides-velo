@@ -28,6 +28,14 @@ describe("AidesVeloEngine", () => {
       const situation = engine.getEngine().getSituation();
       expect(situation["vélo . type"]).toEqual("'pliant'");
     });
+
+    it("should correctly handle undefined values", () => {
+      const engine = globalTestEngine.shallowCopy();
+      engine.setInputs({ "vélo . type": undefined });
+
+      const situation = engine.getEngine().getSituation();
+      expect(situation["vélo . type"]).toBeUndefined();
+    });
   });
 
   describe("getAllAidesIn()", () => {

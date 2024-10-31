@@ -226,21 +226,23 @@ export class AidesVeloEngine {
 function formatInputs(inputs: Questions): Partial<Situation> {
   const entries = Object.entries(inputs);
 
-  const transformedEntries = entries.map(([key, val]) => {
-    let transformedVal: string | number | boolean | null;
+  const transformedEntries = entries
+    .filter(([, val]) => val !== undefined)
+    .map(([key, val]) => {
+      let transformedVal: string | number | boolean | null;
 
-    if (typeof val === "boolean") {
-      transformedVal = val ? "oui" : "non";
-    } else if (key === "localisation . epci") {
-      transformedVal = val ? `'${epciSirenToName[val] || val}'` : null;
-    } else if (typeof val === "string") {
-      transformedVal = `'${val}'`;
-    } else {
-      transformedVal = val;
-    }
+      if (typeof val === "boolean") {
+        transformedVal = val ? "oui" : "non";
+      } else if (key === "localisation . epci") {
+        transformedVal = val ? `'${epciSirenToName[val] || val}'` : null;
+      } else if (typeof val === "string") {
+        transformedVal = `'${val}'`;
+      } else {
+        transformedVal = val;
+      }
 
-    return [key, transformedVal];
-  });
+      return [key, transformedVal];
+    });
 
   const transformedInput = Object.fromEntries(transformedEntries);
 
