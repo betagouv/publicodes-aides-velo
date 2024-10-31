@@ -4,7 +4,6 @@ import Engine, {
 } from "publicodes";
 import {
   AideRuleNames,
-  Commune,
   data,
   Localisation,
   Questions,
@@ -12,7 +11,6 @@ import {
   rules,
 } from "..";
 import { Situation } from "../../publicodes-build";
-import { slugify } from "./utils";
 
 /**
  * Represents an aid with its metadata.
@@ -222,36 +220,6 @@ export class AidesVeloEngine {
         // NOTE: doesn't seem to be used
         .replace(/\$ville/, ville)
     );
-  }
-
-  /**
-   * Get the commune by its name.
-   *
-   * @param name The name of the commune (e.g. "Paris").
-   * @returns The commune if found, `undefined` otherwise.
-   *
-   * @note This would probably be extracted to a separate package to avoid
-   * importing the whole 'data.communes' JSON object (which is quite large).
-   */
-  static getCommuneByName(name: string): Commune | undefined {
-    return data.communes.find(({ slug }) => slug === slugify(name));
-  }
-
-  /**
-   * Get the commune by its INSEE code.
-   *
-   * @param inseeCode The INSEE code of the commune (e.g. "75056").
-   * @returns The commune if found, `undefined` otherwise.
-   *
-   * @note The INSEE code is not the same as the postal code. It's a unique
-   * identifier for each commune in France in contrast to the postal code which
-   * can be shared by multiple communes.
-   *
-   * @note This would probably be extracted to a separate package to avoid
-   * importing the whole 'data.communes' JSON object (which is quite large).
-   */
-  static getCommuneByInseeCode(inseeCode: string): Commune | undefined {
-    return data.communes.find(({ code }) => code === inseeCode);
   }
 }
 

@@ -47,21 +47,15 @@ JS et _type-safe_ (voir le type
 ```typescript
 import { AidesVeloEngine } from "@betagouv/aides-velo";
 
-// Récupération des informations de la commune
-const commune = AidesVeloEngine.getCommuneByName("Bègles");
-if (!commune) {
-  throw new Error(`La commune "Bègles" n'a pas été trouvée`);
-}
-
 // Initialisation du moteur
 const engine = new AidesVeloEngine();
 
 // Définition de la situation
 engine.setInputs({
-  "localisation . code insee": commune.code, // Permet de récupérer les aides communales
-  "localisation . epci": commune.epci, // Permet de récupérer les aides intercommunales
-  "localisation . département": commune.departement, // Permet de récupérer les aides départementales
-  "localisation . région": commune.region, // Permet de récupérer les aides régionales
+  "localisation . code insee": "33119", // Code INSEE de la commune, permet de récupérer les aides communales
+  "localisation . epci": "Bordeaux Métropole", // Permet de récupérer les aides intercommunales
+  "localisation . département": "33", // Permet de récupérer les aides départementales
+  "localisation . région": "75", // Permet de récupérer les aides régionales
   "localisation . pays": "France", // Permet de récupérer les aides nationales
   "vélo . type": "électrique",
   "vélo . état": "neuf",

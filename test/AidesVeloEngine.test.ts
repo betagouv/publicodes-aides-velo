@@ -1,4 +1,9 @@
-import { Aide, AideRuleNames, AidesVeloEngine } from "../src";
+import {
+  Aide,
+  AideRuleNames,
+  AidesVeloEngine,
+  LocalisationHelper,
+} from "../src";
 
 describe("AidesVeloEngine", () => {
   describe("new AidesVeloEngine()", () => {
@@ -22,16 +27,6 @@ describe("AidesVeloEngine", () => {
 
       const situation = engine.getEngine().getSituation();
       expect(situation["vélo . type"]).toEqual("'pliant'");
-    });
-  });
-
-  describe("getCommuneByName()", () => {
-    it("should managed to find a commune by its name even if not slugified", () => {
-      expect(AidesVeloEngine.getCommuneByName("Paris")?.nom).toEqual("Paris");
-      expect(AidesVeloEngine.getCommuneByName("paris")?.nom).toEqual("Paris");
-      expect(
-        AidesVeloEngine.getCommuneByName("SENNECEY LES DIJON")?.nom,
-      ).toEqual("Sennecey-lès-Dijon");
     });
   });
 
@@ -101,7 +96,7 @@ describe("AidesVeloEngine", () => {
     describe("with specific inputs", () => {
       it("Ville de Montmorillon - vélo électrique", () => {
         const engine = globalTestEngine.shallowCopy();
-        const commune = AidesVeloEngine.getCommuneByName("Montmorillon");
+        const commune = LocalisationHelper.getCommuneByName("Montmorillon");
 
         expect(commune).toBeDefined();
         const aides = engine
@@ -122,7 +117,7 @@ describe("AidesVeloEngine", () => {
 
       it("Angers - vélo électrique avec abonnement TER", async () => {
         const engine = globalTestEngine.shallowCopy();
-        const commune = AidesVeloEngine.getCommuneByName("Angers");
+        const commune = LocalisationHelper.getCommuneByName("Angers");
         expect(commune).toBeDefined();
 
         const aides = engine
@@ -145,7 +140,7 @@ describe("AidesVeloEngine", () => {
 
       it("Angers - vélo électrique sans abonnement TER", async () => {
         const engine = globalTestEngine.shallowCopy();
-        const commune = AidesVeloEngine.getCommuneByName("Angers");
+        const commune = LocalisationHelper.getCommuneByName("Angers");
         expect(commune).toBeDefined();
 
         const aides = engine
@@ -168,7 +163,7 @@ describe("AidesVeloEngine", () => {
 
       it("Toulouse - vélo adapté et en situation de handicap", async () => {
         const engine = globalTestEngine.shallowCopy();
-        const commune = AidesVeloEngine.getCommuneByName("Toulouse");
+        const commune = LocalisationHelper.getCommuneByName("Toulouse");
         expect(commune).toBeDefined();
 
         const aides = engine
@@ -196,7 +191,7 @@ describe("AidesVeloEngine", () => {
 
       it("Montpellier - vélo adapté et en situation de handicap", async () => {
         const engine = globalTestEngine.shallowCopy();
-        const commune = AidesVeloEngine.getCommuneByName("Montpellier");
+        const commune = LocalisationHelper.getCommuneByName("Montpellier");
         expect(commune).toBeDefined();
 
         const aides = engine

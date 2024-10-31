@@ -28,3 +28,5 @@ export { slugify } from "./lib/utils";
 
 export { AidesVeloEngine } from "./lib/AidesVeloEngine";
 export type { Aide } from "./lib/AidesVeloEngine";
+
+export { LocalisationHelper } from "./lib/LocalisationHelper";
