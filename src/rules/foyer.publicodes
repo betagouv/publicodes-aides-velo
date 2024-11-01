@@ -9,6 +9,7 @@ foyer . personnes:
   titre: Nombre de personnes dans le foyer fiscal
   question: Combien de personnes composent votre ménage ?
   par défaut: 1
+  unité: personne
 
 foyer . imposable:
   titre: Imposition du foyer en 2024

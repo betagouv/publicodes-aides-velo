@@ -4810,8 +4810,10 @@ aides . cluses arve et montagnes:
   lien: https://www.2ccam.fr/2023/06/09/prime-velo/
   avec:
     participation employeur:
+      type: nombre
       question: Quel est le montant de la participation financière de votre employeur ?
-      par défaut: 0€
+      par défaut: 0
+      unite: €
 
 aides . évian-les-bains:
   remplace: commune
