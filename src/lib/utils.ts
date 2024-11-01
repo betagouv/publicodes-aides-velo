@@ -1,3 +1,5 @@
+import { ASTNode, reduceAST } from "publicodes";
+
 /**
  * Slugify a string by removing accents, converting to lowercase, and replacing
  * spaces with hyphens.
@@ -16,4 +18,30 @@ export function slugify(str: string): string {
     .replace(/[^a-z0-9 -]/g, "") // remove non-alphanumeric characters
     .replace(/\s+/g, "-") // replace spaces with hyphens
     .replace(/-+/g, "-"); // remove consecutive hyphens
+}
+
+/**
+ * Extract all the possibilities from a rule.
+ *
+ * @param rule The rule to extract the possibilities from.
+ * @returns The list of possibilities or undefined if the rule doesn't have any.
+ *
+ * @note this should probably be moved to the publicodes package.
+ */
+export function extractOptions<T>(rule: ASTNode): T[] | undefined {
+  return reduceAST<T[] | undefined>(
+    (_, node) => {
+      if (node.nodeKind === "une possibilité") {
+        return node.explanation
+          .map((e) => {
+            if (e.nodeKind === "reference") {
+              return e.name;
+            }
+          })
+          .filter(Boolean) as T[];
+      }
+    },
+    undefined,
+    rule,
+  );
 }

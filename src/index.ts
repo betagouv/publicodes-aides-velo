@@ -9,7 +9,7 @@
 // Export the compiled rules and the types.
 
 import compiledRules from "../publicodes-build";
-export type { Questions, RuleName } from "../publicodes-build";
+export type { Questions, RuleName, Situation } from "../publicodes-build";
 /**
  * Publicodes rules compiled in a single JSON object.
  */

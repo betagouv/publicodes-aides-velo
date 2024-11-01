@@ -38,6 +38,45 @@ describe("AidesVeloEngine", () => {
     });
   });
 
+  describe("getOptions()", () => {
+    it("should return the correct options 'vélo . type'", () => {
+      const engine = globalTestEngine.shallowCopy();
+      const options = engine.getOptions("vélo . type");
+
+      expect(options).toEqual([
+        "mécanique simple",
+        "électrique",
+        "cargo",
+        "cargo électrique",
+        "pliant",
+        "pliant électrique",
+        "motorisation",
+        "adapté",
+      ]);
+    });
+
+    it("should return the correct options 'vélo . état'", () => {
+      const engine = globalTestEngine.shallowCopy();
+      const options = engine.getOptions("vélo . état");
+
+      expect(options).toEqual(["neuf", "occasion"]);
+    });
+
+    it("should return the correct options 'demandeur . statut'", () => {
+      const engine = globalTestEngine.shallowCopy();
+      const options = engine.getOptions("demandeur . statut");
+
+      expect(options).toEqual([
+        "étudiant",
+        "apprenti",
+        "demandeur d'emploi",
+        "salarié",
+        "retraité",
+        "autre",
+      ]);
+    });
+  });
+
   describe("getAllAidesIn()", () => {
     it("should return all aids in France by default", () => {
       const engine = globalTestEngine.shallowCopy();

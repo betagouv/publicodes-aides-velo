@@ -8,9 +8,10 @@ import {
   Localisation,
   Questions,
   RuleName,
+  Situation,
   rules,
 } from "..";
-import { Situation } from "../../publicodes-build";
+import { extractOptions } from "./utils";
 
 /**
  * Represents an aid with its metadata.
@@ -82,6 +83,20 @@ export class AidesVeloEngine {
     this.engine.setSituation(
       formatInputs(inputs) as PublicodesSituation<RuleName>,
     );
+    return this;
+  }
+
+  /**
+   * Set the situation of the engine. This will update the Publicodes situation
+   * with the given situation.
+   *
+   * @param situation The situation to set.
+   * @returns The instance of the engine with the updated situation.
+   *
+   * @note This is a low-level method prefer using {@link setInputs} instead.
+   */
+  public setSituation(situation: Situation): this {
+    this.engine.setSituation(situation as PublicodesSituation<RuleName>);
     return this;
   }
 
@@ -172,8 +187,21 @@ export class AidesVeloEngine {
    * get the current state of the engine (rules and inputs) without modifying
    * it.
    */
-  getEngine(): Engine {
+  public getEngine(): Engine {
     return this.engine.shallowCopy();
+  }
+
+  /**
+   * Get the options of a question by its name, if it has any.
+   *
+   * @param name The name of the question to get the options of.
+   * @returns The list of options or `undefined` if the question doesn't have
+   * any.
+   */
+  public getOptions<T extends keyof Questions>(
+    name: T,
+  ): Questions[T][] | undefined {
+    return extractOptions(this.engine.getRule(name));
   }
 
   /**
