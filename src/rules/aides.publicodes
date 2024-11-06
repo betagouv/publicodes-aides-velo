@@ -54,6 +54,7 @@ aides . bonus vélo:
   applicable si:
     toutes ces conditions:
       - localisation . pays = 'France'
+      - demandeur . âge . majeur
       - une de ces conditions:
           - vélo . électrique ou mécanique
           - vélo . adapté
@@ -100,6 +101,7 @@ aides . prime à la conversion:
   applicable si:
     toutes ces conditions:
       - localisation . pays = 'France'
+      - demandeur . âge . majeur
       - une de ces conditions:
           - revenu fiscal de référence par part <= 24900 €/an
           - demandeur . en situation de handicap
