@@ -1,4 +1,4 @@
-name: Publish package to npmjs
+name: Release
 
 on:
   workflow_run:
@@ -7,6 +7,9 @@ on:
       - completed
     branches:
       - main
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
 jobs:
   publish:
     runs-on: ubuntu-latest
