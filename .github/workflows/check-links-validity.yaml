@@ -13,9 +13,10 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: "20"
-      - run: npm ci
+      - run: yarn install --frozen-lockfile
+      - run: yarn run compile:rules
       - id: invalid_links
-        run: node ./src/scripts/check-links-validity.js --ci
+        run: node ./scripts/check-links-validity.js --ci
         timeout-minutes: 15
       - if: steps.invalid_links.outputs.comment
         uses: ./.github/actions/reopen-issue-with-comment
