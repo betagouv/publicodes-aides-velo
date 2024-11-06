@@ -25,19 +25,7 @@ jobs:
       - name: Compile package
         run: yarn compile
 
-      - name: Publish
-        run: npx changeset version
-
-      # - name: Publish package
-      #   uses: JS-DevTools/npm-publish@v3
-      #   id: npm-publish
-      #   with:
-      #     token: ${{ secrets.NPM_TOKEN }}
-      #
-      # - name: Create GitHub release
-      #   if: ${{ steps.npm-publish.outputs.type }}
-      #   uses: softprops/action-gh-release@v2
-      #   with:
-      #     token: ${{ secrets.GITHUB_TOKEN }}
-      #     tag_name: ${{ steps.npm-publish.outputs.version }}
-      #     generate_release_notes: true
+      - name: Create Release Pull Request
+        uses: changesets/action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
