@@ -7,8 +7,9 @@ France.
 
 > [!NOTE]
 > Ce modèle est la continuité de celui de [Mes Aides
-> Vélo](https://mesaidesvelo.fr/), rapatrié dans l'organisation Beta.gouv pour
-> faciliter sa maintenance et son évolution.
+> Vélo](https://mesaidesvelo.fr/) rédigé par Maxime Quendalle. Il a été
+> rapatrié dans l'organisation Beta.gouv pour faciliter sa maintenance et son
+> évolution.
 
 > [!WARNING]
 > Ce modèle est en cours de développement et n'est pas encore complet. L'API
@@ -122,3 +123,5 @@ yarn run compile
 // Run the documentation server
 yarn run doc
 ```
+
+##
