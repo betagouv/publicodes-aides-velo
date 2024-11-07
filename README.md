@@ -76,6 +76,13 @@ engine
 // Aide Ville de Bègles : 200€
 ```
 
+> [!TIP]
+> Pour récupérer les informations de localisation (code INSEE, EPCI, etc...)
+> nécessaires pour le calcul des aides, il est possible d'utiliser le paquet
+> [`@etalab/decoupage-administratif`](https://github.com/datagouv/decoupage-administratif).
+
+````typescript
+
 ### Avec les règles Publicodes
 
 Il est également possible d'utiliser les règles Publicodes directement.
@@ -103,7 +110,7 @@ console.log(result.nodeValue);
 
 console.log(formatValue(result));
 // 400 €
-```
+````
 
 ## Développement
 

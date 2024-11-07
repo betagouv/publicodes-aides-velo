@@ -18,7 +18,7 @@ export const rules = compiledRules;
 // Export generated data
 
 export * as data from "./data";
-export type { AideRuleNames, Commune, Localisation } from "./data";
+export type { AideRuleNames, Localisation } from "./data";
 
 // Export the utils functions.
 
@@ -28,5 +28,3 @@ export { slugify } from "./lib/utils";
 
 export { AidesVeloEngine } from "./lib/AidesVeloEngine";
 export type { Aide } from "./lib/AidesVeloEngine";
-
-export { LocalisationHelper } from "./lib/LocalisationHelper";
