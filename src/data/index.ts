@@ -1,36 +1,5 @@
-import rawCommunes from "./communes.json" assert { type: "json" };
 import collectivities from "./aides-collectivities.json" assert { type: "json" };
 import rawMiniatures from "./miniatures.json" assert { type: "json" };
-
-/**
- * A commune in France with its population, region, departement, EPCI, and
- * postal codes.
- *
- * @note This is filtered and transformed data from the
- * `@etalab/decoupage-administratif` package so please refer to
- * https://unpkg.com/@etalab/decoupage-administratif@4.0.0/data/communes.json
- * if you have a doubt about the format of the data.
- */
-export type Commune = {
-  /** The INSEE code */
-  code: string;
-  /** The name (as defined in `@etalab/decoupage-administratif`) */
-  nom: string;
-  /** The departement code (e.g. "75" for Paris) */
-  departement: string;
-  /** The region code (e.g. "11" for Île-de-France) */
-  region: string;
-  /** The size of the population */
-  population: number;
-  /** Whether the commune is in a low-emission zone */
-  zfe: boolean;
-  /** The EPCI name (e.g. "Métropole du Grand Paris") */
-  epci?: string;
-  /** The postal codes (e.g. ["75001", "75002"]) */
-  codesPostaux: string[];
-  /** The slugified name (e.g. "le-chatelet-sur-sormonne") */
-  slug: string;
-};
 
 /**
  * Full localisation of a commune, departement, region, or EPCI.
@@ -54,16 +23,6 @@ export type Localisation = {
   /** The size of the population */
   population: number;
 };
-
-/**
- * The list of all communes in France with their population, region,
- * departement, and EPCI.
- *
- * @note This will probably be extracted to a separate package to avoid
- * importing the whole `communes.json` file (which is quite large) or simply
- * rely directly on the `@etalab/decoupage-administratif` package.
- */
-export const communes = rawCommunes as Commune[];
 
 /**
  * All rule name that are considered to be aids and have a corresponding

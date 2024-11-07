@@ -1,9 +1,6 @@
-import {
-  Aide,
-  AideRuleNames,
-  AidesVeloEngine,
-  LocalisationHelper,
-} from "../src";
+import { Aide, AideRuleNames, AidesVeloEngine } from "../src";
+
+import { LocalisationHelper } from "../src/lib/LocalisationHelper";
 
 describe("AidesVeloEngine", () => {
   describe("new AidesVeloEngine()", () => {
@@ -230,8 +227,8 @@ describe("AidesVeloEngine", () => {
           contain(
             aides,
             "aides . bonus vélo",
-            ({ description }) => description?.includes("adapté") ?? false,
-          ),
+            ({ description }) => description?.includes("adapté") ?? false
+          )
         ).toBeTruthy();
         expect(contain(aides, "aides . occitanie vélo adapté")).toBeTruthy();
       });
@@ -256,8 +253,8 @@ describe("AidesVeloEngine", () => {
         expect(aides).toHaveLength(5);
         expect(
           contain(aides, "aides . bonus vélo", ({ description }) =>
-            description?.includes("adapté"),
-          ),
+            description?.includes("adapté")
+          )
         ).toBeTruthy();
         expect(contain(aides, "aides . prime à la conversion")).toBeTruthy();
         expect(contain(aides, "aides . occitanie vélo adapté")).toBeTruthy();
@@ -266,8 +263,8 @@ describe("AidesVeloEngine", () => {
             aides,
             "aides . département hérault vélo adapté",
             ({ description }) =>
-              description?.includes("Chèque Hérault Handi-Vélo"),
-          ),
+              description?.includes("Chèque Hérault Handi-Vélo")
+          )
         ).toBeTruthy();
         expect(contain(aides, "aides . montpellier vélo adapté")).toBeTruthy();
       });
@@ -278,7 +275,7 @@ describe("AidesVeloEngine", () => {
 function contain(
   aides: Aide[],
   id: AideRuleNames,
-  fn?: (aide: Aide) => boolean | undefined,
+  fn?: (aide: Aide) => boolean | undefined
 ): boolean {
   return aides.some((aide) => aide.id === id && (!fn || fn(aide) === true));
 }
