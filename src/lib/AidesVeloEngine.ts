@@ -33,12 +33,19 @@ export type Aide = {
   };
   /** The amount of the aid in euros. */
   amount: number;
-  /** The miniature URL of the collectivity providing the aid. */
+  /**
+   * The miniature URL of the collectivity providing the aid.
+   *
+   * @note The URL points to the
+   * `github.com/betagouv/aides-jeunes/public/img/institution` directory. You
+   * probably want to extract the miniature from the URL and format them
+   * according to your needs.
+   */
   logo?: string;
 };
 
 const aidesAvecLocalisationEntries = Object.entries(
-  data.aidesAvecLocalisation,
+  data.aidesAvecLocalisation
 ) as readonly [AideRuleNames, Localisation][];
 
 /**
@@ -81,7 +88,7 @@ export class AidesVeloEngine {
   public setInputs(inputs: Questions): this {
     this.inputs = inputs;
     this.engine.setSituation(
-      formatInputs(inputs) as PublicodesSituation<RuleName>,
+      formatInputs(inputs) as PublicodesSituation<RuleName>
     );
     return this;
   }
@@ -111,7 +118,7 @@ export class AidesVeloEngine {
    * aids.
    */
   public getAllAidesIn(
-    country: Localisation["country"] = "france",
+    country: Localisation["country"] = "france"
   ): Omit<Aide, "amount">[] {
     return aidesAvecLocalisationEntries
       .filter(([, { country: aideCountry }]) => aideCountry === country)
@@ -142,7 +149,7 @@ export class AidesVeloEngine {
   public computeAides(): Aide[] {
     return this.getAllAidesIn(
       (this.inputs["localisation . pays"]?.toLowerCase() ??
-        "france") as Localisation["country"],
+        "france") as Localisation["country"]
     ).flatMap((metadata) => {
       const ruleName = metadata.id;
       const { nodeValue } = this.engine.evaluate({
@@ -199,7 +206,7 @@ export class AidesVeloEngine {
    * any.
    */
   public getOptions<T extends keyof Questions>(
-    name: T,
+    name: T
   ): Questions[T][] | undefined {
     return extractOptions(this.engine.getRule(name));
   }
@@ -228,22 +235,20 @@ export class AidesVeloEngine {
     const description = rawNode?.description ?? "";
     const plafondRuleName = `${ruleName} . $plafond`;
     const plafondIsDefined = Object.keys(this.engine.getParsedRules()).includes(
-      plafondRuleName,
+      plafondRuleName
     );
     const plafond = plafondIsDefined && this.engine.evaluate(plafondRuleName);
     return (
       description
         .replace(
           /\$vélo/g,
-          veloCat === "motorisation"
-            ? "kit de motorisation"
-            : `vélo ${veloCat}`,
+          veloCat === "motorisation" ? "kit de motorisation" : `vélo ${veloCat}`
         )
         .replace(
           /\$plafond/,
           // TODO: improve Publicodes typing
           // @ts-ignore
-          formatValue(plafond?.nodeValue, { displayedUnit: "€" }),
+          formatValue(plafond?.nodeValue, { displayedUnit: "€" })
         )
         // NOTE: doesn't seem to be used
         .replace(/\$ville/, ville)
@@ -283,5 +288,5 @@ const epciSirenToName = Object.fromEntries(
       return [];
     }
     return [[(collectivity as any).code, collectivity.value]];
-  }),
+  })
 );

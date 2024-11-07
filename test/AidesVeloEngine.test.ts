@@ -1,7 +1,5 @@
 import { Aide, AideRuleNames, AidesVeloEngine } from "../src";
 
-import { LocalisationHelper } from "../src/lib/LocalisationHelper";
-
 describe("AidesVeloEngine", () => {
   describe("new AidesVeloEngine()", () => {
     it("should return an instance of AidesVeloEngine with corrects rules parsed", () => {
@@ -140,15 +138,12 @@ describe("AidesVeloEngine", () => {
     describe("with specific inputs", () => {
       it("Ville de Montmorillon - vélo électrique", () => {
         const engine = globalTestEngine.shallowCopy();
-        const commune = LocalisationHelper.getCommuneByName("Montmorillon");
-
-        expect(commune).toBeDefined();
         const aides = engine
           .setInputs({
-            "localisation . code insee": commune?.code,
-            "localisation . epci": commune?.epci ?? undefined,
-            "localisation . département": commune?.departement,
-            "localisation . région": commune?.region,
+            "localisation . code insee": "86165",
+            "localisation . epci": "CC Vienne et Gartempe",
+            "localisation . département": "86",
+            "localisation . région": "75",
             "localisation . pays": "France",
             "vélo . type": "électrique",
           })
@@ -161,15 +156,12 @@ describe("AidesVeloEngine", () => {
 
       it("Angers - vélo électrique avec abonnement TER", async () => {
         const engine = globalTestEngine.shallowCopy();
-        const commune = LocalisationHelper.getCommuneByName("Angers");
-        expect(commune).toBeDefined();
-
         const aides = engine
           .setInputs({
-            "localisation . code insee": commune?.code,
-            "localisation . epci": commune?.epci ?? undefined,
-            "localisation . département": commune?.departement,
-            "localisation . région": commune?.region,
+            "localisation . code insee": "49007",
+            "localisation . epci": "CU Angers Loire Métropole",
+            "localisation . département": "49",
+            "localisation . région": "52",
             "localisation . pays": "France",
             "vélo . type": "électrique",
           })
@@ -184,15 +176,13 @@ describe("AidesVeloEngine", () => {
 
       it("Angers - vélo électrique sans abonnement TER", async () => {
         const engine = globalTestEngine.shallowCopy();
-        const commune = LocalisationHelper.getCommuneByName("Angers");
-        expect(commune).toBeDefined();
 
         const aides = engine
           .setInputs({
-            "localisation . code insee": commune?.code,
-            "localisation . epci": commune?.epci ?? undefined,
-            "localisation . département": commune?.departement,
-            "localisation . région": commune?.region,
+            "localisation . code insee": "49007",
+            "localisation . epci": "CU Angers Loire Métropole",
+            "localisation . département": "49",
+            "localisation . région": "52",
             "localisation . pays": "France",
             "vélo . type": "électrique",
             "aides . pays de la loire . abonné TER": false,
@@ -207,15 +197,12 @@ describe("AidesVeloEngine", () => {
 
       it("Toulouse - vélo adapté et en situation de handicap", async () => {
         const engine = globalTestEngine.shallowCopy();
-        const commune = LocalisationHelper.getCommuneByName("Toulouse");
-        expect(commune).toBeDefined();
-
         const aides = engine
           .setInputs({
-            "localisation . code insee": commune?.code,
-            "localisation . epci": commune?.epci ?? undefined,
-            "localisation . département": commune?.departement,
-            "localisation . région": commune?.region,
+            "localisation . code insee": "31555",
+            "localisation . epci": "Toulouse Métropole",
+            "localisation . département": "31",
+            "localisation . région": "76",
             "localisation . pays": "France",
             "vélo . type": "adapté",
             "demandeur . en situation de handicap": true,
@@ -235,15 +222,12 @@ describe("AidesVeloEngine", () => {
 
       it("Montpellier - vélo adapté et en situation de handicap", async () => {
         const engine = globalTestEngine.shallowCopy();
-        const commune = LocalisationHelper.getCommuneByName("Montpellier");
-        expect(commune).toBeDefined();
-
         const aides = engine
           .setInputs({
-            "localisation . code insee": commune?.code,
-            "localisation . epci": commune?.epci ?? undefined,
-            "localisation . département": commune?.departement,
-            "localisation . région": commune?.region,
+            "localisation . code insee": "34172",
+            "localisation . epci": "Montpellier Méditerranée Métropole",
+            "localisation . département": "34",
+            "localisation . région": "76",
             "localisation . pays": "France",
             "vélo . type": "adapté",
             "demandeur . en situation de handicap": true,

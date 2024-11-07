@@ -15,13 +15,6 @@ export type Localisation = {
     code?: string;
   };
   country: "france" | "monaco" | "luxembourg";
-  codeInsee?: string;
-  /** The departement code (e.g. "75" for Paris) */
-  departement?: string;
-  /** The slugified name (e.g. "le-chatelet-sur-sormonne") */
-  slug: string;
-  /** The size of the population */
-  population: number;
 };
 
 /**
@@ -44,10 +37,8 @@ export const aidesAvecLocalisation = collectivities as Record<
 >;
 
 /**
- * The list of all miniatures file name corresponding to the collectivities
- * providing the aids.
- *
- * TODO: host the images on a CDN and provide the full URL instead of the
- * filename.
+ * Associates each rule name with the URL of the miniature of the corresponding
+ * collectivity. They target the
+ * `github.com/betagouv/aides-jeunes/public/img/institution` directory.
  */
 export const miniatures = rawMiniatures as Record<AideRuleNames, string>;
