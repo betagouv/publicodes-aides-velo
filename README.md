@@ -25,10 +25,13 @@ yarn install @betagouv/aides-velo
 
 ## Utilisation
 
-Par soucis de praticité, ce paquet expose en plus des règles Publicodes, une
-classe
+Par soucis de praticité, ce paquet expose en plus des règles Publicodes
+(accessible depuis
+[`./src/rules`](https://github.com/betagouv/publicodes-aides-velo/tree/main/src/rules)),
+une classe
 [`AidesVeloEngine`](https://www.jsdocs.io/package/@betagouv/aides-velo#AidesVeloEngine)
-qui encapsule un moteur Publicodes afin de faciliter l'utilisation des règles.
+qui encapsule un moteur [Publicodes](https://publi.codes) afin de faciliter
+l'utilisation des règles.
 
 En exposant notamment la méthode
 [`computeAides`](https://www.jsdocs.io/package/@betagouv/aides-velo#AidesVeloEngine.computeAides)
@@ -81,8 +84,6 @@ engine
 > nécessaires pour le calcul des aides, il est possible d'utiliser le paquet
 > [`@etalab/decoupage-administratif`](https://github.com/datagouv/decoupage-administratif).
 
-````typescript
-
 ### Avec les règles Publicodes
 
 Il est également possible d'utiliser les règles Publicodes directement.
@@ -110,7 +111,7 @@ console.log(result.nodeValue);
 
 console.log(formatValue(result));
 // 400 €
-````
+```
 
 ## Développement
 
