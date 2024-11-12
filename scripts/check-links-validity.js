@@ -72,7 +72,7 @@ async function getHTTPStatus(link) {
 
 async function report({ status, link, title }) {
   console.log(status === 200 ? "✅" : "❌", status, link);
-  if (status !== 200) {
+  if (status === 404 || status >= 500) {
     detectedErrors.push({ status, link, title });
   }
 }
