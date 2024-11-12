@@ -1,7 +1,6 @@
 import fs from "node:fs";
 import { join } from "node:path";
 import { URL } from "node:url";
-import sharp from "sharp";
 import { getDataPath } from "../../utils";
 import aidesAvecLocalisation from "../../../src/data/aides-collectivities.json" assert { type: "json" };
 
@@ -9,6 +8,9 @@ const currentPath = new URL("./", import.meta.url).pathname;
 const repoPath = join(currentPath, "aides-jeunes/");
 const rootPath = join(currentPath, "../../../");
 const metadataDirectory = join(repoPath, "data/institutions/");
+
+const RAW_GITHUB_URL =
+  "https://raw.githubusercontent.com/betagouv/aides-jeunes/refs/heads/main/public/";
 
 if (!fs.existsSync(metadataDirectory)) {
   console.warn("Impossible de télécharger les miniatures");
@@ -27,7 +29,9 @@ fs.mkdirSync(miniatureDirectory, { recursive: true });
 
 const thumbnailsManifest = Object.entries(aidesAvecLocalisation).reduce(
   (acc, [id, aide]) => {
-    const aideId = `${aide.collectivity.kind} - ${aide.collectivity.code ?? aide.collectivity.value}`;
+    const aideId = `${aide.collectivity.kind} - ${
+      aide.collectivity.code ?? aide.collectivity.value
+    }`;
 
     const img = imagesFromAidesJeunes[aideId];
 
@@ -36,17 +40,16 @@ const thumbnailsManifest = Object.entries(aidesAvecLocalisation).reduce(
       return acc;
     }
 
-    const imgName = img.imgSrc.split("/").at(-1).split(".")[0] + ".webp";
-    generateThumbnail(miniatureDirectory, repoPath, img.imgSrc, imgName);
+    const imgPath = RAW_GITHUB_URL + img.imgSrc;
 
-    return { ...acc, [id]: imgName };
+    return { ...acc, [id]: imgPath };
   },
-  {},
+  {}
 );
 
 fs.writeFileSync(
   getDataPath("miniatures.json"),
-  JSON.stringify(thumbnailsManifest),
+  JSON.stringify(thumbnailsManifest)
 );
 
 /// Utils
@@ -60,7 +63,7 @@ function getImageFromAidesJeunes(metadataDirectory) {
       fileContent
         .split("\n")
         .map((line) => line.split(":").map((field) => field.trim()))
-        .filter(([key]) => fieldsToRetrieve.includes(key)),
+        .filter(([key]) => fieldsToRetrieve.includes(key))
     );
 
     return [imgKey(data), data];
@@ -70,19 +73,6 @@ function getImageFromAidesJeunes(metadataDirectory) {
     ...entries,
     ["pays - France", { imgSrc: "img/institutions/logo_etat_francais.png" }],
   ]);
-}
-
-async function generateThumbnail(
-  miniatureDirectory,
-  repoPath,
-  imgSrc,
-  imgName,
-) {
-  const imgPath = join(repoPath, "public/", imgSrc);
-  const img = sharp(imgPath);
-
-  img.resize({ fit: "inside", height: 170, width: 120 });
-  await img.webp().toFile(join(miniatureDirectory, imgName));
 }
 
 // Map aides-jeunes identifiers with mesaidesvélo types.
