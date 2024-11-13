@@ -6,6 +6,9 @@
  * wrapper functions, and the types.
  */
 
+export type { Localisation, AideRuleNames } from "./data";
+export type { Questions, RuleName, Situation } from "../publicodes-build";
+
 export { slugify } from "./lib/utils";
 export { AidesVeloEngine } from "./lib/AidesVeloEngine";
 export type { Aide } from "./lib/AidesVeloEngine";
