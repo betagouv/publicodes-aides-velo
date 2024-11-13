@@ -6,25 +6,9 @@
  * wrapper functions, and the types.
  */
 
-// Export the compiled rules and the types.
-
-import compiledRules from "../publicodes-build";
+export type { Localisation, AideRuleNames } from "./data";
 export type { Questions, RuleName, Situation } from "../publicodes-build";
-/**
- * Publicodes rules compiled in a single JSON object.
- */
-export const rules = compiledRules;
-
-// Export generated data
-
-export * as data from "./data";
-export type { AideRuleNames, Localisation } from "./data";
-
-// Export the utils functions.
 
 export { slugify } from "./lib/utils";
-
-// Export the AidesVeloEngine class and the Aide type.
-
 export { AidesVeloEngine } from "./lib/AidesVeloEngine";
 export type { Aide } from "./lib/AidesVeloEngine";
