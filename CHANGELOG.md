@@ -1,5 +1,11 @@
 # @betagouv/aides-velo
 
+## 0.2.0
+
+### Minor Changes
+
+- c910d1c: Split the package in differents submodules (/rules and /data)
+
 ## 0.1.0
 
 ### Patch Changes
