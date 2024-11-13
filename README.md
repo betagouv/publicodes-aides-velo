@@ -86,11 +86,12 @@ engine
 
 ### Avec les règles Publicodes
 
-Il est également possible d'utiliser les règles Publicodes directement.
+Il est également possible d'utiliser les règles Publicodes directement avec
+`@betagouv/aides-velo/rules`.
 
 ```typescript
 import Engine, { formatValue } from "publicodes";
-import { rules } from "@betagouv/aides-velo";
+import rules from "@betagouv/aides-velo/rules";
 
 const engine = new Engine(rules);
 
@@ -131,5 +132,3 @@ yarn run compile
 // Run the documentation server
 yarn run doc
 ```
-
-##

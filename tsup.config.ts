@@ -12,6 +12,7 @@ export default defineConfig((options) => {
     clean: true,
     cjsInterop: true,
     splitting: true,
+    treeshake: true,
     minify: options.watch ? false : "terser",
   };
 });

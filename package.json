@@ -13,6 +13,16 @@
       "types": "./dist/src/index.d.ts",
       "require": "./dist/src/index.cjs",
       "import": "./dist/src/index.js"
+    },
+    "./rules": {
+      "types": "./dist/publicodes-build/index.d.ts",
+      "require": "./dist/publicodes-build/index.cjs",
+      "import": "./dist/publicodes-build/index.js"
+    },
+    "./data": {
+      "types": "./dist/src/data/index.d.ts",
+      "require": "./dist/src/data/index.cjs",
+      "import": "./dist/src/data/index.js"
     }
   },
   "files": [

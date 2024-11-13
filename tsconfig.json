@@ -12,8 +12,7 @@
     "strict": true
   },
   "include": [
-    "src/**/*.ts",
-    "build/*.js"
+    "src/**/*.ts"
   ],
   "exclude": [
     "node_modules"

@@ -2,15 +2,13 @@ import Engine, {
   formatValue,
   Situation as PublicodesSituation,
 } from "publicodes";
+import rules, { Questions, RuleName, Situation } from "../../publicodes-build";
 import {
   AideRuleNames,
-  data,
+  aidesAvecLocalisation,
   Localisation,
-  Questions,
-  RuleName,
-  Situation,
-  rules,
-} from "..";
+  miniatures,
+} from "../data";
 import { extractOptions } from "./utils";
 
 /**
@@ -45,7 +43,7 @@ export type Aide = {
 };
 
 const aidesAvecLocalisationEntries = Object.entries(
-  data.aidesAvecLocalisation
+  aidesAvecLocalisation
 ) as readonly [AideRuleNames, Localisation][];
 
 /**
@@ -128,7 +126,7 @@ export class AidesVeloEngine {
         // the AST instead of the data object. And removing Luxembourg and
         // Monaco to avoid needing to import the whole
         // aides-collectivities.json file?
-        const collectivity = data.aidesAvecLocalisation[ruleName].collectivity;
+        const collectivity = aidesAvecLocalisation[ruleName].collectivity;
 
         return {
           id: ruleName,
@@ -136,7 +134,7 @@ export class AidesVeloEngine {
           description: rule.rawNode.description,
           url: (rule.rawNode as any).lien,
           collectivity,
-          logo: data.miniatures[ruleName],
+          logo: miniatures[ruleName],
         };
       });
   }

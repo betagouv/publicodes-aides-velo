@@ -1,7 +1,8 @@
 import Engine, { Rule } from "publicodes";
 import assert from "assert";
-
-import { AideRuleNames, RuleName, data, rules } from "../src";
+import { AideRuleNames, RuleName } from "../src";
+import rules from "../publicodes-build";
+import { aidesAvecLocalisation, miniatures } from "../src/data";
 
 describe("Aides Vélo", () => {
   const engine = new Engine(rules);
@@ -34,7 +35,7 @@ describe("Aides Vélo", () => {
           !noNeedToAssociatesLoc.includes(key)
         ) {
           expect(
-            data.aidesAvecLocalisation[key as AideRuleNames]
+            aidesAvecLocalisation[key as AideRuleNames]
           ).not.toBeUndefined();
         }
       });
@@ -49,10 +50,10 @@ describe("Aides Vélo", () => {
           key.split(" . ").length === 2 &&
           !rulesToIgnore.includes(key)
         ) {
-          if (!data.miniatures[key as AideRuleNames]) {
+          if (!miniatures[key as AideRuleNames]) {
             console.log(key);
           }
-          expect(data.miniatures[key as AideRuleNames]).not.toBeUndefined();
+          expect(miniatures[key as AideRuleNames]).not.toBeUndefined();
         }
       });
     });
