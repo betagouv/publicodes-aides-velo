@@ -35,7 +35,8 @@
     "pretest": "yarn run generate",
     "test": "vitest run --globals",
     "precompile": "yarn run generate",
-    "compile": "tsup"
+    "compile": "tsup",
+    "release": "yarn compile && changeset publish"
   },
   "dependencies": {
     "publicodes": "^1.5.1"
