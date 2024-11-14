@@ -4,6 +4,7 @@
 
 import fs from "node:fs";
 import Publicodes, { reduceAST } from "publicodes";
+import { exit } from "process";
 
 import epci from "@etalab/decoupage-administratif/data/epci.json" assert { type: "json" };
 import { getDataPath } from "./utils.js";
@@ -83,7 +84,8 @@ function extractCollectivityFromAST(rule) {
     const code = epci.find(({ nom }) => nom === localisation.value)?.code;
 
     if (!code) {
-      console.warn(`Bad EPCI code for ${localisation.value}`);
+      console.error(`Bad EPCI code: ${localisation.value}`);
+      exit(1);
     }
 
     return { ...localisation, code };

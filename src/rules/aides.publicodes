@@ -9102,14 +9102,14 @@ aides . cacl:
 
 aides . crestois et pays de saillans:
   remplace: intercommunalité
-  titre: Communauté de communes du Crestois et du Pays de Saillans
+  titre: Communauté de communes du Crestois et de Pays de Saillans Coeur de Drôme
   description: |
     Aide à l'électrification de vélo classique. La demande de subvention doit
     être effectuée dans un délai de 3 mois après la date indiquée sur la
     facture de la pose.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC du Crestois et du Pays de Saillans Coeur de Drôme'
+      - localisation . epci = 'CC du Crestois et de Pays de Saillans Coeur de Drôme'
       - demandeur . âge . majeur
       - vélo . motorisation
   valeur: 25% * vélo . prix
