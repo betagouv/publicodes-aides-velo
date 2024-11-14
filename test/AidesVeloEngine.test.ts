@@ -252,6 +252,20 @@ describe("AidesVeloEngine", () => {
         ).toBeTruthy();
         expect(contain(aides, "aides . montpellier vélo adapté")).toBeTruthy();
       });
+
+      it("CA du Centre Littoral - vélo électrique", async () => {
+        const engine = globalTestEngine.shallowCopy();
+        const aides = engine
+          .setInputs({
+            "localisation . epci": "CA du Centre Littoral",
+            "localisation . pays": "France",
+            "vélo . type": "électrique",
+          })
+          .computeAides();
+
+        expect(aides).toHaveLength(3);
+        expect(contain(aides, "aides . cacl")).toBeTruthy();
+      });
     });
   });
 });

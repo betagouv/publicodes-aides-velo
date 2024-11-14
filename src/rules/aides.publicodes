@@ -9079,3 +9079,23 @@ aides . val de drôme:
         alors: 40% * vélo . prix
   lien: https://www.valdedrome.com/8257-bonus-velo.htm
 
+aides . cacl:
+  remplace: intercommunalité
+  titre: Communauté d'Agglomération du Centre Littoral
+  description: |
+    La demande doit être faite avant l'achat du vélo. Une aide de 100€ est
+    également disponible pour l'achat d'un vélo classique Enfant.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CA du Centre Littoral'
+      - vélo . état . neuf
+  valeur:
+    variations:
+      - si: vélo . cargo
+        alors: 1000€
+      - si: vélo . électrique
+        alors: 600€
+      - si: vélo . mécanique
+        alors: 300€
+  plafond: 50% * vélo . prix
+  lien: https://www.cacl-guyane.fr/achetez-un-velo-avec-la-cacl/
