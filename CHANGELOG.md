@@ -1,5 +1,14 @@
 # @betagouv/aides-velo
 
+## 0.2.1
+
+### Patch Changes
+
+- 92cdedd: Add - Communauté d'Agglomération du Centre Littoral
+- f2d17f1: Add - Communauté de communes du Val de Drôme
+- f111cc1: Add - Communauté de communes du Crestois et du Pays de Saillans
+- 48e75d5: Add - Communauté de communes du Haut Vallespir
+
 ## 0.2.0
 
 ### Minor Changes
