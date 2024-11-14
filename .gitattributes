@@ -1,1 +1,2 @@
 *.publicodes linguist-language=YAML
+.changeset/*.md linguist-generated

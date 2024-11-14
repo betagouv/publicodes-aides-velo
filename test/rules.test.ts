@@ -1613,4 +1613,27 @@ describe("Aides Vélo", () => {
       ).toBeGreaterThanOrEqual(0);
     });
   });
+
+  describe("Communauté de communes du Val de Drôme en Biovallée", () => {
+    it("devrait avoir un plafond pour les vélos", () => {
+      engine.setSituation({
+        "localisation . epci": "'CC du Val de Drôme en Biovallée'",
+        "vélo . prix": 200,
+        "revenu fiscal de référence par part": "10000 €/an",
+      });
+      expect(engine.evaluate("aides . val de drôme").nodeValue).toEqual(
+        200 * 0.4
+      );
+    });
+
+    it("ne devrait pas avoir de plafond pour les kits de motorisation", () => {
+      engine.setSituation({
+        "localisation . epci": "'CC du Val de Drôme en Biovallée'",
+        "vélo . type": "'motorisation'",
+        "vélo . prix": 50,
+        "revenu fiscal de référence par part": "10000 €/an",
+      });
+      expect(engine.evaluate("aides . val de drôme").nodeValue).toEqual(50);
+    });
+  });
 });

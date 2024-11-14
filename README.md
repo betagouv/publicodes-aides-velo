@@ -132,3 +132,45 @@ yarn run compile
 // Run the documentation server
 yarn run doc
 ```
+
+## Modification des aides
+
+Si vous avez repéré une erreur ou souhaitez ajouter une aide, vous pouvez
+simplement ouvrir [une
+issue](https://github.com/betagouv/publicodes-aides-velo/issues) ou si vous le
+souhaitez, ouvrir une _pull request_ avec les modifications nécessaires.
+
+Toutes les aides sont définie dans le fichier
+[`src/rules/aides.publicodes`](./src/rules/aides.publicodes) et peuvent être
+modifiées (resp. supprimées/ajoutées) directement dans ce fichier.
+
+Une fois les modifications effectuées, assurez vous de ne pas avoir introduit
+d'erreurs dans les règles avec la commande `yarn run compile`.
+
+> [!NOTE]
+> Si une aide n'est plus d'actualité et doit être supprimée, il est préférable
+> de la commenter plutôt que de la supprimer directement. Cela permet de
+> conserver une trace de l'aide et de la réactiver si nécessaire.
+
+Si la modélisation de l'aide implique un certain degré de complexité, il est
+probablement souhaitable de rajouter des tests unitaires dans le fichier
+[`test/rules.test.ts`](./test/rules.test.ts).
+
+Une fois toutes les modifications effectuées et les tests passés, vous pouvez
+ajouter vos modifications dans le changelog grâce à la commande `npx changeset` en
+sélectionnant `patch` puis en ajoutant la description adéquate :
+
+```
+Add - [Titre de l'aide]
+
+Update - [Titre de l'aide] - [Description de la modification]
+
+Remove - [Titre de l'aide]
+```
+
+> [!TIP]
+> Exécuter cette commande permettra d'automatiser la génération du changelog
+> lors de la publication de la prochaine version et ainsi garder une trace des
+> modifications apportées.
+
+Enfin, _commitez_ vos modifications et ouvrez une _pull request_.

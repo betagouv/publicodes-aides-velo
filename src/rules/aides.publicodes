@@ -9028,3 +9028,90 @@ aides . grand besançon:
         alors: 400€
       - sinon: 200€
   lien: https://www.grandbesancon.fr/demarche-administrative/subvention-pour-lachat-dun-velo-electrique/
+
+aides . haut vallespir:
+  remplace: intercommunalité
+  titre: Communauté de communes du Haut Vallespir
+  description: |
+    Aide à l'achat d'un vélo à assistance électrique neuf. Elle est cumulable
+    avec d'autres aides de votre commune dans la limite de 80% du prix d'achat.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CC du Haut Vallespir'
+      - demandeur . âge . majeur
+      - revenu fiscal de référence par part <= 25660 €/an
+      - vélo . état . neuf
+      - vélo . électrique
+  valeur: 100 € 
+  lien: https://www.haut-vallespir.fr/?page_id=5276
+
+# TODO: à mettre à jour en 2025
+aides . val de drôme:
+  remplace: intercommunalité
+  titre: Communauté de communes du Val de Drôme en Biovallée
+  description: |
+    Aide versée dans la limite de l'enveloppe budgétaire allouée (15 000€ pour
+    2024).
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CC du Val de Drôme en Biovallée'
+      - demandeur . âge . majeur
+      - revenu fiscal de référence par part <= 28797 €/an
+      - une de ces conditions:
+          - vélo . électrique ou mécanique
+          - vélo . motorisation
+  valeur:
+    variations:
+      - si: revenu fiscal de référence par part <= 14089 €/an
+        alors: 
+          variations:
+            - si: vélo . électrique
+              alors: 200€
+            - si: vélo . mécanique
+              alors: 50€
+            - si: vélo . motorisation
+              alors: 50€
+      - si: vélo . électrique
+        alors: 100€
+  plafond:
+    variations:
+      - si: vélo . électrique ou mécanique
+        alors: 40% * vélo . prix
+  lien: https://www.valdedrome.com/8257-bonus-velo.htm
+
+aides . cacl:
+  remplace: intercommunalité
+  titre: Communauté d'Agglomération du Centre Littoral
+  description: |
+    La demande doit être faite avant l'achat du vélo. Une aide de 100€ est
+    également disponible pour l'achat d'un vélo classique Enfant.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CA du Centre Littoral'
+      - vélo . état . neuf
+  valeur:
+    variations:
+      - si: vélo . cargo
+        alors: 1000€
+      - si: vélo . électrique
+        alors: 600€
+      - si: vélo . mécanique
+        alors: 300€
+  plafond: 50% * vélo . prix
+  lien: https://www.cacl-guyane.fr/achetez-un-velo-avec-la-cacl/
+
+aides . crestois et pays de saillans:
+  remplace: intercommunalité
+  titre: Communauté de communes du Crestois et de Pays de Saillans Coeur de Drôme
+  description: |
+    Aide à l'électrification de vélo classique. La demande de subvention doit
+    être effectuée dans un délai de 3 mois après la date indiquée sur la
+    facture de la pose.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CC du Crestois et de Pays de Saillans Coeur de Drôme'
+      - demandeur . âge . majeur
+      - vélo . motorisation
+  valeur: 25% * vélo . prix
+  plafond: 250€
+  lien: https://www.cccps.fr/demarches/aide-pour-lelectrification-dun-velo-classique/
