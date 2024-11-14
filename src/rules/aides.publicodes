@@ -9028,3 +9028,20 @@ aides . grand besançon:
         alors: 400€
       - sinon: 200€
   lien: https://www.grandbesancon.fr/demarche-administrative/subvention-pour-lachat-dun-velo-electrique/
+
+aides . haut vallespir:
+  remplace: intercommunalité
+  titre: Communauté de communes du Haut Vallespir
+  description: |
+    Aide à l'achat d'un vélo à assistance électrique neuf. Elle est cumulable
+    avec d'autres aides de votre commune dans la limite de 80% du prix d'achat.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CC du Haut Vallespir'
+      - demandeur . âge . majeur
+      - revenu fiscal de référence par part <= 25660 €/an
+      - vélo . état . neuf
+      - vélo . électrique
+  valeur: 100 € 
+  lien: https://www.haut-vallespir.fr/?page_id=5276
+
