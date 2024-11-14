@@ -9045,3 +9045,37 @@ aides . haut vallespir:
   valeur: 100 € 
   lien: https://www.haut-vallespir.fr/?page_id=5276
 
+# TODO: à mettre à jour en 2025
+aides . val de drôme:
+  remplace: intercommunalité
+  titre: Communauté de communes du Val de Drôme en Biovallée
+  description: |
+    Aide versée dans la limite de l'enveloppe budgétaire allouée (15 000€ pour
+    2024).
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CC du Val de Drôme en Biovallée'
+      - demandeur . âge . majeur
+      - revenu fiscal de référence par part <= 28797 €/an
+      - une de ces conditions:
+          - vélo . électrique ou mécanique
+          - vélo . motorisation
+  valeur:
+    variations:
+      - si: revenu fiscal de référence par part <= 14089 €/an
+        alors: 
+          variations:
+            - si: vélo . électrique
+              alors: 200€
+            - si: vélo . mécanique
+              alors: 50€
+            - si: vélo . motorisation
+              alors: 50€
+      - si: vélo . électrique
+        alors: 100€
+  plafond:
+    variations:
+      - si: vélo . électrique ou mécanique
+        alors: 40% * vélo . prix
+  lien: https://www.valdedrome.com/8257-bonus-velo.htm
+
