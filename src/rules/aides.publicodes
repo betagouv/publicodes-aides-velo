@@ -4813,13 +4813,11 @@ aides . évian-les-bains:
   remplace: commune
   titre: Ville d'Évian-les-Bains
   description: |
-    La Ville veut encourager les Evianai·ses aux nouvelles mobilités via la
-    mise en place d'une aide à l'achat de vélo ou de vélo à assistance
-    électrique (VAE), ou bien de dispositifs permettant de transformer un vélo
-    en VAE. Seuls les habitants peuvent y prétendre selon certains critères.
-    Cette aide est de 20 % du coût d'achat et plafonnée à 400 € ou d'un montant
-    forfaitaire de 400 € permettant de transformer un vélo en VAE. Un cahier
-    des charges précise l'éligibilité matérielle et de provenance.
+    La Ville d’Évian soutient les nouvelles mobilités en offrant une aide de 20 %
+    du coût d’achat (plafonnée à 400 €) pour un vélo musculaire ou vélo à
+    assistance électrique (VAE) ou 400 € forfaitaires pour transformer un vélo
+    en VAE. Réservée aux habitants, selon critères. Un cahier des charges
+    précise l'éligibilité matérielle et de provenance.
   applicable si:
     toutes ces conditions:
       - localisation . code insee = '74119'
