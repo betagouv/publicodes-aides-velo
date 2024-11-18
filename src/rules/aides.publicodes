@@ -4204,13 +4204,11 @@ aides . la madeleine:
   remplace: commune
   titre: Ville de La Madeleine
   description: |
-    Suvention pour l'achat de moyens de transport doux tels que les vélos, les
-    trottinettes, les gyroroues/gyropodes, les skateboards ainsi que l'achat
-    d'accessoires pour vélos, à savoir les antivols en U, les dispositifs de
-    marquage/traçage, système d'alarme et puce de géolocalisation, les kits
-    d'éclairage, les casques, les porte-bébés et siège enfants, les remorques
-    enfants, les vêtements de pluie et les sacoches/paniers/ porte-bagages /
-    top case/chariot/caddie de course pour vélo.
+    La Ville de La Madeleine propose une subvention pour l’achat de moyens de
+    transport doux (vélos, trottinettes, gyroroues, skateboards) et d’accessoires
+    : antivols en U, dispositifs de marquage, systèmes d’alarme et puces GPS,
+    éclairage, casques, porte-bébés, remorques enfants, vêtements de pluie,
+    sacoches, paniers, porte-bagages, top cases, chariots, caddies pour vélo.
   applicable si: 
     toutes ces conditions:
       - localisation . code insee = '59368'
