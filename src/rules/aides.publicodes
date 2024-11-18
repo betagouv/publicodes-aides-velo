@@ -6864,17 +6864,11 @@ aides . genneviliers:
   remplace: commune
   titre: Ville de Genneviliers
   description: |
-    Cette aide est destinée à tout‧e Gennevillois‧e de 18 ans et plus qui
-    souhaite acheter un vélo vendu par un professionnel. Depuis 2022, la mesure
-    est élargie aux vélos d'occasion achetés chez un professionnel.
-
-    Elle est renouvelée et améliorée pour l'année 2024 ! Dorénavant, cette aide
-    financière est valable pour l'achat d'un vélo mécanique, électrique, cargo
-    ou pliant.
-
-    Pour être éligibles, les vélos à assistance électrique, cargos, pliants ou
-    adaptés doivent impérativement avoir été achetés après le 1er septembre
-    2024.
+    Cette aide pour les Gennevillois‧es de 18 ans et plus s’applique aux vélos
+    achetés chez un professionnel, y compris les vélos d’occasion (depuis 2022).
+    En 2024, elle couvre les vélos mécaniques, électriques, cargos, pliants ou
+    adaptés. Les vélos électriques, cargos, pliants ou adaptés doivent avoir été
+    achetés après le 1er septembre 2024 pour être éligibles.
   applicable si:
     toutes ces conditions:
       - localisation . code insee = '92036'
