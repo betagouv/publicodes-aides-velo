@@ -4471,17 +4471,10 @@ aides . grand reims:
   remplace: intercommunalité
   titre: Grand Reims Communauté urbaine
   description: |
-    Le Grand Reims finance jusqu'à 500€ l'achat d'un vélo à assistance à
-    assistance électrique.
-
-    Afin de participer à la création d'un « écosystème » favorable au
-    développement du vélo sur le territoire, le vélo électrique devra enfin
-    être acquis auprès d'un commerçant ou d'une association du Grand Reims.
-    Sont exclus du dispositif les achats réalisés par internet livrés chez vous
-    ou en magasin.
-
-    Le dépôt des dossiers est ouvert du 1 avril au 31 octobre 2024, dans la
-    limite des budgets disponibles alloués à l'opération.
+    Le Grand Reims finance jusqu’à 500€ pour l’achat d’un vélo à assistance
+    électrique, sous réserve qu’il soit acheté auprès d’un commerçant ou d’une
+    association locale. Les achats en ligne sont exclus. Dossiers à déposer entre
+    le 1er avril et le 31 octobre 2024, dans la limite des budgets disponibles.
   applicable si: 
     toutes ces conditions:
       - localisation . epci = 'CU du Grand Reims'
