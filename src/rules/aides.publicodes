@@ -2048,14 +2048,15 @@ aides . ronchin:
   remplace: commune
   titre: Ville de Ronchin
   description: |
-    La prime s'applique pour l'achat d'un vélo adulte, neuf ou d'occasion vendu
-    par des professionnels, et équipé d'un système d'éclairage homologué, et
-    incluant éventuellement l'achat d'un antivol de bonne résistance. Cette
-    aide municipale réservée aux Ronchinois est fixée à 25% du prix
-    d'acquisition avec un plafond de 150 € pour les vélos sans assistance
-    électrique et de 300 € pour les vélos avec assistance électrique ou type
-    cargo.
-  applicable si: localisation . code insee = '59507'
+    La ville de Ronchin propose une prime, réservée aux habitants de la commune
+    et couvre 25% du prix d’achat d’un vélo adulte neuf ou d’occasion vendu par
+    un professionnel, avec éclairage homologué et éventuellement un antivol.
+
+    Plafond : 150 € pour un vélo sans assistance électrique, 300 € pour un vélo
+    avec assistance ou type cargo.
+  applicable si:
+    toutes ces conditions:
+      - localisation . code insee = '59507'
   valeur: 25% * vélo . prix
   plafond:
     variations:
