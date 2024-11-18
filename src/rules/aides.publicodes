@@ -4370,10 +4370,10 @@ aides . les herbiers:
   remplace: intercommunalité
   titre: Communauté de communes du Pays des Herbiers
   description: |
-    Depuis 2019, la Communauté de communes subventionne l'acquisition de vélos
-    à assistance électrique pour les habitants de son territoire. Ces cycles
-    permettent en effet d'accroître la distance parcourue tout en limitant
-    l'effort fourni, notamment au franchissement des côtes et au démarrage.
+    Depuis 2019, la Communauté de communes subventionne l’achat de vélos à
+    assistance électrique, facilitant les déplacements sur de longues distances,
+    en côte ou au démarrage.
+
     Depuis 2023, le dispositif est ouvert aux vélos spéciaux sans assistance
     électrique qui permettent d'effectuer des déplacements utilitaires.
   applicable si:
