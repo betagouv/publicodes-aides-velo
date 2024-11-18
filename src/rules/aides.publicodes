@@ -2904,12 +2904,11 @@ aides . pays de l'ozon:
   remplace: intercommunalité
   titre: Pays de l'Ozon
   description: |
-    Afin d'encourager l'utilisation des modes doux sur le territoire, la
-    Communauté de Communes du Pays de l'Ozon propose depuis le 15 juillet 2018,
-    une subvention par famille d'un montant de 200€ pour l'achat d'un vélo à
-    assistance électrique (VAE), d'un vélo cargo, d'un vélo électrifié chez un
-    professionnel, de VAE pliant, de vélo adapté aux personnes porteuses de
-    handicaps neuf. Limite des dossiers à déposer avant le 6 décembre 2024.
+    Depuis le 15 juillet 2018, la Communauté de Communes du Pays de l’Ozon
+    propose une subvention de 200€ par famille pour l’achat d’un vélo à
+    assistance électrique (VAE), vélo cargo, VAE pliant, vélo électrifié chez un
+    professionnel ou adapté aux personnes porteuses de handicaps. Dossier à déposer
+    avant le 6 décembre 2024.
   applicable si:
     toutes ces conditions:
       - localisation . epci = "CC du Pays de l'Ozon"
