@@ -1,5 +1,13 @@
 # @betagouv/aides-velo
 
+## 0.2.2
+
+### Patch Changes
+
+- [`e72345f`](https://github.com/betagouv/publicodes-aides-velo/commit/e72345f72485efa9c53b0883fdddb89013478471) Thanks [@EmileRolley](https://github.com/EmileRolley)! - Lib: more precise return type for the getEngine method
+
+- [#18](https://github.com/betagouv/publicodes-aides-velo/pull/18) [`482bf04`](https://github.com/betagouv/publicodes-aides-velo/commit/482bf04fcc927d959990d2a29e44a381abd7ade1) Thanks [@Shamzic](https://github.com/Shamzic)! - Mise à jour de descriptions d'aides
+
 ## 0.2.1
 
 ### Patch Changes
