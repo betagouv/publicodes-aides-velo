@@ -2048,9 +2048,9 @@ aides . ronchin:
   remplace: commune
   titre: Ville de Ronchin
   description: |
-    La ville de Ronchin propose une prime, réservée aux habitants de la commune
-    et couvre 25% du prix d’achat d’un vélo adulte neuf ou d’occasion vendu par
-    un professionnel, avec éclairage homologué et éventuellement un antivol.
+    Prime réservée aux habitants de la commune couvre 25% du prix d’achat
+    d’un vélo adulte neuf ou d’occasion vendu par un professionnel, avec éclairage
+    homologué et éventuellement un antivol.
 
     Plafond : 150 € pour un vélo sans assistance électrique, 300 € pour un vélo
     avec assistance ou type cargo.
@@ -2905,11 +2905,11 @@ aides . pays de l'ozon:
   remplace: intercommunalité
   titre: Pays de l'Ozon
   description: |
-    Depuis le 15 juillet 2018, la Communauté de Communes du Pays de l’Ozon
-    propose une subvention de 200€ par famille pour l’achat d’un vélo à
-    assistance électrique (VAE), vélo cargo, VAE pliant, vélo électrifié chez un
-    professionnel ou adapté aux personnes porteuses de handicaps. Dossier à déposer
-    avant le 6 décembre 2024.
+    Subvention de 200€ par famille pour l’achat d’un vélo à assistance électrique (VAE), 
+    vélo cargo, VAE pliant, vélo électrifié chez un professionnel ou adapté aux 
+    personnes porteuses de handicaps.
+    
+    Dossier à déposer avant le 6 décembre 2024.
   applicable si:
     toutes ces conditions:
       - localisation . epci = "CC du Pays de l'Ozon"
@@ -4205,11 +4205,10 @@ aides . la madeleine:
   remplace: commune
   titre: Ville de La Madeleine
   description: |
-    La Ville de La Madeleine propose une subvention pour l’achat de moyens de
-    transport doux (vélos, trottinettes, gyroroues, skateboards) et d’accessoires
-    : antivols en U, dispositifs de marquage, systèmes d’alarme et puces GPS,
-    éclairage, casques, porte-bébés, remorques enfants, vêtements de pluie,
-    sacoches, paniers, porte-bagages, top cases, chariots, caddies pour vélo.
+    Subvention pour l’achat de moyens de transport doux (vélos, trottinettes, gyroroues,
+    skateboards) et d’accessoires : antivols en U, dispositifs de marquage, systèmes 
+    d’alarme et puces GPS, éclairage, casques, porte-bébés, remorques enfants, vêtements 
+    de pluie, sacoches, paniers, porte-bagages, top cases, chariots, caddies pour vélo.
   applicable si: 
     toutes ces conditions:
       - localisation . code insee = '59368'
@@ -4369,12 +4368,7 @@ aides . les herbiers:
   remplace: intercommunalité
   titre: Communauté de communes du Pays des Herbiers
   description: |
-    Depuis 2019, la Communauté de communes subventionne l’achat de vélos à
-    assistance électrique, facilitant les déplacements sur de longues distances,
-    en côte ou au démarrage.
-
-    Depuis 2023, le dispositif est ouvert aux vélos spéciaux sans assistance
-    électrique qui permettent d'effectuer des déplacements utilitaires.
+    Subvention pour l’achat de vélos à assistance électrique.
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'CC du Pays des Herbiers'
@@ -4470,10 +4464,12 @@ aides . grand reims:
   remplace: intercommunalité
   titre: Grand Reims Communauté urbaine
   description: |
-    Le Grand Reims finance jusqu’à 500€ pour l’achat d’un vélo à assistance
+    Subvention jusqu’à 500€ pour l’achat d’un vélo à assistance
     électrique, sous réserve qu’il soit acheté auprès d’un commerçant ou d’une
-    association locale. Les achats en ligne sont exclus. Dossiers à déposer entre
-    le 1er avril et le 31 octobre 2024, dans la limite des budgets disponibles.
+    association locale. Les achats en ligne sont exclus. 
+    
+    Dossiers à déposer entre le 1er avril et le 31 octobre 2024, dans la limite des 
+    budgets disponibles.
   applicable si: 
     toutes ces conditions:
       - localisation . epci = 'CU du Grand Reims'
@@ -4506,11 +4502,12 @@ aides . reims:
   remplace: commune
   titre: Ville de Reims
   description: |
-    La Ville de Reims propose une aide jusqu’à 250€ pour l’achat d’un vélo,
-    sous réserve qu’il soit acquis auprès d’un commerçant ou d’une association
-    du Grand Reims. Les achats en ligne livrés à domicile ou en magasin sont
-    exclus. Dossiers à déposer entre le 1er avril et le 31 octobre 2024, dans la
-    limite des budgets disponibles.
+    Aide jusqu’à 250€ pour l’achat d’un vélo, sous réserve qu’il soit acquis auprès d’un 
+    commerçant ou d’une association du Grand Reims. Les achats en ligne livrés à  
+    domicile ou en magasin sont exclus. 
+    
+    Dossiers à déposer entre le 1er avril et le 31 octobre 2024, dans la limite des 
+    budgets disponibles.
   applicable si: 
     toutes ces conditions:
       - localisation . code insee = '51454'
@@ -4807,8 +4804,7 @@ aides . évian-les-bains:
   remplace: commune
   titre: Ville d'Évian-les-Bains
   description: |
-    La Ville d’Évian soutient les nouvelles mobilités en offrant une aide de 20 %
-    du coût d’achat (plafonnée à 400 €) pour un vélo musculaire ou vélo à
+    Aide de 20 % du coût d’achat (plafonnée à 400 €) pour un vélo musculaire ou vélo à
     assistance électrique (VAE) ou 400 € forfaitaires pour transformer un vélo
     en VAE. Réservée aux habitants, selon critères. Un cahier des charges
     précise l'éligibilité matérielle et de provenance.
