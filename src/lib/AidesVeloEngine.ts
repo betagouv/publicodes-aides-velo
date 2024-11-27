@@ -192,7 +192,7 @@ export class AidesVeloEngine {
    * get the current state of the engine (rules and inputs) without modifying
    * it.
    */
-  public getEngine(): Engine {
+  public getEngine(): Engine<RuleName> {
     return this.engine.shallowCopy();
   }
 
