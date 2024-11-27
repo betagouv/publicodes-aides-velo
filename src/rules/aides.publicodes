@@ -6244,10 +6244,10 @@ aides . béthune bruay:
   description: |
     Pass'Mobil'Agglo - Aide financière accessible aux habitants du territoire
     qui en feront la demande pour l'achat de vélo (mécanique, électrique, cargo,
-    adapté PMR, pliant), d'accessoires de sécurité pour cycliste (conditionné à
-    l'achat d'un vélo) et nouveauté cette année la catégorie vélo pliant !
+    adapté PMR, pliant) et d'accessoires de sécurité pour cycliste (conditionné à
+    l'achat d'un vélo).
 
-    Subvention de 30 à 500€ sous forme de bon d’achat utilisable chez les
+    Subvention de 30 à 500€ en bon d’achat utilisable chez les
     commerces et associations partenaires (validité limitée au 8 décembre
     2024).
   applicable si:  localisation . epci = 'CA de Béthune-Bruay, Artois-Lys Romane'
