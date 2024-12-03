@@ -549,7 +549,7 @@ aides . dardilly:
   description: |
     La commune de Dardilly finance 25% de votre achat d'un vélo à assistance
     électrique ou d'une trottinette électrique dans la limite de 150€. La
-    transformation d'un vélo « classique » en vélo à assistance électrique
+    transformation d'un vélo mécanique en vélo à assistance électrique
     bénéficie également de cette aide communale.
   applicable si:
     toutes ces conditions:
@@ -680,7 +680,7 @@ aides . charlieu-belmont:
   remplace: commune
   titre: Charlieu-Belmont Communauté
   description: |
-    Aide à l'achat OU aide à la réparation de VAE et de vélos musculaires à
+    Aide à l'achat OU aide à la réparation de VAE et de vélos mécaniques à
     usage personnel, neufs ou occasions chez les réparateurs / garages
     spécialisés au titre de l'exercice 2024.
   applicable si:
@@ -836,14 +836,14 @@ aides . bègles vélo spécifique:
   valeur: 200€
   lien: https://www.mairie-begles.fr/actualite/recuperateur-deau-et-velo-electrique-la-ville-vous-soutient-pour-vous-equiper/
 
-aides . bègles vélo classique:
+aides . bègles vélo mécanique:
   remplace: commune
   titre: Ville de Bègles
   description: |
-    La commune propose, une participation à l'achat de vélos classiques neufs
+    La commune propose, une participation à l'achat de vélos mécaniques neufs
     ou d'occasion achetés chez un professionnel et accorde pour l'année 2024
     une aide de 60 euros aux béglais et aux béglais qui achèteraient un vélo
-    classique (dans la limite des 30 premiers ménages jusqu'au 31 décembre
+    mécanique (dans la limite des 30 premiers ménages jusqu'au 31 décembre
     2024). 
   applicable si:
     toutes ces conditions:
@@ -972,7 +972,7 @@ aides . saint-rémy:
   titre: Commune de Saint-Remy
   description: |
      La commune de Saint-Rémy propose un dispositif d'aide financière pour
-     inciter ses administré·es à acquérir un V.A.E, un vélo classique, un VTT, un
+     inciter ses administré·es à acquérir un V.A.E, un vélo mécanique, un VTT, un
      VTC ou un vélo enfant auprès d'un vélociste implanté sur le territoire du
      Grand Chalon.
   applicable si:
@@ -1001,7 +1001,7 @@ aides . saint-émilionnais:
   description: |
     La PRIM'O VÉLO de la Communauté de Communes du Grand Saint-Emilionnais est
     une aide financière de 200€ par foyer pour l'achat d'un vélo neuf ou
-    d'occasion, classique ou à assistance électrique. Cette aide sera attribuée
+    d'occasion, mécanique ou à assistance électrique. Cette aide sera attribuée
     dans la limite de 50 foyers, sans conditions de ressources, sur l'ensemble
     du territoire pour l'année 2024.
   applicable si:
@@ -1319,7 +1319,7 @@ aides . strasbourg:
   description: |
     Le Conseil de l'Eurométropole de Strasbourg a créé une aide financière à
     l'acquisition d'un vélo à assistance électrique (VAE), d'un vélo cargo, ou
-    de la motorisation d'un vélo classique.
+    de la motorisation d'un vélo mécanique.
   applicable si: 
     toutes ces conditions:
       - localisation . epci = 'Eurométropole de Strasbourg'
@@ -1805,7 +1805,7 @@ aides . caen jeune:
   remplace: commune
   titre: Ville de Caen
   description: |
-    La Ville de Caen propose une aide à l'achat d'un vélo classique d'occasion
+    La Ville de Caen propose une aide à l'achat d'un vélo mécanique d'occasion
     de 50 euros sous conditions de ressources pour les jeunes de 18 à 25 ans.
   applicable si:
     toutes ces conditions:
@@ -1944,7 +1944,7 @@ aides . mondeville:
   titre: Ville de Mondeville
   description: |
     Aide DYNAMO La prime concerne l'achat d'un Vélo à Assistance Électrique
-    (VAE), d'un vélo-cargo à assistance électrique et même d'un vélo classique
+    (VAE), d'un vélo-cargo à assistance électrique et même d'un vélo mécanique
     ! L'achat doit se faire chez un vélociste de Caen La Mer. 
   applicable si:
     toutes ces conditions:
@@ -1991,7 +1991,7 @@ aides . flers:
   remplace: intercommunalité
   titre: Flers Agglo
   description: |
-    Aide à l'achat de vélos (classique ou électrique, neuf ou occasion)
+    Aide à l'achat de vélos (mécanique ou électrique, neuf ou occasion)
     destinée aux habitants de Flers Agglo. L'aide attribuée est de 30 % du prix
     de la facture plafonnée à 200 €.
   applicable si:
@@ -2130,7 +2130,7 @@ aides . verson:
     Afin de favoriser les déplacements à vélo, la commission Espaces publics et
     cadre de vie a proposé la mise en place d'une « prime » vélo. L'aide est de
     250 € pour un vélo à assistance électrique et de 50 € pour un vélo
-    classique.
+    mécanique.
   applicable si:
     toutes ces conditions:
       - localisation . code insee = '14738'
@@ -3434,7 +3434,7 @@ aides . bidart:
   titre: Ville de Bidart
   description: |
     Si vous avez votre résidence principale à Bidart et que vous achetez un
-    vélo classique ou un vélo à assistance électrique, vous pouvez bénéficier
+    vélo mécanique ou un vélo à assistance électrique, vous pouvez bénéficier
     d'une aide de la Ville de Bidart.
 
     Cette aide peut être demandée pour tout achat de vélo effectué à compter du
@@ -3525,7 +3525,7 @@ aides . morzine-avoriaz:
   titre: Ville de Morzine-Avoriaz
   description: |
     La Ville de Morzin-Avoriaz à mise en place d'une aide à l'achat d'un vélo à
-    assistance électrique, d'un vélo musculaire ou d'une remorque vélo sur la
+    assistance électrique, d'un vélo mécanique ou d'une remorque vélo sur la
     période 2023-2025.
   applicable si:
     toutes ces conditions:
@@ -4804,7 +4804,7 @@ aides . évian-les-bains:
   remplace: commune
   titre: Ville d'Évian-les-Bains
   description: |
-    Aide de 20 % du coût d’achat (plafonnée à 400 €) pour un vélo musculaire ou vélo à
+    Aide de 20 % du coût d’achat (plafonnée à 400 €) pour un vélo mécanique ou vélo à
     assistance électrique (VAE) ou 400 € forfaitaires pour transformer un vélo
     en VAE. Réservée aux habitants, selon critères. Un cahier des charges
     précise l'éligibilité matérielle et de provenance.
@@ -5140,7 +5140,7 @@ aides . montlucon:
   titre: Montluçon Communauté
   description: |
     Aide pour l'acquisition d'un vélo à assistance électrique neuf ou
-    d'occasion ou d'un vélo classique musculaire neuf ou d'occasion à usage
+    d'occasion ou d'un vélo mécanique neuf ou d'occasion à usage
     personnel.
   applicable si:
     toutes ces conditions:
@@ -5339,7 +5339,7 @@ aides . epinal:
   remplace: intercommunalité
   titre: Agglomération Épinal
   description: |
-    Aide à l'achat d'un vélo à assistance électrique (VAE), musculaire
+    Aide à l'achat d'un vélo à assistance électrique (VAE), mécanique
     (jusqu'au 31 décembre 2024), ou d'un kit de transformation d'un vélo en
     VAE.
   applicable si: 
@@ -5577,7 +5577,7 @@ aides . canélan:
   titre: Ville de Canélan
   description: |
     Aide à l'acquisition d'un vélo à assistance électrique (neuf ou d'occasion)
-    ou la motorisation d'un vélo classique.
+    ou la motorisation d'un vélo mécanique.
   applicable si: 
     toutes ces conditions:
       - localisation . code insee = '33090'
@@ -5711,7 +5711,7 @@ aides . mont de marsan:
   titre: Mont de Marsan Agglo
   description: |
      Aide à l'achat pour un vélo à assistance électrique (VAE) ou un vélo
-     musculaire sans assistance.
+     mécanique sans assistance.
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'CA Mont de Marsan Agglomération'
@@ -6271,7 +6271,7 @@ aides . baisieux:
   remplace: commune
   titre: Ville de Baisieux
   description: |
-    Aide à l'achat d'un vélo classique, VAE ou kit d'électrification (neuf ou
+    Aide à l'achat d'un vélo mécanique, VAE ou kit d'électrification (neuf ou
     d'occasion).
 
     Il est nécessaire de faire la demande auprès de la maire de Baisieux avant
@@ -6700,7 +6700,7 @@ aides . cambrai:
   remplace: intercommunalité
   titre: Communauté d'agglomération de Cambrai
   description: |
-    Aide à l'acquisition d'un vélo classique ou à assistance électrique neuf
+    Aide à l'acquisition d'un vélo mécanique ou à assistance électrique neuf
     acheté chez un commerçant professionnel implanté sur le territoire de la CA
     de Cambrai.
   applicable si: 
@@ -6963,7 +6963,7 @@ aides . mennecy:
   remplace: commune
   titre: Ville de Mennecy
   description: |
-    Subvention pour l'achat d'un vélo musculaire neuf. A noter que pour les
+    Subvention pour l'achat d'un vélo mécanique neuf. A noter que pour les
     vélos enfants et juniors (-18 ans), une aide forfaitaire de 30€ pourra être
     versée sans critère.
   applicable si:
@@ -7237,7 +7237,7 @@ aides . montfort:
   remplace: intercommunalité
   titre: Montfort Communauté
   description: |
-    Aide à l'achat d'un vélo classique ou à assistance électrique neuf ou
+    Aide à l'achat d'un vélo mécanique ou à assistance électrique neuf ou
     d'occasion.
     
     Si l'achat est effectué dans un commerce de centre-bourg, Montfort
@@ -7667,7 +7667,7 @@ aides . moselle et madon:
   remplace: intercommunalité
   titre: Communauté de communes Moselle et Madon
   description: |
-    Aide pour l'achat de vélo neuf ou d'occasion (vélo classique ou à
+    Aide pour l'achat de vélo neuf ou d'occasion (vélo mécanique ou à
     assistance électrique, vélo cargo, vélo adapté) vendu par un professionnel
     ou l'électrification d'un vélo.
   applicable si:
@@ -8246,7 +8246,7 @@ aides . villers-sur-mer:
   remplace: commune
   titre: Ville de Villers-sur-mer
   description: |
-    Aide à l'acquisition d'un vélo classique ou à assistance électrique neuf.
+    Aide à l'acquisition d'un vélo mécanique ou à assistance électrique neuf.
   applicable si:
     toutes ces conditions:
       - localisation . code insee = '14754'
@@ -8339,7 +8339,7 @@ aides . bièvre isère:
   remplace: intercommunalité
   titre: Bièvre Isère Communauté
   description: |
-    Prime Vélo - aide financière à l'achat d'un vélo, musculaire ou à
+    Prime Vélo - aide financière à l'achat d'un vélo, mécanique ou à
     assistance électrique, cargo ou non.
   applicable si:
     toutes ces conditions:
@@ -9056,7 +9056,7 @@ aides . cacl:
   titre: Communauté d'Agglomération du Centre Littoral
   description: |
     La demande doit être faite avant l'achat du vélo. Une aide de 100€ est
-    également disponible pour l'achat d'un vélo classique Enfant.
+    également disponible pour l'achat d'un vélo mécanique enfant.
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'CA du Centre Littoral'
@@ -9076,7 +9076,7 @@ aides . crestois et pays de saillans:
   remplace: intercommunalité
   titre: Communauté de communes du Crestois et de Pays de Saillans Coeur de Drôme
   description: |
-    Aide à l'électrification de vélo classique. La demande de subvention doit
+    Aide à l'électrification de vélo mécanique. La demande de subvention doit
     être effectuée dans un délai de 3 mois après la date indiquée sur la
     facture de la pose.
   applicable si:
