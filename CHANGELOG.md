@@ -1,5 +1,11 @@
 # @betagouv/aides-velo
 
+## 0.2.3
+
+### Patch Changes
+
+- [#20](https://github.com/betagouv/publicodes-aides-velo/pull/20) [`42ff38c`](https://github.com/betagouv/publicodes-aides-velo/commit/42ff38c89948c8988b76708771dc1a4403f1b8d9) Thanks [@Shamzic](https://github.com/Shamzic)! - Met à jour la taille de la description Pass'Mobil'Agglo
+
 ## 0.2.2
 
 ### Patch Changes
