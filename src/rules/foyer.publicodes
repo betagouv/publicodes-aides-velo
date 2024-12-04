@@ -1,6 +1,6 @@
 foyer:
   titre: Foyer fiscal
-  description: |
+  description: >
     Informations relatives à la composition du foyer fiscal de
     l'utilisateur·ice.
 
@@ -14,7 +14,8 @@ foyer . personnes:
 foyer . imposable:
   titre: Imposition du foyer en 2024
   valeur: revenu fiscal de référence par part >= 11295 €/an
-  note: |
+  note: >
     ### Source
-    
+   
+
     [Infographie - Impôt sur le revenu : barème 2024](https://www.service-public.fr/particuliers/vosdroits/F1419)

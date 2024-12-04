@@ -34,7 +34,7 @@ vélo . type:
 
 vélo . adapté:
   valeur: vélo . type = 'adapté'
-  note: |
+  note: >
     Pour plus d'informations, voir cet
     [article](https://www.monparcourshandicap.gouv.fr/actualite/velo-adapte-au-handicap-quel-materiel-choisir-et-comment-le-financer).
 
@@ -88,7 +88,7 @@ vélo . pliant électrique:
 
 vélo . motorisation:
   valeur: vélo . type = 'motorisation'
-  description: |
+  description: >
     Un kit de conversion permet de transformer un vélo mécanique classique en
     vélo à assistance électrique. Il est constitué d'un moteur électrique,
     d'une batterie, ainsi que d'un contrôleur et d'un afficheur.
@@ -102,7 +102,7 @@ vélo . fabriqué en france:
 # NOTE: souhaitons-nous faire la distinction entre occasion et reconditionné ?
 vélo . état:
   question: S'agit-t-il d'un vélo neuf ou d'occasion ?
-  description: |
+  description: >
     Par occasion est généralement entendu un vélo reconditionné acheté auprès
     d'un revendeur agréé.
   par défaut: "'neuf'"

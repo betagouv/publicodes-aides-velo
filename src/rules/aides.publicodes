@@ -1,7 +1,7 @@
 maximiser les aides:
   expérimental: oui
   titre: Maximiser les aides (expérimental)
-  description: |
+  description: >
     Cette configuration permet de maximiser le montant des aides à l'achat d'un
     vélo, en déterminant le prix optimal du vélo (certaines aides plafonnent ce
     montant) et en répondant aux critères d'éligibilité des aides.
@@ -15,9 +15,10 @@ maximiser les aides:
       valeur: oui
       remplace:
         références à: aides . pays de la loire . abonné TER
-  note: |
+  note: >
     Toutes les sous-questions paramétrant les conditions d'attribution des aides
     ne sont pas prises en compte ici.
+
 
     Pour que cette configuration soit pertinente, il faudra faire un travail de
     relecture pour s'assurer que les conditions d'attribution des aides sont
@@ -41,7 +42,7 @@ aides . montant:
  
 plafond état: 
   titre: Plafond du Bonus Vélo pour 2024
-  description: |
+  description: >
     Plafond fixé par l'État sur le revenu fiscal de référence par part par part pour
     bénéficier du Bonus vélo.
   valeur: 15400 €/an  
@@ -49,8 +50,7 @@ plafond état:
 aides . bonus vélo:
   remplace: état
   titre: Bonus vélo
-  description: |
-    Nouveau bonus $vélo applicable à partir du 14 février 2024.
+  description: Nouveau bonus $vélo applicable à partir du 14 février 2024.
   applicable si:
     toutes ces conditions:
       - localisation . pays = 'France'
@@ -109,10 +109,11 @@ aides . prime à la conversion:
           - vélo . électrique
           - vélo . adapté
   titre: Prime à la conversion
-  description: |
+  description: >
     Pour bénéficier de cette « prime à la casse » vous devez détruire un
     véhicule diesel immatriculé avant janvier 2011 ou bien un véhicule essence
     immatriculé avant 2006.
+
 
     La prime est de 40% du prix du vélo dans la limite de 3 000 €. Elle est
     cumulable avec les aides à l'achat d'un vélo électrique, comme le « bonus
@@ -134,7 +135,7 @@ aides . prime à la conversion . surprime ZFE:
       - localisation . pays = 'France'
       - localisation . ZFE
   titre: Surprime Zone à Faibles Émissions (ZFE)
-  description: |
+  description: >
     Vous pouvez bénéficier d'une surprime car $ville est une zone à faible
     émission mobilité (ZFE). Cette surprime est conditionnée à l'octroi d'une
     aide par la collectivité locale et son montant est identique à l'aide versée
@@ -152,7 +153,7 @@ aides . forfait mobilités durables: 500 €/an
 aides . ile de france:
   remplace: région
   titre: Île-de-France Mobilités
-  description: |
+  description: >
     La région Île-de-France subventionne l'achat d'un $vélo à hauteur de 50% et
     jusqu'à un plafond de $plafond.
   applicable si: localisation . région = '11'
@@ -192,12 +193,13 @@ aides . occitanie:
       - vélo . état . neuf
       - vélo . électrique
   valeur: 200€
-  note: |
+  note: >
     ### Note sur le plafond
 
-    Dans les versions précédentes, un plafond du montant du prix du vélo
-    était appliqué. Cependant, rien n'indique la présence de ce plafond dans
-    la [documentation
+
+    Dans les versions précédentes, un plafond du montant du prix du vélo était
+    appliqué. Cependant, rien n'indique la présence de ce plafond dans la
+    [documentation
     officielle](https://www.laregion.fr/Eco-cheque-mobilite-velo-a-assistance-electrique).
     Nous avons donc décidé de ne pas l'appliquer.
   # plafond: vélo . prix
@@ -225,7 +227,7 @@ aides . occitanie vélo adapté:
 aides . grand est:
   remplace: région
   titre: Région Grand Est
-  description: |
+  description: >
     Soutien à l'acquisition de vélos adaptés, de vélos-cargos, de vélos
     longtails et à l'installation de kits de conversion de vélos.
   applicable si: localisation . région = '44'
@@ -271,7 +273,7 @@ aides . corse:
 aides . ardèche:
   remplace: département
   titre: Département de l'Ardèche
-  description: |
+  description: >
     Le département ardéchois rembourse 10% du prix d'un vélo électrique acheté
     auprès d'un vélociste partenaire (offre limitée à 1500 vélos).
   applicable si:
@@ -287,7 +289,7 @@ aides . ardèche:
 aides . paris:
   remplace: commune
   titre: Ville de Paris
-  description: |
+  description: >
     Vélos à assistance électrique, vélos cargos, découverte de Mobilib'… La Ville
     de Paris propose des aides financières pour inciter à utiliser des modes de
     déplacements plus respectueux de l'environnement. Les personnes malvoyantes
@@ -408,7 +410,7 @@ aides . lyon:
 aides . saône-beaujolais:
   remplace: intercommunalité
   titre: Communauté de communes Saône Beaujolais
-  description: |
+  description: >
     La CCSB met en place une aide financière à l'acquisition de vélos
     traditionnels, de vélos à assistance électrique ou de kit d'électrification
     à destination des habitant·es de la Communauté de Communes
@@ -435,11 +437,12 @@ aides . saône-beaujolais:
 aides . villefranche beaujolais saône:
   remplace: intercommunalité
   titre: Villefranche Agglomération Beaujolais Saône
-  description: |
+  description: >
      la Communauté d'Agglomération Villefranche-Beaujolais-Saône a inscrit dans
      son Plan Vélo adopté le 24 février 2022 un dispositif d'aides financières
      à l'acquisition de vélos ou vélos à assistance électrique, neufs ou
      d'occasion.
+
      Le dispositif est prolongé jusqu'au 31 décembre 2025.
   applicable si: localisation . epci = 'CA Villefranche Beaujolais Saône'
   valeur:
@@ -461,7 +464,7 @@ aides . villefranche beaujolais saône:
 aides . ville-sur-jarnioux:
   remplace: commune
   titre: Ville-sur-Jarnioux
-  description: |
+  description: >
     Le Conseil Municipal de Ville-sur-Jarnioux a voté la mise en place d'une «
     aide-vélo » aux Villésiens. Cette participation financière est versée aux
     habitant·es qui ont bénéficié de l'aide de la CAVBS.
@@ -480,7 +483,7 @@ aides . ville-sur-jarnioux:
 aides . sainte-foy-lès-lyon:
   remplace: commune
   titre: Ville de Sainte-Foy-lès-Lyon
-  description: |
+  description: >
     La Ville accorde une aide aux Fidésiens qui souhaitent faire l'acquisition
     d'un vélo à assistance électrique, d'un vélo pliant ou d'un vélo-cargo,
     neuf ou d'occasion.
@@ -499,7 +502,7 @@ aides . sainte-foy-lès-lyon:
 aides . pays mornantais:
   remplace: intercommunalité
   titre: Communauté de communes du Pays Mornantais
-  description: |
+  description: >
     Subvention pour l'aide à l'acquisition de Vélos à Assistance Electrique
     (VAE), d'un kit d'assistance électrique ou de vélos spécifiques
   applicable si:
@@ -521,7 +524,7 @@ aides . pays mornantais:
 aides . mornant:
   remplace: commune
   titre: Ville de Mornant
-  description: |
+  description: >
     Le Centre Communal d'Action Sociale de la Commune de Mornant propose une
     aide financière pour l'acquisition d'un vélo à assistance électrique,
     familial ou adapté aux personnes à mobilité réduite.
@@ -546,7 +549,7 @@ aides . mornant:
 aides . dardilly:
   remplace: commune
   titre: Ville de Dardilly
-  description: |
+  description: >
     La commune de Dardilly finance 25% de votre achat d'un vélo à assistance
     électrique ou d'une trottinette électrique dans la limite de 150€. La
     transformation d'un vélo « classique » en vélo à assistance électrique
@@ -576,7 +579,7 @@ aides . dardilly:
 aides . igny:
   remplace: commune
   titre: Ville d'Igny
-  description: |
+  description: >
     La Ville d'Igny propose une aide financière de 100€ pour l'achat d'un vélo
     électrique neuf ou d'un kit d'assistance électrique pour vélo.
   applicable si:
@@ -592,7 +595,7 @@ aides . igny:
 aides . irigny:
   remplace: commune
   titre: Ville d'Irigny
-  description: |
+  description: >
     La ville octroi aux Irignois qui acquièrent un vélo à assistance
     électrique, un vélo-cargo ou l'électrification d'un vélo, d'une aide d'un
     montant de 100 €.
@@ -611,7 +614,7 @@ aides . irigny:
 aides . oullins:
   remplace: commune
   titre: Ville d'Oullins
-  description: |
+  description: >
     La Ville subventionne votre achat d'un vélo électrique neuf ou d'occasion
     par une prime de 100€.
   applicable si:
@@ -624,7 +627,7 @@ aides . oullins:
 aides . pierre-bénite:
   remplace: commune
   titre: Ville de Pierre-Bénite
-  description: |
+  description: >
     La Ville de Pierre-Bénite propose une aide financière de 100€ pour l'achat
     d'un vélo à assistance électrique neuf.
   applicable si:
@@ -639,7 +642,7 @@ aides . pierre-bénite:
 aides . givors:
   remplace: commune
   titre: Ville de Givors
-  description: |
+  description: >
     La commune a mis en place un dispositif d'aide à l'achat de vélos (tous
     types) et à l'achat de kits d'électrification.
   applicable si: 
@@ -664,7 +667,7 @@ aides . givors:
 aides . blacé:
   remplace: commune
   titre: Ville de Blacé
-  description: |
+  description: >
     La commune de Blacé a adopté́ un dispositif d'aides financières à
     l'acquisition de vélos à assistance électrique (VAE), neufs ou d'occasion
     jusqu'au 31 décembre 2024.
@@ -679,7 +682,7 @@ aides . blacé:
 aides . charlieu-belmont:
   remplace: commune
   titre: Charlieu-Belmont Communauté
-  description: |
+  description: >
     Aide à l'achat OU aide à la réparation de VAE et de vélos musculaires à
     usage personnel, neufs ou occasions chez les réparateurs / garages
     spécialisés au titre de l'exercice 2024.
@@ -708,7 +711,7 @@ aides . unieux:
 aides . bordeaux:
   remplace: intercommunalité
   titre: Bordeaux Métropole
-  description: |
+  description: >
     Bordeaux Métropole vous aide à l'achat de vélos spécifiques neufs ou
     d'occasion, achetés chez un professionnel : vélo à assistance électrique,
     vélo pliant, vélo-cargo, vélo allongé, tricycle pour adultes, dispositif
@@ -753,7 +756,7 @@ aides . bordeaux:
 aides . mérignac:
   remplace: commune
   titre: Ville de Mérignac
-  description: |
+  description: >
     Aides financières pour l'achat d'un vélo ou la pose d'un kit
     d'électrification. Ce montant sera ajusté à la baisse si nécessaire afin
     que le calcul théorique du droit cumulé aux trois aides (Etat, Bordeaux
@@ -800,7 +803,7 @@ aides . mérignac:
 aides . taillan-médoc:
   remplace: commune
   titre: Commune du Taillan-Médoc
-  description: |
+  description: >
     La Ville propose une aide unique de 100€ pour l'achat d'un vélo électrique
     ou d'un dispositif d'électrification d'un vélo standard (kit
     d'électrification répondant à la norme NF EN 15194). Cette aide est
@@ -817,7 +820,7 @@ aides . taillan-médoc:
 aides . bègles vélo spécifique:
   remplace: commune
   titre: Ville de Bègles
-  description: |
+  description: >
     La ville accorde aux habitant·es de Bègles une participation de 200 euros pour
     l'achat d'un vélo spécifique neuf en 2024 (vélo à assistance électrique, vélo
     pliant, vélo cargo, tricycle pour adultes, dispositif d'électrification de
@@ -839,7 +842,7 @@ aides . bègles vélo spécifique:
 aides . bègles vélo classique:
   remplace: commune
   titre: Ville de Bègles
-  description: |
+  description: >
     La commune propose, une participation à l'achat de vélos classiques neufs
     ou d'occasion achetés chez un professionnel et accorde pour l'année 2024
     une aide de 60 euros aux béglais et aux béglais qui achèteraient un vélo
@@ -855,7 +858,7 @@ aides . bègles vélo classique:
 aides . cenon:
   remplace: commune
   titre: Ville de Cenon
-  description: |
+  description: >
     La Ville de Cenon propose une aide à l'achat d'un vélo à assistance
     électrique, d'un vélo pliant ou d'un vélo cargo avec un prix d'acquisition
     supérieur ou égal à 800 € pour les habitant·es de la commune ayant un
@@ -883,7 +886,7 @@ aides . cenon:
 aides . la cali:
   remplace: intercommunalité
   titre: La Cali - L'agglo Rive Droite de Bordeaux
-  description: |
+  description: >
     La Cali met en place un dispositif d'aide à l'acquisition de vélos, neuf ou
     d'occasion. Ces aides sont cumulatives avec les aides de l'État.
   applicable si: 
@@ -970,7 +973,7 @@ aides . la cali:
 aides . saint-rémy:
   remplace: commune
   titre: Commune de Saint-Remy
-  description: |
+  description: >
      La commune de Saint-Rémy propose un dispositif d'aide financière pour
      inciter ses administré·es à acquérir un V.A.E, un vélo classique, un VTT, un
      VTC ou un vélo enfant auprès d'un vélociste implanté sur le territoire du
@@ -998,7 +1001,7 @@ aides . saint-rémy:
 aides . saint-émilionnais:
   remplace: intercommunalité
   titre: Communauté de communes du Grand Saint-Émilionnais
-  description: |
+  description: >
     La PRIM'O VÉLO de la Communauté de Communes du Grand Saint-Emilionnais est
     une aide financière de 200€ par foyer pour l'achat d'un vélo neuf ou
     d'occasion, classique ou à assistance électrique. Cette aide sera attribuée
@@ -1015,7 +1018,7 @@ aides . saint-émilionnais:
 aides . pays de la loire:
   remplace: région
   titre: Région Pays de la Loire
-  description: |
+  description: >
     Aide à l'achat d'un vélo pliant ou à assistance électrique (VAE) pour les
     abonnés Aléop.
   applicable si:
@@ -1032,7 +1035,7 @@ aides . pays de la loire:
     abonné TER:
       type: booléen
       question: Êtes-vous abonnés du TER Pays de la Loire ?
-      description: |
+      description: >
         Sont éligibles les abonné·es de Tutti illimité, Métrocéane mensuels,
         les abonnés annuels de Loire-Atlantique, Maine et Loire et Sarthe,
         ainsi que les abonné·es mensuels des réseaux de Mayenne et Vendée (hors
@@ -1128,7 +1131,7 @@ aides . nantes:
 aides . pornic:
   remplace: intercommunalité
   titre: Pornic agglo Pays de Retz
-  description: |
+  description: >
     Pornic agglo Pays de Retz vous rembourse jusqu'à 400 € sur l'achat de votre
     vélo mécanique ou électrique et jusqu'à 50 € pour la réparation d'un vélo.
     Seules les factures de moins de 6 mois sont prises en compte (dans la limite
@@ -1169,8 +1172,7 @@ aides . pornic:
 aides . toulouse:
   remplace: intercommunalité
   titre: Toulouse Métropole
-  description: |
-    Prime vélo – Aide à l'achat, la location ou la transformation d'un vélo.
+  description: Prime vélo – Aide à l'achat, la location ou la transformation d'un vélo.
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'Toulouse Métropole'
@@ -1217,7 +1219,7 @@ aides . toulouse:
 aides . grenoble:
   remplace: intercommunalité
   titre: Syndicat Mixte des Mobilités de l'Aire Grenobloise et Grenoble Alpes Métropole 
-  description: |
+  description: >
     Afin d'encourager les déplacements à vélo et de vous aider dans
     l'acquisition d'un équipement, le Syndicat Mixte des Mobilités de l'Aire
     Grenobloise et Grenoble Alpes Métropole mettent en place une aide à l'achat
@@ -1316,7 +1318,7 @@ aides . grenoble:
 aides . strasbourg:
   remplace: intercommunalité
   titre: Eurométropole de Strasbourg
-  description: |
+  description: >
     Le Conseil de l'Eurométropole de Strasbourg a créé une aide financière à
     l'acquisition d'un vélo à assistance électrique (VAE), d'un vélo cargo, ou
     de la motorisation d'un vélo classique.
@@ -1351,7 +1353,7 @@ aides . strasbourg:
 aides . entzheim:
   remplace: commune
   titre: Ville de Entzheim
-  description: |
+  description: >
     Jusqu'au 31 décembre 2024, la commune d'Entzheim subventionne l'achat d'un
     vélo neuf ou la réparation d'un vélo.
   applicable si: 
@@ -1378,7 +1380,7 @@ aides . entzheim:
 aides . geispolsheim:
   remplace: commune
   titre: Ville de Geispolsheim
-  description: |
+  description: >
     Dans le cadre de sa politique de développement durable, la Commune de
     Geispolsheim vous propose d'obtenir une aide pour l'achat d'un vélo à
     assistance électrique, d'un vélo cargo (électrique ou non). (Dispositif
@@ -1421,7 +1423,7 @@ aides . geispolsheim:
 aides . eschau:
   remplace: commune
   titre: Commune d'Eschau
-  description: |
+  description: >
     Subvention pour l'achat d'un vélo neuf à assistance électrique, d'un vélo
     cargo/adapté (électrique ou non) ainsi que de remorque pour cycles.
   applicable si: 
@@ -1446,7 +1448,7 @@ aides . eschau:
 aides . eckbolsheim:
   remplace: commune
   titre: Ville d'Eckbolsheim
-  description: |
+  description: >
     La commune d'Eckbolsheim vous propose d'obtenir une aide de 10% du prix
     d'achat de votre vélo à assistance électrique (VAE) dans la limite de 100€.
     Attention : l'obtention de cette subvention est possible jusqu'à la fin de
@@ -1463,7 +1465,7 @@ aides . eckbolsheim:
 aides . ried de marckolsheim:
   remplace: intercommunalité
   titre: Communauté de Communes du Ried de Marckolsheim
-  description: |
+  description: >
     La Communauté de Communes du Ried de Marckolsheim propose une aide à
     l'achat pour vélo de tout type (neuf ou d'occasion). Cette aide est de 75€
     pour l'achat d'un vélo acheté chez un revendeur situé sur le territoire du
@@ -1476,7 +1478,7 @@ aides . ried de marckolsheim:
 aides . vallée de villé:
   remplace: intercommunalité
   titre: Communauté de communes de la Vallée de Villé
-  description: |
+  description: >
     La Communauté de Communes vous aide à hauteur de 50€ pour l'achat de votre
     vélo neuf ou d'occasion, chez un revendeur situé sur le territoire du PETR
     Sélestat Alsace Central.
@@ -1488,7 +1490,7 @@ aides . vallée de villé:
 aides . val d'argent:
   remplace: intercommunalité
   titre: Communauté de Communes du Val d'Argent
-  description: |
+  description: >
     La Communauté de Communes du Val d'Argent propose une aide à l'achat pour
     vélo de tout type (neuf ou d'occasion). Cette aide est de 75€ pour l'achat
     d'un vélo acheté chez un revendeur situé sur le territoire du PETR Sélestat
@@ -1505,7 +1507,7 @@ aides . val d'argent:
 aides . selestat:
   remplace: intercommunalité
   titre: Communauté de Communes de Sélestat
-  description: |
+  description: >
     La Communauté de Communes de Sélestat propose une aide à l'achat pour vélo
     de tout type (neuf ou d'occasion). Cette aide est de 75€ pour l'achat d'un
     vélo acheté chez un revendeur situé sur le territoire du PETR Sélestat –
@@ -1522,7 +1524,7 @@ aides . selestat:
 aides . pays de saverne:
   remplace: intercommunalité
   titre: Pays de Saverne
-  description: |
+  description: >
     La prime de la collectivité locale est de 10% du prix d'achat du vélo
     plafonnée à 100€ pour les ménages dont le revenu fiscal est inférieur ou
     égal à 15 400 €.
@@ -1539,7 +1541,7 @@ aides . pays de saverne:
 aides . illkirch:
   remplace: commune
   titre: Ville de Illkirch-Graffenstaden
-  description: |
+  description: >
     La Ville d'Illkirch-Graffenstaden s'engage à vos côtés en subventionnant
     jusqu'à 200€ votre achat de Vélo à Assistance électrique (VAE) neuf ou
     d'occasion ou votre transformation de vélo en VAE. (Renouvelé jusqu'au 31
@@ -1576,7 +1578,7 @@ aides . illkirch:
 aides . vendenheim:
   remplace: commune
   titre: Commune de Vendenheim
-  description: |
+  description: >
     La commune de Vendenheim propose une aide financière pour l'achat d'un vélo
     neuf.
   applicable si: 
@@ -1608,7 +1610,7 @@ aides . vendenheim:
 aides . albi:
   remplace: intercommunalité
   titre: Communauté d'Agglomération de l'Albigeois
-  description: |
+  description: >
     Aide à l'achat d'un vélo neuf pour les habitant·es d'une des 16 communes de
     l'agglomération albigeoise. Cette aide est couplée à la réalisation d'un
     mini-stage Circuler en ville. D'une durée de 3h, ce stage permet, en
@@ -1634,7 +1636,7 @@ aides . albi:
 aides . toulon:
   remplace: intercommunalité
   titre: Métropole Toulon-Provence-Méditerranée
-  description: |
+  description: >
     Aide à l'achat d'un Vélo à Assistance Électrique (VAE) neuf ou d'un kit
     électrique vélo pour les habitant·es de Toulon Provence Méditerranée.
   applicable si:
@@ -1658,7 +1660,7 @@ aides . toulon:
 aides . provence verte:
   remplace: intercommunalité
   titre: Agglomération Provence Verte
-  description: |
+  description: >
     Aide intercommunale est prévue pour l'année 2024 pour tout achat de vélo
     neuf (type VTC) à assistance électrique ou non.
   applicable si: 
@@ -1683,7 +1685,7 @@ aides . provence verte:
 aides . bretagne romantique:
   remplace: intercommunalité
   titre: Communauté de communes Bretagne romantique
-  description: |
+  description: >
     La Communauté de communes Bretagne romantique alloue une aide de 100€ pour
     l'achat d'un vélo à assistance électrique neuf sous condition de
     ressources.
@@ -1700,7 +1702,7 @@ aides . bretagne romantique:
 aides . fougères:
   remplace: intercommunalité
   titre: Fougères Agglomération
-  description: |
+  description: >
     Fougères Agglomération accorde une aide à 20% plafonnée à 200 € pour aider
     les habitant·es qui souhaitent faire l'acquisition d'un vélo à assistance
     électrique neuf.
@@ -1741,7 +1743,7 @@ aides . quimper:
 aides . quimperlé:
   remplace: intercommunalité
   titre: Quimperlé Communauté
-  description: |
+  description: >
     Aide à l'achat d'un vélo à assistance électrique neuf ou d'occasion, ainsi
     que d'un kit d'éléctrification.
   applicable si:
@@ -1782,7 +1784,7 @@ aides . quimperlé:
 aides . caen:
   remplace: commune
   titre: Ville de Caen
-  description: |
+  description: >
     La Ville de Caen propose une aide à l'achat sous-conditions de ressources
     pour l'achat d'un vélo à assistance électrique neuf ou d'un kit.
   applicable si:
@@ -1804,7 +1806,7 @@ aides . caen:
 aides . caen jeune:
   remplace: commune
   titre: Ville de Caen
-  description: |
+  description: >
     La Ville de Caen propose une aide à l'achat d'un vélo classique d'occasion
     de 50 euros sous conditions de ressources pour les jeunes de 18 à 25 ans.
   applicable si:
@@ -1821,7 +1823,7 @@ aides . caen jeune:
 aides . caen vélo adapté:
   remplace: commune
   titre: Ville de Caen
-  description: |
+  description: >
     La Ville de Caen propose une aide à l'achat pour les personnes en situation
     de handicap pour l'achat d'un vélo neuf adapté à une situation de handicap
     ou d'un kit d'électrification.
@@ -1840,7 +1842,7 @@ aides . caen vélo adapté:
 aides . caen la mer:
   remplace: intercommunalité
   titre: Caen la mer communauté urbaine
-  description: |
+  description: >
     Pour tout projet d'achat d'un VAE neuf déjà soutenu par les communes
     membres, et sous conditions, la Communauté urbaine financera 50 €
     supplémentaires.
@@ -1859,7 +1861,7 @@ aides . caen la mer:
 aides . thue et mue:
   remplace: commune
   titre: Ville de Thue et Mue
-  description: |
+  description: >
     La commune de Thue et Mue propose une aide à l'achat d'un vélo à assistance
     électrique neuf pour les habitant·es de la commune.
   applicable si:
@@ -1879,7 +1881,7 @@ aides . thue et mue:
 aides . hermanville-sur-mer:
   remplace: commune
   titre: Ville d'Hermanville-sur-Mer
-  description: |
+  description: >
     Le conseil municipal a voté un dispositif d'aide pour l'achat d'un vélo à
     assistance électrique (VAE). Cette aide plafonnée à 250 € permet également
     de bénéficier dans des conditions identiques d'une contribution
@@ -1923,7 +1925,7 @@ aides . carpiquet:
 aides . ifs:
   remplace: commune
   titre: Ville d'Ifs
-  description: |
+  description: >
     La Ville d'Ifs propose à ses habitant·es une subvention correspondant à 10%
     du montant d'achat d'un vélo à assistance électrique neuf dans un plafond
     de 150€.
@@ -1942,7 +1944,7 @@ aides . ifs:
 aides . mondeville:
   remplace: commune
   titre: Ville de Mondeville
-  description: |
+  description: >
     Aide DYNAMO La prime concerne l'achat d'un Vélo à Assistance Électrique
     (VAE), d'un vélo-cargo à assistance électrique et même d'un vélo classique
     ! L'achat doit se faire chez un vélociste de Caen La Mer. 
@@ -1990,7 +1992,7 @@ aides . mondeville:
 aides . flers:
   remplace: intercommunalité
   titre: Flers Agglo
-  description: |
+  description: >
     Aide à l'achat de vélos (classique ou électrique, neuf ou occasion)
     destinée aux habitants de Flers Agglo. L'aide attribuée est de 30 % du prix
     de la facture plafonnée à 200 €.
@@ -2007,7 +2009,7 @@ aides . flers:
 aides . dreux:
   remplace: commune
   titre: Ville de Dreux
-  description: |
+  description: >
     La prime sera déduite directement lors de l'achat du vélo chez un des 3
     partenaires de l'opération (Intersport Dreux, Decathlon Dreux, Cycles Pena)
     sur présentation d'un courrier d'éligibilité transmis par mail au
@@ -2033,7 +2035,7 @@ aides . dreux:
 aides . val-au-perche:
   remplace: commune
   titre: Ville de Val-au-Perche
-  description: |
+  description: >
     La commune de Val-au-Perche propose une aide à l'achat d'un vélo à
     assistance électrique de 50€ sans condition de ressources.
   applicable si:
@@ -2047,10 +2049,11 @@ aides . val-au-perche:
 aides . ronchin:
   remplace: commune
   titre: Ville de Ronchin
-  description: |
+  description: >
     Prime réservée aux habitants de la commune couvre 25% du prix d’achat
     d’un vélo adulte neuf ou d’occasion vendu par un professionnel, avec éclairage
     homologué et éventuellement un antivol.
+
 
     Plafond : 150 € pour un vélo sans assistance électrique, 300 € pour un vélo
     avec assistance ou type cargo.
@@ -2070,7 +2073,7 @@ aides . ronchin:
 aides . wasquehal:
   remplace: commune
   titre: Ville de Wasquehal
-  description: |
+  description: >
     La Ville de Wasquehal aide les habitants à acquérir un moyen de locomotion
     de type vélo ou trottinette, électrique ou pas, ainsi que des équipements
     connexes (vêtements de pluie, équipements de sécurité ou destinés aux
@@ -2094,7 +2097,7 @@ aides . wasquehal:
 aides . belfort:
   remplace: commune
   titre: Ville de Belfort
-  description: |
+  description: >
     La Ville de Belfort propose une aide financière aux Belfortains à partir de
     18 ans sans conditions de ressources pour l'achat d'un vélo à assistance
     électrique.
@@ -2126,7 +2129,7 @@ aides . belfort:
 aides . verson:
   remplace: commune
   titre: Ville de Verson
-  description: |
+  description: >
     Afin de favoriser les déplacements à vélo, la commission Espaces publics et
     cadre de vie a proposé la mise en place d'une « prime » vélo. L'aide est de
     250 € pour un vélo à assistance électrique et de 50 € pour un vélo
@@ -2164,8 +2167,7 @@ aides . saint-germain la blanche herbe:
 aides . coeur de nacre:
   remplace: intercommunalité
   titre: Communauté de Communes Cœur de Nacre
-  description: |
-    Aide pour l'achat d'un vélo à assistance électrique, neuf ou d'occasion.
+  description: Aide pour l'achat d'un vélo à assistance électrique, neuf ou d'occasion.
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'CC Coeur de Nacre'
@@ -2182,7 +2184,7 @@ aides . coeur de nacre:
 aides . trouville sur mer:
   remplace: commune
   titre: Commune de Trouville-sur-Mer
-  description: |
+  description: >
     Aide financière octroyée par la commune de Trouville-sur-Mer pour
     l'acquisition d'un vélo à assistance électrique ou d'un vélo cargo.
   applicable si: 
@@ -2206,7 +2208,7 @@ aides . trouville sur mer:
 aides . deauville:
   remplace: commune
   titre: Ville de Deauville
-  description: |
+  description: >
     Subvention pour l'acquisition d'un vélo neuf à assistance électrique, vélo
     à propulsion humaine, vélo cargo, vélo pliant pour les résidents
     Deauvillais (personnes physiques et morales) à usage personnel. Fin du
@@ -2251,7 +2253,7 @@ aides . louvigny:
 aides . honfleur:
   remplace: intercommunalité
   titre: Communauté de communes Honfleur-Beuzeville
-  description: |
+  description: >
     Subvention pour l'achat d'un vélo à assistance électrique (VAE). Cette
     prime s'adresse aux habitants des communes de la CCPHB, de plus de 18 ans. 
   applicable si:
@@ -2288,7 +2290,7 @@ aides . istres:
 aides . montbéliard agglo:
   remplace: intercommunalité
   titre: Pays de Montbéliard Agglomération
-  description: |
+  description: >
      L'aide de Pays de Montbéliard Agglomération pour l'achat d'un vélo à
      assistance électrique est de 100€.
   applicable si:
@@ -2304,7 +2306,7 @@ aides . montbéliard agglo:
 aides . montbéliard:
   remplace: commune
   titre: Ville de Montbéliard
-  description: |
+  description: >
     La Ville de Montbéliard propose une aide financière pour l'achat d'un vélo
     à assistance électrique neuf.
   applicable si:
@@ -2319,7 +2321,7 @@ aides . montbéliard:
 aides . vienne gartempe:
   remplace: intercommunalité
   titre: Vienne et Gartempe Communauté de communes
-  description: |
+  description: >
     Aide à l'achat d'un vélo à assistance électrique jusqu'au 31 décembre 2024.
   applicable si:
     toutes ces conditions:
@@ -2337,7 +2339,7 @@ aides . vienne gartempe:
   avec:
     titulaire d'un contrat d'alternance ou de stage:
       applicable si: demandeur . âge . mineur
-      question: |
+      question: >
         Êtes-vous titulaires d'un contrat d'alternance ou d'une convention de
         stage rémunéré ?
       par défaut: non
@@ -2345,7 +2347,7 @@ aides . vienne gartempe:
 aides . vienne condrieu:
   remplace: intercommunalité
   titre: Vienne Condrieu Agglomération
-  description: |
+  description: >
     Vienne Condrieu Agglomération accompagne les usagers qui s'équipent d'un
     Vélo à Assistance Électrique grâce à la mise en place d'un dispositif
     d'aide financière de 150 € pour l'achat d'un VAE (les VTT et vélos de
@@ -2362,7 +2364,7 @@ aides . vienne condrieu:
 aides . pont-de-beauvoisin:
   remplace: commune
   titre: Ville de Pont-de-Beauvoisin
-  description: |
+  description: >
     Aide à l'achat d'un vélo électrique (hors VTT) neuf dans l'un des magasins
     spécialisés (Vals du Dauphiné et Val Guiers).
   applicable si:
@@ -2378,7 +2380,7 @@ aides . pont-de-beauvoisin:
 aides . saint-marcellin vercors isère:
   remplace: intercommunalité
   titre: Saint-Marcellin Vercors Isère Communauté
-  description: |
+  description: >
     Saint-Marcellin Vercors Isère Communauté aide les habitants du territoire à
     s'équiper en vélo avec ou sans assistance électrique, neufs ou d'occasion
     avec une prime à l'achat.
@@ -2402,7 +2404,7 @@ aides . saint-marcellin vercors isère:
 aides . montval sur loir:
   remplace: commune
   titre: Ville de Montval sur Loir
-  description: |
+  description: >
     Aide à l'achat d'un vélo électrique ou mécanique (pour les bénéficiaires du
     RSA uniquement) pour les habitants de Montval sur Loir.
   applicable si:
@@ -2429,7 +2431,7 @@ aides . montval sur loir:
 aides . sorgues du comtat:
   remplace: intercommunalité
   titre: Communauté de communes des Sorgues du Comtat
-  description: |
+  description: >
     Cette subvention concerne l'achat d'un seul vélo à assistance électrique
     neuf, deux ou trois roues, à usage personnel, acquis à partir du 1er
     janvier 2024. Cette prime s'élève à 20 % du prix TTC du vélo sans pouvoir
@@ -2449,7 +2451,7 @@ aides . sorgues du comtat:
 aides . grand périgueux:
   remplace: intercommunalité
   titre: Grand Périgueux
-  description: |
+  description: >
     Une aide pouvant aller jusqu'à 500€ est délivrée sous forme d'un chèque
     vélo et permet de financer pour partie l'achat d'un vélo (électrique et
     classique neuf ou d'occasion, cargo).
@@ -2509,7 +2511,7 @@ aides . sarlat:
 aides . vallée de l'homme:
   remplace: intercommunalité
   titre: Communauté de communes Vallée de l'Homme
-  description: |
+  description: >
     Aide à l'achat d'un vélo électrique neuf ou d'occasion pour les habitant·es
     de la Communauté de communes Vallée de l'Homme.
   applicable si:
@@ -2529,7 +2531,7 @@ aides . vallée de l'homme:
 aides . sablé sur sarthe:
   remplace: commune
   titre: Communauté de communes de Sablé sur Sarthe
-  description: |
+  description: >
     Afin de favoriser l'accès aux modes de déplacement doux pour ses habitants,
     la Ville de Sablé- sur-Sarthe met en place un dispositif d'aide à
     l'acquisition de vélo à assistance électrique (VAE). Le montant de l'aide
@@ -2558,7 +2560,7 @@ aides . sablé sur sarthe:
 aides . département somme:
   remplace: département
   titre: Département de la Somme
-  description: |
+  description: >
     Le Département accorde une aide à tout particulier résidant dans la Somme,
     sans condition de ressources, pour l'achat d'un vélo électrique auprès d'un
     commerçant de la Somme. Cette subvention s'applique aux achats intervenus
@@ -2576,7 +2578,7 @@ aides . département somme:
 aides . amiens:
   remplace: commune
   titre: Ville d'Amiens
-  description: |
+  description: >
     Afin d'encourager la remise en selle, depuis 2021, la Ville d'Amiens a mis
     en place un remboursement de 25% du coût d'achat d'un vélo électrique dans
     la limite de 200€.
@@ -2594,7 +2596,7 @@ aides . amiens:
 aides . camon:
   remplace: commune
   titre: Ville de Camon
-  description: |
+  description: >
     La Commune de Camon a décidé de renouveler son aide à l'achat de vélo pour
     2024. La subvention est valable sur l'achat d'un vélo neuf à assistance
     électrique et homologué ou sans assistance électrique. Le vélo devra
@@ -2622,7 +2624,7 @@ aides . camon:
 aides . grand roye:
   remplace: intercommunalité
   titre: Communauté de communes du Grand Roye
-  description: |
+  description: >
     La Communauté de Communes du Grand Roye a décidé d'accorder une aide, sous
     forme de subvention, aux habitants du territoire qui feront l'acquisition
     d'un vélo à assistance électrique (VAE). Cette subvention est fixée à 10 %
@@ -2642,7 +2644,7 @@ aides . grand roye:
 aides . somme sud-ouest:
   remplace: intercommunalité
   titre: Communauté de communes Sommes Sud-Ouest
-  description: |
+  description: >
     Pour une mobilité plus vertueuse, la CC2SO vous aide à changer vos
     habitudes. Bénéficiez d'une aide de 200€ pour l'achat d'un vélo à
     assistance électrique. Une seule condition : être majeur et avoir sa
@@ -2661,7 +2663,7 @@ aides . somme sud-ouest:
 aides . albert:
   remplace: commune
   titre: Ville d'Albert
-  description: |
+  description: >
     Depuis 2020, dans une logique d'encouragement de la mobilité douce, la
     municipalité octroie une aide financière de 100 €, sans condition de
     ressources, pour l'achat d'un vélo à assistance électrique (VAE).
@@ -2677,7 +2679,7 @@ aides . albert:
 aides . faches-thumesnil:
   remplace: commune
   titre: Ville de Faches-Thumesnil
-  description: |
+  description: >
     Cette prime concerne l'achat d'un vélo neuf ou d'occasion, classique,
     électrique ou cargo effectué après le 18 septembre 2020.
   applicable si:
@@ -2699,7 +2701,7 @@ aides . faches-thumesnil:
 aides . pays sainte odile:
   remplace: commune
   titre: Pays de Sainte-Odile
-  description: |
+  description: >
     Pour encourager l'usage du vélo comme mode de déplacement à part entière,
     les élus de la Communauté de Communes du Pays de Sainte Odile ont souhaité
     mettre en place un dispositif d'aide à l'acquisition d'un vélo neuf.
@@ -2734,7 +2736,7 @@ aides . pays sainte odile:
 aides . portes de rosheim:
   remplace: intercommunalité
   titre: Communauté de communes des Portes de Rosheim
-  description: |
+  description: >
     Pour encourager la pratique du vélo au quotidien, les élus de la Communauté
     de Communes des Portes de Rosheim (CCPR) ont souhaité mettre en place un
     dispositif d'aide à l'achat de vélos neufs ainsi qu'à la motorisation de
@@ -2772,7 +2774,7 @@ aides . portes de rosheim:
 aides . pays de barr:
   remplace: intercommunalité
   titre: Pays de Barr
-  description: |
+  description: >
     Aide à l'achat d'un vélo à assistance électrique ou d'un vélo mécanique,
     neuf ou d'occasion, pour les habitants de la Communauté de Communes du Pays
     de Barr.
@@ -2804,7 +2806,7 @@ aides . pays de barr:
 aides . molsheim-mutzig:
   remplace: intercommunalité
   titre: Communauté de communes de la Région de Molsheim-Mutzig
-  description: |
+  description: >
     Subvention pour l'acquisition d'un Vélo à assistance électrique neuf ou
     reconditionné jusqu'au 31 décembre 2024.
   applicable si:
@@ -2827,7 +2829,7 @@ aides . molsheim-mutzig:
 aides . les sables d'olonne:
   remplace: intercommunalité
   titre: Les Sables d'Olonne
-  description: |
+  description: >
     Subvention de l'Agglomération pour l'acquisition d'un vélo à assistance
     électrique ou mécanique, pliant ou cargo.
   applicable si: 
@@ -2855,7 +2857,7 @@ aides . les sables d'olonne:
 aides . vallons du lyonnais:
   remplace: intercommunalité
   titre: Communauté de Communes des Vallons du Lyonnais
-  description: |
+  description: >
     Pour encourager la pratique du vélo sur le territoire et inciter aux
     déplacements en modes doux des habitants, la CCVL propose une aide à
     l'achat de Vélos à Assistance Électrique (VAE) neuf ou d'occasion ainsi que
@@ -2881,7 +2883,7 @@ aides . vallons du lyonnais:
 aides . pays de l'arbresle:
   remplace: intercommunalité
   titre: Communauté de Communes du Pays de L'Arbresle
-  description: |
+  description: >
     La Communauté de Communes du Pays de L'Arbresle subventionne jusqu'à par
     foyer pour l'achat d'un Vélo à Assistance Electrique (VAE), un vélo spécial
     (vélo cargo, vélo rallongé, vélo adapté à un handicap) ou un kit
@@ -2904,7 +2906,7 @@ aides . pays de l'arbresle:
 aides . pays de l'ozon:
   remplace: intercommunalité
   titre: Pays de l'Ozon
-  description: |
+  description: >
     Subvention de 200€ par famille pour l’achat d’un vélo à assistance électrique (VAE), 
     vélo cargo, VAE pliant, vélo électrifié chez un professionnel ou adapté aux 
     personnes porteuses de handicaps.
@@ -2937,7 +2939,7 @@ aides . pays de l'ozon:
 aides . département hérault:
   remplace: département
   titre: Département Hérault
-  description: |
+  description: >
     Chèque Hérault Vélo - Aide à l'achat d'un vélo électrique neuf réalisé
     auprès d'un professionnel exerçant son activité professionnelle sur le
     territoire du Département de l'Hérault. Cette aide peut être complétées par
@@ -2951,8 +2953,9 @@ aides . département hérault:
       - vélo . état . neuf
       - revenu fiscal de référence par part <= 25660 €/an
   valeur: 250€
-  note: |
+  note: >
     ### Note sur le plafond
+
 
     Dans les versions précédentes, un plafond du montant du prix du vélo était
     appliqué. Cependant, rien n'indique la présence de ce plafond dans la
@@ -2965,7 +2968,7 @@ aides . département hérault:
 aides . département hérault vélo adapté:
   remplace: département
   titre: Département Hérault
-  description: |
+  description: >
     Chèque Hérault Handi-Vélo - Aide à l'achat d'un vélo électrique adapté ou
     de matériel adapté (dispositif de troisième roue, guidons électriques…)
     neuf et d'occasion. 
@@ -3000,7 +3003,7 @@ aides . montpellier:
 aides . montpellier vélo adapté:
   remplace: intercommunalité
   titre: Montpellier Méditerranée Métropole
-  description: |
+  description: >
     500€ d'aide à l'achat d'un vélo à assistance électrique adapté pour les
     personnes en situation de handicap ayant bénéficié du "Chèque Hérault
     Handi-Vélo".
@@ -3016,7 +3019,7 @@ aides . montpellier vélo adapté:
 aides . sète:
   remplace: intercommunalité
   titre: Sète Agglopôle méditerranée
-  description: |
+  description: >
     Les habitant·es des 14 communes du territoire peuvent faire une demande de
     subvention en ligne, pour l'achat d'un vélo ou d'une trottinette
     électrique. Le montant de l'aide accordée est de 25 % de la valeur du vélo
@@ -3055,7 +3058,7 @@ aides . sète:
 aides . cébazat:
   remplace: commune
   titre: Ville de Cébazat
-  description: |
+  description: >
     Afin de développer la pratique du vélo en ville et ainsi favoriser les
     modes de déplacement doux, la Ville propose 3 aides à l'achat d'un vélo à
     assistance électrique et le prêt de vélos à assistance électrique. Clôture
@@ -3081,7 +3084,7 @@ aides . cébazat:
 aides . aubiere:
   remplace: commune
   titre: Ville d'Aubière
-  description: |
+  description: >
     La Ville d'Aubière a mis en place une prime de 150€ à l'achat d'un vélo à
     assistance électrique (VAE) neuf ou reconditionné pour ses habitant·es.
   applicable si:
@@ -3096,7 +3099,7 @@ aides . aubiere:
 aides . romagnat:
   remplace: commune
   titre: Ville de Romagnat
-  description: |
+  description: >
     La Ville de Romagnat propose une aide de 100€ pour l'achat d'un vélo à
     assistance électrique neuf.
   applicable si:
@@ -3112,7 +3115,7 @@ aides . romagnat:
 # aides . ambert livradois forez:
 #   remplace: intercommunalité
 #   titre: Communauté de communes Ambert Livradois Forez
-#   description: |
+#   description: >
 #     Une aide financière pouvant aller jusqu'à 300€ est proposée aux habitants
 #     du territoire pour l'acquisition d'un vélo à assistance électrique,
 #     particulièrement adapté pour un relief de moyenne montagne.
@@ -3135,7 +3138,7 @@ aides . romagnat:
 aides . cournon d'auvergne:
   remplace: commune
   titre: Ville de Cournon-d'Auvergne
-  description: |
+  description: >
     Dans le cadre de sa politique de développement durable, la Ville souhaite
     favoriser la pratique du vélo en mettant en place une subvention pour
     l'achat d'un Vélo à Assistance Électrique (VAE).
@@ -3172,7 +3175,7 @@ aides . cournon d'auvergne:
 aides . grand avignon:
   remplace: intercommunalité
   titre: Grand Avignon
-  description: |
+  description: >
     Depuis plusieurs années, le Grand Avignon attribue une aide à l'achat de
     VAE en faveur des habitants de son territoire.
   applicable si:
@@ -3192,7 +3195,7 @@ aides . grand avignon:
 aides . avignon:
   remplace: commune
   titre: Ville d'Avignon
-  description: |
+  description: >
     Fonds « Tous à vélo » permettant aux avignonnais et avignonnaises de
     bénéficier d'une prime pour l'achat ou la réparation d'un vélo neuf ou
     d'occasion ou pour l'achat d'équipements cyclables de sécurité.
@@ -3257,7 +3260,7 @@ aides . avignon:
 aides . luberon:
   remplace: intercommunalité
   titre: Luberon Monts de Vaucluse
-  description: |
+  description: >
      Lancée le 16 septembre 2020 par LMV Agglomération, l'opération "LMV vous
      met en selle" vous aide à acheter un vélo, neuf ou d'occasion, avec ou
      sans assistance électrique. 
@@ -3296,7 +3299,7 @@ aides . luberon:
 aides . kremlin-bicetre:
   remplace: commune
   titre: Ville du Kremlin-Bicêtre
-  description: |
+  description: >
     La Ville du Kremlin-Bicêtre octroie une aide financière par foyer pour
     l'achat d'un vélo d'occasion, à assistance électrique ou non, ou pour
     l'achat d'une trottinette électrique d'occasion auprès d'un vendeur
@@ -3323,7 +3326,7 @@ aides . kremlin-bicetre:
 aides . chevilly-larue:
   remplace: commune
   titre: Ville de Chevilly-Larue
-  description: |
+  description: >
     Il s'agit d'une subvention de 20 % du prix TTC d'un vélo neuf ou 30% € du
     prix TTC d'un vélo d'occasion ou reconditionné (hors vente entre
     particuliers), dans la limite de 100 euros par vélo et d'un vélo adulte et
@@ -3349,9 +3352,10 @@ aides . chevilly-larue:
 aides . pau:
   remplace: intercommunalité
   titre: Pau Béarn Pyrénées Mobilité
-  description: |
+  description: >
     La prochaine session de dépôt des dossiers aura lieu du 2 au 31 janvier
     2025.
+
 
     Cette aide est réservée sans condition de ressources aux habitants des 37
     communes membres du Syndicat Mixte Pau Béarn Pyrénées Mobilités, aux
@@ -3378,7 +3382,7 @@ aides . pau:
 aides . lescar:
   remplace: commune
   titre: Ville de Lescar
-  description: |
+  description: >
     La Ville de Lescar propose une aide forfaitaire supplémentaire à
     destination des habitant·es de la commune, en complément de celle accordée
     par Pau Béarn Pyrénées Mobilités.
@@ -3432,10 +3436,11 @@ aides . lescar:
 aides . bidart:
   remplace: commune
   titre: Ville de Bidart
-  description: |
+  description: >
     Si vous avez votre résidence principale à Bidart et que vous achetez un
     vélo classique ou un vélo à assistance électrique, vous pouvez bénéficier
     d'une aide de la Ville de Bidart.
+
 
     Cette aide peut être demandée pour tout achat de vélo effectué à compter du
     1er mars 2024.
@@ -3471,7 +3476,7 @@ aides . bidart:
 aides . vallée d'ossau:
   remplace: intercommunalité
   titre: Vallée d'Ossau communauté de communes
-  description: |
+  description: >
     Dans le cadre de son Plan Vélo et du développement de la mobilité cyclable
     en vallée d'Ossau, la CC Vallée d'Ossau intervient auprès des habitant·es
     pour l'aide à l'achat d'un Vélo à Assistance Electrique (VAE) jusqu'à 200
@@ -3490,7 +3495,7 @@ aides . vallée d'ossau:
 aides . aix les bains:
   remplace: commune
   titre: Ville d'Aix-les-Bains
-  description: |
+  description: >
     La Ville d'Aix-les-Bains propose une aide financière à hauteur de 10 % du
     montant TTC du vélo, dans la limite de 250 € et des crédits disponibles.
   applicable si:
@@ -3505,10 +3510,11 @@ aides . aix les bains:
 aides . coeur de maurienne arvan:
   remplace: intercommunalité
   titre: Cœur de Maurienne Arvan
-  description: |
+  description: >
     La subvention peut atteindre 40 % du prix d'achat TTC du vélo électrique
     neuf ou d'occasion, dans la limite de 400 € par matériel
-   
+  
+
     Limite de dépôt des dossiers pour l'année 2024 : 15 novembre 2024.
   applicable si:
     toutes ces conditions:
@@ -3523,7 +3529,7 @@ aides . coeur de maurienne arvan:
 aides . morzine-avoriaz:
   remplace: commune
   titre: Ville de Morzine-Avoriaz
-  description: |
+  description: >
     La Ville de Morzin-Avoriaz à mise en place d'une aide à l'achat d'un vélo à
     assistance électrique, d'un vélo musculaire ou d'une remorque vélo sur la
     période 2023-2025.
@@ -3544,7 +3550,7 @@ aides . morzine-avoriaz:
 aides . bourg-saint-maurice:
   remplace: commune
   titre: Ville de Bourg-Saint-Maurice
-  description: |
+  description: >
     Afin de favoriser la pratique du vélo sur son territoire et permettre à une
     majorité de ses habitant·es de circuler plus aisément, la commune de Bourg
     Saint Maurice – les Arcs propose une aide à l'acquisition d'un vélo (vélo
@@ -3605,7 +3611,7 @@ aides . bourg-saint-maurice:
 aides . la motte servolex:
   remplace: commune
   titre: Ville de La Motte Servolex
-  description: |
+  description: >
     La ville propose une subvention de 20% du montant plafonnée à 150€ pour un
     vélo électrique et pour un vélo pliant et 300 € pour un vélo cargo (destiné
     au transport d'enfants ou de marchandises) ou un scooter. Les vélos
@@ -3634,11 +3640,12 @@ aides . la motte servolex:
 aides . montagnole:
   remplace: commune
   titre: Ville de Montagnole
-  description: |
+  description: >
     Aide financière de 200 € net par vélo, d'une valeur minimum  unitaire de 1
     200 € TTC, et par famille, acheté chez un vélociste implanté dans une
     commune du périmètre de l'agglomération de Grand Chambéry quel que soit le
     type de vélo (route, VTT, VTC, Cargo…).
+
 
     Limite de dépôt des dossiers pour l'année 2024 : 31 décembre 2024.
   applicable si:
@@ -3655,7 +3662,7 @@ aides . montagnole:
 aides . saint alban leysse:
   remplace: commune
   titre: Ville de Saint-Alban-Leysse
-  description: |
+  description: >
     La commune de Saint-Alban-Leysse propose une aide de 200€ pour l'achat d'un
     vélo à assistance électrique (VAE) neuf.
   applicable si:
@@ -3689,7 +3696,7 @@ aides . saint alban leysse:
 aides . les crêtes préardennaises:
   remplace: intercommunalité
   titre: Les Crêtes Préardennaises
-  description: |
+  description: >
     Bonus Vélo : prime à l'achat d'un vélo à assistance électrique.
   applicable si:
     toutes ces conditions:
@@ -3706,7 +3713,7 @@ aides . les crêtes préardennaises:
 aides . clisson:
   remplace: commune
   titre: Ville de Clisson
-  description: |
+  description: >
      Opération « Clisson à vélo ou trottinette » du Centre Communal d'Action
      Sociale de Clisson : aide pour l'acquisition d'un vélo traditionnel neuf,
      d'un Vélo à Assistance Électrique neuf ou d'une trottinette électrique
@@ -3746,7 +3753,7 @@ aides . clisson:
 aides . sèvre et loire:
   remplace: intercommunalité
   titre: Communauté de communes Sèvre et Loire
-  description: |
+  description: >
     Pour encourager la pratique du vélo, la Communauté de communes Sèvre &
     Loire attribue une aide financière pour l'achat d'un vélo à assistance
     électrique, un vélo-cargo, ou un vélo pliant.
@@ -3785,7 +3792,7 @@ aides . sèvre et loire:
 aides . pays ancenis:
   remplace: intercommunalité
   titre: Communauté de communes du Pays d'Ancenis
-  description: |
+  description: >
     La Communauté de communes du Pays d'Ancenis propose une aide financière
     pour l'achat d'un vélo à assistance électrique, neuf ou d'occasion.
   applicable si:
@@ -3820,7 +3827,7 @@ aides . pays ancenis:
 aides . romilly-sur-seine:
   remplace: intercommunalité
   titre: Communauté de Communes des Portes de Romilly-sur-Seine
-  description: |
+  description: >
     La Communauté de Communes des Portes de Romilly-sur-Seine vous subventionne
     une prime de 100€ pour l'achat d'un Vélo à Assistance Electrique (VAE).
   applicable si:
@@ -3835,11 +3842,12 @@ aides . romilly-sur-seine:
 aides . cote d'or:
   remplace: département
   titre: Département Côte-d'Or
-  description: |
+  description: >
     Une subvention de 250 € par VAE acheté dans un commerce de Côte-d'Or (pas
     sur internet). Une bonification de 100 € est accordée pour toute
     acquisition de VAE assemblé ou produit en Côte-d'Or, soit une aide totale
     de 350 €.
+
 
     Dispositif valable jusqu'au 31 décembre 2024.
   applicable si:
@@ -3864,7 +3872,7 @@ aides . cote d'or:
 aides . boé:
   remplace: commune
   titre: Ville de Boé
-  description: |
+  description: >
     La Ville de Boé met en place une aide à l'acquisition d'un VAE d'un montant
     de 100 € (cent euros) pour l'achat d'un vélo neuf ou d'occasion acheté dans
     un commerce de l'agglomération d'Agen. Les achats sur internet ne seront
@@ -3880,7 +3888,7 @@ aides . boé:
 aides . sophia antipolis:
   remplace: intercommunalité
   titre: Communauté d'Agglomération Sophia Antipolis
-  description: |
+  description: >
     La Communauté d'Agglomération Sophia Antipolis propose une aide financière
     pour l'achat d'un vélo à assistance électrique, d'un vélo cargo ou d'un
     vélo adapté.
@@ -3970,11 +3978,12 @@ aides . sophia antipolis:
 aides . mougins:
   remplace: commune
   titre: Ville de Mougins
-  description: |
+  description: >
     Dans le cadre de son projet communal en faveur du Développement Durable, la
     Commune de Mougins a instauré depuis 2015, un dispositif de
     subventionnement au profit des mouginois pour l'achat d'un Vélo à
     Assistance Electrique (V.A.E).
+
 
     Le montant de la subvention est de 25 % du prix d'achat TTC du V.A.E dans la
     limite de 300 € par matériel neuf acheté pendant la durée du dispositif.
@@ -3992,7 +4001,7 @@ aides . mougins:
 aides . mandelieu:
   remplace: commune
   titre: Commune de Mandelieu-La Napoule
-  description: |
+  description: >
     La Ville de Mandelieu-La Napoule propose une aide financière pour l'achat
     d'un vélo à assistance électrique neuf aux habitant·es de la commune.
   applicable si:
@@ -4011,7 +4020,7 @@ aides . mandelieu:
 aides . pantin:
   remplace: commune
   titre: Ville de Pantin
-  description: |
+  description: >
     La ville de Pantin propose une aide forfaitaire pour l'achat de tout type de
     vélo neuf ou d'occasion. À noter que la demande de subvention est soumise à
     l'approbation du Conseil municipal et que plusieurs mois peuvent s'écouler
@@ -4029,11 +4038,12 @@ aides . pantin:
 aides . aubervilliers:
   remplace: commune
   titre: Ville d'Aubervilliers
-  description: |
+  description: >
     Dans le cadre de sa politique de développement durable, la Ville
     d'Aubervilliers a mis en place un dispositif d'aide à l'achat d'un vélo
     mécanique, neuf ou d'occasion.
-    
+   
+
     Date limite de dépôt des dossiers : 31 décembre 2024.
   applicable si:
     toutes ces conditions:
@@ -4096,7 +4106,7 @@ aides . mons en baroeul:
       - une de ces conditions:
           - vélo . électrique ou mécanique
           - vélo . adapté
-  description: |
+  description: >
     La Ville de Mons en Baroeul finance jusqu'à 400€ l'achat de votre vélo
     électrique, cargo ou adapté PMR, neuf ou d'occasion (professionnel), et
     jusqu'à 200 € pour un vélo urbain ! Cette aide, modulée en fonction des
@@ -4186,9 +4196,10 @@ aides . mons en baroeul:
 aides . annoeullin:
   remplace: commune
   titre: Ville d'Annœullin
-  description: |
+  description: >
     La Ville a souhaité mettre en place une aide financière pour l'achat de
     vélo à assistance électrique neuf.
+
 
     L'offre de 2023 est reconduite en 2024.
   applicable si:
@@ -4204,7 +4215,7 @@ aides . annoeullin:
 aides . la madeleine:
   remplace: commune
   titre: Ville de La Madeleine
-  description: |
+  description: >
     Subvention pour l’achat de moyens de transport doux (vélos, trottinettes, gyroroues,
     skateboards) et d’accessoires : antivols en U, dispositifs de marquage, systèmes 
     d’alarme et puces GPS, éclairage, casques, porte-bébés, remorques enfants, vêtements 
@@ -4230,11 +4241,12 @@ aides . la madeleine:
 aides . puisaye forterre:
   remplace: intercommunalité
   titre: Communauté de communes de Puisaye-Forterre
-  description: |
+  description: >
     Pour encourager la pratique du vélo, la communauté de communes de
     Puisaye-Forterre attribue une aide financière de 100 euros pour l'achat
     d'un vélo électrique, d'un kit de motorisation, d'un vélo cargo ou d'un
     vélo adapté aux personnes en situation de handicap.
+
 
     Date limite de dépôt des dossiers : 31 décembre 2024.
   applicable si:
@@ -4277,11 +4289,12 @@ aides . puisaye forterre:
 aides . aurillac:
   remplace: intercommunalité
   titre: Communauté d'agglomération du Bassin d'Aurillac
-  description: |
+  description: >
     La CABA lance une opération de soutien à l'acquisition d'un vélo électrique
     (non cumulable avec l'aide de l'Etat pour l'achat d'un vélo à assistance
     électrique). Le montant de cette subvention s'élève à 25% du coût d'achat,
     plafonné à 300 €. 
+
 
     Cette subvention est conditionné au fait d'avoir loué un vélo électrique
     auprès de la Stabus pendant au moins 3 mois consécutifs.
@@ -4299,7 +4312,7 @@ aides . aurillac:
 aides . terre des 2 caps:
   remplace: intercommunalité
   titre: Communauté de communes de La Terre des Deux Caps
-  description: |
+  description: >
     En 2024, la communauté de communes de La terre des 2 caps reconduit le
     dispositif d'aide à l'achat d'un vélo à assistance électrique neuf ou
     d'occasion à hauteur de 40% du prix du vélo TTC avec un plafond de 250€ par
@@ -4322,11 +4335,12 @@ aides . terre des 2 caps:
 aides . saint-omer:
   remplace: commune
   titre: Ville de Saint-Omer
-  description: |
+  description: >
     Depuis 2021, la Ville de Saint-Omer propose une aide pour financer l'achat
     de vélo à assistance électrique. L'achat du vélo doit être effectué dans
     une enseigne présente sur le territoire de la Communauté d'Agglomération du
     Pays de Saint-Omer. 
+
 
     Date limite de dépôt des dossiers : 31 décembre 2024.
   applicable si:
@@ -4367,7 +4381,7 @@ aides . saint-omer:
 aides . les herbiers:
   remplace: intercommunalité
   titre: Communauté de communes du Pays des Herbiers
-  description: |
+  description: >
     Subvention pour l’achat de vélos à assistance électrique.
   applicable si:
     toutes ces conditions:
@@ -4396,7 +4410,7 @@ aides . les herbiers:
 aides . riviera francaise:
   remplace: intercommunalité
   titre: Riviera Française
-  description: |
+  description: >
     La Communauté d'Agglomération de la Riviera Française propose une aide
     financière pour l'achat d'un vélo à assistance électrique neuf jusqu'au 31
     décembre 2024.
@@ -4413,7 +4427,7 @@ aides . riviera francaise:
 aides . frejus:
   remplace: commune
   titre: Ville de Fréjus
-  description: |
+  description: >
     Afin d'inciter les Fréjusiens et les Fréjusiennes à se déplacer en vélo et
     développer les circulations douces, le Conseil municipal a adopté une
     délibération le 26 mai 2020 visant à verser une aide à l'acquisition d'un
@@ -4433,7 +4447,7 @@ aides . frejus:
 aides . portes de sologne:
   remplace: intercommunalité
   titre: Communauté de communes des Portes de Sologne
-  description: |
+  description: >
     Afin d'inciter les habitant·es à utiliser le vélo pour leurs déplacements
     domicile-travail et personnels, l'intercommunalité a souhaité instituer un
     dispositif d'aide à l'achat d'un vélo qu'il soit électrique ou mécanique,
@@ -4463,11 +4477,12 @@ aides . portes de sologne:
 aides . grand reims:
   remplace: intercommunalité
   titre: Grand Reims Communauté urbaine
-  description: |
+  description: >
     Subvention jusqu’à 500€ pour l’achat d’un vélo à assistance
     électrique, sous réserve qu’il soit acheté auprès d’un commerçant ou d’une
     association locale. Les achats en ligne sont exclus. 
-    
+   
+
     Dossiers à déposer entre le 1er avril et le 31 octobre 2024, dans la limite des 
     budgets disponibles.
   applicable si: 
@@ -4501,11 +4516,12 @@ aides . grand reims:
 aides . reims:
   remplace: commune
   titre: Ville de Reims
-  description: |
+  description: >
     Aide jusqu’à 250€ pour l’achat d’un vélo, sous réserve qu’il soit acquis auprès d’un 
     commerçant ou d’une association du Grand Reims. Les achats en ligne livrés à  
     domicile ou en magasin sont exclus. 
-    
+   
+
     Dossiers à déposer entre le 1er avril et le 31 octobre 2024, dans la limite des 
     budgets disponibles.
   applicable si: 
@@ -4550,7 +4566,7 @@ aides . reims:
 aides . annecy:
   remplace: intercommunalité
   titre: Grand Annecy Agglomération
-  description: |
+  description: >
     L'aide à l'acquisition de matériel cyclable est ouverte aux habitant·es du
     Grand Annecy âgés de 18 ans minimum ainsi qu'aux personnes détentrices
     d'une carte d'invalidité (pour prétendre au complément PMR). Le vélo choisi
@@ -4648,7 +4664,7 @@ aides . annecy:
 aides . genevois:
   remplace: intercommunalité
   titre: Communauté de communes du Genevois
-  description: |
+  description: >
     La CCG plafonne ce dispositif d'aide à l'achat de VAE à 125 unités (soit
     une enveloppe budgétaire de 25 000€ à charge de la collectivité). Elle
     attribue une aide de 200€ maximum pour l'achat d'un VAE, vélo dit "cargo",
@@ -4673,7 +4689,7 @@ aides . genevois:
 aides . arve salève:
   remplace: intercommunalité
   titre: Communauté de communes Arve & Salève
-  description: |
+  description: >
     Afin d'encourager les déplacements à vélo, Arve & Salève reconduit l'aide
     financière destinée aux habitants de son territoire pour acquérir un cycle
     classique ou à assistance électrique ou une remorque grâce à la Prim'O
@@ -4747,11 +4763,12 @@ aides . arve salève:
 aides . cluses arve et montagnes:
   remplace: intercommunalité
   titre: Communauté de communes Cluses Arve & montagnes
-  description: |
+  description: >
     La 2CCAM propose à tous les habitant·es s majeurs de son territoire une
     prime vélo pour l'acquisition d'un vélo neuf ou d'un vélo d'occasion
     (acheté auprès d'un revendeur professionnel) ! Les VTT, gravels, et vélos
     de route sont exclus du dispositif.
+
 
     Un bonus de 100€ est accordé pour l'achat d'un vélo d'occasion et double
     l'apport de la participation financière de votre employeur (dans la limite
@@ -4803,7 +4820,7 @@ aides . cluses arve et montagnes:
 aides . évian-les-bains:
   remplace: commune
   titre: Ville d'Évian-les-Bains
-  description: |
+  description: >
     Aide de 20 % du coût d’achat (plafonnée à 400 €) pour un vélo musculaire ou vélo à
     assistance électrique (VAE) ou 400 € forfaitaires pour transformer un vélo
     en VAE. Réservée aux habitants, selon critères. Un cahier des charges
@@ -4842,7 +4859,7 @@ aides . évian-les-bains:
 aides . combloux:
   remplace: commune
   titre: Ville de Combloux
-  description: |
+  description: >
     Une aide de 200 € pour l'achat d'un vélo à assistance  électrique, valable
     à partir du 1er mars 2024. Le VAE doit être acheté auprès d'un des
     revendeurs professionnels du territoire de la Communauté de communes Pays
@@ -4862,7 +4879,7 @@ aides . combloux:
 aides . châtel:
   remplace: commune
   titre: Ville de Châtel
-  description: |
+  description: >
     La ville de Châtel vous aide à acquérir un vélo à assistance électrique
     grâce à une subvention de 200 € par vélo. Le vélo devra être acheté neuf ou
     d'occasion chez un commerçant professionnel implanté dans le département de
@@ -4878,7 +4895,7 @@ aides . châtel:
 aides . le vigan:
   remplace: commune
   titre: Ville du Vigan
-  description: |
+  description: >
     Dans le cadre de sa politique en faveur de la mobilité alternative à
     l'utilisation de la voiture individuelle, la ville du Vigan a décidé
     d'accorder une aide sous forme de subvention aux habitants de la ville qui
@@ -4898,7 +4915,7 @@ aides . le vigan:
 aides . angers:
   remplace: intercommunalité
   titre: Angers Loire Métropole
-  description: |
+  description: >
     Dans le cadre de sa politique de transition écologique et du Plan Vélo,
     Angers Loire Métropole propose aux habitants de son territoire une
     subvention pour l'achat d'un vélo adulte neuf.
@@ -4984,9 +5001,10 @@ aides . haut val de sèvre:
 aides . anjou bleu:
   remplace: intercommunalité
   titre: Anjou Bleu Communauté
-  description: |
+  description: >
     Anjou Bleu Communauté propose une aide à l'achat d'un vélo à assistance
     électrique neuf pour les habitant·es s de son territoire.
+
 
     Fin de validité le 31 décembre 2024.
   applicable si:
@@ -5012,7 +5030,7 @@ aides . anjou bleu:
 aides . limoges metropole:
   remplace: intercommunalité
   titre: Limoges Métropole
-  description: |
+  description: >
     Aide à l'achat est une aide financière pour acheter un VTT, vélo, vélo
     pliant, vélo cargo neuf ou d'occasion, électrique ou non. Tout autre vélo
     est exclu. L'achat du vélo doit impérativement se faire chez un vélociste
@@ -5037,7 +5055,7 @@ aides . limoges metropole:
 aides . grand poitiers:
   remplace: intercommunalité
   titre: Grand Poitiers Communauté urbaine
-  description: |
+  description: >
     Pour compléter l'offre de location de Vélos à Assistance Electrique (VAE)
     de Cap sur le Vélo et augmenter le nombre de personnes utilisant des VAE
     pour se déplacer au quotidien, Grand Poitiers Communauté urbaine propose
@@ -5093,11 +5111,12 @@ aides . grand poitiers:
 aides . grand orb:
   remplace: intercommunalité
   titre: Grand Orb Communauté de communes
-  description: |
+  description: >
     La Communauté de communes accompagne financièrement les habitants du
     territoire qui souhaitent acheter un vélo à assistance électrique (aide
     forfaitaire de 100 € sans conditions particulières) où faire poser un kit
     d'électrification (aide forfaitaire de 80 €).
+
 
     Date limite de dépôt des dossiers : 10 janvier 2025.
   applicable si:
@@ -5138,7 +5157,7 @@ aides . grand orb:
 aides . montlucon:
   remplace: intercommunalité
   titre: Montluçon Communauté
-  description: |
+  description: >
     Aide pour l'acquisition d'un vélo à assistance électrique neuf ou
     d'occasion ou d'un vélo classique musculaire neuf ou d'occasion à usage
     personnel.
@@ -5166,7 +5185,7 @@ aides . montlucon:
 aides . cotentin:
   remplace: intercommunalité
   titre: Cap Cotentin
-  description: |
+  description: >
     Après avoir loué un vélo électrique Cap Cotentin ou si votre quotient
     familial est égal ou inférieur à 750 €, vous pouvez bénéficier d'une aide
     à l'acquisition pour l'achat de votre propre vélo électrique.
@@ -5208,7 +5227,7 @@ aides . cotentin:
 aides . granville:
   remplace: commune
   titre: Ville de Granville
-  description: |
+  description: >
     Une aide financière est accordée aux résident·es granvillais·es de 18 ans
     et plus ainsi qu'aux apprenti·es (mineurs) pour l'achat, depuis le 1er
     janvier 2022, d'une vélo de tout type : vélo/ vélo cargo avec ou sans
@@ -5248,7 +5267,7 @@ aides . granville:
 aides . saint-louis:
   remplace: intercommunalité
   titre: Saint-Louis Agglomération
-  description: |
+  description: >
     Aide à l'achat d'un vélo à assistance électrique ou mécanique, neuf ou
     d'occasion, acheté dans un magasin situé dans l'une des 40 communes membres
     de l'agglomération.
@@ -5274,10 +5293,11 @@ aides . saint-louis:
 aides . saint-pair-sur-mer:
   remplace: commune
   titre: Ville de Saint-Pair-sur-Mer
-  description: |
+  description: >
     Prime de 200€ pour l'acquisition d'un vélo à assistance électrique et
     mécanique (uniquement pour les personnes en situation de handicap ou ayant
     un revenu fiscal de référence par part par part inférieur ou égal à 6 358 €).
+
 
     La prime est élligible pour les Saint Pairais majeur ayant un revenu fiscal
     de référence par part inférieur ou égal à 14 089 € ou étant en situation de
@@ -5307,7 +5327,7 @@ aides . saint-pair-sur-mer:
 aides . aunis atlantique:
   remplace: intercommunalité
   titre: Communauté de Communes Aunis Atlantique
-  description: |
+  description: >
      Aide forfaitaire de 200€ à l'achat de vélos à assistance électrique (VAE).
   applicable si:
     toutes ces conditions:
@@ -5322,7 +5342,7 @@ aides . aunis atlantique:
 aides . blois:
   remplace: intercommunalité
   titre: Agglopolys
-  description: |
+  description: >
     Agglopolys vous rembourse donc jusqu'à 200 € pour l'achat d'un vélo
     électrique dans la limite de 25% du prix d'achat !
   applicable si:
@@ -5338,7 +5358,7 @@ aides . blois:
 aides . epinal:
   remplace: intercommunalité
   titre: Agglomération Épinal
-  description: |
+  description: >
     Aide à l'achat d'un vélo à assistance électrique (VAE), musculaire
     (jusqu'au 31 décembre 2024), ou d'un kit de transformation d'un vélo en
     VAE.
@@ -5374,10 +5394,11 @@ aides . epinal:
 aides . rochefort:
   remplace: intercommunalité
   titre: Communauté d'agglomération de Rochefort Océan
-  description: |
+  description: >
     Une aide financière est proposée pour l'achat d'un vélo ou d'un tricycle
     qu'il soit à assistance électrique ou non ou bien d'un kit
     d'électrification.
+
 
     La période d'attribution de la prime locale se déroule du 1er avril au 30
     novembre de l'année civile.  
@@ -5409,7 +5430,7 @@ aides . rochefort:
 aides . saintes:
   remplace: intercommunalité
   titre: Agglomération Saintes Grandes Rives
-  description: |
+  description: >
       Subvention, soumise à des conditions d'éligibilité, fixée à hauteur de
       200€ pour un vélo à assistance électrique neuf ou reconditionné ou pour
       un kit d'électrification ou 400 € pour un vélo cargo à assistance
@@ -5436,10 +5457,11 @@ aides . saintes:
 aides . dieppe:
   remplace: commune
   titre: Ville de Dieppe
-  description: |
+  description: >
     Une aide de 50 € (ou de 150 € pour tout achat d'un vélo cargo) est
     accessible à tous les habitants et une enveloppe de 100 € pourra être
     accordée, sous condition de ressources.
+
 
     Date limite de dépôt des dossiers : 31 décembre 2024.
   applicable si:
@@ -5460,7 +5482,7 @@ aides . dieppe:
 aides . yvetot normandie:
   remplace: intercommunalité
   titre: Yvetot Normandie
-  description: |
+  description: >
     Aide à l'achat d'un vélo à assistance électrique ou mécanique, neuf ou
     d'occasion. Cette aide est limitée à une enveloppe budgétaire annuelle.
   applicable si:
@@ -5483,7 +5505,7 @@ aides . yvetot normandie:
 aides . villes soeurs:
   remplace: intercommunalité
   titre: Communauté de communes des Villes Soeurs
-  description: |
+  description: >
     Aide pour l'acquisition d'un vélo à assistance électrique (VAE). La
     subvention, limitée à un vélo par personne, sera calculée sur une base de
     25% du coût d'achat d'un vélo neuf, plafonnée à 150 €.
@@ -5500,7 +5522,7 @@ aides . villes soeurs:
 aides . cote albatre:
   remplace: intercommunalité
   titre: Communauté de Communes de la Côte d'Albâtre
-  description: |
+  description: >
     L'aide a pour objectif de pouvoir les inciter à acquérir un vélo, qu'il
     soit neuf ou non, électrique ou non, pour les adultes comme pour les
     enfants. Une aide par foyer pour l'achat de cariole à vélo pour le
@@ -5559,7 +5581,7 @@ aides . cote albatre:
 aides . arcachon:
   remplace: commune
   titre: Ville d'Arcachon
-  description: |
+  description: >
      Subvention de 200 € par membre rattaché au foyer fiscal de plus de 14 ans
      en résidence principale et secondaire pour l'achat d'un vélo à assistance
      électrique.
@@ -5575,7 +5597,7 @@ aides . arcachon:
 aides . canélan:
   remplace: commune
   titre: Ville de Canélan
-  description: |
+  description: >
     Aide à l'acquisition d'un vélo à assistance électrique (neuf ou d'occasion)
     ou la motorisation d'un vélo classique.
   applicable si: 
@@ -5599,7 +5621,7 @@ aides . canélan:
 aides . bassin d'arcachon nord:
   remplace: intercommunalité
   titre: Communauté d'agglomération du Bassin d'Arcachon Nord
-  description: |
+  description: >
     Aide jusqu'à 200€ par vélo et par personne pour l'acquisition de vélo à
     assistance électrique (VAE) neuf ou d'occasion.
   applicable si:
@@ -5618,7 +5640,7 @@ aides . bassin d'arcachon nord:
 aides . grand cubzaguais:
   remplace: intercommunalité
   titre: Grand Cubzaguais
-  description: |
+  description: >
     Cette aide financière, sous condition de ressource, porte aussi bien sur
     les vélos mécaniques que sur les vélos électriques, avec une nouveauté
     cette année : les vélos mécaniques neufs sont maintenant éligibles !
@@ -5693,7 +5715,7 @@ aides . bourges:
 aides . montauban:
   remplace: intercommunalité
   titre: Grand-Montauban
-  description: |
+  description: >
     Aide à l'achat jusqu'à 250€ pour l'achat d'un vélo cargo neuf, électrique
     ou non.
   applicable si:
@@ -5709,7 +5731,7 @@ aides . montauban:
 aides . mont de marsan:
   remplace: intercommunalité
   titre: Mont de Marsan Agglo
-  description: |
+  description: >
      Aide à l'achat pour un vélo à assistance électrique (VAE) ou un vélo
      musculaire sans assistance.
   applicable si:
@@ -5736,7 +5758,7 @@ aides . mont de marsan:
 aides . plaine de l'ain VAE:
   remplace: intercommunalité
   titre: Communauté de communes de la Plaine de l'Ain
-  description: |
+  description: >
      Aide à l'acquisition de vélos à assistance électrique et trottinette
      électrique. 
 
@@ -5758,7 +5780,7 @@ aides . plaine de l'ain VAE:
     distance domicile-travail inférieur à 15 km:
       type: booléen
       question: Travaillez vous à moins de 15 km de votre domicile ?
-      description: |
+      description: >
         Vous devez pouvoir le justifier grâce à une attestation de votre
         employeur, datée de moins de 2 mois.
       par défaut: non
@@ -5766,7 +5788,7 @@ aides . plaine de l'ain VAE:
     abonné TER:
       type: booléen
       question: Disposez-vous d'un abonnement TER de plus de 3 mois ?
-      description: |
+      description: >
         Vous devez pouvoir le justifier grâce à une copie de la carte Ourà à
         votre nom.
       par défaut: non
@@ -5775,10 +5797,11 @@ aides . plaine de l'ain VAE:
 aides . plaine de l'ain vélos spécifiques:
   remplace: intercommunalité
   titre: Communauté de communes de la Plaine de l'Ain
-  description: |
+  description: >
      Aide à l'acquisition de vélos spécifiques (vélos cargos, vélos rallongés,
      vélos adaptés au handicap, Triporteur).
-     
+    
+
      Dossier à envoyer avant le 1er décembre 2024.
   applicable si: 
     toutes ces conditions:
@@ -5794,9 +5817,10 @@ aides . plaine de l'ain vélos spécifiques:
 aides . divonne-les-bains:
   remplace: commune
   titre: Ville de Divonne-les-Bains
-  description: |
+  description: >
     Le Conseil Municipal a voté la reconduction de la prime à l'achat de vélos
     neufs ou d'occasion pour les Divonnais·es pour l'année 2024 !
+
 
     Date limite de dépôt des dossiers : 31 décembre 2024.
   applicable si: 
@@ -5822,10 +5846,11 @@ aides . divonne-les-bains:
 aides . dieulefit-bourdeaux:
   remplace: intercommunalité
   titre: Communauté de communes Dieulefit-Bourdeaux
-  description: |
+  description: >
      Aide à l'achat de vélos urbain classique ou à assistance électrique,
      vélo-cargo, tricycle à assistance électrique ou kit d'électrification,
      hors vélo de loisirs type VTT, fatbikes et gravel.
+
 
      Attention : les demandes (à la CCDB et/ou à votre commune) doivent être
      réalisées avant la demande des aides d'Etat.
@@ -5874,10 +5899,11 @@ aides . dieulefit-bourdeaux:
 aides . arche agglo:
   remplace: intercommunalité
   titre: ARCHE Agglo
-  description: |
+  description: >
     Jusqu'à 150€ d'aide pour l'achat d'un vélo électrique. Il devra être acheté
     auprès d'un vélociste partenaire (sauf pour les vélos adaptés aux personnes
     à mobilité réduite).
+
 
     Opération valable jusqu'en 2026, dans la limite de l'enveloppe budgétaire
     annuelle.
@@ -5903,7 +5929,7 @@ aides . arche agglo:
 aides . annonay:
   remplace: intercommunalité
   titre: Annonay Rhône Agglo
-  description: |
+  description: >
     Prime d'aide à l'achat de vélo à assistance électrique neuf ou
     recondtionnées à neuf achetés auprès de l'un des vendeurs de cycles du
     territoire.
@@ -5963,7 +5989,7 @@ aides . annonay:
 aides . lanester:
   remplace: commune
   titre: Ville de Lanester
-  description: |
+  description: >
     Aide pour l'achat d'un vélo neuf ou d'occasion avec ou sans assistance
     électrique, ou pour l'achat d'une remorque pour vélo.
   applicable si: 
@@ -5989,9 +6015,10 @@ aides . lanester:
 aides . la roche sur yon:
   remplace: intercommunalité
   titre: La Roche-sur-Yon Agglomération
-  description: |
+  description: >
     Aide à l'acquisition de vélos à assistance électrique, de vélos familiaux
     ou vélos cargos et de vélos adaptés aux personnes en situation de handicap.
+
 
     L'aide est majorée pour les salariés d'une structure membre du Plan de
     Déplacement inter-entreprises (PDIE).
@@ -6052,7 +6079,7 @@ aides . la roche sur yon:
     salarié d'une structure membre du PDIE:
       type: booléen
       applicable si: demandeur . statut . salarié
-      question: |
+      question: >
         Êtes-vous salarié d'une structure membre du Plan de Déplacement
         inter-entreprises (PDIE) ?
       par défaut: non
@@ -6061,10 +6088,11 @@ aides . la roche sur yon:
 aides . cholet:
   remplace: intercommunalité
   titre: Cholet Agglomération
-  description: |
+  description: >
     Subvention pour l'achat d'un vélo neuf à assistance électrique. Le vélo
     devra être acheté auprès d'un revendeur professionnel partenaire de cette
     opération et ayant signé une charte d'engagement avec Cholet Agglomération
+
 
     Fin de l'opération le 31 décembre 2024.
   applicable si:
@@ -6082,7 +6110,7 @@ aides . cholet:
 aides . saumur val de loire:
   remplace: intercommunalité
   titre: Communauté d'Agglomération Saumur Val de Loire
-  description: |
+  description: >
     Aide à l'acquisition de vélo à assistance électrique neuf ou d'occasion à
     usage personnel.
   applicable si:
@@ -6099,9 +6127,10 @@ aides . saumur val de loire:
 aides . loire layon aubance:
   remplace: intercommunalité
   titre: Communauté de Communes Loire Layon Aubance
-  description: |
+  description: >
     Subvention pour l'achat d'un vélo à assistance électrique en 2024. L'achat
     doit être effectué physiquement dans un magasin. 
+
 
     A noter que le montant de la subvention est plafonnée à 80% du prix d'achat
     du vélo avec le cumul du Bonus Vélo de l'Etat.
@@ -6147,7 +6176,7 @@ aides . laval:
 # aides . brive:
 #   remplace: intercommunalité
 #   titre: Agglo de Brive
-#   description: |
+#   description: >
 #     Aide sous forme d'un Chèque Vélo à demander avant d'acheter le vélo
 #   applicable si:
 #     toutes ces conditions:
@@ -6160,7 +6189,7 @@ aides . laval:
 aides . ville de talant:
   remplace: commune
   titre: Ville de Talant
-  description: |
+  description: >
     Aide à l'achat d'un vélo à assistance électrique (VAE) neuf ou d'occasion,
     effectué auprès d'un commerçant professionnel implanté sur le territoire de
     la Métropole Dijonnaise.
@@ -6180,10 +6209,11 @@ aides . ville de talant:
 aides . pays des achards:
   remplace: intercommunalité
   titre: Communauté de communes du Pays des Achards
-  description: |
+  description: >
     L'aide financière vise l'acquisition d'un vélo, d'un vélo pliant, d'un Vélo
     à Assistance Électrique, d'un kit d'électrification ou d'un vélo spécial
     (vélo cargo, biporteur, triporteur, vélo rallongé) pour adulte.
+
 
     Les vélos adaptés à un handicap pourront faire l'objet d'une étude
     spécifique.
@@ -6208,7 +6238,7 @@ aides . pays des achards:
 aides . hem:
   remplace: commune
   titre: Ville de Hem
-  description: |
+  description: >
     Prime d'aide à l'achat de tout type de vélo ou d'une trottinette électrique
     acheté chez un commerçant professionnel implanté sur le territoire de la
     commune ou de la Métropole Lilloise. (Dans la limite du budget annuel
@@ -6224,7 +6254,7 @@ aides . hem:
 aides . liévin:
   remplace: commune
   titre: Ville de Liévin
-  description: |
+  description: >
     Aide à l'acquisition d'un vélo ou trotinette à assistance électrique.
     L'achat du matériel neuf devra avoir été effectué auprès d'un commerçant
     professionnel présent sur le territoire du Pôle Métropolitain de l'Artois.
@@ -6241,11 +6271,12 @@ aides . liévin:
 aides . béthune bruay:
   remplace: intercommunalité
   titre: Communauté d'Agglomération de Béthune-Bruay, Artois-Lys Romane
-  description: |
+  description: >
     Pass'Mobil'Agglo - Aide financière accessible aux habitants du territoire
     qui en feront la demande pour l'achat de vélo (mécanique, électrique, cargo,
     adapté PMR, pliant) et d'accessoires de sécurité pour cycliste (conditionné à
     l'achat d'un vélo).
+
 
     Subvention de 30 à 500€ en bon d’achat utilisable chez les
     commerces et associations partenaires (validité limitée au 8 décembre
@@ -6270,9 +6301,10 @@ aides . béthune bruay:
 aides . baisieux:
   remplace: commune
   titre: Ville de Baisieux
-  description: |
+  description: >
     Aide à l'achat d'un vélo classique, VAE ou kit d'électrification (neuf ou
     d'occasion).
+
 
     Il est nécessaire de faire la demande auprès de la maire de Baisieux avant
     l'achat.
@@ -6314,7 +6346,7 @@ aides . baisieux:
 aides . bonningues-lès-calais:
   remplace: commune
   titre: Ville de Bonningues-Lès-Calais
-  description: |
+  description: >
     Aide octroyée sous forme de subvention pour tout achat d'un vélo neuf ou
     d'occasion entre le 1er avril 2023 et le 30 Avril 2024 auprès d'un
     commerçant spécialisé.
@@ -6339,7 +6371,7 @@ aides . bonningues-lès-calais:
 aides . loos-en-gohelle:
   remplace: commune
   titre: Ville de Loos-en-Gohelle
-  description: |
+  description: >
     Prime à l'achat d'un vélo neuf ou d'occasion. Demande possible jusqu'à
     épuisement du budget du 1er janvier 2024 au 31 décembre 2025.
   applicable si:
@@ -6361,7 +6393,7 @@ aides . loos-en-gohelle:
 aides . gruson:
   remplace: commune
   titre: Ville de Gruson
-  description: |
+  description: >
     Aide à l'achat d'un vélo à assistance électrique neuf.
   applicable si:
     toutes ces conditions:
@@ -6379,7 +6411,7 @@ aides . gruson:
 aides . iwuy:
   remplace: commune
   titre: Ville d'Iwuy
-  description: |
+  description: >
     Aide de 100€ pour l'achat d'un vélo neuf à assistance électrique.
   applicable si:
     toutes ces conditions:
@@ -6392,9 +6424,10 @@ aides . iwuy:
 aides . porte du hainaut:
   remplace: intercommunalité
   titre: Communauté d'Agglomération de la Porte du Hainaut
-  description: |
+  description: >
     Aide à l'achat d'un vélo à assistance électrique ou mécanique, neuf ou
     d'occasion.
+
 
     Une aide allant jusqu'à 50€ est également disponible pour la réparation de
     son vélo.
@@ -6434,7 +6467,7 @@ aides . porte du hainaut:
 aides . denain:
   remplace: commune
   titre: Ville de Denain
-  description: |
+  description: >
     Aide complémentaire d'un montant de la moitié de celle allouée par la
     Communauté d'Agglomération de la Porte du Hainault. Dossier à déposer en
     mairie de Denain.
@@ -6461,7 +6494,7 @@ aides . denain:
 aides . wambrechies:
   remplace: commune
   titre: Ville de Wambrechies
-  description: |
+  description: >
     Subvention d'aide à l'achat de vélos à assistance électrique ou mécanique
     ainsi que d'accessoires. L'achat d'un vélo neuf ou d'occasion doit se faire
     chez un professionnel avec facture.
@@ -6494,9 +6527,10 @@ aides . wambrechies:
 aides . lesquin:
   remplace: commune
   titre: Ville de Lesquin
-  description: |
+  description: >
     Subvention pour l'achat d'un vélo, un vélo à assistance électrique ou
     trottinette électrique (neuf ou d'occasion) chez un professionnel.
+
 
     Dispositif valable jusqu'au 31 décembre 2024.
   applicable si:
@@ -6516,7 +6550,7 @@ aides . lesquin:
 aides . lezenne:
   remplace: commune
   titre: Ville de Lezenne
-  description: |
+  description: >
     Aide à l'achat aussi bien pour un vélo neuf que d'occasion, de type vélo de
     ville, VTC et VTT, vendu par un professionnel.
   applicable si: localisation . code insee = '59346'
@@ -6554,7 +6588,7 @@ aides . lezenne:
 aides . dunkerque:
   remplace: intercommunalité
   titre: Communauté urbaine de Dunkerque
-  description: |
+  description: >
     Cette aide est octroyée sous forme de subvention pour tout achat d'un vélo
     neuf quel qu'en soit le type (classique, pliant, à assistance électrique,
     cargo…) acheté avant le 31 décembre 2024. Au prix initial du vélo, peuvent
@@ -6627,7 +6661,7 @@ aides . dunkerque:
 aides . grande-synthe:
   remplace: commune
   titre: Ville de Grande Synthe
-  description: |
+  description: >
     Aide à l'achat d'un vélo neuf à assistance électrique ou non.
   applicable si: 
     toutes ces conditions:
@@ -6647,7 +6681,7 @@ aides . grande-synthe:
 aides . valenciennes:
   remplace: intercommunalité
   titre: Valenciennes Métropole
-  description: |
+  description: >
     Aide à l'achat d'un vélo neuf ou d'occasion, à assistance électrique ou
     non. L'achat du véhicule devra se faire entre le 1er janvier 2024 et le 31
     décembre 2024, chez un professionnel situé sur le territoire de
@@ -6699,7 +6733,7 @@ aides . valenciennes:
 aides . cambrai:
   remplace: intercommunalité
   titre: Communauté d'agglomération de Cambrai
-  description: |
+  description: >
     Aide à l'acquisition d'un vélo classique ou à assistance électrique neuf
     acheté chez un commerçant professionnel implanté sur le territoire de la CA
     de Cambrai.
@@ -6723,7 +6757,7 @@ aides . cambrai:
 aides . coeur d'ostrevent:
   remplace: intercommunalité
   titre: Cœur d'Ostrevent
-  description: |
+  description: >
     Prime à l'achat d'un vélo neuf à assistance électrique entre le 1er janvier
     2024 et le 31 décembre 2024.
   applicable si:
@@ -6739,7 +6773,7 @@ aides . coeur d'ostrevent:
 aides . thiais:
   remplace: commune
   titre: Ville de Thiais
-  description: |
+  description: >
     Subvention pour l'acquisition d'un vélo neuf à assistance électrique.
   applicable si:
     toutes ces conditions:
@@ -6753,10 +6787,11 @@ aides . thiais:
 aides . nanterre:
   remplace: commune
   titre: Ville de Nanterre
-  description: |
+  description: >
     Nanterre propose, sous certaines conditions de ressources, des aides pour
     l'achat d'un vélo mécanique (neuf ou d'occasion), d'un kit
     d'électrification et d'accessoires de sécurité.
+
 
     A noter : la carte famille 2024 est indispensable. Les personnes dont la
     carte famille est supérieure à 2211 € ne sont pas éligibles à cette aide.
@@ -6818,7 +6853,7 @@ aides . nanterre:
     possède une carte famille:
       type: booléen
       question: Possédez-vous une carte famille ?
-      description: |
+      description: >
         La carte famille permet de bénéficier des prestations de la ville au
         meilleur coût et en fonction des ressources de chacun, en calculant un
         quotient familial (voir le [site de la
@@ -6829,10 +6864,11 @@ aides . nanterre:
 aides . puteaux:
   remplace: commune
   titre: Ville de Puteaux
-  description: |
+  description: >
     La subvention s'applique à l'achat d'un vélo mécanique neuf ou d'occasion,
     d'un vélo électrique neuf ou d'occasion ou à l'achat et à l'installation
     d'un kit de motorisation électrique neuf.
+
 
     Certains accessoires, achetés en complément du vélo ou du kit, peuvent être
     éligibles au versement de la subvention.
@@ -6853,7 +6889,7 @@ aides . puteaux:
 aides . genneviliers:
   remplace: commune
   titre: Ville de Genneviliers
-  description: |
+  description: >
     Cette aide pour les Gennevillois‧es de 18 ans et plus s’applique aux vélos
     achetés chez un professionnel, y compris les vélos d’occasion (depuis 2022).
     En 2024, elle couvre les vélos mécaniques, électriques, cargos, pliants ou
@@ -6870,7 +6906,7 @@ aides . genneviliers:
 aides . drancy:
   remplace: commune
   titre: Ville de Drancy
-  description: |
+  description: >
     Aide financière allant de 100 à 200 euros pour l'achat d'un vélo neuf ou
     d'occasion à assistance électrique.
   applicable si:
@@ -6886,7 +6922,7 @@ aides . drancy:
 aides . rives de moselle:
   remplace: intercommunalité
   titre: Rives de Moselle
-  description: |
+  description: >
     Subvention pour les vélos à assistance électrique, les vélos cargos, les
     vélos pliants ainsi que les vélos traditionnels achetés neufs ou
     d'occasion.
@@ -6920,7 +6956,7 @@ aides . rives de moselle:
 aides . saint-avold:
   remplace: intercommunalité
   titre: Communauté d'Agglomération Saint-Avold Synergie
-  description: |
+  description: >
     Aide à l'achat d'un vélo à assistance électrique de 150€ si acheté dans un
     magasin du territoire de la CASAS, 50€ sinon. 
   applicable si:
@@ -6942,7 +6978,7 @@ aides . saint-avold:
 aides . montigny les metz:
   remplace: commune
   titre: Ville de Montigny lès Metz
-  description: |
+  description: >
     Aide à l'achat d'un vélo à assistance électrique, cargo, pliant et adapté
     pour les PMR. L'achat doit être effectué chez un professionnel situé sur le
     territoire de la Métropole. 
@@ -6962,7 +6998,7 @@ aides . montigny les metz:
 aides . mennecy:
   remplace: commune
   titre: Ville de Mennecy
-  description: |
+  description: >
     Subvention pour l'achat d'un vélo musculaire neuf. A noter que pour les
     vélos enfants et juniors (-18 ans), une aide forfaitaire de 30€ pourra être
     versée sans critère.
@@ -6982,10 +7018,11 @@ aides . mennecy:
 aides . betheny:
   remplace: commune
   titre: Ville de Bétheny
-  description: |
+  description: >
     Subvention pour l'acquisition d'un cycle avec ou sans assistance électrique
     pour les particuliers, âgés d'au moins 18 ans, dont la résidence principale
     est à Bétheny.
+
 
     Les dossiers devront également être impérativement reçus avant le 17
     décembre 2024 pour être traités au titre du dispositif 2024.
@@ -7014,12 +7051,13 @@ aides . betheny:
 aides . brest:
   remplace: intercommunalité
   titre: Brest Métropole
-  description: |
+  description: >
     Aide à l'achat d'un vélo à assistance électrique classique, pliant ou non,
     allant jusqu'à 500€ selon le type de VAE et selon des conditions de
     ressources.L'aide s'applique également pour l'acquisition d'un vélo cargo à
     assistance électrique, de type biporteur, triporteur, long tail ou
     tricycles. 
+
 
     L'achat doit être réalisé auprès d'un revendeur du territoire de Brest
     Métropole (pas d'achat en ligne).
@@ -7058,7 +7096,7 @@ aides . brest:
 aides . relecq-kerhuon:
   remplace: commune
   titre: Ville du Relecq-Kerhuon
-  description: |
+  description: >
     Aide pour l'achat d'un vélo simple, de vélo à assistance électrique, et de
     vélo cargo ou familliaux ainsi que le vélo adapté aux personnes en
     situation de handicap.
@@ -7105,7 +7143,7 @@ aides . relecq-kerhuon:
 aides . plougastel-daoulas:
   remplace: commune
   titre: Ville de Plougastel-Daoulas
-  description: |
+  description: >
     Prime communale allouée pour l'achat d'un vélo à assistance électrique neuf
     ou d'occasion acheté chez un revendeur professionnel.
   applicable si:
@@ -7139,7 +7177,7 @@ aides . plougastel-daoulas:
 aides . pays d'iroise:
   remplace: intercommunalité
   titre: Pays d'Iroise Communauté
-  description: |
+  description: >
     Aide forfaitaire aux particuliers de 200 € pour l'achat d'un vélo à
     assistance électrique et de 100 € pour l'achat d'un kit d'électrification.
   applicable si:
@@ -7163,7 +7201,7 @@ aides . pays d'iroise:
 aides . haute-cornouaille:
   remplace: intercommunalité
   titre: Communauté de communes de la Haute Cornouaille 
-  description: |
+  description: >
     Aide pour l'achat d'un vélo neuf à assistance électrique chez un
     professionnel entre le 1er janvier 2024 et le 31 décembre 2024.
   applicable si:
@@ -7180,7 +7218,7 @@ aides . haute-cornouaille:
 aides . gouesnou:
   remplace: commune
   titre: Ville de Gouesnou
-  description: |
+  description: >
      Prime de 100€ pour l'achat d'un vélo à assistance électrique (VAE) neuf ou
      reconditionné et une prime de 400€ pour l'acquisition d'un vélo adapté à
      une situation de handicap.
@@ -7203,7 +7241,7 @@ aides . gouesnou:
 aides . saint-pol-de-léon:
   remplace: commune
   titre: Ville de Saint-Pol-De-Léon
-  description: |
+  description: >
     Aide de 100€ pour l'achat d'un vélo à assistance électrique neuf.
   applicable si:
     toutes ces conditions:
@@ -7217,7 +7255,7 @@ aides . saint-pol-de-léon:
 aides . baie du mont saint-michel:
   remplace: intercommunalité
   titre: Communauté de communes du Pays de Dol et de la Baie du Mont Saint-Michel
-  description: |
+  description: >
     Aide forfaitaire de 100 € pour l'achat d'un Vélo à Assistance Electrique
     (VAE) classique ou pliant neuf ou pour l'électrification d'un vélo.
   applicable si:
@@ -7236,10 +7274,11 @@ aides . baie du mont saint-michel:
 aides . montfort:
   remplace: intercommunalité
   titre: Montfort Communauté
-  description: |
+  description: >
     Aide à l'achat d'un vélo classique ou à assistance électrique neuf ou
     d'occasion.
-    
+   
+
     Si l'achat est effectué dans un commerce de centre-bourg, Montfort
     Communauté vous offre 50 euros supplémentaire en chèque cadeau Pourpre &
     Boutik.
@@ -7280,7 +7319,7 @@ aides . montfort:
 aides . liffré-cormier:
   remplace: intercommunalité
   titre: Liffré-Cormier Communauté
-  description: | 
+  description: > 
     Aide pour l'acquisition d'un vélo à assistance électrique ou d'un vélo
     atypique mécanique (vélo pliant, vélo cargo, vélo adapté) neuf.
   applicable si:
@@ -7304,7 +7343,7 @@ aides . liffré-cormier:
 aides . vallons de haute bretagne:
   remplace: intercommunalité
   titre: Vallons de Haute Bretagne Communauté
-  description: |
+  description: >
     Aide à l'achat d'un vélo à assistance électrique neuf acheté chez dans un
     commerce situé sur le territoire de Vallons de Haute Bretagne Communauté.
   applicable si:
@@ -7351,7 +7390,7 @@ aides . cote d'emeraude:
 aides . saint-brieuc armor:
   remplace: intercommunalité
   titre: Saint-Brieuc Armor Agglomération
-  description: |
+  description: >
     Subvention correspondant à 25 % du montant du vélo neuf (électrique ou
     cargo) réglé par l'acheteur, plafonné à 150 €, dans la limite des fonds
     disponible
@@ -7369,7 +7408,7 @@ aides . saint-brieuc armor:
 aides . lannion-trégor:
   remplace: intercommunalité
   titre: Lannion-Trégor Communauté
-  description: |
+  description: >
     Aide de 10% du prix du vélo à assistance électrique neuf, plafonnée à 100€.
   applicable si:
     toutes ces conditions:
@@ -7397,7 +7436,7 @@ aides . lannion-trégor:
 aides . trébeurden:
   remplace: commune
   titre: Ville de Trébeurden
-  description: |
+  description: >
     Subvention de 20% du prix d'achat TTC du VAE neuf dans la limite de 200 €.
   applicable si:
     toutes ces conditions:
@@ -7412,7 +7451,7 @@ aides . trébeurden:
 aides . morlaix:
   remplace: intercommunalité
   titre: Morlaix Communauté
-  description: |
+  description: >
     Prime à l'acquisition d'un vélo à assistance électrique neuf ou d'occasion
     dans un magasin situé sur le territoire de Morlaix Communauté.
   applicable si:
@@ -7436,7 +7475,7 @@ aides . morlaix:
 aides . poher:
   remplace: intercommunalité
   titre: Poher Communauté
-  description: |
+  description: >
     Aide à l'achat d'un vélo à assistance électrique neuf, fixée à 20% du prix
     d'achat, plafonnée à 200 €
   applicable si:
@@ -7452,7 +7491,7 @@ aides . poher:
 aides . crozon:
   remplace: intercommunalité
   titre: Presqu'île de Crozon-Aulne Maritime
-  description: |
+  description: >
     Prime à l'achat d'un vélo adulte, classique ou à assistance électrique
     (VAE) neuf ou d'occasion.
   applicable si: 
@@ -7471,7 +7510,7 @@ aides . crozon:
 aides . saint-jacques de la lande:
   remplace: commune
   titre: Saint-Jacques de la Lande
-  description: |
+  description: >
     Aide à l'acquisition d'un vélo à assistance électrique, d'un vélo
     conventionnel ou d'un vélo d'occasion acheté chez un professionnel entre le
     1er janvier 2024 et le 31 décembre 2024.
@@ -7497,7 +7536,7 @@ aides . saint-jacques de la lande:
 aides . quesnoy-sur-deûle:
   remplace: commune
   titre: Ville de Quesnoy-sur-Deûle
-  description: |
+  description: >
     Aide à l'achat jusqu'à 50 € d'un vélo à assistance électrique ou non, neuf
     ou d'occasion.
     Dispositif valable jusqu'au 31 décembre 2024.
@@ -7514,7 +7553,7 @@ aides . quesnoy-sur-deûle:
 aides . sainghin en melantois:
   remplace: commune
   titre: Ville de Sainghin en Melantois
-  description: |
+  description: >
     Aide à l'achat d'un vélo à assistance électrique ou mécanique, neuf ou
     d'occasion, acheté chez un professionnel. 
   applicable si: 
@@ -7535,10 +7574,11 @@ aides . sainghin en melantois:
 aides . pays de mormal:
   remplace: intercommunalité
   titre: Communauté de communes du Pays de Mormal
-  description: |
+  description: >
     Aide pour l'acquisition auprès d'un professionnel d'un seul vélo (cargo ou
     familial, pliant, urbain…) à assistance électrique, neuf ou d'occasion et à
     usage personnel.
+
 
     Date limite de dépôt des dossiers : 1er décembre 2024.
   applicable si:
@@ -7560,7 +7600,7 @@ aides . pays de mormal:
 aides . grand calais:
   remplace: intercommunalité
   titre: Grand Calais Terres et Mers - SITAC
-  description: |
+  description: >
     ide est octroyée sous forme d'une subvention pour tout achat d'un vélo neuf
     ou d'occasion, à assistance électrique ou non, entre le 1er décembre 2024
     et le 31 mai 2025 inclus.
@@ -7584,9 +7624,10 @@ aides . grand calais:
 aides . pays de lumbres:
   remplace: intercommunalité
   titre: Pays de Lumbres
-  description: |
+  description: >
     Aide à l'achat d'un vélo à assistance électrique ou mécanique, neuf ou
     d'occasion. 
+
 
     Demande possible jusqu'à épuisement du budget, entre le 1er janvier et le
     31 décembre 2024
@@ -7614,7 +7655,7 @@ aides . pays de lumbres:
 aides . amboise:
   remplace: commune
   titre: Ville d'Amboise
-  description: |
+  description: >
     Aide à l'acquisition d'un vélo électrique neuf ou d'occasion à usage
     personnel.
   applicable si:
@@ -7652,7 +7693,7 @@ aides . amboise:
 # aides . val-de-reuil:
 #   remplace: commune
 #   titre: Ville de Val-de-Reuil
-#   description: |
+#   description: >
 #     Bonus Tous à Vélo -  Aide à l'acquisition d'un vélo électrique neuf ou
 #     d'occasion à usage personnel.
 #   applicable si: 
@@ -7666,7 +7707,7 @@ aides . amboise:
 aides . moselle et madon:
   remplace: intercommunalité
   titre: Communauté de communes Moselle et Madon
-  description: |
+  description: >
     Aide pour l'achat de vélo neuf ou d'occasion (vélo classique ou à
     assistance électrique, vélo cargo, vélo adapté) vendu par un professionnel
     ou l'électrification d'un vélo.
@@ -7684,7 +7725,7 @@ aides . moselle et madon:
 aides . boulonnais:
   remplace: intercommunalité
   titre: Agglo Boulonnais
-  description: |
+  description: >
      Aide financière pour l'achat d'un VAE dans le cadre d'un déplacement
      domicile-travail. Elle concerne les salariés (privé / public), et les
      personnes en recherche d'emploi.
@@ -7706,7 +7747,7 @@ aides . boulonnais:
 aides . osartis-marquion:
   remplace: intercommunalité
   titre: Communauté de communes Osartis-Marquion
-  description: |
+  description: >
     Aide de 150 € pour l'achat d'un vélo à assistance électrique neuf.
   applicable si:
     toutes ces conditions:
@@ -7752,7 +7793,7 @@ aides . chateauroux:
 aides . auray quiberon:
   remplace: intercommunalité
   titre: Auray Quiberon Terre Atlantique
-  description: |
+  description: >
     Aide pour l'achat d'un vélo neuf ou d'occasion, mécanique ou électrique et
     la pose d'un kit d'électrification neuf.
   applicable si:
@@ -7807,7 +7848,7 @@ aides . grand villeneuvois:
 aides . oise:
   remplace: département
   titre: Département de l'Oise
-  description: |
+  description: >
     Aide pour l'acquisition de vélos adultes classiques ou électriques (pour
     tout achat effectué entre 1er juillet 2023 et le 31 mars 2024).
   applicable si: 
@@ -7841,7 +7882,7 @@ aides . oise:
 aides . beauvais:
   remplace: intercommunalité
   titre: Communauté d'Agglomération du Beauvaisis
-  description: |
+  description: >
     Aide à l'achat d'un vélo neuf ou d'occasion effectué auprès d'un
     équipementier ou vélociste situé sur le territoire de la Communauté
     d'Agglomération du Beauvaisis.
@@ -7862,7 +7903,7 @@ aides . beauvais:
 aides . grand angouleme:
   remplace: intercommunalité
   titre: Grand Angoulême
-  description: |
+  description: >
     Aide à l'achat d'un vélo neuf, d'occasion ou reconditionné, équipement et
     matériel chez un des magasins partenaires.
   applicable si:
@@ -7902,7 +7943,7 @@ aides . grand angouleme:
 aides . massif du vercors:
   remplace: intercommunalité
   titre: Communauté de communes du Massif du Vercors 
-  description: |
+  description: >
     Bonus VAE - Aide à l'achat de vélos à assistance électrique.
   applicable si:
     toutes ces conditions:
@@ -7964,7 +8005,7 @@ aides . massif du vercors:
 aides . portes du luxembourg:
   remplace: intercommunalité
   titre: Les Portes du Luxembourg
-  description: |
+  description: >
     Prime Vélo - Aide à l'achat d'un vélo électrique ou mécanique, neuf ou
     d'occasion.
   applicable si:
@@ -7990,7 +8031,7 @@ aides . portes du luxembourg:
 aides . cazouls-lès-béziers:
   remplace: commune
   titre: Ville de Cazouls-Lès-Béziers
-  description: |
+  description: >
     Dispositif d'aide à l'achat d'un Vélo à Assistance Électrique (V.A.E).
   applicable si:
     toutes ces conditions:
@@ -8038,7 +8079,7 @@ aides . ecommoy:
 aides . bannalec:
   remplace: commune
   titre: Ville de Bannalec
-  description: |
+  description: >
     Aide financière de 100 € pour l'achat d'un VAE neuf ou d'occasion ou pour
     l'électrification d'un vélo dans la limite d'une aide par personne
     physique.
@@ -8055,7 +8096,7 @@ aides . bannalec:
 aides . vallées du clain:
   remplace: intercommunalité
   titre: Communauté de communes des Vallées du Clain
-  description: |
+  description: >
     Dispositif d'aide à l'achat d'un vélo électrique renouvelé pour 2024.
   applicable si:
     toutes ces conditions:
@@ -8074,7 +8115,7 @@ aides . vallées du clain:
 aides . witry-lès-reims:
   remplace: commune
   titre: Ville de Witry-lès-Reims
-  description: |
+  description: >
     Dispositif d'aide à l'achat d'un vélo à assistance électrique pour les
     habitants de la commune. L'achat devra être effectué dans un magasin
     et non sur internet, avant le 31 décembre 2024.
@@ -8120,7 +8161,7 @@ aides . labège:
 aides . hennebont:
   remplace: commune
   titre: Ville d'Hennebont
-  description: |
+  description: >
     Aide à l'achat neuf d'un vélo enfant ou d'un vélo adulte de type vélo de
     ville, VTC (Vélo Tout Chemin) ou VAE (Vélo à Assistance Electrique), d'une
     remorque et/ou carriole à vélo, pour l'électrification d'un vélo ancien.
@@ -8155,7 +8196,7 @@ aides . couesnon:
 aides . avant-monts:
   remplace: intercommunalité
   titre: Communauté de communes Les Avant-Monts
-  description: |
+  description: >
     Aide à l'achat de VAE, neuf ou d'occasion, acheté chez des revendeurs
     professionnels.
   applicable si:
@@ -8171,7 +8212,7 @@ aides . avant-monts:
 aides . vallées de l'orne et de l'odon:
   remplace: intercommunalité
   titre: Communauté de communes Vallées de l'Orne et de l'Odon
-  description: |
+  description: >
     Aide à l'acquisition d'un vélo électrique ou mécanique, neuf ou d'occasion.
   applicable si:
     toutes ces conditions:
@@ -8194,7 +8235,7 @@ aides . vallées de l'orne et de l'odon:
 aides . joinville-le-pont:
   remplace: commune
   titre: Ville de Joinville-le-Pont
-  description: |
+  description: >
     Subvention à l'achat d'un vélo à assistance électrique neuf, fixée à 25 %
     du prix d'achat TTC dans la limite de 300 € TTC par vélo. Un seul vélo par
     ménage peut être subventionné.
@@ -8210,7 +8251,7 @@ aides . joinville-le-pont:
 aides . haut-béarn:
   remplace: intercommunalité
   titre: Communauté de communes du Haut Béarn
-  description: |
+  description: >
     Subvention pour l'achat d'un vélo neuf à assistance électrique ou
     mécanique.
   applicable si:
@@ -8231,7 +8272,7 @@ aides . haut-béarn:
 aides . joinville:
   remplace: commune
   titre: Ville de Joinville
-  description: |
+  description: >
     Aide à l'acquisition d'un vélo à assistance électrique. Il suffit d'acheter
     auprès d'un vélociste disposant d'une activité de réparation des vélos.
     Pour bénéficier du bonus, n'hésitez pas à consulter la mairie de Joinville.
@@ -8245,7 +8286,7 @@ aides . joinville:
 aides . villers-sur-mer:
   remplace: commune
   titre: Ville de Villers-sur-mer
-  description: |
+  description: >
     Aide à l'acquisition d'un vélo classique ou à assistance électrique neuf.
   applicable si:
     toutes ces conditions:
@@ -8283,7 +8324,7 @@ aides . villers-sur-mer:
 # aides . saint-rémy-de-provence:
 #   remplace: commune
 #   titre: Ville de Saint-Rémy-de-Provence
-#   description: |
+#   description: >
 #     200 euros d'aide pour l'achat d'un vélo à assistance électrique neuf.
 #   applicable si:
 #     toutes ces conditions:
@@ -8297,7 +8338,7 @@ aides . villers-sur-mer:
 aides . val-revermont:
   remplace: commune
   titre: Ville de Val-Revermont
-  description: |
+  description: >
     Opération "Coups de pouce" pour l'achat d'un vélo. Veuillez vous rapprocher
     de la mairie pour plus d'informations.
   applicable si:
@@ -8311,7 +8352,7 @@ aides . val-revermont:
 aides . pays de châteaugiron:
   remplace: intercommunalité
   titre: Pays de Châteaugiron
-  description: |
+  description: >
     Prime à l'achat d'un Vélo à Assistance Électrique, d'une remorque
     électrique pour vélo ou d'un vélo cargo.
   applicable si:
@@ -8338,7 +8379,7 @@ aides . pays de châteaugiron:
 aides . bièvre isère:
   remplace: intercommunalité
   titre: Bièvre Isère Communauté
-  description: |
+  description: >
     Prime Vélo - aide financière à l'achat d'un vélo, musculaire ou à
     assistance électrique, cargo ou non.
   applicable si:
@@ -8374,7 +8415,7 @@ aides . bièvre isère:
 aides . ceyrat:
   remplace: commune
   titre: Ville de Ceyrat
-  description: |
+  description: >
      Aide communale à l'achat d'un vélo électrique neuf ou d'occasion.
   applicable si:
     toutes ces conditions:
@@ -8420,7 +8461,7 @@ aides . longuenesse:
 aides . castelnau de médoc:
   remplace: commune
   titre: Ville de Castelnau de Médoc
-  description: |
+  description: >
     Aide à l'acquisition d'un vélo à assistance électrique neuf.
   applicable si:
     toutes ces conditions:
@@ -8438,7 +8479,7 @@ aides . castelnau de médoc:
 aides . saulieu:
   remplace: commune
   titre: Communauté de communes de Saulieu-Morvan
-  description: |
+  description: >
     Subvention de 100€ pour l'achat d'un vélo électrique neuf à partir de 650€.
 
     Le dossier est à déposer dans les trentes jours suivants l'achat.
@@ -8513,7 +8554,7 @@ aides . pays orne moselle:
 aides . bram:
   remplace: commune
   titre: Ville de Bram
-  description: |
+  description: >
     Bram à vélo - Aide à l'achat d'un vélo à assistance électrique ou mécanique
     jusqu'au 1er décembre 2024.
   applicable si:
@@ -8558,7 +8599,7 @@ aides . bram:
 aides . region centre:
   remplace: région
   titre: Région Centre-Val de Loire
-  description: |
+  description: >
     Mobilité rurale - Vélo à assistance électrique ou adapté. L'aide régionale
     est réservée aux habitant·es d'une commune sur laquelle la Région est
     l'autorité organisatrice de la mobilité locale de substitution.
@@ -8637,7 +8678,7 @@ aides . region centre:
 aides . region centre rémi zen:
   remplace: région
   titre: Région Centre-Val de Loire
-  description: |
+  description: >
     Pour favoriser l'intermodalité avec les transports collectifs au quotidien,
     la Région incite les usagers réguliers du réseau Rémi à monter à bord avec
     des engins de déplacements compacts grâce à l'aide régionale Rémi Zen pour
@@ -8667,19 +8708,14 @@ aides . region centre rémi zen:
         - Abonnement Rémi Zen sans Navigo
         - Abonnement Optiforfait
 
-        Par ailleurs, la preuve d'achat de 10 mois d'abonnements mensuels sur
-        les 12 derniers mois à la date d'achat est également valable pour les
-        abonnements n'existant pas en version annuelle :
+        Par ailleurs, la preuve d'achat de 10 mois d'abonnements mensuels sur les 12 derniers mois à la date d'achat est également valable pour les abonnements n'existant pas en version annuelle :
 
          - Abonnement Multi
          - Abonnement Forfait
          - Abonnement de travail
          - Abonnement Car Rémi Zen jeune interdépartemental
 
-        Les abonnements scolaires et les abonnements commerciaux aux abris-vélo
-        Rémi sont exclus de ce dispositif. Les cartes de réduction (Rémi
-        Liberté) ne constituent pas des abonnements et ne donnent donc pas
-        accès à l'aide.
+        Les abonnements scolaires et les abonnements commerciaux aux abris-vélo Rémi sont exclus de ce dispositif. Les cartes de réduction (Rémi Liberté) ne constituent pas des abonnements et ne donnent donc pas accès à l'aide.
 
 aides . perpignan métropole:
   remplace: intercommunalité
@@ -8726,7 +8762,7 @@ aides . perpignan métropole:
 # aides . agen:
 #   remplace: intercommunalité
 #   titre: Agglomération d'Agen
-#   description: |
+#   description: >
 #     La liste d'attente pour 2024 est close. Les prochaines demandes seront donc
 #     à déposer en 2025.
 #   applicable si:
@@ -8786,7 +8822,7 @@ aides . fier et usses:
 aides . pays de cruseilles:
   remplace: intercommunalité
   titre: Pays de Cruseilles
-  description: |
+  description: >
     Prime Achat Vélo. A noter qu'un bonus de 300€ est accordé pour l'adaptation
     d'un vélo pour les personnes à mobilité réduite.
   applicable si: localisation . epci = 'CC du Pays de Cruseilles'
@@ -8895,7 +8931,7 @@ aides . val d'yerres val de seine:
 aides . campagnes de l'artois:
   remplace: intercommunalité
   titre: Campagnes de l'Artois
-  description: |
+  description: >
     Aide locale à l'acquisition de vélo électrique ou mécanique. A noter que la
     subvention pourra être portée à 25% du prix d'achat TTC pour les achats
     réalisés dans une boutique située sur le territoire des Campagnes de
@@ -8930,7 +8966,7 @@ aides . cévennes gangeoises et suménoises:
 aides . montmorillon:
   remplace: commune
   titre: Ville de Montmorillon
-  description: |
+  description: >
     Dispositif d'aide à l'acquisition d'un vélo et des accessoires afférents
     (2024).
   applicable si: localisation . code insee = '86165'
@@ -8968,7 +9004,7 @@ aides . monaco:
 aides . luxembourg:
   remplace: état
   titre: Luxembourg
-  description: |
+  description: >
     L'État du Luxembourg instaure une prime jusqu'à 600€ pour l'achat d'un vélo
     mécanique ou électrique (pedelec25) à des fins privées. Cette aide est
     plafonnée à 50% du prix du vélo hors taxes.
@@ -8983,7 +9019,7 @@ aides . luxembourg:
 aides . grand besançon:
   remplace: intercommunalité
   titre: Grand Besançon Métropole
-  description: |
+  description: >
     Grand Besançon Métropole propose une aide à l'achat d'un vélo à assistance
     électrique neuf.
   applicable si:
@@ -9004,7 +9040,7 @@ aides . grand besançon:
 aides . haut vallespir:
   remplace: intercommunalité
   titre: Communauté de communes du Haut Vallespir
-  description: |
+  description: >
     Aide à l'achat d'un vélo à assistance électrique neuf. Elle est cumulable
     avec d'autres aides de votre commune dans la limite de 80% du prix d'achat.
   applicable si:
@@ -9021,7 +9057,7 @@ aides . haut vallespir:
 aides . val de drôme:
   remplace: intercommunalité
   titre: Communauté de communes du Val de Drôme en Biovallée
-  description: |
+  description: >
     Aide versée dans la limite de l'enveloppe budgétaire allouée (15 000€ pour
     2024).
   applicable si:
@@ -9054,7 +9090,7 @@ aides . val de drôme:
 aides . cacl:
   remplace: intercommunalité
   titre: Communauté d'Agglomération du Centre Littoral
-  description: |
+  description: >
     La demande doit être faite avant l'achat du vélo. Une aide de 100€ est
     également disponible pour l'achat d'un vélo classique Enfant.
   applicable si:
@@ -9075,7 +9111,7 @@ aides . cacl:
 aides . crestois et pays de saillans:
   remplace: intercommunalité
   titre: Communauté de communes du Crestois et de Pays de Saillans Coeur de Drôme
-  description: |
+  description: >
     Aide à l'électrification de vélo classique. La demande de subvention doit
     être effectuée dans un délai de 3 mois après la date indiquée sur la
     facture de la pose.
