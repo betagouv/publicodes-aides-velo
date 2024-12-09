@@ -1,9 +1,10 @@
 revenu fiscal de référence par part:
   titre: Revenu fiscal de référence par part (quotient familial)
-  description: |
+  description: >
     [Revenu fiscal de
     référence](https://www.economie.gouv.fr/particuliers/revenu-imposable-revenu-fiscal-reference)
     divisé par le nombre de parts fiscales.
+
 
     Voir également le [calcul du quotient
     familial](https://www.economie.gouv.fr/particuliers/quotient-familial).
@@ -14,7 +15,7 @@ revenu fiscal de référence par part:
       type: nombre
       titre: Revenu fiscal de référence
       question: Quel est votre revenu fiscal de référence ?
-      description: |
+      description: >
         Le revenu fiscal de référence se trouve sur la 1re et 3e page de votre
         dernier avis d’impôt sur le revenu.
         Voire également [Revenu fiscal de
@@ -26,8 +27,9 @@ revenu fiscal de référence par part:
       type: nombre
       titre: Nombre de parts fiscales
       question: Combien de parts fiscales représente votre foyer fiscal ?
-      description: |
+      description: >
         Le nombre de parts fiscales est indiqué sur votre avis d'imposition.
+
 
         Voir également le [calcul du quotient
         familial](https://www.economie.gouv.fr/particuliers/quotient-familial).

@@ -1,6 +1,6 @@
 demandeur:
   titre: Profil du demandeur
-  description: |
+  description: >
     Paramètres permettant de personnaliser les résultats en fonction de la
     situation de l'utilisateur·ice. Ils sont nécessaires pour le calcul de
     certaines aides.
@@ -8,10 +8,11 @@ demandeur:
 demandeur . bénéficie du forfait mobilités durables:
   type: booléen
   question: Percevez-vous le forfait mobilités durables ?
-  description: |
+  description: >
     Le forfait mobilités durables est une prise en charge par vous employeur
     des frais liés à vos déplacements domicile-travail réalisés à vélo.
-    
+   
+
     [En savoir plus](/forfait-mobilite-durable).
   par défaut: oui
 
@@ -35,9 +36,10 @@ demandeur . bénéficiaire de minima sociaux:
 demandeur . en situation de handicap:
   type: booléen
   question: Êtes-vous en situation de handicap ?
-  description: |
+  description: >
     Pour certaines aides, les conditions de ressources sont ignorées pour les
     personnes en situation de handicap.
+
 
     Vous pouvez également consulter [Mon parcours
     handicap](https://www.monparcourshandicap.gouv.fr/actualite/velo-adapte-au-handicap-quel-materiel-choisir-et-comment-le-financer)
@@ -81,7 +83,7 @@ demandeur . âge:
   question: Quel est votre âge ?
   par défaut: 30
   unité: an
-  note: |
+  note: >
     Il se pourrait que certaines règles soient conditionnées par l'âge du
     demandeur mais que ce ne soit pas pris en compte dans toutes les règles. 
 
