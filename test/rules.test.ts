@@ -1834,4 +1834,29 @@ describe("Aides Vélo", () => {
       expect(engine.evaluate("aides . lorient agglo").nodeValue).toEqual(900);
     });
   });
+
+  describe("Arc Sud Bretagne", () => {
+    const baseSituation = {
+      "localisation . epci": "'CC Arc Sud Bretagne'",
+      "vélo . prix": 1000,
+      "revenu fiscal de référence par part": "10000 €/an",
+    };
+
+    test("par défaut", () => {
+      engine.setSituation(baseSituation);
+      expect(engine.evaluate("aides . cc arc sud bretagne").nodeValue).toEqual(
+        100
+      );
+    });
+
+    test("cargo électrique", () => {
+      engine.setSituation({
+        ...baseSituation,
+        "vélo . type": "'cargo électrique'",
+      });
+      expect(engine.evaluate("aides . cc arc sud bretagne").nodeValue).toEqual(
+        200
+      );
+    });
+  });
 });

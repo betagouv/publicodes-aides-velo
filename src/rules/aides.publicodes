@@ -9335,3 +9335,22 @@ aides . villiers-en-bière:
         alors: 150€
       - sinon: 100€
   lien: https://www.mairievilliersenbiere.fr/aide-a-lacquisition-de-velos
+
+aides . cc arc sud bretagne:
+  remplace: intercommunalité
+  titre: Arc Sud Bretagne
+  description: >
+    Aide à l'achat d'un vélo à assistance électrique ou vélo-cargo neuf ou
+    reconditionné.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CC Arc Sud Bretagne'
+      - demandeur . âge . majeur
+      - revenu fiscal de référence par part <= 15400 €/an
+      - vélo . électrique
+  valeur:
+    variations:
+      - si: vélo . cargo
+        alors: 200€
+      - sinon: 100€
+  lien: https://www.arc-sud-bretagne.fr/au-quotidien/mobilite
