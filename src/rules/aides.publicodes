@@ -9314,3 +9314,24 @@ aides . cc sept vallées:
         plafond: 150€
   lien: https://7vallees.fr/la-communaute-de-communes-des-7-vallees-peut-vous-aider-a-acheter-un-velo
 
+aides . villiers-en-bière:
+  remplace: commune
+  titre: Commune de Villiers-en-Bière
+  description: >
+    Aide à l'achat d'un vélo à assistance électrique ou mécanique neuf. 
+
+    
+    Cette aide est disponible pour tout achat effectué à partir du 18/07/2024
+    sur présentation des justificatifs.
+  applicable si:
+    toutes ces conditions:
+      - localisation . code insee = '77518'
+      - demandeur . âge >= 15 an
+      - vélo . électrique ou mécanique
+      - vélo . état . neuf
+  valeur:
+    variations:
+      - si: vélo . électrique
+        alors: 150€
+      - sinon: 100€
+  lien: https://www.mairievilliersenbiere.fr/aide-a-lacquisition-de-velos
