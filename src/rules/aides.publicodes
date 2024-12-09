@@ -9416,3 +9416,27 @@ aides . cc pays des sorgues:
   valeur: 200€
   plafond: vélo . prix
   lien: https://www.paysdessorgues.fr/aide-velo
+
+aides . cc val parisis:
+  remplace: intercommunalité
+  titre: Val Parisis Agglo
+  description: >
+    Aide à l'achat d'un vélo à assistance électrique, pliant ou cargo neuf ou
+    reconditionné.
+
+    
+    Le cumul de l'aide de Val Parisis Agglo avec celle de la Région
+    Île-de-France ne peut excéder 50% du prix du vélo.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CA Val Parisis'
+      - une de ces conditions:
+          - est non applicable: aides . ile de france 
+          - aides . ile de france < 50% * vélo . prix
+      - une de ces conditions:
+          - vélo . électrique
+          - vélo . pliant
+          - vélo . cargo
+  valeur: 100€
+  plafond: 50% * vélo . prix
+  lien: https://valparisis.fr/aide-achat-velo

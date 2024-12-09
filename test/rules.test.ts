@@ -1859,4 +1859,41 @@ describe("Aides Vélo", () => {
       );
     });
   });
+
+  describe("Val Parisis Agglo", () => {
+    const baseSituation = {
+      "localisation . epci": "'CA Val Parisis'",
+      "vélo . prix": 1000,
+    };
+
+    test("par défaut", () => {
+      engine.setSituation(baseSituation);
+      expect(engine.evaluate("aides . cc val parisis").nodeValue).toEqual(100);
+    });
+
+    test("cargo électrique", () => {
+      engine.setSituation({
+        ...baseSituation,
+        "vélo . type": "'cargo électrique'",
+      });
+      expect(engine.evaluate("aides . cc val parisis").nodeValue).toEqual(100);
+    });
+
+    test("ile de france > 50%", () => {
+      engine.setSituation({
+        ...baseSituation,
+        "localisation . région": "'11'",
+      });
+      expect(engine.evaluate("aides . ile de france").nodeValue).toEqual(400);
+      expect(engine.evaluate("aides . cc val parisis").nodeValue).toEqual(100);
+
+      engine.setSituation({
+        ...baseSituation,
+        "localisation . région": "'11'",
+        "vélo . prix": 150,
+      });
+      expect(engine.evaluate("aides . ile de france").nodeValue).toEqual(75);
+      expect(engine.evaluate("aides . cc val parisis").nodeValue).toBeNull();
+    });
+  });
 });
