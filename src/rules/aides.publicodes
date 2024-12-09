@@ -9280,3 +9280,37 @@ aides . territoire de l'ouest:
         alors: 500€
       - sinon: 300€
   lien: https://www.tco.re/vae-du-territoire-de-louest
+
+aides . cc sept vallées:
+  remplace: intercommunalité
+  titre: Communauté de communes des 7 Vallées
+  description: >
+    Aide à l'achat d'un vélo à assistance électrique ou mécanique neuf ou
+    d'occasion.
+
+    Concernant les vélos pour les personnes à mobilité réduite tous les vélos
+    susceptibles d'être adaptés au handicap de la personne demandeuse peuvent
+    faire l'objet d'une demande (tricycles, vélos couchés, tandem etc.)
+    exceptés les vélos 2 roues classiques qu'ils soient équipés d'une
+    assistance électrique ou non.
+  applicable si: 
+    toutes ces conditions:
+      - localisation . epci = 'CC des 7 Vallées'
+      - demandeur . âge >= 16 an
+      - une de ces conditions:
+          - vélo . électrique ou mécanique
+          - vélo . adapté
+  variations:
+    - si: vélo . adapté
+      alors: 
+        valeur: 40% * vélo . prix
+        plafond: 500€
+    - si: vélo . électrique
+      alors: 
+        valeur: 15% * vélo . prix
+        plafond: 80€
+    - sinon: 
+        valeur: 15% * vélo . prix
+        plafond: 150€
+  lien: https://7vallees.fr/la-communaute-de-communes-des-7-vallees-peut-vous-aider-a-acheter-un-velo
+
