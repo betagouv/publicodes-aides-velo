@@ -9257,3 +9257,26 @@ aides . creusot-montceau:
             - sinon: 0€
       - sinon: 0€
   lien: https://www.creusot-montceau.org/actualite/la-communaute-urbaine-vous-aide-financierement-pour-lacquisition-dun-velo
+
+aides . territoire de l'ouest:
+  remplace: intercommunalité
+  titre: Territoire de l'Ouest
+  description: >
+    Aide à l'achat d'un vélo à assistance électrique neuf ou d'occasion, acheté
+    chez un professionnel.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CA Territoire de la Côte Ouest (TCO)'
+      - demandeur . âge . majeur
+      - une de ces conditions:
+          - vélo . électrique
+          - vélo . adapté
+  valeur:
+    variations:
+      - si: 
+          une de ces conditions:
+            - vélo . cargo
+            - vélo . adapté
+        alors: 500€
+      - sinon: 300€
+  lien: https://www.tco.re/vae-du-territoire-de-louest
