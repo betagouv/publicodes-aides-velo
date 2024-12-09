@@ -9378,3 +9378,24 @@ aides . cc pévèle carembault:
           valeur: 50% * vélo . prix
           plafond: 200€
   lien: https://www.pevelecarembault.fr/actualites/des-le-4-mars-demandez-votre-prime-velo-electrique
+
+aides . cc les portes briardes:
+  remplace: intercommunalité
+  titre: Communauté de communes Les Portes Briardes Entre Villes et Forêts
+  description: >
+    Aide à l'achat d'un vélo à assistance électrique ou mécanique neuf ou
+    d'occasion.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CC Les Portes Briardes Entre Villes et Forêts'
+      - une de ces conditions:
+          - vélo . électrique ou mécanique
+          - toutes ces conditions:
+              - vélo . adapté
+              - demandeur . en situation de handicap
+  valeur:
+    variations:
+      - si: vélo . mécanique simple
+        alors: 80€
+      - sinon: 150€
+  lien: https://www.lesportesbriardes.fr/2023/12/28/beneficiez-dune-aide-a-lachat-de-velo
