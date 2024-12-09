@@ -9399,3 +9399,20 @@ aides . cc les portes briardes:
         alors: 80€
       - sinon: 150€
   lien: https://www.lesportesbriardes.fr/2023/12/28/beneficiez-dune-aide-a-lachat-de-velo
+
+aides . cc pays des sorgues:
+  remplace: intercommunalité
+  titre: Communauté de communes du Pays des Sorgues et des Monts de Vaucluse
+  description: >
+    Aide à l'achat d'un vélo de 200 € pour tout achat chez un commerçant des
+    communes de la communauté de communes.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CC du Pays des Sorgues et des Monts de Vaucluse'
+      - demandeur . âge . majeur
+      - une de ces conditions:
+          - vélo . électrique ou mécanique
+          - vélo . adapté
+  valeur: 200€
+  plafond: vélo . prix
+  lien: https://www.paysdessorgues.fr/aide-velo
