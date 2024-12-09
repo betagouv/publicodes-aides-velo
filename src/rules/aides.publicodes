@@ -9132,3 +9132,23 @@ aides . crestois et pays de saillans:
   valeur: 25% * vélo . prix
   plafond: 250€
   lien: https://www.cccps.fr/demarches/aide-pour-lelectrification-dun-velo-classique/
+
+# TODO: à mettre à jour en 2026
+aides . binic etables sur mer:
+  remplace: commune
+  titre: Commune de Binic-Étables sur Mer
+  description: >
+    Aide à l'achat d'un vélo à assistance électrique ou mécanique, neuf ou
+    d'occasion. Est également éligible l'achat de remorque pour vélo.
+
+    
+    Durée du dispositif : 1er janvier 2024 au 31 décembre 2026.
+  applicable si:
+    toutes ces conditions:
+      - localisation . code insee = '22055'
+      - revenu fiscal de référence par part <= 2314 €/mois
+      - une de ces conditions:
+          - vélo . électrique ou mécanique
+          - vélo . adapté
+  valeur: 80% * vélo . prix
+  plafond: 250€
