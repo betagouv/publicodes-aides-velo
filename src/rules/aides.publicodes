@@ -2051,8 +2051,8 @@ aides . ronchin:
   remplace: commune
   titre: Ville de Ronchin
   description: >
-    Prime réservée aux habitants de la commune couvre 25% du prix d’achat
-    d’un vélo adulte neuf ou d’occasion vendu par un professionnel, avec éclairage
+    Prime réservée aux habitants de la commune couvre 25% du prix d'achat
+    d'un vélo adulte neuf ou d'occasion vendu par un professionnel, avec éclairage
     homologué et éventuellement un antivol.
 
 
@@ -2908,7 +2908,7 @@ aides . pays de l'ozon:
   remplace: intercommunalité
   titre: Pays de l'Ozon
   description: >
-    Subvention de 200€ par famille pour l’achat d’un vélo à assistance électrique (VAE), 
+    Subvention de 200€ par famille pour l'achat d'un vélo à assistance électrique (VAE), 
     vélo cargo, VAE pliant, vélo électrifié chez un professionnel ou adapté aux 
     personnes porteuses de handicaps.
     
@@ -4217,9 +4217,9 @@ aides . la madeleine:
   remplace: commune
   titre: Ville de La Madeleine
   description: >
-    Subvention pour l’achat de moyens de transport doux (vélos, trottinettes, gyroroues,
-    skateboards) et d’accessoires : antivols en U, dispositifs de marquage, systèmes 
-    d’alarme et puces GPS, éclairage, casques, porte-bébés, remorques enfants, vêtements 
+    Subvention pour l'achat de moyens de transport doux (vélos, trottinettes, gyroroues,
+    skateboards) et d'accessoires : antivols en U, dispositifs de marquage, systèmes 
+    d'alarme et puces GPS, éclairage, casques, porte-bébés, remorques enfants, vêtements 
     de pluie, sacoches, paniers, porte-bagages, top cases, chariots, caddies pour vélo.
   applicable si: 
     toutes ces conditions:
@@ -4383,7 +4383,7 @@ aides . les herbiers:
   remplace: intercommunalité
   titre: Communauté de communes du Pays des Herbiers
   description: >
-    Subvention pour l’achat de vélos à assistance électrique.
+    Subvention pour l'achat de vélos à assistance électrique.
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'CC du Pays des Herbiers'
@@ -4479,8 +4479,8 @@ aides . grand reims:
   remplace: intercommunalité
   titre: Grand Reims Communauté urbaine
   description: >
-    Subvention jusqu’à 500€ pour l’achat d’un vélo à assistance
-    électrique, sous réserve qu’il soit acheté auprès d’un commerçant ou d’une
+    Subvention jusqu'à 500€ pour l'achat d'un vélo à assistance
+    électrique, sous réserve qu'il soit acheté auprès d'un commerçant ou d'une
     association locale. Les achats en ligne sont exclus. 
    
 
@@ -4518,8 +4518,8 @@ aides . reims:
   remplace: commune
   titre: Ville de Reims
   description: >
-    Aide jusqu’à 250€ pour l’achat d’un vélo, sous réserve qu’il soit acquis auprès d’un 
-    commerçant ou d’une association du Grand Reims. Les achats en ligne livrés à  
+    Aide jusqu'à 250€ pour l'achat d'un vélo, sous réserve qu'il soit acquis auprès d'un 
+    commerçant ou d'une association du Grand Reims. Les achats en ligne livrés à  
     domicile ou en magasin sont exclus. 
    
 
@@ -4822,7 +4822,7 @@ aides . évian-les-bains:
   remplace: commune
   titre: Ville d'Évian-les-Bains
   description: >
-    Aide de 20 % du coût d’achat (plafonnée à 400 €) pour un vélo musculaire ou vélo à
+    Aide de 20 % du coût d'achat (plafonnée à 400 €) pour un vélo musculaire ou vélo à
     assistance électrique (VAE) ou 400 € forfaitaires pour transformer un vélo
     en VAE. Réservée aux habitants, selon critères. Un cahier des charges
     précise l'éligibilité matérielle et de provenance.
@@ -6279,7 +6279,7 @@ aides . béthune bruay:
     l'achat d'un vélo).
 
 
-    Subvention de 30 à 500€ en bon d’achat utilisable chez les
+    Subvention de 30 à 500€ en bon d'achat utilisable chez les
     commerces et associations partenaires (validité limitée au 8 décembre
     2024).
   applicable si:  localisation . epci = 'CA de Béthune-Bruay, Artois-Lys Romane'
@@ -6891,8 +6891,8 @@ aides . genneviliers:
   remplace: commune
   titre: Ville de Genneviliers
   description: >
-    Cette aide pour les Gennevillois‧es de 18 ans et plus s’applique aux vélos
-    achetés chez un professionnel, y compris les vélos d’occasion (depuis 2022).
+    Cette aide pour les Gennevillois‧es de 18 ans et plus s'applique aux vélos
+    achetés chez un professionnel, y compris les vélos d'occasion (depuis 2022).
     En 2024, elle couvre les vélos mécaniques, électriques, cargos, pliants ou
     adaptés. Les vélos électriques, cargos, pliants ou adaptés doivent avoir été
     achetés après le 1er septembre 2024 pour être éligibles.
@@ -9152,3 +9152,74 @@ aides . binic etables sur mer:
           - vélo . adapté
   valeur: 80% * vélo . prix
   plafond: 250€
+  lien: https://www.binic-etables-sur-mer.fr/actualites/une-aide-financiere-pour-lachat-dun-velo-ou-broyeur-de-vegetaux-ou-recuperateur-deau-de-pluie
+
+aides . creusot-montceau:
+  remplace: intercommunalité
+  titre: Communauté Urbaine Creusot-Montceau
+  description: >
+    Aide financière à l'acquisition de vélos traditionnels, de vélos à
+    assistance électrique ou de kits d'électrification de vélos.
+
+
+    L'aide est exclusivement réservée aux personnes dont la résidence
+    principale et le lieu de travail ou de scolarisation se situent sur l'une
+    des 34 communes membres de la Communauté Urbaine Creusot-Montceau.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CU Le Creusot Montceau-les-Mines'
+      - revenu fiscal de référence par part <= 2314 €/mois
+      - une de ces conditions:
+          - vélo . électrique ou mécanique
+          - vélo . motorisation
+          - vélo . adapté
+  valeur: 50% * vélo . prix
+  plafond:
+    variations:
+      - si: 
+          toutes ces conditions:
+            - demandeur . âge <= 14 an
+            - demandeur . statut . étudiant
+            - vélo . mécanique simple
+        alors: 100€
+      - si: 
+          toutes ces conditions:
+            - demandeur . âge > 14 an
+            - demandeur . statut . étudiant
+        alors:
+          variations:
+            - si: vélo . mécanique simple
+              alors: 150€
+            - si: vélo . électrique simple
+              alors: 300€
+            - si: vélo . motorisation
+              alors: 350€
+            - sinon: 0€
+      - si: 
+          une de ces conditions:
+            - demandeur . statut . salarié
+            - demandeur . statut . retraité
+            - demandeur . statut . reconversion
+        alors:
+          variations:
+            - si:
+                une de ces conditions: 
+                  - vélo . cargo électrique
+                  - vélo . pliant électrique
+                  - vélo . adapté # TODO: faire la distinction entre électrique et mécanique
+              alors: 1500€
+            - si:
+                une de ces conditions: 
+                  - vélo . cargo 
+                  - vélo . pliant
+                  - vélo . adapté
+              alors: 1000€
+            - si: vélo . électrique
+              alors: 300€
+            - si: vélo . mécanique
+              alors: 150€
+            - si: vélo . motorisation
+              alors: 350€
+            - sinon: 0€
+      - sinon: 0€
+  lien: https://www.creusot-montceau.org/actualite/la-communaute-urbaine-vous-aide-financierement-pour-lacquisition-dun-velo

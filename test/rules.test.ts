@@ -1633,4 +1633,134 @@ describe("Aides Vélo", () => {
       expect(engine.evaluate("aides . val de drôme").nodeValue).toEqual(50);
     });
   });
+
+  describe("Communauté Urbaine Creusot-Montceau", () => {
+    const baseSituation = {
+      "localisation . epci": "'CU Le Creusot Montceau-les-Mines'",
+      "vélo . prix": 400,
+      "revenu fiscal de référence par part": "2000 €/mois",
+    };
+
+    test("élève de moins de 14 ans", () => {
+      engine.setSituation({
+        ...baseSituation,
+        "demandeur . âge": "13 an",
+      });
+      expect(engine.evaluate("aides . creusot-montceau").nodeValue).toEqual(0);
+
+      engine.setSituation({
+        ...baseSituation,
+        "demandeur . âge": "13 an",
+        "demandeur . statut": "'étudiant'",
+      });
+      expect(engine.evaluate("aides . creusot-montceau").nodeValue).toEqual(0);
+
+      engine.setSituation({
+        ...baseSituation,
+        "demandeur . âge": "13 an",
+        "demandeur . statut": "'étudiant'",
+        "vélo . type": "'mécanique simple'",
+      });
+      expect(engine.evaluate("aides . creusot-montceau").nodeValue).toEqual(
+        100
+      );
+    });
+
+    test("élève de plus de 14 ans ou étudiant:e en étude supérieure", () => {
+      engine.setSituation({
+        ...baseSituation,
+        "demandeur . âge": "18 an",
+      });
+      expect(engine.evaluate("aides . creusot-montceau").nodeValue).toEqual(0);
+
+      engine.setSituation({
+        ...baseSituation,
+        "demandeur . âge": "18 an",
+        "demandeur . statut": "'étudiant'",
+      });
+      expect(engine.evaluate("aides . creusot-montceau").nodeValue).toEqual(
+        200
+      );
+
+      engine.setSituation({
+        ...baseSituation,
+        "demandeur . âge": "18 an",
+        "demandeur . statut": "'étudiant'",
+        "vélo . type": "'mécanique simple'",
+      });
+      expect(engine.evaluate("aides . creusot-montceau").nodeValue).toEqual(
+        150
+      );
+
+      engine.setSituation({
+        ...baseSituation,
+        "demandeur . âge": "18 an",
+        "demandeur . statut": "'étudiant'",
+        "vélo . type": "'pliant'",
+      });
+      expect(engine.evaluate("aides . creusot-montceau").nodeValue).toEqual(0);
+    });
+
+    test("actif:ve, retraité:e, ou en reconversion professionnelle", () => {
+      engine.setSituation({
+        ...baseSituation,
+      });
+      expect(engine.evaluate("aides . creusot-montceau").nodeValue).toEqual(0);
+
+      engine.setSituation({
+        ...baseSituation,
+        "demandeur . statut": "'salarié'",
+      });
+      expect(engine.evaluate("aides . creusot-montceau").nodeValue).toEqual(
+        200
+      );
+
+      engine.setSituation({
+        ...baseSituation,
+        "demandeur . statut": "'retraité'",
+        "vélo . type": "'mécanique simple'",
+      });
+      expect(engine.evaluate("aides . creusot-montceau").nodeValue).toEqual(
+        150
+      );
+
+      engine.setSituation({
+        ...baseSituation,
+        "demandeur . statut": "'retraité'",
+        "vélo . type": "'cargo'",
+        "vélo . prix": 2500,
+      });
+      expect(engine.evaluate("aides . creusot-montceau").nodeValue).toEqual(
+        1000
+      );
+
+      engine.setSituation({
+        ...baseSituation,
+        "demandeur . statut": "'salarié'",
+        "vélo . type": "'cargo électrique'",
+        "vélo . prix": 2500,
+      });
+      expect(engine.evaluate("aides . creusot-montceau").nodeValue).toEqual(
+        1250
+      );
+
+      engine.setSituation({
+        ...baseSituation,
+        "demandeur . statut": "'reconversion'",
+        "vélo . type": "'adapté'",
+        "vélo . prix": 2500,
+      });
+      expect(engine.evaluate("aides . creusot-montceau").nodeValue).toEqual(
+        1250
+      );
+
+      engine.setSituation({
+        ...baseSituation,
+        "demandeur . statut": "'autre'",
+        "vélo . type": "'adapté'",
+        "vélo . prix": 2500,
+      });
+      expect(engine.evaluate("aides . creusot-montceau").nodeValue).toEqual(0);
+    });
+  });
 });
