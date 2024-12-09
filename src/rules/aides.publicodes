@@ -9354,3 +9354,27 @@ aides . cc arc sud bretagne:
         alors: 200€
       - sinon: 100€
   lien: https://www.arc-sud-bretagne.fr/au-quotidien/mobilite
+
+aides . cc pévèle carembault:
+  remplace: intercommunalité
+  titre: Communauté de communes Pévèle Carembault
+  description: >
+    Aide à l'achat d'un vélo à assistance électrique neuf ou de kits
+    d'électrification de vélos.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CC Pévèle-Carembault'
+      - demandeur . âge . majeur
+      - une de ces conditions:
+          - toutes ces conditions:
+              - vélo . état . neuf
+              - vélo . électrique
+          - vélo . motorisation
+  valeur:
+    variations:
+      - si: vélo . électrique
+        alors: 200€
+      - sinon:
+          valeur: 50% * vélo . prix
+          plafond: 200€
+  lien: https://www.pevelecarembault.fr/actualites/des-le-4-mars-demandez-votre-prime-velo-electrique
