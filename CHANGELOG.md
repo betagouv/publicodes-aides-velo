@@ -1,5 +1,15 @@
 # @betagouv/aides-velo
 
+## 0.3.0
+
+### Minor Changes
+
+- [#23](https://github.com/betagouv/publicodes-aides-velo/pull/23) [`03fa898`](https://github.com/betagouv/publicodes-aides-velo/commit/03fa8981971b86b7a84f60171245f1d4596c935a) Thanks [@EmileRolley](https://github.com/EmileRolley)! - Description et notes sans "wrap" (">" au lieu de "|")
+
+### Patch Changes
+
+- [#20](https://github.com/betagouv/publicodes-aides-velo/pull/20) [`42ff38c`](https://github.com/betagouv/publicodes-aides-velo/commit/42ff38c89948c8988b76708771dc1a4403f1b8d9) Thanks [@Shamzic](https://github.com/Shamzic)! - Met à jour la taille de la description Pass'Mobil'Agglo
+
 ## 0.2.2
 
 ### Patch Changes
