@@ -47,106 +47,107 @@ plafond état:
     bénéficier du Bonus vélo.
   valeur: 15400 €/an  
 
-aides . bonus vélo:
-  remplace: état
-  titre: Bonus vélo
-  description: Nouveau bonus $vélo applicable à partir du 14 février 2024.
-  applicable si:
-    toutes ces conditions:
-      - localisation . pays = 'France'
-      - demandeur . âge . majeur
-      - une de ces conditions:
-          - vélo . électrique ou mécanique
-          - vélo . adapté
-      - une de ces conditions:
-          - revenu fiscal de référence par part <= plafond état
-          - demandeur . en situation de handicap
-  valeur: 40% * vélo . prix
-  plafond:
-    variations:
-      - si:
-          une de ces conditions:
-            - vélo . cargo
-            - vélo . pliant
-            - vélo . adapté
-        alors: 
-          variations:
-            - si: 
-                une de ces conditions:
-                  - revenu fiscal de référence par part <= 7100 €/an
-                  - demandeur . en situation de handicap
-              alors: 2000€
-            - sinon: 1000€
-      - si: vélo . électrique
-        alors: 
-          variations:
-            - si: 
-                une de ces conditions:
-                  - revenu fiscal de référence par part <= 7100 €/an
-                  - demandeur . en situation de handicap
-              alors: 400€
-            - sinon: 300€
-      - sinon:
-          variations:
-            - si: 
-                une de ces conditions:
-                  - revenu fiscal de référence par part <= 7100 €/an
-                  - demandeur . en situation de handicap
-              alors: 150€
-            - sinon: 0€
-  lien: https://www.economie.gouv.fr/particuliers/prime-velo-electrique# 
+# NOTE: fin du bonus vélo à partir du 2 décembre 2024 : https://www.economie.gouv.fr/cedef/bonus-ecologique-velo-electrique
+# aides . bonus vélo:
+#   remplace: état
+#   titre: Bonus vélo
+#   description: Nouveau bonus $vélo applicable à partir du 14 février 2024.
+#   applicable si:
+#     toutes ces conditions:
+#       - localisation . pays = 'France'
+#       - demandeur . âge . majeur
+#       - une de ces conditions:
+#           - vélo . électrique ou mécanique
+#           - vélo . adapté
+#       - une de ces conditions:
+#           - revenu fiscal de référence par part <= plafond état
+#           - demandeur . en situation de handicap
+#   valeur: 40% * vélo . prix
+#   plafond:
+#     variations:
+#       - si:
+#           une de ces conditions:
+#             - vélo . cargo
+#             - vélo . pliant
+#             - vélo . adapté
+#         alors: 
+#           variations:
+#             - si: 
+#                 une de ces conditions:
+#                   - revenu fiscal de référence par part <= 7100 €/an
+#                   - demandeur . en situation de handicap
+#               alors: 2000€
+#             - sinon: 1000€
+#       - si: vélo . électrique
+#         alors: 
+#           variations:
+#             - si: 
+#                 une de ces conditions:
+#                   - revenu fiscal de référence par part <= 7100 €/an
+#                   - demandeur . en situation de handicap
+#               alors: 400€
+#             - sinon: 300€
+#       - sinon:
+#           variations:
+#             - si: 
+#                 une de ces conditions:
+#                   - revenu fiscal de référence par part <= 7100 €/an
+#                   - demandeur . en situation de handicap
+#               alors: 150€
+#             - sinon: 0€
+#   lien: https://www.economie.gouv.fr/particuliers/prime-velo-electrique# 
 
-aides . prime à la conversion:
-  type: état
-  applicable si:
-    toutes ces conditions:
-      - localisation . pays = 'France'
-      - demandeur . âge . majeur
-      - une de ces conditions:
-          - revenu fiscal de référence par part <= 24900 €/an
-          - demandeur . en situation de handicap
-      - une de ces conditions:
-          - vélo . électrique
-          - vélo . adapté
-  titre: Prime à la conversion
-  description: >
-    Pour bénéficier de cette « prime à la casse » vous devez détruire un
-    véhicule diesel immatriculé avant janvier 2011 ou bien un véhicule essence
-    immatriculé avant 2006.
-
-
-    La prime est de 40% du prix du vélo dans la limite de 3 000 €. Elle est
-    cumulable avec les aides à l'achat d'un vélo électrique, comme le « bonus
-    écologique ».
-  valeur: 40% * vélo . prix
-  plafond:
-    variations:
-      - si: 
-          une de ces conditions:
-            - revenu fiscal de référence par part <= 7100 €/an
-            - demandeur . en situation de handicap
-        alors: 3000€
-      - sinon: 1500€
-  lien: https://www.service-public.fr/particuliers/actualites/A17058
-
-aides . prime à la conversion . surprime ZFE:
-  applicable si:
-    toutes ces conditions:
-      - localisation . pays = 'France'
-      - localisation . ZFE
-  titre: Surprime Zone à Faibles Émissions (ZFE)
-  description: >
-    Vous pouvez bénéficier d'une surprime car $ville est une zone à faible
-    émission mobilité (ZFE). Cette surprime est conditionnée à l'octroi d'une
-    aide par la collectivité locale et son montant est identique à l'aide versée
-    par la collectivité locale, dans la limite de 1 000 €.
-  somme:
-    - commune
-    - intercommunalité
-    - département
-    - région
-  plafond: 1000€
-  lien: https://www.service-public.fr/particuliers/vosdroits/F36827
+# aides . prime à la conversion:
+#   type: état
+#   applicable si:
+#     toutes ces conditions:
+#       - localisation . pays = 'France'
+#       - demandeur . âge . majeur
+#       - une de ces conditions:
+#           - revenu fiscal de référence par part <= 24900 €/an
+#           - demandeur . en situation de handicap
+#       - une de ces conditions:
+#         - vélo . électrique
+#           - vélo . adapté
+#   titre: Prime à la conversion
+#   description: >
+#     Pour bénéficier de cette « prime à la casse » vous devez détruire un
+#     véhicule diesel immatriculé avant janvier 2011 ou bien un véhicule essence
+#     immatriculé avant 2006.
+# 
+# 
+#     La prime est de 40% du prix du vélo dans la limite de 3 000 €. Elle est
+#     cumulable avec les aides à l'achat d'un vélo électrique, comme le « bonus
+#     écologique ».
+#   valeur: 40% * vélo . prix
+#   plafond:
+#     variations:
+#       - si: 
+#           une de ces conditions:
+#             - revenu fiscal de référence par part <= 7100 €/an
+#             - demandeur . en situation de handicap
+#         alors: 3000€
+#       - sinon: 1500€
+#   lien: https://www.service-public.fr/particuliers/actualites/A17058
+# 
+# aides . prime à la conversion . surprime ZFE:
+#   applicable si:
+#     toutes ces conditions:
+#       - localisation . pays = 'France'
+#       - localisation . ZFE
+#   titre: Surprime Zone à Faibles Émissions (ZFE)
+#   description: >
+#     Vous pouvez bénéficier d'une surprime car $ville est une zone à faible
+#     émission mobilité (ZFE). Cette surprime est conditionnée à l'octroi d'une
+#     aide par la collectivité locale et son montant est identique à l'aide versée
+#     par la collectivité locale, dans la limite de 1 000 €.
+#   somme:
+#     - commune
+#     - intercommunalité
+#     - département
+#     - région
+#   plafond: 1000€
+#   lien: https://www.service-public.fr/particuliers/vosdroits/F36827
 
 aides . forfait mobilités durables: 500 €/an
 
@@ -2050,8 +2051,8 @@ aides . ronchin:
   remplace: commune
   titre: Ville de Ronchin
   description: >
-    Prime réservée aux habitants de la commune couvre 25% du prix d’achat
-    d’un vélo adulte neuf ou d’occasion vendu par un professionnel, avec éclairage
+    Prime réservée aux habitants de la commune couvre 25% du prix d'achat
+    d'un vélo adulte neuf ou d'occasion vendu par un professionnel, avec éclairage
     homologué et éventuellement un antivol.
 
 
@@ -2907,7 +2908,7 @@ aides . pays de l'ozon:
   remplace: intercommunalité
   titre: Pays de l'Ozon
   description: >
-    Subvention de 200€ par famille pour l’achat d’un vélo à assistance électrique (VAE), 
+    Subvention de 200€ par famille pour l'achat d'un vélo à assistance électrique (VAE), 
     vélo cargo, VAE pliant, vélo électrifié chez un professionnel ou adapté aux 
     personnes porteuses de handicaps.
     
@@ -4216,9 +4217,9 @@ aides . la madeleine:
   remplace: commune
   titre: Ville de La Madeleine
   description: >
-    Subvention pour l’achat de moyens de transport doux (vélos, trottinettes, gyroroues,
-    skateboards) et d’accessoires : antivols en U, dispositifs de marquage, systèmes 
-    d’alarme et puces GPS, éclairage, casques, porte-bébés, remorques enfants, vêtements 
+    Subvention pour l'achat de moyens de transport doux (vélos, trottinettes, gyroroues,
+    skateboards) et d'accessoires : antivols en U, dispositifs de marquage, systèmes 
+    d'alarme et puces GPS, éclairage, casques, porte-bébés, remorques enfants, vêtements 
     de pluie, sacoches, paniers, porte-bagages, top cases, chariots, caddies pour vélo.
   applicable si: 
     toutes ces conditions:
@@ -4382,7 +4383,7 @@ aides . les herbiers:
   remplace: intercommunalité
   titre: Communauté de communes du Pays des Herbiers
   description: >
-    Subvention pour l’achat de vélos à assistance électrique.
+    Subvention pour l'achat de vélos à assistance électrique.
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'CC du Pays des Herbiers'
@@ -4478,8 +4479,8 @@ aides . grand reims:
   remplace: intercommunalité
   titre: Grand Reims Communauté urbaine
   description: >
-    Subvention jusqu’à 500€ pour l’achat d’un vélo à assistance
-    électrique, sous réserve qu’il soit acheté auprès d’un commerçant ou d’une
+    Subvention jusqu'à 500€ pour l'achat d'un vélo à assistance
+    électrique, sous réserve qu'il soit acheté auprès d'un commerçant ou d'une
     association locale. Les achats en ligne sont exclus. 
    
 
@@ -4517,8 +4518,8 @@ aides . reims:
   remplace: commune
   titre: Ville de Reims
   description: >
-    Aide jusqu’à 250€ pour l’achat d’un vélo, sous réserve qu’il soit acquis auprès d’un 
-    commerçant ou d’une association du Grand Reims. Les achats en ligne livrés à  
+    Aide jusqu'à 250€ pour l'achat d'un vélo, sous réserve qu'il soit acquis auprès d'un 
+    commerçant ou d'une association du Grand Reims. Les achats en ligne livrés à  
     domicile ou en magasin sont exclus. 
    
 
@@ -4821,7 +4822,7 @@ aides . évian-les-bains:
   remplace: commune
   titre: Ville d'Évian-les-Bains
   description: >
-    Aide de 20 % du coût d’achat (plafonnée à 400 €) pour un vélo musculaire ou vélo à
+    Aide de 20 % du coût d'achat (plafonnée à 400 €) pour un vélo musculaire ou vélo à
     assistance électrique (VAE) ou 400 € forfaitaires pour transformer un vélo
     en VAE. Réservée aux habitants, selon critères. Un cahier des charges
     précise l'éligibilité matérielle et de provenance.
@@ -5969,22 +5970,56 @@ aides . annonay:
 #   plafond: 200€
 #  lien: https://www.bassin-aubenas.fr/actualites/aide-a-lachat-dun-velo-a-assistance-electrique/
 
-# NOTE: nouvelles version fin octobre 2024, à vérifier en 2025
-# aides . lorient:
-#   remplace: intercommunalité
-#   titre: Lorient Agglomération
-#   applicable si: localisation . epci = 'CA Lorient Agglomération'
-#   valeur: 20% * vélo . prix
-#   plafond:
-#     variations:
-#       - si: vélo . cargo
-#         alors: 250€
-#       - si: vélo . électrique
-#         alors: 200€
-#       - si: vélo . pliant
-#         alors: 100€
-#      - sinon: 0€
-#  lien: https://www.lorient-agglo.bzh/services/deplacements/aide-achat-velo/
+# TODO: à vérifier en 2026
+aides . lorient agglo:
+  remplace: intercommunalité
+  titre: Lorient Agglomération
+  description: >
+    Aide à l'achat de vélos à assistance électrique à partir du 16 octobre 2024
+    aux habitants de son territoire ayant souscrit pendant 3 mois minimum au
+    service de location de vélos à assistance électrique développé par la
+    collectivité IziLo Mobilités de Lorient Agglo.
+
+
+    Fin du dispositif le 31 décembre 2025.
+  applicable si: 
+    toutes ces conditions:
+      - localisation . epci = 'CA Lorient Agglomération'
+      - demandeur . âge . majeur
+      - abonnement Izilo Mobilités
+      - une de ces conditions:
+          - vélo . électrique
+          - vélo . adapté
+  valeur: 30% * vélo . prix
+  plafond:
+    variations:
+      - si: 
+          une de ces conditions:
+            - vélo . cargo
+            - vélo . adapté
+        alors: 
+          variations:
+            - si: est élligible à la majoration du plafond
+              alors: 900€
+            - sinon: 300€
+      - si: est élligible à la majoration du plafond
+        alors: 420€
+      - sinon: 230€
+  avec:
+    est élligible à la majoration du plafond:
+      valeur:
+        une de ces conditions:
+          - revenu fiscal de référence par part <= 880 €/mois
+          - toutes ces conditions:
+              - revenu fiscal de référence par part <= 1100 €/mois
+              - demandeur . bénéficiaire de l'AAH
+
+    abonnement Izilo Mobilités:
+      type: booléen
+      question: >
+        Avez-vous souscrit pendant 3 mois minimum au service vélo IziLo ?
+      par défaut: oui
+  lien: https://www.lorient-agglo.bzh/services/deplacements/aide-achat-velo
 
 aides . lanester:
   remplace: commune
@@ -6278,7 +6313,7 @@ aides . béthune bruay:
     l'achat d'un vélo).
 
 
-    Subvention de 30 à 500€ en bon d’achat utilisable chez les
+    Subvention de 30 à 500€ en bon d'achat utilisable chez les
     commerces et associations partenaires (validité limitée au 8 décembre
     2024).
   applicable si:  localisation . epci = 'CA de Béthune-Bruay, Artois-Lys Romane'
@@ -6890,8 +6925,8 @@ aides . genneviliers:
   remplace: commune
   titre: Ville de Genneviliers
   description: >
-    Cette aide pour les Gennevillois‧es de 18 ans et plus s’applique aux vélos
-    achetés chez un professionnel, y compris les vélos d’occasion (depuis 2022).
+    Cette aide pour les Gennevillois‧es de 18 ans et plus s'applique aux vélos
+    achetés chez un professionnel, y compris les vélos d'occasion (depuis 2022).
     En 2024, elle couvre les vélos mécaniques, électriques, cargos, pliants ou
     adaptés. Les vélos électriques, cargos, pliants ou adaptés doivent avoir été
     achetés après le 1er septembre 2024 pour être éligibles.
@@ -8534,13 +8569,21 @@ aides . la côtière à montluel:
 aides . pays orne moselle:
   remplace: intercommunalité
   titre: Pays Orne Moselle
-  description: Aide à l'achat d'un vélo, neuf ou d'occasion.
+  description: >
+    Aide à l'achat d'un vélo, neuf ou d'occasion.
+
+    
+    A noter que l'élligibilité de cette aide est conditionnée par le fait de
+    bénéficier du "Bonus écologique" de l'État pour les vélos à assistance
+    électrique. Or, ce bonus a été supprimé à partir du 2 décembre 2024.
+    Veuillez vous renseigner auprès de la communauté de communes pour plus
+    d'informations avant de réaliser votre achat.
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'CC du Pays Orne Moselle'
       - revenu fiscal de référence par part <= plafond état
       - demandeur . âge . majeur
-      - aides . bonus vélo > 0€
+      # - aides . bonus vélo > 0€
       - vélo . électrique ou mécanique
   valeur: 20% * vélo . prix
   plafond:
@@ -9123,3 +9166,277 @@ aides . crestois et pays de saillans:
   valeur: 25% * vélo . prix
   plafond: 250€
   lien: https://www.cccps.fr/demarches/aide-pour-lelectrification-dun-velo-classique/
+
+# TODO: à mettre à jour en 2026
+aides . binic etables sur mer:
+  remplace: commune
+  titre: Commune de Binic-Étables sur Mer
+  description: >
+    Aide à l'achat d'un vélo à assistance électrique ou mécanique, neuf ou
+    d'occasion. Est également éligible l'achat de remorque pour vélo.
+
+    
+    Durée du dispositif : 1er janvier 2024 au 31 décembre 2026.
+  applicable si:
+    toutes ces conditions:
+      - localisation . code insee = '22055'
+      - revenu fiscal de référence par part <= 2314 €/mois
+      - une de ces conditions:
+          - vélo . électrique ou mécanique
+          - vélo . adapté
+  valeur: 80% * vélo . prix
+  plafond: 250€
+  lien: https://www.binic-etables-sur-mer.fr/actualites/une-aide-financiere-pour-lachat-dun-velo-ou-broyeur-de-vegetaux-ou-recuperateur-deau-de-pluie
+
+aides . creusot-montceau:
+  remplace: intercommunalité
+  titre: Communauté Urbaine Creusot-Montceau
+  description: >
+    Aide financière à l'acquisition de vélos traditionnels, de vélos à
+    assistance électrique ou de kits d'électrification de vélos.
+
+
+    L'aide est exclusivement réservée aux personnes dont la résidence
+    principale et le lieu de travail ou de scolarisation se situent sur l'une
+    des 34 communes membres de la Communauté Urbaine Creusot-Montceau.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CU Le Creusot Montceau-les-Mines'
+      - revenu fiscal de référence par part <= 2314 €/mois
+      - une de ces conditions:
+          - vélo . électrique ou mécanique
+          - vélo . motorisation
+          - vélo . adapté
+  valeur: 50% * vélo . prix
+  plafond:
+    variations:
+      - si: 
+          toutes ces conditions:
+            - demandeur . âge <= 14 an
+            - demandeur . statut . étudiant
+            - vélo . mécanique simple
+        alors: 100€
+      - si: 
+          toutes ces conditions:
+            - demandeur . âge > 14 an
+            - demandeur . statut . étudiant
+        alors:
+          variations:
+            - si: vélo . mécanique simple
+              alors: 150€
+            - si: vélo . électrique simple
+              alors: 300€
+            - si: vélo . motorisation
+              alors: 350€
+            - sinon: 0€
+      - si: 
+          une de ces conditions:
+            - demandeur . statut . salarié
+            - demandeur . statut . retraité
+            - demandeur . statut . reconversion
+        alors:
+          variations:
+            - si:
+                une de ces conditions: 
+                  - vélo . cargo électrique
+                  - vélo . pliant électrique
+                  - vélo . adapté # TODO: faire la distinction entre électrique et mécanique
+              alors: 1500€
+            - si:
+                une de ces conditions: 
+                  - vélo . cargo 
+                  - vélo . pliant
+                  - vélo . adapté
+              alors: 1000€
+            - si: vélo . électrique
+              alors: 300€
+            - si: vélo . mécanique
+              alors: 150€
+            - si: vélo . motorisation
+              alors: 350€
+            - sinon: 0€
+      - sinon: 0€
+  lien: https://www.creusot-montceau.org/actualite/la-communaute-urbaine-vous-aide-financierement-pour-lacquisition-dun-velo
+
+aides . territoire de l'ouest:
+  remplace: intercommunalité
+  titre: Territoire de l'Ouest
+  description: >
+    Aide à l'achat d'un vélo à assistance électrique neuf ou d'occasion, acheté
+    chez un professionnel.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CA Territoire de la Côte Ouest (TCO)'
+      - demandeur . âge . majeur
+      - une de ces conditions:
+          - vélo . électrique
+          - vélo . adapté
+  valeur:
+    variations:
+      - si: 
+          une de ces conditions:
+            - vélo . cargo
+            - vélo . adapté
+        alors: 500€
+      - sinon: 300€
+  lien: https://www.tco.re/vae-du-territoire-de-louest
+
+aides . cc sept vallées:
+  remplace: intercommunalité
+  titre: Communauté de communes des 7 Vallées
+  description: >
+    Aide à l'achat d'un vélo à assistance électrique ou mécanique neuf ou
+    d'occasion.
+
+    Concernant les vélos pour les personnes à mobilité réduite tous les vélos
+    susceptibles d'être adaptés au handicap de la personne demandeuse peuvent
+    faire l'objet d'une demande (tricycles, vélos couchés, tandem etc.)
+    exceptés les vélos 2 roues classiques qu'ils soient équipés d'une
+    assistance électrique ou non.
+  applicable si: 
+    toutes ces conditions:
+      - localisation . epci = 'CC des 7 Vallées'
+      - demandeur . âge >= 16 an
+      - une de ces conditions:
+          - vélo . électrique ou mécanique
+          - vélo . adapté
+  variations:
+    - si: vélo . adapté
+      alors: 
+        valeur: 40% * vélo . prix
+        plafond: 500€
+    - si: vélo . électrique
+      alors: 
+        valeur: 15% * vélo . prix
+        plafond: 80€
+    - sinon: 
+        valeur: 15% * vélo . prix
+        plafond: 150€
+  lien: https://7vallees.fr/la-communaute-de-communes-des-7-vallees-peut-vous-aider-a-acheter-un-velo
+
+aides . villiers-en-bière:
+  remplace: commune
+  titre: Commune de Villiers-en-Bière
+  description: >
+    Aide à l'achat d'un vélo à assistance électrique ou mécanique neuf. 
+
+    
+    Cette aide est disponible pour tout achat effectué à partir du 18/07/2024
+    sur présentation des justificatifs.
+  applicable si:
+    toutes ces conditions:
+      - localisation . code insee = '77518'
+      - demandeur . âge >= 15 an
+      - vélo . électrique ou mécanique
+      - vélo . état . neuf
+  valeur:
+    variations:
+      - si: vélo . électrique
+        alors: 150€
+      - sinon: 100€
+  lien: https://www.mairievilliersenbiere.fr/aide-a-lacquisition-de-velos
+
+aides . cc arc sud bretagne:
+  remplace: intercommunalité
+  titre: Arc Sud Bretagne
+  description: >
+    Aide à l'achat d'un vélo à assistance électrique ou vélo-cargo neuf ou
+    reconditionné.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CC Arc Sud Bretagne'
+      - demandeur . âge . majeur
+      - revenu fiscal de référence par part <= 15400 €/an
+      - vélo . électrique
+  valeur:
+    variations:
+      - si: vélo . cargo
+        alors: 200€
+      - sinon: 100€
+  lien: https://www.arc-sud-bretagne.fr/au-quotidien/mobilite
+
+aides . cc pévèle carembault:
+  remplace: intercommunalité
+  titre: Communauté de communes Pévèle Carembault
+  description: >
+    Aide à l'achat d'un vélo à assistance électrique neuf ou de kits
+    d'électrification de vélos.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CC Pévèle-Carembault'
+      - demandeur . âge . majeur
+      - une de ces conditions:
+          - toutes ces conditions:
+              - vélo . état . neuf
+              - vélo . électrique
+          - vélo . motorisation
+  valeur:
+    variations:
+      - si: vélo . électrique
+        alors: 200€
+      - sinon:
+          valeur: 50% * vélo . prix
+          plafond: 200€
+  lien: https://www.pevelecarembault.fr/actualites/des-le-4-mars-demandez-votre-prime-velo-electrique
+
+aides . cc les portes briardes:
+  remplace: intercommunalité
+  titre: Communauté de communes Les Portes Briardes Entre Villes et Forêts
+  description: >
+    Aide à l'achat d'un vélo à assistance électrique ou mécanique neuf ou
+    d'occasion.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CC Les Portes Briardes Entre Villes et Forêts'
+      - une de ces conditions:
+          - vélo . électrique ou mécanique
+          - toutes ces conditions:
+              - vélo . adapté
+              - demandeur . en situation de handicap
+  valeur:
+    variations:
+      - si: vélo . mécanique simple
+        alors: 80€
+      - sinon: 150€
+  lien: https://www.lesportesbriardes.fr/2023/12/28/beneficiez-dune-aide-a-lachat-de-velo
+
+aides . cc pays des sorgues:
+  remplace: intercommunalité
+  titre: Communauté de communes du Pays des Sorgues et des Monts de Vaucluse
+  description: >
+    Aide à l'achat d'un vélo de 200 € pour tout achat chez un commerçant des
+    communes de la communauté de communes.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CC du Pays des Sorgues et des Monts de Vaucluse'
+      - demandeur . âge . majeur
+      - une de ces conditions:
+          - vélo . électrique ou mécanique
+          - vélo . adapté
+  valeur: 200€
+  plafond: vélo . prix
+  lien: https://www.paysdessorgues.fr/aide-velo
+
+aides . cc val parisis:
+  remplace: intercommunalité
+  titre: Val Parisis Agglo
+  description: >
+    Aide à l'achat d'un vélo à assistance électrique, pliant ou cargo neuf ou
+    reconditionné.
+
+    
+    Le cumul de l'aide de Val Parisis Agglo avec celle de la Région
+    Île-de-France ne peut excéder 50% du prix du vélo.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CA Val Parisis'
+      - une de ces conditions:
+          - est non applicable: aides . ile de france 
+          - aides . ile de france < 50% * vélo . prix
+      - une de ces conditions:
+          - vélo . électrique
+          - vélo . pliant
+          - vélo . cargo
+  valeur: 100€
+  plafond: 50% * vélo . prix
+  lien: https://valparisis.fr/aide-achat-velo
