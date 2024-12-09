@@ -47,106 +47,107 @@ plafond état:
     bénéficier du Bonus vélo.
   valeur: 15400 €/an  
 
-aides . bonus vélo:
-  remplace: état
-  titre: Bonus vélo
-  description: Nouveau bonus $vélo applicable à partir du 14 février 2024.
-  applicable si:
-    toutes ces conditions:
-      - localisation . pays = 'France'
-      - demandeur . âge . majeur
-      - une de ces conditions:
-          - vélo . électrique ou mécanique
-          - vélo . adapté
-      - une de ces conditions:
-          - revenu fiscal de référence par part <= plafond état
-          - demandeur . en situation de handicap
-  valeur: 40% * vélo . prix
-  plafond:
-    variations:
-      - si:
-          une de ces conditions:
-            - vélo . cargo
-            - vélo . pliant
-            - vélo . adapté
-        alors: 
-          variations:
-            - si: 
-                une de ces conditions:
-                  - revenu fiscal de référence par part <= 7100 €/an
-                  - demandeur . en situation de handicap
-              alors: 2000€
-            - sinon: 1000€
-      - si: vélo . électrique
-        alors: 
-          variations:
-            - si: 
-                une de ces conditions:
-                  - revenu fiscal de référence par part <= 7100 €/an
-                  - demandeur . en situation de handicap
-              alors: 400€
-            - sinon: 300€
-      - sinon:
-          variations:
-            - si: 
-                une de ces conditions:
-                  - revenu fiscal de référence par part <= 7100 €/an
-                  - demandeur . en situation de handicap
-              alors: 150€
-            - sinon: 0€
-  lien: https://www.economie.gouv.fr/particuliers/prime-velo-electrique# 
+# NOTE: fin du bonus vélo à partir du 2 décembre 2024 : https://www.economie.gouv.fr/cedef/bonus-ecologique-velo-electrique
+# aides . bonus vélo:
+#   remplace: état
+#   titre: Bonus vélo
+#   description: Nouveau bonus $vélo applicable à partir du 14 février 2024.
+#   applicable si:
+#     toutes ces conditions:
+#       - localisation . pays = 'France'
+#       - demandeur . âge . majeur
+#       - une de ces conditions:
+#           - vélo . électrique ou mécanique
+#           - vélo . adapté
+#       - une de ces conditions:
+#           - revenu fiscal de référence par part <= plafond état
+#           - demandeur . en situation de handicap
+#   valeur: 40% * vélo . prix
+#   plafond:
+#     variations:
+#       - si:
+#           une de ces conditions:
+#             - vélo . cargo
+#             - vélo . pliant
+#             - vélo . adapté
+#         alors: 
+#           variations:
+#             - si: 
+#                 une de ces conditions:
+#                   - revenu fiscal de référence par part <= 7100 €/an
+#                   - demandeur . en situation de handicap
+#               alors: 2000€
+#             - sinon: 1000€
+#       - si: vélo . électrique
+#         alors: 
+#           variations:
+#             - si: 
+#                 une de ces conditions:
+#                   - revenu fiscal de référence par part <= 7100 €/an
+#                   - demandeur . en situation de handicap
+#               alors: 400€
+#             - sinon: 300€
+#       - sinon:
+#           variations:
+#             - si: 
+#                 une de ces conditions:
+#                   - revenu fiscal de référence par part <= 7100 €/an
+#                   - demandeur . en situation de handicap
+#               alors: 150€
+#             - sinon: 0€
+#   lien: https://www.economie.gouv.fr/particuliers/prime-velo-electrique# 
 
-aides . prime à la conversion:
-  type: état
-  applicable si:
-    toutes ces conditions:
-      - localisation . pays = 'France'
-      - demandeur . âge . majeur
-      - une de ces conditions:
-          - revenu fiscal de référence par part <= 24900 €/an
-          - demandeur . en situation de handicap
-      - une de ces conditions:
-          - vélo . électrique
-          - vélo . adapté
-  titre: Prime à la conversion
-  description: >
-    Pour bénéficier de cette « prime à la casse » vous devez détruire un
-    véhicule diesel immatriculé avant janvier 2011 ou bien un véhicule essence
-    immatriculé avant 2006.
-
-
-    La prime est de 40% du prix du vélo dans la limite de 3 000 €. Elle est
-    cumulable avec les aides à l'achat d'un vélo électrique, comme le « bonus
-    écologique ».
-  valeur: 40% * vélo . prix
-  plafond:
-    variations:
-      - si: 
-          une de ces conditions:
-            - revenu fiscal de référence par part <= 7100 €/an
-            - demandeur . en situation de handicap
-        alors: 3000€
-      - sinon: 1500€
-  lien: https://www.service-public.fr/particuliers/actualites/A17058
-
-aides . prime à la conversion . surprime ZFE:
-  applicable si:
-    toutes ces conditions:
-      - localisation . pays = 'France'
-      - localisation . ZFE
-  titre: Surprime Zone à Faibles Émissions (ZFE)
-  description: >
-    Vous pouvez bénéficier d'une surprime car $ville est une zone à faible
-    émission mobilité (ZFE). Cette surprime est conditionnée à l'octroi d'une
-    aide par la collectivité locale et son montant est identique à l'aide versée
-    par la collectivité locale, dans la limite de 1 000 €.
-  somme:
-    - commune
-    - intercommunalité
-    - département
-    - région
-  plafond: 1000€
-  lien: https://www.service-public.fr/particuliers/vosdroits/F36827
+# aides . prime à la conversion:
+#   type: état
+#   applicable si:
+#     toutes ces conditions:
+#       - localisation . pays = 'France'
+#       - demandeur . âge . majeur
+#       - une de ces conditions:
+#           - revenu fiscal de référence par part <= 24900 €/an
+#           - demandeur . en situation de handicap
+#       - une de ces conditions:
+#         - vélo . électrique
+#           - vélo . adapté
+#   titre: Prime à la conversion
+#   description: >
+#     Pour bénéficier de cette « prime à la casse » vous devez détruire un
+#     véhicule diesel immatriculé avant janvier 2011 ou bien un véhicule essence
+#     immatriculé avant 2006.
+# 
+# 
+#     La prime est de 40% du prix du vélo dans la limite de 3 000 €. Elle est
+#     cumulable avec les aides à l'achat d'un vélo électrique, comme le « bonus
+#     écologique ».
+#   valeur: 40% * vélo . prix
+#   plafond:
+#     variations:
+#       - si: 
+#           une de ces conditions:
+#             - revenu fiscal de référence par part <= 7100 €/an
+#             - demandeur . en situation de handicap
+#         alors: 3000€
+#       - sinon: 1500€
+#   lien: https://www.service-public.fr/particuliers/actualites/A17058
+# 
+# aides . prime à la conversion . surprime ZFE:
+#   applicable si:
+#     toutes ces conditions:
+#       - localisation . pays = 'France'
+#       - localisation . ZFE
+#   titre: Surprime Zone à Faibles Émissions (ZFE)
+#   description: >
+#     Vous pouvez bénéficier d'une surprime car $ville est une zone à faible
+#     émission mobilité (ZFE). Cette surprime est conditionnée à l'octroi d'une
+#     aide par la collectivité locale et son montant est identique à l'aide versée
+#     par la collectivité locale, dans la limite de 1 000 €.
+#   somme:
+#     - commune
+#     - intercommunalité
+#     - département
+#     - région
+#   plafond: 1000€
+#   lien: https://www.service-public.fr/particuliers/vosdroits/F36827
 
 aides . forfait mobilités durables: 500 €/an
 
@@ -8534,13 +8535,21 @@ aides . la côtière à montluel:
 aides . pays orne moselle:
   remplace: intercommunalité
   titre: Pays Orne Moselle
-  description: Aide à l'achat d'un vélo, neuf ou d'occasion.
+  description: >
+    Aide à l'achat d'un vélo, neuf ou d'occasion.
+
+    
+    A noter que l'élligibilité de cette aide est conditionnée par le fait de
+    bénéficier du "Bonus écologique" de l'État pour les vélos à assistance
+    électrique. Or, ce bonus a été supprimé à partir du 2 décembre 2024.
+    Veuillez vous renseigner auprès de la communauté de communes pour plus
+    d'informations avant de réaliser votre achat.
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'CC du Pays Orne Moselle'
       - revenu fiscal de référence par part <= plafond état
       - demandeur . âge . majeur
-      - aides . bonus vélo > 0€
+      # - aides . bonus vélo > 0€
       - vélo . électrique ou mécanique
   valeur: 20% * vélo . prix
   plafond:

@@ -8,7 +8,7 @@ describe("AidesVeloEngine", () => {
 
       const parsedRules = engine.getEngine().getParsedRules();
       expect(parsedRules["aides"]).toBeDefined();
-      expect(parsedRules["aides . bonus vélo"]).toBeDefined();
+      // expect(parsedRules["aides . bonus vélo"]).toBeDefined();
       expect(parsedRules["vélo"]).toBeDefined();
     });
   });
@@ -130,9 +130,7 @@ describe("AidesVeloEngine", () => {
       const engine = globalTestEngine.shallowCopy();
       const aides = engine.computeAides();
 
-      expect(aides).toHaveLength(2);
-      expect(contain(aides, "aides . bonus vélo")).toBeTruthy();
-      expect(contain(aides, "aides . prime à la conversion")).toBeTruthy();
+      expect(aides).toHaveLength(0);
     });
 
     describe("with specific inputs", () => {
@@ -149,7 +147,7 @@ describe("AidesVeloEngine", () => {
           })
           .computeAides();
 
-        expect(aides).toHaveLength(4);
+        expect(aides).toHaveLength(2);
         expect(contain(aides, "aides . montmorillon")).toBeTruthy();
         expect(contain(aides, "aides . vienne gartempe")).toBeTruthy();
       });
@@ -167,9 +165,9 @@ describe("AidesVeloEngine", () => {
           })
           .computeAides();
 
-        expect(aides).toHaveLength(4);
-        expect(contain(aides, "aides . bonus vélo")).toBeTruthy();
-        expect(contain(aides, "aides . prime à la conversion")).toBeTruthy();
+        expect(aides).toHaveLength(2);
+        // expect(contain(aides, "aides . bonus vélo")).toBeTruthy();
+        // expect(contain(aides, "aides . prime à la conversion")).toBeTruthy();
         expect(contain(aides, "aides . pays de la loire")).toBeTruthy();
         expect(contain(aides, "aides . angers")).toBeTruthy();
       });
@@ -189,9 +187,9 @@ describe("AidesVeloEngine", () => {
           })
           .computeAides();
 
-        expect(aides).toHaveLength(3);
-        expect(contain(aides, "aides . bonus vélo")).toBeTruthy();
-        expect(contain(aides, "aides . prime à la conversion")).toBeTruthy();
+        expect(aides).toHaveLength(1);
+        // expect(contain(aides, "aides . bonus vélo")).toBeTruthy();
+        // expect(contain(aides, "aides . prime à la conversion")).toBeTruthy();
         expect(contain(aides, "aides . angers")).toBeTruthy();
       });
 
@@ -209,14 +207,14 @@ describe("AidesVeloEngine", () => {
           })
           .computeAides();
 
-        expect(aides).toHaveLength(3);
-        expect(
-          contain(
-            aides,
-            "aides . bonus vélo",
-            ({ description }) => description?.includes("adapté") ?? false
-          )
-        ).toBeTruthy();
+        expect(aides).toHaveLength(1);
+        // expect(
+        //   contain(
+        //     aides,
+        //     "aides . bonus vélo",
+        //     ({ description }) => description?.includes("adapté") ?? false
+        //   )
+        // ).toBeTruthy();
         expect(contain(aides, "aides . occitanie vélo adapté")).toBeTruthy();
       });
 
@@ -234,13 +232,13 @@ describe("AidesVeloEngine", () => {
           })
           .computeAides();
 
-        expect(aides).toHaveLength(5);
-        expect(
-          contain(aides, "aides . bonus vélo", ({ description }) =>
-            description?.includes("adapté")
-          )
-        ).toBeTruthy();
-        expect(contain(aides, "aides . prime à la conversion")).toBeTruthy();
+        expect(aides).toHaveLength(3);
+        // expect(
+        //   contain(aides, "aides . bonus vélo", ({ description }) =>
+        //     description?.includes("adapté")
+        //   )
+        // ).toBeTruthy();
+        // expect(contain(aides, "aides . prime à la conversion")).toBeTruthy();
         expect(contain(aides, "aides . occitanie vélo adapté")).toBeTruthy();
         expect(
           contain(
@@ -263,7 +261,7 @@ describe("AidesVeloEngine", () => {
           })
           .computeAides();
 
-        expect(aides).toHaveLength(3);
+        expect(aides).toHaveLength(1);
         expect(contain(aides, "aides . cacl")).toBeTruthy();
       });
     });
