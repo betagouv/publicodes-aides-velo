@@ -67,6 +67,7 @@ describe("AidesVeloEngine", () => {
         "demandeur d'emploi",
         "salarié",
         "retraité",
+        "reconversion",
         "autre",
       ]);
     });

@@ -55,6 +55,7 @@ demandeur . statut:
     - demandeur d'emploi
     - salarié
     - retraité
+    - reconversion
     - autre
   par défaut: "'autre'"
   avec:
@@ -73,10 +74,12 @@ demandeur . statut:
     retraité:
       titre: Retraité·e
       valeur: statut = 'retraité'
+    reconversion:
+      titre: En reconversion
+      valeur: statut = 'reconversion'
     autre:
       titre: Autre
       valeur: statut = 'autre'
-
 
 demandeur . âge:
   type: nombre
