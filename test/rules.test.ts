@@ -1763,4 +1763,75 @@ describe("Aides Vélo", () => {
       expect(engine.evaluate("aides . creusot-montceau").nodeValue).toEqual(0);
     });
   });
+
+  describe("Lorient Agglomération", () => {
+    const baseSituation = {
+      "localisation . epci": "'CA Lorient Agglomération'",
+      "vélo . prix": 1000,
+      "revenu fiscal de référence par part": "1000 €/mois",
+    };
+
+    test("par défaut", () => {
+      engine.setSituation(baseSituation);
+      expect(engine.evaluate("aides . lorient agglo").nodeValue).toEqual(230);
+    });
+
+    test("mécanique", () => {
+      engine.setSituation({
+        ...baseSituation,
+        "vélo . type": "'mécanique simple'",
+      });
+      expect(engine.evaluate("aides . lorient agglo").nodeValue).toBeNull();
+    });
+
+    test("électrique simple ou pliant", () => {
+      engine.setSituation({
+        ...baseSituation,
+        "aides . lorient agglo . abonnement Izilo Mobilités": "oui",
+      });
+      expect(engine.evaluate("aides . lorient agglo").nodeValue).toEqual(230);
+
+      engine.setSituation({
+        ...baseSituation,
+        "aides . lorient agglo . abonnement Izilo Mobilités": "oui",
+        "revenu fiscal de référence par part": "500 €/mois",
+      });
+      expect(engine.evaluate("aides . lorient agglo").nodeValue).toEqual(300);
+
+      engine.setSituation({
+        ...baseSituation,
+        "vélo . type": "'pliant électrique'",
+        "aides . lorient agglo . abonnement Izilo Mobilités": "oui",
+        "demandeur . bénéficiaire de l'AAH": "oui",
+      });
+      expect(engine.evaluate("aides . lorient agglo").nodeValue).toEqual(300);
+    });
+
+    test("cargo ou adapté", () => {
+      engine.setSituation({
+        ...baseSituation,
+        "aides . lorient agglo . abonnement Izilo Mobilités": "oui",
+        "vélo . type": "'cargo électrique'",
+      });
+      expect(engine.evaluate("aides . lorient agglo").nodeValue).toEqual(300);
+
+      engine.setSituation({
+        ...baseSituation,
+        "vélo . type": "'cargo électrique'",
+        "aides . lorient agglo . abonnement Izilo Mobilités": "oui",
+        "revenu fiscal de référence par part": "500 €/mois",
+        "vélo . prix": 10000,
+      });
+      expect(engine.evaluate("aides . lorient agglo").nodeValue).toEqual(900);
+
+      engine.setSituation({
+        ...baseSituation,
+        "vélo . type": "'adapté'",
+        "aides . lorient agglo . abonnement Izilo Mobilités": "oui",
+        "demandeur . bénéficiaire de l'AAH": "oui",
+        "vélo . prix": 10000,
+      });
+      expect(engine.evaluate("aides . lorient agglo").nodeValue).toEqual(900);
+    });
+  });
 });
