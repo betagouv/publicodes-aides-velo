@@ -21,6 +21,11 @@ demandeur . bénéficiaire du RSA:
   question: Percevez-vous le RSA ?
   par défaut: non
 
+demandeur . bénéficiaire de l'AAH:
+  type: booléen
+  question: Percevez-vous l'allocation adulte handicapé (AAH) ?
+  par défaut: non
+
 demandeur . bénéficiaire de minima sociaux:
   type: booléen
   question: Percevez-vous le RSA, l'AAH, l'ASS ou ASPA ?
@@ -32,6 +37,7 @@ demandeur . bénéficiaire de minima sociaux:
   par défaut:
     une de ces conditions:
       - bénéficiaire du RSA
+      - bénéficiaire de l'AAH
 
 demandeur . en situation de handicap:
   type: booléen
