@@ -9542,3 +9542,20 @@ aides . cc ouest vosgien:
   valeur: 300 €
   plafond: 25% * vélo . prix
   lien: https://ccov.fr/communaute-de-communes/vie-quotidienne/mobilite/subvention-vae
+
+# NOTE: valide jusqu'au 31/12/2026
+aides . cc pays haut val d'alzette:
+  remplace: intercommunalité
+  titre: Communauté de communes du Pays Haut Val d'Alzette
+  description: >
+    Aide à l'achat d'un vélo à assistance électrique neuf ou d'occasion.
+
+    Dispositif valable jusqu'au 31 décembre 2026.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = "CC du Pays Haut Val d'Alzette"
+      - demandeur . âge . majeur
+      - vélo . électrique
+  valeur: 15% * vélo . prix
+  plafond: 150 €
+  lien: https://www.ccphva.com/VAE
