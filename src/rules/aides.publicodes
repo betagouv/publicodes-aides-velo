@@ -9476,3 +9476,17 @@ aides . charenton-le-pont:
   valeur: 50% * vélo . prix
   plafond: 200€
   lien: https://www.charenton.fr/velo/velo_pass-velo
+
+aides . vaucresson:
+  remplace: commune
+  titre: Ville de Vaucresson
+  description: >
+    Subvention de 150€ pour l'électrification d'un vélo classique. Son
+    attribution est conditionnée par le dépôt d’un dossier en mairie et la
+    signature d’une convention.
+  applicable si:
+    toutes ces conditions:
+      - localisation . code insee = '92076'
+      - vélo . motorisation
+  valeur: 150€
+  lien: https://www.vaucresson.fr/mon-cadre-de-vie/mobilite/velos-electriques
