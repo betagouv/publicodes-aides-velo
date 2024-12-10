@@ -9490,3 +9490,18 @@ aides . vaucresson:
       - vélo . motorisation
   valeur: 150€
   lien: https://www.vaucresson.fr/mon-cadre-de-vie/mobilite/velos-electriques
+
+aides . cu arras:
+  remplace: intercommunalité
+  titre: Communauté urbaine d'Arras
+  description: >
+    Aide à l'achat d'un vélo à assistance électrique chez un·e commerçant·e du
+    territoire communautaire.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = "CU d'Arras"
+      - demandeur . âge . majeur
+      - vélo . électrique
+  valeur: 30% * vélo . prix
+  plafond: 300 €
+  lien: https://www.demarches-simplifiees.fr/commencer/cua-aide-velo-elec
