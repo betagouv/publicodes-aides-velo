@@ -9525,3 +9525,20 @@ aides . st2b:
   valeur: 30% * vélo . prix
   plafond: 300 €
   lien: https://www.st2b.fr/fileo/prime-a-lacquisition-dun-velo-a-assistance-electrique
+
+aides . cc ouest vosgien:
+  remplace: intercommunalité
+  titre: Communauté de communes de l'Ouest Vosgien
+  description: >
+    Aide pour l'achat d'un VAE neuf chez un·e commerçant·e professionnel·le
+    implanté·e dans l'une des communes de la CCOV.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CC de l'Ouest Vosgien'
+      - demandeur . âge . majeur
+      - revenu fiscal de référence par part <= 14089 €/an
+      - vélo . électrique
+      - vélo . état . neuf
+  valeur: 300 €
+  plafond: 25% * vélo . prix
+  lien: https://ccov.fr/communaute-de-communes/vie-quotidienne/mobilite/subvention-vae
