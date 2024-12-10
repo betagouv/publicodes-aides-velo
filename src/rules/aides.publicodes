@@ -9559,3 +9559,40 @@ aides . cc pays haut val d'alzette:
   valeur: 15% * vélo . prix
   plafond: 150 €
   lien: https://www.ccphva.com/VAE
+
+aides . cc cattenom et environs:
+  remplace: intercommunalité
+  titre: Communauté de communes de Cattenom et Environs
+  description: >
+    Aide à l'achat d'un vélo à assistance électrique neuf ou d'occasion ansi
+    que de la transformation d'un vélo classique en vélo électrique.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CC de Cattenom et Environs'
+      - une de ces conditions:
+          - vélo . électrique simple
+          - vélo . cargo électrique
+          - vélo . motorisation
+  valeur:
+    variations:
+      - si: vélo . cargo électrique
+        alors: 
+          variations:
+            - si: vélo . état . neuf
+              alors: 500€
+            - sinon:
+                valeur: 50% * vélo . prix 
+                plafond: 500€
+      - si: vélo . électrique simple
+        alors: 
+          variations:
+            - si: vélo . état . neuf
+              alors: 300€
+            - sinon:
+                valeur: 50% * vélo . prix 
+                plafond: 300€
+      - si: vélo . motorisation
+        alors: 
+          valeur: 50% * vélo . prix 
+          plafond: 300€
+  lien: https://www.ccce.fr/aide-achat-vae
