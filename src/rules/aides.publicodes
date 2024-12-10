@@ -8706,10 +8706,10 @@ aides . region centre:
           - localisation . epci = "CC Val de l'Indre - Brenne"
           - localisation . epci = "CC du Val de Bouzanne"
           - localisation . epci = "CC de la Marche Berrichonne"
-          - localisation . epci = "CC Eguzon - Argenton - Vallée de la Creuse"
+          - localisation . epci = "CC Éguzon - Argenton - Vallée de la Creuse"
           - localisation . epci = "CC de la Châtre et Sainte-Sévère"
           - localisation . epci = "CC du Châtillonnais en Berry"
-          - localisation . epci = "CC Ecueillé-Valençay"
+          - localisation . epci = "CC Écueillé-Valençay"
   valeur: 25% * vélo . prix
   plafond: 
     variations:
