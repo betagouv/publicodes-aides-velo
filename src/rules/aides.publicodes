@@ -9461,3 +9461,18 @@ aides . dlvagglo:
           - demandeur . statut . autre
   valeur: 200 €
   lien: https://www.espace-citoyens.net/manosque-dlva/espace-citoyens/Demande/NouvelleDemande/ENV/V_ELEC2024
+
+aides . charenton-le-pont:
+  remplace: commune
+  titre: Ville de Charenton-le-Pont
+  description: >
+    Pass'Vélo - Bon d'achat permettant de bénéficier d'une réduction de 50%
+    (plafonnée à 200€) pour l'achat d'un vélo et des accessoires de sécurité
+    dans les structures partenaires.
+  applicable si:
+    toutes ces conditions:
+      - localisation . code insee = '94018'
+      - revenu fiscal de référence par part <= 15000 €/an
+  valeur: 50% * vélo . prix
+  plafond: 200€
+  lien: https://www.charenton.fr/velo/velo_pass-velo
