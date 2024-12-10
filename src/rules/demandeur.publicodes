@@ -72,7 +72,7 @@ demandeur . statut:
       titre: Apprenti·e
       valeur: statut = 'apprenti'
     demandeur d'emploi:
-      titre: Demandeureuse d'emploi
+      titre: Demandeur·euse d'emploi
       valeur: statut = 'demandeur d'emploi'
     salarié:
       titre: Salarié·e

@@ -9440,3 +9440,24 @@ aides . cc val parisis:
   valeur: 100€
   plafond: 50% * vélo . prix
   lien: https://valparisis.fr/aide-achat-velo
+
+aides . dlvagglo:
+  remplace: intercommunalité
+  titre: Durance-Lubéron-Verdon Agglomération
+  description: >
+    Subvention de 200€ pour l'achat d'un vélo à assistance électrique pour les
+    habitant·es majeur·es en activité professionnelle.
+
+
+    Limitée à 25 demandes unique par an.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CA Durance-Lubéron-Verdon Agglomération'
+      - demandeur . âge . majeur
+      - vélo . électrique
+      - une de ces conditions:
+          - demandeur . statut . salarié
+          - demandeur . statut . reconversion
+          - demandeur . statut . autre
+  valeur: 200 €
+  lien: https://www.espace-citoyens.net/manosque-dlva/espace-citoyens/Demande/NouvelleDemande/ENV/V_ELEC2024
