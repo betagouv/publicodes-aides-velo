@@ -33,7 +33,7 @@
     "compile:rules": "publicodes compile src/rules",
     "generate": "yarn run compile:rules && bun scripts/generate.js",
     "pretest": "yarn run generate",
-    "test": "vitest run --globals",
+    "test": "vitest run",
     "precompile": "yarn run generate",
     "compile": "tsup",
     "release": "yarn compile && changeset publish"

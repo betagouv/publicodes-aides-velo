@@ -9482,8 +9482,8 @@ aides . vaucresson:
   titre: Ville de Vaucresson
   description: >
     Subvention de 150€ pour l'électrification d'un vélo classique. Son
-    attribution est conditionnée par le dépôt d’un dossier en mairie et la
-    signature d’une convention.
+    attribution est conditionnée par le dépôt d'un dossier en mairie et la
+    signature d'une convention.
   applicable si:
     toutes ces conditions:
       - localisation . code insee = '92076'
@@ -9505,3 +9505,23 @@ aides . cu arras:
   valeur: 30% * vélo . prix
   plafond: 300 €
   lien: https://www.demarches-simplifiees.fr/commencer/cua-aide-velo-elec
+
+aides . st2b:
+  remplace: intercommunalité
+  titre: Le Syndicat mixte des Transports du Bassin de Briey
+  description: >
+    Aide à l'achat d'un vélo à assistance électrique (VAE) neuf et homologué.
+
+
+    Deux demandes maximum par ménage, non renouvelable.
+  applicable si:
+    toutes ces conditions:
+      - une de ces conditions:
+          - localisation . epci = 'CC Orne Lorraine Confluences'
+          - localisation . epci = 'CC Coeur du Pays Haut'
+      - demandeur . âge . majeur
+      - vélo . électrique
+      - vélo . état . neuf
+  valeur: 30% * vélo . prix
+  plafond: 300 €
+  lien: https://www.st2b.fr/fileo/prime-a-lacquisition-dun-velo-a-assistance-electrique

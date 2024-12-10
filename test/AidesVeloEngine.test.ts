@@ -1,4 +1,5 @@
 import { Aide, AideRuleNames, AidesVeloEngine } from "../src";
+import { describe, expect, it } from "vitest";
 
 describe("AidesVeloEngine", () => {
   describe("new AidesVeloEngine()", () => {
@@ -132,6 +133,44 @@ describe("AidesVeloEngine", () => {
       const aides = engine.computeAides();
 
       expect(aides).toHaveLength(0);
+    });
+
+    it("should correctly manage multiple localisations", () => {
+      const engine = globalTestEngine.shallowCopy();
+      let aides = engine
+        .setInputs({
+          "localisation . epci": "CC Orne Lorraine Confluences",
+          "localisation . pays": "France",
+          "vélo . prix": 1000,
+        })
+        .computeAides();
+
+      expect(aides).toHaveLength(1);
+      expect(aides[0].id).toEqual("aides . st2b");
+      expect(aides[0].amount).toEqual(300);
+      expect(aides[0].collectivity).toEqual({
+        kind: "epci",
+        value: "CC Orne Lorraine Confluences",
+        code: "200070845",
+      });
+
+      aides = engine
+        .setInputs({
+          "localisation . epci": "CC Coeur du Pays Haut",
+          "localisation . pays": "France",
+          "vélo . prix": 1000,
+        })
+        .computeAides();
+
+      expect(aides).toHaveLength(1);
+      expect(aides[0].id).toEqual("aides . st2b");
+      expect(aides[0].amount).toEqual(300);
+      // FIXME: should manage multiple localisations (see generate-aides-collectivities.ts)
+      // expect(aides[0].collectivity).toEqual({
+      //   kind: "epci",
+      //   value: "CC Coeur du Pays Haut",
+      //   code: "200070845",
+      // });
     });
 
     describe("with specific inputs", () => {

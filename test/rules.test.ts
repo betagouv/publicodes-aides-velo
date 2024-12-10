@@ -1,5 +1,6 @@
 import Engine, { Rule } from "publicodes";
-import assert from "assert";
+import { describe, expect, it, test } from "vitest";
+
 import { AideRuleNames, RuleName } from "../src";
 import rules from "../publicodes-build";
 import { aidesAvecLocalisation, miniatures } from "../src/data";
