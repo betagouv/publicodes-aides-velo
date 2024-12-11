@@ -21,6 +21,11 @@ demandeur . bénéficiaire du RSA:
   question: Percevez-vous le RSA ?
   par défaut: non
 
+demandeur . bénéficiaire de l'AAH:
+  type: booléen
+  question: Percevez-vous l'allocation adulte handicapé (AAH) ?
+  par défaut: non
+
 demandeur . bénéficiaire de minima sociaux:
   type: booléen
   question: Percevez-vous le RSA, l'AAH, l'ASS ou ASPA ?
@@ -32,6 +37,7 @@ demandeur . bénéficiaire de minima sociaux:
   par défaut:
     une de ces conditions:
       - bénéficiaire du RSA
+      - bénéficiaire de l'AAH
 
 demandeur . en situation de handicap:
   type: booléen
@@ -55,6 +61,7 @@ demandeur . statut:
     - demandeur d'emploi
     - salarié
     - retraité
+    - reconversion
     - autre
   par défaut: "'autre'"
   avec:
@@ -65,7 +72,7 @@ demandeur . statut:
       titre: Apprenti·e
       valeur: statut = 'apprenti'
     demandeur d'emploi:
-      titre: Demandeureuse d'emploi
+      titre: Demandeur·euse d'emploi
       valeur: statut = 'demandeur d'emploi'
     salarié:
       titre: Salarié·e
@@ -73,10 +80,12 @@ demandeur . statut:
     retraité:
       titre: Retraité·e
       valeur: statut = 'retraité'
+    reconversion:
+      titre: En reconversion
+      valeur: statut = 'reconversion'
     autre:
       titre: Autre
       valeur: statut = 'autre'
-
 
 demandeur . âge:
   type: nombre

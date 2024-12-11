@@ -1,5 +1,6 @@
 import Engine, { Rule } from "publicodes";
-import assert from "assert";
+import { describe, expect, it, test } from "vitest";
+
 import { AideRuleNames, RuleName } from "../src";
 import rules from "../publicodes-build";
 import { aidesAvecLocalisation, miniatures } from "../src/data";
@@ -24,8 +25,8 @@ describe("Aides Vélo", () => {
       // NOTE: should be generated at compile time
       const noNeedToAssociatesLoc: RuleName[] = [
         ...rulesToIgnore,
-        "aides . bonus vélo",
-        "aides . prime à la conversion",
+        // "aides . bonus vélo",
+        // "aides . prime à la conversion",
       ];
 
       ruleNames.forEach((key: RuleName) => {
@@ -74,7 +75,9 @@ describe("Aides Vélo", () => {
     });
   });
 
-  describe("Bonus Vélo", () => {
+  // NOTE: bonus vélo has been removed however we might want to re-introduce it
+  // in the future if it's reintroduced..
+  describe.skip("Bonus Vélo", () => {
     const baseSituation = {
       "localisation . code insee": "'75056'",
       "localisation . epci": "'Métropole du Grand Paris'",
@@ -283,14 +286,9 @@ describe("Aides Vélo", () => {
         "vélo . prix": "1000€",
       });
 
-      const aideEtat = engine.evaluate("aides . état").nodeValue;
-      assert(typeof aideEtat === "number");
-      expect(aideEtat).toEqual(400);
-
-      const expectedAmount = 0.5 * (1000 - aideEtat);
       expect(
         engine.evaluate("aides . occitanie vélo adapté").nodeValue
-      ).toEqual(expectedAmount);
+      ).toEqual(500);
 
       engine.setSituation({
         "localisation . région": "'76'",
@@ -1634,6 +1632,269 @@ describe("Aides Vélo", () => {
         "revenu fiscal de référence par part": "10000 €/an",
       });
       expect(engine.evaluate("aides . val de drôme").nodeValue).toEqual(50);
+    });
+  });
+
+  describe("Communauté Urbaine Creusot-Montceau", () => {
+    const baseSituation = {
+      "localisation . epci": "'CU Le Creusot Montceau-les-Mines'",
+      "vélo . prix": 400,
+      "revenu fiscal de référence par part": "2000 €/mois",
+    };
+
+    test("élève de moins de 14 ans", () => {
+      engine.setSituation({
+        ...baseSituation,
+        "demandeur . âge": "13 an",
+      });
+      expect(engine.evaluate("aides . creusot-montceau").nodeValue).toEqual(0);
+
+      engine.setSituation({
+        ...baseSituation,
+        "demandeur . âge": "13 an",
+        "demandeur . statut": "'étudiant'",
+      });
+      expect(engine.evaluate("aides . creusot-montceau").nodeValue).toEqual(0);
+
+      engine.setSituation({
+        ...baseSituation,
+        "demandeur . âge": "13 an",
+        "demandeur . statut": "'étudiant'",
+        "vélo . type": "'mécanique simple'",
+      });
+      expect(engine.evaluate("aides . creusot-montceau").nodeValue).toEqual(
+        100
+      );
+    });
+
+    test("élève de plus de 14 ans ou étudiant:e en étude supérieure", () => {
+      engine.setSituation({
+        ...baseSituation,
+        "demandeur . âge": "18 an",
+      });
+      expect(engine.evaluate("aides . creusot-montceau").nodeValue).toEqual(0);
+
+      engine.setSituation({
+        ...baseSituation,
+        "demandeur . âge": "18 an",
+        "demandeur . statut": "'étudiant'",
+      });
+      expect(engine.evaluate("aides . creusot-montceau").nodeValue).toEqual(
+        200
+      );
+
+      engine.setSituation({
+        ...baseSituation,
+        "demandeur . âge": "18 an",
+        "demandeur . statut": "'étudiant'",
+        "vélo . type": "'mécanique simple'",
+      });
+      expect(engine.evaluate("aides . creusot-montceau").nodeValue).toEqual(
+        150
+      );
+
+      engine.setSituation({
+        ...baseSituation,
+        "demandeur . âge": "18 an",
+        "demandeur . statut": "'étudiant'",
+        "vélo . type": "'pliant'",
+      });
+      expect(engine.evaluate("aides . creusot-montceau").nodeValue).toEqual(0);
+    });
+
+    test("actif:ve, retraité:e, ou en reconversion professionnelle", () => {
+      engine.setSituation({
+        ...baseSituation,
+      });
+      expect(engine.evaluate("aides . creusot-montceau").nodeValue).toEqual(0);
+
+      engine.setSituation({
+        ...baseSituation,
+        "demandeur . statut": "'salarié'",
+      });
+      expect(engine.evaluate("aides . creusot-montceau").nodeValue).toEqual(
+        200
+      );
+
+      engine.setSituation({
+        ...baseSituation,
+        "demandeur . statut": "'retraité'",
+        "vélo . type": "'mécanique simple'",
+      });
+      expect(engine.evaluate("aides . creusot-montceau").nodeValue).toEqual(
+        150
+      );
+
+      engine.setSituation({
+        ...baseSituation,
+        "demandeur . statut": "'retraité'",
+        "vélo . type": "'cargo'",
+        "vélo . prix": 2500,
+      });
+      expect(engine.evaluate("aides . creusot-montceau").nodeValue).toEqual(
+        1000
+      );
+
+      engine.setSituation({
+        ...baseSituation,
+        "demandeur . statut": "'salarié'",
+        "vélo . type": "'cargo électrique'",
+        "vélo . prix": 2500,
+      });
+      expect(engine.evaluate("aides . creusot-montceau").nodeValue).toEqual(
+        1250
+      );
+
+      engine.setSituation({
+        ...baseSituation,
+        "demandeur . statut": "'reconversion'",
+        "vélo . type": "'adapté'",
+        "vélo . prix": 2500,
+      });
+      expect(engine.evaluate("aides . creusot-montceau").nodeValue).toEqual(
+        1250
+      );
+
+      engine.setSituation({
+        ...baseSituation,
+        "demandeur . statut": "'autre'",
+        "vélo . type": "'adapté'",
+        "vélo . prix": 2500,
+      });
+      expect(engine.evaluate("aides . creusot-montceau").nodeValue).toEqual(0);
+    });
+  });
+
+  describe("Lorient Agglomération", () => {
+    const baseSituation = {
+      "localisation . epci": "'CA Lorient Agglomération'",
+      "vélo . prix": 1000,
+      "revenu fiscal de référence par part": "1000 €/mois",
+    };
+
+    test("par défaut", () => {
+      engine.setSituation(baseSituation);
+      expect(engine.evaluate("aides . lorient agglo").nodeValue).toEqual(230);
+    });
+
+    test("mécanique", () => {
+      engine.setSituation({
+        ...baseSituation,
+        "vélo . type": "'mécanique simple'",
+      });
+      expect(engine.evaluate("aides . lorient agglo").nodeValue).toBeNull();
+    });
+
+    test("électrique simple ou pliant", () => {
+      engine.setSituation({
+        ...baseSituation,
+        "aides . lorient agglo . abonnement Izilo Mobilités": "oui",
+      });
+      expect(engine.evaluate("aides . lorient agglo").nodeValue).toEqual(230);
+
+      engine.setSituation({
+        ...baseSituation,
+        "aides . lorient agglo . abonnement Izilo Mobilités": "oui",
+        "revenu fiscal de référence par part": "500 €/mois",
+      });
+      expect(engine.evaluate("aides . lorient agglo").nodeValue).toEqual(300);
+
+      engine.setSituation({
+        ...baseSituation,
+        "vélo . type": "'pliant électrique'",
+        "aides . lorient agglo . abonnement Izilo Mobilités": "oui",
+        "demandeur . bénéficiaire de l'AAH": "oui",
+      });
+      expect(engine.evaluate("aides . lorient agglo").nodeValue).toEqual(300);
+    });
+
+    test("cargo ou adapté", () => {
+      engine.setSituation({
+        ...baseSituation,
+        "aides . lorient agglo . abonnement Izilo Mobilités": "oui",
+        "vélo . type": "'cargo électrique'",
+      });
+      expect(engine.evaluate("aides . lorient agglo").nodeValue).toEqual(300);
+
+      engine.setSituation({
+        ...baseSituation,
+        "vélo . type": "'cargo électrique'",
+        "aides . lorient agglo . abonnement Izilo Mobilités": "oui",
+        "revenu fiscal de référence par part": "500 €/mois",
+        "vélo . prix": 10000,
+      });
+      expect(engine.evaluate("aides . lorient agglo").nodeValue).toEqual(900);
+
+      engine.setSituation({
+        ...baseSituation,
+        "vélo . type": "'adapté'",
+        "aides . lorient agglo . abonnement Izilo Mobilités": "oui",
+        "demandeur . bénéficiaire de l'AAH": "oui",
+        "vélo . prix": 10000,
+      });
+      expect(engine.evaluate("aides . lorient agglo").nodeValue).toEqual(900);
+    });
+  });
+
+  describe("Arc Sud Bretagne", () => {
+    const baseSituation = {
+      "localisation . epci": "'CC Arc Sud Bretagne'",
+      "vélo . prix": 1000,
+      "revenu fiscal de référence par part": "10000 €/an",
+    };
+
+    test("par défaut", () => {
+      engine.setSituation(baseSituation);
+      expect(engine.evaluate("aides . cc arc sud bretagne").nodeValue).toEqual(
+        100
+      );
+    });
+
+    test("cargo électrique", () => {
+      engine.setSituation({
+        ...baseSituation,
+        "vélo . type": "'cargo électrique'",
+      });
+      expect(engine.evaluate("aides . cc arc sud bretagne").nodeValue).toEqual(
+        200
+      );
+    });
+  });
+
+  describe("Val Parisis Agglo", () => {
+    const baseSituation = {
+      "localisation . epci": "'CA Val Parisis'",
+      "vélo . prix": 1000,
+    };
+
+    test("par défaut", () => {
+      engine.setSituation(baseSituation);
+      expect(engine.evaluate("aides . cc val parisis").nodeValue).toEqual(100);
+    });
+
+    test("cargo électrique", () => {
+      engine.setSituation({
+        ...baseSituation,
+        "vélo . type": "'cargo électrique'",
+      });
+      expect(engine.evaluate("aides . cc val parisis").nodeValue).toEqual(100);
+    });
+
+    test("ile de france > 50%", () => {
+      engine.setSituation({
+        ...baseSituation,
+        "localisation . région": "'11'",
+      });
+      expect(engine.evaluate("aides . ile de france").nodeValue).toEqual(400);
+      expect(engine.evaluate("aides . cc val parisis").nodeValue).toEqual(100);
+
+      engine.setSituation({
+        ...baseSituation,
+        "localisation . région": "'11'",
+        "vélo . prix": 150,
+      });
+      expect(engine.evaluate("aides . ile de france").nodeValue).toEqual(75);
+      expect(engine.evaluate("aides . cc val parisis").nodeValue).toBeNull();
     });
   });
 });
