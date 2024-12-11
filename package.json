@@ -34,6 +34,7 @@
     "generate": "yarn run compile:rules && bun scripts/generate.js",
     "pretest": "yarn run generate",
     "test": "vitest run",
+    "test:links": "bun scripts/check-links-validity.js",
     "precompile": "yarn run generate",
     "compile": "tsup",
     "release": "yarn compile && changeset publish"
