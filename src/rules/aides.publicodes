@@ -3442,45 +3442,45 @@ aides . lescar:
             alors: 100€
   lien: https://www.lescar.fr/information-transversale/fil-infos/mise-en-place-dune-aide-pour-lacquisition-dun-velo-pour-les-lescariens-1140
 
-# NOTE: valable pour 2024, à vérifier en 2025
-aides . bidart:
-  remplace: commune
-  titre: Ville de Bidart
-  description: >
-    Si vous avez votre résidence principale à Bidart et que vous achetez un
-    vélo classique ou un vélo à assistance électrique, vous pouvez bénéficier
-    d'une aide de la Ville de Bidart.
-
-
-    Cette aide peut être demandée pour tout achat de vélo effectué à compter du
-    1er mars 2024.
-  applicable si:
-    toutes ces conditions:
-      - localisation . code insee = '64125'
-      - vélo . électrique ou mécanique
-  valeur: 50% * vélo . prix
-  plafond:
-    variations:
-      - si: vélo . cargo électrique
-        alors:
-          variations:
-            - si: revenu fiscal de référence par part < 28000 €/an
-              alors: 500€
-            - sinon: 400€
-      - si: vélo . électrique
-        alors:
-          variations:
-            - si: revenu fiscal de référence par part < 28000 €/an
-              alors: 400€
-            - sinon: 300€
-      - si: vélo . mécanique
-        alors:
-          variations:
-            - si: revenu fiscal de référence par part < 28000 €/an
-              alors: 200€
-            - sinon: 100€
-      - sinon: 0€
-  lien: https://www.bidart.fr/demande-daide-a-lachat-de-velos
+# NOTE: valable pour 2024, à vérifier en 2025 (aide épuisée pour 2024)
+# aides . bidart:
+#   remplace: commune
+#   titre: Ville de Bidart
+#   description: >
+#     Si vous avez votre résidence principale à Bidart et que vous achetez un
+#     vélo classique ou un vélo à assistance électrique, vous pouvez bénéficier
+#     d'une aide de la Ville de Bidart.
+#
+#
+#     Cette aide peut être demandée pour tout achat de vélo effectué à compter du
+#     1er mars 2024.
+#   applicable si:
+#     toutes ces conditions:
+#       - localisation . code insee = '64125'
+#       - vélo . électrique ou mécanique
+#   valeur: 50% * vélo . prix
+#   plafond:
+#     variations:
+#       - si: vélo . cargo électrique
+#         alors:
+#           variations:
+#             - si: revenu fiscal de référence par part < 28000 €/an
+#               alors: 500€
+#             - sinon: 400€
+#       - si: vélo . électrique
+#         alors:
+#           variations:
+#             - si: revenu fiscal de référence par part < 28000 €/an
+#               alors: 400€
+#             - sinon: 300€
+#       - si: vélo . mécanique
+#         alors:
+#           variations:
+#             - si: revenu fiscal de référence par part < 28000 €/an
+#               alors: 200€
+#             - sinon: 100€
+#       - sinon: 0€
+#   lien: https://www.bidart.fr/demande-daide-a-lachat-de-velos
 
 # NOTE: pas d'information sur la durée de validité, à vérifier en 2025
 aides . vallée d'ossau:
