@@ -5765,7 +5765,7 @@ aides . mont de marsan:
             - vélo . prix >= 200€
         alors: 100€
       - sinon: 0€
-  lien: http://www.montdemarsan-agglo.fr/agglo/document?id=4059&id_attribute=48
+  lien: https://www.montdemarsan.fr/actualites/une-nouvelle-aide-a-lachat-dun-velo
 
 # NOTE: valide pour 2024, à vérifier en 2025 
 aides . plaine de l'ain VAE:
