@@ -7619,30 +7619,31 @@ aides . sainghin en melantois:
   lien: https://www.sainghin-en-melantois.fr/aide-lachat-dun-velo
 
 # NOTE: fin de validité en 2024, à vérifier en 2025
-aides . pays de mormal:
-  remplace: intercommunalité
-  titre: Communauté de communes du Pays de Mormal
-  description: >
-    Aide pour l'acquisition auprès d'un professionnel d'un seul vélo (cargo ou
-    familial, pliant, urbain…) à assistance électrique, neuf ou d'occasion et à
-    usage personnel.
-
-
-    Date limite de dépôt des dossiers : 1er décembre 2024.
-  applicable si:
-    toutes ces conditions:
-      - localisation . epci = 'CC du Pays de Mormal'
-      - vélo . électrique
-  valeur:
-    variations:
-      - si: demandeur . bénéficiaire de minima sociaux
-        alors:
-          valeur: 50% * vélo . prix
-          plafond: 600€
-      - sinon:
-          valeur: 30% * vélo . prix
-          plafond: 360€
-  lien: https://www.cc-paysdemormal.fr/environnement-amenagement-html/aide-velo-trottinette-electrique/documents-velo-electrique/
+# NOTE: demande d'aide non accessible sur le site
+# aides . pays de mormal:
+#   remplace: intercommunalité
+#   titre: Communauté de communes du Pays de Mormal
+#   description: >
+#     Aide pour l'acquisition auprès d'un professionnel d'un seul vélo (cargo ou
+#     familial, pliant, urbain…) à assistance électrique, neuf ou d'occasion et à
+#     usage personnel.
+#
+#
+#     Date limite de dépôt des dossiers : 1er décembre 2024.
+#   applicable si:
+#     toutes ces conditions:
+#       - localisation . epci = 'CC du Pays de Mormal'
+#       - vélo . électrique
+#   valeur:
+#     variations:
+#       - si: demandeur . bénéficiaire de minima sociaux
+#         alors:
+#           valeur: 50% * vélo . prix
+#           plafond: 600€
+#       - sinon:
+#           valeur: 30% * vélo . prix
+#           plafond: 360€
+#   lien: https://www.cc-paysdemormal.fr/environnement-amenagement-html/aide-velo-trottinette-electrique/documents-velo-electrique/
 
 # NOTE: à vérifier après le 31 mai 2025
 aides . grand calais:
