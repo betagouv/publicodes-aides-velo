@@ -90,7 +90,7 @@ function sleep(ms) {
     if (process.argv.slice(2).includes("--ci")) {
       const message = `
 			| Aide | Status HTTP |
-			|------|:-----------:|
+			|:-----|:-----------:|
 			${detectedErrors
         .map(({ status, title, link }) => `| [${title}](${link}) | ${status} |`)
         .join("\n")}`;

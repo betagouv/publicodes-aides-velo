@@ -1,11 +1,8 @@
 name: Check links validity
 on:
-  push:
-    branches:
-      - main
-  # schedule:
-  #   # https://crontab.guru/#0_11_*_*_2
-  #   - cron: "0 11 * * 2"
+  schedule:
+    # https://crontab.guru/#0_11_*_*_2
+    - cron: "0 11 * * 2"
 jobs:
   run:
     runs-on: ubuntu-latest
