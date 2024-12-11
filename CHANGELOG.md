@@ -1,5 +1,73 @@
 # @betagouv/aides-velo
 
+## 0.3.0
+
+### Minor Changes
+
+- Remove - Ville de Bidart - Budget 2024 épuisé ([#24](https://github.com/betagouv/publicodes-aides-velo/pull/24))
+
+- Description et notes sans "wrap" (">" au lieu de "|") ([#23](https://github.com/betagouv/publicodes-aides-velo/pull/23))
+
+- Suppression du Bonus vélo et de la Prime à la conversion (cf. décret n°2024-1084 du 29 novembre 2024) ([#24](https://github.com/betagouv/publicodes-aides-velo/pull/24))
+
+- Remove - Communauté de communes du Pays de Mormal - Les documents pour demander l'aide ne sont plus accessibles ([#24](https://github.com/betagouv/publicodes-aides-velo/pull/24))
+
+- Add - le statut 'reconversion' dans 'demandeur . statut' ([#24](https://github.com/betagouv/publicodes-aides-velo/pull/24))
+
+### Patch Changes
+
+- Update - Département Hérault - Précision sur la construction du plan Hérault Vélo 2025-2030 ([#24](https://github.com/betagouv/publicodes-aides-velo/pull/24))
+
+- Update - Ville d'Amboise - Mise à jour du lien ([#24](https://github.com/betagouv/publicodes-aides-velo/pull/24))
+
+- Add - Communauté de communes de Cattenom et Environs ([#24](https://github.com/betagouv/publicodes-aides-velo/pull/24))
+
+- Add - Commune de villiers-en-Bière ([#24](https://github.com/betagouv/publicodes-aides-velo/pull/24))
+
+- Add - Le Syndicat mixte des Transports du Bassin de Briey ([#24](https://github.com/betagouv/publicodes-aides-velo/pull/24))
+
+- Add - Communauté de communes des 7 Vallées ([#24](https://github.com/betagouv/publicodes-aides-velo/pull/24))
+
+- Add - Communauté urbaine d'Arras ([#24](https://github.com/betagouv/publicodes-aides-velo/pull/24))
+
+- Add - Lorient Agglomération ([#24](https://github.com/betagouv/publicodes-aides-velo/pull/24))
+
+- Add - Val Parisis Agglo ([#24](https://github.com/betagouv/publicodes-aides-velo/pull/24))
+
+- Add - Communauté de communes du Pays Haut Val d'Alzette ([#24](https://github.com/betagouv/publicodes-aides-velo/pull/24))
+
+- Add - Territoire de l'Ouest (TCO) ([#24](https://github.com/betagouv/publicodes-aides-velo/pull/24))
+
+- Add - Communauté de communes Les Portes Briardes Entre Villes et Forêts ([#24](https://github.com/betagouv/publicodes-aides-velo/pull/24))
+
+- Add - Ville de Charenton-le-Pont ([#24](https://github.com/betagouv/publicodes-aides-velo/pull/24))
+
+- Add - Communauté de communes Pévèle Carembault ([#24](https://github.com/betagouv/publicodes-aides-velo/pull/24))
+
+- Add - Question 'demandeur . bénéficiaire de l'AAH' ([#24](https://github.com/betagouv/publicodes-aides-velo/pull/24))
+
+- Add - Communauté de communes de l'Ouest Vosgien ([#24](https://github.com/betagouv/publicodes-aides-velo/pull/24))
+
+- Add - Ville de Vaucresson ([#24](https://github.com/betagouv/publicodes-aides-velo/pull/24))
+
+- Add - Durance-Lubéron-Verdon Agglomération ([#24](https://github.com/betagouv/publicodes-aides-velo/pull/24))
+
+- Remove - Ville de Trébeurden - Plus d'information sur le site de la ville ([#24](https://github.com/betagouv/publicodes-aides-velo/pull/24))
+
+- Met à jour la taille de la description Pass'Mobil'Agglo ([#20](https://github.com/betagouv/publicodes-aides-velo/pull/20))
+
+- Add - Communauté Urbaine Creusot-Montceau ([#24](https://github.com/betagouv/publicodes-aides-velo/pull/24))
+
+- Add - Commune de Binic-Etables sur Mer ([#24](https://github.com/betagouv/publicodes-aides-velo/pull/24))
+
+- Update - Vile de Boé - Mise à jour du lien ([#24](https://github.com/betagouv/publicodes-aides-velo/pull/24))
+
+- Update - Mont de Marsan Agglo - Mise à jour du lien ([#24](https://github.com/betagouv/publicodes-aides-velo/pull/24))
+
+- Add - Arc Sud Bretagne ([#24](https://github.com/betagouv/publicodes-aides-velo/pull/24))
+
+- Add - Communauté de communes du Pays des Sorgues et des Monts de Vaucluse ([#24](https://github.com/betagouv/publicodes-aides-velo/pull/24))
+
 ## 0.2.2
 
 ### Patch Changes
