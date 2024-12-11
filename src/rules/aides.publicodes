@@ -5312,7 +5312,7 @@ aides . saint-pair-sur-mer:
     un revenu fiscal de référence par part par part inférieur ou égal à 6 358 €).
 
 
-    La prime est élligible pour les Saint Pairais majeur ayant un revenu fiscal
+    La prime est éligible pour les Saint Pairais majeur ayant un revenu fiscal
     de référence par part inférieur ou égal à 14 089 € ou étant en situation de
     handicap.
   applicable si:
@@ -6011,14 +6011,14 @@ aides . lorient agglo:
             - vélo . adapté
         alors: 
           variations:
-            - si: est élligible à la majoration du plafond
+            - si: est éligible à la majoration du plafond
               alors: 900€
             - sinon: 300€
-      - si: est élligible à la majoration du plafond
+      - si: est éligible à la majoration du plafond
         alors: 420€
       - sinon: 230€
   avec:
-    est élligible à la majoration du plafond:
+    est éligible à la majoration du plafond:
       valeur:
         une de ces conditions:
           - revenu fiscal de référence par part <= 880 €/mois
@@ -8587,7 +8587,7 @@ aides . pays orne moselle:
     Aide à l'achat d'un vélo, neuf ou d'occasion.
 
     
-    A noter que l'élligibilité de cette aide est conditionnée par le fait de
+    A noter que l'éligibilité de cette aide est conditionnée par le fait de
     bénéficier du "Bonus écologique" de l'État pour les vélos à assistance
     électrique. Or, ce bonus a été supprimé à partir du 2 décembre 2024.
     Veuillez vous renseigner auprès de la communauté de communes pour plus
