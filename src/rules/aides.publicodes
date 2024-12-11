@@ -3887,12 +3887,15 @@ aides . boé:
     de 100 € (cent euros) pour l'achat d'un vélo neuf ou d'occasion acheté dans
     un commerce de l'agglomération d'Agen. Les achats sur internet ne seront
     pas pris en compte.
+
+
+    Limitée aux 20 premières demandes.
   applicable si:
     toutes ces conditions:
       - localisation . code insee = '47031'
       - vélo . électrique
   valeur: 100 €
-  lien: https://www.ville-boe.fr/decouvrir-boe/presentation/dernieres-actualites/2101-aide-achat-vae-2024
+  lien: https://www.ville-boe.fr/vivre-boe/solidarite-seniors/aide-vae
 
 # NOTE: information pour 2023, à vérifier en 2025
 aides . sophia antipolis:
