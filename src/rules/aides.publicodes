@@ -6315,31 +6315,31 @@ aides . liévin:
   lien: https://www.lievin.fr/velo-ou-trottinette
 
 # NOTE: fin de validité en 2024, à vérifier en 2025
-aides . béthune bruay:
-  remplace: intercommunalité
-  titre: Communauté d'Agglomération de Béthune-Bruay, Artois-Lys Romane
-  description: >
-    Pass'Mobil'Agglo - Aide financière pour les habitants souhaitant acheter un
-    vélo (mécanique, électrique, cargo, adapté PMR, pliant) et des accessoires
-    de sécurité (sous condition d'achat d'un vélo). 
-    
-    Subvention de 30 à 500€ en bon d'achat, valable chez les commerces et associations
-    partenaires jusqu'au 8 décembre 2024.
-  applicable si:  localisation . epci = 'CA de Béthune-Bruay, Artois-Lys Romane'
-  valeur:
-    variations:
-      - si: vélo . adapté
-        alors: 500€
-      - si: vélo . électrique simple
-        alors: 300€
-      - si: vélo . cargo
-        alors: 500€
-      - si: vélo . pliant
-        alors: 200€
-      - si: vélo . mécanique
-        alors: 70€
-      - sinon: 0€
-  lien: https://www.bethunebruay.fr/fr/passmobilagglo
+# aides . béthune bruay:
+#   remplace: intercommunalité
+#   titre: Communauté d'Agglomération de Béthune-Bruay, Artois-Lys Romane
+#   description: >
+#     Pass'Mobil'Agglo - Aide financière pour les habitants souhaitant acheter un
+#     vélo (mécanique, électrique, cargo, adapté PMR, pliant) et des accessoires
+#     de sécurité (sous condition d'achat d'un vélo). 
+#     
+#     Subvention de 30 à 500€ en bon d'achat, valable chez les commerces et associations
+#     partenaires jusqu'au 8 décembre 2024.
+#   applicable si:  localisation . epci = 'CA de Béthune-Bruay, Artois-Lys Romane'
+#   valeur:
+#     variations:
+#       - si: vélo . adapté
+#         alors: 500€
+#       - si: vélo . électrique simple
+#         alors: 300€
+#       - si: vélo . cargo
+#         alors: 500€
+#       - si: vélo . pliant
+#         alors: 200€
+#       - si: vélo . mécanique
+#         alors: 70€
+#       - sinon: 0€
+#   lien: https://www.bethunebruay.fr/fr/passmobilagglo
 
 # NOTE: valide pour 2024, à vérifier en 2025
 aides . baisieux:
