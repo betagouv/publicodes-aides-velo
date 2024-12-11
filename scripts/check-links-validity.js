@@ -89,11 +89,8 @@ function sleep(ms) {
     // Formattage spécifique pour récupérer le résultat avec l'action Github
     if (process.argv.slice(2).includes("--ci")) {
       const message = `
-            
-			Certains liens référencés ne semblent plus fonctionner :
-			
 			| Aide | Status HTTP |
-			|---|---|
+			|------|:-----------:|
 			${detectedErrors
         .map(({ status, title, link }) => `| [${title}](${link}) | ${status} |`)
         .join("\n")}`;

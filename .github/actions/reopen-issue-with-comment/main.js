@@ -14,20 +14,22 @@ async function run() {
 
     const octokit = github.getOctokit(inputs.token);
 
-    core.info("Re-opening the issue");
+    core.info("Updating the issue");
+    const now = new Date();
     await octokit.rest.issues.update({
       owner: owner,
       repo: repo,
       issue_number: inputs.issueNumber,
       state: "open",
-    });
-
-    core.info("Adding a comment");
-    await octokit.rest.issues.createComment({
-      owner: owner,
-      repo: repo,
-      issue_number: inputs.issueNumber,
-      body: inputs.comment.replace(/<br \/>/g, `\n`),
+      body:
+        "_Une fois par semaine, une GH Action vient mettre à jour cette issue avec la liste des liens cassés._\n\n" +
+        "## Liens invalides au " +
+        new Intl.DateTimeFormat("fr-FR", {
+          timeZone: "Europe/Paris",
+          dateStyle: "long",
+        }).format(now) +
+        "\n\n" +
+        inputs.comment.replace(/<br \/>/g, `\n`),
     });
   } catch (error) {
     core.setFailed(error.message);
