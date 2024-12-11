@@ -7480,20 +7480,21 @@ aides . lannion-trégor:
 #  plafond: 100€
 #  lien: http://ville.-guirec.com/ma-ville/vie-quotidienne/les-transports/en-velo/aide-a-l-acquisition-d-un-velo-a-assistance-electrique.html
 
-aides . trébeurden:
-  remplace: commune
-  titre: Ville de Trébeurden
-  description: >
-    Subvention de 20% du prix d'achat TTC du VAE neuf dans la limite de 200 €.
-  applicable si:
-    toutes ces conditions:
-      - localisation . code insee = '22343'
-      - demandeur . âge . majeur
-      - vélo . état . neuf
-      - vélo . électrique
-  valeur: 20% * vélo . prix
-  plafond: 200€
-  lien: https://www.trebeurden.fr/actualite/subvention-pour-lachat-dun-velo-a-assistance-electrique/
+# NOTE: ne semble plus d'actualité, à vérifier en 2025
+# aides . trébeurden:
+#   remplace: commune
+#   titre: Ville de Trébeurden
+#   description: >
+#     Subvention de 20% du prix d'achat TTC du VAE neuf dans la limite de 200 €.
+#   applicable si:
+#     toutes ces conditions:
+#       - localisation . code insee = '22343'
+#       - demandeur . âge . majeur
+#       - vélo . état . neuf
+#       - vélo . électrique
+#   valeur: 20% * vélo . prix
+#   plafond: 200€
+#   lien: https://www.trebeurden.fr/actualite/subvention-pour-lachat-dun-velo-a-assistance-electrique/
 
 aides . morlaix:
   remplace: intercommunalité
