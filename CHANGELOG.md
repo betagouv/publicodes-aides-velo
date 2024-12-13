@@ -1,5 +1,11 @@
 # @betagouv/aides-velo
 
+## 0.3.2
+
+### Patch Changes
+
+- Update - Correction de quelques descriptions ([`29a8b72`](https://github.com/betagouv/publicodes-aides-velo/commit/29a8b72b71e8f774a3d9003eed2f559bb520fd0c))
+
 ## 0.3.1
 
 ### Patch Changes
