@@ -51,10 +51,11 @@ aides . bonus vélo:
   remplace: état
   titre: Bonus vélo
   description: >
-    Le bonus vélo a été supprimé le 2 décembre 2024 !
+    Supprimé depuis le 2 décembre 2024.
+
 
     Cependant, une période transitoire permet de pouvoir continuer de
-    bénéficier du bonus pour tout à achat effectué avant le 14 février 2025
+    bénéficier du bonus pour tout achat effectué avant le 14 février 2025
     inclus (date de facturation).
   applicable si:
     toutes ces conditions:
@@ -105,22 +106,13 @@ aides . prime à la conversion:
   type: état
   titre: Prime à la conversion
   description: >
-    Supprimée le 2 décembre 2024 !
+    Supprimée depuis le 2 décembre 2024.
 
-    Cpendant, une période transitoire est appliquée pour les cycles neufs ou
+
+    Cependant, une période transitoire est appliquée pour les cycles neufs ou
     d'occasion, dès lors que leur facturation, ou que le versement du premier
     loyer en cas de location, intervienne au plus tard le 14 février
     2025 inclus.
-
-
-    Pour bénéficier de cette « prime à la casse » vous devez détruire un
-    véhicule diesel immatriculé avant janvier 2011 ou bien un véhicule essence
-    immatriculé avant 2006.
-
-
-    La prime est de 40% du prix du vélo dans la limite de 3 000 €. Elle est
-    cumulable avec les aides à l'achat d'un vélo électrique, comme le « bonus
-    écologique ».
   applicable si:
     toutes ces conditions:
       - localisation . pays = 'France'
