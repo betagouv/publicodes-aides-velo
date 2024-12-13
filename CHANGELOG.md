@@ -1,5 +1,13 @@
 # @betagouv/aides-velo
 
+## 0.3.1
+
+### Patch Changes
+
+- Add - Réintroduction du bonus écologique et de la prime à la conversion jusqu'au 14 février 2025 ([#28](https://github.com/betagouv/publicodes-aides-velo/pull/28))
+
+- Remove - Communauté d'Agglomération de Béthune-Bruay, Artois-Lys Romane ([#26](https://github.com/betagouv/publicodes-aides-velo/pull/26))
+
 ## 0.3.0
 
 ### Minor Changes
@@ -38,7 +46,7 @@
 - Update - Département Hérault - Précision sur la construction du plan Hérault Vélo 2025-2030 ([#24](https://github.com/betagouv/publicodes-aides-velo/pull/24))
 - Update - Ville d'Amboise - Mise à jour du lien ([#24](https://github.com/betagouv/publicodes-aides-velo/pull/24))
 - Mise à jour la taille de la description Pass'Mobil'Agglo ([#20](https://github.com/betagouv/publicodes-aides-velo/pull/20))
-  
+
 ## 0.2.2
 
 ### Patch Changes
