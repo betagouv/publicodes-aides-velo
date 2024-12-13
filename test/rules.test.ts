@@ -25,8 +25,8 @@ describe("Aides Vélo", () => {
       // NOTE: should be generated at compile time
       const noNeedToAssociatesLoc: RuleName[] = [
         ...rulesToIgnore,
-        // "aides . bonus vélo",
-        // "aides . prime à la conversion",
+        "aides . bonus vélo",
+        "aides . prime à la conversion",
       ];
 
       ruleNames.forEach((key: RuleName) => {
@@ -75,9 +75,7 @@ describe("Aides Vélo", () => {
     });
   });
 
-  // NOTE: bonus vélo has been removed however we might want to re-introduce it
-  // in the future if it's reintroduced..
-  describe.skip("Bonus Vélo", () => {
+  describe("Bonus Vélo", () => {
     const baseSituation = {
       "localisation . code insee": "'75056'",
       "localisation . epci": "'Métropole du Grand Paris'",
@@ -286,9 +284,13 @@ describe("Aides Vélo", () => {
         "vélo . prix": "1000€",
       });
 
+      const aideEtat = engine.evaluate("aides . état").nodeValue;
+      expect(aideEtat).toEqual(400);
+
+      const expectedAmount = 0.5 * (1000 - aideEtat);
       expect(
         engine.evaluate("aides . occitanie vélo adapté").nodeValue
-      ).toEqual(500);
+      ).toEqual(expectedAmount);
 
       engine.setSituation({
         "localisation . région": "'76'",
