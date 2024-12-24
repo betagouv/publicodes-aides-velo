@@ -92,6 +92,20 @@ describe("AidesVeloEngine", () => {
       });
     });
 
+    it("should have a description", function () {
+      const engine = globalTestEngine.shallowCopy();
+      const allAides = engine.getAllAidesIn();
+      allAides.forEach((aide) => {
+        expect(typeof aide.description).toBe("string")
+        const innerText = aide.description
+            .replace(/<\/?[^>]+>/gi, "")
+            .replace(/\s\s+/g, " ")
+            .trim()
+        expect(innerText.length).toBeGreaterThanOrEqual(10)
+        expect(innerText.length).toBeLessThanOrEqual(420)
+      });
+    })
+
     it("should return all aids in Luxembourg if specified", () => {
       const engine = globalTestEngine.shallowCopy();
       const allAides = engine.getAllAidesIn("luxembourg");

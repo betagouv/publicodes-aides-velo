@@ -20,7 +20,7 @@ export type Aide = {
   /** The title of the aid (as defined in the Publicodes rules). */
   title: string;
   /** The description of the aid (with resolved placeholders). */
-  description: string | undefined;
+  description: string;
   /** The URL of the aid (as defined in the Publicodes rules). */
   url: string;
   /** The collectivity that provides the aid. */
