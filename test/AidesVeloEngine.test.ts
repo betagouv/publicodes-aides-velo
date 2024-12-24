@@ -96,7 +96,7 @@ describe("AidesVeloEngine", () => {
       const engine = globalTestEngine.shallowCopy();
       const allAides = engine.getAllAidesIn();
       allAides.forEach((aide) => {
-        expect(typeof aide.description).toBe("string")
+        expect(typeof aide.description, 'Error description empty ' + aide.title).toBe("string")
         const innerText = aide.description
             .replace(/<\/?[^>]+>/gi, "")
             .replace(/\s\s+/g, " ")
