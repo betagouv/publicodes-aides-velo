@@ -3002,6 +3002,8 @@ aides . département hérault vélo adapté:
 aides . montpellier:
   remplace: intercommunalité
   titre: Montpellier Méditerranée Métropole
+  description: >
+    Pour un usage professionnel ou personnel, les habitants de la métropole ont accès à une subvention permettant l'achat d'un vélo électrique ou d'occasion.
   applicable si: 
     toutes ces conditions:
       - localisation . epci = 'Montpellier Méditerranée Métropole'
