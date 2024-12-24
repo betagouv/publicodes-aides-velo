@@ -2243,6 +2243,9 @@ aides . deauville:
 aides . louvigny:
   remplace: commune
   titre: Ville de Louvigny
+  description: >
+    La commune de Louvigny participe financièrement à l'achat d'un mode de déplacement doux (VAE neuf, vélo classique adulte neuf ou d'occasion)
+    pour des besoins professionnels comme personnels aux habitants de la ville.
   applicable si:
     toutes ces conditions:
       - localisation . code insee = '14383'
