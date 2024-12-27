@@ -7833,6 +7833,9 @@ aides . pontivy:
 aides . chateauroux:
   remplace: intercommunalité
   titre: Châteauroux Métropole
+  description: >
+    Aide à l'achat d'un vélo neuf à assistance électrique et/ou un kit de conversion d'un vélo classique à un vélo à assistance électrique pour
+    les habitants de l'une des communes de l'Agglomération
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'CA Châteauroux Métropole'
