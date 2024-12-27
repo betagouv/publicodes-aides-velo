@@ -8786,6 +8786,8 @@ aides . region centre rémi zen:
 aides . perpignan métropole:
   remplace: intercommunalité
   titre: Perpignan Méditerranée Métropole
+  description: >
+    Aide à l'achat d'un vélo neuf, reconditionné ou d'occasion, mais aussi pour les vélos pliants, à assistance électrique, un kit d'électrification et même une aide à la réparation de vélo.
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'CU Perpignan Méditerranée Métropole'
