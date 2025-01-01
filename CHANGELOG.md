@@ -1,5 +1,11 @@
 # @betagouv/aides-velo
 
+## 0.3.3
+
+### Patch Changes
+
+- Mise à jour de quelques descriptions et amélioration de leur test. ([#32](https://github.com/betagouv/publicodes-aides-velo/pull/32))
+
 ## 0.3.2
 
 ### Patch Changes
