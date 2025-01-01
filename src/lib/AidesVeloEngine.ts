@@ -20,7 +20,7 @@ export type Aide = {
   /** The title of the aid (as defined in the Publicodes rules). */
   title: string;
   /** The description of the aid (with resolved placeholders). */
-  description: string;
+  description: string | undefined;
   /** The URL of the aid (as defined in the Publicodes rules). */
   url: string;
   /** The collectivity that provides the aid. */
@@ -39,7 +39,7 @@ export type Aide = {
    * probably want to extract the miniature from the URL and format them
    * according to your needs.
    */
-  logo?: string;
+  logo: string | undefined;
 };
 
 const aidesAvecLocalisationEntries = Object.entries(
