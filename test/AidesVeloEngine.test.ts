@@ -93,26 +93,48 @@ describe("AidesVeloEngine", () => {
       });
     });
 
+    /**
+     * NOTE: for now, we verify that all aids have a description although it is not
+     * required in the {@link Aide} type. This is because we want to force the
+     * user to check if the description is defined before using it allowing us
+     * to remove the constraint in the future if needed without breaking the API.
+     */
     it("should have a description", function () {
-    const engine = globalTestEngine.shallowCopy();
-    const countries: Array<Localisation["country"]> = ["france", "monaco", "luxembourg"];
-    
-    countries.forEach(country => {
+      const engine = globalTestEngine.shallowCopy();
+      const countries: Array<Localisation["country"]> = [
+        "france",
+        "monaco",
+        "luxembourg",
+      ];
+
+      countries.forEach((country) => {
         const allAides = engine.getAllAidesIn(country);
         allAides.forEach((aide) => {
-        expect(typeof aide.description, `Description should be a string for benefit: ${aide.title} (${country})`).toBe("string");
-        expect(aide.description.length, `Description cannot be empty for benefit: ${aide.title} (${country})`).toBeGreaterThan(0);
-        const innerText = aide.description
-            .replace(/<\/?[^>]+>/gi, "")
+          expect(aide.description).toBeDefined();
+          expect(
+            typeof aide.description,
+            `Description should be a string for benefit: ${aide.title} (${country})`
+          ).toBe("string");
+          expect(
+            aide.description?.length,
+            `Description cannot be empty for benefit: ${aide.title} (${country})`
+          ).toBeGreaterThan(0);
+          const innerText = aide.description
+            ?.replace(/<\/?[^>]+>/gi, "")
             .replace(/\s\s+/g, " ")
             .trim();
-        expect(innerText.length, `Description must be at least 10 characters for benefit: ${aide.title} (${country})`).toBeGreaterThanOrEqual(10);
-        if (innerText.length > 420) {
-            console.warn(`Description text length (${innerText.length}) exceeds maximum allowed length of 420 characters for benefit: ${aide.title} (${country})`);
-        }
+          expect(
+            innerText?.length,
+            `Description must be at least 10 characters for benefit: ${aide.title} (${country})`
+          ).toBeGreaterThanOrEqual(10);
+          if (innerText?.length! > 420) {
+            console.warn(
+              `Description text length (${innerText?.length}) exceeds maximum allowed length of 420 characters for benefit: ${aide.title} (${country})`
+            );
+          }
         });
+      });
     });
-    })
 
     it("should return all aids in Luxembourg if specified", () => {
       const engine = globalTestEngine.shallowCopy();
