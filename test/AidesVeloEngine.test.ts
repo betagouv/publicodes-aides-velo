@@ -92,6 +92,22 @@ describe("AidesVeloEngine", () => {
       });
     });
 
+    it("should have a description", function () {
+      const engine = globalTestEngine.shallowCopy();
+      const allAides = engine.getAllAidesIn();
+      allAides.forEach((aide) => {
+        expect(typeof aide.description, 'Error description empty ' + aide.title).toBe("string")
+        const innerText = aide.description
+            .replace(/<\/?[^>]+>/gi, "")
+            .replace(/\s\s+/g, " ")
+            .trim()
+        expect(innerText.length).toBeGreaterThanOrEqual(10)
+        if (innerText.length > 420) {
+          console.warn(`Text length (${innerText.length}) exceeds maximum allowed length of 420 characters`);
+        }
+      });
+    })
+
     it("should return all aids in Luxembourg if specified", () => {
       const engine = globalTestEngine.shallowCopy();
       const allAides = engine.getAllAidesIn("luxembourg");

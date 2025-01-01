@@ -2243,6 +2243,9 @@ aides . deauville:
 aides . louvigny:
   remplace: commune
   titre: Ville de Louvigny
+  description: >
+    La commune de Louvigny participe financièrement à l'achat d'un mode de déplacement doux (VAE neuf, vélo classique adulte neuf ou d'occasion)
+    pour des besoins professionnels comme personnels aux habitants de la ville.
   applicable si:
     toutes ces conditions:
       - localisation . code insee = '14383'
@@ -2999,6 +3002,8 @@ aides . département hérault vélo adapté:
 aides . montpellier:
   remplace: intercommunalité
   titre: Montpellier Méditerranée Métropole
+  description: >
+    Pour un usage professionnel ou personnel, les habitants de la métropole ont accès à une subvention permettant l'achat d'un vélo électrique ou d'occasion.
   applicable si: 
     toutes ces conditions:
       - localisation . epci = 'Montpellier Méditerranée Métropole'
@@ -7828,6 +7833,9 @@ aides . pontivy:
 aides . chateauroux:
   remplace: intercommunalité
   titre: Châteauroux Métropole
+  description: >
+    Aide à l'achat d'un vélo neuf à assistance électrique et/ou un kit de conversion d'un vélo classique à un vélo à assistance électrique pour
+    les habitants de l'une des communes de l'Agglomération
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'CA Châteauroux Métropole'
@@ -8778,6 +8786,8 @@ aides . region centre rémi zen:
 aides . perpignan métropole:
   remplace: intercommunalité
   titre: Perpignan Méditerranée Métropole
+  description: >
+    Aide à l'achat d'un vélo neuf, reconditionné ou d'occasion, mais aussi pour les vélos pliants, à assistance électrique, un kit d'électrification et même une aide à la réparation de vélo.
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'CU Perpignan Méditerranée Métropole'
@@ -8964,6 +8974,9 @@ aides . tulle:
 aides . val d'yerres val de seine:
   remplace: intercommunalité
   titre: Val d'Yerres Val de Seine
+  description: >
+    Les aides pour les vélos s'élèvent à 100€ pour les modèles électriques ou pliants, 200€ pour les vélos cargo,
+    150€ pour ceux adaptés aux personnes handicapées ou les kits d'électrification professionnels, et 50€ pour les vélos mécaniques des 15-25 ans.
   applicable si: localisation . epci = 'CA Val d'Yerres Val de Seine'
   valeur: 50% * vélo . prix
   plafond:
