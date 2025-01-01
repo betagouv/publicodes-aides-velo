@@ -9064,6 +9064,8 @@ aides . montmorillon:
 aides . monaco:
   remplace: commune
   titre: Monaco
+  description: >
+    Monaco subventionne l'achat d'un vélo électrique neuf.
   applicable si:
     toutes ces conditions:
       - vélo . électrique
