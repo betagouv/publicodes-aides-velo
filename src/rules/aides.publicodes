@@ -8975,8 +8975,8 @@ aides . val d'yerres val de seine:
   remplace: intercommunalité
   titre: Val d'Yerres Val de Seine
   description: >
-    Aides financières pour encourager l'utilisation des vélos, incluant : 100 € pour un vélo à assistance électrique ou un vélo pliant, 200 € pour un vélo cargo avec ou sans assistance électrique, 150 € pour un vélo adapté aux personnes en situation de handicap ou pour un kit d’électrification installé par un professionnel,
-    et 50 € pour un vélo mécanique destiné aux jeunes de 15 à 25 ans.
+    Les aides pour les vélos s'élèvent à 100€ pour les modèles électriques ou pliants, 200€ pour les vélos cargo,
+    150€ pour ceux adaptés aux personnes handicapées ou les kits d'électrification professionnels, et 50€ pour les vélos mécaniques des 15-25 ans.
   applicable si: localisation . epci = 'CA Val d'Yerres Val de Seine'
   valeur: 50% * vélo . prix
   plafond:
