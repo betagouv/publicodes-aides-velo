@@ -792,23 +792,6 @@ aides . mérignac:
   plafond: 20% * vélo . prix 
   lien: https://www.merignac.com/aides-financieres-pour-lachat-dun-velo-ou-la-pose-dun-kit-delectrification
 
-aides . taillan-médoc:
-  remplace: commune
-  titre: Commune du Taillan-Médoc
-  description: >
-    La Ville propose une aide unique de 100€ pour l'achat d'un vélo électrique
-    ou d'un dispositif d'électrification d'un vélo standard (kit
-    d'électrification répondant à la norme NF EN 15194). Cette aide est
-    cumulable avec les aides de Bordeaux Métropole et de l'État.
-  applicable si:
-    toutes ces conditions:
-      - localisation . code insee = '33519'
-      - une de ces conditions:
-          - vélo . électrique
-          - vélo . motorisation
-  valeur: 100€
-  lien: http://www.taillan-medoc.fr/vivre-au-taillan-medoc/mobilites/aide-a-lachat-dun-velo-electrique/
-
 aides . bègles vélo spécifique:
   remplace: commune
   titre: Ville de Bègles
