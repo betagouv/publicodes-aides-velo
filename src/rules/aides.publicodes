@@ -4802,19 +4802,14 @@ aides . saint-pair-sur-mer:
   titre: Ville de Saint-Pair-sur-Mer
   description: >
     Prime de 200€ pour l'acquisition d'un vélo à assistance électrique et
-    mécanique (uniquement pour les personnes en situation de handicap ou ayant
-    un revenu fiscal de référence par part par part inférieur ou égal à 6 358 €).
-
-
-    La prime est éligible pour les Saint Pairais majeur ayant un revenu fiscal
-    de référence par part inférieur ou égal à 14 089 € ou étant en situation de
-    handicap.
+    mécanique maintenu pour les 20 premières demandes en 2025.
   applicable si:
     toutes ces conditions:
       - localisation . code insee = '50532'
       - vélo . électrique ou mécanique
+      - demandeur . âge . majeur
       - une de ces conditions:
-          - revenu fiscal de référence par part <= 14089 €/an
+          - revenu fiscal de référence par part <= 15400 €/an
           - demandeur . en situation de handicap
   valeur: 
     variations:
@@ -4822,13 +4817,13 @@ aides . saint-pair-sur-mer:
         alors: 200€
       - si: 
           une de ces conditions:
-            - revenu fiscal de référence par part <= 6358 €/an
+            - revenu fiscal de référence par part <= 7100 €/an
             - demandeur . en situation de handicap
         alors: 
           valeur: 40% * vélo . prix
           plafond: 100€
       - sinon: 0€
-  lien: https://saintpairsurmer.fr/prime-a-lacquisition-dun-velo-a-assistance-electrique-2024/
+  lien: https://saintpairsurmer.fr/prime-a-lacquisition-dun-velo-a-assistance-electrique-2025/
 
 # NOTE: potentiellement pas à jour, à vérifier en 2025
 aides . aunis atlantique:
