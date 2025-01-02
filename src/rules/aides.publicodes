@@ -1289,26 +1289,36 @@ aides . strasbourg:
   applicable si: 
     toutes ces conditions:
       - localisation . epci = 'Eurométropole de Strasbourg'
-      - vélo . état . neuf
+      - demandeur . âge . majeur
+      - une de ces conditions:
+          - toutes ces conditions:
+              - vélo . état . neuf
+              - une de ces conditions:
+                  - vélo . électrique
+                  - vélo . adapté
+          - vélo . motorisation
   valeur: 50% * vélo . prix
   plafond:
     variations:
-      - si: vélo . cargo électrique
+      - si:
+          une de ces conditions:
+            - vélo . cargo électrique
+            - vélo . adapté
         alors: 500€
       - si: vélo . électrique
         alors:
           variations:
-            - si: revenu fiscal de référence par part <= 7100 €/an
+            - si: revenu fiscal de référence par part <= 7500 €/an
               alors: 500€
-            - si: revenu fiscal de référence par part <= 15400 €/an
+            - si: revenu fiscal de référence par part <= 16300 €/an
               alors: 400€
-            - si: revenu fiscal de référence par part <= 20000 €/an
+            - si: revenu fiscal de référence par part <= 26200 €/an
               alors: 300€
             - sinon: 0€
       - si:
           toutes ces conditions:
             - vélo . motorisation
-            - revenu fiscal de référence par part <= 20000 €/an
+            - revenu fiscal de référence par part <= 26200 €/an
         alors: 150€
       - sinon: 0€
   lien: https://www.strasbourg.eu/aides-achat
