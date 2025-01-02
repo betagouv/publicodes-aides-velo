@@ -807,3 +807,124 @@ aides . agen:
   valeur: 200€
   plafond: vélo . prix
   lien: https://www.agglo-agen.net/vie-quotidienne/mobilites/aide-velo-electrique
+
+# NOTE: supprimée en 2025
+aides . taillan-médoc:
+  remplace: commune
+  titre: Commune du Taillan-Médoc
+  description: >
+    La Ville propose une aide unique de 100€ pour l'achat d'un vélo électrique
+    ou d'un dispositif d'électrification d'un vélo standard (kit
+    d'électrification répondant à la norme NF EN 15194). Cette aide est
+    cumulable avec les aides de Bordeaux Métropole et de l'État.
+  applicable si:
+    toutes ces conditions:
+      - localisation . code insee = '33519'
+      - une de ces conditions:
+          - vélo . électrique
+          - vélo . motorisation
+  valeur: 100€
+  lien: http://www.taillan-medoc.fr/vivre-au-taillan-medoc/mobilites/aide-a-lachat-dun-velo-electrique/
+
+# NOTE: supprimée en 2025
+aides . ried de marckolsheim:
+  remplace: intercommunalité
+  titre: Communauté de Communes du Ried de Marckolsheim
+  description: >
+    La Communauté de Communes du Ried de Marckolsheim propose une aide à
+    l'achat pour vélo de tout type (neuf ou d'occasion). Cette aide est de 75€
+    pour l'achat d'un vélo acheté chez un revendeur situé sur le territoire du
+    PETR Sélestat – Alsace Centrale, 50€ sinon.
+  applicable si: localisation . epci = 'CC du Ried de Marckolsheim'
+  valeur: 75€
+  plafond: vélo . prix
+  lien: https://www.ried-marckolsheim.fr/actualites/nouveau-prime-velo?highlight=WyJhaWRlIl0=
+
+# NOTE: valable depuis 2023 jusqu'à abrogation, à vérifier en 2025
+# NOTE: plus référencée depuis le site en janvier 2025.
+aides . pays de l'arbresle:
+  remplace: intercommunalité
+  titre: Communauté de Communes du Pays de L'Arbresle
+  description: >
+    La Communauté de Communes du Pays de L'Arbresle subventionne jusqu'à par
+    foyer pour l'achat d'un Vélo à Assistance Electrique (VAE), un vélo spécial
+    (vélo cargo, vélo rallongé, vélo adapté à un handicap) ou un kit
+    d'électrification, qu'il soit neuf ou d'occasion.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = "CC du Pays de l'Arbresle (CCPA)"
+      - une de ces conditions:
+          - vélo . cargo
+          - vélo . adapté
+          - vélo . motorisation
+          - toutes ces conditions:
+              - vélo . électrique
+              - vélo . prix <= 3000€
+  valeur: 50% * vélo . prix
+  plafond: 250€
+  lien: https://www.paysdelarbresle.fr/aide-a-lachat-dun-velo-a-assistance-electrique/
+
+# NOTE: aide pour 2024, à vérifier en 2025
+# NOTE: plus référencée depuis le site
+aides . mont de marsan:
+  remplace: intercommunalité
+  titre: Mont de Marsan Agglo
+  description: >
+     Aide à l'achat pour un vélo à assistance électrique (VAE) ou un vélo
+     musculaire sans assistance.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CA Mont de Marsan Agglomération'
+      - demandeur . âge . majeur
+      - vélo . électrique ou mécanique
+  valeur: 
+    variations:
+      - si: 
+          toutes ces conditions:
+            - vélo . électrique
+            - vélo . prix >= 500€
+        alors: 250€
+      - si: 
+          toutes ces conditions:
+            - vélo . mécanique
+            - vélo . prix >= 200€
+        alors: 100€
+      - sinon: 0€
+  lien: https://www.montdemarsan.fr/actualites/une-nouvelle-aide-a-lachat-dun-velo
+
+# NOTE: date de 2022, à vérifier en 2025
+aides . château-thierry:
+  remplace: intercommunalité
+  titre: Agglo de la région de Château-thierry
+  description: Aide a l'acquisition d'un velo avec ou sans assistance electrique.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CA de la Région de Château-Thierry'
+      - demandeur . âge . majeur
+      - vélo . état . neuf
+      - vélo . électrique ou mécanique
+  valeur: 20% * vélo . prix
+  plafond:
+    variations:
+      - si: vélo . électrique
+        alors: 200€
+      - si: vélo . cargo
+        alors: 200€
+      - sinon: 100€
+  lien: https://www.carct.fr/et-agit/facilite-mes-deplacements/plan-velo/aide-a-lachat-dun-velo
+
+# NOTE: plus référencée en janvier 2025 sur le site de la commune
+aides . val-revermont:
+  remplace: commune
+  titre: Ville de Val-Revermont
+  description: >
+    Opération "Coups de pouce" pour l'achat d'un vélo. Veuillez vous rapprocher
+    de la mairie pour plus d'informations.
+  applicable si:
+    toutes ces conditions:
+      - localisation . code insee = '01426'
+      - vélo . électrique ou mécanique
+  valeur: 100€
+  plafond: vélo . prix
+  lien: http://val-revermont.fr/transition-ecologique-la-commune-met-en-place-un-coup-de-pouce-a-ses-habitants/
+
