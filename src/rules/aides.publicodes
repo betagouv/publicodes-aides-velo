@@ -1399,19 +1399,6 @@ aides . eckbolsheim:
   plafond: 100€
   lien: https://www.eckbolsheim.com/ville-verte/actions-pour-lenvironnement/aide_achat_velo_electrique_neuf/
 
-aides . ried de marckolsheim:
-  remplace: intercommunalité
-  titre: Communauté de Communes du Ried de Marckolsheim
-  description: >
-    La Communauté de Communes du Ried de Marckolsheim propose une aide à
-    l'achat pour vélo de tout type (neuf ou d'occasion). Cette aide est de 75€
-    pour l'achat d'un vélo acheté chez un revendeur situé sur le territoire du
-    PETR Sélestat – Alsace Centrale, 50€ sinon.
-  applicable si: localisation . epci = 'CC du Ried de Marckolsheim'
-  valeur: 75€
-  plafond: vélo . prix
-  lien: https://www.ried-marckolsheim.fr/actualites/nouveau-prime-velo?highlight=WyJhaWRlIl0=
-
 aides . vallée de villé:
   remplace: intercommunalité
   titre: Communauté de communes de la Vallée de Villé

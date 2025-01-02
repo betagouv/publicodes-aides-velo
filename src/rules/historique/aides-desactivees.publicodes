@@ -826,3 +826,16 @@ aides . taillan-médoc:
   valeur: 100€
   lien: http://www.taillan-medoc.fr/vivre-au-taillan-medoc/mobilites/aide-a-lachat-dun-velo-electrique/
 
+# NOTE: supprimée en 2025
+aides . ried de marckolsheim:
+  remplace: intercommunalité
+  titre: Communauté de Communes du Ried de Marckolsheim
+  description: >
+    La Communauté de Communes du Ried de Marckolsheim propose une aide à
+    l'achat pour vélo de tout type (neuf ou d'occasion). Cette aide est de 75€
+    pour l'achat d'un vélo acheté chez un revendeur situé sur le territoire du
+    PETR Sélestat – Alsace Centrale, 50€ sinon.
+  applicable si: localisation . epci = 'CC du Ried de Marckolsheim'
+  valeur: 75€
+  plafond: vélo . prix
+  lien: https://www.ried-marckolsheim.fr/actualites/nouveau-prime-velo?highlight=WyJhaWRlIl0=
