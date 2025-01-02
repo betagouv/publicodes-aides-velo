@@ -807,3 +807,22 @@ aides . agen:
   valeur: 200€
   plafond: vélo . prix
   lien: https://www.agglo-agen.net/vie-quotidienne/mobilites/aide-velo-electrique
+
+# NOTE: supprimée en 2025
+aides . taillan-médoc:
+  remplace: commune
+  titre: Commune du Taillan-Médoc
+  description: >
+    La Ville propose une aide unique de 100€ pour l'achat d'un vélo électrique
+    ou d'un dispositif d'électrification d'un vélo standard (kit
+    d'électrification répondant à la norme NF EN 15194). Cette aide est
+    cumulable avec les aides de Bordeaux Métropole et de l'État.
+  applicable si:
+    toutes ces conditions:
+      - localisation . code insee = '33519'
+      - une de ces conditions:
+          - vélo . électrique
+          - vélo . motorisation
+  valeur: 100€
+  lien: http://www.taillan-medoc.fr/vivre-au-taillan-medoc/mobilites/aide-a-lachat-dun-velo-electrique/
+
