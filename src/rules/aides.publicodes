@@ -5181,33 +5181,6 @@ aides . montauban:
   plafond: 250€
   lien: https://www.montauban.com/au-quotidien/mobilite-et-stationnement/velos-et-pistes-cyclables
 
-# NOTE: aide pour 2024, à vérifier en 2025
-aides . mont de marsan:
-  remplace: intercommunalité
-  titre: Mont de Marsan Agglo
-  description: >
-     Aide à l'achat pour un vélo à assistance électrique (VAE) ou un vélo
-     musculaire sans assistance.
-  applicable si:
-    toutes ces conditions:
-      - localisation . epci = 'CA Mont de Marsan Agglomération'
-      - demandeur . âge . majeur
-      - vélo . électrique ou mécanique
-  valeur: 
-    variations:
-      - si: 
-          toutes ces conditions:
-            - vélo . électrique
-            - vélo . prix >= 500€
-        alors: 250€
-      - si: 
-          toutes ces conditions:
-            - vélo . mécanique
-            - vélo . prix >= 200€
-        alors: 100€
-      - sinon: 0€
-  lien: https://www.montdemarsan.fr/actualites/une-nouvelle-aide-a-lachat-dun-velo
-
 # NOTE: valide pour 2024, à vérifier en 2025 
 aides . plaine de l'ain VAE:
   remplace: intercommunalité
