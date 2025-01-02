@@ -863,3 +863,31 @@ aides . pays de l'arbresle:
   valeur: 50% * vélo . prix
   plafond: 250€
   lien: https://www.paysdelarbresle.fr/aide-a-lachat-dun-velo-a-assistance-electrique/
+
+# NOTE: aide pour 2024, à vérifier en 2025
+# NOTE: plus référencée depuis le site
+aides . mont de marsan:
+  remplace: intercommunalité
+  titre: Mont de Marsan Agglo
+  description: >
+     Aide à l'achat pour un vélo à assistance électrique (VAE) ou un vélo
+     musculaire sans assistance.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CA Mont de Marsan Agglomération'
+      - demandeur . âge . majeur
+      - vélo . électrique ou mécanique
+  valeur: 
+    variations:
+      - si: 
+          toutes ces conditions:
+            - vélo . électrique
+            - vélo . prix >= 500€
+        alors: 250€
+      - si: 
+          toutes ces conditions:
+            - vélo . mécanique
+            - vélo . prix >= 200€
+        alors: 100€
+      - sinon: 0€
+  lien: https://www.montdemarsan.fr/actualites/une-nouvelle-aide-a-lachat-dun-velo
