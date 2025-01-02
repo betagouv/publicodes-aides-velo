@@ -23,13 +23,14 @@ async function run() {
       state: "open",
       body:
         "_Une fois par semaine, une GH Action vient mettre à jour cette issue avec la liste des liens cassés._\n\n" +
-        "## Liens invalides au " +
+        "```[tasklist]\n### Liens invalides au " +
         new Intl.DateTimeFormat("fr-FR", {
           timeZone: "Europe/Paris",
           dateStyle: "long",
         }).format(now) +
-        "\n\n" +
-        inputs.comment.replace(/<br \/>/g, `\n`),
+        "\n" +
+        inputs.comment.replace(/<br \/>/g, `\n`) +
+        "\n```",
     });
   } catch (error) {
     core.setFailed(error.message);

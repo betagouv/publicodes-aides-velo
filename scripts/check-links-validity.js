@@ -88,12 +88,11 @@ function sleep(ms) {
   if (detectedErrors.length > 0) {
     // Formattage spécifique pour récupérer le résultat avec l'action Github
     if (process.argv.slice(2).includes("--ci")) {
-      const message = `
-			| Aide | Status HTTP |
-			|:-----|:-----------:|
-			${detectedErrors
-        .map(({ status, title, link }) => `| [${title}](${link}) | ${status} |`)
-        .join("\n")}`;
+      const message = detectedErrors
+        .map(
+          ({ status, title, link }) => `- [ ] \`${status}\` [${title}](${link})`
+        )
+        .join("\n");
 
       const format = (msg) =>
         msg
