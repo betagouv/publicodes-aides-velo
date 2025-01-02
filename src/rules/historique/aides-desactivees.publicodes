@@ -891,3 +891,24 @@ aides . mont de marsan:
         alors: 100€
       - sinon: 0€
   lien: https://www.montdemarsan.fr/actualites/une-nouvelle-aide-a-lachat-dun-velo
+
+# NOTE: date de 2022, à vérifier en 2025
+aides . château-thierry:
+  remplace: intercommunalité
+  titre: Agglo de la région de Château-thierry
+  description: Aide a l'acquisition d'un velo avec ou sans assistance electrique.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CA de la Région de Château-Thierry'
+      - demandeur . âge . majeur
+      - vélo . état . neuf
+      - vélo . électrique ou mécanique
+  valeur: 20% * vélo . prix
+  plafond:
+    variations:
+      - si: vélo . électrique
+        alors: 200€
+      - si: vélo . cargo
+        alors: 200€
+      - sinon: 100€
+  lien: https://www.carct.fr/et-agit/facilite-mes-deplacements/plan-velo/aide-a-lachat-dun-velo
