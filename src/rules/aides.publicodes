@@ -7521,20 +7521,6 @@ aides . villers-sur-mer:
       - sinon: 0€
   lien: https://www.villers-sur-mer.fr/fiche-information/mobilite/mobilite-douce/
 
-aides . val-revermont:
-  remplace: commune
-  titre: Ville de Val-Revermont
-  description: >
-    Opération "Coups de pouce" pour l'achat d'un vélo. Veuillez vous rapprocher
-    de la mairie pour plus d'informations.
-  applicable si:
-    toutes ces conditions:
-      - localisation . code insee = '01426'
-      - vélo . électrique ou mécanique
-  valeur: 100€
-  plafond: vélo . prix
-  lien: http://val-revermont.fr/transition-ecologique-la-commune-met-en-place-un-coup-de-pouce-a-ses-habitants/
-
 aides . pays de châteaugiron:
   remplace: intercommunalité
   titre: Pays de Châteaugiron
