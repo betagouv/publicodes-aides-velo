@@ -30,7 +30,7 @@
     "publicodes-build"
   ],
   "scripts": {
-    "compile:rules": "publicodes compile src/rules",
+    "compile:rules": "publicodes compile src/rules/*.publicodes",
     "generate": "yarn run compile:rules && bun scripts/generate.js",
     "pretest": "yarn run generate",
     "test": "vitest run",
