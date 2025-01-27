@@ -161,7 +161,7 @@ aides . ile de france:
   description: >
     La région Île-de-France subventionne l'achat d'un $vélo à hauteur de 50% et
     jusqu'à un plafond de $plafond.
-  applicable si: localisation . région = '11'
+  applicable si: localisation . région . code = '11'
   valeur: 50% * vélo . prix
   plafond: $plafond
   avec:
@@ -193,7 +193,7 @@ aides . occitanie:
   description: Éco-chèque mobilité - Achat d'un vélo à assistance électrique.
   applicable si:
     toutes ces conditions:
-      - localisation . région = '76'
+      - localisation . région . code = '76'
       - revenu fiscal de référence par part <= 14089 €/an
       - vélo . état . neuf
       - vélo . électrique
@@ -216,7 +216,7 @@ aides . occitanie vélo adapté:
   description: Éco-chèque mobilité - Bonus vélo adapté PMR.
   applicable si:
     toutes ces conditions:
-      - localisation . région = '76'
+      - localisation . région . code = '76'
       - demandeur . en situation de handicap
       - demandeur . âge . majeur
       - vélo . adapté
@@ -235,7 +235,7 @@ aides . grand est:
   description: >
     Soutien à l'acquisition de vélos adaptés, de vélos-cargos, de vélos
     longtails et à l'installation de kits de conversion de vélos.
-  applicable si: localisation . région = '44'
+  applicable si: localisation . région . code = '44'
   valeur:
     variations:
       - si: 
@@ -269,7 +269,7 @@ aides . corse:
   description: Aide à l'achat des Vélos à Assistance Electrique.
   applicable si:
     toutes ces conditions:
-      - localisation . région = '94'
+      - localisation . région . code = '94'
       - vélo . électrique
   valeur: 25% * vélo . prix
   plafond: 500€
@@ -283,7 +283,7 @@ aides . ardèche:
     auprès d'un vélociste partenaire (offre limitée à 1500 vélos).
   applicable si:
     toutes ces conditions:
-      - localisation . département = '07'
+      - localisation . département . code = '07'
       - demandeur . âge . majeur
       - vélo . électrique
       - vélo . prix <= 3000 €
@@ -301,7 +301,7 @@ aides . paris:
     bénéficient gratuitement d'une télécommande pour activer les feux piétons.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '75056'
+      - localisation . commune . code = '75056'
       - vélo . état . neuf
       - une de ces conditions:
           - revenu fiscal de référence par part <= 6300 €/an
@@ -330,7 +330,7 @@ aides . saint-étienne:
   description: Aide à l'achat d'un vélo à assistance électrique neuf (2024).
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'Saint-Etienne Métropole'
+      - localisation . epci . nom = 'Saint-Etienne Métropole'
       - vélo . électrique
       - vélo . état . neuf
   valeur:
@@ -346,7 +346,7 @@ aides . lyon:
   description: Aide à l'achat d'un vélo 2024.
   applicable si: 
     toutes ces conditions:
-      - localisation . epci = 'Métropole de Lyon'
+      - localisation . epci . nom = 'Métropole de Lyon'
       - revenu fiscal de référence par part <= 24900 €/an
   variations:
     - si:
@@ -420,7 +420,7 @@ aides . saône-beaujolais:
     traditionnels, de vélos à assistance électrique ou de kit d'électrification
     à destination des habitant·es de la Communauté de Communes
     Saône-Beaujolais.
-  applicable si: localisation . epci = 'CC Saône-Beaujolais'
+  applicable si: localisation . epci . nom = 'CC Saône-Beaujolais'
   valeur: 30% * vélo . prix
   plafond:
     variations:
@@ -449,7 +449,7 @@ aides . villefranche beaujolais saône:
      d'occasion.
 
      Le dispositif est prolongé jusqu'au 31 décembre 2025.
-  applicable si: localisation . epci = 'CA Villefranche Beaujolais Saône'
+  applicable si: localisation . epci . nom = 'CA Villefranche Beaujolais Saône'
   valeur:
     variations:
       - si: vélo . électrique
@@ -475,7 +475,7 @@ aides . ville-sur-jarnioux:
     habitant·es qui ont bénéficié de l'aide de la CAVBS.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '69265'
+      - localisation . commune . code = '69265'
       - aides . villefranche beaujolais saône > 0€
   valeur: 50% * vélo . prix
   plafond: 
@@ -494,7 +494,7 @@ aides . sainte-foy-lès-lyon:
     neuf ou d'occasion.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '69202'
+      - localisation . commune . code = '69202'
       - une de ces conditions:
           - vélo . électrique
           - vélo . motorisation
@@ -512,7 +512,7 @@ aides . pays mornantais:
     (VAE), d'un kit d'assistance électrique ou de vélos spécifiques
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC du Pays Mornantais (COPAMO)'
+      - localisation . epci . nom = 'CC du Pays Mornantais (COPAMO)'
       - vélo . état . neuf
       - une de ces conditions:
           - vélo . électrique
@@ -535,7 +535,7 @@ aides . mornant:
     familial ou adapté aux personnes à mobilité réduite.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '69141'
+      - localisation . commune . code = '69141'
       - vélo . état . neuf
       - revenu fiscal de référence par part < 1600 €/mois
       - une de ces conditions:
@@ -561,7 +561,7 @@ aides . dardilly:
     bénéficie également de cette aide communale.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '69072'
+      - localisation . commune . code = '69072'
       - une de ces conditions:
           - vélo . électrique
           - vélo . motorisation
@@ -577,7 +577,7 @@ aides . igny:
     électrique neuf ou d'un kit d'assistance électrique pour vélo.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '91312'
+      - localisation . commune . code = '91312'
       - vélo . état . neuf
       - une de ces conditions:
           - vélo . électrique
@@ -594,7 +594,7 @@ aides . irigny:
     montant de 100 €.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '69100'
+      - localisation . commune . code = '69100'
       - demandeur . âge . majeur
       - vélo . état . neuf
       - une de ces conditions:
@@ -612,7 +612,7 @@ aides . oullins:
     par une prime de 100€.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '69149'
+      - localisation . commune . code = '69149'
       - vélo . électrique
   valeur: 100€
   lien: https://www.oullins.fr/deplacements/a-velo/subvention-pour-l-achat-d-un-velo-electrique-563.html
@@ -625,7 +625,7 @@ aides . pierre-bénite:
     d'un vélo à assistance électrique neuf.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '69152'
+      - localisation . commune . code = '69152'
       - vélo . électrique
       - vélo . état . neuf
   valeur: 100€
@@ -640,7 +640,7 @@ aides . givors:
     types) et à l'achat de kits d'électrification.
   applicable si: 
     toutes ces conditions:
-      - localisation . code insee = '69091'
+      - localisation . commune . code = '69091'
       # NOTE: ce n'est pas vraiement explicite.
       - vélo . état . neuf 
   variations:
@@ -666,7 +666,7 @@ aides . blacé:
     jusqu'au 31 décembre 2024.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '69023'
+      - localisation . commune . code = '69023'
       - vélo . électrique
   valeur: 25% * vélo . prix
   plafond: 200€
@@ -681,7 +681,7 @@ aides . charlieu-belmont:
     spécialisés au titre de l'exercice 2024.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC Charlieu-Belmont'
+      - localisation . epci . nom = 'CC Charlieu-Belmont'
       - vélo . électrique ou mécanique
   valeur: 20% * vélo . prix
   plafond: 100€
@@ -693,7 +693,7 @@ aides . unieux:
   description: Aide à l'achat d'un vélo électrique ou d'un kit d'électrification.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = "42316"
+      - localisation . commune . code = "42316"
       - une de ces conditions:
           - vélo . électrique
           - vélo . motorisation
@@ -711,7 +711,7 @@ aides . bordeaux:
     d'électrification de vélos standards. (Jusqu'en 2027).
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'Bordeaux Métropole'
+      - localisation . epci . nom = 'Bordeaux Métropole'
       - revenu fiscal de référence par part <= 24900 €/an
       - une de ces conditions:
           - vélo . électrique
@@ -757,7 +757,7 @@ aides . mérignac:
     comprises du vélo.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '33281'
+      - localisation . commune . code = '33281'
       - revenu fiscal de référence par part <= 24900 €/an
       - une de ces conditions:
           - vélo . électrique
@@ -803,7 +803,7 @@ aides . taillan-médoc:
     cumulable avec les aides de Bordeaux Métropole et de l'État.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '33519'
+      - localisation . commune . code = '33519'
       - une de ces conditions:
           - vélo . électrique
           - vélo . motorisation
@@ -822,7 +822,7 @@ aides . bègles vélo spécifique:
   applicable si:
     toutes ces conditions:
       - aides . bordeaux > 0€
-      - localisation . code insee = "33039"
+      - localisation . commune . code = "33039"
       - vélo . état . neuf
       - une de ces conditions:
           - vélo . pliant
@@ -843,7 +843,7 @@ aides . bègles vélo classique:
     2024). 
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = "33039"
+      - localisation . commune . code = "33039"
       - vélo . mécanique simple
   valeur: 65€
   lien: https://www.mairie-begles.fr/actualite/recuperateur-deau-et-velo-electrique-la-ville-vous-soutient-pour-vous-equiper/
@@ -858,7 +858,7 @@ aides . cenon:
     quotient familiale inférieur à 2200 €/mois.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '33119'
+      - localisation . commune . code = '33119'
       - revenu fiscal de référence par part < 2200 €/mois
       - vélo . prix >= 800 €
       - une de ces conditions:
@@ -884,7 +884,7 @@ aides . la cali:
     d'occasion. Ces aides sont cumulatives avec les aides de l'État.
   applicable si: 
     toutes ces conditions:
-      - localisation . epci = 'CA du Libournais'
+      - localisation . epci . nom = 'CA du Libournais'
       - revenu fiscal de référence par part <= 26000 €/an
   valeur: 40% * vélo . prix
   plafond:
@@ -945,7 +945,7 @@ aides . saint-rémy:
      Grand Chalon.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '71475'
+      - localisation . commune . code = '71475'
       - vélo . électrique ou mécanique
   valeur:
     variations:
@@ -974,7 +974,7 @@ aides . saint-émilionnais:
     du territoire pour l'année 2024.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC du Grand Saint Emilionnais'
+      - localisation . epci . nom = 'CC du Grand Saint Emilionnais'
       - vélo . électrique ou mécanique
       - vélo . prix >= 200€
   valeur: 200€
@@ -988,7 +988,7 @@ aides . pays de la loire:
     abonnés Aléop.
   applicable si:
     toutes ces conditions:
-      - localisation . région = '52'
+      - localisation . région . code = '52'
       - une de ces conditions:
           - vélo . pliant
           - vélo . électrique
@@ -1013,7 +1013,7 @@ aides . nantes:
   description: Aide solidaire à l'achat de vélo
   applicable si: 
     toutes ces conditions:
-      - localisation . epci = 'Nantes Métropole'
+      - localisation . epci . nom = 'Nantes Métropole'
       - revenu fiscal de référence par part <= 900 €/mois
   variations:
     - si: revenu fiscal de référence par part <= 350 €/mois
@@ -1103,7 +1103,7 @@ aides . pornic:
     des crédits disponibles pour 2024).
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CA Pornic Agglo Pays de Retz'
+      - localisation . epci . nom = 'CA Pornic Agglo Pays de Retz'
       - revenu fiscal de référence par part <= 1200 €/mois
       - une de ces conditions:
           - vélo . cargo
@@ -1140,7 +1140,7 @@ aides . toulouse:
   description: Prime vélo – Aide à l'achat, la location ou la transformation d'un vélo.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'Toulouse Métropole'
+      - localisation . epci . nom = 'Toulouse Métropole'
       - revenu fiscal de référence par part <= 35052 €/an
       - une de ces conditions:
           - vélo . électrique ou mécanique
@@ -1192,8 +1192,8 @@ aides . grenoble:
   applicable si:
     toutes ces conditions:
       - une de ces conditions:
-          - localisation . epci = 'Grenoble-Alpes-Métropole'
-          - localisation . epci = 'CC Le Grésivaudan'
+          - localisation . epci . nom = 'Grenoble-Alpes-Métropole'
+          - localisation . epci . nom = 'CC Le Grésivaudan'
       - une de ces conditions:
           - revenu fiscal de référence par part <= 22983 €/an
           - demandeur . en situation de handicap
@@ -1289,7 +1289,7 @@ aides . strasbourg:
     de la motorisation d'un vélo classique.
   applicable si: 
     toutes ces conditions:
-      - localisation . epci = 'Eurométropole de Strasbourg'
+      - localisation . epci . nom = 'Eurométropole de Strasbourg'
       - vélo . état . neuf
   valeur: 50% * vélo . prix
   plafond:
@@ -1323,7 +1323,7 @@ aides . entzheim:
     vélo neuf ou la réparation d'un vélo.
   applicable si: 
     toutes ces conditions:
-      - localisation . code insee = '67124'
+      - localisation . commune . code = '67124'
       - vélo . état . neuf
   valeur:
     variations:
@@ -1352,7 +1352,7 @@ aides . geispolsheim:
     réservé aux 50 premiers dossiers complets).
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '67152'
+      - localisation . commune . code = '67152'
       - vélo . état . neuf
       - une de ces conditions:
           - vélo . cargo
@@ -1373,7 +1373,7 @@ aides . eschau:
     cargo/adapté (électrique ou non) ainsi que de remorque pour cycles.
   applicable si: 
     toutes ces conditions:
-      - localisation . code insee = '67131'
+      - localisation . commune . code = '67131'
       - vélo . état . neuf
       - une de ces conditions:
           - vélo . cargo
@@ -1400,7 +1400,7 @@ aides . eckbolsheim:
     l'année 2024, elle ne sera plus versée à partir du 1er janvier 2025.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '67118'
+      - localisation . commune . code = '67118'
       - vélo . état . neuf
       - vélo . électrique
   valeur: 10% * vélo . prix
@@ -1415,7 +1415,7 @@ aides . ried de marckolsheim:
     l'achat pour vélo de tout type (neuf ou d'occasion). Cette aide est de 75€
     pour l'achat d'un vélo acheté chez un revendeur situé sur le territoire du
     PETR Sélestat – Alsace Centrale, 50€ sinon.
-  applicable si: localisation . epci = 'CC du Ried de Marckolsheim'
+  applicable si: localisation . epci . nom = 'CC du Ried de Marckolsheim'
   valeur: 75€
   plafond: vélo . prix
   lien: https://www.ried-marckolsheim.fr/actualites/nouveau-prime-velo?highlight=WyJhaWRlIl0=
@@ -1427,7 +1427,7 @@ aides . vallée de villé:
     La Communauté de Communes vous aide à hauteur de 50€ pour l'achat de votre
     vélo neuf ou d'occasion, chez un revendeur situé sur le territoire du PETR
     Sélestat Alsace Central.
-  applicable si: localisation . epci = 'CC de la Vallée de Villé'
+  applicable si: localisation . epci . nom = 'CC de la Vallée de Villé'
   valeur: 50€
   plaond: vélo . prix
   lien: https://cdc.valleedeville.fr/service-aux-habitants/beneficier-de-la-prime-velo/
@@ -1442,7 +1442,7 @@ aides . val d'argent:
     – Alsace Centrale, 50€ sinon.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = "CC du Val d'Argent"
+      - localisation . epci . nom = "CC du Val d'Argent"
       - vélo . électrique ou mécanique
   valeur: 75€
   plafond: vélo . prix
@@ -1459,7 +1459,7 @@ aides . selestat:
     Alsace Centrale, 50€ sinon.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC de Sélestat'
+      - localisation . epci . nom = 'CC de Sélestat'
       - vélo . électrique ou mécanique
   valeur: 75€
   plafond: vélo . prix
@@ -1475,7 +1475,7 @@ aides . pays de saverne:
     égal à 15 400 €.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC du Pays de Saverne'
+      - localisation . epci . nom = 'CC du Pays de Saverne'
       - vélo . électrique
       - revenu fiscal de référence par part <= 15400 €/an
   valeur: 100€
@@ -1493,7 +1493,7 @@ aides . illkirch:
     décembre 2024).
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '67218'
+      - localisation . commune . code = '67218'
       - une de ces conditions:
           - vélo . électrique
           - vélo . motorisation
@@ -1514,7 +1514,7 @@ aides . vendenheim:
     neuf.
   applicable si: 
     toutes ces conditions:
-      - localisation . code insee = '67506'
+      - localisation . commune . code = '67506'
       - vélo . état . neuf
       - vélo . électrique ou mécanique
   valeur:
@@ -1548,7 +1548,7 @@ aides . albi:
     situation de circulation, de bénéficier des conseils d'un moniteur diplômé.
   applicable si: 
     toutes ces conditions:
-      - localisation . epci = "CA de l'Albigeois (C2A)"
+      - localisation . epci . nom = "CA de l'Albigeois (C2A)"
       - vélo . état . neuf
       - vélo . électrique ou mécanique
   valeur: 25% * vélo . prix
@@ -1572,7 +1572,7 @@ aides . toulon:
     électrique vélo pour les habitant·es de Toulon Provence Méditerranée.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'Métropole Toulon-Provence-Méditerranée'
+      - localisation . epci . nom = 'Métropole Toulon-Provence-Méditerranée'
       - vélo . état . neuf
       - une de ces conditions:
           - vélo . électrique
@@ -1596,7 +1596,7 @@ aides . provence verte:
     neuf (type VTC) à assistance électrique ou non.
   applicable si: 
     toutes ces conditions:
-      - localisation . epci = 'CA de la Provence Verte'
+      - localisation . epci . nom = 'CA de la Provence Verte'
       - vélo . état . neuf
       - une de ces conditions:
           - vélo . mécanique simple
@@ -1622,7 +1622,7 @@ aides . bretagne romantique:
     ressources.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC Bretagne Romantique'
+      - localisation . epci . nom = 'CC Bretagne Romantique'
       - vélo . état . neuf
       - vélo . électrique
       - revenu fiscal de référence par part <= 15400 €/an
@@ -1639,7 +1639,7 @@ aides . fougères:
     électrique neuf.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CA Fougères Agglomération'
+      - localisation . epci . nom = 'CA Fougères Agglomération'
       - vélo . électrique
       - vélo . état . neuf
       - revenu fiscal de référence par part <= 15400 €/an
@@ -1653,7 +1653,7 @@ aides . quimper:
   description: Aide pour l'achat d'un vélo à assistance électrique neuf.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CA Quimper Bretagne Occidentale'
+      - localisation . epci . nom = 'CA Quimper Bretagne Occidentale'
       - vélo . électrique
       - vélo . état . neuf
       - revenu fiscal de référence par part <= 26350 €/an
@@ -1679,7 +1679,7 @@ aides . quimperlé:
     que d'un kit d'éléctrification.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CA Quimperlé Communauté'
+      - localisation . epci . nom = 'CA Quimperlé Communauté'
       - revenu fiscal de référence par part <= 26446 €/an
       - une de ces conditions:
           - toutes ces conditions:
@@ -1708,7 +1708,7 @@ aides . caen:
     pour l'achat d'un vélo à assistance électrique neuf ou d'un kit.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '14118'
+      - localisation . commune . code = '14118'
       - revenu fiscal de référence par part <= 15400 €/an
       - vélo . état . neuf
       - une de ces conditions:
@@ -1730,7 +1730,7 @@ aides . caen jeune:
     de 50 euros sous conditions de ressources pour les jeunes de 18 à 25 ans.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '14118'
+      - localisation . commune . code = '14118'
       - revenu fiscal de référence par part <= 15400 €/an
       - demandeur . âge . de 18 à 25 ans
       - vélo . mécanique simple
@@ -1748,7 +1748,7 @@ aides . caen vélo adapté:
     ou d'un kit d'électrification.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '14118'
+      - localisation . commune . code = '14118'
       - vélo . état . neuf
       - demandeur . en situation de handicap
       - une de ces conditions:
@@ -1767,7 +1767,7 @@ aides . caen la mer:
     supplémentaires.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CU Caen la Mer'
+      - localisation . epci . nom = 'CU Caen la Mer'
       - demandeur . âge . majeur
       - revenu fiscal de référence par part <= 13489 €/an
       - aides . commune > 0€
@@ -1785,7 +1785,7 @@ aides . thue et mue:
     électrique neuf pour les habitant·es de la commune.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '14098'
+      - localisation . commune . code = '14098'
       - demandeur . âge . majeur
       - vélo . électrique
       - vélo . état . neuf
@@ -1808,7 +1808,7 @@ aides . hermanville-sur-mer:
     seul dossier est à déposer en mairie.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '14325'
+      - localisation . commune . code = '14325'
       - vélo . électrique
       - revenu fiscal de référence par part <= 14089 €/an
   valeur: 25% * vélo . prix
@@ -1822,7 +1822,7 @@ aides . carpiquet:
   description: Aide financière vélo et trottinette électrique (neuf).
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '14137'
+      - localisation . commune . code = '14137'
       - vélo . électrique
       - vélo . état . neuf
   valeur: 150€
@@ -1838,7 +1838,7 @@ aides . ifs:
     de 150€.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '14341'
+      - localisation . commune . code = '14341'
       - revenu fiscal de référence par part <= 24000€/an
       - vélo . état . neuf
       - vélo . électrique
@@ -1857,7 +1857,7 @@ aides . mondeville:
     ! L'achat doit se faire chez un vélociste de Caen La Mer. 
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '14437'
+      - localisation . commune . code = '14437'
       - revenu fiscal de référence par part <= 19565 €/an
   valeur:
     variations:
@@ -1905,7 +1905,7 @@ aides . flers:
     de la facture plafonnée à 200 €.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CA Flers Agglo'
+      - localisation . epci . nom = 'CA Flers Agglo'
       - vélo . électrique ou mécanique
       - demandeur . âge . majeur
       - revenu fiscal de référence par part <= 20000 €/an
@@ -1923,7 +1923,7 @@ aides . dreux:
     bénéficiaire après validation du dossier de demande. 
   applicable si: 
     toutes ces conditions:
-      - localisation . code insee = '28134'
+      - localisation . commune . code = '28134'
       - vélo . électrique ou mécanique
       - demandeur . âge . majeur
   valeur: 25% * vélo . prix
@@ -1947,7 +1947,7 @@ aides . val-au-perche:
     assistance électrique de 50€ sans condition de ressources.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '61484'
+      - localisation . commune . code = '61484'
       - vélo . état . neuf
       - vélo . électrique
   valeur: 50€
@@ -1966,7 +1966,7 @@ aides . ronchin:
     avec assistance ou type cargo.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '59507'
+      - localisation . commune . code = '59507'
   valeur: 25% * vélo . prix
   plafond:
     variations:
@@ -1987,7 +1987,7 @@ aides . wasquehal:
     enfants…) par le biais d'une aide financière.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '59646'
+      - localisation . commune . code = '59646'
       - vélo . état . neuf
       - vélo . électrique ou mécanique
       - demandeur . âge . majeur
@@ -2010,7 +2010,7 @@ aides . belfort:
     électrique.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '90010'
+      - localisation . commune . code = '90010'
       - demandeur . âge . majeur
       - vélo . électrique
   variations:
@@ -2029,7 +2029,7 @@ aides . verson:
     classique.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '14738'
+      - localisation . commune . code = '14738'
       - demandeur . âge . majeur
       - revenu fiscal de référence par part <= 13489 €/an
       - vélo . état . neuf
@@ -2049,7 +2049,7 @@ aides . saint-germain la blanche herbe:
   description: Aide pour l'achat d'un vélo électrique neuf.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '14587'
+      - localisation . commune . code = '14587'
       - revenu fiscal de référence par part <= 15400 €/an
       - vélo . état . neuf
       - vélo . électrique
@@ -2063,7 +2063,7 @@ aides . coeur de nacre:
   description: Aide pour l'achat d'un vélo à assistance électrique, neuf ou d'occasion.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC Coeur de Nacre'
+      - localisation . epci . nom = 'CC Coeur de Nacre'
       - vélo . électrique
   variations:
     - si: revenu fiscal de référence par part <= 15000 €/an
@@ -2082,7 +2082,7 @@ aides . trouville sur mer:
     l'acquisition d'un vélo à assistance électrique ou d'un vélo cargo.
   applicable si: 
     toutes ces conditions: 
-      - localisation . code insee = '14715'
+      - localisation . commune . code = '14715'
       - vélo . état . neuf
       - une de ces conditions:
           - vélo . cargo
@@ -2108,7 +2108,7 @@ aides . deauville:
     dispositif le 30 novembre 2024 en attendant le renouvellement.
   applicable si: 
     toutes ces conditions:
-      - localisation . code insee = '14220'
+      - localisation . commune . code = '14220'
       - vélo . état . neuf
   valeur: 30% * vélo . prix
   plafond:
@@ -2136,7 +2136,7 @@ aides . louvigny:
     pour des besoins professionnels comme personnels aux habitants de la ville.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '14383'
+      - localisation . commune . code = '14383'
       - revenu fiscal de référence par part <= 13489 €/an
       - une de ces conditions:
           - vélo . mécanique simple
@@ -2154,7 +2154,7 @@ aides . honfleur:
     prime s'adresse aux habitants des communes de la CCPHB, de plus de 18 ans. 
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC du Pays de Honfleur-Beuzeville'
+      - localisation . epci . nom = 'CC du Pays de Honfleur-Beuzeville'
       - revenu fiscal de référence par part <= 2000 €/mois
       - demandeur . âge . majeur
       - vélo . électrique
@@ -2175,7 +2175,7 @@ aides . istres:
   description: Aide pour l'achat d'un vélo à assistance électrique neuf.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '13047'
+      - localisation . commune . code = '13047'
       - vélo . électrique
       - vélo . état . neuf
   valeur: 150€
@@ -2191,7 +2191,7 @@ aides . montbéliard agglo:
      assistance électrique est de 100€.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CA Pays de Montbéliard Agglomération'
+      - localisation . epci . nom = 'CA Pays de Montbéliard Agglomération'
       - vélo . électrique
       - vélo . prix <= 3000€
       - revenu fiscal de référence par part <= 1800 €/mois
@@ -2207,7 +2207,7 @@ aides . montbéliard:
     à assistance électrique neuf.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '25388'
+      - localisation . commune . code = '25388'
       - vélo . état . neuf
       - vélo . électrique
   valeur: 150€
@@ -2221,7 +2221,7 @@ aides . vienne gartempe:
     Aide à l'achat d'un vélo à assistance électrique jusqu'au 31 décembre 2024.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC Vienne et Gartempe'
+      - localisation . epci . nom = 'CC Vienne et Gartempe'
       - revenu fiscal de référence par part <= 15400 €/an
       - vélo . électrique
   valeur:
@@ -2250,7 +2250,7 @@ aides . vienne condrieu:
     routes sont exclus).
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CA Vienne Condrieu'
+      - localisation . epci . nom = 'CA Vienne Condrieu'
       - demandeur . âge . majeur
       - vélo . électrique
       - vélo . état . neuf
@@ -2265,7 +2265,7 @@ aides . pont-de-beauvoisin:
     spécialisés (Vals du Dauphiné et Val Guiers).
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '38315'
+      - localisation . commune . code = '38315'
       - demandeur . âge . majeur
       - revenu fiscal de référence par part <= 30000 €/an
       - vélo . électrique
@@ -2282,7 +2282,7 @@ aides . saint-marcellin vercors isère:
     avec une prime à l'achat.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC Saint-Marcellin Vercors Isère Communauté'
+      - localisation . epci . nom = 'CC Saint-Marcellin Vercors Isère Communauté'
       - une de ces conditions:
           - toutes ces conditions:
               - vélo . électrique
@@ -2305,7 +2305,7 @@ aides . montval sur loir:
     RSA uniquement) pour les habitants de Montval sur Loir.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '72071'
+      - localisation . commune . code = '72071'
       - vélo . électrique ou mécanique
   variations:
     - si: vélo . électrique
@@ -2335,7 +2335,7 @@ aides . sorgues du comtat:
     par demandeur.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CA des Sorgues du Comtat'
+      - localisation . epci . nom = 'CA des Sorgues du Comtat'
       - demandeur . âge . majeur
       - vélo . état . neuf
       - vélo . électrique
@@ -2353,7 +2353,7 @@ aides . grand périgueux:
     classique neuf ou d'occasion, cargo).
   applicable si: 
     toutes ces conditions:
-      - localisation . epci = 'CA Le Grand Périgueux'
+      - localisation . epci . nom = 'CA Le Grand Périgueux'
       - demandeur . âge . majeur
   valeur:
     variations:
@@ -2384,7 +2384,7 @@ aides . sarlat:
   description: Aide financière pour l'achat d'un vélo électrique.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '24520'
+      - localisation . commune . code = '24520'
       - vélo . électrique
   valeur: 100€
   plaond: vélo . prix
@@ -2401,7 +2401,7 @@ aides . vallée de l'homme:
     de la Communauté de communes Vallée de l'Homme.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = "CC de la Vallée de l'Homme"
+      - localisation . epci . nom = "CC de la Vallée de l'Homme"
       - demandeur . âge . majeur
       - vélo . électrique
   valeur: 25% * vélo . prix
@@ -2423,7 +2423,7 @@ aides . sablé sur sarthe:
     attribuée par la Ville est de 10% du prix d'achat TTC, plafonné à 100 €.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '72264'
+      - localisation . commune . code = '72264'
       - vélo . état . neuf
       - vélo . électrique
       - demandeur . âge . majeur
@@ -2441,7 +2441,7 @@ aides . département somme:
     après le 17 mars 2020.
   applicable si:
     toutes ces conditions:
-      - localisation . département = '80'
+      - localisation . département . code = '80'
       - vélo . état . neuf
       - vélo . électrique
   valeur: 25% * vélo . prix
@@ -2458,7 +2458,7 @@ aides . amiens:
     la limite de 200€.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '80021'
+      - localisation . commune . code = '80021'
       - demandeur . âge . majeur
       - vélo . état . neuf
       - vélo . électrique
@@ -2479,7 +2479,7 @@ aides . camon:
     acceptés.
   applicable si: 
     toutes ces conditions:
-      - localisation . code insee = '80164'
+      - localisation . commune . code = '80164'
       - demandeur . âge . majeur
       - vélo . état . neuf
   valeur: 25% * vélo . prix
@@ -2506,7 +2506,7 @@ aides . grand roye:
     des crédits annuels votés au budget.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC du Grand Roye'
+      - localisation . epci . nom = 'CC du Grand Roye'
       - demandeur . âge . majeur
       - vélo . état . neuf
       - vélo . électrique
@@ -2526,7 +2526,7 @@ aides . somme sud-ouest:
     rétroactive pour les vélos achetés depuis le 1er janvier 2023.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC Somme Sud-Ouest'
+      - localisation . epci . nom = 'CC Somme Sud-Ouest'
       - demandeur . âge . majeur
       - vélo . état . neuf
       - vélo . électrique
@@ -2543,7 +2543,7 @@ aides . albert:
     ressources, pour l'achat d'un vélo à assistance électrique (VAE).
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '80016'
+      - localisation . commune . code = '80016'
       - vélo . électrique
       - vélo . état . neuf
   valeur: 100€
@@ -2558,7 +2558,7 @@ aides . faches-thumesnil:
     électrique ou cargo effectué après le 18 septembre 2020.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '59220'
+      - localisation . commune . code = '59220'
       - une de ces conditions:
           - vélo . électrique
           - vélo . cargo
@@ -2581,7 +2581,7 @@ aides . pays sainte odile:
     mettre en place un dispositif d'aide à l'acquisition d'un vélo neuf.
   applicable si: 
     toutes ces conditions:
-      - localisation . epci = 'CC du Pays de Sainte-Odile'
+      - localisation . epci . nom = 'CC du Pays de Sainte-Odile'
       - vélo . état . neuf
       - une de ces conditions:
           - vélo . électrique
@@ -2617,7 +2617,7 @@ aides . portes de rosheim:
     vélos classiques. 
   applicable si: 
     toutes ces conditions:
-      - localisation . epci = 'CC des Portes de Rosheim'
+      - localisation . epci . nom = 'CC des Portes de Rosheim'
       - vélo . état . neuf
       - une de ces conditions:
           - demandeur . âge . majeur
@@ -2654,7 +2654,7 @@ aides . pays de barr:
     de Barr.
   applicable si: 
     toutes ces conditions:
-      - localisation . epci = 'CC du Pays de Barr'
+      - localisation . epci . nom = 'CC du Pays de Barr'
       - vélo . électrique ou mécanique
       - une de ces conditions:
           - demandeur . âge . majeur
@@ -2685,7 +2685,7 @@ aides . molsheim-mutzig:
     reconditionné jusqu'au 31 décembre 2024.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC de la Région de Molsheim-Mutzig'
+      - localisation . epci . nom = 'CC de la Région de Molsheim-Mutzig'
       - vélo . électrique
   valeur:
     variations:
@@ -2708,7 +2708,7 @@ aides . les sables d'olonne:
     électrique ou mécanique, pliant ou cargo.
   applicable si: 
     toutes ces conditions:
-      - localisation . epci = "CA Les Sables d'Olonne Agglomération"
+      - localisation . epci . nom = "CA Les Sables d'Olonne Agglomération"
       - vélo . électrique ou mécanique
   valeur:
     variations:
@@ -2739,7 +2739,7 @@ aides . vallons du lyonnais:
     bénéficier de 3 mois de location longue durée.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC des Vallons du Lyonnais (CCVL)'
+      - localisation . epci . nom = 'CC des Vallons du Lyonnais (CCVL)'
       - vélo . prix <= 3000€
       - une de ces conditions:
           - vélo . électrique
@@ -2764,7 +2764,7 @@ aides . pays de l'arbresle:
     d'électrification, qu'il soit neuf ou d'occasion.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = "CC du Pays de l'Arbresle (CCPA)"
+      - localisation . epci . nom = "CC du Pays de l'Arbresle (CCPA)"
       - une de ces conditions:
           - vélo . cargo
           - vélo . adapté
@@ -2788,7 +2788,7 @@ aides . pays de l'ozon:
     Dossier à déposer avant le 6 décembre 2024.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = "CC du Pays de l'Ozon"
+      - localisation . epci . nom = "CC du Pays de l'Ozon"
       - une de ces conditions:
           - vélo . électrique
           - vélo . motorisation
@@ -2813,7 +2813,7 @@ aides . département hérault:
   # pour une carriole.
   applicable si:
     toutes ces conditions:
-      - localisation . département = '34'
+      - localisation . département . code = '34'
       - demandeur . âge . majeur
       - vélo . électrique
       - vélo . état . neuf
@@ -2844,7 +2844,7 @@ aides . département hérault vélo adapté:
 # neuf et d'occasion. 
   applicable si:
     toutes ces conditions:
-      - localisation . département = '34'
+      - localisation . département . code = '34'
       - demandeur . en situation de handicap
       - demandeur . âge . majeur
       - vélo . adapté
@@ -2860,7 +2860,7 @@ aides . montpellier:
     Pour un usage professionnel ou personnel, les habitants de la métropole ont accès à une subvention permettant l'achat d'un vélo électrique ou d'occasion.
   applicable si: 
     toutes ces conditions:
-      - localisation . epci = 'Montpellier Méditerranée Métropole'
+      - localisation . epci . nom = 'Montpellier Méditerranée Métropole'
       - demandeur . âge . majeur
       - une de ces conditions:
         - vélo . motorisation
@@ -2882,7 +2882,7 @@ aides . montpellier vélo adapté:
     Handi-Vélo".
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'Montpellier Méditerranée Métropole'
+      - localisation . epci . nom = 'Montpellier Méditerranée Métropole'
       - aides . département hérault vélo adapté > 0€
       - vélo . état . neuf
   valeur: 50% * vélo . prix
@@ -2899,7 +2899,7 @@ aides . sète:
     ou de la trottinette. Ce montant est plafonné à 200 €.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CA Sète Agglopôle Méditerranée'
+      - localisation . epci . nom = 'CA Sète Agglopôle Méditerranée'
       - revenu fiscal de référence par part <= 28797 €/an
       - vélo . prix < 3000€
       - une de ces conditions:
@@ -2938,7 +2938,7 @@ aides . cébazat:
     des demandes le 31 octobre 2024.
   applicable si: 
     toutes ces conditions:
-      - localisation . code insee = '63063'
+      - localisation . commune . code = '63063'
       - demandeur . âge . majeur
       - une de ces conditions:
           - vélo . électrique
@@ -2962,7 +2962,7 @@ aides . aubiere:
     assistance électrique (VAE) neuf ou reconditionné pour ses habitant·es.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '63014'
+      - localisation . commune . code = '63014'
       - vélo . électrique
   valeur: 150€
   plafond: vélo . prix
@@ -2977,7 +2977,7 @@ aides . romagnat:
     assistance électrique neuf.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '63307'
+      - localisation . commune . code = '63307'
       - vélo . état . neuf
       - vélo . électrique
   valeur: 100€
@@ -2994,7 +2994,7 @@ aides . cournon d'auvergne:
     l'achat d'un Vélo à Assistance Électrique (VAE).
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '63124'
+      - localisation . commune . code = '63124'
       - revenu fiscal de référence par part <= 2967 €/mois
       - vélo . état . neuf
       - vélo . électrique
@@ -3017,7 +3017,7 @@ aides . grand avignon:
     VAE en faveur des habitants de son territoire.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CA du Grand Avignon (COGA)'
+      - localisation . epci . nom = 'CA du Grand Avignon (COGA)'
       - demandeur . âge . majeur
       - vélo . état . neuf
       - vélo . électrique
@@ -3038,7 +3038,7 @@ aides . avignon:
     d'occasion ou pour l'achat d'équipements cyclables de sécurité.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '84007'
+      - localisation . commune . code = '84007'
       - une de ces conditions:
           - vélo . électrique
           - vélo . mécanique simple
@@ -3103,7 +3103,7 @@ aides . luberon:
      sans assistance électrique. 
   applicable si: 
     toutes ces conditions:
-      - localisation . epci = 'CA Luberon Monts de Vaucluse'
+      - localisation . epci . nom = 'CA Luberon Monts de Vaucluse'
       - demandeur . âge >= 16 an
       - une de ces conditions:
           - vélo . électrique
@@ -3143,7 +3143,7 @@ aides . kremlin-bicetre:
     professionnel. 
   applicable si: 
     toutes ces conditions:
-      - localisation . code insee = '94043'
+      - localisation . commune . code = '94043'
       - vélo . électrique ou mécanique
       - vélo . état . occasion
   valeur:
@@ -3170,7 +3170,7 @@ aides . chevilly-larue:
     d'un vélo enfant (à l'exclusion des vélos électriques) par foyer et par an.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '94021'
+      - localisation . commune . code = '94021'
       - une de ces conditions:
           - vélo . mécanique
           - vélo . adapté # pas de définition clair 
@@ -3198,7 +3198,7 @@ aides . pau:
     communes membres du Syndicat Mixte Pau Béarn Pyrénées Mobilités, aux
     professionnels de très petite entreprise de moins de 10 salariés, aux
     acteurs de la cyclo-logistique implantés sur le territoire.
-  applicable si: localisation . epci = 'CA Pau Béarn Pyrénées'
+  applicable si: localisation . epci . nom = 'CA Pau Béarn Pyrénées'
   valeur: 15% * vélo . prix
   plafond:
     variations:
@@ -3225,7 +3225,7 @@ aides . lescar:
     par Pau Béarn Pyrénées Mobilités.
   applicable si:
     toutes ces conditions: 
-      - localisation . code insee = '64335'
+      - localisation . commune . code = '64335'
       - revenu fiscal de référence par part <= 20000 €/an
       - aides . pau > 0€
   variations:
@@ -3280,7 +3280,7 @@ aides . vallée d'ossau:
     euros !
   applicable si:
     toutes ces conditions:
-      - localisation . epci = "CC de la Vallée d'Ossau"
+      - localisation . epci . nom = "CC de la Vallée d'Ossau"
       - demandeur . âge . majeur
       - vélo . électrique
       - vélo . état . neuf
@@ -3297,7 +3297,7 @@ aides . aix les bains:
     montant TTC du vélo, dans la limite de 250 € et des crédits disponibles.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '73008'
+      - localisation . commune . code = '73008'
       - vélo . électrique
       - vélo . état . neuf
   valeur: 10% * vélo . prix
@@ -3315,7 +3315,7 @@ aides . coeur de maurienne arvan:
     Limite de dépôt des dossiers pour l'année 2024 : 15 novembre 2024.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC Coeur de Maurienne Arvan'
+      - localisation . epci . nom = 'CC Coeur de Maurienne Arvan'
       - revenu fiscal de référence par part <= 15400 €/an
       - vélo . électrique
   valeur: 40% * vélo . prix
@@ -3332,7 +3332,7 @@ aides . morzine-avoriaz:
     période 2023-2025.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '74191'
+      - localisation . commune . code = '74191'
       - demandeur . âge . majeur
       - vélo . électrique ou mécanique
   valeur: 50% * vélo . prix
@@ -3352,7 +3352,7 @@ aides . bourg-saint-maurice:
     majorité de ses habitant·es de circuler plus aisément, la commune de Bourg
     Saint Maurice – les Arcs propose une aide à l'acquisition d'un vélo (vélo
     classique, à assistance électrique ou vélo dit cargo). 
-  applicable si: localisation . code insee = '73054'
+  applicable si: localisation . commune . code = '73054'
   valeur: 50% * vélo . prix
   plafond:
     variations:
@@ -3405,7 +3405,7 @@ aides . la motte servolex:
     enseigne spécialisée (vélociste ou multi-sport).
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '73179'
+      - localisation . commune . code = '73179'
       - une de ces conditions:
           - vélo . électrique simple
           - toutes ces conditions:
@@ -3436,7 +3436,7 @@ aides . montagnole:
     Limite de dépôt des dossiers pour l'année 2024 : 31 décembre 2024.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '73160'
+      - localisation . commune . code = '73160'
       - vélo . électrique
       - vélo . prix >= 1200 €
   valeur: 200€
@@ -3453,7 +3453,7 @@ aides . saint alban leysse:
     vélo à assistance électrique (VAE) neuf.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '73222'
+      - localisation . commune . code = '73222'
       - vélo . électrique
       - vélo . prix >= 1500 €
       - vélo . prix <= 3700 €
@@ -3468,7 +3468,7 @@ aides . les crêtes préardennaises:
     Bonus Vélo : prime à l'achat d'un vélo à assistance électrique.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC des Crêtes Préardennaises'
+      - localisation . epci . nom = 'CC des Crêtes Préardennaises'
       - demandeur . âge . majeur
       - vélo . état . neuf
       - vélo . électrique
@@ -3488,7 +3488,7 @@ aides . clisson:
      neuve.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '44043'
+      - localisation . commune . code = '44043'
       - vélo . électrique ou mécanique
       - vélo . état . neuf
   valeur:
@@ -3527,7 +3527,7 @@ aides . sèvre et loire:
     électrique, un vélo-cargo, ou un vélo pliant.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC Sèvre et Loire'
+      - localisation . epci . nom = 'CC Sèvre et Loire'
       - demandeur . âge . majeur
       - vélo . électrique
   valeur:
@@ -3554,7 +3554,7 @@ aides . pays ancenis:
     pour l'achat d'un vélo à assistance électrique, neuf ou d'occasion.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = "CC du Pays d'Ancenis"
+      - localisation . epci . nom = "CC du Pays d'Ancenis"
       - demandeur . âge . majeur
       - revenu fiscal de référence par part <= 14089 €/an
       - une de ces conditions:
@@ -3589,7 +3589,7 @@ aides . romilly-sur-seine:
     une prime de 100€ pour l'achat d'un Vélo à Assistance Electrique (VAE).
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC des Portes de Romilly sur Seine'
+      - localisation . epci . nom = 'CC des Portes de Romilly sur Seine'
       - demandeur . âge . majeur
       - vélo . électrique
   valeur: 100€
@@ -3609,7 +3609,7 @@ aides . cote d'or:
     Dispositif valable jusqu'au 31 décembre 2024.
   applicable si:
     toutes ces conditions:
-      - localisation . département = '21'
+      - localisation . département . code = '21'
       - vélo . électrique
       - vélo . état . neuf
   valeur:
@@ -3639,7 +3639,7 @@ aides . boé:
     Limitée aux 20 premières demandes.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '47031'
+      - localisation . commune . code = '47031'
       - vélo . électrique
   valeur: 100 €
   lien: https://www.ville-boe.fr/vivre-boe/solidarite-seniors/aide-vae
@@ -3654,7 +3654,7 @@ aides . sophia antipolis:
     vélo adapté.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CA de Sophia Antipolis'
+      - localisation . epci . nom = 'CA de Sophia Antipolis'
       - une de ces conditions:
           - vélo . électrique
           - vélo . cargo
@@ -3749,7 +3749,7 @@ aides . mougins:
     limite de 300 € par matériel neuf acheté pendant la durée du dispositif.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '06085'
+      - localisation . commune . code = '06085'
       - demandeur . âge >= 16 an
       - vélo . état . neuf
       - vélo . électrique
@@ -3766,7 +3766,7 @@ aides . mandelieu:
     d'un vélo à assistance électrique neuf aux habitant·es de la commune.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '06079'
+      - localisation . commune . code = '06079'
       - vélo . état . neuf
       - vélo . électrique
   valeur: 25% * vélo . prix
@@ -3787,7 +3787,7 @@ aides . pantin:
     avant le versement de la subvention.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '93055'
+      - localisation . commune . code = '93055'
       - demandeur . âge >= 15 an
       - vélo . mécanique
   valeur: 100€
@@ -3807,7 +3807,7 @@ aides . aubervilliers:
     Date limite de dépôt des dossiers : 31 décembre 2024.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '93001'
+      - localisation . commune . code = '93001'
       - demandeur . âge . majeur
       - vélo . mécanique simple
   variations:
@@ -3821,7 +3821,7 @@ aides . mons en baroeul:
   titre: Ville de Mons en Barœul
   applicable si: 
     toutes ces conditions:
-      - localisation . code insee = '59410'
+      - localisation . commune . code = '59410'
       - une de ces conditions:
           - vélo . électrique ou mécanique
           - vélo . adapté
@@ -3923,7 +3923,7 @@ aides . annoeullin:
     L'offre de 2023 est reconduite en 2024.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '59011'
+      - localisation . commune . code = '59011'
       - vélo . état . neuf
       - une de ces conditions:
           - vélo . électrique simple
@@ -3941,7 +3941,7 @@ aides . la madeleine:
     de pluie, sacoches, paniers, porte-bagages, top cases, chariots, caddies pour vélo.
   applicable si: 
     toutes ces conditions:
-      - localisation . code insee = '59368'
+      - localisation . commune . code = '59368'
   valeur: 25% * vélo . prix
   plafond: 
     variations:
@@ -3970,7 +3970,7 @@ aides . puisaye forterre:
     Date limite de dépôt des dossiers : 31 décembre 2024.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC de Puisaye-Forterre'
+      - localisation . epci . nom = 'CC de Puisaye-Forterre'
       - une de ces conditions:
           - vélo . électrique
           - vélo . motorisation
@@ -3993,7 +3993,7 @@ aides . aurillac:
     auprès de la Stabus pendant au moins 3 mois consécutifs.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = "CA du Bassin d'Aurillac"
+      - localisation . epci . nom = "CA du Bassin d'Aurillac"
       - demandeur . âge . majeur
       - vélo . état . neuf
       - vélo . électrique
@@ -4012,7 +4012,7 @@ aides . terre des 2 caps:
     foyer.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC de la Terre des Deux Caps'
+      - localisation . epci . nom = 'CC de la Terre des Deux Caps'
       - demandeur . âge >= 16 an
       - une de ces conditions:
           - vélo . électrique
@@ -4038,7 +4038,7 @@ aides . saint-omer:
     Date limite de dépôt des dossiers : 31 décembre 2024.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '62765'
+      - localisation . commune . code = '62765'
       - vélo . état . neuf
   valeur:
     variations:
@@ -4066,7 +4066,7 @@ aides . les herbiers:
     Subvention pour l'achat de vélos à assistance électrique.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC du Pays des Herbiers'
+      - localisation . epci . nom = 'CC du Pays des Herbiers'
       - demandeur . âge . majeur
       - une de ces conditions:
           - revenu fiscal de référence par part <= 15400 €/an
@@ -4097,7 +4097,7 @@ aides . riviera francaise:
     décembre 2024.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CA de la Riviera Française'
+      - localisation . epci . nom = 'CA de la Riviera Française'
       - demandeur . âge . majeur
       - vélo . électrique
       - vélo . état . neuf
@@ -4117,7 +4117,7 @@ aides . frejus:
     conditions de ressources.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '83061'
+      - localisation . commune . code = '83061'
       - demandeur . âge . majeur
       - vélo . électrique
       - vélo . état . neuf
@@ -4135,7 +4135,7 @@ aides . portes de sologne:
     neuf ou d'occasion.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC des Portes de Sologne'
+      - localisation . epci . nom = 'CC des Portes de Sologne'
       - demandeur . âge . majeur
       - une de ces conditions:
           - vélo . électrique ou mécanique
@@ -4168,7 +4168,7 @@ aides . grand reims:
     budgets disponibles.
   applicable si: 
     toutes ces conditions:
-      - localisation . epci = 'CU du Grand Reims'
+      - localisation . epci . nom = 'CU du Grand Reims'
       - une de ces conditions:
           - demandeur . âge . majeur
           - demandeur . statut . étudiant
@@ -4207,7 +4207,7 @@ aides . reims:
     budgets disponibles.
   applicable si: 
     toutes ces conditions:
-      - localisation . code insee = '51454'
+      - localisation . commune . code = '51454'
       - une de ces conditions:
           - demandeur . âge . majeur
           - demandeur . statut . étudiant
@@ -4255,7 +4255,7 @@ aides . annecy:
     partenaires du Grand Annecy.
   applicable si: 
     toutes ces conditions:
-      - localisation . epci = 'CA du Grand Annecy'
+      - localisation . epci . nom = 'CA du Grand Annecy'
       - demandeur . âge . majeur
       - revenu fiscal de référence par part
   valeur:
@@ -4352,7 +4352,7 @@ aides . genevois:
     "rallongé" ou "pliable doté d'une batterie sans plomb.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC du Genevois'
+      - localisation . epci . nom = 'CC du Genevois'
       - demandeur . âge . majeur
       - une de ces conditions:
           - vélo . pliant électrique
@@ -4377,7 +4377,7 @@ aides . arve salève:
     VélO jusqu'au 30 novembre 2024.
   applicable si: 
     toutes ces conditions:
-      - localisation . epci = 'CC Arve et Salève'
+      - localisation . epci . nom = 'CC Arve et Salève'
       - demandeur . âge > 12 an
   valeur:
     variations:
@@ -4456,7 +4456,7 @@ aides . cluses arve et montagnes:
     de 400€).
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC Cluses-Arve et Montagnes'
+      - localisation . epci . nom = 'CC Cluses-Arve et Montagnes'
       - demandeur . âge . majeur
       - revenu fiscal de référence par part <= 36000 €/an
   valeur:
@@ -4508,7 +4508,7 @@ aides . évian-les-bains:
     précise l'éligibilité matérielle et de provenance.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '74119'
+      - localisation . commune . code = '74119'
       - une de ces conditions:
           - vélo . électrique
           - vélo . cargo
@@ -4532,7 +4532,7 @@ aides . combloux:
     du Mont-Blanc.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '74083'
+      - localisation . commune . code = '74083'
       - demandeur . âge >= 16 an
       - revenu fiscal de référence par part <= 74545 €/an
       - vélo . état . neuf
@@ -4552,7 +4552,7 @@ aides . châtel:
     Haute Savoie.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '74063'
+      - localisation . commune . code = '74063'
       - vélo . électrique
   valeur: 200€
   lien: https://www.mairie-chatel.com/Actions-environnement
@@ -4570,7 +4570,7 @@ aides . le vigan:
     partir du 1er janvier 2024 jusqu'au 31 décembre 2024.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '30350'
+      - localisation . commune . code = '30350'
       - demandeur . âge >= 16 an
       - vélo . électrique
   valeur: 50% * vélo . prix
@@ -4587,7 +4587,7 @@ aides . angers:
     subvention pour l'achat d'un vélo adulte neuf.
   applicable si: 
     toutes ces conditions:
-      - localisation . epci = 'CU Angers Loire Métropole'
+      - localisation . epci . nom = 'CU Angers Loire Métropole'
       - vélo . état . neuf
   valeur: 25% * vélo . prix
   plafond:
@@ -4617,7 +4617,7 @@ aides . haut val de sèvre:
     Fin de validité le 31 décembre 2024.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC Haut Val de Sèvre'
+      - localisation . epci . nom = 'CC Haut Val de Sèvre'
       - demandeur . âge . majeur
       - vélo . électrique
       - une de ces conditions:
@@ -4644,7 +4644,7 @@ aides . anjou bleu:
     Fin de validité le 31 décembre 2024.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC Anjou Bleu Communauté'
+      - localisation . epci . nom = 'CC Anjou Bleu Communauté'
       - demandeur . âge . majeur
       - vélo . état . neuf
       - vélo . électrique
@@ -4672,7 +4672,7 @@ aides . limoges metropole:
     ayant signé la convention partenariale avec Limoges Métropole.
   applicable si: 
     toutes ces conditions:
-      - localisation . epci = 'CU Limoges Métropole'
+      - localisation . epci . nom = 'CU Limoges Métropole'
       - demandeur . âge . majeur
       - revenu fiscal de référence par part <= 21470 €/an
   valeur:
@@ -4698,7 +4698,7 @@ aides . grand poitiers:
     obligatoirement retiré avant l'achat).
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CU du Grand Poitiers'
+      - localisation . epci . nom = 'CU du Grand Poitiers'
       - demandeur . âge . majeur
       - vélo . électrique
   valeur: 25% * vélo . prix
@@ -4719,7 +4719,7 @@ aides . grand orb:
     Date limite de dépôt des dossiers : 10 janvier 2025.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC Grand Orb communauté de communes en Languedoc'
+      - localisation . epci . nom = 'CC Grand Orb communauté de communes en Languedoc'
       - vélo . état . neuf
       - une de ces conditions:
           - vélo . électrique
@@ -4740,7 +4740,7 @@ aides . montlucon:
     personnel.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CA Montluçon Communauté'
+      - localisation . epci . nom = 'CA Montluçon Communauté'
       - demandeur . âge . majeur
   valeur: 
     variations:
@@ -4768,7 +4768,7 @@ aides . cotentin:
     à l'acquisition pour l'achat de votre propre vélo électrique.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CA du Cotentin'
+      - localisation . epci . nom = 'CA du Cotentin'
       - vélo . électrique
       - revenu fiscal de référence par part <= 750 €/mois
   valeur: 40% * vélo . prix
@@ -4785,7 +4785,7 @@ aides . granville:
     assistance électrique, neuf ou d'occasion.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '50218'
+      - localisation . commune . code = '50218'
       - vélo . électrique ou mécanique
       - revenu fiscal de référence par part < 28285 €/an
       - une de ces conditions:
@@ -4824,7 +4824,7 @@ aides . saint-louis:
     de l'agglomération.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CA Saint-Louis Agglomération'
+      - localisation . epci . nom = 'CA Saint-Louis Agglomération'
       - vélo . électrique ou mécanique
       - variations:
           - si: vélo . cargo
@@ -4855,7 +4855,7 @@ aides . saint-pair-sur-mer:
     handicap.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '50532'
+      - localisation . commune . code = '50532'
       - vélo . électrique ou mécanique
       - une de ces conditions:
           - revenu fiscal de référence par part <= 14089 €/an
@@ -4882,7 +4882,7 @@ aides . aunis atlantique:
      Aide forfaitaire de 200€ à l'achat de vélos à assistance électrique (VAE).
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC Aunis Atlantique'
+      - localisation . epci . nom = 'CC Aunis Atlantique'
       - revenu fiscal de référence par part <= 13489 €/an
       - demandeur . âge . majeur
       - vélo . électrique
@@ -4898,7 +4898,7 @@ aides . blois:
     électrique dans la limite de 25% du prix d'achat !
   applicable si:
     toutes ces conditions:
-      - localisation . epci = "CA de Blois ''Agglopolys''"
+      - localisation . epci . nom = "CA de Blois ''Agglopolys''"
       - vélo . électrique
       - vélo . prix <= 2000€
   valeur: 25% * vélo . prix
@@ -4915,7 +4915,7 @@ aides . epinal:
     VAE.
   applicable si: 
     toutes ces conditions:
-      - localisation . epci = "CA d'Epinal"
+      - localisation . epci . nom = "CA d'Epinal"
       - une de ces conditions:
           - vélo . électrique ou mécanique
           - vélo . motorisation
@@ -4943,7 +4943,7 @@ aides . rochefort:
     novembre de l'année civile.  
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CA Rochefort Océan'
+      - localisation . epci . nom = 'CA Rochefort Océan'
       - demandeur . âge . majeur
       - revenu fiscal de référence par part <= 15400 €/an
   valeur: 40% * vélo . prix
@@ -4977,7 +4977,7 @@ aides . saintes:
       allouée.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CA "Saintes - Grandes Rives - L'Agglo"'
+      - localisation . epci . nom = 'CA "Saintes - Grandes Rives - L'Agglo"'
       - demandeur . âge . majeur
       - une de ces conditions:
           - vélo . électrique
@@ -5005,7 +5005,7 @@ aides . dieppe:
     Date limite de dépôt des dossiers : 31 décembre 2024.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '76217'
+      - localisation . commune . code = '76217'
       - vélo . électrique ou mécanique
       - demandeur . âge >= 16 an
       - vélo . électrique ou mécanique
@@ -5026,7 +5026,7 @@ aides . yvetot normandie:
     d'occasion. Cette aide est limitée à une enveloppe budgétaire annuelle.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC Yvetot Normandie'
+      - localisation . epci . nom = 'CC Yvetot Normandie'
       - une de ces conditions:
           - vélo . électrique ou mécanique
           - vélo . adapté
@@ -5050,7 +5050,7 @@ aides . villes soeurs:
     25% du coût d'achat d'un vélo neuf, plafonnée à 150 €.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC des Villes Soeurs'
+      - localisation . epci . nom = 'CC des Villes Soeurs'
       - demandeur . âge . majeur
       - vélo . électrique
       - vélo . état . neuf
@@ -5068,7 +5068,7 @@ aides . cote albatre:
     transport d'enfants et/ou de courses est aussi possible. 
   applicable si:
     toutes ces conditions:
-      - localisation . epci = "CC de la Côte d'Albâtre"
+      - localisation . epci . nom = "CC de la Côte d'Albâtre"
       - une de ces conditions:
           - vélo . électrique ou mécanique
           - vélo . adapté
@@ -5090,7 +5090,7 @@ aides . arcachon:
      électrique.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '33009'
+      - localisation . commune . code = '33009'
       - vélo . électrique
   valeur: vélo . prix
   plafond: 200€
@@ -5105,7 +5105,7 @@ aides . canélan:
     ou la motorisation d'un vélo classique.
   applicable si: 
     toutes ces conditions:
-      - localisation . code insee = '33090'
+      - localisation . commune . code = '33090'
       - demandeur . âge . majeur
       - une de ces conditions:
           - vélo . électrique
@@ -5129,7 +5129,7 @@ aides . bassin d'arcachon nord:
     assistance électrique (VAE) neuf ou d'occasion.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = "CA du Bassin d'Arcachon Nord"
+      - localisation . epci . nom = "CA du Bassin d'Arcachon Nord"
       - demandeur . âge . majeur
       - revenu fiscal de référence par part <= 24700€/an
       - une de ces conditions:
@@ -5150,7 +5150,7 @@ aides . grand cubzaguais:
     Pouvant aller de 50€ à 150€ selon l'achat. 
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC du Grand Cubzaguais'
+      - localisation . epci . nom = 'CC du Grand Cubzaguais'
       - revenu fiscal de référence par part <= 19200 €/an
       - vélo . électrique ou mécanique
   valeur: 50% * vélo . prix
@@ -5181,7 +5181,7 @@ aides . bourges:
   description: Aide à l'achat d'un vélo 2024
   applicable si: 
     toutes ces conditions:
-      - localisation . epci = 'CA Bourges Plus'
+      - localisation . epci . nom = 'CA Bourges Plus'
       - une de ces conditions:
           - demandeur . en situation de handicap
           - revenu fiscal de référence par part <= 31593 €/an
@@ -5223,7 +5223,7 @@ aides . montauban:
     ou non.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CA Grand Montauban'
+      - localisation . epci . nom = 'CA Grand Montauban'
       - vélo . cargo
       - vélo . état . neuf
   valeur: vélo . prix
@@ -5239,7 +5239,7 @@ aides . mont de marsan:
      musculaire sans assistance.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CA Mont de Marsan Agglomération'
+      - localisation . epci . nom = 'CA Mont de Marsan Agglomération'
       - demandeur . âge . majeur
       - vélo . électrique ou mécanique
   valeur: 
@@ -5268,7 +5268,7 @@ aides . plaine de l'ain VAE:
      Dossier à envoyer avant le 1er décembre 2024.
   applicable si: 
     toutes ces conditions:
-      - localisation . epci = "CC de la Plaine de l'Ain"
+      - localisation . epci . nom = "CC de la Plaine de l'Ain"
       - demandeur . âge . majeur
       - vélo . électrique
       - vélo . prix <= 2000€
@@ -5308,7 +5308,7 @@ aides . plaine de l'ain vélos spécifiques:
      Dossier à envoyer avant le 1er décembre 2024.
   applicable si: 
     toutes ces conditions:
-      - localisation . epci = "CC de la Plaine de l'Ain"
+      - localisation . epci . nom = "CC de la Plaine de l'Ain"
       - demandeur . âge . majeur
       - une de ces conditions:
           - vélo . cargo
@@ -5328,7 +5328,7 @@ aides . divonne-les-bains:
     Date limite de dépôt des dossiers : 31 décembre 2024.
   applicable si: 
     toutes ces conditions:
-      - localisation . code insee = '01143'
+      - localisation . commune . code = '01143'
       - une de ces conditions:
           - vélo . électrique ou mécanique
           - vélo . adapté
@@ -5359,7 +5359,7 @@ aides . dieulefit-bourdeaux:
      réalisées avant la demande des aides d'Etat.
   applicable si: 
     toutes ces conditions:
-      - localisation . epci = 'CC Dieulefit-Bourdeaux'
+      - localisation . epci . nom = 'CC Dieulefit-Bourdeaux'
       - une de ces conditions:
           - demandeur . âge . majeur
           - toutes ces conditions:
@@ -5412,7 +5412,7 @@ aides . arche agglo:
     annuelle.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CA Arche Agglo'
+      - localisation . epci . nom = 'CA Arche Agglo'
       - demandeur . âge . majeur
       - vélo . état . neuf
       - une de ces conditions:
@@ -5438,7 +5438,7 @@ aides . annonay:
     territoire.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CA Annonay Rhône Agglo'
+      - localisation . epci . nom = 'CA Annonay Rhône Agglo'
       - demandeur . âge . majeur
       - une de ces conditions:
           - vélo . électrique
@@ -5472,7 +5472,7 @@ aides . lorient agglo:
     Fin du dispositif le 31 décembre 2025.
   applicable si: 
     toutes ces conditions:
-      - localisation . epci = 'CA Lorient Agglomération'
+      - localisation . epci . nom = 'CA Lorient Agglomération'
       - demandeur . âge . majeur
       - abonnement Izilo Mobilités
       - une de ces conditions:
@@ -5517,7 +5517,7 @@ aides . lanester:
     électrique, ou pour l'achat d'une remorque pour vélo.
   applicable si: 
     toutes ces conditions:
-      - localisation . code insee = '56098'
+      - localisation . commune . code = '56098'
       - demandeur . âge . majeur
       - vélo . électrique ou mécanique
   valeur:
@@ -5547,7 +5547,7 @@ aides . la roche sur yon:
     Déplacement inter-entreprises (PDIE).
   applicable si: 
     toutes ces conditions:
-      - localisation . epci = 'CA La Roche sur Yon - Agglomération'
+      - localisation . epci . nom = 'CA La Roche sur Yon - Agglomération'
       - demandeur . âge . majeur
       - une de ces conditions:
           - vélo . adapté
@@ -5620,7 +5620,7 @@ aides . cholet:
     Fin de l'opération le 31 décembre 2024.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CA Cholet Agglomération'
+      - localisation . epci . nom = 'CA Cholet Agglomération'
       - demandeur . âge . majeur
       - vélo . état . neuf
       - une de ces conditions:
@@ -5638,7 +5638,7 @@ aides . saumur val de loire:
     usage personnel.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CA Saumur Val de Loire'
+      - localisation . epci . nom = 'CA Saumur Val de Loire'
       - demandeur . âge . majeur
       - vélo . électrique
       - revenu fiscal de référence par part <= 15400 €/an
@@ -5659,7 +5659,7 @@ aides . loire layon aubance:
     du vélo avec le cumul du Bonus Vélo de l'Etat.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC Loire Layon Aubance'
+      - localisation . epci . nom = 'CC Loire Layon Aubance'
       - demandeur . âge . majeur
       - revenu fiscal de référence par part <= 15400 €/an
   valeur: 40% * vélo . prix
@@ -5687,7 +5687,7 @@ aides . laval:
     le territoire des Pays de la Loire ou de la Bretagne.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CA Laval Agglomération'
+      - localisation . epci . nom = 'CA Laval Agglomération'
       - demandeur . âge . majeur
       - vélo . état . neuf
       - vélo . cargo électrique
@@ -5703,7 +5703,7 @@ aides . ville de talant:
     la Métropole Dijonnaise.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '21617'
+      - localisation . commune . code = '21617'
       - demandeur . âge . majeur
       - une de ces conditions:
           - vélo . électrique
@@ -5727,7 +5727,7 @@ aides . pays des achards:
     spécifique.
   applicable si: 
     toutes ces conditions:
-      - localisation . epci = 'CC du Pays des Achards'
+      - localisation . epci . nom = 'CC du Pays des Achards'
       - demandeur . âge . majeur
       - une de ces conditions:
           - vélo . électrique ou mécanique
@@ -5753,7 +5753,7 @@ aides . hem:
     alloué).
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '59299'
+      - localisation . commune . code = '59299'
       - demandeur . âge . majeur
   valeur: 25% * vélo . prix
   plafond: 300 €
@@ -5768,7 +5768,7 @@ aides . liévin:
     professionnel présent sur le territoire du Pôle Métropolitain de l'Artois.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '62510'
+      - localisation . commune . code = '62510'
       - vélo . électrique
       - vélo . état . neuf
   valeur: 250€
@@ -5788,7 +5788,7 @@ aides . baisieux:
     l'achat.
   applicable si: 
     toutes ces conditions:
-      - localisation . code insee = '59044'
+      - localisation . commune . code = '59044'
       - une de ces conditions:
           - vélo . électrique ou mécanique
           - vélo . cargo
@@ -5813,7 +5813,7 @@ aides . bonningues-lès-calais:
     Aide octroyée sous forme de subvention pour tout achat d'un vélo neuf ou
     d'occasion entre le 1er avril 2023 et le 30 Avril 2024 auprès d'un
     commerçant spécialisé.
-  applicable si: localisation . code insee = '62156'
+  applicable si: localisation . commune . code = '62156'
   valeur:
     variations:
       - si: 
@@ -5839,7 +5839,7 @@ aides . loos-en-gohelle:
     épuisement du budget du 1er janvier 2024 au 31 décembre 2025.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '62528'
+      - localisation . commune . code = '62528'
       - vélo . électrique ou mécanique
   valeur:
     variations:
@@ -5860,7 +5860,7 @@ aides . gruson:
     Aide à l'achat d'un vélo à assistance électrique neuf.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '59275'
+      - localisation . commune . code = '59275'
       - vélo . électrique
       - vélo . état . neuf
   valeur:
@@ -5878,7 +5878,7 @@ aides . iwuy:
     Aide de 100€ pour l'achat d'un vélo neuf à assistance électrique.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '59322'
+      - localisation . commune . code = '59322'
       - vélo . électrique
       - vélo . état . neuf
   valeur: 100€
@@ -5896,7 +5896,7 @@ aides . porte du hainaut:
     son vélo.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CA de la Porte du Hainaut'
+      - localisation . epci . nom = 'CA de la Porte du Hainaut'
       - demandeur . âge . majeur
       - vélo . électrique ou mécanique
   valeur:
@@ -5936,7 +5936,7 @@ aides . denain:
     mairie de Denain.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '59172'
+      - localisation . commune . code = '59172'
       - aides . porte du hainaut
   valeur: 50% * aides . porte du hainaut
   lien: https://www.ville-denain.fr/Urbanisme-habitat-et-cadre-de-vie/Developpement-durable/Aide-en-faveur-des-mobilites-actives
@@ -5949,7 +5949,7 @@ aides . wambrechies:
     Subvention d'aide à l'achat de vélos à assistance électrique ou mécanique
     ainsi que d'accessoires. L'achat d'un vélo neuf ou d'occasion doit se faire
     chez un professionnel avec facture.
-  applicable si: localisation . code insee = '59636'
+  applicable si: localisation . commune . code = '59636'
   valeur: 50% * vélo . prix
   plafond:
     variations:
@@ -5974,7 +5974,7 @@ aides . lesquin:
     Dispositif valable jusqu'au 31 décembre 2024.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '59343'
+      - localisation . commune . code = '59343'
       - demandeur . âge . majeur
       - vélo . électrique ou mécanique
   valeur: 25% * vélo . prix
@@ -5992,7 +5992,7 @@ aides . lezenne:
   description: >
     Aide à l'achat aussi bien pour un vélo neuf que d'occasion, de type vélo de
     ville, VTC et VTT, vendu par un professionnel.
-  applicable si: localisation . code insee = '59346'
+  applicable si: localisation . commune . code = '59346'
   variations:
     - si: demandeur . bénéficiaire de minima sociaux
       alors:
@@ -6035,7 +6035,7 @@ aides . dunkerque:
     effectué chez un commerce de la Communauté Urbaine de Dunkerque.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CU de Dunkerque'
+      - localisation . epci . nom = 'CU de Dunkerque'
       - vélo . état . neuf
       - une de ces conditions:
           - vélo . électrique ou mécanique
@@ -6080,7 +6080,7 @@ aides . grande-synthe:
     Aide à l'achat d'un vélo neuf à assistance électrique ou non.
   applicable si: 
     toutes ces conditions:
-      - localisation . code insee = '59271'
+      - localisation . commune . code = '59271'
       - demandeur . âge . majeur
       - vélo . électrique ou mécanique
       - vélo . état . neuf
@@ -6104,7 +6104,7 @@ aides . valenciennes:
     compte).
   applicable si: 
     toutes ces conditions:
-      - localisation . epci = 'CA Valenciennes Métropole'
+      - localisation . epci . nom = 'CA Valenciennes Métropole'
       - une de ces conditions:
           - demandeur . âge . majeur
           - demandeur . statut . apprenti
@@ -6154,7 +6154,7 @@ aides . cambrai:
     de Cambrai.
   applicable si: 
     toutes ces conditions:
-      - localisation . epci = 'CA de Cambrai'
+      - localisation . epci . nom = 'CA de Cambrai'
       - vélo . état . neuf
       - vélo . électrique ou mécanique
       - une de ces conditions:
@@ -6177,7 +6177,7 @@ aides . coeur d'ostrevent:
     2024 et le 31 décembre 2024.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC Coeur d'Ostrevent (CCCO)'
+      - localisation . epci . nom = 'CC Coeur d'Ostrevent (CCCO)'
       - demandeur . âge . majeur
       - vélo . électrique
       - vélo . état . neuf
@@ -6192,7 +6192,7 @@ aides . thiais:
     Subvention pour l'acquisition d'un vélo neuf à assistance électrique.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '94073'
+      - localisation . commune . code = '94073'
       - vélo . électrique
       - vélo . état . neuf
   valeur: 25% * vélo . prix
@@ -6212,7 +6212,7 @@ aides . nanterre:
     carte famille est supérieure à 2211 € ne sont pas éligibles à cette aide.
   applicable si: 
     toutes ces conditions:
-      - localisation . code insee = '92050'
+      - localisation . commune . code = '92050'
       - demandeur . âge . majeur
       - une de ces conditions:
           - vélo . mécanique simple
@@ -6289,7 +6289,7 @@ aides . puteaux:
     éligibles au versement de la subvention.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '92062'
+      - localisation . commune . code = '92062'
       - une de ces conditions:
           - vélo . électrique ou mécanique
           - vélo . motorisation
@@ -6312,7 +6312,7 @@ aides . genneviliers:
     achetés après le 1er septembre 2024 pour être éligibles.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '92036'
+      - localisation . commune . code = '92036'
       - demandeur . âge . majeur
       - vélo . électrique ou mécanique
   valeur: 100€
@@ -6326,7 +6326,7 @@ aides . drancy:
     d'occasion à assistance électrique.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '93029'
+      - localisation . commune . code = '93029'
       - vélo . électrique
   variations:
     - si: foyer . imposable
@@ -6343,7 +6343,7 @@ aides . rives de moselle:
     d'occasion.
   applicable si: 
     toutes ces conditions:
-      - localisation . epci = 'CC Rives de Moselle'
+      - localisation . epci . nom = 'CC Rives de Moselle'
       - vélo . électrique ou mécanique
   valeur: 20% * vélo . prix
   plafond:
@@ -6376,7 +6376,7 @@ aides . saint-avold:
     magasin du territoire de la CASAS, 50€ sinon. 
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CA Saint-Avold Synergie'
+      - localisation . epci . nom = 'CA Saint-Avold Synergie'
       - vélo . électrique
   valeur:
     variations:
@@ -6399,7 +6399,7 @@ aides . montigny les metz:
     territoire de la Métropole. 
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '57480'
+      - localisation . commune . code = '57480'
       - demandeur . âge . majeur
       - une de ces conditions:
           - vélo . électrique
@@ -6419,7 +6419,7 @@ aides . mennecy:
     versée sans critère.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '91386'
+      - localisation . commune . code = '91386'
       - vélo . mécanique
       - vélo . état . neuf
   valeur:
@@ -6443,7 +6443,7 @@ aides . betheny:
     décembre 2024 pour être traités au titre du dispositif 2024.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '51055'
+      - localisation . commune . code = '51055'
       - demandeur . âge . majeur
       - revenu fiscal de référence par part <= 14089 €/an
       - une de ces conditions:
@@ -6478,7 +6478,7 @@ aides . brest:
     Métropole (pas d'achat en ligne).
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'Brest Métropole'
+      - localisation . epci . nom = 'Brest Métropole'
       - demandeur . âge . majeur
       - vélo . électrique
       - vélo . état . neuf
@@ -6517,7 +6517,7 @@ aides . relecq-kerhuon:
     situation de handicap.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '29235'
+      - localisation . commune . code = '29235'
       - une de ces conditions:
           - vélo . électrique ou mécanique
           - vélo . adapté
@@ -6563,7 +6563,7 @@ aides . plougastel-daoulas:
     ou d'occasion acheté chez un revendeur professionnel.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '29189'
+      - localisation . commune . code = '29189'
       - une de ces conditions:
           - vélo . électrique
           - vélo . adapté
@@ -6597,7 +6597,7 @@ aides . pays d'iroise:
     assistance électrique et de 100 € pour l'achat d'un kit d'électrification.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = "CC du Pays d'Iroise"
+      - localisation . epci . nom = "CC du Pays d'Iroise"
       - demandeur . âge . majeur
       - une de ces conditions:
           - revenu fiscal de référence par part <= 14089 €/an
@@ -6621,7 +6621,7 @@ aides . haute-cornouaille:
     professionnel entre le 1er janvier 2024 et le 31 décembre 2024.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC de Haute Cornouaille'
+      - localisation . epci . nom = 'CC de Haute Cornouaille'
       - demandeur . âge . majeur
       - revenu fiscal de référence par part <= 14089 €/an
       - vélo . électrique
@@ -6639,7 +6639,7 @@ aides . gouesnou:
      une situation de handicap.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '29061'
+      - localisation . commune . code = '29061'
       - une de ces conditions:
           - vélo . électrique
           - toutes ces conditions:
@@ -6660,7 +6660,7 @@ aides . saint-pol-de-léon:
     Aide de 100€ pour l'achat d'un vélo à assistance électrique neuf.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '29259'
+      - localisation . commune . code = '29259'
       - demandeur . âge . majeur
       - vélo . électrique
       - vélo . état . neuf
@@ -6675,7 +6675,7 @@ aides . baie du mont saint-michel:
     (VAE) classique ou pliant neuf ou pour l'électrification d'un vélo.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC du Pays de Dol et de la Baie du Mont Saint-Michel'
+      - localisation . epci . nom = 'CC du Pays de Dol et de la Baie du Mont Saint-Michel'
       - revenu fiscal de référence par part <= 14089 €/an
       - demandeur . âge . majeur
       - vélo . état . neuf
@@ -6699,7 +6699,7 @@ aides . montfort:
     Boutik.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC Montfort Communauté'
+      - localisation . epci . nom = 'CC Montfort Communauté'
       - une de ces conditions:
           - vélo . mécanique simple
           - vélo . pliant mécanique
@@ -6739,7 +6739,7 @@ aides . liffré-cormier:
     atypique mécanique (vélo pliant, vélo cargo, vélo adapté) neuf.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC Liffré-Cormier Communauté'
+      - localisation . epci . nom = 'CC Liffré-Cormier Communauté'
       - demandeur . âge . majeur
       - vélo . état . neuf
       - une de ces conditions:
@@ -6763,7 +6763,7 @@ aides . vallons de haute bretagne:
     commerce situé sur le territoire de Vallons de Haute Bretagne Communauté.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC Vallons de Haute-Bretagne Communauté'
+      - localisation . epci . nom = 'CC Vallons de Haute-Bretagne Communauté'
       - demandeur . âge . majeur
       - vélo . électrique
       - vélo . état . neuf
@@ -6780,7 +6780,7 @@ aides . guichen:
   description: Aide de 100€ pour l'achat d'un vélo à assistance électrique neuf.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '35126'
+      - localisation . commune . code = '35126'
       - demandeur . âge . majeur
       - vélo . électrique
       - vélo . état . neuf
@@ -6793,7 +6793,7 @@ aides . cote d'emeraude:
   description: Aide de 100€ pour l'achat d'un vélo neuf de tout type.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = "CC Côte d'Emeraude"
+      - localisation . epci . nom = "CC Côte d'Emeraude"
       - revenu fiscal de référence par part <= 20000€/an
       - vélo . état . neuf
       - une de ces conditions:
@@ -6811,7 +6811,7 @@ aides . saint-brieuc armor:
     disponible
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CA Saint-Brieuc Armor Agglomération'
+      - localisation . epci . nom = 'CA Saint-Brieuc Armor Agglomération'
       - vélo . état . neuf
       - une de ces conditions:
           - vélo . électrique
@@ -6827,7 +6827,7 @@ aides . lannion-trégor:
     Aide de 10% du prix du vélo à assistance électrique neuf, plafonnée à 100€.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CA Lannion-Trégor Communauté'
+      - localisation . epci . nom = 'CA Lannion-Trégor Communauté'
       - demandeur . âge . majeur
       - foyer . imposable = non
       - vélo . état . neuf
@@ -6844,7 +6844,7 @@ aides . morlaix:
     dans un magasin situé sur le territoire de Morlaix Communauté.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CA Morlaix Communauté'
+      - localisation . epci . nom = 'CA Morlaix Communauté'
       - une de ces conditions:
           - vélo . électrique
           - vélo . adapté # TODO: vélo adapté électrique
@@ -6868,7 +6868,7 @@ aides . poher:
     d'achat, plafonnée à 200 €
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC Poher Communauté'
+      - localisation . epci . nom = 'CC Poher Communauté'
       - demandeur . âge . majeur
       - vélo . état . neuf
       - vélo . électrique
@@ -6884,7 +6884,7 @@ aides . crozon:
     (VAE) neuf ou d'occasion.
   applicable si: 
     toutes ces conditions:
-      - localisation . epci = "CC Presqu'île de Crozon-Aulne maritime"
+      - localisation . epci . nom = "CC Presqu'île de Crozon-Aulne maritime"
       - demandeur . âge . majeur
       - revenu fiscal de référence par part <= 14089 €/an
       - une de ces conditions:
@@ -6904,7 +6904,7 @@ aides . saint-jacques de la lande:
     1er janvier 2024 et le 31 décembre 2024.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '35281'
+      - localisation . commune . code = '35281'
       - demandeur . âge >= 15 an
       - revenu fiscal de référence par part <= 1800 €/mois
       - vélo . électrique ou mécanique
@@ -6930,7 +6930,7 @@ aides . quesnoy-sur-deûle:
     Dispositif valable jusqu'au 31 décembre 2024.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '59482'
+      - localisation . commune . code = '59482'
       - une de ces conditions:
           - vélo . électrique ou mécanique
           - vélo . adapté
@@ -6946,7 +6946,7 @@ aides . sainghin en melantois:
     d'occasion, acheté chez un professionnel. 
   applicable si: 
     toutes ces conditions:
-      - localisation . code insee = '59523'
+      - localisation . commune . code = '59523'
       - vélo . électrique ou mécanique
   valeur: 25% * vélo . prix
   plafond:
@@ -6969,8 +6969,8 @@ aides . grand calais:
   applicable si:
     toutes ces conditions:
       - une de ces conditions:
-          - localisation . epci = 'CA Grand Calais Terres et Mers'
-          - localisation . code insee = '62397'
+          - localisation . epci . nom = 'CA Grand Calais Terres et Mers'
+          - localisation . commune . code = '62397'
       - une de ces conditions:
           - vélo . électrique ou mécanique
           - vélo . adapté
@@ -6995,7 +6995,7 @@ aides . pays de lumbres:
     31 décembre 2024
   applicable si: 
     toutes ces conditions:
-      - localisation . epci = 'CC du Pays de Lumbres'
+      - localisation . epci . nom = 'CC du Pays de Lumbres'
       - une de ces conditions:
           - vélo . électrique ou mécanique
           - vélo . adapté
@@ -7022,7 +7022,7 @@ aides . amboise:
     personnel.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '37003'
+      - localisation . commune . code = '37003'
       - demandeur . âge . majeur
       - vélo . électrique
   formule:
@@ -7049,7 +7049,7 @@ aides . moselle et madon:
     ou l'électrification d'un vélo.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC Moselle et Madon'
+      - localisation . epci . nom = 'CC Moselle et Madon'
       - une de ces conditions:
           - vélo . électrique ou mécanique
           - vélo . adapté
@@ -7067,7 +7067,7 @@ aides . boulonnais:
      personnes en recherche d'emploi.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CA du Boulonnais'
+      - localisation . epci . nom = 'CA du Boulonnais'
       - demandeur . âge . majeur
       - une de ces conditions:
           - demandeur . statut . salarié
@@ -7087,7 +7087,7 @@ aides . osartis-marquion:
     Aide de 150 € pour l'achat d'un vélo à assistance électrique neuf.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC Osartis Marquion'
+      - localisation . epci . nom = 'CC Osartis Marquion'
       - demandeur . âge . majeur
       - vélo . électrique
       - vélo . état . neuf
@@ -7100,7 +7100,7 @@ aides . pontivy:
   description: Subvention pour l'achat d'un vélo neuf ou d'occasion. 
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC Pontivy Communauté'
+      - localisation . epci . nom = 'CC Pontivy Communauté'
       - revenu fiscal de référence par part <= 25000 €/an
       - vélo . électrique ou mécanique
   valeur: vélo . prix
@@ -7119,7 +7119,7 @@ aides . chateauroux:
     les habitants de l'une des communes de l'Agglomération
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CA Châteauroux Métropole'
+      - localisation . epci . nom = 'CA Châteauroux Métropole'
       - demandeur . âge . majeur
       - vélo . électrique ou mécanique
   valeur: 
@@ -7137,7 +7137,7 @@ aides . auray quiberon:
     la pose d'un kit d'électrification neuf.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC Auray Quiberon Terre Atlantique'
+      - localisation . epci . nom = 'CC Auray Quiberon Terre Atlantique'
       - demandeur . âge . majeur
       - une de ces conditions:
           - revenu fiscal de référence par part <= 20000 €/an
@@ -7167,7 +7167,7 @@ aides . grand villeneuvois:
   description: Aide à l'achat d'un vélo - Troisième édition
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CA du Grand Villeneuvois'
+      - localisation . epci . nom = 'CA du Grand Villeneuvois'
       - demandeur . âge . majeur
       - vélo . électrique ou mécanique
   valeur:
@@ -7192,7 +7192,7 @@ aides . oise:
     tout achat effectué entre 1er juillet 2023 et le 31 mars 2024).
   applicable si: 
     toutes ces conditions:
-      - localisation . département = '60'
+      - localisation . département . code = '60'
       - une de ces conditions:
           - vélo . électrique ou mécanique
           - vélo . motorisation
@@ -7227,7 +7227,7 @@ aides . beauvais:
     d'Agglomération du Beauvaisis.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CA du Beauvaisis'
+      - localisation . epci . nom = 'CA du Beauvaisis'
       - une de ces conditions:
           - vélo . électrique ou mécanique
           - vélo . motorisation
@@ -7247,7 +7247,7 @@ aides . grand angouleme:
     matériel chez un des magasins partenaires.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CA du Grand Angoulême'
+      - localisation . epci . nom = 'CA du Grand Angoulême'
       - demandeur . âge . majeur
       - une de ces conditions:
           - revenu fiscal de référence par part <= 2000 €/mois
@@ -7286,7 +7286,7 @@ aides . massif du vercors:
     Bonus VAE - Aide à l'achat de vélos à assistance électrique.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC du Massif du Vercors'
+      - localisation . epci . nom = 'CC du Massif du Vercors'
       - demandeur . âge . majeur
       - revenu fiscal de référence par part <= 21805 €/an
       - vélo . électrique
@@ -7309,7 +7309,7 @@ aides . portes du luxembourg:
     d'occasion.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC des Portes du Luxembourg'
+      - localisation . epci . nom = 'CC des Portes du Luxembourg'
       - vélo . électrique ou mécanique
   valeur:
     variations:
@@ -7334,7 +7334,7 @@ aides . cazouls-lès-béziers:
     Dispositif d'aide à l'achat d'un Vélo à Assistance Électrique (V.A.E).
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '34069'
+      - localisation . commune . code = '34069'
       - demandeur . âge . majeur
       - vélo . électrique
       - vélo . état . neuf
@@ -7349,7 +7349,7 @@ aides . château-thierry:
   description: Aide a l'acquisition d'un velo avec ou sans assistance electrique.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CA de la Région de Château-Thierry'
+      - localisation . epci . nom = 'CA de la Région de Château-Thierry'
       - demandeur . âge . majeur
       - vélo . état . neuf
       - vélo . électrique ou mécanique
@@ -7369,7 +7369,7 @@ aides . ecommoy:
   description: Aide à l'achat d'un vélo à assistance électrique.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '72124'
+      - localisation . commune . code = '72124'
       - vélo . électrique
   valeur: 25% * vélo . prix
   plafond: 100€
@@ -7384,7 +7384,7 @@ aides . bannalec:
     physique.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '29004'
+      - localisation . commune . code = '29004'
       - une de ces conditions:
           - vélo . électrique
           - vélo . motorisation
@@ -7399,7 +7399,7 @@ aides . vallées du clain:
     Dispositif d'aide à l'achat d'un vélo électrique renouvelé pour 2024.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC des Vallées du Clain'
+      - localisation . epci . nom = 'CC des Vallées du Clain'
       - demandeur . âge . majeur
       - vélo . électrique
   valeur: 25% * vélo . prix
@@ -7420,7 +7420,7 @@ aides . witry-lès-reims:
     et non sur internet, avant le 31 décembre 2024.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '51662'
+      - localisation . commune . code = '51662'
       - demandeur . âge . majeur
       - vélo . électrique
   valeur: 100€
@@ -7432,7 +7432,7 @@ aides . golf de saint-tropez:
   description: Prime a l'acquisition d'un vélo à assistance électrique (VAE).
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC du Golfe de Saint-Tropez'
+      - localisation . epci . nom = 'CC du Golfe de Saint-Tropez'
       - demandeur . âge . majeur
       - vélo . électrique
       - vélo . état . neuf
@@ -7445,7 +7445,7 @@ aides . labège:
   description: Aide à l'acquisition d'un vélo électrique.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '31254'
+      - localisation . commune . code = '31254'
       - vélo . électrique
       - vélo . état . neuf
   valeur:
@@ -7466,7 +7466,7 @@ aides . hennebont:
     remorque et/ou carriole à vélo, pour l'électrification d'un vélo ancien.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '56083'
+      - localisation . commune . code = '56083'
       - vélo . état . neuf
       - une de ces conditions:
           - vélo . électrique ou mécanique
@@ -7481,7 +7481,7 @@ aides . couesnon:
   description: Aide à l'acquisition d'un Vélo à Assistance Electrique (VAE).
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC Couesnon Marches de Bretagne'
+      - localisation . epci . nom = 'CC Couesnon Marches de Bretagne'
       - demandeur . âge . majeur
       - vélo . état . neuf
       - vélo . électrique
@@ -7500,7 +7500,7 @@ aides . avant-monts:
     professionnels.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC Les Avant-Monts'
+      - localisation . epci . nom = 'CC Les Avant-Monts'
       - demandeur . âge . majeur
       - vélo . électrique
       - revenu fiscal de référence par part <= 24000 €/an
@@ -7515,7 +7515,7 @@ aides . vallées de l'orne et de l'odon:
     Aide à l'acquisition d'un vélo électrique ou mécanique, neuf ou d'occasion.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = "CC Vallées de l'Orne et de l'Odon"
+      - localisation . epci . nom = "CC Vallées de l'Orne et de l'Odon"
       - une de ces conditions:
           - vélo . électrique ou mécanique
           - vélo . adapté
@@ -7540,7 +7540,7 @@ aides . joinville-le-pont:
     ménage peut être subventionné.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '94042'
+      - localisation . commune . code = '94042'
       - vélo . électrique
       - vélo . état . neuf
   valeur: 25% * vélo . prix
@@ -7555,7 +7555,7 @@ aides . haut-béarn:
     mécanique.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC du Haut Béarn'
+      - localisation . epci . nom = 'CC du Haut Béarn'
       - demandeur . âge . majeur
       - vélo . électrique ou mécanique
       - vélo . état . neuf
@@ -7577,7 +7577,7 @@ aides . joinville:
     Pour bénéficier du bonus, n'hésitez pas à consulter la mairie de Joinville.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '52250'
+      - localisation . commune . code = '52250'
       - vélo . électrique
   valeur: 200€
   lien: https://mairie-joinville.fr/fr/nw/509875/699194/aide-a-lacquisition-de-velos-a-assistance-electrique
@@ -7589,7 +7589,7 @@ aides . villers-sur-mer:
     Aide à l'acquisition d'un vélo classique ou à assistance électrique neuf.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '14754'
+      - localisation . commune . code = '14754'
       - vélo . état . neuf
       - une de ces conditions:
           - vélo . électrique ou mécanique
@@ -7626,7 +7626,7 @@ aides . val-revermont:
     de la mairie pour plus d'informations.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '01426'
+      - localisation . commune . code = '01426'
       - vélo . électrique ou mécanique
   valeur: 100€
   plafond: vélo . prix
@@ -7640,7 +7640,7 @@ aides . pays de châteaugiron:
     électrique pour vélo ou d'un vélo cargo.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC Pays de Châteaugiron Communauté'
+      - localisation . epci . nom = 'CC Pays de Châteaugiron Communauté'
       - vélo . électrique
       - demandeur . âge . majeur
       - vélo . état . neuf
@@ -7656,7 +7656,7 @@ aides . bièvre isère:
     assistance électrique, cargo ou non.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC Bièvre Isère'
+      - localisation . epci . nom = 'CC Bièvre Isère'
       - demandeur . âge . majeur
       - une de ces conditions:
           - toutes ces conditions:
@@ -7691,7 +7691,7 @@ aides . ceyrat:
      Aide communale à l'achat d'un vélo électrique neuf ou d'occasion.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '63070'
+      - localisation . commune . code = '63070'
       - demandeur . âge . majeur
       - vélo . électrique
   valeur:
@@ -7709,7 +7709,7 @@ aides . baud:
   description: Subvention de 50€ pour l'achat d'un vélo neuf à assistance électrique.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '56010'
+      - localisation . commune . code = '56010'
       - vélo . état . neuf
       - vélo . électrique
   valeur: 50€
@@ -7722,7 +7722,7 @@ aides . longuenesse:
   description: Prime vélo sous forme de chèque Happy Kdo pour l'année 2024.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '62525'
+      - localisation . commune . code = '62525'
       - une de ces conditions:
           - vélo . électrique
           - vélo . adapté
@@ -7737,7 +7737,7 @@ aides . castelnau de médoc:
     Aide à l'acquisition d'un vélo à assistance électrique neuf.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '33104'
+      - localisation . commune . code = '33104'
       - demandeur . âge . majeur
       - revenu fiscal de référence par part <= plafond état
       - vélo . état . neuf
@@ -7757,7 +7757,7 @@ aides . saulieu:
     Le dossier est à déposer dans les trentes jours suivants l'achat.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC de Saulieu-Morvan'
+      - localisation . epci . nom = 'CC de Saulieu-Morvan'
       - demandeur . âge . majeur
       - vélo . électrique
       - vélo . état . neuf
@@ -7771,7 +7771,7 @@ aides . la côtière à montluel:
   description: Aide à l'achat d'un vélo à assistance électrique, neuf ou d'occasion.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC de la Côtière à Montluel'
+      - localisation . epci . nom = 'CC de la Côtière à Montluel'
       - demandeur . âge . majeur
       - une de ces conditions:
           - travailler à moins de 20km
@@ -7817,7 +7817,7 @@ aides . pays orne moselle:
     d'informations avant de réaliser votre achat.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC du Pays Orne Moselle'
+      - localisation . epci . nom = 'CC du Pays Orne Moselle'
       - revenu fiscal de référence par part <= plafond état
       - demandeur . âge . majeur
       - aides . bonus vélo > 0€
@@ -7839,7 +7839,7 @@ aides . bram:
     jusqu'au 1er décembre 2024.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '11049'
+      - localisation . commune . code = '11049'
       - demandeur . âge >= 16 an
       - vélo . état . neuf
       - revenu fiscal de référence par part <= 35052 €/an
@@ -7885,68 +7885,68 @@ aides . region centre:
     l'autorité organisatrice de la mobilité locale de substitution.
   applicable si:
     toutes ces conditions:
-      - localisation . région = '24'
+      - localisation . région . code = '24'
       - vélo . prix >= 600€
       - une de ces conditions:
           - vélo . électrique
           - vélo . adapté
       - une de ces conditions:
-          - localisation . epci = "CC du Perche"
-          - localisation . epci = "CC du Bonnevalais"
-          - localisation . epci = "CC Coeur de Beauce"
-          - localisation . epci = "CC du Grand Châteaudun"
-          - localisation . epci = "CC des Collines du Perche"
-          - localisation . epci = "CC du Perche et Haut Vendômois"
-          - localisation . epci = "CC Beauce Val de Loire"
-          - localisation . epci = "CC du Grand Chambord"
-          - localisation . epci = "CC de la Sologne des Etangs"
-          - localisation . epci = "CC Coeur de Sologne"
-          - localisation . epci = "CC de la Sologne des Rivières"
-          - localisation . epci = "CC de la Forêt"
-          - localisation . epci = "CC des Loges"
-          - localisation . epci = "CC du Val de Sully"
-          - localisation . epci = "CC de la Plaine du Nord Loiret"
-          - localisation . epci = "CC du Pithiverais"
-          - localisation . epci = "CC du Pithiverais-Gâtinais"
-          - localisation . epci = "CC de la Cléry, du Betz et de l'Ouanne"
-          - localisation . epci = "CC Berry Loire Puisaye"
-          - localisation . epci = "CC Sauldre et Sologne"
-          - localisation . epci = "CC Pays Fort Sancerrois Val de Loire"
-          - localisation . epci = "CC Terres du Haut Berry"
-          - localisation . epci = "CC Vierzon-Sologne-Berry"
-          - localisation . epci = "CC Berry-Loire-Vauvise"
-          - localisation . epci = "CC la Septaine"
-          - localisation . epci = "CC Berry-Loire-Vauvise"
-          - localisation . epci = "CC Pays de Nérondes"
-          - localisation . epci = "CC Portes du Berry entre Loire et Val d'Aubois"
-          - localisation . epci = "CC les Trois Provinces"
-          - localisation . epci = "CC Coeur de France"
-          - localisation . epci = "CC Arnon Boischaut Cher"
-          - localisation . epci = "CC Coeur de Berry"
-          - localisation . epci = "CC FerCher"
-          - localisation . epci = "CC Berry Grand Sud"
-          - localisation . epci = "CC Val-de-Cher-Controis"
-          - localisation . epci = "CC Chabris - Pays de Bazelle"
-          - localisation . epci = "CC du Pays d'Issoudun"
-          - localisation . epci = "CC Champagne Boischauts"
-          - localisation . epci = "CC Coeur de Brenne"
-          - localisation . epci = "CC Brenne - Val de Creuse"
-          - localisation . epci = "CC Loches Sud Touraine"
-          - localisation . epci = "CC Touraine Val de Vienne"
-          - localisation . epci = "CC Touraine Vallée de l'Indre"
-          - localisation . epci = "CC Touraine Ouest Val de Loire"
-          - localisation . epci = "CC de Gâtine-Racan"
-          - localisation . epci = "CC du Val d Amboise"
-          - localisation . epci = "CC Autour de Chenonceaux Bléré-Val de Cher"
-          - localisation . epci = "CC Touraine-Est Vallées"
-          - localisation . epci = "CC du Castelrenaudais"
-          - localisation . epci = "CC Val de l'Indre - Brenne"
-          - localisation . epci = "CC du Val de Bouzanne"
-          - localisation . epci = "CC de la Marche Berrichonne"
-          - localisation . epci = "CC Éguzon - Argenton - Vallée de la Creuse"
-          - localisation . epci = "CC de la Châtre et Sainte-Sévère"
-          - localisation . epci = "CC du Châtillonnais en Berry"
-          - localisation . epci = "CC Écueillé-Valençay"
+          - localisation . epci . nom = "CC du Perche"
+          - localisation . epci . nom = "CC du Bonnevalais"
+          - localisation . epci . nom = "CC Coeur de Beauce"
+          - localisation . epci . nom = "CC du Grand Châteaudun"
+          - localisation . epci . nom = "CC des Collines du Perche"
+          - localisation . epci . nom = "CC du Perche et Haut Vendômois"
+          - localisation . epci . nom = "CC Beauce Val de Loire"
+          - localisation . epci . nom = "CC du Grand Chambord"
+          - localisation . epci . nom = "CC de la Sologne des Etangs"
+          - localisation . epci . nom = "CC Coeur de Sologne"
+          - localisation . epci . nom = "CC de la Sologne des Rivières"
+          - localisation . epci . nom = "CC de la Forêt"
+          - localisation . epci . nom = "CC des Loges"
+          - localisation . epci . nom = "CC du Val de Sully"
+          - localisation . epci . nom = "CC de la Plaine du Nord Loiret"
+          - localisation . epci . nom = "CC du Pithiverais"
+          - localisation . epci . nom = "CC du Pithiverais-Gâtinais"
+          - localisation . epci . nom = "CC de la Cléry, du Betz et de l'Ouanne"
+          - localisation . epci . nom = "CC Berry Loire Puisaye"
+          - localisation . epci . nom = "CC Sauldre et Sologne"
+          - localisation . epci . nom = "CC Pays Fort Sancerrois Val de Loire"
+          - localisation . epci . nom = "CC Terres du Haut Berry"
+          - localisation . epci . nom = "CC Vierzon-Sologne-Berry"
+          - localisation . epci . nom = "CC Berry-Loire-Vauvise"
+          - localisation . epci . nom = "CC la Septaine"
+          - localisation . epci . nom = "CC Berry-Loire-Vauvise"
+          - localisation . epci . nom = "CC Pays de Nérondes"
+          - localisation . epci . nom = "CC Portes du Berry entre Loire et Val d'Aubois"
+          - localisation . epci . nom = "CC les Trois Provinces"
+          - localisation . epci . nom = "CC Coeur de France"
+          - localisation . epci . nom = "CC Arnon Boischaut Cher"
+          - localisation . epci . nom = "CC Coeur de Berry"
+          - localisation . epci . nom = "CC FerCher"
+          - localisation . epci . nom = "CC Berry Grand Sud"
+          - localisation . epci . nom = "CC Val-de-Cher-Controis"
+          - localisation . epci . nom = "CC Chabris - Pays de Bazelle"
+          - localisation . epci . nom = "CC du Pays d'Issoudun"
+          - localisation . epci . nom = "CC Champagne Boischauts"
+          - localisation . epci . nom = "CC Coeur de Brenne"
+          - localisation . epci . nom = "CC Brenne - Val de Creuse"
+          - localisation . epci . nom = "CC Loches Sud Touraine"
+          - localisation . epci . nom = "CC Touraine Val de Vienne"
+          - localisation . epci . nom = "CC Touraine Vallée de l'Indre"
+          - localisation . epci . nom = "CC Touraine Ouest Val de Loire"
+          - localisation . epci . nom = "CC de Gâtine-Racan"
+          - localisation . epci . nom = "CC du Val d Amboise"
+          - localisation . epci . nom = "CC Autour de Chenonceaux Bléré-Val de Cher"
+          - localisation . epci . nom = "CC Touraine-Est Vallées"
+          - localisation . epci . nom = "CC du Castelrenaudais"
+          - localisation . epci . nom = "CC Val de l'Indre - Brenne"
+          - localisation . epci . nom = "CC du Val de Bouzanne"
+          - localisation . epci . nom = "CC de la Marche Berrichonne"
+          - localisation . epci . nom = "CC Éguzon - Argenton - Vallée de la Creuse"
+          - localisation . epci . nom = "CC de la Châtre et Sainte-Sévère"
+          - localisation . epci . nom = "CC du Châtillonnais en Berry"
+          - localisation . epci . nom = "CC Écueillé-Valençay"
   valeur: 25% * vélo . prix
   plafond: 
     variations:
@@ -7965,7 +7965,7 @@ aides . region centre rémi zen:
     l'achat d'un vélo pliant ou d'une trottinette électrique pliante.
   applicable si:
     toutes ces conditions:
-      - localisation . région = '24'
+      - localisation . région . code = '24'
       - vélo . pliant
       - abonné Rémi
   valeur: 40% * vélo . prix
@@ -8004,7 +8004,7 @@ aides . perpignan métropole:
     Aide à l'achat d'un vélo neuf, reconditionné ou d'occasion, mais aussi pour les vélos pliants, à assistance électrique, un kit d'électrification et même une aide à la réparation de vélo.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CU Perpignan Méditerranée Métropole'
+      - localisation . epci . nom = 'CU Perpignan Méditerranée Métropole'
       - une de ces conditions:
           - vélo . adapté
           - toutes ces conditions:
@@ -8046,7 +8046,7 @@ aides . fier et usses:
   description: Aide à l'achat d'un vélo
   applicable si: 
     toutes ces conditions:
-      - localisation . epci = 'CC Fier et Usses'
+      - localisation . epci . nom = 'CC Fier et Usses'
       - revenu fiscal de référence par part <= 30000 €/an
   valeur:
     variations:
@@ -8092,7 +8092,7 @@ aides . pays de cruseilles:
   description: >
     Prime Achat Vélo. A noter qu'un bonus de 300€ est accordé pour l'adaptation
     d'un vélo pour les personnes à mobilité réduite.
-  applicable si: localisation . epci = 'CC du Pays de Cruseilles'
+  applicable si: localisation . epci . nom = 'CC du Pays de Cruseilles'
   valeur:
     variations:
       - si:
@@ -8160,7 +8160,7 @@ aides . tulle:
   description: Chèque Vélo Electrique du dispositif "L'agglo à vélo !" 2024.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CA Tulle Agglo'
+      - localisation . epci . nom = 'CA Tulle Agglo'
       - vélo . électrique
   variations:
     - si: revenu fiscal de référence par part <= 1799€/mois
@@ -8176,7 +8176,7 @@ aides . val d'yerres val de seine:
   description: >
     Les aides pour les vélos s'élèvent à 100€ pour les modèles électriques ou pliants, 200€ pour les vélos cargo,
     150€ pour ceux adaptés aux personnes handicapées ou les kits d'électrification professionnels, et 50€ pour les vélos mécaniques des 15-25 ans.
-  applicable si: localisation . epci = 'CA Val d'Yerres Val de Seine'
+  applicable si: localisation . epci . nom = 'CA Val d'Yerres Val de Seine'
   valeur: 50% * vélo . prix
   plafond:
     variations:
@@ -8206,7 +8206,7 @@ aides . campagnes de l'artois:
     subvention pourra être portée à 25% du prix d'achat TTC pour les achats
     réalisés dans une boutique située sur le territoire des Campagnes de
     l'Artois.
-  applicable si: localisation . epci = "CC des Campagnes de l'Artois"
+  applicable si: localisation . epci . nom = "CC des Campagnes de l'Artois"
   valeur: 20% * vélo . prix
   plafond:
     variations:
@@ -8223,7 +8223,7 @@ aides . cévennes gangeoises et suménoises:
   remplace: intercommunalité
   titre: Cévennes Gangeoises et Suménoises
   description: Aides à l'achat d'un vélo 2024.
-  applicable si: localisation . epci = 'CC des Cévennes Gangeoises et Suménoises'
+  applicable si: localisation . epci . nom = 'CC des Cévennes Gangeoises et Suménoises'
   valeur: 30% * (vélo . prix - aides . département - aides . région - aides . état)
   plancher: 0€
   plafond:
@@ -8239,7 +8239,7 @@ aides . montmorillon:
   description: >
     Dispositif d'aide à l'acquisition d'un vélo et des accessoires afférents
     (2024).
-  applicable si: localisation . code insee = '86165'
+  applicable si: localisation . commune . code = '86165'
   valeur:
     variations:
       - si: vélo . électrique
@@ -8296,7 +8296,7 @@ aides . grand besançon:
     électrique neuf.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CU Grand Besançon Métropole'
+      - localisation . epci . nom = 'CU Grand Besançon Métropole'
       - demandeur . âge . majeur
       - revenu fiscal de référence par part <= 20781€/an
       - vélo . état . neuf
@@ -8317,7 +8317,7 @@ aides . haut vallespir:
     avec d'autres aides de votre commune dans la limite de 80% du prix d'achat.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC du Haut Vallespir'
+      - localisation . epci . nom = 'CC du Haut Vallespir'
       - demandeur . âge . majeur
       - revenu fiscal de référence par part <= 25660 €/an
       - vélo . état . neuf
@@ -8334,7 +8334,7 @@ aides . val de drôme:
     2024).
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC du Val de Drôme en Biovallée'
+      - localisation . epci . nom = 'CC du Val de Drôme en Biovallée'
       - demandeur . âge . majeur
       - revenu fiscal de référence par part <= 28797 €/an
       - une de ces conditions:
@@ -8367,7 +8367,7 @@ aides . cacl:
     également disponible pour l'achat d'un vélo classique Enfant.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CA du Centre Littoral'
+      - localisation . epci . nom = 'CA du Centre Littoral'
       - vélo . état . neuf
   valeur:
     variations:
@@ -8389,7 +8389,7 @@ aides . crestois et pays de saillans:
     facture de la pose.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC du Crestois et de Pays de Saillans Coeur de Drôme'
+      - localisation . epci . nom = 'CC du Crestois et de Pays de Saillans Coeur de Drôme'
       - demandeur . âge . majeur
       - vélo . motorisation
   valeur: 25% * vélo . prix
@@ -8408,7 +8408,7 @@ aides . binic etables sur mer:
     Durée du dispositif : 1er janvier 2024 au 31 décembre 2026.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '22055'
+      - localisation . commune . code = '22055'
       - revenu fiscal de référence par part <= 2314 €/mois
       - une de ces conditions:
           - vélo . électrique ou mécanique
@@ -8430,7 +8430,7 @@ aides . creusot-montceau:
     des 34 communes membres de la Communauté Urbaine Creusot-Montceau.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CU Le Creusot Montceau-les-Mines'
+      - localisation . epci . nom = 'CU Le Creusot Montceau-les-Mines'
       - revenu fiscal de référence par part <= 2314 €/mois
       - une de ces conditions:
           - vélo . électrique ou mécanique
@@ -8495,7 +8495,7 @@ aides . territoire de l'ouest:
     chez un professionnel.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CA Territoire de la Côte Ouest (TCO)'
+      - localisation . epci . nom = 'CA Territoire de la Côte Ouest (TCO)'
       - demandeur . âge . majeur
       - une de ces conditions:
           - vélo . électrique
@@ -8524,7 +8524,7 @@ aides . cc sept vallées:
     assistance électrique ou non.
   applicable si: 
     toutes ces conditions:
-      - localisation . epci = 'CC des 7 Vallées'
+      - localisation . epci . nom = 'CC des 7 Vallées'
       - demandeur . âge >= 16 an
       - une de ces conditions:
           - vélo . électrique ou mécanique
@@ -8554,7 +8554,7 @@ aides . villiers-en-bière:
     sur présentation des justificatifs.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '77518'
+      - localisation . commune . code = '77518'
       - demandeur . âge >= 15 an
       - vélo . électrique ou mécanique
       - vélo . état . neuf
@@ -8573,7 +8573,7 @@ aides . cc arc sud bretagne:
     reconditionné.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC Arc Sud Bretagne'
+      - localisation . epci . nom = 'CC Arc Sud Bretagne'
       - demandeur . âge . majeur
       - revenu fiscal de référence par part <= 15400 €/an
       - vélo . électrique
@@ -8592,7 +8592,7 @@ aides . cc pévèle carembault:
     d'électrification de vélos.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC Pévèle-Carembault'
+      - localisation . epci . nom = 'CC Pévèle-Carembault'
       - demandeur . âge . majeur
       - une de ces conditions:
           - toutes ces conditions:
@@ -8616,7 +8616,7 @@ aides . cc les portes briardes:
     d'occasion.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC Les Portes Briardes Entre Villes et Forêts'
+      - localisation . epci . nom = 'CC Les Portes Briardes Entre Villes et Forêts'
       - une de ces conditions:
           - vélo . électrique ou mécanique
           - toutes ces conditions:
@@ -8637,7 +8637,7 @@ aides . cc pays des sorgues:
     communes de la communauté de communes.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC du Pays des Sorgues et des Monts de Vaucluse'
+      - localisation . epci . nom = 'CC du Pays des Sorgues et des Monts de Vaucluse'
       - demandeur . âge . majeur
       - une de ces conditions:
           - vélo . électrique ou mécanique
@@ -8658,7 +8658,7 @@ aides . cc val parisis:
     Île-de-France ne peut excéder 50% du prix du vélo.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CA Val Parisis'
+      - localisation . epci . nom = 'CA Val Parisis'
       - une de ces conditions:
           - est non applicable: aides . ile de france 
           - aides . ile de france < 50% * vélo . prix
@@ -8681,7 +8681,7 @@ aides . dlvagglo:
     Limitée à 25 demandes unique par an.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CA Durance-Lubéron-Verdon Agglomération'
+      - localisation . epci . nom = 'CA Durance-Lubéron-Verdon Agglomération'
       - demandeur . âge . majeur
       - vélo . électrique
       - une de ces conditions:
@@ -8700,7 +8700,7 @@ aides . charenton-le-pont:
     dans les structures partenaires.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '94018'
+      - localisation . commune . code = '94018'
       - revenu fiscal de référence par part <= 15000 €/an
   valeur: 50% * vélo . prix
   plafond: 200€
@@ -8715,7 +8715,7 @@ aides . vaucresson:
     signature d'une convention.
   applicable si:
     toutes ces conditions:
-      - localisation . code insee = '92076'
+      - localisation . commune . code = '92076'
       - vélo . motorisation
   valeur: 150€
   lien: https://www.vaucresson.fr/mon-cadre-de-vie/mobilite/velos-electriques
@@ -8728,7 +8728,7 @@ aides . cu arras:
     territoire communautaire.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = "CU d'Arras"
+      - localisation . epci . nom = "CU d'Arras"
       - demandeur . âge . majeur
       - vélo . électrique
   valeur: 30% * vélo . prix
@@ -8746,8 +8746,8 @@ aides . st2b:
   applicable si:
     toutes ces conditions:
       - une de ces conditions:
-          - localisation . epci = 'CC Orne Lorraine Confluences'
-          - localisation . epci = 'CC Coeur du Pays Haut'
+          - localisation . epci . nom = 'CC Orne Lorraine Confluences'
+          - localisation . epci . nom = 'CC Coeur du Pays Haut'
       - demandeur . âge . majeur
       - vélo . électrique
       - vélo . état . neuf
@@ -8763,7 +8763,7 @@ aides . cc ouest vosgien:
     implanté·e dans l'une des communes de la CCOV.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC de l'Ouest Vosgien'
+      - localisation . epci . nom = 'CC de l'Ouest Vosgien'
       - demandeur . âge . majeur
       - revenu fiscal de référence par part <= 14089 €/an
       - vélo . électrique
@@ -8782,7 +8782,7 @@ aides . cc pays haut val d'alzette:
     Dispositif valable jusqu'au 31 décembre 2026.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = "CC du Pays Haut Val d'Alzette"
+      - localisation . epci . nom = "CC du Pays Haut Val d'Alzette"
       - demandeur . âge . majeur
       - vélo . électrique
   valeur: 15% * vélo . prix
@@ -8797,7 +8797,7 @@ aides . cc cattenom et environs:
     que de la transformation d'un vélo classique en vélo électrique.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC de Cattenom et Environs'
+      - localisation . epci . nom = 'CC de Cattenom et Environs'
       - une de ces conditions:
           - vélo . électrique simple
           - vélo . cargo électrique

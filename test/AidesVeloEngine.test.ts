@@ -185,7 +185,7 @@ describe("AidesVeloEngine", () => {
       const engine = globalTestEngine.shallowCopy();
       let aides = engine
         .setInputs({
-          "localisation . epci": "CC Orne Lorraine Confluences",
+          "localisation . epci . nom": "CC Orne Lorraine Confluences",
           "localisation . pays": "France",
           "vélo . prix": 1000,
         })
@@ -202,7 +202,7 @@ describe("AidesVeloEngine", () => {
 
       aides = engine
         .setInputs({
-          "localisation . epci": "CC Coeur du Pays Haut",
+          "localisation . epci . nom": "CC Coeur du Pays Haut",
           "localisation . pays": "France",
           "vélo . prix": 1000,
         })
@@ -224,10 +224,10 @@ describe("AidesVeloEngine", () => {
         const engine = globalTestEngine.shallowCopy();
         const aides = engine
           .setInputs({
-            "localisation . code insee": "86165",
-            "localisation . epci": "CC Vienne et Gartempe",
-            "localisation . département": "86",
-            "localisation . région": "75",
+            "localisation . commune . code": "86165",
+            "localisation . epci . nom": "CC Vienne et Gartempe",
+            "localisation . département . code": "86",
+            "localisation . région . code": "75",
             "localisation . pays": "France",
             "vélo . type": "électrique",
           })
@@ -242,10 +242,10 @@ describe("AidesVeloEngine", () => {
         const engine = globalTestEngine.shallowCopy();
         const aides = engine
           .setInputs({
-            "localisation . code insee": "49007",
-            "localisation . epci": "CU Angers Loire Métropole",
-            "localisation . département": "49",
-            "localisation . région": "52",
+            "localisation . commune . code": "49007",
+            "localisation . epci . nom": "CU Angers Loire Métropole",
+            "localisation . département . code": "49",
+            "localisation . région . code": "52",
             "localisation . pays": "France",
             "vélo . type": "électrique",
           })
@@ -263,10 +263,10 @@ describe("AidesVeloEngine", () => {
 
         const aides = engine
           .setInputs({
-            "localisation . code insee": "49007",
-            "localisation . epci": "CU Angers Loire Métropole",
-            "localisation . département": "49",
-            "localisation . région": "52",
+            "localisation . commune . code": "49007",
+            "localisation . epci . nom": "CU Angers Loire Métropole",
+            "localisation . département . code": "49",
+            "localisation . région . code": "52",
             "localisation . pays": "France",
             "vélo . type": "électrique",
             "aides . pays de la loire . abonné TER": false,
@@ -283,10 +283,10 @@ describe("AidesVeloEngine", () => {
         const engine = globalTestEngine.shallowCopy();
         const aides = engine
           .setInputs({
-            "localisation . code insee": "31555",
-            "localisation . epci": "Toulouse Métropole",
-            "localisation . département": "31",
-            "localisation . région": "76",
+            "localisation . commune . code": "31555",
+            "localisation . epci . nom": "Toulouse Métropole",
+            "localisation . département . code": "31",
+            "localisation . région . code": "76",
             "localisation . pays": "France",
             "vélo . type": "adapté",
             "demandeur . en situation de handicap": true,
@@ -301,10 +301,10 @@ describe("AidesVeloEngine", () => {
         const engine = globalTestEngine.shallowCopy();
         const aides = engine
           .setInputs({
-            "localisation . code insee": "34172",
-            "localisation . epci": "Montpellier Méditerranée Métropole",
-            "localisation . département": "34",
-            "localisation . région": "76",
+            "localisation . commune . code": "34172",
+            "localisation . epci . nom": "Montpellier Méditerranée Métropole",
+            "localisation . département . code": "34",
+            "localisation . région . code": "76",
             "localisation . pays": "France",
             "vélo . type": "adapté",
             "demandeur . en situation de handicap": true,
@@ -329,7 +329,7 @@ describe("AidesVeloEngine", () => {
         const engine = globalTestEngine.shallowCopy();
         const aides = engine
           .setInputs({
-            "localisation . epci": "CA du Centre Littoral",
+            "localisation . epci . nom": "CA du Centre Littoral",
             "localisation . pays": "France",
             "vélo . type": "électrique",
           })

@@ -1,3 +1,14 @@
+importer!:
+  depuis:
+    nom: "@betagouv/publicodes-decoupage-administratif"
+    url: https://github.com/betagouv/publicodes-decoupage-administratif
+  dans: localisation
+  les règles:
+    - commune . code
+    - epci . nom
+    - département . code
+    - région . code
+
 localisation:
   titre: Paramètres de localisation
   description: >
@@ -13,49 +24,6 @@ localisation:
     [localisation.json](#TODO) ou en les calculant à partir d'une adresse ou
     d'un code postal.
 
-localisation . code insee:
-  type: string
-  titre: Code INSEE
-  question: Quel est le code INSEE de votre commune ?
-  par défaut: "''"
-  note: >
-    Voir [Code officiel
-    géographique](https://fr.wikipedia.org/wiki/Code_officiel_g%C3%A9ographique)
-
-localisation . epci:
-  type: string
-  titre: Etablissement public de coopération intercommunale (EPCI)
-  question: Quel est l'EPCI de votre commune ?
-  description: >
-    ### Définition
-
-
-    Les établissements publics de coopération intercommunale (EPCI) sont des
-    structures administratives permettant à plusieurs communes d'exercer des
-    compétences en commun.
-
-
-    Ils sont soumis à des règles communes, homogènes et comparables à celles
-    de collectivités locales. Les communautés urbaines, communautés
-    d'agglomération, communautés de communes, syndicats d'agglomération
-    nouvelle, syndicats de communes et les syndicats mixtes sont des EPCI.
-
-
-    > Source : [insee.fr](https://www.insee.fr/fr/metadonnees/definition/c1160)
-  par défaut: "''"
-
-localisation . département:
-  type: string
-  titre: Code du département
-  question: Quel est le code de votre département ?
-  par défaut: "''"
-
-localisation . région:
-  type: string
-  titre: Code de la région
-  question: Quel est le code de votre région ?
-  par défaut: "''"
-
 localisation . pays:
   question: Quel est le votre pays ?
   une possibilité:
@@ -64,9 +32,9 @@ localisation . pays:
     - Luxembourg
   par défaut:
     variations:
-      - si: code insee = '99138'
+      - si: commune . code = '99138'
         alors: "'Monaco'"
-      - si: code insee = '99137'
+      - si: commune . code = '99137'
         alors: "'Luxembourg'"
       - sinon: "'France'"
   avec:

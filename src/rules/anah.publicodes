@@ -13,7 +13,7 @@ Anah . plafond ménage modeste:
   valeur: 
     variations:
       # plafond en Ile-de-France
-      - si: localisation . région = '11' 
+      - si: localisation . région . code = '11' 
         alors: 
           variations:
             - si: foyer . personnes = 1
