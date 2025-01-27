@@ -77,9 +77,9 @@ describe("Aides Vélo", () => {
 
   describe("Bonus Vélo", () => {
     const baseSituation = {
-      "localisation . code insee": "'75056'",
-      "localisation . epci": "'Métropole du Grand Paris'",
-      "localisation . région": "'11'",
+      "localisation . commune . code": "'75056'",
+      "localisation . epci . nom": "'Métropole du Grand Paris'",
+      "localisation . région . code": "'11'",
     };
 
     it("ne devrait pas être accordé pour un revenu fiscal de référence > 15 400 €/an", () => {
@@ -213,7 +213,7 @@ describe("Aides Vélo", () => {
   describe("Île-de-France Mobilités", () => {
     it("devrait être nulle pour un vélo mécanique si la personne a plus de 25 ans", () => {
       engine.setSituation({
-        "localisation . région": "'11'",
+        "localisation . région . code": "'11'",
         "vélo . type": "'mécanique simple'",
         "vélo . prix": "1000€",
       });
@@ -222,7 +222,7 @@ describe("Aides Vélo", () => {
 
     it("devrait être non nulle pour un vélo mécanique est âgée de 15 à 25 ans", () => {
       engine.setSituation({
-        "localisation . région": "'11'",
+        "localisation . région . code": "'11'",
         "vélo . type": "'mécanique simple'",
         "vélo . prix": "1000€",
         "demandeur . âge": "20 an",
@@ -234,7 +234,7 @@ describe("Aides Vélo", () => {
   describe("Ville de Paris", () => {
     it("devrait fournir une aide pour les vélos mécaniques", () => {
       engine.setSituation({
-        "localisation . code insee": "'75056'",
+        "localisation . commune . code": "'75056'",
         "revenu fiscal de référence par part": "5000€/an",
         "vélo . type": "'mécanique simple'",
         "vélo . prix": "1000€",
@@ -247,7 +247,7 @@ describe("Aides Vélo", () => {
     it("plus de subvention pour les vélos assemblés ou produit localement", () => {
       const coteDorSituation = {
         "vélo . type": "'électrique'",
-        "localisation . département": "'21'",
+        "localisation . département . code": "'21'",
         "vélo . prix": "500€",
       };
 
@@ -267,7 +267,7 @@ describe("Aides Vélo", () => {
   describe("Région Occitanie", () => {
     it("ne devrait pas avoir de plafond pour l'Eco-chèque mobilité", () => {
       engine.setSituation({
-        "localisation . région": "'76'",
+        "localisation . région . code": "'76'",
         "revenu fiscal de référence par part": "8000€/an",
         "vélo . type": "'électrique'",
         "vélo . prix": "100€",
@@ -277,7 +277,7 @@ describe("Aides Vélo", () => {
 
     it("devrait correctement prendre en compte les vélo adaptés pour les personnes en situation de handicap", () => {
       engine.setSituation({
-        "localisation . région": "'76'",
+        "localisation . région . code": "'76'",
         "revenu fiscal de référence par part": "8000€/an",
         "demandeur . en situation de handicap": "oui",
         "vélo . type": "'adapté'",
@@ -293,7 +293,7 @@ describe("Aides Vélo", () => {
       ).toEqual(expectedAmount);
 
       engine.setSituation({
-        "localisation . région": "'76'",
+        "localisation . région . code": "'76'",
         "revenu fiscal de référence par part": "8000€/an",
         "demandeur . en situation de handicap": "oui",
         "vélo . type": "'adapté'",
@@ -306,7 +306,7 @@ describe("Aides Vélo", () => {
 
     it("devrait pas pouvoir obtenir un motant négatif pour un vélo adapté PMR", () => {
       engine.setSituation({
-        "localisation . région": "'76'",
+        "localisation . région . code": "'76'",
         "revenu fiscal de référence par part": "8000€/an",
         "demandeur . en situation de handicap": "oui",
         "vélo . type": "'adapté'",
@@ -324,7 +324,7 @@ describe("Aides Vélo", () => {
   describe("Toulouse Métropole", () => {
     it("devrait correctement arrondir la valeur", () => {
       engine.setSituation({
-        "localisation . epci": "'Toulouse Métropole'",
+        "localisation . epci . nom": "'Toulouse Métropole'",
         "revenu fiscal de référence par part": "8000€/an",
         "vélo . type": "'électrique'",
         "vélo . prix": "500€",
@@ -335,7 +335,7 @@ describe("Aides Vélo", () => {
 
     it("devrait considérer la transformation en VAE de la même façon que l'achat d'une VAE", () => {
       engine.setSituation({
-        "localisation . epci": "'Toulouse Métropole'",
+        "localisation . epci . nom": "'Toulouse Métropole'",
         "revenu fiscal de référence par part": "8000€/an",
         "vélo . type": "'électrique'",
         "vélo . prix": "1000€",
@@ -343,7 +343,7 @@ describe("Aides Vélo", () => {
       expect(engine.evaluate("aides . toulouse").nodeValue).toEqual(250);
 
       engine.setSituation({
-        "localisation . epci": "'Toulouse Métropole'",
+        "localisation . epci . nom": "'Toulouse Métropole'",
         "revenu fiscal de référence par part": "8000€/an",
         "vélo . type": "'motorisation'",
         "vélo . prix": "1000€",
@@ -351,7 +351,7 @@ describe("Aides Vélo", () => {
       expect(engine.evaluate("aides . toulouse").nodeValue).toEqual(250);
 
       engine.setSituation({
-        "localisation . epci": "'Toulouse Métropole'",
+        "localisation . epci . nom": "'Toulouse Métropole'",
         "revenu fiscal de référence par part": "20000€/an",
         "vélo . type": "'électrique'",
         "vélo . prix": "1000€",
@@ -359,7 +359,7 @@ describe("Aides Vélo", () => {
       expect(engine.evaluate("aides . toulouse").nodeValue).toEqual(200);
 
       engine.setSituation({
-        "localisation . epci": "'Toulouse Métropole'",
+        "localisation . epci . nom": "'Toulouse Métropole'",
         "revenu fiscal de référence par part": "20000€/an",
         "vélo . type": "'motorisation'",
         "vélo . prix": "1000€",
@@ -371,7 +371,7 @@ describe("Aides Vélo", () => {
   describe("Nantes Métropole", () => {
     it("devrait correctement prendre en compte le revenu fiscale de référence en €/mois", () => {
       engine.setSituation({
-        "localisation . epci": "'Nantes Métropole'",
+        "localisation . epci . nom": "'Nantes Métropole'",
         "revenu fiscal de référence par part": "700€/mois",
         "vélo . type": "'cargo'",
         "vélo . prix": "1000€",
@@ -379,7 +379,7 @@ describe("Aides Vélo", () => {
       expect(engine.evaluate("aides . nantes").nodeValue).toEqual(500);
 
       engine.setSituation({
-        "localisation . epci": "'Nantes Métropole'",
+        "localisation . epci . nom": "'Nantes Métropole'",
         "revenu fiscal de référence par part": "8400€/an",
         "vélo . type": "'cargo'",
         "vélo . prix": "1000€",
@@ -391,7 +391,7 @@ describe("Aides Vélo", () => {
   describe("Ville de Paris", () => {
     it("devrait correctement prendre en compte les vélo adaptés pour les personnes en situation de handicap", () => {
       engine.setSituation({
-        "localisation . code insee": "'75056'",
+        "localisation . commune . code": "'75056'",
         "revenu fiscal de référence par part": "5000€/an",
         "vélo . type": "'adapté'",
         "vélo . prix": "1000€",
@@ -400,7 +400,7 @@ describe("Aides Vélo", () => {
       expect(engine.evaluate("aides . paris").nodeValue).toEqual(275);
 
       engine.setSituation({
-        "localisation . code insee": "'75056'",
+        "localisation . commune . code": "'75056'",
         "revenu fiscal de référence par part": "10000€/an",
         "vélo . type": "'adapté'",
         "vélo . prix": "25000€",
@@ -412,7 +412,7 @@ describe("Aides Vélo", () => {
   describe("Département Hérault", () => {
     it("devrait correctement prendre en compte les vélo adaptés pour les personnes en situation de handicap", () => {
       engine.setSituation({
-        "localisation . département": "'34'",
+        "localisation . département . code": "'34'",
         "revenu fiscal de référence par part": "10000€/an",
         "demandeur . en situation de handicap": "oui",
         "vélo . type": "'adapté'",
@@ -427,7 +427,7 @@ describe("Aides Vélo", () => {
       ).toEqual(500);
 
       engine.setSituation({
-        "localisation . département": "'34'",
+        "localisation . département . code": "'34'",
         "revenu fiscal de référence par part": "10000€/an",
         "demandeur . en situation de handicap": "oui",
         "vélo . type": "'adapté'",
@@ -445,7 +445,7 @@ describe("Aides Vélo", () => {
   describe("Montpellier Méditerranée Métropole", () => {
     it("devrait être élligible uniquement pour les vélo électrique d'occasion et les kits de motorisation", () => {
       engine.setSituation({
-        "localisation . epci": "'Montpellier Méditerranée Métropole'",
+        "localisation . epci . nom": "'Montpellier Méditerranée Métropole'",
         "revenu fiscal de référence par part": "10000€/an",
         "vélo . type": "'électrique'",
         "vélo . prix": "1000€",
@@ -453,7 +453,7 @@ describe("Aides Vélo", () => {
       expect(engine.evaluate("aides . montpellier").nodeValue).toEqual(null);
 
       engine.setSituation({
-        "localisation . epci": "'Montpellier Méditerranée Métropole'",
+        "localisation . epci . nom": "'Montpellier Méditerranée Métropole'",
         "revenu fiscal de référence par part": "10000€/an",
         "vélo . type": "'électrique'",
         "vélo . état": "'occasion'",
@@ -462,7 +462,7 @@ describe("Aides Vélo", () => {
       expect(engine.evaluate("aides . montpellier").nodeValue).toEqual(200);
 
       engine.setSituation({
-        "localisation . epci": "'Montpellier Méditerranée Métropole'",
+        "localisation . epci . nom": "'Montpellier Méditerranée Métropole'",
         "revenu fiscal de référence par part": "10000€/an",
         "vélo . type": "'motorisation'",
         "vélo . prix": "1000€",
@@ -472,8 +472,8 @@ describe("Aides Vélo", () => {
 
     it("ne devrait pas être cumulable avec l'aide vélo adapté", () => {
       engine.setSituation({
-        "localisation . epci": "'Montpellier Méditerranée Métropole'",
-        "localisation . département": "'34'",
+        "localisation . epci . nom": "'Montpellier Méditerranée Métropole'",
+        "localisation . département . code": "'34'",
         "revenu fiscal de référence par part": "10000€/an",
         "demandeur . en situation de handicap": "oui",
         "vélo . type": "'adapté'",
@@ -493,7 +493,7 @@ describe("Aides Vélo", () => {
   describe('Perpignan Méditerrannée Métropole" ', () => {
     it("devrait être élligible pour les vélo d'occasion", () => {
       engine.setSituation({
-        "localisation . epci": "'CU Perpignan Méditerranée Métropole'",
+        "localisation . epci . nom": "'CU Perpignan Méditerranée Métropole'",
         "vélo . type": "'électrique'",
         "vélo . état": "'occasion'",
         "vélo . prix": "1000€",
@@ -506,7 +506,7 @@ describe("Aides Vélo", () => {
 
     it("devrait être majorée pour les étudiant·es", () => {
       engine.setSituation({
-        "localisation . epci": "'CU Perpignan Méditerranée Métropole'",
+        "localisation . epci . nom": "'CU Perpignan Méditerranée Métropole'",
         "vélo . type": "'électrique'",
         "demandeur . statut": "'étudiant'",
         "vélo . prix": "1000€",
@@ -519,7 +519,7 @@ describe("Aides Vélo", () => {
 
     it("devrait correctement prendre en compte les vélo adaptés pour les personnes en situation de handicap", () => {
       engine.setSituation({
-        "localisation . epci": "'CU Perpignan Méditerranée Métropole'",
+        "localisation . epci . nom": "'CU Perpignan Méditerranée Métropole'",
         "vélo . type": "'adapté'",
         "demandeur . statut": "'étudiant'",
         "vélo . prix": "1000€",
@@ -534,7 +534,7 @@ describe("Aides Vélo", () => {
   describe("Communauté d’Agglomération Sophia Antipolis", () => {
     it("aides sans condition de revenu pour les vélos cargo ou adaptés", () => {
       engine.setSituation({
-        "localisation . epci": "'CA de Sophia Antipolis'",
+        "localisation . epci . nom": "'CA de Sophia Antipolis'",
         "vélo . type": "'cargo'",
         "vélo . prix": "1000€",
         "revenu fiscal de référence par part": "20000€/an",
@@ -544,7 +544,7 @@ describe("Aides Vélo", () => {
       );
 
       engine.setSituation({
-        "localisation . epci": "'CA de Sophia Antipolis'",
+        "localisation . epci . nom": "'CA de Sophia Antipolis'",
         "vélo . type": "'adapté'",
         "vélo . prix": "1000€",
         "revenu fiscal de référence par part": "20000€/an",
@@ -556,7 +556,7 @@ describe("Aides Vélo", () => {
 
     it("aides majorées pour les personnes en situation de handicap", () => {
       engine.setSituation({
-        "localisation . epci": "'CA de Sophia Antipolis'",
+        "localisation . epci . nom": "'CA de Sophia Antipolis'",
         "vélo . type": "'électrique'",
         "vélo . prix": "2000€",
         "revenu fiscal de référence par part": "20000€/an",
@@ -567,7 +567,7 @@ describe("Aides Vélo", () => {
       );
 
       engine.setSituation({
-        "localisation . epci": "'CA de Sophia Antipolis'",
+        "localisation . epci . nom": "'CA de Sophia Antipolis'",
         "vélo . type": "'adapté'",
         "vélo . prix": "10000€",
         "revenu fiscal de référence par part": "20000€/an",
@@ -580,7 +580,7 @@ describe("Aides Vélo", () => {
 
     it("aide nulle pour les vélos mécaniques simples avec un revenu fiscal de référence > 6358 €/an", () => {
       engine.setSituation({
-        "localisation . epci": "'CA de Sophia Antipolis'",
+        "localisation . epci . nom": "'CA de Sophia Antipolis'",
         "vélo . type": "'mécanique simple'",
         "vélo . prix": "300€",
         "revenu fiscal de référence par part": "15000€/an",
@@ -590,7 +590,7 @@ describe("Aides Vélo", () => {
       );
 
       engine.setSituation({
-        "localisation . epci": "'CA de Sophia Antipolis'",
+        "localisation . epci . nom": "'CA de Sophia Antipolis'",
         "vélo . type": "'pliant'",
         "vélo . prix": "300€",
         "revenu fiscal de référence par part": "15000€/an",
@@ -604,7 +604,7 @@ describe("Aides Vélo", () => {
   describe("Communauté de communes Fier et Usses", () => {
     it("devrait être élligible pour les vélo d'occasion", () => {
       engine.setSituation({
-        "localisation . epci": "'CC Fier et Usses'",
+        "localisation . epci . nom": "'CC Fier et Usses'",
         "vélo . type": "'électrique'",
         "vélo . état": "'occasion'",
         "vélo . prix": "1000€",
@@ -618,7 +618,7 @@ describe("Aides Vélo", () => {
   describe("Pays de Cruseilles", () => {
     it("devrait être élligible pour les vélo d'occasion", () => {
       engine.setSituation({
-        "localisation . epci": "'CC du Pays de Cruseilles'",
+        "localisation . epci . nom": "'CC du Pays de Cruseilles'",
         "vélo . type": "'électrique'",
         "vélo . état": "'occasion'",
         "vélo . prix": "1000€",
@@ -634,7 +634,7 @@ describe("Aides Vélo", () => {
   describe("Bourges Plus", () => {
     it("devrait être élligible pour les vélo d'occasion", () => {
       engine.setSituation({
-        "localisation . epci": "'CA Bourges Plus'",
+        "localisation . epci . nom": "'CA Bourges Plus'",
         "vélo . type": "'électrique'",
         "vélo . état": "'occasion'",
         "vélo . prix": "1000€",
@@ -648,7 +648,7 @@ describe("Aides Vélo", () => {
   describe("Métropole Grand Lyon", () => {
     it("devrait être élligible pour les vélo d'occasion uniquement pour les vélos mécaniques avec un revenu fiscal de référence < 19 500 €/an", () => {
       engine.setSituation({
-        "localisation . epci": "'Métropole de Lyon'",
+        "localisation . epci . nom": "'Métropole de Lyon'",
         "vélo . type": "'pliant'",
         "vélo . état": "'occasion'",
         "vélo . prix": "1000€",
@@ -658,7 +658,7 @@ describe("Aides Vélo", () => {
       expect(engine.evaluate("aides . lyon").nodeValue).toEqual(0);
 
       engine.setSituation({
-        "localisation . epci": "'Métropole de Lyon'",
+        "localisation . epci . nom": "'Métropole de Lyon'",
         "vélo . type": "'pliant'",
         "vélo . état": "'occasion'",
         "vélo . prix": "100€",
@@ -667,7 +667,7 @@ describe("Aides Vélo", () => {
       expect(engine.evaluate("aides . lyon").nodeValue).toEqual(100);
 
       engine.setSituation({
-        "localisation . epci": "'Métropole de Lyon'",
+        "localisation . epci . nom": "'Métropole de Lyon'",
         "vélo . type": "'pliant'",
         "vélo . état": "'occasion'",
         "vélo . prix": "100€",
@@ -676,7 +676,7 @@ describe("Aides Vélo", () => {
       expect(engine.evaluate("aides . lyon").nodeValue).toEqual(0);
 
       engine.setSituation({
-        "localisation . epci": "'Métropole de Lyon'",
+        "localisation . epci . nom": "'Métropole de Lyon'",
         "vélo . type": "'électrique'",
         "vélo . état": "'occasion'",
         "vélo . prix": "100€",
@@ -687,7 +687,7 @@ describe("Aides Vélo", () => {
 
     it("devrait correctement prendre en compte les vélo adaptés pour les personnes en situation de handicap", () => {
       engine.setSituation({
-        "localisation . epci": "'Métropole de Lyon'",
+        "localisation . epci . nom": "'Métropole de Lyon'",
         "vélo . type": "'adapté'",
         "vélo . prix": "15000€",
         "revenu fiscal de référence par part": "10000€/an",
@@ -695,7 +695,7 @@ describe("Aides Vélo", () => {
       expect(engine.evaluate("aides . lyon").nodeValue).toEqual(1000);
 
       engine.setSituation({
-        "localisation . epci": "'Métropole de Lyon'",
+        "localisation . epci . nom": "'Métropole de Lyon'",
         "vélo . type": "'adapté'",
         "vélo . prix": "15000€",
         "revenu fiscal de référence par part": "20000€/an",
@@ -706,7 +706,7 @@ describe("Aides Vélo", () => {
     it("devrait correctement prendre en compte les vélo cargo", () => {
       // Cargo mécanique
       engine.setSituation({
-        "localisation . epci": "'Métropole de Lyon'",
+        "localisation . epci . nom": "'Métropole de Lyon'",
         "vélo . type": "'cargo'",
         "vélo . prix": "2000€",
         "revenu fiscal de référence par part": "10000€/an",
@@ -714,7 +714,7 @@ describe("Aides Vélo", () => {
       expect(engine.evaluate("aides . lyon").nodeValue).toEqual(800);
 
       engine.setSituation({
-        "localisation . epci": "'Métropole de Lyon'",
+        "localisation . epci . nom": "'Métropole de Lyon'",
         "vélo . type": "'cargo'",
         "vélo . prix": "2000€",
         "revenu fiscal de référence par part": "20000€/an",
@@ -723,7 +723,7 @@ describe("Aides Vélo", () => {
 
       // Cargo électrique
       engine.setSituation({
-        "localisation . epci": "'Métropole de Lyon'",
+        "localisation . epci . nom": "'Métropole de Lyon'",
         "vélo . type": "'cargo électrique'",
         "vélo . prix": "15000€",
         "revenu fiscal de référence par part": "10000€/an",
@@ -731,7 +731,7 @@ describe("Aides Vélo", () => {
       expect(engine.evaluate("aides . lyon").nodeValue).toEqual(1000);
 
       engine.setSituation({
-        "localisation . epci": "'Métropole de Lyon'",
+        "localisation . epci . nom": "'Métropole de Lyon'",
         "vélo . type": "'cargo électrique'",
         "vélo . prix": "15000€",
         "revenu fiscal de référence par part": "20000€/an",
@@ -743,7 +743,7 @@ describe("Aides Vélo", () => {
   describe("Communauté de communes Saône Beaujolais", () => {
     it("devrait être élligible pour les vélo d'occasion", () => {
       engine.setSituation({
-        "localisation . epci": "'CC Saône-Beaujolais'",
+        "localisation . epci . nom": "'CC Saône-Beaujolais'",
         "vélo . type": "'électrique'",
         "vélo . état": "'occasion'",
         "vélo . prix": "1000€",
@@ -754,7 +754,7 @@ describe("Aides Vélo", () => {
       );
 
       engine.setSituation({
-        "localisation . epci": "'CC Saône-Beaujolais'",
+        "localisation . epci . nom": "'CC Saône-Beaujolais'",
         "vélo . type": "'pliant'",
         "vélo . état": "'occasion'",
         "vélo . prix": "1000€",
@@ -769,7 +769,7 @@ describe("Aides Vélo", () => {
   describe("Communauté de communes du Pays Mornantais", () => {
     it("devrait correctement prendre en compte le plafond de l'Anah", () => {
       engine.setSituation({
-        "localisation . epci": "'CC du Pays Mornantais (COPAMO)'",
+        "localisation . epci . nom": "'CC du Pays Mornantais (COPAMO)'",
         "vélo . type": "'électrique'",
         "vélo . prix": "1000€",
         "revenu fiscal de référence par part": "10000€/an",
@@ -777,7 +777,7 @@ describe("Aides Vélo", () => {
       expect(engine.evaluate("aides . pays mornantais").nodeValue).toEqual(400);
 
       engine.setSituation({
-        "localisation . epci": "'CC du Pays Mornantais (COPAMO)'",
+        "localisation . epci . nom": "'CC du Pays Mornantais (COPAMO)'",
         "vélo . type": "'électrique'",
         "vélo . prix": "1000€",
         "revenu fiscal de référence par part": "30000€/an",
@@ -787,7 +787,7 @@ describe("Aides Vélo", () => {
 
     it("ne devrait pas être élligible pour les vélo d'occasion", () => {
       engine.setSituation({
-        "localisation . epci": "'CC du Pays Mornantais (COPAMO)'",
+        "localisation . epci . nom": "'CC du Pays Mornantais (COPAMO)'",
         "vélo . type": "'électrique'",
         "vélo . état": "'occasion'",
         "vélo . prix": "1000€",
@@ -803,7 +803,7 @@ describe("Aides Vélo", () => {
   describe("Quimperlé Communauté", () => {
     it("devrait pas être élligible pour les VAE d'occasion d'une valeur supérieure à 2000€", () => {
       engine.setSituation({
-        "localisation . epci": "'CA Quimperlé Communauté'",
+        "localisation . epci . nom": "'CA Quimperlé Communauté'",
         "vélo . type": "'électrique'",
         "vélo . état": "'occasion'",
         "vélo . prix": "3000€",
@@ -814,7 +814,7 @@ describe("Aides Vélo", () => {
 
     it("devrait être élligible pour les vélo cargo électrique d'occasion jusqu'à 5000€", () => {
       engine.setSituation({
-        "localisation . epci": "'CA Quimperlé Communauté'",
+        "localisation . epci . nom": "'CA Quimperlé Communauté'",
         "vélo . type": "'cargo électrique'",
         "vélo . état": "'occasion'",
         "vélo . prix": "3000€",
@@ -825,7 +825,7 @@ describe("Aides Vélo", () => {
 
     it("devrait être élligible pour les VAE neuf jusqu'à 3000€", () => {
       engine.setSituation({
-        "localisation . epci": "'CA Quimperlé Communauté'",
+        "localisation . epci . nom": "'CA Quimperlé Communauté'",
         "vélo . type": "'électrique'",
         "vélo . prix": "3000€",
         "revenu fiscal de référence par part": "10000€/an",
@@ -837,7 +837,7 @@ describe("Aides Vélo", () => {
   describe("Ville de Caen", () => {
     it("devrait correctement prendre en compte les jeunes de moins de 25 ans pour les vélos d'occasion", () => {
       engine.setSituation({
-        "localisation . code insee": "'14118'",
+        "localisation . commune . code": "'14118'",
         "vélo . type": "'mécanique simple'",
         "vélo . état": "'occasion'",
         "vélo . prix": "1000€",
@@ -848,7 +848,7 @@ describe("Aides Vélo", () => {
       expect(engine.evaluate("aides . caen").nodeValue).toEqual(null);
 
       engine.setSituation({
-        "localisation . code insee": "'14118'",
+        "localisation . commune . code": "'14118'",
         "vélo . type": "'électrique'",
         "vélo . état": "'occasion'",
         "vélo . prix": "1000€",
@@ -861,7 +861,7 @@ describe("Aides Vélo", () => {
 
     it("devrait être élligible pour les personnes en situation de handicap sans condition de revenu", () => {
       engine.setSituation({
-        "localisation . code insee": "'14118'",
+        "localisation . commune . code": "'14118'",
         "vélo . type": "'adapté'",
         "revenu fiscal de référence par part": "20000€/an",
         "demandeur . en situation de handicap": "oui",
@@ -875,7 +875,7 @@ describe("Aides Vélo", () => {
 
       // Pas nécessairement adapté
       engine.setSituation({
-        "localisation . code insee": "'14118'",
+        "localisation . commune . code": "'14118'",
         "vélo . type": "'motorisation'",
         "revenu fiscal de référence par part": "20000€/an",
         "demandeur . en situation de handicap": "oui",
@@ -890,7 +890,7 @@ describe("Aides Vélo", () => {
 
     it("l'aide de Caen la mer ne devrait pas être élligible pour les personnes mineures", () => {
       engine.setSituation({
-        "localisation . epci": "'CU Caen la Mer'",
+        "localisation . epci . nom": "'CU Caen la Mer'",
         "revenu fiscal de référence par part": "10000€/an",
         "demandeur . âge": "16 an",
         "vélo . prix": "1000€",
@@ -902,7 +902,7 @@ describe("Aides Vélo", () => {
   describe("Vienne et Gartempe Communauté de communes", () => {
     it("devrait être élligible pour les mineurs uniquement si iels possèdent un contrat", () => {
       engine.setSituation({
-        "localisation . epci": "'CC Vienne et Gartempe'",
+        "localisation . epci . nom": "'CC Vienne et Gartempe'",
         "revenu fiscal de référence par part": "10000€/an",
         "demandeur . âge": "16 an",
         "vélo . prix": "1000€",
@@ -910,7 +910,7 @@ describe("Aides Vélo", () => {
       expect(engine.evaluate("aides . vienne gartempe").nodeValue).toEqual(0);
 
       engine.setSituation({
-        "localisation . epci": "'CC Vienne et Gartempe'",
+        "localisation . epci . nom": "'CC Vienne et Gartempe'",
         "revenu fiscal de référence par part": "10000€/an",
         "demandeur . âge": "16 an",
         // TODO: use generated types instead of the json
@@ -926,7 +926,7 @@ describe("Aides Vélo", () => {
   describe("Ville de Montval sur Loir", () => {
     it("devrait être élligible pour les vélo mécanique seulement pour les bénéficiaires du RSA", () => {
       engine.setSituation({
-        "localisation . code insee": "'72071'",
+        "localisation . commune . code": "'72071'",
         "revenu fiscal de référence par part": "10000€/an",
         "vélo . type": "'mécanique simple'",
         "vélo . prix": "1000€",
@@ -934,7 +934,7 @@ describe("Aides Vélo", () => {
       expect(engine.evaluate("aides . montval sur loir").nodeValue).toEqual(0);
 
       engine.setSituation({
-        "localisation . code insee": "'72071'",
+        "localisation . commune . code": "'72071'",
         "revenu fiscal de référence par part": "10000€/an",
         "vélo . type": "'électrique'",
         "vélo . prix": "200€",
@@ -949,7 +949,7 @@ describe("Aides Vélo", () => {
   describe("Sète Agglopôle Méditerranée", () => {
     it("devrait correctement prendre en compte les différents bonus", () => {
       engine.setSituation({
-        "localisation . epci": "'CA Sète Agglopôle Méditerranée'",
+        "localisation . epci . nom": "'CA Sète Agglopôle Méditerranée'",
         "vélo . prix": "1000€",
         "revenu fiscal de référence par part": "10000€/an",
         "vélo . type": "'électrique'",
@@ -957,7 +957,7 @@ describe("Aides Vélo", () => {
       expect(engine.evaluate("aides . sète").nodeValue).toEqual(200);
 
       engine.setSituation({
-        "localisation . epci": "'CA Sète Agglopôle Méditerranée'",
+        "localisation . epci . nom": "'CA Sète Agglopôle Méditerranée'",
         "vélo . prix": "1000€",
         "revenu fiscal de référence par part": "10000€/an",
         "vélo . type": "'électrique'",
@@ -966,7 +966,7 @@ describe("Aides Vélo", () => {
       expect(engine.evaluate("aides . sète").nodeValue).toEqual(250);
 
       engine.setSituation({
-        "localisation . epci": "'CA Sète Agglopôle Méditerranée'",
+        "localisation . epci . nom": "'CA Sète Agglopôle Méditerranée'",
         "vélo . prix": "1000€",
         "revenu fiscal de référence par part": "10000€/an",
         "vélo . type": "'électrique'",
@@ -982,7 +982,7 @@ describe("Aides Vélo", () => {
   describe("Grand Avignon", () => {
     it("le cumul de l'aide avec celles des communes ne devrait pas dépasser 200€", () => {
       engine.setSituation({
-        "localisation . epci": "'CA du Grand Avignon (COGA)'",
+        "localisation . epci . nom": "'CA du Grand Avignon (COGA)'",
         "vélo . type": "'électrique'",
         "vélo . prix": "1000€",
         "revenu fiscal de référence par part": "10000€/an",
@@ -993,7 +993,7 @@ describe("Aides Vélo", () => {
       expect(engine.evaluate("aides . grand avignon").nodeValue).toEqual(50);
 
       engine.setSituation({
-        "localisation . epci": "'CA du Grand Avignon (COGA)'",
+        "localisation . epci . nom": "'CA du Grand Avignon (COGA)'",
         "vélo . type": "'électrique'",
         "vélo . prix": "1000€",
         "revenu fiscal de référence par part": "10000€/an",
@@ -1004,7 +1004,7 @@ describe("Aides Vélo", () => {
       expect(engine.evaluate("aides . grand avignon").nodeValue).toEqual(0);
 
       engine.setSituation({
-        "localisation . epci": "'CA du Grand Avignon (COGA)'",
+        "localisation . epci . nom": "'CA du Grand Avignon (COGA)'",
         "vélo . type": "'électrique'",
         "vélo . prix": "1000€",
         "revenu fiscal de référence par part": "10000€/an",
@@ -1016,28 +1016,28 @@ describe("Aides Vélo", () => {
   describe("Ville d'Avignon", () => {
     it("le montant minimum de subvention devrait être respectée", () => {
       engine.setSituation({
-        "localisation . code insee": "'84007'",
+        "localisation . commune . code": "'84007'",
         "vélo . type": "'électrique'",
         "vélo . prix": "1000€",
       });
       expect(engine.evaluate("aides . avignon").nodeValue).toEqual(50);
 
       engine.setSituation({
-        "localisation . code insee": "'84007'",
+        "localisation . commune . code": "'84007'",
         "vélo . type": "'électrique'",
         "vélo . prix": "10€",
       });
       expect(engine.evaluate("aides . avignon").nodeValue).toEqual(0);
 
       engine.setSituation({
-        "localisation . code insee": "'84007'",
+        "localisation . commune . code": "'84007'",
         "vélo . type": "'électrique'",
         "vélo . prix": "3000€",
       });
       expect(engine.evaluate("aides . avignon").nodeValue).toEqual(0);
 
       engine.setSituation({
-        "localisation . code insee": "'84007'",
+        "localisation . commune . code": "'84007'",
         "vélo . type": "'mécanique simple'",
         "vélo . état": "'occasion'",
         "vélo . prix": "200€",
@@ -1045,7 +1045,7 @@ describe("Aides Vélo", () => {
       expect(engine.evaluate("aides . avignon").nodeValue).toEqual(70);
 
       engine.setSituation({
-        "localisation . code insee": "'84007'",
+        "localisation . commune . code": "'84007'",
         "vélo . type": "'mécanique simple'",
         "vélo . état": "'occasion'",
         "vélo . prix": "10€",
@@ -1057,7 +1057,7 @@ describe("Aides Vélo", () => {
   describe("Ville de La Motte Servolex", () => {
     it("devrait être élligible pour les vélo d'occasion uniquement pour les vélos électriques", () => {
       engine.setSituation({
-        "localisation . code insee": "'73179'",
+        "localisation . commune . code": "'73179'",
         "vélo . état": "'occasion'",
         "vélo . prix": "1000€",
         "vélo . type": "'électrique'",
@@ -1067,7 +1067,7 @@ describe("Aides Vélo", () => {
       );
 
       engine.setSituation({
-        "localisation . code insee": "'73179'",
+        "localisation . commune . code": "'73179'",
         "vélo . état": "'occasion'",
         "vélo . prix": "1000€",
         "vélo . type": "'cargo électrique'",
@@ -1077,7 +1077,7 @@ describe("Aides Vélo", () => {
       );
 
       engine.setSituation({
-        "localisation . code insee": "'73179'",
+        "localisation . commune . code": "'73179'",
         "vélo . état": "'occasion'",
         "vélo . prix": "1000€",
         "vélo . type": "'mécanique simple'",
@@ -1087,7 +1087,7 @@ describe("Aides Vélo", () => {
       );
 
       engine.setSituation({
-        "localisation . code insee": "'73179'",
+        "localisation . commune . code": "'73179'",
         "vélo . état": "'occasion'",
         "vélo . prix": "1000€",
         "vélo . type": "'pliant'",
@@ -1101,7 +1101,7 @@ describe("Aides Vélo", () => {
   describe("Grand Annecy Agglomération", () => {
     it("devrait prendre en compte un bonus de 400€ pour les PMR", () => {
       engine.setSituation({
-        "localisation . epci": "'CA du Grand Annecy'",
+        "localisation . epci . nom": "'CA du Grand Annecy'",
         "vélo . prix": "1000€",
         "revenu fiscal de référence par part": "10000€/an",
         "vélo . type": "'électrique'",
@@ -1109,7 +1109,7 @@ describe("Aides Vélo", () => {
       expect(engine.evaluate("aides . annecy").nodeValue).toEqual(400);
 
       engine.setSituation({
-        "localisation . epci": "'CA du Grand Annecy'",
+        "localisation . epci . nom": "'CA du Grand Annecy'",
         "vélo . prix": "1000€",
         "revenu fiscal de référence par part": "10000€/an",
         "vélo . type": "'électrique'",
@@ -1120,7 +1120,7 @@ describe("Aides Vélo", () => {
 
     it("devrait prendre en compte les vélos d'occasions", () => {
       engine.setSituation({
-        "localisation . epci": "'CA du Grand Annecy'",
+        "localisation . epci . nom": "'CA du Grand Annecy'",
         "vélo . prix": "1000€",
         "revenu fiscal de référence par part": "10000€/an",
         "vélo . type": "'mécanique simple'",
@@ -1128,7 +1128,7 @@ describe("Aides Vélo", () => {
       expect(engine.evaluate("aides . annecy").nodeValue).toEqual(150);
 
       engine.setSituation({
-        "localisation . epci": "'CA du Grand Annecy'",
+        "localisation . epci . nom": "'CA du Grand Annecy'",
         "vélo . prix": "1000€",
         "revenu fiscal de référence par part": "10000€/an",
         "vélo . type": "'mécanique simple'",
@@ -1137,7 +1137,7 @@ describe("Aides Vélo", () => {
       expect(engine.evaluate("aides . annecy").nodeValue).toEqual(70);
 
       engine.setSituation({
-        "localisation . epci": "'CA du Grand Annecy'",
+        "localisation . epci . nom": "'CA du Grand Annecy'",
         "vélo . prix": "1000€",
         "revenu fiscal de référence par part": "10000€/an",
         "vélo . type": "'électrique'",
@@ -1150,7 +1150,7 @@ describe("Aides Vélo", () => {
   describe("Communauté de communes Cluses Arve & Montagnes", () => {
     it("devrait correctement prendre en compte le bonus 'vélo d'occasion'", () => {
       engine.setSituation({
-        "localisation . epci": "'CC Cluses-Arve et Montagnes'",
+        "localisation . epci . nom": "'CC Cluses-Arve et Montagnes'",
         "vélo . prix": "1000€",
         "revenu fiscal de référence par part": "10000€/an",
         "vélo . type": "'électrique'",
@@ -1160,7 +1160,7 @@ describe("Aides Vélo", () => {
       ).toEqual(300);
 
       engine.setSituation({
-        "localisation . epci": "'CC Cluses-Arve et Montagnes'",
+        "localisation . epci . nom": "'CC Cluses-Arve et Montagnes'",
         "vélo . prix": "1000€",
         "revenu fiscal de référence par part": "10000€/an",
         "vélo . type": "'électrique'",
@@ -1173,7 +1173,7 @@ describe("Aides Vélo", () => {
 
     it("devrait correctement prendre en compte le bonus 'participation employeur'", () => {
       engine.setSituation({
-        "localisation . epci": "'CC Cluses-Arve et Montagnes'",
+        "localisation . epci . nom": "'CC Cluses-Arve et Montagnes'",
         "vélo . prix": "1000€",
         "revenu fiscal de référence par part": "10000€/an",
         "vélo . type": "'électrique'",
@@ -1183,7 +1183,7 @@ describe("Aides Vélo", () => {
       ).toEqual(300);
 
       engine.setSituation({
-        "localisation . epci": "'CC Cluses-Arve et Montagnes'",
+        "localisation . epci . nom": "'CC Cluses-Arve et Montagnes'",
         "vélo . prix": "1000€",
         "revenu fiscal de référence par part": "10000€/an",
         "vélo . type": "'électrique'",
@@ -1198,7 +1198,7 @@ describe("Aides Vélo", () => {
   describe("Anjou Bleu Communauté", () => {
     it("devrait correctement prendre en compte le revenu fiscal de référence maximal", () => {
       engine.setSituation({
-        "localisation . epci": "'CC Anjou Bleu Communauté'",
+        "localisation . epci . nom": "'CC Anjou Bleu Communauté'",
         "vélo . prix": "1000€",
         "revenu fiscal de référence par part": "16000€/an",
         "vélo . type": "'électrique'",
@@ -1206,7 +1206,7 @@ describe("Aides Vélo", () => {
       expect(engine.evaluate("aides . anjou bleu").nodeValue).not.toEqual(null);
 
       engine.setSituation({
-        "localisation . epci": "'CC Anjou Bleu Communauté'",
+        "localisation . epci . nom": "'CC Anjou Bleu Communauté'",
         "vélo . prix": "1000€",
         "revenu fiscal de référence par part": "16000€/an",
         "revenu fiscal de référence par part . nombre de parts": 2,
@@ -1219,7 +1219,7 @@ describe("Aides Vélo", () => {
   describe("Communauté d'agglomération de Rochefort Océan", () => {
     it("devrait avoir le même montant que l'exemple du site", () => {
       engine.setSituation({
-        "localisation . epci": "'CA Rochefort Océan'",
+        "localisation . epci . nom": "'CA Rochefort Océan'",
         "revenu fiscal de référence par part": "14200 €/an",
         "vélo . état": "'neuf'",
         "vélo . prix": "1000 €",
@@ -1230,7 +1230,7 @@ describe("Aides Vélo", () => {
 
     it("devrait avoir le même plafond pour les cargo mécanique que pour les vélos électriques", () => {
       engine.setSituation({
-        "localisation . epci": "'CA Rochefort Océan'",
+        "localisation . epci . nom": "'CA Rochefort Océan'",
         "revenu fiscal de référence par part": "14200 €/an",
         "vélo . état": "'neuf'",
         "vélo . prix": "1000 €",
@@ -1243,7 +1243,7 @@ describe("Aides Vélo", () => {
   describe("La Roche-sur-Yon Agglomération", () => {
     it("devrait être élligible pour les vélo d'occasion", () => {
       engine.setSituation({
-        "localisation . epci": "'CA La Roche sur Yon - Agglomération'",
+        "localisation . epci . nom": "'CA La Roche sur Yon - Agglomération'",
         "vélo . type": "'électrique'",
         "vélo . état": "'occasion'",
         "vélo . prix": "1000€",
@@ -1253,7 +1253,7 @@ describe("Aides Vélo", () => {
 
     it("devrait être élligible uniquement pour les VAE en-dessous d'un certain prix", () => {
       engine.setSituation({
-        "localisation . epci": "'CA La Roche sur Yon - Agglomération'",
+        "localisation . epci . nom": "'CA La Roche sur Yon - Agglomération'",
         "vélo . type": "'électrique'",
         "vélo . prix": "1000€",
       });
@@ -1262,7 +1262,7 @@ describe("Aides Vélo", () => {
       );
 
       engine.setSituation({
-        "localisation . epci": "'CA La Roche sur Yon - Agglomération'",
+        "localisation . epci . nom": "'CA La Roche sur Yon - Agglomération'",
         "vélo . type": "'électrique'",
         "vélo . prix": "2000€",
       });
@@ -1271,7 +1271,7 @@ describe("Aides Vélo", () => {
       );
 
       engine.setSituation({
-        "localisation . epci": "'CA La Roche sur Yon - Agglomération'",
+        "localisation . epci . nom": "'CA La Roche sur Yon - Agglomération'",
         "vélo . type": "'électrique'",
         "vélo . état": "'occasion'",
         "vélo . prix": "1000€",
@@ -1279,7 +1279,7 @@ describe("Aides Vélo", () => {
       expect(engine.evaluate("aides . la roche sur yon").nodeValue).toEqual(50);
 
       engine.setSituation({
-        "localisation . epci": "'CA La Roche sur Yon - Agglomération'",
+        "localisation . epci . nom": "'CA La Roche sur Yon - Agglomération'",
         "vélo . type": "'électrique'",
         "vélo . état": "'occasion'",
         "vélo . prix": "1500€",
@@ -1291,7 +1291,7 @@ describe("Aides Vélo", () => {
 
     it("devrait être majoré pour les salariés d'une structure membres du PDIE", () => {
       engine.setSituation({
-        "localisation . epci": "'CA La Roche sur Yon - Agglomération'",
+        "localisation . epci . nom": "'CA La Roche sur Yon - Agglomération'",
         "vélo . type": "'électrique'",
         "vélo . prix": "1000€",
         "demandeur . statut": "'salarié'",
@@ -1307,8 +1307,8 @@ describe("Aides Vélo", () => {
   describe("Ville de Denain", () => {
     it("devrait correspondre à la moitié du montant de celle du CAPH", () => {
       engine.setSituation({
-        "localisation . epci": "'CA de la Porte du Hainaut'",
-        "localisation . code insee": "'59172'",
+        "localisation . epci . nom": "'CA de la Porte du Hainaut'",
+        "localisation . commune . code": "'59172'",
         "vélo . type": "'électrique'",
         "vélo . prix": "1000€",
       });
@@ -1318,8 +1318,8 @@ describe("Aides Vélo", () => {
       );
 
       engine.setSituation({
-        "localisation . epci": "'CA de la Porte du Hainaut'",
-        "localisation . code insee": "'59172'",
+        "localisation . epci . nom": "'CA de la Porte du Hainaut'",
+        "localisation . commune . code": "'59172'",
         "vélo . type": "'cargo électrique'",
         "vélo . état": "'occasion'",
         "vélo . prix": "1000€",
@@ -1334,14 +1334,14 @@ describe("Aides Vélo", () => {
   describe("Communauté urbaine de Dunkerque", () => {
     it("devrait être bonifié pour les bénéficiaires du RSA et de l'ASS", () => {
       engine.setSituation({
-        "localisation . epci": "'CU de Dunkerque'",
+        "localisation . epci . nom": "'CU de Dunkerque'",
         "vélo . type": "'électrique'",
         "vélo . prix": "1000€",
       });
       expect(engine.evaluate("aides . dunkerque").nodeValue).toEqual(150);
 
       engine.setSituation({
-        "localisation . epci": "'CU de Dunkerque'",
+        "localisation . epci . nom": "'CU de Dunkerque'",
         "vélo . type": "'électrique'",
         "vélo . prix": "1000€",
         "demandeur . bénéficiaire de minima sociaux": "oui",
@@ -1353,7 +1353,7 @@ describe("Aides Vélo", () => {
   describe("Ville d'Amboise", () => {
     it("devrait être de 200 € pour un QF > 1100 €/mois", () => {
       engine.setSituation({
-        "localisation . code insee": "'37003'",
+        "localisation . commune . code": "'37003'",
         "revenu fiscal de référence par part": "2000 €/mois",
         "vélo . type": "'électrique'",
         "vélo . prix": 1400,
@@ -1363,7 +1363,7 @@ describe("Aides Vélo", () => {
 
     it("devrait avoir un plafond de limite de 1200 € pour le prix du vélo", () => {
       engine.setSituation({
-        "localisation . code insee": "'37003'",
+        "localisation . commune . code": "'37003'",
         "revenu fiscal de référence par part": "400 €/mois",
         "vélo . type": "'électrique'",
         "vélo . prix": 2000,
@@ -1371,7 +1371,7 @@ describe("Aides Vélo", () => {
       expect(engine.evaluate("aides . amboise").nodeValue).toEqual(0.5 * 1200);
 
       engine.setSituation({
-        "localisation . code insee": "'37003'",
+        "localisation . commune . code": "'37003'",
         "revenu fiscal de référence par part": "1000 €/mois",
         "vélo . type": "'électrique'",
         "vélo . prix": 2000,
@@ -1381,7 +1381,7 @@ describe("Aides Vélo", () => {
 
     it("devrait être de 200 € minimum", () => {
       engine.setSituation({
-        "localisation . code insee": "'37003'",
+        "localisation . commune . code": "'37003'",
         "revenu fiscal de référence par part": "400 €/mois",
         "vélo . type": "'électrique'",
         "vélo . prix": 200,
@@ -1391,7 +1391,7 @@ describe("Aides Vélo", () => {
       );
 
       engine.setSituation({
-        "localisation . code insee": "'37003'",
+        "localisation . commune . code": "'37003'",
         "revenu fiscal de référence par part": "1000 €/mois",
         "vélo . type": "'électrique'",
         "vélo . prix": 200,
@@ -1403,7 +1403,7 @@ describe("Aides Vélo", () => {
 
     it("devrait être élligible pour les vélo d'occasion", () => {
       engine.setSituation({
-        "localisation . code insee": "'37003'",
+        "localisation . commune . code": "'37003'",
         "revenu fiscal de référence par part": "400 €/mois",
         "vélo . type": "'électrique'",
         "vélo . état": "'occasion'",
@@ -1416,7 +1416,7 @@ describe("Aides Vélo", () => {
   describe("Région Pays de la Loire", () => {
     it("devrait être élligible uniquement pour les abonné TER", () => {
       engine.setSituation({
-        "localisation . région": "'52'",
+        "localisation . région . code": "'52'",
         "vélo . type": "'électrique'",
         "vélo . prix": 1000,
       });
@@ -1425,7 +1425,7 @@ describe("Aides Vélo", () => {
       );
 
       engine.setSituation({
-        "localisation . région": "'52'",
+        "localisation . région . code": "'52'",
         "vélo . type": "'électrique'",
         "vélo . prix": 1000,
         "aides . pays de la loire . abonné TER": "non",
@@ -1437,14 +1437,14 @@ describe("Aides Vélo", () => {
   describe("Département de l'Oise", () => {
     it("devrait pas être élligible pour les personnes ayant bénéficiées de l'aide à la conversion bioéthanol", () => {
       engine.setSituation({
-        "localisation . département": "'60'",
+        "localisation . département . code": "'60'",
         "vélo . type": "'électrique'",
         "vélo . prix": 1000,
       });
       expect(engine.evaluate("aides . oise").nodeValue).toEqual(300);
 
       engine.setSituation({
-        "localisation . département": "'60'",
+        "localisation . département . code": "'60'",
         "vélo . type": "'électrique'",
         "vélo . prix": 1000,
         "aides . oise . aide à la conversion bioéthanol": "oui",
@@ -1454,7 +1454,7 @@ describe("Aides Vélo", () => {
 
     it("devrait être élligible pour les vélo d'occasion", () => {
       engine.setSituation({
-        "localisation . département": "'60'",
+        "localisation . département . code": "'60'",
         "vélo . type": "'électrique'",
         "vélo . état": "'occasion'",
         "vélo . prix": 1000,
@@ -1466,7 +1466,7 @@ describe("Aides Vélo", () => {
   describe("Grand Angoulême", () => {
     it("devrait être élligible sans condition de revenu pour les étudiants et les apprantis", () => {
       engine.setSituation({
-        "localisation . epci": "'CA du Grand Angoulême'",
+        "localisation . epci . nom": "'CA du Grand Angoulême'",
         "vélo . type": "'électrique'",
         "vélo . prix": 1000,
         "revenu fiscal de référence par part": "5000 €/mois",
@@ -1474,7 +1474,7 @@ describe("Aides Vélo", () => {
       expect(engine.evaluate("aides . grand angouleme").nodeValue).toBeNull();
 
       engine.setSituation({
-        "localisation . epci": "'CA du Grand Angoulême'",
+        "localisation . epci . nom": "'CA du Grand Angoulême'",
         "vélo . type": "'électrique'",
         "vélo . prix": 1000,
         "revenu fiscal de référence par part": "5000 €/mois",
@@ -1483,7 +1483,7 @@ describe("Aides Vélo", () => {
       expect(engine.evaluate("aides . grand angouleme").nodeValue).toEqual(400);
 
       engine.setSituation({
-        "localisation . epci": "'CA du Grand Angoulême'",
+        "localisation . epci . nom": "'CA du Grand Angoulême'",
         "vélo . type": "'électrique'",
         "vélo . prix": 1000,
         "revenu fiscal de référence par part": "5000 €/mois",
@@ -1494,7 +1494,7 @@ describe("Aides Vélo", () => {
 
     it("devrait être élligible pour les vélo d'occasion", () => {
       engine.setSituation({
-        "localisation . epci": "'CA du Grand Angoulême'",
+        "localisation . epci . nom": "'CA du Grand Angoulême'",
         "vélo . type": "'électrique'",
         "vélo . état": "'occasion'",
         "vélo . prix": 1000,
@@ -1507,7 +1507,7 @@ describe("Aides Vélo", () => {
   describe("Les Portes du Luxembourg", () => {
     it("devrait être élligible pour les vélo d'occasion", () => {
       engine.setSituation({
-        "localisation . epci": "'CC des Portes du Luxembourg'",
+        "localisation . epci . nom": "'CC des Portes du Luxembourg'",
         "vélo . type": "'électrique'",
         "vélo . état": "'occasion'",
         "vélo . prix": 1000,
@@ -1519,7 +1519,7 @@ describe("Aides Vélo", () => {
 
     it("devrait être bonifiée pour les vélos conçus et assemblés en France", () => {
       engine.setSituation({
-        "localisation . epci": "'CC des Portes du Luxembourg'",
+        "localisation . epci . nom": "'CC des Portes du Luxembourg'",
         "vélo . type": "'électrique'",
         "vélo . prix": 1000,
         "aides . portes du luxembourg . assemblé en France": "oui",
@@ -1533,21 +1533,21 @@ describe("Aides Vélo", () => {
   describe("Brièvre Isère Communauté", () => {
     it("devrait pas être élligible pour pour un vélo cargo >5000€", () => {
       engine.setSituation({
-        "localisation . epci": "'CC Bièvre Isère'",
+        "localisation . epci . nom": "'CC Bièvre Isère'",
         "vélo . type": "'cargo électrique'",
         "vélo . prix": 6000,
       });
       expect(engine.evaluate("aides . bièvre isère").nodeValue).toBeNull();
 
       engine.setSituation({
-        "localisation . epci": "'CC Bièvre Isère'",
+        "localisation . epci . nom": "'CC Bièvre Isère'",
         "vélo . type": "'cargo'",
         "vélo . prix": 6000,
       });
       expect(engine.evaluate("aides . bièvre isère").nodeValue).toBeNull();
 
       engine.setSituation({
-        "localisation . epci": "'CC Bièvre Isère'",
+        "localisation . epci . nom": "'CC Bièvre Isère'",
         "vélo . type": "'adapté'",
         "vélo . prix": 6000,
       });
@@ -1556,14 +1556,14 @@ describe("Aides Vélo", () => {
 
     it("devrait pas être élligible pour pour un vélo non cargo >3000€", () => {
       engine.setSituation({
-        "localisation . epci": "'CC Bièvre Isère'",
+        "localisation . epci . nom": "'CC Bièvre Isère'",
         "vélo . type": "'électrique'",
         "vélo . prix": 4000,
       });
       expect(engine.evaluate("aides . bièvre isère").nodeValue).toBeNull();
 
       engine.setSituation({
-        "localisation . epci": "'CC Bièvre Isère'",
+        "localisation . epci . nom": "'CC Bièvre Isère'",
         "vélo . type": "'mécanique simple'",
         "vélo . prix": 4000,
       });
@@ -1572,7 +1572,7 @@ describe("Aides Vélo", () => {
 
     it("devrait être élligible pour les vélo d'occasion", () => {
       engine.setSituation({
-        "localisation . epci": "'CC Bièvre Isère'",
+        "localisation . epci . nom": "'CC Bièvre Isère'",
         "vélo . type": "'électrique'",
         "vélo . état": "'occasion'",
         "vélo . prix": 1000,
@@ -1580,7 +1580,7 @@ describe("Aides Vélo", () => {
       expect(engine.evaluate("aides . bièvre isère").nodeValue).toEqual(250);
 
       engine.setSituation({
-        "localisation . epci": "'CC Bièvre Isère'",
+        "localisation . epci . nom": "'CC Bièvre Isère'",
         "vélo . type": "'adapté'",
         "vélo . état": "'occasion'",
         "vélo . prix": 4500,
@@ -1592,7 +1592,7 @@ describe("Aides Vélo", () => {
   describe("Villefranche Agglomération Beaujolais Saône", () => {
     it("devrait pas pouvoir avoir un montant négatif", () => {
       engine.setSituation({
-        "localisation . epci": "'CA Villefranche Beaujolais Saône'",
+        "localisation . epci . nom": "'CA Villefranche Beaujolais Saône'",
         "vélo . type": "'électrique'",
         "vélo . prix": 200,
         "revenu fiscal de référence par part": "5000 €/mois",
@@ -1602,7 +1602,7 @@ describe("Aides Vélo", () => {
       ).toBeGreaterThanOrEqual(0);
 
       engine.setSituation({
-        "localisation . epci": "'CA Villefranche Beaujolais Saône'",
+        "localisation . epci . nom": "'CA Villefranche Beaujolais Saône'",
         "vélo . type": "'électrique'",
         "vélo . prix": 200,
         "revenu fiscal de référence par part": "5000 €/mois",
@@ -1617,7 +1617,7 @@ describe("Aides Vélo", () => {
   describe("Communauté de communes du Val de Drôme en Biovallée", () => {
     it("devrait avoir un plafond pour les vélos", () => {
       engine.setSituation({
-        "localisation . epci": "'CC du Val de Drôme en Biovallée'",
+        "localisation . epci . nom": "'CC du Val de Drôme en Biovallée'",
         "vélo . prix": 200,
         "revenu fiscal de référence par part": "10000 €/an",
       });
@@ -1628,7 +1628,7 @@ describe("Aides Vélo", () => {
 
     it("ne devrait pas avoir de plafond pour les kits de motorisation", () => {
       engine.setSituation({
-        "localisation . epci": "'CC du Val de Drôme en Biovallée'",
+        "localisation . epci . nom": "'CC du Val de Drôme en Biovallée'",
         "vélo . type": "'motorisation'",
         "vélo . prix": 50,
         "revenu fiscal de référence par part": "10000 €/an",
@@ -1639,7 +1639,7 @@ describe("Aides Vélo", () => {
 
   describe("Communauté Urbaine Creusot-Montceau", () => {
     const baseSituation = {
-      "localisation . epci": "'CU Le Creusot Montceau-les-Mines'",
+      "localisation . epci . nom": "'CU Le Creusot Montceau-les-Mines'",
       "vélo . prix": 400,
       "revenu fiscal de référence par part": "2000 €/mois",
     };
@@ -1769,7 +1769,7 @@ describe("Aides Vélo", () => {
 
   describe("Lorient Agglomération", () => {
     const baseSituation = {
-      "localisation . epci": "'CA Lorient Agglomération'",
+      "localisation . epci . nom": "'CA Lorient Agglomération'",
       "vélo . prix": 1000,
       "revenu fiscal de référence par part": "1000 €/mois",
     };
@@ -1840,7 +1840,7 @@ describe("Aides Vélo", () => {
 
   describe("Arc Sud Bretagne", () => {
     const baseSituation = {
-      "localisation . epci": "'CC Arc Sud Bretagne'",
+      "localisation . epci . nom": "'CC Arc Sud Bretagne'",
       "vélo . prix": 1000,
       "revenu fiscal de référence par part": "10000 €/an",
     };
@@ -1865,7 +1865,7 @@ describe("Aides Vélo", () => {
 
   describe("Val Parisis Agglo", () => {
     const baseSituation = {
-      "localisation . epci": "'CA Val Parisis'",
+      "localisation . epci . nom": "'CA Val Parisis'",
       "vélo . prix": 1000,
     };
 
@@ -1885,14 +1885,14 @@ describe("Aides Vélo", () => {
     test("ile de france > 50%", () => {
       engine.setSituation({
         ...baseSituation,
-        "localisation . région": "'11'",
+        "localisation . région . code": "'11'",
       });
       expect(engine.evaluate("aides . ile de france").nodeValue).toEqual(400);
       expect(engine.evaluate("aides . cc val parisis").nodeValue).toEqual(100);
 
       engine.setSituation({
         ...baseSituation,
-        "localisation . région": "'11'",
+        "localisation . région . code": "'11'",
         "vélo . prix": 150,
       });
       expect(engine.evaluate("aides . ile de france").nodeValue).toEqual(75);

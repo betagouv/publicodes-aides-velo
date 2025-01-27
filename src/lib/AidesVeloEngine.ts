@@ -2,7 +2,7 @@ import Engine, {
   formatValue,
   Situation as PublicodesSituation,
 } from "publicodes";
-import rules, { Questions, RuleName, Situation } from "../../publicodes-build";
+import rules, { Inputs, RuleName, Situation } from "../../publicodes-build";
 import {
   AideRuleNames,
   aidesAvecLocalisation,
@@ -58,7 +58,7 @@ const aidesAvecLocalisationEntries = Object.entries(
  * inputs.
  */
 export class AidesVeloEngine {
-  private inputs: Questions = {};
+  private inputs: Inputs = {};
   private engine: Engine<RuleName>;
 
   /**
@@ -83,7 +83,7 @@ export class AidesVeloEngine {
    * format. For example, boolean values are represented as `true` or `false`
    * instead of `oui` or `non` and the values are not wrapped in single quotes.
    */
-  public setInputs(inputs: Questions): this {
+  public setInputs(inputs: Inputs): this {
     this.inputs = inputs;
     this.engine.setSituation(
       formatInputs(inputs) as PublicodesSituation<RuleName>
@@ -162,7 +162,7 @@ export class AidesVeloEngine {
             description: this.formatDescription({
               ruleName,
               veloCat: this.engine.evaluate("vélo . type")
-                .nodeValue as Questions["vélo . type"],
+                .nodeValue as Inputs["vélo . type"],
               ville: "votre ville",
             }),
             amount: nodeValue,
@@ -203,9 +203,7 @@ export class AidesVeloEngine {
    * @returns The list of options or `undefined` if the question doesn't have
    * any.
    */
-  public getOptions<T extends keyof Questions>(
-    name: T
-  ): Questions[T][] | undefined {
+  public getOptions<T extends keyof Inputs>(name: T): Inputs[T][] | undefined {
     return extractOptions(this.engine.getRule(name));
   }
 
@@ -226,7 +224,7 @@ export class AidesVeloEngine {
     ville,
   }: {
     ruleName: RuleName;
-    veloCat: Questions["vélo . type"];
+    veloCat: Inputs["vélo . type"];
     ville: string;
   }) {
     const { rawNode } = this.engine.getRule(ruleName);
@@ -254,7 +252,7 @@ export class AidesVeloEngine {
   }
 }
 
-function formatInputs(inputs: Questions): Partial<Situation> {
+function formatInputs(inputs: Inputs): Partial<Situation> {
   const entries = Object.entries(inputs);
 
   const transformedEntries = entries

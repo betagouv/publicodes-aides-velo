@@ -61,6 +61,13 @@
   dependencies:
     regenerator-runtime "^0.14.0"
 
+"@betagouv/publicodes-decoupage-administratif@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@betagouv/publicodes-decoupage-administratif/-/publicodes-decoupage-administratif-0.1.0.tgz#bc8fef3cf904a6419a551f417e9d75cbe02ee5ba"
+  integrity sha512-BAe5WFSwPBKaEvKa65JdeATdcxOQ27/d8VHtLziX6Z0lY4FDlK4ApEypN3ahzygQ2kwxt22hw6zINyFRU98Jrw==
+  dependencies:
+    "@etalab/decoupage-administratif" "^4.0.0"
+
 "@changesets/apply-release-plan@^7.0.5":
   version "7.0.5"
   resolved "https://registry.yarnpkg.com/@changesets/apply-release-plan/-/apply-release-plan-7.0.5.tgz#3323c97afc08abc15e5136488f9c7cf1a864832e"
@@ -809,10 +816,9 @@
   resolved "https://registry.yarnpkg.com/@pkgjs/parseargs/-/parseargs-0.11.0.tgz#a77ea742fab25775145434eb1d2328cf5013ac33"
   integrity sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==
 
-"@publicodes/tools@^1.3.0-2":
+"@publicodes/tools@https://pkg.pr.new/publicodes/tools/@publicodes/tools@86bbf76":
   version "1.3.0-2"
-  resolved "https://registry.yarnpkg.com/@publicodes/tools/-/tools-1.3.0-2.tgz#4088c3779603034ca89a3edfcbb8606f2d7e7804"
-  integrity sha512-/kn7+anS3iygHtXywrZdFR2dH4bk1dAOk0tuY8j3LDU5SdrGosHMY/fouAxMp+Da7Xl8p5u6/D7JKR8l3uJ8Bw==
+  resolved "https://pkg.pr.new/publicodes/tools/@publicodes/tools@86bbf76#b8d31b4207008267a6d10db290ded722ec95d7b2"
   dependencies:
     "@clack/prompts" "^0.7.0"
     "@oclif/core" "^4.0.23"
@@ -820,7 +826,7 @@
     chalk "^5.3.0"
     glob "^10.4.1"
     path "^0.12.7"
-    publicodes "^1.5.1"
+    publicodes "^1.6.1"
     yaml "^2.4.5"
 
 "@rollup/rollup-android-arm-eabi@4.24.4":
@@ -1269,7 +1275,7 @@ color-name@~1.1.4:
   resolved "https://registry.yarnpkg.com/color-name/-/color-name-1.1.4.tgz#c2a09a87acbde69543de6f63fa3995c826c536a2"
   integrity sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==
 
-commander@^2.20.0:
+commander@^2.19.0, commander@^2.20.0:
   version "2.20.3"
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.20.3.tgz#fd485e84c03eb4881c20722ba48035e8531aeb33"
   integrity sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==
@@ -1345,6 +1351,11 @@ dir-glob@^3.0.1:
   integrity sha512-WkrWp9GR4KXfKGYzOLmTuGVi1UWFfws377n9cc55/tb6DuqyF6pcQ5AbiHEshaDpY9v6oaSr2XCDidGmMwdzIA==
   dependencies:
     path-type "^4.0.0"
+
+discontinuous-range@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/discontinuous-range/-/discontinuous-range-1.0.0.tgz#e38331f0844bba49b9a9cb71c771585aab1bc65a"
+  integrity sha512-c68LpLbO+7kP/b1Hr1qs8/BJ09F5khZGTxqxZuhzxpmwJKOgRFHJWIb9/KmqnqHhLdO55aOxFH/EGBvUQbL/RQ==
 
 dotenv@^16.0.3:
   version "16.4.7"
@@ -1884,6 +1895,11 @@ minimatch@^9.0.4, minimatch@^9.0.5:
   resolved "https://registry.yarnpkg.com/minipass/-/minipass-7.1.2.tgz#93a9626ce5e5e66bd4db86849e7515e92340a707"
   integrity sha512-qOOzS1cBTWYF4BH8fVePDBOO9iptMnGUEZwNc/cMWnTV2nVLZ7VoNWEPHkYczZA0pdoA7dl6e7FL659nX9S2aw==
 
+moo@^0.5.0, moo@^0.5.2:
+  version "0.5.2"
+  resolved "https://registry.yarnpkg.com/moo/-/moo-0.5.2.tgz#f9fe82473bc7c184b0d32e2215d3f6e67278733c"
+  integrity sha512-iSAJLHYKnX41mKcJKjqvnAN9sf0LMDTXDEvFv+ffuRR9a1MIuXLjMNL6EsnDHSkKLTWNqQQ5uo61P4EbU4NU+Q==
+
 mri@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/mri/-/mri-1.2.0.tgz#6721480fec2a11a4889861115a48b6cbe7cc8f0b"
@@ -1907,6 +1923,16 @@ nanoid@^3.3.7:
   version "3.3.7"
   resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.3.7.tgz#d0c301a691bc8d54efa0a2226ccf3fe2fd656bd8"
   integrity sha512-eSRppjcPIatRIMC1U6UngP8XFcz8MQWGQdt1MTBQ7NaAmvXDfvNxbvWV3x2y6CdEUciCSsDHDQZbhYaB8QEo2g==
+
+nearley@^2.20.1:
+  version "2.20.1"
+  resolved "https://registry.yarnpkg.com/nearley/-/nearley-2.20.1.tgz#246cd33eff0d012faf197ff6774d7ac78acdd474"
+  integrity sha512-+Mc8UaAebFzgV+KpI5n7DasuuQCHA89dmwm7JXw3TV43ukfNQ9DnBH3Mdb2g/I4Fdxc26pwimBWvjIw0UAILSQ==
+  dependencies:
+    commander "^2.19.0"
+    moo "^0.5.0"
+    railroad-diagrams "^1.0.0"
+    randexp "0.4.6"
 
 node-fetch@^2.5.0:
   version "2.7.0"
@@ -2089,6 +2115,14 @@ publicodes@^1.5.1:
   resolved "https://registry.yarnpkg.com/publicodes/-/publicodes-1.5.4.tgz#fa157adecfa30704ef9fbed64e6794bb09d74ef7"
   integrity sha512-yCoMNnbW7WVZT1ntZcp0VbdV3Nl8yYE7Ar91NSOWSHg6jCB267N2h2xItZxYRJo2d6MUsMS1b/q0Vg8geVL3Kw==
 
+publicodes@^1.6.1:
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/publicodes/-/publicodes-1.6.1.tgz#362ebe75de54ade3a81643b730c5a76dea3445b2"
+  integrity sha512-oCi9SMIUYgQzIL/9Txz+agl2/V0pJc6+q+0XxfcHv4evkCojdJ6VsubgiL/MLxiE0B7e1BLTUobkTPYHvgOMnw==
+  dependencies:
+    moo "^0.5.2"
+    nearley "^2.20.1"
+
 punycode@^2.1.0:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-2.3.1.tgz#027422e2faec0b25e1549c3e1bd8309b9133b6e5"
@@ -2098,6 +2132,19 @@ queue-microtask@^1.2.2:
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/queue-microtask/-/queue-microtask-1.2.3.tgz#4929228bbc724dfac43e0efb058caf7b6cfb6243"
   integrity sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==
+
+railroad-diagrams@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/railroad-diagrams/-/railroad-diagrams-1.0.0.tgz#eb7e6267548ddedfb899c1b90e57374559cddb7e"
+  integrity sha512-cz93DjNeLY0idrCNOH6PviZGRN9GJhsdm9hpn1YCS879fj4W+x5IFJhhkRZcwVgMmFF7R82UA/7Oh+R8lLZg6A==
+
+randexp@0.4.6:
+  version "0.4.6"
+  resolved "https://registry.yarnpkg.com/randexp/-/randexp-0.4.6.tgz#e986ad5e5e31dae13ddd6f7b3019aa7c87f60ca3"
+  integrity sha512-80WNmd9DA0tmZrw9qQa62GPPWfuXJknrmVmLcxvq4uZBdYqb1wYoKTmnlGUchvVWe0XiLupYkBoXVOxz3C8DYQ==
+  dependencies:
+    discontinuous-range "1.0.0"
+    ret "~0.1.10"
 
 react-is@^18.0.0:
   version "18.3.1"
@@ -2128,6 +2175,11 @@ resolve-from@^5.0.0:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/resolve-from/-/resolve-from-5.0.0.tgz#c35225843df8f776df21c57557bc087e9dfdfc69"
   integrity sha512-qYg9KP24dD5qka9J47d0aVky0N+b4fTU89LN9iDnjB5waksiC49rvMB0PrUJQGoTmH50XPiqOvAjDfaijGxYZw==
+
+ret@~0.1.10:
+  version "0.1.15"
+  resolved "https://registry.yarnpkg.com/ret/-/ret-0.1.15.tgz#b8a4825d5bdb1fc3f6f53c2bc33f81388681c7bc"
+  integrity sha512-TTlYpa+OL+vMMNG24xSlQGEJ3B/RzEfUlLct7b5G/ytav+wPrplCpVMFuwzXbkecJrb6IYo1iFb0S9v37754mg==
 
 reusify@^1.0.4:
   version "1.0.4"

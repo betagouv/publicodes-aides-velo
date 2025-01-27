@@ -88,7 +88,7 @@ vélo . pliant électrique:
 
 vélo . motorisation:
   valeur: vélo . type = 'motorisation'
-  description: >
+  description: |
     Un kit de conversion permet de transformer un vélo mécanique classique en
     vélo à assistance électrique. Il est constitué d'un moteur électrique,
     d'une batterie, ainsi que d'un contrôleur et d'un afficheur.
@@ -102,7 +102,7 @@ vélo . fabriqué en france:
 # NOTE: souhaitons-nous faire la distinction entre occasion et reconditionné ?
 vélo . état:
   question: S'agit-t-il d'un vélo neuf ou d'occasion ?
-  description: >
+  description: |
     Par occasion est généralement entendu un vélo reconditionné acheté auprès
     d'un revendeur agréé.
   par défaut: "'neuf'"
@@ -138,7 +138,7 @@ vélo . prix . HT:
 
 vélo . prix pour maximiser les aides:
   variations:
-    - si: localisation . epci = 'CA de Nevers'
+    - si: localisation . epci . nom = 'CA de Nevers'
       alors:
         variations:
           - si: vélo . cargo
@@ -153,44 +153,44 @@ vélo . prix pour maximiser les aides:
           - sinon: 3000€
     - si:
         une de ces conditions:
-          - localisation . epci = 'CA du Grand Annecy'
-          - localisation . epci = 'CA Luberon Monts de Vaucluse'
-          - localisation . epci = 'CA Tarbes-Lourdes-Pyrénées'
-          - localisation . epci = 'CC Saint-Marcellin Vercors Isère Communauté'
-          - localisation . epci = 'CC Le Grésivaudan'
+          - localisation . epci . nom = 'CA du Grand Annecy'
+          - localisation . epci . nom = 'CA Luberon Monts de Vaucluse'
+          - localisation . epci . nom = 'CA Tarbes-Lourdes-Pyrénées'
+          - localisation . epci . nom = 'CC Saint-Marcellin Vercors Isère Communauté'
+          - localisation . epci . nom = 'CC Le Grésivaudan'
       alors: 1000 €
     - si:
         une de ces conditions:
-          - localisation . epci = 'CC Haut Val de Sèvre'
+          - localisation . epci . nom = 'CC Haut Val de Sèvre'
       alors: 2000 €
     - si:
         une de ces conditions:
-          - localisation . epci = 'CA La Roche sur Yon - Agglomération'
-          - localisation . epci = 'Grenoble-Alpes-Métropole'
+          - localisation . epci . nom = 'CA La Roche sur Yon - Agglomération'
+          - localisation . epci . nom = 'Grenoble-Alpes-Métropole'
       alors: 1500 €
     - si:
         une de ces conditions:
-          - localisation . epci = 'CA Montluçon Communauté'
-          - localisation . code insee = '14327'
-          - localisation . code insee = '14341'
+          - localisation . epci . nom = 'CA Montluçon Communauté'
+          - localisation . commune . code = '14327'
+          - localisation . commune . code = '14341'
       alors: 2400 €
     - si:
         toutes ces conditions:
-          - localisation . epci = 'Métropole de Lyon'
+          - localisation . epci . nom = 'Métropole de Lyon'
           - vélo . mécanique simple
           - vélo . état . occasion
       alors: 100€
     - si:
         une de ces conditions:
-          - localisation . epci = 'Métropole de Lyon'
-          - localisation . epci = 'CC Les Balcons du Dauphiné'
-          - localisation . epci = 'CA Grand Lac'
-          - localisation . code insee = '38140'
-          - localisation . département = '07'
-          - localisation . epci = 'CA Saint-Lô Agglo'
-          - localisation . epci = 'CA Saint-Louis Agglomération'
-          - localisation . code insee = '73222'
+          - localisation . epci . nom = 'Métropole de Lyon'
+          - localisation . epci . nom = 'CC Les Balcons du Dauphiné'
+          - localisation . epci . nom = 'CA Grand Lac'
+          - localisation . commune . code = '38140'
+          - localisation . département . code = '07'
+          - localisation . epci . nom = 'CA Saint-Lô Agglo'
+          - localisation . epci . nom = 'CA Saint-Louis Agglomération'
+          - localisation . commune . code = '73222'
       alors: 3000 €
-    - si: localisation . epci = 'CA Annemasse-Les Voirons-Agglomération'
+    - si: localisation . epci . nom = 'CA Annemasse-Les Voirons-Agglomération'
       alors: 4500 €
     - sinon: 5000 €
