@@ -14,7 +14,7 @@ jobs:
       - run: npm ci
 
       - name: Test the package
-        run: npm test
+        run: npm run test
 
       - name: Compile the package
-        run: npm compile
+        run: npm run compile
