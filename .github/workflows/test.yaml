@@ -10,12 +10,11 @@ jobs:
         with:
           submodules: true
       - uses: actions/setup-node@v4
-        with:
-          cache: yarn
-      - run: yarn install --frozen-lockfile
+
+      - run: npm ci
 
       - name: Test the package
-        run: yarn test
+        run: npm test
 
       - name: Compile the package
-        run: yarn compile
+        run: npm compile
