@@ -20,7 +20,7 @@ France.
 ## Installation
 
 ```sh
-yarn install @betagouv/aides-velo
+npm install @betagouv/aides-velo
 ```
 
 ## Utilisation
@@ -118,19 +118,19 @@ console.log(formatValue(result));
 
 ```sh
 // Install the dependencies and run postinstall scripts
-yarn install
+npm install
 
 // Compile the Publicodes rules
-yarn run compile:rules
+npm run compile:rules
 
 // Run the tests
-yarn run test
+npm run test
 
 // Compile the whole package (rules + wrapper function)
-yarn run compile
+npm run compile
 
 // Run the documentation server
-yarn run doc
+npm run doc
 ```
 
 ## Modification des aides
@@ -145,7 +145,7 @@ Toutes les aides sont définie dans le fichier
 modifiées (resp. supprimées/ajoutées) directement dans ce fichier.
 
 Une fois les modifications effectuées, assurez vous de ne pas avoir introduit
-d'erreurs dans les règles avec la commande `yarn run compile`.
+d'erreurs dans les règles avec la commande `npm run compile`.
 
 > [!NOTE]
 > Si une aide n'est plus d'actualité et doit être supprimée, il est préférable

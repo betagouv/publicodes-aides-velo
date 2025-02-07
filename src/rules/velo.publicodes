@@ -7,30 +7,15 @@ vélo:
 vélo . type:
   question: Quel type de vélo souhaitez-vous acheter ?
   une possibilité:
-    possibilités:
-      - mécanique simple
-      - électrique
-      - cargo
-      - cargo électrique
-      - pliant
-      - pliant électrique
-      - motorisation
-      - adapté
+    - mécanique simple
+    - électrique
+    - cargo
+    - cargo électrique
+    - pliant
+    - pliant électrique
+    - motorisation
+    - adapté
   par défaut: "'électrique'"
-  avec:
-    # NOTE: simple définition des règles correspondantes à chaque type de vélo,
-    # ce qui est nécessaire pour le mécanisme 'une possibilité'. Par soucis de
-    # simplicité et de retrocompatibilité, je n'ai pas refactorisé les règles
-    # existantes permettant de factoriser les comparaisons entre les différents
-    # types de vélos.
-    mécanique simple:
-    électrique:
-    cargo:
-    cargo électrique:
-    pliant:
-    pliant électrique:
-    motorisation:
-    adapté:
 
 vélo . adapté:
   valeur: vélo . type = 'adapté'
