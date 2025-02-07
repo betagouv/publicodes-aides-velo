@@ -50,7 +50,7 @@
     "@publicodes/tools": "^1.5.3",
     "@svitejs/changesets-changelog-github-compact": "^1.2.0",
     "@types/jest": "^29.5.13",
-    "bun": "^1.1.32",
+    "bun": "^1.2.2",
     "terser": "^5.36.0",
     "tsup": "^8.3.5",
     "typescript": "^5.6.3",
