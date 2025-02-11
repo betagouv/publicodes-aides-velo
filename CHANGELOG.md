@@ -1,5 +1,11 @@
 # @betagouv/aides-velo
 
+## 0.3.4
+
+### Patch Changes
+
+- Modification - Ile-de-France Mobilités - Suppression des placeholders pour le type de vélo et le plafond. ([`3644f2d`](https://github.com/betagouv/publicodes-aides-velo/commit/3644f2de24dfaefc338436f9259ac43075394b7d))
+
 ## 0.3.3
 
 ### Patch Changes
