@@ -159,32 +159,31 @@ aides . ile de france:
   remplace: région
   titre: Île-de-France Mobilités
   description: >
-    La région Île-de-France subventionne l'achat d'un $vélo à hauteur de 50% et
-    jusqu'à un plafond de $plafond.
+    Aide financière pour l'achat de vélos à assistance électrique, de vélos
+    mécanique (pour les moins de 25 ans) et de vélos adaptés. Neuf ou
+    d'occasion.
   applicable si: localisation . région = '11'
   valeur: 50% * vélo . prix
-  plafond: $plafond
-  avec:
-    $plafond:
-      variations:
-        - si: vélo . adapté
-          alors: 1200 €
-        - si: vélo . cargo électrique
-          alors: 600 €
-        - si: vélo . motorisation
-          alors: 200 €
-        - si:
-            une de ces conditions:
-              - vélo . électrique
-              - vélo . cargo
-              - vélo . pliant
-          alors: 400 €
-        - si:
-            toutes ces conditions:
-              - vélo . mécanique simple
-              - demandeur . âge . de 15 à 25 ans
-          alors: 100 €
-        - sinon: 0 €
+  plafond: 
+    variations:
+      - si: vélo . adapté
+        alors: 1200 €
+      - si: vélo . cargo électrique
+        alors: 600 €
+      - si: vélo . motorisation
+        alors: 200 €
+      - si:
+          une de ces conditions:
+            - vélo . électrique
+            - vélo . cargo
+            - vélo . pliant
+        alors: 400 €
+      - si:
+          toutes ces conditions:
+            - vélo . mécanique simple
+            - demandeur . âge . de 15 à 25 ans
+        alors: 100 €
+      - sinon: 0 €
   lien: "https://www.iledefrance-mobilites.fr/le-reseau/services-de-mobilite/velo/prime-achat-velo"
 
 aides . occitanie:

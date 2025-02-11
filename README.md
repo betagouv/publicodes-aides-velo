@@ -161,11 +161,11 @@ ajouter vos modifications dans le changelog grâce à la commande `npx changeset
 sélectionnant `patch` puis en ajoutant la description adéquate :
 
 ```
-Add - [Titre de l'aide]
+Ajout - [Titre de l'aide]
 
-Update - [Titre de l'aide] - [Description de la modification]
+Modification - [Titre de l'aide] - [Description de la modification]
 
-Remove - [Titre de l'aide]
+Suppression - [Titre de l'aide]
 ```
 
 > [!TIP]

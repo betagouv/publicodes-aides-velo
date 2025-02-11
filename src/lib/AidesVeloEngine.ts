@@ -219,6 +219,10 @@ export class AidesVeloEngine {
    * @param ville The name of the city.
    *
    * @returns The formatted description.
+   *
+   * NOTE: this method is legacy from mesaidesvelo.fr and should be removed at
+   * some point to simplify the code base. Or if needed, placeholders should be
+   * replaced with the `texte` mechanism in the publicodes rules.
    */
   public formatDescription({
     ruleName,
@@ -238,17 +242,17 @@ export class AidesVeloEngine {
     const plafond = plafondIsDefined && this.engine.evaluate(plafondRuleName);
     return (
       description
+        // NOTE: no longer used, should be removed
         .replace(
           /\$vélo/g,
           veloCat === "motorisation" ? "kit de motorisation" : `vélo ${veloCat}`
         )
         .replace(
           /\$plafond/,
-          // TODO: improve Publicodes typing
           // @ts-ignore
           formatValue(plafond?.nodeValue, { displayedUnit: "€" })
         )
-        // NOTE: doesn't seem to be used
+        // NOTE:only used in the ZFE related rules
         .replace(/\$ville/, ville)
     );
   }
