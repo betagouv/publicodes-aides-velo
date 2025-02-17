@@ -792,23 +792,6 @@ aides . mérignac:
   plafond: 20% * vélo . prix 
   lien: https://www.merignac.com/aides-financieres-pour-lachat-dun-velo-ou-la-pose-dun-kit-delectrification
 
-aides . taillan-médoc:
-  remplace: commune
-  titre: Commune du Taillan-Médoc
-  description: >
-    La Ville propose une aide unique de 100€ pour l'achat d'un vélo électrique
-    ou d'un dispositif d'électrification d'un vélo standard (kit
-    d'électrification répondant à la norme NF EN 15194). Cette aide est
-    cumulable avec les aides de Bordeaux Métropole et de l'État.
-  applicable si:
-    toutes ces conditions:
-      - localisation . code insee = '33519'
-      - une de ces conditions:
-          - vélo . électrique
-          - vélo . motorisation
-  valeur: 100€
-  lien: http://www.taillan-medoc.fr/vivre-au-taillan-medoc/mobilites/aide-a-lachat-dun-velo-electrique/
-
 aides . bègles vélo spécifique:
   remplace: commune
   titre: Ville de Bègles
@@ -1289,26 +1272,36 @@ aides . strasbourg:
   applicable si: 
     toutes ces conditions:
       - localisation . epci = 'Eurométropole de Strasbourg'
-      - vélo . état . neuf
+      - demandeur . âge . majeur
+      - une de ces conditions:
+          - toutes ces conditions:
+              - vélo . état . neuf
+              - une de ces conditions:
+                  - vélo . électrique
+                  - vélo . adapté
+          - vélo . motorisation
   valeur: 50% * vélo . prix
   plafond:
     variations:
-      - si: vélo . cargo électrique
+      - si:
+          une de ces conditions:
+            - vélo . cargo électrique
+            - vélo . adapté
         alors: 500€
       - si: vélo . électrique
         alors:
           variations:
-            - si: revenu fiscal de référence par part <= 7100 €/an
+            - si: revenu fiscal de référence par part <= 7500 €/an
               alors: 500€
-            - si: revenu fiscal de référence par part <= 15400 €/an
+            - si: revenu fiscal de référence par part <= 16300 €/an
               alors: 400€
-            - si: revenu fiscal de référence par part <= 20000 €/an
+            - si: revenu fiscal de référence par part <= 26200 €/an
               alors: 300€
             - sinon: 0€
       - si:
           toutes ces conditions:
             - vélo . motorisation
-            - revenu fiscal de référence par part <= 20000 €/an
+            - revenu fiscal de référence par part <= 26200 €/an
         alors: 150€
       - sinon: 0€
   lien: https://www.strasbourg.eu/aides-achat
@@ -1405,19 +1398,6 @@ aides . eckbolsheim:
   valeur: 10% * vélo . prix
   plafond: 100€
   lien: https://www.eckbolsheim.com/ville-verte/actions-pour-lenvironnement/aide_achat_velo_electrique_neuf/
-
-aides . ried de marckolsheim:
-  remplace: intercommunalité
-  titre: Communauté de Communes du Ried de Marckolsheim
-  description: >
-    La Communauté de Communes du Ried de Marckolsheim propose une aide à
-    l'achat pour vélo de tout type (neuf ou d'occasion). Cette aide est de 75€
-    pour l'achat d'un vélo acheté chez un revendeur situé sur le territoire du
-    PETR Sélestat – Alsace Centrale, 50€ sinon.
-  applicable si: localisation . epci = 'CC du Ried de Marckolsheim'
-  valeur: 75€
-  plafond: vélo . prix
-  lien: https://www.ried-marckolsheim.fr/actualites/nouveau-prime-velo?highlight=WyJhaWRlIl0=
 
 aides . vallée de villé:
   remplace: intercommunalité
@@ -2751,29 +2731,6 @@ aides . vallons du lyonnais:
         alors: 400€
       - sinon: 200€
   lien: https://www.ccvl.fr/vivre-au-quotidien/mobilites/vae-aides-a-lachat-et-location-longue-duree/
-
-# NOTE: valable depuis 2023 jusqu'à abrogation, à vérifier en 2025
-aides . pays de l'arbresle:
-  remplace: intercommunalité
-  titre: Communauté de Communes du Pays de L'Arbresle
-  description: >
-    La Communauté de Communes du Pays de L'Arbresle subventionne jusqu'à par
-    foyer pour l'achat d'un Vélo à Assistance Electrique (VAE), un vélo spécial
-    (vélo cargo, vélo rallongé, vélo adapté à un handicap) ou un kit
-    d'électrification, qu'il soit neuf ou d'occasion.
-  applicable si:
-    toutes ces conditions:
-      - localisation . epci = "CC du Pays de l'Arbresle (CCPA)"
-      - une de ces conditions:
-          - vélo . cargo
-          - vélo . adapté
-          - vélo . motorisation
-          - toutes ces conditions:
-              - vélo . électrique
-              - vélo . prix <= 3000€
-  valeur: 50% * vélo . prix
-  plafond: 250€
-  lien: https://www.paysdelarbresle.fr/aide-a-lachat-dun-velo-a-assistance-electrique/
 
 # NOTE: limite au 6 décembre 2024, à vérifier en 2025
 aides . pays de l'ozon:
@@ -4845,19 +4802,14 @@ aides . saint-pair-sur-mer:
   titre: Ville de Saint-Pair-sur-Mer
   description: >
     Prime de 200€ pour l'acquisition d'un vélo à assistance électrique et
-    mécanique (uniquement pour les personnes en situation de handicap ou ayant
-    un revenu fiscal de référence par part par part inférieur ou égal à 6 358 €).
-
-
-    La prime est éligible pour les Saint Pairais majeur ayant un revenu fiscal
-    de référence par part inférieur ou égal à 14 089 € ou étant en situation de
-    handicap.
+    mécanique maintenu pour les 20 premières demandes en 2025.
   applicable si:
     toutes ces conditions:
       - localisation . code insee = '50532'
       - vélo . électrique ou mécanique
+      - demandeur . âge . majeur
       - une de ces conditions:
-          - revenu fiscal de référence par part <= 14089 €/an
+          - revenu fiscal de référence par part <= 15400 €/an
           - demandeur . en situation de handicap
   valeur: 
     variations:
@@ -4865,13 +4817,13 @@ aides . saint-pair-sur-mer:
         alors: 200€
       - si: 
           une de ces conditions:
-            - revenu fiscal de référence par part <= 6358 €/an
+            - revenu fiscal de référence par part <= 7100 €/an
             - demandeur . en situation de handicap
         alors: 
           valeur: 40% * vélo . prix
           plafond: 100€
       - sinon: 0€
-  lien: https://saintpairsurmer.fr/prime-a-lacquisition-dun-velo-a-assistance-electrique-2024/
+  lien: https://saintpairsurmer.fr/prime-a-lacquisition-dun-velo-a-assistance-electrique-2025/
 
 # NOTE: potentiellement pas à jour, à vérifier en 2025
 aides . aunis atlantique:
@@ -5228,33 +5180,6 @@ aides . montauban:
   valeur: vélo . prix
   plafond: 250€
   lien: https://www.montauban.com/au-quotidien/mobilite-et-stationnement/velos-et-pistes-cyclables
-
-# NOTE: aide pour 2024, à vérifier en 2025
-aides . mont de marsan:
-  remplace: intercommunalité
-  titre: Mont de Marsan Agglo
-  description: >
-     Aide à l'achat pour un vélo à assistance électrique (VAE) ou un vélo
-     musculaire sans assistance.
-  applicable si:
-    toutes ces conditions:
-      - localisation . epci = 'CA Mont de Marsan Agglomération'
-      - demandeur . âge . majeur
-      - vélo . électrique ou mécanique
-  valeur: 
-    variations:
-      - si: 
-          toutes ces conditions:
-            - vélo . électrique
-            - vélo . prix >= 500€
-        alors: 250€
-      - si: 
-          toutes ces conditions:
-            - vélo . mécanique
-            - vélo . prix >= 200€
-        alors: 100€
-      - sinon: 0€
-  lien: https://www.montdemarsan.fr/actualites/une-nouvelle-aide-a-lachat-dun-velo
 
 # NOTE: valide pour 2024, à vérifier en 2025 
 aides . plaine de l'ain VAE:
@@ -6784,7 +6709,7 @@ aides . guichen:
       - vélo . électrique
       - vélo . état . neuf
   valeur: 100€
-  lien: https://www.guichenpontrean.fr/aide-a-lacquisition-dun-velo-a-assistance-electrique/
+  lien: https://www.guichenpontrean.fr/circuler-en-velo-quelles-aides-possibles-a-lachat/
 
 aides . cote d'emeraude:
   remplace: intercommunalité
@@ -7341,27 +7266,6 @@ aides . cazouls-lès-béziers:
   plafond: 200€
   lien: https://www.cazoulslesbeziers.com/vivre-a-cazouls/les-aides-financieres
 
-# NOTE: date de 2022, à vérifier en 2025
-aides . château-thierry:
-  remplace: intercommunalité
-  titre: Agglo de la région de Château-thierry
-  description: Aide a l'acquisition d'un velo avec ou sans assistance electrique.
-  applicable si:
-    toutes ces conditions:
-      - localisation . epci = 'CA de la Région de Château-Thierry'
-      - demandeur . âge . majeur
-      - vélo . état . neuf
-      - vélo . électrique ou mécanique
-  valeur: 20% * vélo . prix
-  plafond:
-    variations:
-      - si: vélo . électrique
-        alors: 200€
-      - si: vélo . cargo
-        alors: 200€
-      - sinon: 100€
-  lien: https://www.carct.fr/et-agit/facilite-mes-deplacements/plan-velo/aide-a-lachat-dun-velo
-
 aides . ecommoy:
   remplace: commune
   titre: Ville d'Ecommoy
@@ -7616,20 +7520,6 @@ aides . villers-sur-mer:
           plafond: 100€
       - sinon: 0€
   lien: https://www.villers-sur-mer.fr/fiche-information/mobilite/mobilite-douce/
-
-aides . val-revermont:
-  remplace: commune
-  titre: Ville de Val-Revermont
-  description: >
-    Opération "Coups de pouce" pour l'achat d'un vélo. Veuillez vous rapprocher
-    de la mairie pour plus d'informations.
-  applicable si:
-    toutes ces conditions:
-      - localisation . code insee = '01426'
-      - vélo . électrique ou mécanique
-  valeur: 100€
-  plafond: vélo . prix
-  lien: http://val-revermont.fr/transition-ecologique-la-commune-met-en-place-un-coup-de-pouce-a-ses-habitants/
 
 aides . pays de châteaugiron:
   remplace: intercommunalité
