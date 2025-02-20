@@ -807,3 +807,408 @@ aides . agen:
   valeur: 200€
   plafond: vélo . prix
   lien: https://www.agglo-agen.net/vie-quotidienne/mobilites/aide-velo-electrique
+
+# NOTE: supprimée en 2025
+aides . taillan-médoc:
+  remplace: commune
+  titre: Commune du Taillan-Médoc
+  description: >
+    La Ville propose une aide unique de 100€ pour l'achat d'un vélo électrique
+    ou d'un dispositif d'électrification d'un vélo standard (kit
+    d'électrification répondant à la norme NF EN 15194). Cette aide est
+    cumulable avec les aides de Bordeaux Métropole et de l'État.
+  applicable si:
+    toutes ces conditions:
+      - localisation . code insee = '33519'
+      - une de ces conditions:
+          - vélo . électrique
+          - vélo . motorisation
+  valeur: 100€
+  lien: http://www.taillan-medoc.fr/vivre-au-taillan-medoc/mobilites/aide-a-lachat-dun-velo-electrique/
+
+# NOTE: supprimée en 2025
+aides . ried de marckolsheim:
+  remplace: intercommunalité
+  titre: Communauté de Communes du Ried de Marckolsheim
+  description: >
+    La Communauté de Communes du Ried de Marckolsheim propose une aide à
+    l'achat pour vélo de tout type (neuf ou d'occasion). Cette aide est de 75€
+    pour l'achat d'un vélo acheté chez un revendeur situé sur le territoire du
+    PETR Sélestat – Alsace Centrale, 50€ sinon.
+  applicable si: localisation . epci = 'CC du Ried de Marckolsheim'
+  valeur: 75€
+  plafond: vélo . prix
+  lien: https://www.ried-marckolsheim.fr/actualites/nouveau-prime-velo?highlight=WyJhaWRlIl0=
+
+# NOTE: valable depuis 2023 jusqu'à abrogation, à vérifier en 2025
+# NOTE: plus référencée depuis le site en janvier 2025.
+aides . pays de l'arbresle:
+  remplace: intercommunalité
+  titre: Communauté de Communes du Pays de L'Arbresle
+  description: >
+    La Communauté de Communes du Pays de L'Arbresle subventionne jusqu'à par
+    foyer pour l'achat d'un Vélo à Assistance Electrique (VAE), un vélo spécial
+    (vélo cargo, vélo rallongé, vélo adapté à un handicap) ou un kit
+    d'électrification, qu'il soit neuf ou d'occasion.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = "CC du Pays de l'Arbresle (CCPA)"
+      - une de ces conditions:
+          - vélo . cargo
+          - vélo . adapté
+          - vélo . motorisation
+          - toutes ces conditions:
+              - vélo . électrique
+              - vélo . prix <= 3000€
+  valeur: 50% * vélo . prix
+  plafond: 250€
+  lien: https://www.paysdelarbresle.fr/aide-a-lachat-dun-velo-a-assistance-electrique/
+
+# NOTE: aide pour 2024, à vérifier en 2025
+# NOTE: plus référencée depuis le site
+aides . mont de marsan:
+  remplace: intercommunalité
+  titre: Mont de Marsan Agglo
+  description: >
+     Aide à l'achat pour un vélo à assistance électrique (VAE) ou un vélo
+     musculaire sans assistance.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CA Mont de Marsan Agglomération'
+      - demandeur . âge . majeur
+      - vélo . électrique ou mécanique
+  valeur: 
+    variations:
+      - si: 
+          toutes ces conditions:
+            - vélo . électrique
+            - vélo . prix >= 500€
+        alors: 250€
+      - si: 
+          toutes ces conditions:
+            - vélo . mécanique
+            - vélo . prix >= 200€
+        alors: 100€
+      - sinon: 0€
+  lien: https://www.montdemarsan.fr/actualites/une-nouvelle-aide-a-lachat-dun-velo
+
+# NOTE: date de 2022, à vérifier en 2025
+aides . château-thierry:
+  remplace: intercommunalité
+  titre: Agglo de la région de Château-thierry
+  description: Aide a l'acquisition d'un velo avec ou sans assistance electrique.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CA de la Région de Château-Thierry'
+      - demandeur . âge . majeur
+      - vélo . état . neuf
+      - vélo . électrique ou mécanique
+  valeur: 20% * vélo . prix
+  plafond:
+    variations:
+      - si: vélo . électrique
+        alors: 200€
+      - si: vélo . cargo
+        alors: 200€
+      - sinon: 100€
+  lien: https://www.carct.fr/et-agit/facilite-mes-deplacements/plan-velo/aide-a-lachat-dun-velo
+
+# NOTE: plus référencée en janvier 2025 sur le site de la commune
+aides . val-revermont:
+  remplace: commune
+  titre: Ville de Val-Revermont
+  description: >
+    Opération "Coups de pouce" pour l'achat d'un vélo. Veuillez vous rapprocher
+    de la mairie pour plus d'informations.
+  applicable si:
+    toutes ces conditions:
+      - localisation . code insee = '01426'
+      - vélo . électrique ou mécanique
+  valeur: 100€
+  plafond: vélo . prix
+  lien: http://val-revermont.fr/transition-ecologique-la-commune-met-en-place-un-coup-de-pouce-a-ses-habitants/
+
+# NOTE: plus référencé en février 2025 sur le site de la CC
+aides . vallée de villé:
+  remplace: intercommunalité
+  titre: Communauté de communes de la Vallée de Villé
+  description: >
+    La Communauté de Communes vous aide à hauteur de 50€ pour l'achat de votre
+    vélo neuf ou d'occasion, chez un revendeur situé sur le territoire du PETR
+    Sélestat Alsace Central.
+  applicable si: localisation . epci = 'CC de la Vallée de Villé'
+  valeur: 50€
+  plafond: vélo . prix
+  lien: https://cdc.valleedeville.fr/service-aux-habitants/beneficier-de-la-prime-velo/
+  dernière mise à jour: 20/02/2025
+
+# NOTE: plus référencée en février 2025 sur le site de la commune, à vérifier
+aides . selestat:
+  remplace: intercommunalité
+  titre: Communauté de Communes de Sélestat
+  description: >
+    La Communauté de Communes de Sélestat propose une aide à l'achat pour vélo
+    de tout type (neuf ou d'occasion). Cette aide est de 75€ pour l'achat d'un
+    vélo acheté chez un revendeur situé sur le territoire du PETR Sélestat –
+    Alsace Centrale, 50€ sinon.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CC de Sélestat'
+      - vélo . électrique ou mécanique
+  valeur: 75€
+  plafond: vélo . prix
+  lien: https://www.cc-selestat.fr/economie/prime-velo.html
+  dernière mise à jour: 20/02/2025
+
+# TODO: plus versée à partir du 1er janvier 2025.
+aides . eckbolsheim:
+  remplace: commune
+  titre: Ville d'Eckbolsheim
+  description: >
+    La commune d'Eckbolsheim vous propose d'obtenir une aide de 10% du prix
+    d'achat de votre vélo à assistance électrique (VAE) dans la limite de 100€.
+    Attention : l'obtention de cette subvention est possible jusqu'à la fin de
+    l'année 2024, elle ne sera plus versée à partir du 1er janvier 2025.
+  applicable si:
+    toutes ces conditions:
+      - localisation . code insee = '67118'
+      - vélo . état . neuf
+      - vélo . électrique
+  valeur: 10% * vélo . prix
+  plafond: 100€
+  lien: https://www.eckbolsheim.com/ville-verte/actions-pour-lenvironnement/aide_achat_velo_electrique_neuf/
+  dernière mise à jour: 20/02/2025
+
+# NOTE: informations pour 2023, à vérifier en 2025
+aides . coeur de nacre:
+  remplace: intercommunalité
+  titre: Communauté de Communes Cœur de Nacre
+  description: Aide pour l'achat d'un vélo à assistance électrique, neuf ou d'occasion.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CC Coeur de Nacre'
+      - vélo . électrique
+  variations:
+    - si: revenu fiscal de référence par part <= 15000 €/an
+      alors: 200€
+    - si: revenu fiscal de référence par part <= 30000 €/an
+      alors: 100€
+    - sinon: 50€
+  lien: https://www.courseulles-sur-mer.com/aide-a-lacquisition-dun-velo-a-assistance-electrique-vae/
+  dernière mise à jour: 20/02/2025
+
+# NOTE: pas d'information en février 2025, mauvais lien de base
+aides . coeur de nacre:
+  remplace: intercommunalité
+  titre: Communauté de Communes Cœur de Nacre
+  description: Aide pour l'achat d'un vélo à assistance électrique, neuf ou d'occasion.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CC Coeur de Nacre'
+      - vélo . électrique
+  variations:
+    - si: revenu fiscal de référence par part <= 15000 €/an
+      alors: 200€
+    - si: revenu fiscal de référence par part <= 30000 €/an
+      alors: 100€
+    - sinon: 50€
+  lien: https://www.courseulles-sur-mer.com/aide-a-lacquisition-dun-velo-a-assistance-electrique-vae/
+  dernière mise à jour: 20/02/2025
+
+# NOTE: Plus référencée en février 2025 sur le site de la commune
+aides . camon:
+  remplace: commune
+  titre: Ville de Camon
+  description: >
+    La Commune de Camon a décidé de renouveler son aide à l'achat de vélo pour
+    2024. La subvention est valable sur l'achat d'un vélo neuf à assistance
+    électrique et homologué ou sans assistance électrique. Le vélo devra
+    avoir été acheté dans un magasin du territoire d'Amiens Métropole :
+    vélociste, grande surface, etc. Les achats sur internet ne sont pas
+    acceptés.
+  applicable si: 
+    toutes ces conditions:
+      - localisation . code insee = '80164'
+      - demandeur . âge . majeur
+      - vélo . état . neuf
+  valeur: 25% * vélo . prix
+  plafond:
+    variations:
+      - si: vélo . cargo
+        alors: 300€
+      - si: vélo . électrique
+        alors: 200€
+      - si: vélo . mécanique
+        alors: 100€
+      - sinon: 0€
+  lien: https://www.camon.fr/aide-a-lachat-de-velo/
+  dernière mise à jour: 20/02/2025
+
+# NOTE: dépôt des demandes jusqu'au 31 octobre 2024, à vérifier en 2025
+aides . cébazat:
+  remplace: commune
+  titre: Ville de Cébazat
+  description: >
+    Afin de développer la pratique du vélo en ville et ainsi favoriser les
+    modes de déplacement doux, la Ville propose 3 aides à l'achat d'un vélo à
+    assistance électrique et le prêt de vélos à assistance électrique. Clôture
+    des demandes le 31 octobre 2024.
+  applicable si: 
+    toutes ces conditions:
+      - localisation . code insee = '63063'
+      - demandeur . âge . majeur
+      - une de ces conditions:
+          - vélo . électrique
+          - vélo . motorisation
+          - vélo . pliant
+  valeur:
+    variations:
+      - si: vélo . pliant
+        alors: 50€
+      - si: vélo . électrique
+        alors: 150€
+      - si: vélo . motorisation
+        alors: 100€
+  lien: https://www.cebazat.fr/actualites/plan-velo-communal-pret-aides-financieres-2/
+  dernière mise à jour: 20/02/2025
+
+# NOTE: valide jusqu'au 30 novembre 2024, à vérifier en 2025
+aides . arve salève:
+  remplace: intercommunalité
+  titre: Communauté de communes Arve & Salève
+  description: >
+    Afin d'encourager les déplacements à vélo, Arve & Salève reconduit l'aide
+    financière destinée aux habitants de son territoire pour acquérir un cycle
+    classique ou à assistance électrique ou une remorque grâce à la Prim'O
+    VélO jusqu'au 30 novembre 2024.
+  applicable si: 
+    toutes ces conditions:
+      - localisation . epci = 'CC Arve et Salève'
+      - demandeur . âge > 12 an
+  valeur:
+    variations:
+      - si: revenu fiscal de référence par part <= 14089 €/an
+        alors:
+          variations:
+            # TODO: faire la distinction entre vélo adapté VAE ou non.
+            - si: vélo . adapté
+              alors: 600€
+            - si: vélo . cargo électrique
+              alors: 600€
+            - si: vélo . cargo
+              alors: 500€
+            - si: vélo . électrique
+              alors: 400€
+            - si: vélo . mécanique
+              alors: 200€
+            - sinon: 0€
+      - si: revenu fiscal de référence par part <= 20000 €/an
+        alors:
+          variations:
+            - si: vélo . adapté
+              alors: 500€
+            - si: vélo . cargo électrique
+              alors: 500€
+            - si: vélo . cargo
+              alors: 400€
+            - si: vélo . électrique
+              alors: 300€
+            - si: vélo . mécanique
+              alors: 150€
+            - sinon: 0€
+      - si: revenu fiscal de référence par part <= 30000 €/an
+        alors:
+          variations:
+            - si: vélo . adapté
+              alors: 300€
+            - si: vélo . cargo électrique
+              alors: 300€
+            - si: vélo . cargo
+              alors: 200€
+            - si: vélo . électrique
+              alors: 200€
+            - si: vélo . mécanique
+              alors: 100€
+            - sinon: 0€
+      - sinon:
+          variations:
+            - si: vélo . adapté
+              alors: 200€
+            - si: vélo . cargo électrique
+              alors: 200€
+            - si: vélo . cargo
+              alors: 150€
+            - si: vélo . électrique
+              alors: 100€
+            - si: vélo . mécanique
+              alors: 50€
+            - sinon: 0€
+  plafond: 80% * vélo . prix
+  lien: https://www.arve-saleve.fr/vivre-au-quotidien/me-deplacer/
+  dernière mise à jour: 20/02/2025
+
+# NOTE: plus d'information en février 2025
+aides . bassin d'arcachon nord:
+  remplace: intercommunalité
+  titre: Communauté d'agglomération du Bassin d'Arcachon Nord
+  description: >
+    Aide jusqu'à 200€ par vélo et par personne pour l'acquisition de vélo à
+    assistance électrique (VAE) neuf ou d'occasion.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = "CA du Bassin d'Arcachon Nord"
+      - demandeur . âge . majeur
+      - revenu fiscal de référence par part <= 24700€/an
+      - une de ces conditions:
+          - vélo . électrique
+          - vélo . motorisation
+  valeur: 200€
+  plafond: vélo . prix
+  lien: https://coban-atlantique.fr/renouvellement-de-laide-a-lachat-dun-velo-a-assistance-electrique/
+  dernière mise à jour: 20/02/2025
+
+# NOTE: non renouvelée en 2025, voir le lien pour le bilan 2024
+aides . yvetot normandie:
+  remplace: intercommunalité
+  titre: Yvetot Normandie
+  description: >
+    Aide à l'achat d'un vélo à assistance électrique ou mécanique, neuf ou
+    d'occasion. Cette aide est limitée à une enveloppe budgétaire annuelle.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CC Yvetot Normandie'
+      - une de ces conditions:
+          - vélo . électrique ou mécanique
+          - vélo . adapté
+  valeur: 30% * vélo . prix
+  plafond:
+    variations:
+      - si:
+          une de ces conditions:
+            - vélo . cargo
+            - vélo . adapté
+        alors: 600€
+      - sinon: 100€
+  lien: https://mobilite.yvetot-normandie.fr/2025/01/31/bilan-des-aides-velos-2024/
+  dernière mise à jour: 20/02/2025
+
+# NOTE: plus d'information en février 2025
+aides . vallées du clain:
+  remplace: intercommunalité
+  titre: Communauté de communes des Vallées du Clain
+  description: >
+    Dispositif d'aide à l'achat d'un vélo électrique renouvelé pour 2024.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CC des Vallées du Clain'
+      - demandeur . âge . majeur
+      - vélo . électrique
+  valeur: 25% * vélo . prix
+  plafond:
+    variations:
+      - si: foyer . imposable
+        alors: 150€
+      - sinon: 250€
+  lien: https://www.valleesduclain.fr/2023/04/27/dispositif-daide-a-lachat-dun-velo-electrique/
+  dernière mise à jour: 20/02/2025
+
