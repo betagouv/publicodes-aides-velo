@@ -1,5 +1,40 @@
 # @betagouv/aides-velo
 
+## 0.4.0
+
+### Aides mises à jour
+
+- Bièvre Isère Communauté - Mise à jour du lien (reconduite en 2025) ([#37](https://github.com/betagouv/publicodes-aides-velo/pull/37))
+- Bonus vélo - Mise à jours de la description pou r prévenir de la fin du bonus ([#37](https://github.com/betagouv/publicodes-aides-velo/pull/37))
+- Coeur d'Ostrevent - Mise à jour du lien ([#37](https://github.com/betagouv/publicodes-aides-velo/pull/37))
+- Communauté de Communes de Sablé sur Sarthe - Mise à jour du lien ([#37](https://github.com/betagouv/publicodes-aides-velo/pull/37))
+- Commune de Binic-Étables sur Mer - Mise à jour du lien ([#37](https://github.com/betagouv/publicodes-aides-velo/pull/37))
+- Durance-Lubéron-Verdon Agglomération - Mise à jour du lien (reconduite pour 2025) ([#37](https://github.com/betagouv/publicodes-aides-velo/pull/37))
+- Eurométropole de Strasbourg ([#37](https://github.com/betagouv/publicodes-aides-velo/pull/37))
+- Limoges Métropole - Mise à jour du lien ([#37](https://github.com/betagouv/publicodes-aides-velo/pull/37))
+- Ville de Bétheny - Mise à jour du plafond du RFR (reconduction 2025) ([#37](https://github.com/betagouv/publicodes-aides-velo/pull/37))
+- Ville de Mennecy - Mise à jour du lien ([#37](https://github.com/betagouv/publicodes-aides-velo/pull/37))
+- Ville de Saint-Pair-sur-Mer ([#37](https://github.com/betagouv/publicodes-aides-velo/pull/37))
+
+### Aides désactivées
+
+- Agglo de la région de Château-thierry ([#37](https://github.com/betagouv/publicodes-aides-velo/pull/37))
+- Communauté d'agglomération du Bassin d'Arcachon Nord ([#37](https://github.com/betagouv/publicodes-aides-velo/pull/37))
+- Communauté de communes Arve & Salève ([#37](https://github.com/betagouv/publicodes-aides-velo/pull/37))
+- Communauté de Communes Coeur de Nacre ([#37](https://github.com/betagouv/publicodes-aides-velo/pull/37))
+- Communauté de communes de la Vallée de Villé ([#37](https://github.com/betagouv/publicodes-aides-velo/pull/37))
+- Communauté de Communes de Sélestat ([#37](https://github.com/betagouv/publicodes-aides-velo/pull/37))
+- Communauté de communes des Vallées du Clain ([#37](https://github.com/betagouv/publicodes-aides-velo/pull/37))
+- Communauté de Communes du Pays de L'Arbresle ([#37](https://github.com/betagouv/publicodes-aides-velo/pull/37))
+- Communauté de Communes du Ried de Marckolsheim ([#37](https://github.com/betagouv/publicodes-aides-velo/pull/37))
+- Commune du Taillan-Médoc ([#37](https://github.com/betagouv/publicodes-aides-velo/pull/37))
+- Mont de Marsan Agglo ([#37](https://github.com/betagouv/publicodes-aides-velo/pull/37))
+- Ville de Camon ([#37](https://github.com/betagouv/publicodes-aides-velo/pull/37))
+- Ville de Cébazat ([#37](https://github.com/betagouv/publicodes-aides-velo/pull/37))
+- Ville d'Eckbolsheim ([#37](https://github.com/betagouv/publicodes-aides-velo/pull/37))
+- Ville de Val-Revermont ([#37](https://github.com/betagouv/publicodes-aides-velo/pull/37))
+- Yvetot Normandie ([#37](https://github.com/betagouv/publicodes-aides-velo/pull/37))
+
 ## 0.3.4
 
 ### Patch Changes
