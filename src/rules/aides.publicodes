@@ -51,12 +51,9 @@ aides . bonus vélo:
   remplace: état
   titre: Bonus vélo
   description: >
-    Supprimé depuis le 2 décembre 2024.
-
-
-    Cependant, une période transitoire permet de pouvoir continuer de
-    bénéficier du bonus pour tout achat effectué avant le 14 février 2025
-    inclus (date de facturation).
+    Le bonus vélo est maintenu pour toute facture émise avant le 14 février
+    2025 (inclus). Vous avez jusqu'au 14 août 2025 pour faire votre demande.
+    Passé ce délai, il ne sera plus possible de bénéficier du bonus.
   applicable si:
     toutes ces conditions:
       - localisation . pays = 'France'
