@@ -1,5 +1,11 @@
 # @betagouv/aides-velo
 
+## 0.4.1
+
+### Patch Changes
+
+- Technique - Mise à jour de `publicode` ([#42](https://github.com/betagouv/publicodes-aides-velo/pull/42))
+
 ## 0.4.0
 
 ### Aides mises à jour
