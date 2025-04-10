@@ -8,6 +8,81 @@
 #
 ###
 
+# NOTE: pas d'indice sur la continuité de l'aide en 2025
+aides . cote d'or:
+  remplace: département
+  titre: Département Côte-d'Or
+  description: >
+    Une subvention de 250 € par VAE acheté dans un commerce de Côte-d'Or (pas
+    sur internet). Une bonification de 100 € est accordée pour toute
+    acquisition de VAE assemblé ou produit en Côte-d'Or, soit une aide totale
+    de 350 €.
+    Dispositif valable jusqu'au 31 décembre 2024.
+  applicable si:
+    toutes ces conditions:
+      - localisation . département = '21'
+      - vélo . électrique
+      - vélo . état . neuf
+  valeur:
+    variations:
+      - si: vélo assemblé ou produit localement
+        alors: 350€
+      - sinon: 250€
+  plafond: vélo . prix
+  lien: https://www.cotedor.fr/aide/acquisition-de-velo-assistance-electrique
+  avec:
+    vélo assemblé ou produit localement:
+      question: Le vélo est-il assemblé ou produit en Côte-d'Or ?
+      type: booléen
+      par défaut: non
+
+# NOTE: pas d'indice sur la continuité de l'aide en 2025
+aides . louvigny:
+  remplace: commune
+  titre: Ville de Louvigny
+  description: >
+    La commune de Louvigny participe financièrement à l'achat d'un mode de déplacement doux (VAE neuf, vélo classique adulte neuf ou d'occasion)
+    pour des besoins professionnels comme personnels aux habitants de la ville.
+  applicable si:
+    toutes ces conditions:
+      - localisation . code insee = '14383'
+      - revenu fiscal de référence par part <= 13489 €/an
+      - une de ces conditions:
+          - vélo . mécanique simple
+          - toutes ces conditions:
+              - vélo . électrique
+              - vélo . état . neuf
+  valeur: 50€
+  lien: https://ville-louvigny.fr/agenda/aide-communale-a-lacquisition-dun-velo-a-assistance-electrique-neuf-ou-velo-classique-neuf-ou-doccasion-a-la-maison-du-velo-ou-chez-un-velociste/
+
+# NOTE: pas d'indice sur la continuité de l'aide en 2025
+aides . pays de la loire:
+  remplace: région
+  titre: Région Pays de la Loire
+  description: >
+    Aide à l'achat d'un vélo pliant ou à assistance électrique (VAE) pour les
+    abonnés Aléop.
+  applicable si:
+    toutes ces conditions:
+      - localisation . région = '52'
+      - une de ces conditions:
+          - vélo . pliant
+          - vélo . électrique
+      - abonné TER
+  valeur: 50% * vélo . prix
+  plafond: 200€
+  lien: https://www.paysdelaloire.fr/les-aides/aide-lachat-dun-velo-pliant-ou-assistance-electrique-vae-pour-les-abonnes-aleop
+  avec:
+    abonné TER:
+      type: booléen
+      question: Êtes-vous abonnés du TER Pays de la Loire ?
+      description: >
+        Sont éligibles les abonné·es de Tutti illimité, Métrocéane mensuels,
+        les abonnés annuels de Loire-Atlantique, Maine et Loire et Sarthe,
+        ainsi que les abonné·es mensuels des réseaux de Mayenne et Vendée (hors
+        scolaires).
+      par défaut: oui
+
 aides . écully:
  remplace: commune
  titre: Ville d'Écully
