@@ -959,33 +959,6 @@ aides . saint-émilionnais:
   valeur: 200€
   lien: https://www.grand-saint-emilionnais.fr/actualites/primo-velo-2023-200e-de-subventions/
 
-aides . pays de la loire:
-  remplace: région
-  titre: Région Pays de la Loire
-  description: >
-    Aide à l'achat d'un vélo pliant ou à assistance électrique (VAE) pour les
-    abonnés Aléop.
-  applicable si:
-    toutes ces conditions:
-      - localisation . région = '52'
-      - une de ces conditions:
-          - vélo . pliant
-          - vélo . électrique
-      - abonné TER
-  valeur: 50% * vélo . prix
-  plafond: 200€
-  lien: https://www.paysdelaloire.fr/les-aides/aide-lachat-dun-velo-pliant-ou-assistance-electrique-vae-pour-les-abonnes-aleop
-  avec:
-    abonné TER:
-      type: booléen
-      question: Êtes-vous abonnés du TER Pays de la Loire ?
-      description: >
-        Sont éligibles les abonné·es de Tutti illimité, Métrocéane mensuels,
-        les abonnés annuels de Loire-Atlantique, Maine et Loire et Sarthe,
-        ainsi que les abonné·es mensuels des réseaux de Mayenne et Vendée (hors
-        scolaires).
-      par défaut: oui
-
 aides . nantes:
   remplace: intercommunalité
   titre: Nantes Métropole
@@ -1303,7 +1276,7 @@ aides . strasbourg:
       - sinon: 0€
   lien: https://www.strasbourg.eu/aides-achat
 
-# TODO: à vérifier en 2025
+# NOTE : aide vérifiée le 10/04/2025. Renouvellée pour 2025 avec une nouvelle url.
 aides . entzheim:
   remplace: commune
   titre: Ville de Entzheim
@@ -1329,7 +1302,7 @@ aides . entzheim:
           valeur: 30% * vélo . prix
           plafond: 80€
       - sinon: 0€
-  lien: http://www.entzheim.fr/fr/information/113321/aide-achat-un-velo-neuf-ou-reparation-un-velo
+  lien: https://www.entzheim.fr/demarches/subventions/velo/
 
 aides . geispolsheim:
   remplace: commune
@@ -1757,7 +1730,7 @@ aides . carpiquet:
   valeur: 150€
   lien: https://www.carpiquet.fr/wp-content/uploads/2024/01/CONVENTION-AIDE-FINANCIERE-VAE-ET-TROTTINETTE-ELECTRIQUE-ANNEE-2024.pdf
 
-# NOTE: informations pour 2023, à vérifier en 2025
+# NOTE: vérification faite le 10/04/2025. Aide reconduite en 2025. Lien corrigé.
 aides . ifs:
   remplace: commune
   titre: Ville d'Ifs
@@ -1769,12 +1742,10 @@ aides . ifs:
     toutes ces conditions:
       - localisation . code insee = '14341'
       - revenu fiscal de référence par part <= 24000€/an
-      - vélo . état . neuf
       - vélo . électrique
-      - vélo . prix <= 2500€
   valeur: 10% * vélo . prix
   plafond: 150€
-  lien: https://ville-ifs.fr/storage/app/media/DOSSIER%20SUBVENTION%20VAE-2023.pdf
+  lien: https://www.ville-ifs.fr/mon-quotidien/la-mobilite-et-les-transports/ifs-a-velo/
 
 # NOTE: informations pour 2023, à vérifier en 2025
 aides . mondeville:
@@ -2038,25 +2009,6 @@ aides . deauville:
       - sinon: 0€
   lien: https://www.mairie-deauville.fr/ville/mobilite-la-ville-renouvelle-laide-lachat-de-votre-velo
 
-# NOTE: informations pour 2021, à vérifier en 2025
-aides . louvigny:
-  remplace: commune
-  titre: Ville de Louvigny
-  description: >
-    La commune de Louvigny participe financièrement à l'achat d'un mode de déplacement doux (VAE neuf, vélo classique adulte neuf ou d'occasion)
-    pour des besoins professionnels comme personnels aux habitants de la ville.
-  applicable si:
-    toutes ces conditions:
-      - localisation . code insee = '14383'
-      - revenu fiscal de référence par part <= 13489 €/an
-      - une de ces conditions:
-          - vélo . mécanique simple
-          - toutes ces conditions:
-              - vélo . électrique
-              - vélo . état . neuf
-  valeur: 50€
-  lien: https://ville-louvigny.fr/agenda/aide-communale-a-lacquisition-dun-velo-a-assistance-electrique-neuf-ou-velo-classique-neuf-ou-doccasion-a-la-maison-du-velo-ou-chez-un-velociste/
-
 aides . honfleur:
   remplace: intercommunalité
   titre: Communauté de communes Honfleur-Beuzeville
@@ -2299,11 +2251,16 @@ aides . sarlat:
       - vélo . électrique
   valeur: 100€
   plaond: vélo . prix
-  lien: https://www.sarlat.fr/100-e-daide-pour-lachat-dun-velo-electrique/
+  lien: https://www.sarlat.fr/actualites/100e-daide-pour-lachat-dun-velo-electrique/
 
 # NOTE: date de 2020 et non renouvable une fois l'enveloppe épuisée. Le site
 # relayant toujours l'information, nous choisissons de la conserver. A vérifier
 # en 2025.
+# NOTE :Appel à la mairie de Sarlat le 10/04/2025. 
+# L'aide existe toujours. 
+# Le site est en maintenance et certaines pages sont inaccessibles. 
+# Nous choisissons de mettre le lien de la page d'actualités qui présente l'aide.
+
 aides . vallée de l'homme:
   remplace: intercommunalité
   titre: Communauté de communes Vallée de l'Homme
@@ -3427,36 +3384,6 @@ aides . romilly-sur-seine:
       - vélo . électrique
   valeur: 100€
   lien: https://www.ville-romilly-sur-seine.fr/node/1514
-
-# NOTE: valide jusqu'au 31 décembre 2024, à vérifier en 2025
-aides . cote d'or:
-  remplace: département
-  titre: Département Côte-d'Or
-  description: >
-    Une subvention de 250 € par VAE acheté dans un commerce de Côte-d'Or (pas
-    sur internet). Une bonification de 100 € est accordée pour toute
-    acquisition de VAE assemblé ou produit en Côte-d'Or, soit une aide totale
-    de 350 €.
-
-
-    Dispositif valable jusqu'au 31 décembre 2024.
-  applicable si:
-    toutes ces conditions:
-      - localisation . département = '21'
-      - vélo . électrique
-      - vélo . état . neuf
-  valeur:
-    variations:
-      - si: vélo assemblé ou produit localement
-        alors: 350€
-      - sinon: 250€
-  plafond: vélo . prix
-  lien: https://www.cotedor.fr/aide/acquisition-de-velo-assistance-electrique
-  avec:
-    vélo assemblé ou produit localement:
-      question: Le vélo est-il assemblé ou produit en Côte-d'Or ?
-      type: booléen
-      par défaut: non
 
 # NOTE: valide jusqu'en 2026, à vérifier en 2027
 aides . boé:
@@ -7360,7 +7287,7 @@ aides . baud:
   valeur: 50€
   lien: https://www.mairie-baud.fr/7252-2/
 
-# NOTE: à vérifier en 2025
+# NOTE: vérification le 10/04/2025. l'aide est reconduite en 2025 (article de la voix du Nord) mais il n'y a pas encore de page d'information
 aides . longuenesse:
   remplace: commune
   titre: Ville de Longuenesse
@@ -8254,6 +8181,7 @@ aides . cc pévèle carembault:
           plafond: 200€
   lien: https://www.pevelecarembault.fr/actualites/des-le-4-mars-demandez-votre-prime-velo-electrique
 
+# NOTE: l'aide est reconduite en 2025 (fichier pdf du règlement d'attribution pour 2025 disponible en ligne) mais la page d'information n'a pas encore été mise à jour.
 aides . cc les portes briardes:
   remplace: intercommunalité
   titre: Communauté de communes Les Portes Briardes Entre Villes et Forêts
@@ -8273,7 +8201,7 @@ aides . cc les portes briardes:
       - si: vélo . mécanique simple
         alors: 80€
       - sinon: 150€
-  lien: https://www.lesportesbriardes.fr/2023/12/28/beneficiez-dune-aide-a-lachat-de-velo
+  lien: https://www.lesportesbriardes.fr/beneficiez-dune-aide-a-lachat-de-velo/
 
 aides . cc pays des sorgues:
   remplace: intercommunalité
