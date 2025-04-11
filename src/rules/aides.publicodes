@@ -11,10 +11,11 @@ maximiser les aides:
       valeur: vélo . prix pour maximiser les aides
       remplace:
         références à: vélo . prix
-    abonnement TER pays de la loire:
-      valeur: oui
-      remplace:
-        références à: aides . pays de la loire . abonné TER
+    # NOTE: aide désactivée pour le moment
+    # abonnement TER pays de la loire:
+    #   valeur: oui
+    #   remplace:
+    #     références à: aides . pays de la loire . abonné TER
   note: >
     Toutes les sous-questions paramétrant les conditions d'attribution des aides
     ne sont pas prises en compte ici.

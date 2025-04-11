@@ -1,5 +1,10 @@
 ---
-"@betagouv/aides-velo": patch
+"@betagouv/aides-velo": minor
 ---
 
-Suppression - [aides Pays de la Loire, Louvigny, Côte d'Or], Mise à jour - [lien Entzheim, Ifs, Sarlat et Les Portes Briardes]
+- Suppression - Région Pays de la Loire
+- Suppression - Département Côte-d'Or
+- Suppression - Ville de Louvigny
+- Correction - Communauté de communes Les Portes Briardes Entre Villes et Forêts
+- Correction - Ville de Entzheim - Mise à jour du lien
+- Correction - Ville de Sarlat - Mise à jour du lien

@@ -243,27 +243,28 @@ describe("Aides Vélo", () => {
     });
   });
 
-  describe("Département Côte-d'Or", () => {
-    it("plus de subvention pour les vélos assemblés ou produit localement", () => {
-      const coteDorSituation = {
-        "vélo . type": "'électrique'",
-        "localisation . département": "'21'",
-        "vélo . prix": "500€",
-      };
-
-      engine.setSituation(coteDorSituation);
-      expect(engine.evaluate("aides . cote d'or").nodeValue).toEqual(250);
-
-      engine.setSituation({
-        ...coteDorSituation,
-        // TODO: use generated types instead of the json
-        // @ts-ignore
-        "aides . cote d'or . vélo assemblé ou produit localement": "oui",
-      });
-      expect(engine.evaluate("aides . cote d'or").nodeValue).toEqual(350);
-    });
-  });
-
+  // NOTE: aide désactivée pour le moment
+  // describe("Département Côte-d'Or", () => {
+  //   it("plus de subvention pour les vélos assemblés ou produit localement", () => {
+  //     const coteDorSituation = {
+  //       "vélo . type": "'électrique'",
+  //       "localisation . département": "'21'",
+  //       "vélo . prix": "500€",
+  //     };
+  //
+  //     engine.setSituation(coteDorSituation);
+  //     expect(engine.evaluate("aides . cote d'or").nodeValue).toEqual(250);
+  //
+  //     engine.setSituation({
+  //       ...coteDorSituation,
+  //       // TODO: use generated types instead of the json
+  //       // @ts-ignore
+  //       "aides . cote d'or . vélo assemblé ou produit localement": "oui",
+  //     });
+  //     expect(engine.evaluate("aides . cote d'or").nodeValue).toEqual(350);
+  //   });
+  // });
+  //
   describe("Région Occitanie", () => {
     it("ne devrait pas avoir de plafond pour l'Eco-chèque mobilité", () => {
       engine.setSituation({
@@ -1413,26 +1414,27 @@ describe("Aides Vélo", () => {
     });
   });
 
-  describe("Région Pays de la Loire", () => {
-    it("devrait être élligible uniquement pour les abonné TER", () => {
-      engine.setSituation({
-        "localisation . région": "'52'",
-        "vélo . type": "'électrique'",
-        "vélo . prix": 1000,
-      });
-      expect(engine.evaluate("aides . pays de la loire").nodeValue).toEqual(
-        200
-      );
-
-      engine.setSituation({
-        "localisation . région": "'52'",
-        "vélo . type": "'électrique'",
-        "vélo . prix": 1000,
-        "aides . pays de la loire . abonné TER": "non",
-      });
-      expect(engine.evaluate("aides . pays de la loire").nodeValue).toBeNull();
-    });
-  });
+  // NOTE: L'aide est désactivée pour le moment
+  // describe("Région Pays de la Loire", () => {
+  //   it("devrait être élligible uniquement pour les abonné TER", () => {
+  //     engine.setSituation({
+  //       "localisation . région": "'52'",
+  //       "vélo . type": "'électrique'",
+  //       "vélo . prix": 1000,
+  //     });
+  //     expect(engine.evaluate("aides . pays de la loire").nodeValue).toEqual(
+  //       200
+  //     );
+  //
+  //     engine.setSituation({
+  //       "localisation . région": "'52'",
+  //       "vélo . type": "'électrique'",
+  //       "vélo . prix": 1000,
+  //       "aides . pays de la loire . abonné TER": "non",
+  //     });
+  //     expect(engine.evaluate("aides . pays de la loire").nodeValue).toBeNull();
+  //   });
+  // });
 
   describe("Département de l'Oise", () => {
     it("devrait pas être élligible pour les personnes ayant bénéficiées de l'aide à la conversion bioéthanol", () => {
