@@ -144,13 +144,24 @@ Toutes les aides sont définie dans le fichier
 [`src/rules/aides.publicodes`](./src/rules/aides.publicodes) et peuvent être
 modifiées (resp. supprimées/ajoutées) directement dans ce fichier.
 
+Pour simplifier la relecture des aides, veuillez renseigner une date de
+dernière mise à jour, et si vous avez l'information, la date de fin de validité
+de l'aide :
+
+```yaml
+aides . saint-roustan:
+  # ...
+  dernière mise à jour: 10/02/2025 # DD/MM/YYYY
+  date de fin: 31/12/2025 # DD/MM/YYYY
+```
+
 Une fois les modifications effectuées, assurez vous de ne pas avoir introduit
 d'erreurs dans les règles avec la commande `npm run compile`.
 
 > [!NOTE]
 > Si une aide n'est plus d'actualité et doit être supprimée, il est préférable
-> de la commenter plutôt que de la supprimer directement. Cela permet de
-> conserver une trace de l'aide et de la réactiver si nécessaire.
+> d'en garder la trace. Pour cela, il suffit de la déplacer dans le fichier
+> [`./src/rules/historique/aides-desactivees.publicodes`](./src/rules/historique/aides-desactivees.publicodes).
 
 Si la modélisation de l'aide implique un certain degré de complexité, il est
 probablement souhaitable de rajouter des tests unitaires dans le fichier
