@@ -40,6 +40,8 @@ export type Aide = {
    * according to your needs.
    */
   logo: string | undefined;
+  lastUpdate?: Date;
+  endDate?: Date;
 };
 
 const aidesAvecLocalisationEntries = Object.entries(
@@ -135,6 +137,10 @@ export class AidesVeloEngine {
           url: (rule.rawNode as any).lien,
           collectivity,
           logo: miniatures[ruleName],
+          lastUpdate: parsePublicodesDate(
+            rule.rawNode["dernière mise à jour"] as string
+          ),
+          endDate: parsePublicodesDate(rule.rawNode["date de fin"] as string),
         };
       });
   }
@@ -292,3 +298,10 @@ const epciSirenToName = Object.fromEntries(
     return [[(collectivity as any).code, collectivity.value]];
   })
 );
+
+function parsePublicodesDate(date: string | undefined): Date | undefined {
+  if (date) {
+    const [day, month, year] = date.split("/").map(Number);
+    return new Date(year, month - 1, day);
+  }
+}

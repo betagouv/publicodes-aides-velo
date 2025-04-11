@@ -169,6 +169,19 @@ describe("AidesVeloEngine", () => {
         }
       });
     });
+
+    it("should correctly parse dates", () => {
+      const engine = globalTestEngine.shallowCopy();
+      const allAides = engine.getAllAidesIn("france");
+
+      allAides.forEach((aide) => {
+        if (aide.id === "aides . entzheim") {
+          expect(aide.lastUpdate).toEqual(new Date(2025, 3, 10));
+          expect(aide.endDate).toEqual(new Date(2025, 11, 31));
+          return;
+        }
+      });
+    });
   });
 
   describe("computeAides()", () => {
