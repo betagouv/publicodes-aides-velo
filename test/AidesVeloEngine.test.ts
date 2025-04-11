@@ -238,25 +238,26 @@ describe("AidesVeloEngine", () => {
         expect(contain(aides, "aides . vienne gartempe")).toBeTruthy();
       });
 
-      it("Angers - vélo électrique avec abonnement TER", async () => {
-        const engine = globalTestEngine.shallowCopy();
-        const aides = engine
-          .setInputs({
-            "localisation . code insee": "49007",
-            "localisation . epci": "CU Angers Loire Métropole",
-            "localisation . département": "49",
-            "localisation . région": "52",
-            "localisation . pays": "France",
-            "vélo . type": "électrique",
-          })
-          .computeAides();
-
-        expect(aides).toHaveLength(4);
-        expect(contain(aides, "aides . bonus vélo")).toBeTruthy();
-        expect(contain(aides, "aides . prime à la conversion")).toBeTruthy();
-        expect(contain(aides, "aides . pays de la loire")).toBeTruthy();
-        expect(contain(aides, "aides . angers")).toBeTruthy();
-      });
+      // NOTE: aide désactivée pour le moment
+      // it("Angers - vélo électrique avec abonnement TER", async () => {
+      //   const engine = globalTestEngine.shallowCopy();
+      //   const aides = engine
+      //     .setInputs({
+      //       "localisation . code insee": "49007",
+      //       "localisation . epci": "CU Angers Loire Métropole",
+      //       "localisation . département": "49",
+      //       "localisation . région": "52",
+      //       "localisation . pays": "France",
+      //       "vélo . type": "électrique",
+      //     })
+      //     .computeAides();
+      //
+      //   expect(aides).toHaveLength(4);
+      //   expect(contain(aides, "aides . bonus vélo")).toBeTruthy();
+      //   expect(contain(aides, "aides . prime à la conversion")).toBeTruthy();
+      //   expect(contain(aides, "aides . pays de la loire")).toBeTruthy();
+      //   expect(contain(aides, "aides . angers")).toBeTruthy();
+      // });
 
       it("Angers - vélo électrique sans abonnement TER", async () => {
         const engine = globalTestEngine.shallowCopy();
@@ -269,7 +270,7 @@ describe("AidesVeloEngine", () => {
             "localisation . région": "52",
             "localisation . pays": "France",
             "vélo . type": "électrique",
-            "aides . pays de la loire . abonné TER": false,
+            // "aides . pays de la loire . abonné TER": false,
           })
           .computeAides();
 
