@@ -1282,7 +1282,7 @@ aides . entzheim:
   remplace: commune
   titre: Ville de Entzheim
   description: >
-    Jusqu'au 31 décembre 2024, la commune d'Entzheim subventionne l'achat d'un
+    Jusqu'au 31 décembre 2025, la commune d'Entzheim subventionne l'achat d'un
     vélo neuf ou la réparation d'un vélo.
   applicable si: 
     toutes ces conditions:
@@ -1304,6 +1304,8 @@ aides . entzheim:
           plafond: 80€
       - sinon: 0€
   lien: https://www.entzheim.fr/demarches/subventions/velo/
+  dernière mise à jour: 10/04/2025
+  date de fin: 31/12/2025
 
 aides . geispolsheim:
   remplace: commune
@@ -1747,6 +1749,8 @@ aides . ifs:
   valeur: 10% * vélo . prix
   plafond: 150€
   lien: https://www.ville-ifs.fr/mon-quotidien/la-mobilite-et-les-transports/ifs-a-velo/
+  dernière mise à jour: 10/04/2025
+  date de fin: 31/12/2025
 
 # NOTE: informations pour 2023, à vérifier en 2025
 aides . mondeville:
@@ -2031,6 +2035,7 @@ aides . honfleur:
         valeur: 10% * vélo . prix
         plafond: 120€
   lien: https://www.ccphb.fr/amenager-et-developper/grands-projets/plan-velo/
+  dernière mise à jour: 10/04/2025
 
 # NOTE: limitée à 250 vélos depuis 2017, sûrement plus d'actualité.
 aides . istres:
@@ -2241,7 +2246,10 @@ aides . grand périgueux:
   plafond: 50% * vélo . prix
   lien: https://www.grandperigueux.fr/au-quotidien/deplacements/velo/aides-a-lachat-velo
 
-# NOTE: date de 2020 mais toujours accessible, à vérifier en 2025
+# NOTE :Appel à la mairie de Sarlat le 10/04/2025. 
+# L'aide existe toujours. 
+# Le site est en maintenance et certaines pages sont inaccessibles. 
+# Nous choisissons de mettre le lien de la page d'actualités qui présente l'aide.
 aides . sarlat:
   remplace: commune
   titre: Ville de Sarlat
@@ -2253,14 +2261,7 @@ aides . sarlat:
   valeur: 100€
   plaond: vélo . prix
   lien: https://www.sarlat.fr/actualites/100e-daide-pour-lachat-dun-velo-electrique/
-
-# NOTE: date de 2020 et non renouvable une fois l'enveloppe épuisée. Le site
-# relayant toujours l'information, nous choisissons de la conserver. A vérifier
-# en 2025.
-# NOTE :Appel à la mairie de Sarlat le 10/04/2025. 
-# L'aide existe toujours. 
-# Le site est en maintenance et certaines pages sont inaccessibles. 
-# Nous choisissons de mettre le lien de la page d'actualités qui présente l'aide.
+  dernière mise à jour: 10/04/2025
 
 aides . vallée de l'homme:
   remplace: intercommunalité
@@ -2280,6 +2281,7 @@ aides . vallée de l'homme:
         alors: 200€
       - sinon: 100€
   lien: https://www.cc-valleedelhomme.fr/mobilit%C3%A9-itin%C3%A9rance-douce/dispositifs-v%C3%A9lo/aide-%C3%A0-l-achat-pour-un-v%C3%A9lo-%C3%A9lectrique/
+  dernière mise à jour: 10/04/2025
 
 aides . sablé sur sarthe:
   remplace: commune
@@ -7288,7 +7290,8 @@ aides . baud:
   valeur: 50€
   lien: https://www.mairie-baud.fr/7252-2/
 
-# NOTE: vérification le 10/04/2025. l'aide est reconduite en 2025 (article de la voix du Nord) mais il n'y a pas encore de page d'information
+# NOTE: vérification le 10/04/2025. l'aide est reconduite en 2025 (article de
+# la voix du Nord) mais il n'y a pas encore de page d'information
 aides . longuenesse:
   remplace: commune
   titre: Ville de Longuenesse
@@ -7301,7 +7304,7 @@ aides . longuenesse:
           - vélo . adapté
   valeur: 20% * vélo . prix
   plafond: 100€
-  lien: https://ville-longuenesse.fr/fr/rb/1916787/prime-velo-2
+  lien: https://www.ville-longuenesse.fr/mon-quotidien/cadre-de-vie/developpement-durable/mobilite-douce
 
 aides . castelnau de médoc:
   remplace: commune
@@ -8182,13 +8185,15 @@ aides . cc pévèle carembault:
           plafond: 200€
   lien: https://www.pevelecarembault.fr/actualites/des-le-4-mars-demandez-votre-prime-velo-electrique
 
-# NOTE: l'aide est reconduite en 2025 (fichier pdf du règlement d'attribution pour 2025 disponible en ligne) mais la page d'information n'a pas encore été mise à jour.
+# NOTE: l'aide est reconduite en 2025 (fichier pdf du règlement d'attribution
+# pour 2025 disponible en ligne) mais la page d'information n'a pas encore été
+# mise à jour.
 aides . cc les portes briardes:
   remplace: intercommunalité
   titre: Communauté de communes Les Portes Briardes Entre Villes et Forêts
   description: >
     Aide à l'achat d'un vélo à assistance électrique ou mécanique neuf ou
-    d'occasion.
+    d'occasion. (Limitée à 400 demandes pour 2025).
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'CC Les Portes Briardes Entre Villes et Forêts'
@@ -8200,9 +8205,19 @@ aides . cc les portes briardes:
   valeur:
     variations:
       - si: vélo . mécanique simple
-        alors: 80€
+        alors: 
+          variations:
+            - si: demandeur . âge < 25 an
+              alors: 120€
+            - sinon: 80€
+      - si:
+          toutes ces conditions:
+            - vélo . adapté
+            - demandeur . en situation de handicap
+        alors: 200€
       - sinon: 150€
-  lien: https://www.lesportesbriardes.fr/beneficiez-dune-aide-a-lachat-de-velo/
+  lien: https://www.lesportesbriardes.fr/wp-content/uploads/2025/03/Deliberation_017_2025_-_Annexe2_AideVelo_reglement_attribution_2025.pdf
+  dernière mise à jour: 10/04/2025
 
 aides . cc pays des sorgues:
   remplace: intercommunalité
