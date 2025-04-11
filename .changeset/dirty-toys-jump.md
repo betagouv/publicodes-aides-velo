@@ -13,6 +13,4 @@
 
 ### Aides désactivées
 
-- Région Pays de la Loire
-- Département Côte-d'Or
 - Ville de Louvigny
