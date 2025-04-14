@@ -3336,7 +3336,9 @@ aides . sèvre et loire:
       - sinon:
           valeur: 10% * vélo . prix
           plafond: 100€
-  lien: https://interco.cc-sevreloire.fr/rubrique/une-aide-pour-lachat-dun-velo-electrique/
+  lien: https://www.cc-sevreloire.fr/se-deplacer-a-velo/une-aide-pour-lachat-dun-velo-electrique/
+  dernière mise à jour: 14/04/2025
+  date de fin: 31/12/2025
 
 # NOTE: valide pour 2024, pas de date de fin précisée, à vérifier en 2025
 aides . pays ancenis:
@@ -5505,12 +5507,9 @@ aides . porte du hainaut:
   remplace: intercommunalité
   titre: Communauté d'Agglomération de la Porte du Hainaut
   description: >
-    Aide à l'achat d'un vélo à assistance électrique ou mécanique, neuf ou
-    d'occasion.
-
-
-    Une aide allant jusqu'à 50€ est également disponible pour la réparation de
-    son vélo.
+    La Communauté de communes de la Porte du Hainaut vous propose une aide pour l'achat d'un vélo, comprise entre 100 € pour un vélo mécanique d'occasion et 400 € pour un vélo cargo neuf avec assistance électrique.
+    Une aide de 100 € est également disponible pour la réparation de son vélo.
+    Enfin, un bonus de 40 € permet l'achat d'équipements (casque, gilet réfléchissant, éclairage complémentaire, etc.)
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'CA de la Porte du Hainaut'
@@ -5542,14 +5541,16 @@ aides . porte du hainaut:
               alors: 150€
             - sinon: 100€
   plafond: 50% * vélo . prix
-  lien: https://www.agglo-porteduhainaut.fr/actualites/l-aide-en-faveur-des-mobilites-actives-est-de-retour
+  lien: https://www.agglo-porteduhainaut.fr/aidemobilites2025
+  dernière mise à jour: 14/04/2025
+  date de fin: 31/12/2025
 
 aides . denain:
   remplace: commune
   titre: Ville de Denain
   description: >
     Aide complémentaire d'un montant de la moitié de celle allouée par la
-    Communauté d'Agglomération de la Porte du Hainault. Dossier à déposer en
+    Communauté d'Agglomération de la Porte du Hainaut. Dossier à déposer en
     mairie de Denain.
   applicable si:
     toutes ces conditions:
@@ -8165,15 +8166,14 @@ aides . cc pévèle carembault:
   remplace: intercommunalité
   titre: Communauté de communes Pévèle Carembault
   description: >
-    Aide à l'achat d'un vélo à assistance électrique neuf ou de kits
-    d'électrification de vélos.
+    La communauté de communes de Pévèle Carembault propose à ses habitants une aide financière de 200 € pour l'achat d'un vélo électrique neuf ou reconditionné (acheté chez un professionnel) et ce quel que soit le prix d’achat du vélo.
+    L’installation d’un kit d’électrification de votre vélo est également subventionnée à hauteur de 50% du prix du vélo avec un plafond à 200 €.
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'CC Pévèle-Carembault'
       - demandeur . âge . majeur
       - une de ces conditions:
           - toutes ces conditions:
-              - vélo . état . neuf
               - vélo . électrique
           - vélo . motorisation
   valeur:
@@ -8183,7 +8183,9 @@ aides . cc pévèle carembault:
       - sinon:
           valeur: 50% * vélo . prix
           plafond: 200€
-  lien: https://www.pevelecarembault.fr/actualites/des-le-4-mars-demandez-votre-prime-velo-electrique
+  lien: https://www.pevelecarembault.fr/actualites/velo-electrique-laide-lachat-est-de-retour-le-3-mars
+  dernière mise à jour: 14/04/2025
+  date de fin: 31/12/2025
 
 # NOTE: l'aide est reconduite en 2025 (fichier pdf du règlement d'attribution
 # pour 2025 disponible en ligne) mais la page d'information n'a pas encore été
@@ -8418,3 +8420,181 @@ aides . cc cattenom et environs:
           valeur: 50% * vélo . prix 
           plafond: 300€
   lien: https://www.ccce.fr/aide-achat-vae
+
+# NOTE: référencée à nouveau en avril 2025 sur le site de la commune
+aides . camon:
+  remplace: commune
+  titre: Ville de Camon
+  description: >
+    La Commune de Camon a décidé de renouveler son aide à l'achat de vélo pour
+    2025. La subvention est valable sur l'achat d'un vélo neuf à assistance
+    électrique et homologué ou sans assistance électrique. Le vélo devra
+    avoir été acheté dans un magasin du territoire d'Amiens Métropole :
+    vélociste, grande surface, etc. Les achats sur internet ne sont pas
+    acceptés.
+  applicable si: 
+    toutes ces conditions:
+      - localisation . code insee = '80164'
+      - demandeur . âge . majeur
+      - vélo . état . neuf
+  valeur: 25% * vélo . prix
+  plafond:
+    variations:
+      - si: vélo . cargo
+        alors: 300€
+      - si: vélo . électrique
+        alors: 200€
+      - si: vélo . mécanique
+        alors: 100€
+      - sinon: 0€
+  lien: https://www.camon.fr/renouvellement-de-laide-a-lachat-de-velo/
+  dernière mise à jour: 14/04/2025
+  date de fin: 31/12/2025
+
+# NOTE: aide renouvellée en 2025.
+aides . bidart:
+  remplace: commune
+  titre: Ville de Bidart
+  description: >
+    Si vous avez votre résidence principale à Bidart et que vous achetez un
+    vélo classique ou un vélo à assistance électrique, vous pouvez bénéficier
+    d'une aide de la Ville de Bidart. 
+    La demande d’aide peut être renouvelée tous les trois ans pour un maximum de deux vélos par foyer fiscal.
+  applicable si:
+    toutes ces conditions:
+      - localisation . code insee = '64125'
+      - vélo . électrique ou mécanique
+  valeur: 50% * vélo . prix
+  plafond:
+    variations:
+      - si: vélo . cargo électrique
+        alors:
+          variations:
+            - si: revenu fiscal de référence par part < 28000 €/an
+              alors: 500€
+            - sinon: 400€
+      - si: vélo . électrique
+        alors:
+          variations:
+            - si: revenu fiscal de référence par part < 28000 €/an
+              alors: 400€
+            - sinon: 300€
+      - si: vélo . mécanique
+        alors:
+          variations:
+            - si: revenu fiscal de référence par part < 28000 €/an
+              alors: 200€
+            - sinon: 100€
+      - sinon: 0€
+  lien: https://www.bidart.fr/demande-daide-a-lachat-de-velos
+  dernière mise à jour: 14/04/2025
+  date de fin: 31/12/2025
+
+# NOTE: aide renouvellée en 2025.
+aides . herouville:
+  remplace: commune
+  titre: Ville d'Hérouville Saint-Clair
+  description: >
+    Le montant de l'aide à l'achat d'un vélo attribué par la ville d'Hérouville Saint-Clair est de 100 € par foyer qui en fera la demande, auxquels peuvent s’ajouter pour les foyers dont le revenu fiscal de référence ne dépasse pas 13 489 € par part, 50 € de la Communauté Urbaine Caen la Mer sans démarche supplémentaire.
+  applicable si:
+    toutes ces conditions:
+      - localisation . code insee = '14327'
+      - vélo . électrique
+      - vélo . prix <= 2500€
+  valeur: 100€
+  lien: https://www.herouville.net/services/cadre-de-vie-environnement/vos-deplacements-doux
+  dernière mise à jour: 14/04/2025
+  date de fin: 31/12/2025
+
+# NOTE: aide renouvellée en 2025.
+aides . pays de mormal:
+  remplace: intercommunalité
+  titre: Communauté de communes du Pays de Mormal
+  description: >
+    Le Pays de Mormal propose une aide financière pour l’achat d'un vélo (avec ou sans assistance électrique), d'une trottinette ou encore d’un kit homologué d’électrification pour vélos musculaires
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CC du Pays de Mormal'
+      - vélo . électrique ou mécanique
+  valeur:
+    variations:
+      - si: demandeur . bénéficiaire de minima sociaux
+        alors:
+          valeur: 50% * vélo . prix
+          plafond: 300€
+      - sinon:
+          valeur: 30% * vélo . prix
+          plafond: 200€
+  lien: https://www.cc-paysdemormal.fr/presentation-du-dispositif-velo-et-trottinette/
+  dernière mise à jour: 14/04/2025
+  date de fin: 31/12/2025
+
+# NOTE: aide renouvellée en 2025.
+aides . trébeurden:
+  remplace: commune
+  titre: Ville de Trébeurden
+  description: >
+    La ville de Trébeurden subventionne l'achat d'un vélo à assistance électrique à hauteur de 20 % du prix d’achat TTC du vélo et dans la limite de 200 € par matériel neuf acheté par foyer.
+  applicable si:
+    toutes ces conditions:
+      - localisation . code insee = '22343'
+      - demandeur . âge . majeur
+      - vélo . état . neuf
+      - vélo . électrique
+  valeur: 20% * vélo . prix
+  plafond: 200€
+  lien: https://www.trebeurden.fr/actualite/subvention-pour-lachat-dun-velo-a-assistance-electrique-2/
+  dernière mise à jour: 14/04/2025
+  date de fin: 31/12/2025
+
+# NOTE: aide renouvellée en 2025.
+aides . saint-lô:
+  remplace: intercommunalité
+  titre: Saint-Lô Agglo
+  description: >
+    Saint-Lô Agglo propose à tous ses habitants majeurs une aide à l'achat d'un vélo électrique dont le montant plafond est compris entre 100 € et 200 € en fonction du revenu fiscal de référence par part.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CA Saint-Lô Agglo'
+      - une de ces conditions:
+          - toutes ces conditions:
+              - vélo . électrique
+              - vélo . prix <= 3000 €
+          - vélo . cargo
+  variations:
+    - si: vélo . cargo
+      alors: 400 €
+    - si: revenu fiscal de référence par part <= plafond état
+      alors: 200 €
+    - sinon: 100 €
+  plafond: 20% * vélo . prix
+  lien: https://www.saint-lo-agglo.fr/fr/la-prime-lachat-dun-velo-assistance-electrique
+  dernière mise à jour: 14/04/2025
+  date de fin: 31/12/2025
+
+# TODO: aide relancée en 2025.
+aides . rueil-malmaison:
+  remplace: commune
+  titre: Ville de Rueil-Malmaison
+  description: >
+    La ville de Rueil propose à tous ses habitants majeurs une aide à l'achat d'un vélo électrique dont le montant plafond est compris entre 200 € et 500 € en fonction du revenu fiscal de référence par part.
+    Une seule aide est versée par ménage et pendant une période de 3 ans.
+  applicable si:
+    toutes ces conditions:
+      - localisation . code insee = '92063'
+      - vélo . électrique
+  variations:
+    - si: revenu fiscal de référence par part <= 20000 €/an
+      alors:
+        valeur: 40% * vélo . prix
+        plafond: 500€
+    - si: revenu fiscal de référence par part <= 30000 €/an
+      alors:
+        valeur: 30% * vélo . prix
+        plafond: 300€
+    - sinon:
+        valeur: 20% * vélo . prix
+        plafond: 200€
+  lien: https://www.villederueil.fr/fr/aide-lachat-dun-velo-electrique
+  dernière mise à jour: 14/04/2025
+  date de fin: 31/12/2025
