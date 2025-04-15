@@ -1,5 +1,49 @@
 # @betagouv/aides-velo
 
+## 1.0.0
+
+### Modifications majeures
+
+- Région Pays de la loire - Question `aides . pays de la loire . abonné TER` supprimée ([#45](https://github.com/betagouv/publicodes-aides-velo/pull/45))
+- Département Côte-d'Or - Question `aides . cote d'or . vélo assemblé ou produit localement` supprimée ([#45](https://github.com/betagouv/publicodes-aides-velo/pull/45))
+
+### Modifications mineures
+
+#### Aides ajoutées ([#49](https://github.com/betagouv/publicodes-aides-velo/pull/49))
+
+- Communauté de communes du Pays de Mormal
+- Saint-Lô Agglo
+- Ville de Bidart
+- Ville de Camon
+- Ville de Rueil-Malmaison
+- Ville d'Hérouville Saint-Clair
+
+#### Aides mises à jour ([#45](https://github.com/betagouv/publicodes-aides-velo/pull/45)) ([#49](https://github.com/betagouv/publicodes-aides-velo/pull/49))
+
+- Communauté d'Agglomération de la Porte du Hainaut
+- Communauté de communes Les Portes Briardes Entre Villes et Forêts
+- Communauté de communes Pévèle Carembault
+- Communauté de communes Sèvre et Loire
+- Ville de Entzheim
+- Ville de Longuenesse
+- Ville de Sarlat
+- Ville d'Ifs
+
+#### Aides désactivées ([#45](https://github.com/betagouv/publicodes-aides-velo/pull/45))
+
+- Ville de Louvigny
+
+#### Modifications d'API
+
+- Ajout de la possibilité de récupérer la date de la dernière
+  ([#48](https://github.com/betagouv/publicodes-aides-velo/pull/48)) modification
+  d'une aide et de sa date de fin de validité :
+  - La date de dernière mise à jour est définie avec le champs `dernière mise à
+jour` dans le modèle, qui correspond à l'attribut `lastUpdate` du type `Aide`
+  - La de date de fin de validité est définie avec le champs `date de fin` dans
+    le modèle, qui correspond à l'attribut `endDate` du type `Aide`
+- Plus de valeur par défaut pour la règle `demandeur . bénéficiaire de minima sociaux` ([`4893336`](https://github.com/betagouv/publicodes-aides-velo/commit/48933368b09426e644a80e2330ae4744ec60165e))
+
 ## 0.4.1
 
 ### Patch Changes
