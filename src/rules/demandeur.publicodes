@@ -30,14 +30,11 @@ demandeur . bénéficiaire de minima sociaux:
   type: booléen
   question: Percevez-vous le RSA, l'AAH, l'ASS ou ASPA ?
   description: |
-    RSA : Revenu de solidarité active
-    AAH : Allocation aux adultes handicapés
-    ASS : Allocation de solidarité spécifique
-    ASPA : Allocation de solidarit aux personnes âgées
-  par défaut:
-    une de ces conditions:
-      - bénéficiaire du RSA
-      - bénéficiaire de l'AAH
+    - RSA : Revenu de solidarité active
+    - AAH : Allocation aux adultes handicapés
+    - ASS : Allocation de solidarité spécifique
+    - ASPA : Allocation de solidarité aux personnes âgées
+  par défaut: non
 
 demandeur . en situation de handicap:
   type: booléen
