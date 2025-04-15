@@ -8459,7 +8459,10 @@ aides . bidart:
     Si vous avez votre résidence principale à Bidart et que vous achetez un
     vélo classique ou un vélo à assistance électrique, vous pouvez bénéficier
     d'une aide de la Ville de Bidart. 
-    La demande d’aide peut être renouvelée tous les trois ans pour un maximum de deux vélos par foyer fiscal.
+
+
+    La demande d’aide peut être renouvelée tous les trois ans pour un maximum
+    de deux vélos par foyer fiscal.
   applicable si:
     toutes ces conditions:
       - localisation . code insee = '64125'
@@ -8473,6 +8476,15 @@ aides . bidart:
             - si: revenu fiscal de référence par part < 28000 €/an
               alors: 500€
             - sinon: 400€
+      - si: 
+          toutes ces conditions: 
+            - vélo . électrique
+            - vélo . état . occasion
+        alors:
+          variations:
+            - si: revenu fiscal de référence par part < 28000 €/an
+              alors: 250€
+            - sinon: 150€
       - si: vélo . électrique
         alors:
           variations:
@@ -8495,12 +8507,18 @@ aides . herouville:
   remplace: commune
   titre: Ville d'Hérouville Saint-Clair
   description: >
-    Le montant de l'aide à l'achat d'un vélo attribué par la ville d'Hérouville Saint-Clair est de 100 € par foyer qui en fera la demande, auxquels peuvent s’ajouter pour les foyers dont le revenu fiscal de référence ne dépasse pas 13 489 € par part, 50 € de la Communauté Urbaine Caen la Mer sans démarche supplémentaire.
+    Le montant de l'aide à l'achat d'un vélo attribué par la ville d'Hérouville
+    Saint-Clair est de 100 € par foyer qui en fera la demande, auxquels peuvent
+    s’ajouter pour les foyers dont le revenu fiscal de référence ne dépasse pas
+    13 489 € par part, 50 € de la Communauté Urbaine Caen la Mer sans démarche
+    supplémentaire.
   applicable si:
     toutes ces conditions:
       - localisation . code insee = '14327'
       - vélo . électrique
-      - vélo . prix <= 2500€
+      - une de ces conditions:
+          - vélo . prix <= 2500€
+          - demandeur . en situation de handicap
   valeur: 100€
   lien: https://www.herouville.net/services/cadre-de-vie-environnement/vos-deplacements-doux
   dernière mise à jour: 14/04/2025
@@ -8511,20 +8529,40 @@ aides . pays de mormal:
   remplace: intercommunalité
   titre: Communauté de communes du Pays de Mormal
   description: >
-    Le Pays de Mormal propose une aide financière pour l’achat d'un vélo (avec ou sans assistance électrique), d'une trottinette ou encore d’un kit homologué d’électrification pour vélos musculaires
+    Le Pays de Mormal propose une aide financière pour l’achat d'un vélo (avec
+    ou sans assistance électrique), d'une trottinette ou encore d’un kit
+    homologué d’électrification pour vélos musculaires
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'CC du Pays de Mormal'
-      - vélo . électrique ou mécanique
-  valeur:
+      - une de ces conditions:
+          - vélo . adapté = non
+          - demandeur . en situation de handicap
+  valeur: 30% * vélo . prix
+  plafond:
     variations:
-      - si: demandeur . bénéficiaire de minima sociaux
+      - si: 
+          une de ces conditions:
+            - demandeur . bénéficiaire de minima sociaux
+            - demandeur . en situation de handicap
         alors:
-          valeur: 50% * vélo . prix
-          plafond: 300€
+          variations:
+            - si: vélo . motorisation
+              alors: 150€
+            - sinon: 
+                variations:
+                  - si: vélo . état . neuf
+                    alors: 250€
+                  - sinon: 300€
       - sinon:
-          valeur: 30% * vélo . prix
-          plafond: 200€
+          variations:
+            - si: vélo . motorisation
+              alors: 100€
+            - sinon: 
+                variations:
+                  - si: vélo . état . neuf
+                    alors: 150€
+                  - sinon: 200€
   lien: https://www.cc-paysdemormal.fr/presentation-du-dispositif-velo-et-trottinette/
   dernière mise à jour: 14/04/2025
   date de fin: 31/12/2025
@@ -8534,7 +8572,9 @@ aides . trébeurden:
   remplace: commune
   titre: Ville de Trébeurden
   description: >
-    La ville de Trébeurden subventionne l'achat d'un vélo à assistance électrique à hauteur de 20 % du prix d’achat TTC du vélo et dans la limite de 200 € par matériel neuf acheté par foyer.
+    La ville de Trébeurden subventionne l'achat d'un vélo à assistance
+    électrique à hauteur de 20 % du prix d’achat TTC du vélo et dans la limite
+    de 200 € par matériel neuf acheté par foyer.
   applicable si:
     toutes ces conditions:
       - localisation . code insee = '22343'
@@ -8552,21 +8592,34 @@ aides . saint-lô:
   remplace: intercommunalité
   titre: Saint-Lô Agglo
   description: >
-    Saint-Lô Agglo propose à tous ses habitants majeurs une aide à l'achat d'un vélo électrique dont le montant plafond est compris entre 100 € et 200 € en fonction du revenu fiscal de référence par part.
+    Saint-Lô Agglo propose à tous ses habitants majeurs une aide à l'achat d'un
+    vélo électrique dont le montant plafond est compris entre 100 € et 200 € en
+    fonction du revenu fiscal de référence par part.
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'CA Saint-Lô Agglo'
+      - vélo . état . neuf
       - une de ces conditions:
+          - vélo . prix <= 3000 €
           - toutes ces conditions:
-              - vélo . électrique
-              - vélo . prix <= 3000 €
+              - vélo . adapté
+              - demandeur . en situation de handicap
+      - une de ces conditions:
+          - vélo . électrique
           - vélo . cargo
-  variations:
-    - si: vélo . cargo
-      alors: 400 €
-    - si: revenu fiscal de référence par part <= plafond état
-      alors: 200 €
-    - sinon: 100 €
+          - toutes ces conditions:
+              - vélo . adapté
+              - demandeur . en situation de handicap
+  valeur:
+    variations:
+      - si: 
+          une de ces conditions:
+            - vélo . cargo
+            - vélo . adapté
+        alors: 400 €
+      - si: revenu fiscal de référence par part <= 14089 €/an
+        alors: 200 €
+      - sinon: 100 €
   plafond: 20% * vélo . prix
   lien: https://www.saint-lo-agglo.fr/fr/la-prime-lachat-dun-velo-assistance-electrique
   dernière mise à jour: 14/04/2025
@@ -8577,8 +8630,10 @@ aides . rueil-malmaison:
   remplace: commune
   titre: Ville de Rueil-Malmaison
   description: >
-    La ville de Rueil propose à tous ses habitants majeurs une aide à l'achat d'un vélo électrique dont le montant plafond est compris entre 200 € et 500 € en fonction du revenu fiscal de référence par part.
-    Une seule aide est versée par ménage et pendant une période de 3 ans.
+    La ville de Rueil propose à tous ses habitants majeurs une aide à l'achat
+    d'un vélo électrique dont le montant plafond est compris entre 200 € et 500
+    € en fonction du revenu fiscal de référence par part. Une seule aide est
+    versée par ménage et pendant une période de 3 ans.
   applicable si:
     toutes ces conditions:
       - localisation . code insee = '92063'
