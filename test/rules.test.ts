@@ -1901,4 +1901,24 @@ describe("Aides Vélo", () => {
       expect(engine.evaluate("aides . cc val parisis").nodeValue).toBeNull();
     });
   });
+
+  describe("CC du Pays de Mormal", () => {
+    test("vélo adapté uniquement pour les personnes en situation de handicap", () => {
+      engine.setSituation({
+        "localisation . epci": "'CC du Pays de Mormal'",
+        "vélo . prix": 1000,
+        "vélo . type": "'adapté'",
+        "demandeur . en situation de handicap": "non",
+      });
+      expect(engine.evaluate("aides . pays de mormal").nodeValue).toBeNull();
+
+      engine.setSituation({
+        "localisation . epci": "'CC du Pays de Mormal'",
+        "vélo . prix": 1000,
+        "vélo . type": "'adapté'",
+        "demandeur . en situation de handicap": "oui",
+      });
+      expect(engine.evaluate("aides . pays de mormal").nodeValue).toEqual(250);
+    });
+  });
 });
