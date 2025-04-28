@@ -8691,7 +8691,7 @@ aides . vauvert:
 
 # NOTE: nouvelle aide ajoutée (présente dans le listing des aides vélos d'Aides Jeunes)
 aides . tarbes-lourdes-pyrénées:
-remplace: intercommunalité
+  remplace: intercommunalité
   titre: Communauté d'agglomération Tarbes-Lourdes-Pyrénées
   description: >
     L'aide de la Communauté d'agglomération Tarbes-Lourdes-Pyrénées, d'un montant de 200 €, est ouverte à tous les habitants de l'agglo, sans condition de ressources, pour l'achat d'un vélo à assistance électrique neuf, d'un montant maximum de 2 000 € ou d'un vélo cargo neuf.
