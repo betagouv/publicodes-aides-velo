@@ -8625,7 +8625,7 @@ aides . saint-lô:
   dernière mise à jour: 14/04/2025
   date de fin: 31/12/2025
 
-# TODO: aide relancée en 2025.
+# NOTE: aide relancée en 2025.
 aides . rueil-malmaison:
   remplace: commune
   titre: Ville de Rueil-Malmaison
@@ -8652,4 +8652,58 @@ aides . rueil-malmaison:
         plafond: 200€
   lien: https://www.villederueil.fr/fr/aide-lachat-dun-velo-electrique
   dernière mise à jour: 14/04/2025
+  date de fin: 31/12/2025
+
+# NOTE: aide relancée en 2025
+aides . colmar:
+  remplace: commune
+  titre: Ville de Colmar
+  description: >
+    La Ville de Colmar a mis en place un dispositif d’aide par foyer pour l’achat d’un vélo neuf. 
+    La participation financière pour l'achat d'un vélo électrique est de 200 € et de 100 € 
+    pour l'achat d'un vélo musculaire classique. L'aide est aussi de 100 € pour la mise en place 
+    d’un kit d’électrification sur un vélo musculaire.
+  applicable si: localisation . code insee = '68066'
+  variations:
+    - si: vélo . électrique
+      alors: 200€
+    - si: vélo . mécanique
+      alors: 120€
+    - sinon: 0€
+  lien: https://www.colmar.fr/engagements#:~:text=35%20:%20Dispositif%20de%20participation%20de%20la%20ville%20pour%20l'achat%20d'un%20v%C3%A9lo%20neuf
+  dernière mise à jour: 24/04/2025
+  date de fin: 31/12/2025
+
+# NOTE: nouvelle aide ajoutée (présente dans le listing des aides vélos d'Aides Jeunes)
+aides . vauvert:
+  remplace: commune
+  titre: Ville de Vauvert
+  description: >
+    La Ville de Vauvert propose à ses habitants et habitantes une aide de 200 € pour l'achat d'un vélo électrique.
+  applicable si:
+    toutes ces conditions:
+      - localisation . code insee = '30341'
+      - demandeur . âge . majeur
+      - vélo . électrique
+  lien: https://www.vauvert.com/et-si-vous-passiez-au-velo-electrique/
+  dernière mise à jour: 24/04/2025
+  date de fin: 31/12/2025
+
+# NOTE: nouvelle aide ajoutée (présente dans le listing des aides vélos d'Aides Jeunes)
+aides . tarbes-lourdes-pyrénées:
+remplace: intercommunalité
+  titre: Communauté d'agglomération Tarbes-Lourdes-Pyrénées
+  description: >
+    L'aide de la Communauté d'agglomération Tarbes-Lourdes-Pyrénées, d'un montant de 200 €, est ouverte à tous les habitants de l'agglo, sans condition de ressources, pour l'achat d'un vélo à assistance électrique neuf, d'un montant maximum de 2 000 € ou d'un vélo cargo neuf.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CA Tarbes-Lourdes-Pyrénées'
+      - demandeur . âge . majeur
+      - vélo . état . neuf
+      - vélo . prix <= 2000 €
+      - une de ces conditions:
+          - vélo . électrique
+          - vélo . cargo
+  lien: https://www.agglo-tlp.fr/page/le-velo-et-lagglo#:~:text=L'aide%20de%20200%E2%82%AC%20est%20ouverte%20%C3%A0%20tous%20les%20habitants
+  dernière mise à jour: 24/04/2025
   date de fin: 31/12/2025
