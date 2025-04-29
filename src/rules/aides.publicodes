@@ -8638,6 +8638,7 @@ aides . rueil-malmaison:
     toutes ces conditions:
       - localisation . code insee = '92063'
       - vélo . électrique
+      - vélo . état . neuf
   variations:
     - si: revenu fiscal de référence par part <= 20000 €/an
       alors:
@@ -8651,7 +8652,7 @@ aides . rueil-malmaison:
         valeur: 20% * vélo . prix
         plafond: 200€
   lien: https://www.villederueil.fr/fr/aide-lachat-dun-velo-electrique
-  dernière mise à jour: 14/04/2025
+  dernière mise à jour: 29/04/2025
   date de fin: 31/12/2025
 
 # NOTE: aide relancée en 2025
