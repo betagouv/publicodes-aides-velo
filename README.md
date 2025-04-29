@@ -8,7 +8,7 @@ France.
 > [!NOTE]
 > Ce modèle est la continuité de celui de [Mes Aides
 > Vélo](https://mesaidesvelo.fr/) rédigé par Maxime Quandalle. Il a été
-> rapatrié dans l'organisation Beta.gouv pour faciliter sa maintenance et son
+> rapatrié dans l'organisation @betagouv pour faciliter sa maintenance et son
 > évolution.
 
 > [!WARNING]
