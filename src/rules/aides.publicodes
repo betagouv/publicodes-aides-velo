@@ -8663,15 +8663,21 @@ aides . colmar:
     La participation financière pour l'achat d'un vélo électrique est de 200 € et de 100 € 
     pour l'achat d'un vélo musculaire classique. L'aide est aussi de 100 € pour la mise en place 
     d’un kit d’électrification sur un vélo musculaire.
-  applicable si: localisation . code insee = '68066'
-  variations:
-    - si: vélo . électrique
-      alors: 200€
-    - si: vélo . mécanique
-      alors: 120€
-    - sinon: 0€
-  lien: https://www.colmar.fr/engagements#:~:text=35%20:%20Dispositif%20de%20participation%20de%20la%20ville%20pour%20l'achat%20d'un%20v%C3%A9lo%20neuf
-  dernière mise à jour: 24/04/2025
+  applicable si: 
+    toutes ces conditions:
+      - localisation . code insee = '68066'
+      - vélo . état . neuf
+  valeur:
+    variations:
+      - si: vélo . électrique
+        alors: 200€
+      - si: vélo . mécanique
+        alors: 120€
+      - si: vélo . motorisation
+        alors: 100€
+      - sinon: 0€
+  lien: "https://www.colmar.fr/engagements#:~:text=35%20:%20Dispositif%20de%20participation%20de%20la%20ville%20pour%20l'achat%20d'un%20v%C3%A9lo%20neuf"
+  dernière mise à jour: 29/04/2025
   date de fin: 31/12/2025
 
 # NOTE: nouvelle aide ajoutée (présente dans le listing des aides vélos d'Aides Jeunes)

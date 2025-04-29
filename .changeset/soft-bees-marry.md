@@ -17,3 +17,4 @@
 - Communauté d'Agglomération de la Porte du Hainaut
 - Communauté de communes Pévèle Carembault
 - Communauté de communes Sèvre et Loire
+- Ville de Colmar
