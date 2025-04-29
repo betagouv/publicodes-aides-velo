@@ -8704,16 +8704,21 @@ aides . tarbes-lourdes-pyrénées:
   remplace: intercommunalité
   titre: Communauté d'agglomération Tarbes-Lourdes-Pyrénées
   description: >
-    L'aide de la Communauté d'agglomération Tarbes-Lourdes-Pyrénées, d'un montant de 200 €, est ouverte à tous les habitants de l'agglo, sans condition de ressources, pour l'achat d'un vélo à assistance électrique neuf, d'un montant maximum de 2 000 € ou d'un vélo cargo neuf.
+    L'aide de la Communauté d'agglomération Tarbes-Lourdes-Pyrénées, d'un
+    montant de 200 €, est ouverte à tous les habitants de l'agglo, sans
+    condition de ressources, pour l'achat d'un vélo à assistance électrique
+    neuf, d'un montant maximum de 2 000 € ou d'un vélo cargo neuf.
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'CA Tarbes-Lourdes-Pyrénées'
       - demandeur . âge . majeur
       - vélo . état . neuf
-      - vélo . prix <= 2000 €
       - une de ces conditions:
-          - vélo . électrique
           - vélo . cargo
-  lien: https://www.agglo-tlp.fr/page/le-velo-et-lagglo#:~:text=L'aide%20de%20200%E2%82%AC%20est%20ouverte%20%C3%A0%20tous%20les%20habitants
-  dernière mise à jour: 24/04/2025
+          - toutes ces conditions:
+              - vélo . électrique simple
+              - vélo . prix <= 2000€
+  valeur: 200€
+  lien: "https://www.agglo-tlp.fr/page/le-velo-et-lagglo#:~:text=L'aide%20de%20200%E2%82%AC%20est%20ouverte%20%C3%A0%20tous%20les%20habitants"
+  dernière mise à jour: 29/04/2025
   date de fin: 31/12/2025

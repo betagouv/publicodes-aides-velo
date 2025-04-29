@@ -5,6 +5,7 @@
 ### Aides ajoutées
 
 - Communauté de communes du Pays de Mormal
+- Communauté d'agglomération Tarbes-Lourdes-Pyrénées
 - Saint-Lô Agglo
 - Ville de Bidart
 - Ville de Camon
