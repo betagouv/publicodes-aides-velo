@@ -10,6 +10,7 @@
 - Ville de Camon
 - Ville de Rueil-Malmaison
 - Ville d'Hérouville Saint-Clair
+- Ville de Vauvert
 
 ### Aides mises à jour
 
