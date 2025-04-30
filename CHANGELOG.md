@@ -1,5 +1,60 @@
 # @betagouv/aides-velo
 
+## 1.0.0
+
+### Questions supprimées
+
+- Département Côte-d'Or - Question `aides . cote d'or . vélo assemblé ou produit localement` supprimée
+- Région Pays de la loire - Question `aides . pays de la loire . abonné TER` supprimée ([#45](https://github.com/betagouv/publicodes-aides-velo/pull/45))
+
+### Aides désactivées ([#52](https://github.com/betagouv/publicodes-aides-velo/pull/52))
+
+- CC du Val d'Argent
+- CC Grand Saint-Emilionnais
+- Grand Annecy Agglomération
+- Ville de Louvigny
+
+### Aides ajoutées ([`fa42e6f`](https://github.com/betagouv/publicodes-aides-velo/commit/fa42e6f43c321214c74724ffcd885f3d0500bb81) [#52](https://github.com/betagouv/publicodes-aides-velo/pull/52))
+
+- Communauté d'agglomération Tarbes-Lourdes-Pyrénées
+- Communauté de communes du Pays de Mormal
+- Communauté de communes Kreiz Breizh
+- Communauté urbaine du Grand Poitiers (vélo adapté)
+- Saint-Lô Agglo
+- Ville de Bidart
+- Ville de Camon
+- Ville d'Elbeuf-sur-Seine
+- Ville de Rueil-Malmaison
+- Ville de Vauvert
+- Ville d'Hérouville Saint-Clair
+
+### Aides mises à jour ([#45](https://github.com/betagouv/publicodes-aides-velo/pull/45) [#52](https://github.com/betagouv/publicodes-aides-velo/pull/52))
+
+- CC Aunis Atlantique
+- Communauté d'Agglomération de la Porte du Hainaut
+- Communauté de communes Les Portes Briardes Entre Villes et Forêts
+- Communauté de communes Pévèle Carembault
+- Communauté de communes Sèvre et Loire
+- Communauté urbaine du Grand Poitiers
+- Métropole Grand Lyon
+- Ville de Colmar
+- Ville de Entzheim
+- Ville de Longuenesse
+- Ville de Paris
+- Ville de Sarlat
+- Ville d'Ifs
+
+### API
+
+- Ajout de la possibilité de récupérer la date de la dernière modification
+  d'une aide et de sa date de fin de validité
+  ([#48](https://github.com/betagouv/publicodes-aides-velo/pull/48))
+  - La date de dernière mise à jour est définie avec le champs `dernière mise à
+jour` dans le modèle, qui correspond à l'attribut `lastUpdate` du type `Aide`
+  - La de date de fin de validité est définie avec le champs `date de fin` dans
+    le modèle, qui correspond à l'attribut `endDate` du type `Aide`
+- Paramètres - Plus de valeur par défaut pour la règle `demandeur . bénéficiaire de minima sociaux` ([`6a256b2`](https://github.com/betagouv/publicodes-aides-velo/commit/6a256b2db1bb510fce72322f1952b14592325f0a))
+
 ## 0.4.1
 
 ### Patch Changes
