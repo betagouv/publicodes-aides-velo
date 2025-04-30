@@ -1217,3 +1217,21 @@ aides . annecy:
           - si: demandeur . en situation de handicap
             alors: 400€
           - sinon: 0€
+
+#NOTE: plus d'information en avril 2025
+aides . saint-émilionnais:
+  remplace: intercommunalité
+  titre: Communauté de communes du Grand Saint-Émilionnais
+  description: >
+    La PRIM'O VÉLO de la Communauté de Communes du Grand Saint-Emilionnais est
+    une aide financière de 200€ par foyer pour l'achat d'un vélo neuf ou
+    d'occasion, classique ou à assistance électrique. Cette aide sera attribuée
+    dans la limite de 50 foyers, sans conditions de ressources, sur l'ensemble
+    du territoire pour l'année 2024.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CC du Grand Saint Emilionnais'
+      - vélo . électrique ou mécanique
+      - vélo . prix >= 200€
+  valeur: 200€
+  lien: https://www.grand-saint-emilionnais.fr/actualites/primo-velo-2023-200e-de-subventions/
