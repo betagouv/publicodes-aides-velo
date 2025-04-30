@@ -4280,23 +4280,30 @@ aides . limoges metropole:
   lien: https://www.limoges-metropole.fr/informations-transversales/actualites/laide-a-lachat-de-velo-repart-pour-un-tour-1991
   dernière mise à jour: 20/02/2025
 
+# NOTE: fin d'utilisation le 15 novembre 2025 mais probablement prolongée en 2026.
 aides . grand poitiers:
   remplace: intercommunalité
   titre: Grand Poitiers Communauté urbaine
   description: >
-    Pour compléter l'offre de location de Vélos à Assistance Electrique (VAE)
-    de Cap sur le Vélo et augmenter le nombre de personnes utilisant des VAE
-    pour se déplacer au quotidien, Grand Poitiers Communauté urbaine propose
-    une aide financière pour l'achat d'un VAE : « le chèque VAE » (il doit
-    obligatoirement retiré avant l'achat).
+    Chèque VAE - Aide financière pour l'achat d'un VAE. Le chèque doit
+    obligatoirement retiré avant l'achat et être utilisé avant le 15 novembre
+    de l'année en cours.
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'CU du Grand Poitiers'
       - demandeur . âge . majeur
       - vélo . électrique
-  valeur: 25% * vélo . prix
-  plafond: 250€
+  variations:
+    - si: revenu fiscal de référence par part <= 1000 €/mois
+      alors:
+        valeur: 40% * vélo . prix
+        plafond: 400€
+    - sinon:
+        valeur: 25% * vélo . prix
+        plafond: 250€
   lien: https://www.grandpoitiers.fr/au-quotidien/deplacements/velos-et-mobilites-actives/aide-a-lachat-dun-velo-a-assistance-electrique-vae
+  dernière mise à jour: 30/02/2025
+  date de fin: 15/11/2025
 
 # NOTE: valide jusqu'au 31 décembre 2024, à vérifier en 2025
 aides . grand orb:
