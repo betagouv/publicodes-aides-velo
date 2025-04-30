@@ -8637,3 +8637,18 @@ aides . tarbes-lourdes-pyrénées:
   lien: "https://www.agglo-tlp.fr/page/le-velo-et-lagglo#:~:text=L'aide%20de%20200%E2%82%AC%20est%20ouverte%20%C3%A0%20tous%20les%20habitants"
   dernière mise à jour: 29/04/2025
   date de fin: 31/12/2025
+
+aides . elbeuf-sur-seine:
+  remplace: commune
+  titre: Ville d'Elbeuf-sur-Seine
+  description: >
+    Aide à l'achat d'un vélo à assistance électrique ou mécanique d'un montant de 50% du prix
+    d'achat, dans la limite de 100 euros.
+  applicable si:
+    toutes ces conditions:
+      - localisation . code insee = '76231'
+      - vélo . électrique ou mécanique
+  valeur: 50% * vélo . prix
+  plafond: 100€
+  lien: https://www.espace-citoyens.net/elbeuf/espace-citoyens/Demande/NouvelleDemande/ECO_CIT/D_VELOELEC
+  dernière mise à jour: 30/04/2025

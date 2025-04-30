@@ -1099,7 +1099,8 @@ describe("Aides Vélo", () => {
     });
   });
 
-  describe("Grand Annecy Agglomération", () => {
+  // NOTE: aide suspendue
+  describe.skip("Grand Annecy Agglomération", () => {
     it("devrait prendre en compte un bonus de 400€ pour les PMR", () => {
       engine.setSituation({
         "localisation . epci": "'CA du Grand Annecy'",
