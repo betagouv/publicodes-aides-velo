@@ -1922,4 +1922,29 @@ describe("Aides Vélo", () => {
       expect(engine.evaluate("aides . pays de mormal").nodeValue).toEqual(250);
     });
   });
+
+  describe("CU Grand Poitiers", () => {
+    test("le chèque VAE n'est pas cumulable avec l'aide vélo adapté", () => {
+      engine.setSituation({
+        "localisation . epci": "'CU du Grand Poitiers'",
+        "vélo . prix": 1000,
+        "vélo . type": "'adapté'",
+      });
+      expect(engine.evaluate("aides . grand poitiers").nodeValue).toBeNull();
+      expect(
+        engine.evaluate("aides . grand poitiers adapté").nodeValue
+      ).toEqual(250);
+
+      engine.setSituation({
+        "localisation . epci": "'CU du Grand Poitiers'",
+        "vélo . prix": 1000,
+        "vélo . type": "'cargo électrique'",
+        "revenu fiscal de référence par part": "20000 €/an",
+      });
+      expect(engine.evaluate("aides . grand poitiers").nodeValue).toEqual(250);
+      expect(
+        engine.evaluate("aides . grand poitiers adapté").nodeValue
+      ).toBeNull();
+    });
+  });
 });

@@ -4283,7 +4283,7 @@ aides . limoges metropole:
 # NOTE: fin d'utilisation le 15 novembre 2025 mais probablement prolongée en 2026.
 aides . grand poitiers:
   remplace: intercommunalité
-  titre: Grand Poitiers Communauté urbaine
+  titre: Grand Poitiers
   description: >
     Chèque VAE - Aide financière pour l'achat d'un VAE. Le chèque doit
     obligatoirement retiré avant l'achat et être utilisé avant le 15 novembre
@@ -4304,6 +4304,23 @@ aides . grand poitiers:
   lien: https://www.grandpoitiers.fr/au-quotidien/deplacements/velos-et-mobilites-actives/aide-a-lachat-dun-velo-a-assistance-electrique-vae
   dernière mise à jour: 30/02/2025
   date de fin: 15/11/2025
+
+aides . grand poitiers adapté:
+  remplace: intercommunalité
+  titre: Grand Poitiers
+  description: >
+    Pour l’achat d’un vélo adapté, Grand Poitiers peut vous apporter une aide
+    représentant 25% du prix d’achat, jusqu’à 1000€. A noter que vous devez
+    retirer votre dossier de demande de subvention avant l’achat du vélo.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CU du Grand Poitiers'
+      - demandeur . âge . majeur
+      - vélo . adapté
+  valeur: 25% * vélo . prix
+  plafond: 1000€
+  lien: https://www.grandpoitiers.fr/au-quotidien/deplacements/mobilite-inclusive-et-solidaire/savoir-prendre-le-bus-ou-faire-du-velo
+  dernière mise à jour: 30/02/2025
 
 # NOTE: valide jusqu'au 31 décembre 2024, à vérifier en 2025
 aides . grand orb:
