@@ -2,7 +2,8 @@ import fs from "node:fs";
 import { join } from "node:path";
 import { URL } from "node:url";
 import { getDataPath } from "../../utils";
-import aidesAvecLocalisation from "../../../src/data/aides-collectivities.json" assert { type: "json" };
+import aidesAvecLocalisation from "../../../src/data/aides-collectivities.json" with { type: "json" };
+import fallbackMiniatures from "./fallback-miniatures.json" with { type: "json" };
 
 const currentPath = new URL("./", import.meta.url).pathname;
 const repoPath = join(currentPath, "aides-jeunes/");
@@ -35,14 +36,18 @@ const thumbnailsManifest = Object.entries(aidesAvecLocalisation).reduce(
 
     const img = imagesFromAidesJeunes[aideId];
 
-    if (!img) {
-      console.warn(`No image found for (${id}): ${aideId}`);
-      return acc;
+    if (img) {
+      return { ...acc, [id]: RAW_GITHUB_URL + img.imgSrc };
     }
+    else {
+      const fallbackImg = fallbackMiniatures[aideId];
+      if (!fallbackImg) {
+        console.warn(`No image found for (${id}): ${aideId}`);
+        return acc;
+      }
 
-    const imgPath = RAW_GITHUB_URL + img.imgSrc;
-
-    return { ...acc, [id]: imgPath };
+      return {...acc, [id]: fallbackImg};
+    }
   },
   {}
 );

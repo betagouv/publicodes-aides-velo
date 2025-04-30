@@ -395,10 +395,11 @@ describe("Aides Vélo", () => {
         "localisation . code insee": "'75056'",
         "revenu fiscal de référence par part": "5000€/an",
         "vélo . type": "'adapté'",
-        "vélo . prix": "1000€",
+        // Pour faciliter le calcul du prix HT
+        "vélo . prix": 1000 * 1.2,
       });
 
-      expect(engine.evaluate("aides . paris").nodeValue).toEqual(275);
+      expect(engine.evaluate("aides . paris").nodeValue).toEqual(500);
 
       engine.setSituation({
         "localisation . code insee": "'75056'",
@@ -406,7 +407,7 @@ describe("Aides Vélo", () => {
         "vélo . type": "'adapté'",
         "vélo . prix": "25000€",
       });
-      expect(engine.evaluate("aides . paris").nodeValue).toEqual(900);
+      expect(engine.evaluate("aides . paris").nodeValue).toEqual(1500);
     });
   });
 
@@ -647,34 +648,34 @@ describe("Aides Vélo", () => {
   });
 
   describe("Métropole Grand Lyon", () => {
-    it("devrait être élligible pour les vélo d'occasion uniquement pour les vélos mécaniques avec un revenu fiscal de référence < 19 500 €/an", () => {
+    it("devrait être élligible pour les vélo d'occasion uniquement pour les vélos mécaniques avec un revenu fiscal de référence <= 12 231 €/an", () => {
       engine.setSituation({
         "localisation . epci": "'Métropole de Lyon'",
-        "vélo . type": "'pliant'",
+        "vélo . type": "'mécanique simple'",
         "vélo . état": "'occasion'",
         "vélo . prix": "1000€",
-        "revenu fiscal de référence par part": "15000€/an",
+        "revenu fiscal de référence par part": "12231 €/an",
       });
       // Prix maximum de 150€
-      expect(engine.evaluate("aides . lyon").nodeValue).toEqual(0);
+      expect(engine.evaluate("aides . lyon").nodeValue).toBeNull();
 
       engine.setSituation({
         "localisation . epci": "'Métropole de Lyon'",
         "vélo . type": "'pliant'",
         "vélo . état": "'occasion'",
         "vélo . prix": "100€",
-        "revenu fiscal de référence par part": "15000€/an",
+        "revenu fiscal de référence par part": "12231€/an",
       });
-      expect(engine.evaluate("aides . lyon").nodeValue).toEqual(100);
+      expect(engine.evaluate("aides . lyon").nodeValue).toEqual(50);
 
       engine.setSituation({
         "localisation . epci": "'Métropole de Lyon'",
         "vélo . type": "'pliant'",
         "vélo . état": "'occasion'",
         "vélo . prix": "100€",
-        "revenu fiscal de référence par part": "20000€/an",
+        "revenu fiscal de référence par part": "30000€/an",
       });
-      expect(engine.evaluate("aides . lyon").nodeValue).toEqual(0);
+      expect(engine.evaluate("aides . lyon").nodeValue).toBeNull();
 
       engine.setSituation({
         "localisation . epci": "'Métropole de Lyon'",
@@ -683,7 +684,7 @@ describe("Aides Vélo", () => {
         "vélo . prix": "100€",
         "revenu fiscal de référence par part": "15000€/an",
       });
-      expect(engine.evaluate("aides . lyon").nodeValue).toEqual(0);
+      expect(engine.evaluate("aides . lyon").nodeValue).toEqual(50);
     });
 
     it("devrait correctement prendre en compte les vélo adaptés pour les personnes en situation de handicap", () => {
@@ -712,7 +713,7 @@ describe("Aides Vélo", () => {
         "vélo . prix": "2000€",
         "revenu fiscal de référence par part": "10000€/an",
       });
-      expect(engine.evaluate("aides . lyon").nodeValue).toEqual(800);
+      expect(engine.evaluate("aides . lyon").nodeValue).toEqual(700);
 
       engine.setSituation({
         "localisation . epci": "'Métropole de Lyon'",
@@ -729,7 +730,7 @@ describe("Aides Vélo", () => {
         "vélo . prix": "15000€",
         "revenu fiscal de référence par part": "10000€/an",
       });
-      expect(engine.evaluate("aides . lyon").nodeValue).toEqual(1000);
+      expect(engine.evaluate("aides . lyon").nodeValue).toEqual(900);
 
       engine.setSituation({
         "localisation . epci": "'Métropole de Lyon'",
@@ -1099,7 +1100,8 @@ describe("Aides Vélo", () => {
     });
   });
 
-  describe("Grand Annecy Agglomération", () => {
+  // NOTE: aide suspendue
+  describe.skip("Grand Annecy Agglomération", () => {
     it("devrait prendre en compte un bonus de 400€ pour les PMR", () => {
       engine.setSituation({
         "localisation . epci": "'CA du Grand Annecy'",
@@ -1919,6 +1921,31 @@ describe("Aides Vélo", () => {
         "demandeur . en situation de handicap": "oui",
       });
       expect(engine.evaluate("aides . pays de mormal").nodeValue).toEqual(250);
+    });
+  });
+
+  describe("CU Grand Poitiers", () => {
+    test("le chèque VAE n'est pas cumulable avec l'aide vélo adapté", () => {
+      engine.setSituation({
+        "localisation . epci": "'CU du Grand Poitiers'",
+        "vélo . prix": 1000,
+        "vélo . type": "'adapté'",
+      });
+      expect(engine.evaluate("aides . grand poitiers").nodeValue).toBeNull();
+      expect(
+        engine.evaluate("aides . grand poitiers adapté").nodeValue
+      ).toEqual(250);
+
+      engine.setSituation({
+        "localisation . epci": "'CU du Grand Poitiers'",
+        "vélo . prix": 1000,
+        "vélo . type": "'cargo électrique'",
+        "revenu fiscal de référence par part": "20000 €/an",
+      });
+      expect(engine.evaluate("aides . grand poitiers").nodeValue).toEqual(250);
+      expect(
+        engine.evaluate("aides . grand poitiers adapté").nodeValue
+      ).toBeNull();
     });
   });
 });
