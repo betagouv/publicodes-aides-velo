@@ -395,10 +395,11 @@ describe("Aides Vélo", () => {
         "localisation . code insee": "'75056'",
         "revenu fiscal de référence par part": "5000€/an",
         "vélo . type": "'adapté'",
-        "vélo . prix": "1000€",
+        // Pour faciliter le calcul du prix HT
+        "vélo . prix": 1000 * 1.2,
       });
 
-      expect(engine.evaluate("aides . paris").nodeValue).toEqual(275);
+      expect(engine.evaluate("aides . paris").nodeValue).toEqual(500);
 
       engine.setSituation({
         "localisation . code insee": "'75056'",
@@ -406,7 +407,7 @@ describe("Aides Vélo", () => {
         "vélo . type": "'adapté'",
         "vélo . prix": "25000€",
       });
-      expect(engine.evaluate("aides . paris").nodeValue).toEqual(900);
+      expect(engine.evaluate("aides . paris").nodeValue).toEqual(1500);
     });
   });
 

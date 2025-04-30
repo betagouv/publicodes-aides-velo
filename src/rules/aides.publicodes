@@ -292,33 +292,40 @@ aides . paris:
   remplace: commune
   titre: Ville de Paris
   description: >
-    Vélos à assistance électrique, vélos cargos, découverte de Mobilib'… La Ville
-    de Paris propose des aides financières pour inciter à utiliser des modes de
-    déplacements plus respectueux de l'environnement. Les personnes malvoyantes
-    bénéficient gratuitement d'une télécommande pour activer les feux piétons.
+    Aide à l'achat pour tous types de vélo sous conditions de ressources sauf
+    pour les vélos adaptés. A noter que l'achat d'un casque et/ou antivol peut
+    être subventionné à hauteur de 33% du prix d'achat HT, plafonné à 50 euros.
   applicable si:
     toutes ces conditions:
       - localisation . code insee = '75056'
-      - vélo . état . neuf
+      - demandeur . âge . majeur
       - une de ces conditions:
-          - revenu fiscal de référence par part <= 6300 €/an
+          - revenu fiscal de référence par part <= 10000 €/an
           - vélo . adapté
-  valeur:
-    variations:
-      - si: vélo . mécanique
-        alors: vélo . prix . HT
-      - sinon: 33% * vélo . prix . HT
-  plafond: 
-    variations:
-      - si: vélo . adapté
-        alors: 900 €
-      - si: vélo . cargo
-        alors: 600€
-      - si: vélo . électrique
-        alors: 400€
-      - si: vélo . motorisation
-        alors: 400€
-      - sinon: 100€
+  variations:
+    - si: vélo . cargo
+      alors:
+        valeur: 33% * vélo . prix . HT
+        plafond: 600€
+    - si: vélo . électrique
+      alors:
+        valeur: 50% * vélo . prix . HT
+        plafond: 400€
+    - si: vélo . motorisation
+      alors:
+        valeur: 33% * vélo . prix . HT
+        plafond: 400€
+    - si: 
+        toutes ces conditions:
+          - vélo . mécanique
+          - vélo . état . neuf
+      alors:
+        valeur: vélo . prix . HT
+        plafond: 100€
+    - si: vélo . adapté
+      alors:
+        valeur: 50% * vélo . prix . HT
+        plafond: 1500€
   lien: https://www.paris.fr/pages/lutte-contre-la-pollution-les-aides-a-la-mobilite-5373
 
 aides . saint-étienne:
