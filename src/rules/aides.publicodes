@@ -99,6 +99,8 @@ aides . bonus vélo:
               alors: 150€
             - sinon: 0€
   lien: https://www.economie.gouv.fr/particuliers/prime-velo-electrique# 
+  dernière mise à jour: 30/04/2025
+  date de fin: 14/09/2025
 
 aides . prime à la conversion:
   type: état
