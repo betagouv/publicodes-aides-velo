@@ -4561,21 +4561,33 @@ aides . saint-pair-sur-mer:
   lien: https://saintpairsurmer.fr/prime-a-lacquisition-dun-velo-a-assistance-electrique-2025/
   dernière mise à jour: 20/02/2025
 
-# NOTE: potentiellement pas à jour, à vérifier en 2025
+# NOTE: à vérifier en 2026
 aides . aunis atlantique:
   remplace: intercommunalité
   titre: Communauté de Communes Aunis Atlantique
   description: >
-     Aide forfaitaire de 200€ à l'achat de vélos à assistance électrique (VAE).
+    Aide de la COOPEC de 500 euros pour l'acquisition d'un vélo ou scooter
+    électrique avec 50 euros supplémentaire pour l'achat de l'équipement. A
+    noter que vous devez être sociétaire de la COOPEC pour en bénéficier,
+    c'est-à-dire acquérir au minimum une part sociale de 50 euros.
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'CC Aunis Atlantique'
-      - revenu fiscal de référence par part <= 13489 €/an
-      - demandeur . âge . majeur
       - vélo . électrique
       - vélo . état . neuf
-  valeur: 200€
-  lien: https://www.aunisatlantique.fr/aide-a-lacquisition-de-velo-a-assistance-electrique-vae/
+      - est sociétaire de la COOPEC
+  valeur: 500 €
+  lien: https://coopec.fr/nos-aides-financieres/aides-financieres/aide-scooter-velo-electrique
+  dernière mise à jour: 30/04/2025
+  date de fin: 31/12/2025
+  avec:
+    est sociétaire de la COOPEC:
+      type: booléen
+      question: Êtes-vous sociétaire de la COOPEC ?
+      par défaut: oui
+      description: >
+        Pour bénéficier de l'aide, vous devez être sociétaire de la COOPEC
+        (nécessite d'acquérir au minimum 1 part spécial de 50€).
 
 aides . blois:
   remplace: intercommunalité
