@@ -1235,3 +1235,20 @@ aides . saint-émilionnais:
       - vélo . prix >= 200€
   valeur: 200€
   lien: https://www.grand-saint-emilionnais.fr/actualites/primo-velo-2023-200e-de-subventions/
+
+# NOTE: plus référencée sur le site
+aides . val d'argent:
+  remplace: intercommunalité
+  titre: Communauté de Communes du Val d'Argent
+  description: >
+    La Communauté de Communes du Val d'Argent propose une aide à l'achat pour
+    vélo de tout type (neuf ou d'occasion). Cette aide est de 75€ pour l'achat
+    d'un vélo acheté chez un revendeur situé sur le territoire du PETR Sélestat
+    – Alsace Centrale, 50€ sinon.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = "CC du Val d'Argent"
+      - vélo . électrique ou mécanique
+  valeur: 75€
+  plafond: vélo . prix
+  lien: https://www.valdargent.com/index.php/environnement-cadre-vie/mobilites/prime-velo
