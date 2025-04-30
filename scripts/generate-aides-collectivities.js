@@ -6,7 +6,7 @@ import fs from "node:fs";
 import Publicodes, { reduceAST } from "publicodes";
 import { exit } from "process";
 
-import epci from "@etalab/decoupage-administratif/data/epci.json" assert { type: "json" };
+import epci from "@etalab/decoupage-administratif/data/epci.json" with { type: "json" };
 import { getDataPath } from "./utils.js";
 
 import rules from "../publicodes-build/index.js";

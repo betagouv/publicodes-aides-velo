@@ -8652,3 +8652,25 @@ aides . elbeuf-sur-seine:
   plafond: 100€
   lien: https://www.espace-citoyens.net/elbeuf/espace-citoyens/Demande/NouvelleDemande/ECO_CIT/D_VELOELEC
   dernière mise à jour: 30/04/2025
+
+# NOTE: formulaire de 2024, à vérifier si c'est toujour d'actualité
+aides . cc kreiz breizh:
+  remplace: intercommunalité
+  titre: Communauté de Communes Kreiz Breizh
+  description: >
+    Aide à l’achat d’un vélo électrique (25 aides par an) neuf, de 20% du montant
+    de l’achat plafonnée à 150 €.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CC du Kreiz-Breizh (CCKB)'
+      - demandeur . âge . majeur
+      - vélo . électrique 
+      - vélo . état . neuf
+      - une de ces conditions:
+          - revenu fiscal de référence par part <= 15400 €/an
+          - demandeur . en situation de handicap
+  valeur: 20% * vélo . prix
+  plafond: 150€
+  lien: https://www.kreiz-breizh.fr/le-velo
+  dernière mise à jour: 30/04/2025
+  date de fin: 31/12/2026
