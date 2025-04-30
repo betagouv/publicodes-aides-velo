@@ -337,31 +337,50 @@ aides . saint-étienne:
       - sinon: 100€
   lien: https://www.saint-etienne-metropole.fr/form/aide-VAE-2024
 
+# NOTE: à verifier en 2026
 aides . lyon:
   remplace: intercommunalité
   titre: Métropole Grand Lyon
-  description: Aide à l'achat d'un vélo 2024.
+  description: Aide à l'achat d'un vélo 2025.
   applicable si: 
     toutes ces conditions:
       - localisation . epci = 'Métropole de Lyon'
-      - revenu fiscal de référence par part <= 24900 €/an
+      - revenu fiscal de référence par part <= 26200 €/an
   variations:
-    - si:
-        toutes ces conditions:
-          - vélo . état . neuf
-          - une de ces conditions:
-              - vélo . cargo électrique
-              - vélo . adapté
+    - si: vélo . adapté
       alors:
         valeur: 50% * vélo . prix
         plafond:
           variations:
-            - si: revenu fiscal de référence par part <= 19600 €/an
+            - si: revenu fiscal de référence par part <= 12231 €/an
               alors: 1000€
+            - sinon: 200€
+    - si: vélo . cargo électrique
+      alors:
+        valeur: 50% * vélo . prix
+        plafond:
+          variations:
+            - si: revenu fiscal de référence par part <= 12231 €/an
+              alors: 
+                variations:
+                  - si: vélo . prix <= 2500€
+                    alors: 700€
+                  - sinon: 900€
+            - sinon: 
+                variations:
+                  - si: vélo . prix <= 2500€
+                    alors: 100€
+                  - sinon: 200€
+    - si: vélo . cargo mécanique
+      alors:
+        valeur: 50% * vélo . prix
+        plafond: 
+          variations:
+            - si: revenu fiscal de référence par part <= 12231 €/an
+              alors: 700€
             - sinon: 200€
     - si:
         toutes ces conditions:
-          - vélo . état . neuf
           - vélo . prix <= 3200€
           - une de ces conditions:
             - vélo . électrique
@@ -370,43 +389,32 @@ aides . lyon:
         valeur: 50% * vélo . prix
         plafond: 
           variations:
-            - si: revenu fiscal de référence par part <= 19600 €/an
-              alors: 500€
+            - si: revenu fiscal de référence par part <= 12231 €/an
+              alors: 400€
             - sinon: 100€
-    - si: 
-        toutes ces conditions:
-          - vélo . cargo
-          - vélo . état . neuf
-      alors:
-        valeur: 50% * vélo . prix
-        plafond: 
-          variations:
-            - si: revenu fiscal de référence par part <= 19600 €/an
-              alors: 800€
-            - sinon: 200€
     - si:
         toutes ces conditions:
           - vélo . pliant
-          - vélo . état . neuf
           - vélo . prix <= 3200€
       alors:
         valeur: 50% * vélo . prix
         plafond: 
           variations:
-            - si: revenu fiscal de référence par part <= 19600 €/an
-              alors: 300€
+            - si: revenu fiscal de référence par part <= 12231 €/an
+              alors: 200€
             - sinon: 100€
     - si: 
         toutes ces conditions:
           - vélo . mécanique
           - vélo . état . occasion
           - vélo . prix <= 150€
-          - revenu fiscal de référence par part <= 19600 €/an
+          - revenu fiscal de référence par part <= 12231 €/an
       alors:
         valeur: vélo . prix
         plafond: 100€
-    - sinon: 0€
-  lien: https://www.grandlyon.com/services/aide-achat-velo.html
+  lien: https://avelo.grandlyon.com/choisir-son-velo/les-aides
+  dernière mise à jour: 30/04/2025
+  date de fin: 31/12/2025
 
 # TODO: différencier vélo adapté mécanique/électrique
 aides . saône-beaujolais:

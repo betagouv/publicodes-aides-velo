@@ -59,6 +59,9 @@ vélo . cargo:
 vélo . cargo électrique:
   valeur: vélo . type = 'cargo électrique'
 
+vélo . cargo mécanique:
+  valeur: vélo . type = 'cargo'
+
 vélo . pliant mécanique:
   valeur: vélo . type = 'pliant'
 

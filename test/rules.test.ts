@@ -647,34 +647,34 @@ describe("Aides Vélo", () => {
   });
 
   describe("Métropole Grand Lyon", () => {
-    it("devrait être élligible pour les vélo d'occasion uniquement pour les vélos mécaniques avec un revenu fiscal de référence < 19 500 €/an", () => {
+    it("devrait être élligible pour les vélo d'occasion uniquement pour les vélos mécaniques avec un revenu fiscal de référence <= 12 231 €/an", () => {
       engine.setSituation({
         "localisation . epci": "'Métropole de Lyon'",
-        "vélo . type": "'pliant'",
+        "vélo . type": "'mécanique simple'",
         "vélo . état": "'occasion'",
         "vélo . prix": "1000€",
-        "revenu fiscal de référence par part": "15000€/an",
+        "revenu fiscal de référence par part": "12231 €/an",
       });
       // Prix maximum de 150€
-      expect(engine.evaluate("aides . lyon").nodeValue).toEqual(0);
+      expect(engine.evaluate("aides . lyon").nodeValue).toBeNull();
 
       engine.setSituation({
         "localisation . epci": "'Métropole de Lyon'",
         "vélo . type": "'pliant'",
         "vélo . état": "'occasion'",
         "vélo . prix": "100€",
-        "revenu fiscal de référence par part": "15000€/an",
+        "revenu fiscal de référence par part": "12231€/an",
       });
-      expect(engine.evaluate("aides . lyon").nodeValue).toEqual(100);
+      expect(engine.evaluate("aides . lyon").nodeValue).toEqual(50);
 
       engine.setSituation({
         "localisation . epci": "'Métropole de Lyon'",
         "vélo . type": "'pliant'",
         "vélo . état": "'occasion'",
         "vélo . prix": "100€",
-        "revenu fiscal de référence par part": "20000€/an",
+        "revenu fiscal de référence par part": "30000€/an",
       });
-      expect(engine.evaluate("aides . lyon").nodeValue).toEqual(0);
+      expect(engine.evaluate("aides . lyon").nodeValue).toBeNull();
 
       engine.setSituation({
         "localisation . epci": "'Métropole de Lyon'",
@@ -683,7 +683,7 @@ describe("Aides Vélo", () => {
         "vélo . prix": "100€",
         "revenu fiscal de référence par part": "15000€/an",
       });
-      expect(engine.evaluate("aides . lyon").nodeValue).toEqual(0);
+      expect(engine.evaluate("aides . lyon").nodeValue).toEqual(50);
     });
 
     it("devrait correctement prendre en compte les vélo adaptés pour les personnes en situation de handicap", () => {
@@ -712,7 +712,7 @@ describe("Aides Vélo", () => {
         "vélo . prix": "2000€",
         "revenu fiscal de référence par part": "10000€/an",
       });
-      expect(engine.evaluate("aides . lyon").nodeValue).toEqual(800);
+      expect(engine.evaluate("aides . lyon").nodeValue).toEqual(700);
 
       engine.setSituation({
         "localisation . epci": "'Métropole de Lyon'",
@@ -729,7 +729,7 @@ describe("Aides Vélo", () => {
         "vélo . prix": "15000€",
         "revenu fiscal de référence par part": "10000€/an",
       });
-      expect(engine.evaluate("aides . lyon").nodeValue).toEqual(1000);
+      expect(engine.evaluate("aides . lyon").nodeValue).toEqual(900);
 
       engine.setSituation({
         "localisation . epci": "'Métropole de Lyon'",
