@@ -81,7 +81,6 @@ vélo . motorisation:
     vélo à assistance électrique. Il est constitué d'un moteur électrique,
     d'une batterie, ainsi que d'un contrôleur et d'un afficheur.
 
-
 vélo . fabriqué en france:
   type: booléen
   question: Le vélo est-il conçu et fabriqué en France ?
