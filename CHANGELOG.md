@@ -1,5 +1,11 @@
 # @betagouv/aides-velo
 
+## 2.0.0
+
+### Major Changes
+
+- Technique - Mise à jour **majeure** du paquet `@etalab/decoupage-administratif` ([#53](https://github.com/betagouv/publicodes-aides-velo/pull/53))
+
 ## 1.0.0
 
 ### Questions supprimées
