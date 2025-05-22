@@ -1246,7 +1246,7 @@ describe("Aides Vélo", () => {
   describe("La Roche-sur-Yon Agglomération", () => {
     it("devrait être élligible pour les vélo d'occasion", () => {
       engine.setSituation({
-        "localisation . epci": "'CA La Roche sur Yon - Agglomération'",
+        "localisation . epci": "'CA La Roche-sur-Yon - Agglomération'",
         "vélo . type": "'électrique'",
         "vélo . état": "'occasion'",
         "vélo . prix": "1000€",
@@ -1256,7 +1256,7 @@ describe("Aides Vélo", () => {
 
     it("devrait être élligible uniquement pour les VAE en-dessous d'un certain prix", () => {
       engine.setSituation({
-        "localisation . epci": "'CA La Roche sur Yon - Agglomération'",
+        "localisation . epci": "'CA La Roche-sur-Yon - Agglomération'",
         "vélo . type": "'électrique'",
         "vélo . prix": "1000€",
       });
@@ -1265,7 +1265,7 @@ describe("Aides Vélo", () => {
       );
 
       engine.setSituation({
-        "localisation . epci": "'CA La Roche sur Yon - Agglomération'",
+        "localisation . epci": "'CA La Roche-sur-Yon - Agglomération'",
         "vélo . type": "'électrique'",
         "vélo . prix": "2000€",
       });
@@ -1274,7 +1274,7 @@ describe("Aides Vélo", () => {
       );
 
       engine.setSituation({
-        "localisation . epci": "'CA La Roche sur Yon - Agglomération'",
+        "localisation . epci": "'CA La Roche-sur-Yon - Agglomération'",
         "vélo . type": "'électrique'",
         "vélo . état": "'occasion'",
         "vélo . prix": "1000€",
@@ -1282,7 +1282,7 @@ describe("Aides Vélo", () => {
       expect(engine.evaluate("aides . la roche sur yon").nodeValue).toEqual(50);
 
       engine.setSituation({
-        "localisation . epci": "'CA La Roche sur Yon - Agglomération'",
+        "localisation . epci": "'CA La Roche-sur-Yon - Agglomération'",
         "vélo . type": "'électrique'",
         "vélo . état": "'occasion'",
         "vélo . prix": "1500€",
@@ -1294,7 +1294,7 @@ describe("Aides Vélo", () => {
 
     it("devrait être majoré pour les salariés d'une structure membres du PDIE", () => {
       engine.setSituation({
-        "localisation . epci": "'CA La Roche sur Yon - Agglomération'",
+        "localisation . epci": "'CA La Roche-sur-Yon - Agglomération'",
         "vélo . type": "'électrique'",
         "vélo . prix": "1000€",
         "demandeur . statut": "'salarié'",

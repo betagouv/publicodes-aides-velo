@@ -336,7 +336,7 @@ aides . saint-étienne:
   description: Aide à l'achat d'un vélo à assistance électrique neuf (2024).
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'Saint-Etienne Métropole'
+      - localisation . epci = 'Saint-Étienne Métropole'
       - vélo . électrique
       - vélo . état . neuf
   valeur:
@@ -4321,7 +4321,7 @@ aides . grand orb:
     Date limite de dépôt des dossiers : 10 janvier 2025.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC Grand Orb communauté de communes en Languedoc'
+      - localisation . epci = 'CC Grand Orb Communauté de Communes en Languedoc'
       - vélo . état . neuf
       - une de ces conditions:
           - vélo . électrique
@@ -5089,7 +5089,7 @@ aides . la roche sur yon:
     Déplacement inter-entreprises (PDIE).
   applicable si: 
     toutes ces conditions:
-      - localisation . epci = 'CA La Roche sur Yon - Agglomération'
+      - localisation . epci = 'CA La Roche-sur-Yon - Agglomération'
       - demandeur . âge . majeur
       - une de ces conditions:
           - vélo . adapté
@@ -5718,7 +5718,7 @@ aides . coeur d'ostrevent:
     1er janvier 2024 et le 31 décembre 2024.
   applicable si:
     toutes ces conditions:
-      - localisation . epci = 'CC Coeur d'Ostrevent (CCCO)'
+      - localisation . epci = "CA Coeur d'Ostrevent"
       - demandeur . âge . majeur
       - vélo . électrique
       - vélo . état . neuf
@@ -7436,7 +7436,7 @@ aides . region centre:
           - localisation . epci = "CC Touraine Vallée de l'Indre"
           - localisation . epci = "CC Touraine Ouest Val de Loire"
           - localisation . epci = "CC de Gâtine-Racan"
-          - localisation . epci = "CC du Val d Amboise"
+          - localisation . epci = "CC du Val d'Amboise"
           - localisation . epci = "CC Autour de Chenonceaux Bléré-Val de Cher"
           - localisation . epci = "CC Touraine-Est Vallées"
           - localisation . epci = "CC du Castelrenaudais"
