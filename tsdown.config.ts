@@ -1,6 +1,6 @@
-import { defineConfig } from "tsup";
+import { defineConfig } from "tsdown";
 
-export default defineConfig((options) => {
+export default defineConfig(() => {
   return {
     entry: [
       "./src/index.ts",
@@ -13,6 +13,5 @@ export default defineConfig((options) => {
     cjsInterop: true,
     splitting: true,
     treeshake: true,
-    minify: options.watch ? false : "terser",
   };
 });
