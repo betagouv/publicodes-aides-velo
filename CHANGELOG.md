@@ -1,5 +1,13 @@
 # @betagouv/aides-velo
 
+## 2.0.1
+
+### Patch Changes
+
+- Technique - migration de `tsup` à `tsdown` pour le build ([#58](https://github.com/betagouv/publicodes-aides-velo/pull/58))
+
+- Ajout - CC Lyon Saint Exupéry en Dauphiné ([#56](https://github.com/betagouv/publicodes-aides-velo/pull/56))
+
 ## 2.0.0
 
 ### Major Changes
