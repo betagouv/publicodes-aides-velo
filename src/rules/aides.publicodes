@@ -425,6 +425,22 @@ aides . lyon:
   dernière mise à jour: 30/04/2025
   date de fin: 31/12/2025
 
+aides . cc lysed:
+  remplace: intercommunalité
+  titre: Communauté de Communes Lyon Saint Exupéry en Dauphiné
+  description: >
+    Aide de 25% du coût d'achat d'un vélo neuf plafonné à 200 €. Dispositif
+    plafonné à 100 unités, représentant une enveloppe budgétaire de 20 000 € à
+    charge de la collectivité
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CC Lyon-Saint-Exupéry en Dauphiné'
+      - vélo . état . neuf
+  valeur: vélo . prix * 25%
+  plafond: 200€
+  lien: https://www.lysed.fr/plan-climat-air-energie/mobilite
+  dernière mise à jour: 09/06/2025
+
 # TODO: différencier vélo adapté mécanique/électrique
 aides . saône-beaujolais:
   remplace: intercommunalité
