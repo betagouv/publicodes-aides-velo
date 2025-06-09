@@ -36,7 +36,7 @@
     "test": "vitest run",
     "test:links": "bun scripts/check-links-validity.js",
     "precompile": "bun run generate",
-    "compile": "tsup",
+    "compile": "tsdown",
     "release": "bun run compile && changeset publish"
   },
   "dependencies": {
@@ -52,7 +52,7 @@
     "@types/jest": "^29.5.14",
     "bun": "^1.2.14",
     "terser": "^5.39.2",
-    "tsup": "^8.5.0",
+    "tsdown": "^0.12.7",
     "typescript": "^5.8.3",
     "vitest": "^3.1.4"
   },
