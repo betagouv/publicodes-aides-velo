@@ -2960,7 +2960,7 @@ aides . kremlin-bicetre:
       - sinon: 0€
   lien: https://www.kremlinbicetre.fr/app/uploads/2023/01/Formulaire-dattribution-2023.pdf
 
-# NOTE: pas de date explicite de fin, à vérifier en 2025
+# NOTE: ne semble plus vraiment d'actualité, à vérifier en 2025
 aides . chevilly-larue:
   remplace: commune
   titre: Ville de Chevilly-Larue
@@ -2969,6 +2969,10 @@ aides . chevilly-larue:
     prix TTC d'un vélo d'occasion ou reconditionné (hors vente entre
     particuliers), dans la limite de 100 euros par vélo et d'un vélo adulte et
     d'un vélo enfant (à l'exclusion des vélos électriques) par foyer et par an.
+
+
+    Vérifiez au près de la mairie si cette aide est toujours d'actualité avant
+    tout achat.
   applicable si:
     toutes ces conditions:
       - localisation . code insee = '94021'
@@ -2984,7 +2988,8 @@ aides . chevilly-larue:
         alors: 30 % * vélo . prix
       - sinon: 20 % * vélo . prix
   plafond: 100€
-  lien: http://www.ville-chevilly-larue.fr/transports/velo-en-ville/les-aides-communales-942.html
+  lien: https://www.ville-chevilly-larue.fr/demarches-administratives/aide-a-lachat-dun-velo/
+  dernière mise à jour: 01/07/2025
 
 # NOTE: à vérifier en 2026
 aides . pau:
@@ -4142,7 +4147,7 @@ aides . combloux:
   plafond: 80% * vélo . prix # TODO: prendre en compte le montant des aides cumulées.
   lien: https://mairie-combloux.fr/aide-a-lachat-dun-velo-a-assistance-electrique/
 
-# NOTE: valide 2024, à vérifier en 2025
+# NOTE: valide 2025, à vérifier en 2026
 aides . châtel:
   remplace: commune
   titre: Ville de Châtel
@@ -4150,13 +4155,15 @@ aides . châtel:
     La ville de Châtel vous aide à acquérir un vélo à assistance électrique
     grâce à une subvention de 200 € par vélo. Le vélo devra être acheté neuf ou
     d'occasion chez un commerçant professionnel implanté dans le département de
-    Haute Savoie.
+    Haute Savoie. (Vous devez déposer votre demande avant tout achat).
   applicable si:
     toutes ces conditions:
       - localisation . code insee = '74063'
       - vélo . électrique
+      - demandeur . âge >= 16 an
   valeur: 200€
-  lien: https://www.mairie-chatel.com/Actions-environnement
+  lien: https://www.mairie-chatel.com/Aide-Acquisition
+  dernière mise à jour: 01/07/2025
 
 # NOTE: valide jusqu'au 31 décembre 2024, à vérifier en 2025
 aides . le vigan:

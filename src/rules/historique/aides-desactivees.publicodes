@@ -1271,3 +1271,21 @@ aides . département somme:
   plafond: 400€
   lien: https://www.somme.fr/services/loisirs-et-sports/sports-et-loisirs-de-nature/aide-a-lacquisition-de-velo-a-assistance-electrique/
   dernière mise à jour: 01/07/2025
+
+# NOTE: remplacé par un service de location
+aides . lannion-trégor:
+  remplace: intercommunalité
+  titre: Lannion-Trégor Communauté
+  description: >
+    Aide de 10% du prix du vélo à assistance électrique neuf, plafonnée à 100€.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CA Lannion-Trégor Communauté'
+      - demandeur . âge . majeur
+      - foyer . imposable = non
+      - vélo . état . neuf
+      - vélo . électrique
+  valeur: 10% * vélo . prix
+  plafond: 100€
+  lien: https://www.lannion-tregor.com/fr/deplacements/les-mobilites-electriques/les-aides-a-l-acquisition.html
+  dernière mise à jour: 01/07/2025
