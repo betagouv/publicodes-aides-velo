@@ -8699,3 +8699,26 @@ aides . cc kreiz breizh:
   lien: https://www.kreiz-breizh.fr/le-velo
   dernière mise à jour: 30/04/2025
   date de fin: 31/12/2026
+
+aides . petit-quevilly:
+  remplace: commune
+  titre: Ville du Petit-Quevilly
+  description: >
+    Prime vélo - Aide à l'achat pour vélo à assistance électrique ou mécanique,
+    d'occasion ou neuf et de kit de motorisation. Nombre de dossiers limités à
+    50 par an.
+  applicable si:
+    toutes ces conditions:
+      - localisation . code insee = '76498'
+      - demandeur . âge . majeur
+      - vélo . adapté = non
+  valeur: 25% * vélo . prix
+  plafond:
+    variations:
+      - si: vélo . cargo
+        alors: 150€
+      - si: vélo . électrique
+        alors: 100€
+      - sinon: 50€
+  lien: https://www.petit-quevilly.fr/vivre-a-petit-quevilly/mobilite/prime-velo-roulez-malin
+  dernière mise à jour: 01/07/2025
