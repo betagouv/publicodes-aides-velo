@@ -150,6 +150,7 @@ vélo . prix pour maximiser les aides:
     - si:
         une de ces conditions:
           - localisation . epci = 'CC Haut Val de Sèvre'
+          - localisation . epci = 'Métropole Rouen Normandie'
       alors: 2000 €
     - si:
         une de ces conditions:
