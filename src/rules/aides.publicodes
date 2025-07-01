@@ -631,8 +631,10 @@ aides . irigny:
           - vélo . électrique
           - vélo . cargo
           - vélo . pliant
+          - vélo . motorisation
   valeur: 100€
-  lien: https://irigny.fr/Parking-a%CC%80-ve%CC%81los
+  lien: https://www.irigny.fr/B%c3%a9n%c3%a9ficier-de-l-aide-%c3%a0-l-achat-d-un-v%c3%a9lo-%c3%a9lectrique/164/
+  dernière mise à jour: 01/07/2025
 
 aides . oullins:
   remplace: commune
@@ -2303,22 +2305,26 @@ aides . sablé sur sarthe:
   lien: https://www.sablesursarthe.fr/ville-durable/mobilites-douces/bandes-et-pistes/
   dernière mise à jour: 20/02/2025
 
-aides . département somme:
+aides . département somme situation handicap:
   remplace: département
   titre: Département de la Somme
   description: >
-    Le Département accorde une aide à tout particulier résidant dans la Somme,
-    sans condition de ressources, pour l'achat d'un vélo électrique auprès d'un
-    commerçant de la Somme. Cette subvention s'applique aux achats intervenus
-    après le 17 mars 2020.
+    Aide pour l'achat de matériel pour les personnes en situation de handicap.
+    En particulier, vélo adatpés ou vélo à assistance électrique sans
+    aménagement particuliers si le taux d'incapacité est supérieur ou égal à
+    80%.
   applicable si:
     toutes ces conditions:
       - localisation . département = '80'
       - vélo . état . neuf
-      - vélo . électrique
-  valeur: 25% * vélo . prix
-  plafond: 400€
-  lien: https://www.somme.fr/services/loisirs-et-sports/sports-et-loisirs-de-nature/aide-a-lacquisition-de-velo-a-assistance-electrique/
+      - demandeur . en situation de handicap
+      - une de ces conditions:
+          - vélo . adapté
+          - vélo . électrique
+  valeur: 80% * vélo . prix
+  plafond: 3000€
+  lien: https://www.somme.fr/services/loisirs-et-sports/soutien-au-mouvement-sportif/aide-a-lachat-de-materiel-pour-les-personnes-en-situation-de-handicap
+  dernière mise à jour: 01/07/2025
 
 # NOTE: valable pour 2024, à vérifier en 2025
 aides . amiens:
