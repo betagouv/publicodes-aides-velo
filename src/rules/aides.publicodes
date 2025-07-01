@@ -631,8 +631,10 @@ aides . irigny:
           - vélo . électrique
           - vélo . cargo
           - vélo . pliant
+          - vélo . motorisation
   valeur: 100€
-  lien: https://irigny.fr/Parking-a%CC%80-ve%CC%81los
+  lien: https://www.irigny.fr/B%c3%a9n%c3%a9ficier-de-l-aide-%c3%a0-l-achat-d-un-v%c3%a9lo-%c3%a9lectrique/164/
+  dernière mise à jour: 01/07/2025
 
 aides . oullins:
   remplace: commune
@@ -2303,22 +2305,26 @@ aides . sablé sur sarthe:
   lien: https://www.sablesursarthe.fr/ville-durable/mobilites-douces/bandes-et-pistes/
   dernière mise à jour: 20/02/2025
 
-aides . département somme:
+aides . département somme situation handicap:
   remplace: département
   titre: Département de la Somme
   description: >
-    Le Département accorde une aide à tout particulier résidant dans la Somme,
-    sans condition de ressources, pour l'achat d'un vélo électrique auprès d'un
-    commerçant de la Somme. Cette subvention s'applique aux achats intervenus
-    après le 17 mars 2020.
+    Aide pour l'achat de matériel pour les personnes en situation de handicap.
+    En particulier, vélo adatpés ou vélo à assistance électrique sans
+    aménagement particuliers si le taux d'incapacité est supérieur ou égal à
+    80%.
   applicable si:
     toutes ces conditions:
       - localisation . département = '80'
       - vélo . état . neuf
-      - vélo . électrique
-  valeur: 25% * vélo . prix
-  plafond: 400€
-  lien: https://www.somme.fr/services/loisirs-et-sports/sports-et-loisirs-de-nature/aide-a-lacquisition-de-velo-a-assistance-electrique/
+      - demandeur . en situation de handicap
+      - une de ces conditions:
+          - vélo . adapté
+          - vélo . électrique
+  valeur: 80% * vélo . prix
+  plafond: 3000€
+  lien: https://www.somme.fr/services/loisirs-et-sports/soutien-au-mouvement-sportif/aide-a-lachat-de-materiel-pour-les-personnes-en-situation-de-handicap
+  dernière mise à jour: 01/07/2025
 
 # NOTE: valable pour 2024, à vérifier en 2025
 aides . amiens:
@@ -2413,7 +2419,8 @@ aides . faches-thumesnil:
       - si: vélo . mécanique simple
         alors: 150€
       - sinon: 300€
-  lien: https://www.ville-fachesthumesnil.fr/Ecologie-cadre-de-vie/Urgences-Ecologiques/Nos-actions/Prime-velo
+  lien: https://www.ville-fachesthumesnil.fr/mon-quotidien/se-deplacer/a-velo/prime-velo
+  dernière mise à jour: 01/07/2025
 
 # NOTE: prolongé juqu'au 31 octobre 2025
 aides . pays sainte odile:
@@ -2953,7 +2960,7 @@ aides . kremlin-bicetre:
       - sinon: 0€
   lien: https://www.kremlinbicetre.fr/app/uploads/2023/01/Formulaire-dattribution-2023.pdf
 
-# NOTE: pas de date explicite de fin, à vérifier en 2025
+# NOTE: ne semble plus vraiment d'actualité, à vérifier en 2025
 aides . chevilly-larue:
   remplace: commune
   titre: Ville de Chevilly-Larue
@@ -2962,6 +2969,10 @@ aides . chevilly-larue:
     prix TTC d'un vélo d'occasion ou reconditionné (hors vente entre
     particuliers), dans la limite de 100 euros par vélo et d'un vélo adulte et
     d'un vélo enfant (à l'exclusion des vélos électriques) par foyer et par an.
+
+
+    Vérifiez au près de la mairie si cette aide est toujours d'actualité avant
+    tout achat.
   applicable si:
     toutes ces conditions:
       - localisation . code insee = '94021'
@@ -2977,7 +2988,8 @@ aides . chevilly-larue:
         alors: 30 % * vélo . prix
       - sinon: 20 % * vélo . prix
   plafond: 100€
-  lien: http://www.ville-chevilly-larue.fr/transports/velo-en-ville/les-aides-communales-942.html
+  lien: https://www.ville-chevilly-larue.fr/demarches-administratives/aide-a-lachat-dun-velo/
+  dernière mise à jour: 01/07/2025
 
 # NOTE: à vérifier en 2026
 aides . pau:
@@ -4135,7 +4147,7 @@ aides . combloux:
   plafond: 80% * vélo . prix # TODO: prendre en compte le montant des aides cumulées.
   lien: https://mairie-combloux.fr/aide-a-lachat-dun-velo-a-assistance-electrique/
 
-# NOTE: valide 2024, à vérifier en 2025
+# NOTE: valide 2025, à vérifier en 2026
 aides . châtel:
   remplace: commune
   titre: Ville de Châtel
@@ -4143,13 +4155,15 @@ aides . châtel:
     La ville de Châtel vous aide à acquérir un vélo à assistance électrique
     grâce à une subvention de 200 € par vélo. Le vélo devra être acheté neuf ou
     d'occasion chez un commerçant professionnel implanté dans le département de
-    Haute Savoie.
+    Haute Savoie. (Vous devez déposer votre demande avant tout achat).
   applicable si:
     toutes ces conditions:
       - localisation . code insee = '74063'
       - vélo . électrique
+      - demandeur . âge >= 16 an
   valeur: 200€
-  lien: https://www.mairie-chatel.com/Actions-environnement
+  lien: https://www.mairie-chatel.com/Aide-Acquisition
+  dernière mise à jour: 01/07/2025
 
 # NOTE: valide jusqu'au 31 décembre 2024, à vérifier en 2025
 aides . le vigan:
@@ -8699,3 +8713,81 @@ aides . cc kreiz breizh:
   lien: https://www.kreiz-breizh.fr/le-velo
   dernière mise à jour: 30/04/2025
   date de fin: 31/12/2026
+
+aides . metropole-rouen-normandie:
+  remplace: intercommunalité
+  titre: Métropole Rouen Normandie
+  description: >
+    Aide à l’achat d’un vélo à assistance électrique aux résident·es ayant
+    souscrit·es à un contrat de location longue durée avec le service LOVELO
+    dans les six derniers mois.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'Métropole Rouen Normandie'
+      - a souscrit au service LOVELO
+      - demandeur . âge . majeur
+      - une de ces conditions:
+          - toutes ces conditions:
+              - vélo . électrique simple
+              - vélo . prix <= 4000€
+          - toutes ces conditions:
+              - vélo . pliant
+              - vélo . prix <= 4000€
+          - toutes ces conditions:
+              - vélo . cargo
+              - vélo . prix <= 9000€
+  valeur:
+    variations:
+      - si: revenu fiscal de référence par part <= 13489 €/an
+        alors: 50% * vélo . prix
+      - sinon: 30% * vélo . prix
+  plafond:
+    variations:
+      - si: vélo . cargo
+        alors:
+          variations:
+            - si: revenu fiscal de référence par part <= 13489 €/an
+              alors: 1000 €
+            - sinon: 600 €
+      - sinon:
+          variations:
+            - si: revenu fiscal de référence par part <= 13489 €/an
+              alors: 500 €
+            - sinon: 300 €
+  lien: https://formulaires.demarches.metropole-rouen-normandie.fr/mobilite/aide-a-l-achat-d-un-velo-specifique
+  dernière mise à jour: 01/07/2025
+  date de fin: 31/12/2026
+  avec:
+    a souscrit au service LOVELO:
+      type: booléen
+      question: >
+        Avez-vous souscrit à un contrat de location longue durée avec le
+        service LOVELO dans les six derniers mois ?
+      description: >
+        Pour bénéficier de cette aide, vous devez avoir souscrit à un contrat
+        de location longue durée avec le service LOVELO dans les six derniers
+        mois.
+      par défaut: oui
+
+aides . petit-quevilly:
+  remplace: commune
+  titre: Ville du Petit-Quevilly
+  description: >
+    Prime vélo - Aide à l'achat pour vélo à assistance électrique ou mécanique,
+    d'occasion ou neuf et de kit de motorisation. Nombre de dossiers limités à
+    50 par an.
+  applicable si:
+    toutes ces conditions:
+      - localisation . code insee = '76498'
+      - demandeur . âge . majeur
+      - vélo . adapté = non
+  valeur: 25% * vélo . prix
+  plafond:
+    variations:
+      - si: vélo . cargo
+        alors: 150€
+      - si: vélo . électrique
+        alors: 100€
+      - sinon: 50€
+  lien: https://www.petit-quevilly.fr/vivre-a-petit-quevilly/mobilite/prime-velo-roulez-malin
+  dernière mise à jour: 01/07/2025

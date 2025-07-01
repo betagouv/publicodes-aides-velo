@@ -1252,3 +1252,40 @@ aides . val d'argent:
   valeur: 75€
   plafond: vélo . prix
   lien: https://www.valdargent.com/index.php/environnement-cadre-vie/mobilites/prime-velo
+
+# NOTE: plus référencée sur le site
+aides . département somme:
+  remplace: département
+  titre: Département de la Somme
+  description: >
+    Le Département accorde une aide à tout particulier résidant dans la Somme,
+    sans condition de ressources, pour l'achat d'un vélo électrique auprès d'un
+    commerçant de la Somme. Cette subvention s'applique aux achats intervenus
+    après le 17 mars 2020.
+  applicable si:
+    toutes ces conditions:
+      - localisation . département = '80'
+      - vélo . état . neuf
+      - vélo . électrique
+  valeur: 25% * vélo . prix
+  plafond: 400€
+  lien: https://www.somme.fr/services/loisirs-et-sports/sports-et-loisirs-de-nature/aide-a-lacquisition-de-velo-a-assistance-electrique/
+  dernière mise à jour: 01/07/2025
+
+# NOTE: remplacé par un service de location
+aides . lannion-trégor:
+  remplace: intercommunalité
+  titre: Lannion-Trégor Communauté
+  description: >
+    Aide de 10% du prix du vélo à assistance électrique neuf, plafonnée à 100€.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CA Lannion-Trégor Communauté'
+      - demandeur . âge . majeur
+      - foyer . imposable = non
+      - vélo . état . neuf
+      - vélo . électrique
+  valeur: 10% * vélo . prix
+  plafond: 100€
+  lien: https://www.lannion-tregor.com/fr/deplacements/les-mobilites-electriques/les-aides-a-l-acquisition.html
+  dernière mise à jour: 01/07/2025
