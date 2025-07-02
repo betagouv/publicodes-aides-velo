@@ -1,5 +1,25 @@
 # @betagouv/aides-velo
 
+## 2.1.0
+
+### Minor Changes
+
+- Ajout - Ville du Petit-Quevilly ([#59](https://github.com/betagouv/publicodes-aides-velo/pull/59))
+
+- Mise à jour - Département de la Somme ([#59](https://github.com/betagouv/publicodes-aides-velo/pull/59))
+
+- Ajout - Métropole Rouen Normandie ([#59](https://github.com/betagouv/publicodes-aides-velo/pull/59))
+
+### Patch Changes
+
+- Mise à jour - Ville de Faches-Thumesnil ([#59](https://github.com/betagouv/publicodes-aides-velo/pull/59))
+
+- Mise à jour - Ville de Châtel ([#59](https://github.com/betagouv/publicodes-aides-velo/pull/59))
+
+- Suppression - Lannion-Trégor Communauté ([#59](https://github.com/betagouv/publicodes-aides-velo/pull/59))
+
+- Mise à jour - Ville de Chevilly-Larue ([#59](https://github.com/betagouv/publicodes-aides-velo/pull/59))
+
 ## 2.0.1
 
 ### Patch Changes
