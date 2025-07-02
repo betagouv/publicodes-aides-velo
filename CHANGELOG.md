@@ -1,5 +1,17 @@
 # @betagouv/aides-velo
 
+## 2.2.0
+
+### Minor Changes
+
+- Suppression - Communauté de communes du Pays d'Ancenis ([#61](https://github.com/betagouv/publicodes-aides-velo/pull/61))
+
+### Patch Changes
+
+- Mise à jour - Pornic agglo Pyas de Retz ([#61](https://github.com/betagouv/publicodes-aides-velo/pull/61))
+
+- Mise à jour - Ville de Bétheny ([#61](https://github.com/betagouv/publicodes-aides-velo/pull/61))
+
 ## 2.1.0
 
 ### Minor Changes
