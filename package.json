@@ -32,9 +32,10 @@
   "scripts": {
     "compile:rules": "publicodes compile src/rules/*.publicodes",
     "generate": "bun run compile:rules && bun scripts/generate.js",
-    "pretest": " bun run generate",
+    "pretest": "bun run generate",
     "test": "vitest run",
     "test:links": "bun scripts/check-links-validity.js",
+    "test:outdated": "bun scripts/check-outdated-aids.ts",
     "precompile": "bun run generate",
     "compile": "tsdown",
     "release": "bun run compile && changeset publish"
