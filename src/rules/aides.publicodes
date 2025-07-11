@@ -128,13 +128,25 @@ aides . grand est:
   description: >
     Soutien à l'acquisition de vélos adaptés, de vélos-cargos, de vélos
     longtails et à l'installation de kits de conversion de vélos.
-  applicable si: localisation . région = '44'
+  applicable si: 
+    toutes ces conditions:
+      - localisation . région = '44'
+      - une de ces conditions:
+          - demandeur . âge . majeur
+          - demandeur . en situation de handicap
+      - une de ces conditions:
+          - vélo . cargo
+          - vélo . adapté
+          - vélo . motorisation
+          - toutes ces conditions:
+              - vélo . électrique simple
+              - demandeur . en situation de handicap
   valeur:
     variations:
       - si: 
           toutes ces conditions:
             - demandeur . en situation de handicap
-            - vélo . électrique
+            - vélo . électrique simple
         alors:
           valeur: 70% * vélo . prix
           plafond: 500€
@@ -155,6 +167,8 @@ aides . grand est:
           plafond: vélo . prix
       - sinon: 0€
   lien: https://www.grandest.fr/vos-aides-regionales/achat-velos/
+  dernière mise à jour: 11/07/2025
+  date de fin: 31/12/2028
 
 aides . corse:
   remplace: région
