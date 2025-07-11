@@ -73,8 +73,6 @@ engine
   .computeAides()
   .forEach(({ title, amount }) => console.log(`Aide ${title} : ${amount}€`));
 
-// Aide Bonus vélo : 300€
-// Aide Prime à la conversion : 400€
 // Aide Bordeaux Métropole : 200€
 // Aide Ville de Bègles : 200€
 ```

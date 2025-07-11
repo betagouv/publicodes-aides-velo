@@ -47,112 +47,6 @@ plafond état:
     Plafond fixé par l'État sur le revenu fiscal de référence par part par part pour
     bénéficier du Bonus vélo.
   valeur: 15400 €/an  
-
-aides . bonus vélo:
-  remplace: état
-  titre: Bonus vélo
-  description: >
-    Le bonus vélo est maintenu pour toute facture émise avant le 14 février
-    2025 (inclus). Vous avez jusqu'au 14 août 2025 pour faire votre demande.
-    Passé ce délai, il ne sera plus possible de bénéficier du bonus.
-  applicable si:
-    toutes ces conditions:
-      - localisation . pays = 'France'
-      - demandeur . âge . majeur
-      - une de ces conditions:
-          - vélo . électrique ou mécanique
-          - vélo . adapté
-      - une de ces conditions:
-          - revenu fiscal de référence par part <= plafond état
-          - demandeur . en situation de handicap
-  valeur: 40% * vélo . prix
-  plafond:
-    variations:
-      - si:
-          une de ces conditions:
-            - vélo . cargo
-            - vélo . pliant
-            - vélo . adapté
-        alors: 
-          variations:
-            - si: 
-                une de ces conditions:
-                  - revenu fiscal de référence par part <= 7100 €/an
-                  - demandeur . en situation de handicap
-              alors: 2000€
-            - sinon: 1000€
-      - si: vélo . électrique
-        alors: 
-          variations:
-            - si: 
-                une de ces conditions:
-                  - revenu fiscal de référence par part <= 7100 €/an
-                  - demandeur . en situation de handicap
-              alors: 400€
-            - sinon: 300€
-      - sinon:
-          variations:
-            - si: 
-                une de ces conditions:
-                  - revenu fiscal de référence par part <= 7100 €/an
-                  - demandeur . en situation de handicap
-              alors: 150€
-            - sinon: 0€
-  lien: https://www.economie.gouv.fr/particuliers/prime-velo-electrique# 
-  dernière mise à jour: 30/04/2025
-  date de fin: 14/09/2025
-
-aides . prime à la conversion:
-  type: état
-  titre: Prime à la conversion
-  description: >
-    Supprimée depuis le 2 décembre 2024.
-
-
-    Cependant, une période transitoire est appliquée pour les cycles neufs ou
-    d'occasion, dès lors que leur facturation, ou que le versement du premier
-    loyer en cas de location, intervienne au plus tard le 14 février
-    2025 inclus.
-  applicable si:
-    toutes ces conditions:
-      - localisation . pays = 'France'
-      - demandeur . âge . majeur
-      - une de ces conditions:
-          - revenu fiscal de référence par part <= 24900 €/an
-          - demandeur . en situation de handicap
-      - une de ces conditions:
-          - vélo . électrique
-          - vélo . adapté
-  valeur: 40% * vélo . prix
-  plafond:
-    variations:
-      - si: 
-          une de ces conditions:
-            - revenu fiscal de référence par part <= 7100 €/an
-            - demandeur . en situation de handicap
-        alors: 3000€
-      - sinon: 1500€
-  lien: https://www.service-public.fr/particuliers/actualites/A17058
-
-aides . prime à la conversion . surprime ZFE:
-  applicable si:
-    toutes ces conditions:
-      - localisation . pays = 'France'
-      - localisation . ZFE
-  titre: Surprime Zone à Faibles Émissions (ZFE)
-  description: >
-    Vous pouvez bénéficier d'une surprime car $ville est une zone à faible
-    émission mobilité (ZFE). Cette surprime est conditionnée à l'octroi d'une
-    aide par la collectivité locale et son montant est identique à l'aide versée
-    par la collectivité locale, dans la limite de 1 000 €.
-  somme:
-    - commune
-    - intercommunalité
-    - département
-    - région
-  plafond: 1000€
-  lien: https://www.service-public.fr/particuliers/vosdroits/F36827
-
 aides . forfait mobilités durables: 500 €/an
 
 aides . ile de france:
@@ -7292,29 +7186,17 @@ aides . la côtière à montluel:
 aides . pays orne moselle:
   remplace: intercommunalité
   titre: Pays Orne Moselle
-  description: >
-    Aide à l'achat d'un vélo, neuf ou d'occasion.
-
-    
-    A noter que l'éligibilité de cette aide est conditionnée par le fait de
-    bénéficier du "Bonus écologique" de l'État pour les vélos à assistance
-    électrique. Or, ce bonus a été supprimé à partir du 2 décembre 2024.
-    Veuillez vous renseigner auprès de la communauté de communes pour plus
-    d'informations avant de réaliser votre achat.
+  description: Aide à l'achat d'un vélo sans assistance électrique, neuf ou d'occasion.
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'CC du Pays Orne Moselle'
-      - revenu fiscal de référence par part <= plafond état
+      - revenu fiscal de référence par part <= 15400 €
       - demandeur . âge . majeur
-      - aides . bonus vélo > 0€
-      - vélo . électrique ou mécanique
+      - vélo . mécanique
   valeur: 20% * vélo . prix
-  plafond:
-    variations:
-      - si: vélo . électrique
-        alors: 150€
-      - sinon: 200€
+  plafond: 200€
   lien: https://www.ccpom.fr/aides-a-la-mobilite/
+  dernière mise à jour: 11/07/2025
 
 # NOTE: valide jusqu'au 1er décembre 2024, à vérifier en 2025
 aides . bram:
