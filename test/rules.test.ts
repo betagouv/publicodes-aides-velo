@@ -23,11 +23,7 @@ describe("Aides Vélo", () => {
 
     it("devrait y avoir une entrée pour chaque aide dans le fichier 'aides-collectivities.json'", () => {
       // NOTE: should be generated at compile time
-      const noNeedToAssociatesLoc: RuleName[] = [
-        ...rulesToIgnore,
-        "aides . bonus vélo",
-        "aides . prime à la conversion",
-      ];
+      const noNeedToAssociatesLoc: RuleName[] = [...rulesToIgnore];
 
       ruleNames.forEach((key: RuleName) => {
         if (
@@ -72,141 +68,6 @@ describe("Aides Vélo", () => {
           expect(rule["lien"]).toMatch(/^https?:\/\//);
         }
       });
-    });
-  });
-
-  describe("Bonus Vélo", () => {
-    const baseSituation = {
-      "localisation . code insee": "'75056'",
-      "localisation . epci": "'Métropole du Grand Paris'",
-      "localisation . région": "'11'",
-    };
-
-    it("ne devrait pas être accordé pour un revenu fiscal de référence > 15 400 €/an", () => {
-      // Set base situation
-      engine.setSituation({
-        ...baseSituation,
-        "revenu fiscal de référence par part": "20000€/an",
-        "vélo . type": "'électrique'",
-      });
-
-      expect(engine.evaluate("aides . bonus vélo").nodeValue).toEqual(null);
-    });
-
-    it("devrait être accordée pour les personnes en situation de handicap quelque soit le revenu fiscal de référence", () => {
-      engine.setSituation({
-        ...baseSituation,
-        "revenu fiscal de référence par part": "20000€/an",
-        "demandeur . en situation de handicap": "oui",
-        "vélo . type": "'adapté'",
-        "vélo . prix": "2500€",
-      });
-      expect(engine.evaluate("aides . bonus vélo").nodeValue).toEqual(1000);
-
-      engine.setSituation({
-        ...baseSituation,
-        "revenu fiscal de référence par part": "20000€/an",
-        "demandeur . en situation de handicap": "oui",
-        "vélo . type": "'adapté'",
-        "vélo . prix": "25000€",
-      });
-      expect(engine.evaluate("aides . bonus vélo").nodeValue).toEqual(2000);
-
-      // Personne en situation de handicap sans vélo adapté
-      engine.setSituation({
-        ...baseSituation,
-        "revenu fiscal de référence par part": "20000€/an",
-        "demandeur . en situation de handicap": "oui",
-        "vélo . type": "'mécanique simple'",
-        "vélo . prix": "25000€",
-      });
-      expect(engine.evaluate("aides . bonus vélo").nodeValue).toEqual(150);
-    });
-
-    it("ne devrait correctement prendre en compte les vélo adaptés pour les personnes qui ne sont PAS en situation de handicap", () => {
-      engine.setSituation({
-        ...baseSituation,
-        "revenu fiscal de référence par part": "20000€/an",
-        "vélo . type": "'adapté'",
-        "vélo . prix": "25000€",
-      });
-      expect(engine.evaluate("aides . bonus vélo").nodeValue).toEqual(null);
-
-      engine.setSituation({
-        ...baseSituation,
-        "revenu fiscal de référence par part": "10000€/an",
-        "vélo . type": "'adapté'",
-        "vélo . prix": "25000€",
-      });
-      expect(engine.evaluate("aides . bonus vélo").nodeValue).toEqual(1000);
-
-      engine.setSituation({
-        ...baseSituation,
-        "revenu fiscal de référence par part": "2000€/an",
-        "vélo . type": "'adapté'",
-        "vélo . prix": "25000€",
-      });
-      expect(engine.evaluate("aides . bonus vélo").nodeValue).toEqual(2000);
-    });
-
-    it("revenu fiscal de référence < 15 400 €/an pour un vélo électrique de 1000€", () => {
-      engine.setSituation({
-        ...baseSituation,
-        "revenu fiscal de référence par part": "15400€/an",
-        "vélo . type": "'électrique'",
-        "vélo . prix": "1000€",
-      });
-      const expectedAmount = Math.min(1000 * 0.4, 300);
-
-      expect(engine.evaluate("aides . bonus vélo").nodeValue).toEqual(
-        expectedAmount
-      );
-    });
-
-    it("revenu fiscal de référence < 7100 €/an pour un vélo électrique de 1000€", () => {
-      engine.setSituation({
-        ...baseSituation,
-        "revenu fiscal de référence par part": "7100€/an",
-        "vélo . type": "'électrique'",
-        "vélo . prix": "1000€",
-      });
-      const expectedAmount = Math.min(1000 * 0.4, 400);
-
-      expect(engine.evaluate("aides . bonus vélo").nodeValue).toEqual(
-        expectedAmount
-      );
-    });
-
-    it("ne devrait pas avoir d'aide pour revenu fiscal de référence > 7100 €/an pour un vélo clasique", () => {
-      engine.setSituation({
-        ...baseSituation,
-        "revenu fiscal de référence par part": "10000€/an",
-        "vélo . type": "'mécanique simple'",
-      });
-
-      expect(engine.evaluate("aides . bonus vélo").nodeValue).toEqual(0);
-    });
-
-    it("ne devrait pas être accordée pour les kits de motorisation", () => {
-      engine.setSituation({
-        ...baseSituation,
-        "revenu fiscal de référence par part": "10000€/an",
-        "vélo . type": "'motorisation'",
-      });
-
-      expect(engine.evaluate("aides . bonus vélo").nodeValue).toBeNull();
-    });
-
-    it("ne devrait pas être accordée pour les personnes mineures", () => {
-      engine.setSituation({
-        ...baseSituation,
-        "demandeur . âge": "16 an",
-        "revenu fiscal de référence par part": "7100€/an",
-        "vélo . type": "'électrique'",
-        "vélo . prix": "1000€",
-      });
-
-      expect(engine.evaluate("aides . bonus vélo").nodeValue).toBeNull();
     });
   });
 
@@ -285,10 +146,7 @@ describe("Aides Vélo", () => {
         "vélo . prix": "1000€",
       });
 
-      const aideEtat = engine.evaluate("aides . état").nodeValue;
-      expect(aideEtat).toEqual(400);
-
-      const expectedAmount = 0.5 * (1000 - aideEtat);
+      const expectedAmount = 0.5 * 1000;
       expect(
         engine.evaluate("aides . occitanie vélo adapté").nodeValue
       ).toEqual(expectedAmount);

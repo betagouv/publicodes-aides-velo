@@ -10,7 +10,6 @@ describe("AidesVeloEngine", () => {
 
       const parsedRules = engine.getEngine().getParsedRules();
       expect(parsedRules["aides"]).toBeDefined();
-      expect(parsedRules["aides . bonus vélo"]).toBeDefined();
       expect(parsedRules["vélo"]).toBeDefined();
     });
   });
@@ -189,9 +188,7 @@ describe("AidesVeloEngine", () => {
       const engine = globalTestEngine.shallowCopy();
       const aides = engine.computeAides();
 
-      expect(aides).toHaveLength(2);
-      expect(contain(aides, "aides . bonus vélo")).toBeTruthy();
-      expect(contain(aides, "aides . prime à la conversion")).toBeTruthy();
+      expect(aides).toHaveLength(0);
     });
 
     it("should correctly manage multiple localisations", () => {
@@ -204,10 +201,10 @@ describe("AidesVeloEngine", () => {
         })
         .computeAides();
 
-      expect(aides).toHaveLength(3);
-      expect(aides[2].id).toEqual("aides . st2b");
-      expect(aides[2].amount).toEqual(300);
-      expect(aides[2].collectivity).toEqual({
+      expect(aides).toHaveLength(1);
+      expect(aides[0].id).toEqual("aides . st2b");
+      expect(aides[0].amount).toEqual(300);
+      expect(aides[0].collectivity).toEqual({
         kind: "epci",
         value: "CC Orne Lorraine Confluences",
         code: "200070845",
@@ -221,9 +218,9 @@ describe("AidesVeloEngine", () => {
         })
         .computeAides();
 
-      expect(aides).toHaveLength(3);
-      expect(aides[2].id).toEqual("aides . st2b");
-      expect(aides[2].amount).toEqual(300);
+      expect(aides).toHaveLength(1);
+      expect(aides[0].id).toEqual("aides . st2b");
+      expect(aides[0].amount).toEqual(300);
       // FIXME: should manage multiple localisations (see generate-aides-collectivities.ts)
       // expect(aides[2].collectivity).toEqual({
       //   kind: "epci",
@@ -246,31 +243,10 @@ describe("AidesVeloEngine", () => {
           })
           .computeAides();
 
-        expect(aides).toHaveLength(4);
+        expect(aides).toHaveLength(2);
         expect(contain(aides, "aides . montmorillon")).toBeTruthy();
         expect(contain(aides, "aides . vienne gartempe")).toBeTruthy();
       });
-
-      // NOTE: aide désactivée pour le moment
-      // it("Angers - vélo électrique avec abonnement TER", async () => {
-      //   const engine = globalTestEngine.shallowCopy();
-      //   const aides = engine
-      //     .setInputs({
-      //       "localisation . code insee": "49007",
-      //       "localisation . epci": "CU Angers Loire Métropole",
-      //       "localisation . département": "49",
-      //       "localisation . région": "52",
-      //       "localisation . pays": "France",
-      //       "vélo . type": "électrique",
-      //     })
-      //     .computeAides();
-      //
-      //   expect(aides).toHaveLength(4);
-      //   expect(contain(aides, "aides . bonus vélo")).toBeTruthy();
-      //   expect(contain(aides, "aides . prime à la conversion")).toBeTruthy();
-      //   expect(contain(aides, "aides . pays de la loire")).toBeTruthy();
-      //   expect(contain(aides, "aides . angers")).toBeTruthy();
-      // });
 
       it("Angers - vélo électrique sans abonnement TER", async () => {
         const engine = globalTestEngine.shallowCopy();
@@ -283,13 +259,10 @@ describe("AidesVeloEngine", () => {
             "localisation . région": "52",
             "localisation . pays": "France",
             "vélo . type": "électrique",
-            // "aides . pays de la loire . abonné TER": false,
           })
           .computeAides();
 
-        expect(aides).toHaveLength(3);
-        expect(contain(aides, "aides . bonus vélo")).toBeTruthy();
-        expect(contain(aides, "aides . prime à la conversion")).toBeTruthy();
+        expect(aides).toHaveLength(1);
         expect(contain(aides, "aides . angers")).toBeTruthy();
       });
 
@@ -307,7 +280,7 @@ describe("AidesVeloEngine", () => {
           })
           .computeAides();
 
-        expect(aides).toHaveLength(3);
+        expect(aides).toHaveLength(1);
         expect(contain(aides, "aides . occitanie vélo adapté")).toBeTruthy();
       });
 
@@ -325,8 +298,7 @@ describe("AidesVeloEngine", () => {
           })
           .computeAides();
 
-        expect(aides).toHaveLength(5);
-        expect(contain(aides, "aides . prime à la conversion")).toBeTruthy();
+        expect(aides).toHaveLength(3);
         expect(contain(aides, "aides . occitanie vélo adapté")).toBeTruthy();
         expect(
           contain(
@@ -349,7 +321,7 @@ describe("AidesVeloEngine", () => {
           })
           .computeAides();
 
-        expect(aides).toHaveLength(3);
+        expect(aides).toHaveLength(1);
         expect(contain(aides, "aides . cacl")).toBeTruthy();
       });
     });
