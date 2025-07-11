@@ -8727,3 +8727,18 @@ aides . cc terre d'eau:
   plafond: 200€
   lien: https://www.cc-terredeau.fr/fr/velos-electriques.html
   dernière mise à jour: 11/07/2025
+
+aides . ville lodève:
+  remplace: commune
+  titre: Ville de Lodève
+  description: >
+    Love Vélo - Aide à l'achat de 100 euros pour l'achat d'un vélo à assistance
+    électrique pour les habitant·es de Lodève.
+  applicable si:
+    toutes ces conditions:
+      - localisation . code insee = '34142'
+      - demandeur . âge . majeur
+      - vélo . électrique
+  valeur: 100€
+  lien: https://lodeve.fr/love-velo/
+  dernière mise à jour: 11/07/2025
