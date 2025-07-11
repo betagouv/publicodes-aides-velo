@@ -1,5 +1,23 @@
 # @betagouv/aides-velo
 
+## 3.0.0
+
+### Major Changes
+
+- Suppression - Bonus vélo et de La prime à la conversion ([#64](https://github.com/betagouv/publicodes-aides-velo/pull/64))
+
+### Minor Changes
+
+- Ajout - Ville de Lodève ([#64](https://github.com/betagouv/publicodes-aides-velo/pull/64))
+
+- Ajout - CC du Bassin de Pompey ([#64](https://github.com/betagouv/publicodes-aides-velo/pull/64))
+
+- Ajout - CC Terre d'Eau ([#64](https://github.com/betagouv/publicodes-aides-velo/pull/64))
+
+### Patch Changes
+
+- Mise à jour - Région Grand Est ([#64](https://github.com/betagouv/publicodes-aides-velo/pull/64))
+
 ## 2.2.0
 
 ### Minor Changes
