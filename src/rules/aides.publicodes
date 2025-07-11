@@ -8643,3 +8643,68 @@ aides . petit-quevilly:
       - sinon: 50€
   lien: https://www.petit-quevilly.fr/vivre-a-petit-quevilly/mobilite/prime-velo-roulez-malin
   dernière mise à jour: 01/07/2025
+
+aides . bassin-pompey:
+  remplace: intercommunalité 
+  titre: Communauté de Communes du Bassin de Pompey
+  description: >
+    Aide à l'achat d'un vélo à assistance électrique neuf ou d'occasion, d'un
+    vélo cargo ou d'un kit de motorisation. Dans la limite du budget
+    alloué.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CC du Bassin de Pompey'
+      - demandeur . âge . majeur
+  valeur:
+    variations:
+      - si: revenu fiscal de référence par part <= plafond de ressources
+        alors: 50% * vélo . prix
+      - sinon: 20% * vélo . prix
+  plafond:
+    variations:
+      - si: 
+          une de ces conditions:
+            - vélo . cargo
+            - vélo . adapté
+        alors:
+          variations:
+            - si: revenu fiscal de référence par part <= plafond de ressources
+              alors: 450 € 
+            - sinon: 150 €
+      - si:
+          une de ces conditions:
+            - vélo . électrique
+            - vélo . motorisation
+        alors:
+          variations:
+            - si: revenu fiscal de référence par part <= plafond de ressources
+              alors: 300 €
+            - sinon: 100 €
+
+      - sinon:
+          variations:
+            - si: revenu fiscal de référence par part <= plafond de ressources
+              alors: 135 €
+            - sinon: 45 €
+  lien: https://planvelo.bassinpompey.fr/primevelo
+  dernière mise à jour: 11/07/2025
+  avec:
+    plafond de ressources:
+      valeur:
+        variations:
+          - si: foyer . personnes = 1
+            alors: 19074 €
+          - si: foyer . personnes = 2
+            alors: 27896 €
+          - si: foyer . personnes = 3
+            alors: 33547 €
+          - si: foyer . personnes = 4
+            alors: 39192 €
+          - si: foyer . personnes = 5
+            alors: 44860 €
+          - sinon:
+              valeur: 44860 € + (5668 € * personnes supplémentaires)
+
+    personnes supplémentaires:
+      valeur: foyer . personnes - 5
+      plancher: 0
