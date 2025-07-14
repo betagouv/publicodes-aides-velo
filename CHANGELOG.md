@@ -1,5 +1,11 @@
 # @betagouv/aides-velo
 
+## 3.0.1
+
+### Patch Changes
+
+- Technique - correction de cohérence d'unité dans le calcul et de certains liens d'images ([#67](https://github.com/betagouv/publicodes-aides-velo/pull/67))
+
 ## 3.0.0
 
 ### Major Changes
