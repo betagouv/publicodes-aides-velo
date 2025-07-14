@@ -8693,17 +8693,18 @@ aides . bassin-pompey:
       valeur:
         variations:
           - si: foyer . personnes = 1
-            alors: 19074 €
+            alors: 19074 
           - si: foyer . personnes = 2
-            alors: 27896 €
+            alors: 27896 
           - si: foyer . personnes = 3
-            alors: 33547 €
+            alors: 33547 
           - si: foyer . personnes = 4
-            alors: 39192 €
+            alors: 39192 
           - si: foyer . personnes = 5
-            alors: 44860 €
+            alors: 44860 
           - sinon:
-              valeur: 44860 € + (5668 € * personnes supplémentaires)
+              valeur: 44860 + (5668 * personnes supplémentaires)
+      unité: €/an
 
     personnes supplémentaires:
       valeur: foyer . personnes - 5
