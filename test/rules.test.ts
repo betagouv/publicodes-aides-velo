@@ -1806,4 +1806,57 @@ describe("Aides Vélo", () => {
       ).toBeNull();
     });
   });
+
+  describe("Communauté de Communes du Bassin de Pompey", () => {
+    test("devrait correctement calculer une aide pour la ville de Pompey", () => {
+      engine.setSituation({
+        "localisation . code insee": "'54430'",
+        "localisation . epci": "'CC du Bassin de Pompey'",
+        "vélo . prix": 1000,
+        "vélo . type": "'électrique'",
+        "revenu fiscal de référence par part": "20000 €/an",
+        "foyer . personnes": 2,
+      });
+      expect(engine.evaluate("aides . bassin-pompey").nodeValue).toEqual(300);
+    });
+
+    test("devrait correctement calculer le plafond pour un foyer de plus de 5 personnes", () => {
+      engine.setSituation({
+        "localisation . code insee": "'54430'",
+        "localisation . epci": "'CC du Bassin de Pompey'",
+        "vélo . prix": 1000,
+        "vélo . type": "'électrique'",
+        "revenu fiscal de référence par part": "20000 €/an",
+        "foyer . personnes": 7,
+      });
+      expect(
+        engine.evaluate("aides . bassin-pompey . plafond de ressources")
+          .nodeValue
+      ).toEqual(44860 + 5668 * 2);
+    });
+
+    test("devrait correctement calculer l'aide si le nombre de personnes dans le foyer n'est pas renseigné", () => {
+      engine.setSituation({
+        "localisation . code insee": "'54430'",
+        "localisation . epci": "'CC du Bassin de Pompey'",
+        "vélo . prix": 1000,
+        "vélo . type": "'électrique'",
+        "revenu fiscal de référence par part": "20000 €/an",
+      });
+      expect(engine.evaluate("aides . bassin-pompey").nodeValue).toEqual(100);
+    });
+
+    test("le plafond devrait pouvoir être accessible même sans revenu fiscal de référence", () => {
+      engine.setSituation({
+        "localisation . code insee": "'54430'",
+        "localisation . epci": "'CC du Bassin de Pompey'",
+        "vélo . prix": 1000,
+        "vélo . type": "'électrique'",
+      });
+      expect(
+        engine.evaluate("aides . bassin-pompey . plafond de ressources")
+          .nodeValue
+      ).toEqual(19074);
+    });
+  });
 });
