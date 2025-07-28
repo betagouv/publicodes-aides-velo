@@ -8703,7 +8703,7 @@ aides . bassin-pompey:
           - si: foyer . personnes = 5
             alors: 44860 
           - sinon:
-              valeur: 44860 + (5668 * personnes supplémentaires)
+              valeur: 44860 + (5668 * personnes supplémentaires * 1 €/an/personne)
       unité: €/an
 
     personnes supplémentaires:
@@ -8743,3 +8743,62 @@ aides . ville lodève:
   valeur: 100€
   lien: https://lodeve.fr/love-velo/
   dernière mise à jour: 11/07/2025
+
+aides . cc coeur-de-savoie:
+  remplace: intercommunalité
+  titre: Communauté de communes Coeur de Savoie
+  description: >
+    Aide à l'achat d'un vélo (classique et vélo-cargo) à assistance électrique.
+    Le prix d'achat du vélo doit être compris entre 1200 € et 3500 € pour un
+    vélo électrique simple ou entre 2700 € et 5500 € pour un vélo-cargos
+    électrique.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = "CC Coeur de Savoie"
+      - demandeur . âge . majeur
+      - revenu fiscal de référence par part <= 30800 €/an
+      - une de ces conditions:
+          - toutes ces conditions:
+              - vélo . électrique simple
+              - vélo . prix >= 1200 €
+              - vélo . prix <= 3500 €
+          - toutes ces conditions:
+              - vélo . cargo électrique
+              - vélo . prix >= 2700 €
+              - vélo . prix <= 5500 €
+  valeur:
+    variations:
+      - si: revenu fiscal de référence par part < 7500 €/an
+        alors:
+          variations:
+            - si: vélo . cargo électrique
+              alors: 1000 €
+            - sinon: 650 €
+      - si: revenu fiscal de référence par part < 16300 €/an
+        alors:
+          variations:
+            - si: vélo . cargo électrique
+              alors: 600 €
+            - sinon: 450 €
+      - si: revenu fiscal de référence par part < 26200 €/an
+        alors:
+          variations:
+            - si: vélo . cargo électrique
+              alors: 450 €
+            - sinon: 250 €
+      - sinon:
+          variations:
+            - si: vélo . cargo électrique
+              alors: 300 €
+            - sinon: 150 €
+  plafond: 50% * vélo . prix
+  lien: https://www.coeurdesavoie.fr/4051-se-deplacer-a-velo.htm
+  dernière mise à jour: 28/07/2025
+  date de fin: 31/03/2026
+
+
+
+
+
+
+    
