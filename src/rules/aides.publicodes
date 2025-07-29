@@ -1821,7 +1821,9 @@ aides . wasquehal:
       - si: vélo . mécanique
         alors: 125€
       - sinon: 0€
-  lien: https://www.ville-wasquehal.fr/actualite/aides-de-la-ville-pour-une-mobilite-douce/
+  lien: https://www.ville-wasquehal.fr/mon-quotidien/environnement/deplacement-doux
+  dernière mise à jour: 29/07/2025
+
 
 aides . belfort:
   remplace: commune
