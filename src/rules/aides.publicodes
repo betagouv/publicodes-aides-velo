@@ -2725,7 +2725,6 @@ aides . cournon d'auvergne:
   plafond: vélo . prix
   lien: https://www.cournon-auvergne.fr/actualites/aide-pour-lachat-dun-velo-a-assistance-electrique/
 
-# TODO: ajouter les communes : https://www.grandavignon.fr/fr/les-16-communes-du-grand-avignon
 aides . grand avignon:
   remplace: intercommunalité
   titre: Grand Avignon
@@ -2744,72 +2743,7 @@ aides . grand avignon:
   plafond: 200€ - aides . commune
   plancher: 0€
   lien: https://www.grandavignon.fr/fr/actualites/aide-lachat-de-velo-assistance-electrique
-
-# NOTE: modifié le 24 février 2024, à vérifier en 2025
-aides . avignon:
-  remplace: commune
-  titre: Ville d'Avignon
-  description: >
-    Fonds « Tous à vélo » permettant aux avignonnais et avignonnaises de
-    bénéficier d'une prime pour l'achat ou la réparation d'un vélo neuf ou
-    d'occasion ou pour l'achat d'équipements cyclables de sécurité.
-  applicable si:
-    toutes ces conditions:
-      - localisation . code insee = '84007'
-      - une de ces conditions:
-          - vélo . électrique
-          - vélo . mécanique simple
-          - vélo . cargo
-          - vélo . adapté
-  valeur:
-    variations:
-      - si:
-          toutes ces conditions:
-            - une de ces conditions:
-                - vélo . cargo
-                - vélo . adapté
-            - vélo . prix >= 30€
-        alors: 
-          valeur: 50% * vélo . prix
-          plafond: 100€
-      - si: 
-          toutes ces conditions:
-            - vélo . électrique
-            - vélo . état . neuf
-            - vélo . prix <= 2000€
-            - vélo . prix >= 30€
-        alors:
-          valeur: 50% * vélo . prix
-          plafond: 50€
-      - si:
-          toutes ces conditions:
-            - vélo . mécanique simple
-            - vélo . état . neuf
-            - vélo . prix <= 2000€
-            - vélo . prix >= 30€
-        alors:
-          valeur: 50% * vélo . prix
-          plafond: 50€
-      - si: 
-          toutes ces conditions:
-            - vélo . électrique
-            - vélo . état . occasion
-            - vélo . prix <= 1500€
-            - vélo . prix >= 22€
-        alors:
-          valeur: 70% * vélo . prix
-          plafond: 70€
-      - si: 
-          toutes ces conditions:
-            - vélo . mécanique simple
-            - vélo . état . occasion
-            - vélo . prix <= 500€
-            - vélo . prix >= 22€
-        alors:
-          valeur: 70% * vélo . prix
-          plafond: 70€
-      - sinon: 0€
-  lien: https://www.avignon.fr/toutes-les-actualites/actualite/tous-a-velo
+  dernière mise à jour: 29/07/2025
 
 aides . luberon:
   remplace: intercommunalité
@@ -5775,16 +5709,23 @@ aides . drancy:
   titre: Ville de Drancy
   description: >
     Aide financière allant de 100 à 200 euros pour l'achat d'un vélo neuf ou
-    d'occasion à assistance électrique.
+    d'occasion à assistance électrique, et depuis le 10 avril 2025, 100 euros
+    pour l'achat d'un vélo mécanique neuf.
   applicable si:
     toutes ces conditions:
       - localisation . code insee = '93029'
-      - vélo . électrique
+      - vélo . électrique ou mécanique
   variations:
-    - si: foyer . imposable
-      alors: 200€
-    - sinon: 100€
-  lien: https://www.drancy.fr/annuaire-des-demarches/transport-et-mobilite/subvention-pour-l-achat-d-un-velo-electrique-1167.html
+    - si: vélo . électrique
+      alors:
+        variations:
+          - si: revenu fiscal de référence par part <= 15000 €/an
+            alors: 200 €
+          - sinon: 100 €
+    - si: vélo . état . neuf
+      alors: 100 €
+  lien: https://www.drancy.fr/annuaire-des-demarches/transport-et-mobilite/subvention-pour-l-achat-d-un-velo-electrique-ou-mecanique-1167.html
+  dernière mise à jour: 29/07/2025
 
 aides . rives de moselle:
   remplace: intercommunalité
@@ -8811,10 +8752,3 @@ aides . cc coeur-de-savoie:
   lien: https://www.coeurdesavoie.fr/4051-se-deplacer-a-velo.htm
   dernière mise à jour: 28/07/2025
   date de fin: 31/03/2026
-
-
-
-
-
-
-    
