@@ -1434,3 +1434,69 @@ aides . prime à la conversion . surprime ZFE:
   lien: https://www.service-public.fr/particuliers/vosdroits/F36827
   dernière mise à jour: 11/07/2025
 
+# NOTE: modifié le 24 février 2024, à vérifier en 2025
+aides . avignon:
+  remplace: commune
+  titre: Ville d'Avignon
+  description: >
+    Fonds « Tous à vélo » permettant aux avignonnais et avignonnaises de
+    bénéficier d'une prime pour l'achat ou la réparation d'un vélo neuf ou
+    d'occasion ou pour l'achat d'équipements cyclables de sécurité.
+  applicable si:
+    toutes ces conditions:
+      - localisation . code insee = '84007'
+      - une de ces conditions:
+          - vélo . électrique
+          - vélo . mécanique simple
+          - vélo . cargo
+          - vélo . adapté
+  valeur:
+    variations:
+      - si:
+          toutes ces conditions:
+            - une de ces conditions:
+                - vélo . cargo
+                - vélo . adapté
+            - vélo . prix >= 30€
+        alors: 
+          valeur: 50% * vélo . prix
+          plafond: 100€
+      - si: 
+          toutes ces conditions:
+            - vélo . électrique
+            - vélo . état . neuf
+            - vélo . prix <= 2000€
+            - vélo . prix >= 30€
+        alors:
+          valeur: 50% * vélo . prix
+          plafond: 50€
+      - si:
+          toutes ces conditions:
+            - vélo . mécanique simple
+            - vélo . état . neuf
+            - vélo . prix <= 2000€
+            - vélo . prix >= 30€
+        alors:
+          valeur: 50% * vélo . prix
+          plafond: 50€
+      - si: 
+          toutes ces conditions:
+            - vélo . électrique
+            - vélo . état . occasion
+            - vélo . prix <= 1500€
+            - vélo . prix >= 22€
+        alors:
+          valeur: 70% * vélo . prix
+          plafond: 70€
+      - si: 
+          toutes ces conditions:
+            - vélo . mécanique simple
+            - vélo . état . occasion
+            - vélo . prix <= 500€
+            - vélo . prix >= 22€
+        alors:
+          valeur: 70% * vélo . prix
+          plafond: 70€
+      - sinon: 0€
+  lien: https://www.avignon.fr/toutes-les-actualites/actualite/tous-a-velo
+  dernière mise à jour: 29/07/2025

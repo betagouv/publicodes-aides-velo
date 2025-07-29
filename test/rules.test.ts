@@ -873,7 +873,7 @@ describe("Aides Vélo", () => {
     });
   });
 
-  describe("Ville d'Avignon", () => {
+  describe.skip("Ville d'Avignon", () => {
     it("le montant minimum de subvention devrait être respectée", () => {
       engine.setSituation({
         "localisation . code insee": "'84007'",
