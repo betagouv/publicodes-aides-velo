@@ -1,5 +1,21 @@
 # @betagouv/aides-velo
 
+## 3.1.0
+
+### Minor Changes
+
+- Ajout - CC Coeur de Savoie ([#69](https://github.com/betagouv/publicodes-aides-velo/pull/69))
+
+- Suppression - Ville d'Avignon ([#71](https://github.com/betagouv/publicodes-aides-velo/pull/71))
+
+### Patch Changes
+
+- Mise à jour - Métropole Toulon-Provence-Méditerranée ([#71](https://github.com/betagouv/publicodes-aides-velo/pull/71))
+
+- Mise à jour - Ville de Drancy ([#71](https://github.com/betagouv/publicodes-aides-velo/pull/71))
+
+- Mise à jour - Ville de Wasquehal ([#71](https://github.com/betagouv/publicodes-aides-velo/pull/71))
+
 ## 3.0.1
 
 ### Patch Changes
