@@ -1859,4 +1859,29 @@ describe("Aides Vélo", () => {
       ).toEqual(19074);
     });
   });
+
+  describe("Métropole Toulon-Provence-Méditerranée", () => {
+    test("devrait correctement prendre en compte le revenu fiscal de référence", () => {
+      engine.setSituation({
+        "localisation . epci": "'Métropole Toulon-Provence-Méditerranée'",
+        "vélo . prix": 1000,
+        "vélo . type": "'électrique'",
+        "revenu fiscal de référence par part": "20000 €/an",
+      });
+
+      expect(engine.evaluate("aides . toulon").nodeValue).toEqual(100);
+    });
+
+    test("devrait être élligible pour les vélo d'occasion et adaptés", () => {
+      engine.setSituation({
+        "localisation . epci": "'Métropole Toulon-Provence-Méditerranée'",
+        "vélo . prix": 10000,
+        "vélo . type": "'adapté'",
+        "vélo . état": "'occasion'",
+        "revenu fiscal de référence par part": "15000 €/an",
+      });
+
+      expect(engine.evaluate("aides . toulon").nodeValue).toEqual(1000);
+    });
+  });
 });

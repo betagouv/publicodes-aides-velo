@@ -1371,29 +1371,43 @@ aides . albi:
       - sinon: 0 €
   lien: https://www.libea-mobilites.fr/se-deplacer/velo/aide-lachat-velo
 
-# TODO: à vérifier en 2025
 aides . toulon:
   remplace: intercommunalité
   titre: Métropole Toulon-Provence-Méditerranée
   description: >
-    Aide à l'achat d'un Vélo à Assistance Électrique (VAE) neuf ou d'un kit
+    Aide à l'achat d'un vélo à assistance électrique (VAE) neuf ou d'un kit
     électrique vélo pour les habitant·es de Toulon Provence Méditerranée.
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'Métropole Toulon-Provence-Méditerranée'
-      - vélo . état . neuf
+      - demandeur . âge >= 16 an
       - une de ces conditions:
+          - vélo . adapté
           - vélo . électrique
           - vélo . motorisation
-  valeur: 25% * vélo . prix
-  plafond: 
-    variations:
-      - si: vélo . électrique
-        alors: 250 €
-      - si: vélo . motorisation
-        alors: 150 €
-      - sinon: 0 €
-  lien: https://metropoletpm.fr/velo-assistance-electrique
+  variations:
+    - si: revenu fiscal de référence par part <= 18000 €/an
+      alors:
+        valeur: 40% * vélo . prix
+        plafond:
+          variations:
+            - si: 
+                une de ces conditions:
+                  - vélo . cargo électrique
+                  - vélo . adapté
+              alors: 1000 €
+            - si: vélo . électrique
+              alors: 300 €
+            - sinon: 150 €
+    - sinon:
+        variations:
+          - si: vélo . motorisation
+            alors: 
+              valeur: 50 €
+          - sinon: 
+              valeur: 100 €
+  lien: https://metropoletpm.fr/demarches/aide-lachat-dun-velo-assistance-electrique-vae
+  dernière mise à jour: 29/07/2025
 
 # TODO: à vérifier en 2025
 aides . provence verte:
