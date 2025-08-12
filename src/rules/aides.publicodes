@@ -79,6 +79,7 @@ aides . ile de france:
         alors: 100 €
       - sinon: 0 €
   lien: "https://www.iledefrance-mobilites.fr/le-reseau/services-de-mobilite/velo/prime-achat-velo"
+  dernière mise à jour: 12/08/2025
 
 aides . occitanie:
   remplace: région

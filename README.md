@@ -17,6 +17,8 @@ France.
 > l'utilisation de ce paquet. (N'hésitez pas à ouvrir une issue si vous avez
 > des suggestions ou des retours à faire).
 
+L'état de la couverture des aides par région est disponible dans `./couverture/`.
+
 ## Installation
 
 ```sh
