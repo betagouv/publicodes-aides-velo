@@ -3,10 +3,10 @@
 
 | Echelle | Nom | Code | Possède une aide | Modélisée | Relue |
 | ------- | --- | ---- | ---------------- | --------- | ----- |
-| Région | Île-de-France | 11 | ✅ | ✅ | ❌ |
-| Département | Paris | 75 | ❔ | ❌ | ❌ |
-| METRO | Métropole du Grand Paris | 200054781 | ❔ | ❌ | ❌ |
-| Département | Seine-et-Marne | 77 | ❔ | ❌ | ❌ |
+| Région | Île-de-France | 11 | ✅ | ✅ | ✅ |
+| Département | Paris | 75 | ❌ | ❌ | ❌ |
+| METRO | Métropole du Grand Paris | 200054781 | ❌ | ❌ | ❌ |
+| Département | Seine-et-Marne | 77 | ❌ | ❌ | ❌ |
 | CC | CC Les Portes Briardes Entre Villes et Forêts | 200023125 | ✅ | ✅ | ❌ |
 | CC | CC Pays de Nemours | 200023240 | ❔ | ❌ | ❌ |
 | CC | CC Gâtinais Val de Loing | 200023919 | ❔ | ❌ | ❌ |
