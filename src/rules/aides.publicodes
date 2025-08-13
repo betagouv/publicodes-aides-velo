@@ -6520,19 +6520,27 @@ aides . chateauroux:
   remplace: intercommunalité
   titre: Châteauroux Métropole
   description: >
-    Aide à l'achat d'un vélo neuf à assistance électrique et/ou un kit de conversion d'un vélo classique à un vélo à assistance électrique pour
-    les habitants de l'une des communes de l'Agglomération
+    Aide à l'achat d'un vélo neuf à assistance électrique et/ou un kit de
+    conversion d'un vélo classique à un vélo à assistance électrique pour les
+    habitants de l'une des communes de l'Agglomération.
+
+
+    Demande à effectuer pour tout achat dans un délai maximum de 6 mois à
+    partir de la date d’achat.
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'CA Châteauroux Métropole'
       - demandeur . âge . majeur
-      - vélo . électrique ou mécanique
+      - une de ces conditions:
+          - vélo . électrique
+          - vélo . motorisation
   valeur: 
     variations:
       - si: vélo . électrique
-        alors: 200€
-      - sinon: 50€
+        alors: 200 €
+      - sinon: 100 €
   lien: https://www.chateauroux-metropole.fr/vie-pratique-les-services/mobilite-et-stationnements/velo
+  dernière mise à jour: 13/08/2025
 
 aides . auray quiberon:
   remplace: intercommunalité
