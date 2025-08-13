@@ -3611,6 +3611,34 @@ aides . cc nievre et somme:
   dernière mise à jour: 13/08/2025
   date de fin: 30/06/2026
 
+aides . cc val-de-saone-centre:
+  remplace: intercommunalité
+  titre: Communauté de communes Val-de-Saône-Centre
+  description: >
+    Subvention pour l’achat de votre vélo à assistance électrique (neuf ou
+    d’occasion) ou de votre kit d’électrification.
+
+    
+    La demande de subvention doit être faite dans les 6 mois suivant l'achat du
+    vélo ou du kit d'électrification.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CC Val de Saône Centre'
+      - une de ces conditions:
+          - vélo . électrique
+          - vélo . adapté
+          - vélo . motorisation
+  valeur:
+    variations:
+      - si: vélo . motorisation
+        alors: 50 €
+      - si: vélo . état . neuf
+        alors: 200 €
+      - sinon: 100 €
+  lien: https://www.ccvsc01.org/primevelo
+  dernière mise à jour: 13/08/2025
+  date de fin: 30/06/2026
+
 aides . aurillac:
   remplace: intercommunalité
   titre: Communauté d'agglomération du Bassin d'Aurillac
