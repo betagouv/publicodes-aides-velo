@@ -162,6 +162,7 @@ vélo . prix pour maximiser les aides:
     - si:
         une de ces conditions:
           - localisation . epci = 'CA Montluçon Communauté'
+          - localisation . epci = 'CC Loue-Lison'
           - localisation . code insee = '14327'
           - localisation . code insee = '14341'
       alors: 2400 €
