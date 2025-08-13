@@ -7707,12 +7707,14 @@ aides . grand besançon:
   titre: Grand Besançon Métropole
   description: >
     Grand Besançon Métropole propose une aide à l'achat d'un vélo à assistance
-    électrique neuf.
+    électrique neuf. Le prix d'achat du vélo doit être inférieur ou égal à
+    3000 €.
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'CU Grand Besançon Métropole'
       - demandeur . âge . majeur
       - revenu fiscal de référence par part <= 20781€/an
+      - vélo . prix <= 3000€
       - vélo . état . neuf
       - vélo . électrique
   valeur: 25% * vélo . prix
@@ -7722,6 +7724,7 @@ aides . grand besançon:
         alors: 400€
       - sinon: 200€
   lien: https://www.grandbesancon.fr/demarche-administrative/subvention-pour-lachat-dun-velo-electrique/
+  dernière mise à jour: 13/08/2025
 
 aides . haut vallespir:
   remplace: intercommunalité
