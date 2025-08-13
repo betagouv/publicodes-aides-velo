@@ -3,8 +3,8 @@
  */
 
 import fs from "node:fs";
-import Publicodes, { reduceAST } from "publicodes";
 import { exit } from "process";
+import Publicodes, { reduceAST } from "publicodes";
 
 import epci from "@etalab/decoupage-administratif/data/epci.json" with { type: "json" };
 import { getDataPath } from "./utils.js";
@@ -37,7 +37,7 @@ const res = Object.fromEntries(
     const country = getCountry(rule);
 
     return [ruleName, { collectivity, country }];
-  })
+  }),
 );
 
 fs.writeFileSync(getDataPath("aides-collectivities.json"), JSON.stringify(res));
@@ -53,8 +53,22 @@ function extractCollectivityFromAST(rule) {
     "code insee",
   ];
 
+  const applicableSiNode = reduceAST(
+    (_, node) => {
+      if (node.sourceMap?.mecanismName === "applicable si") {
+        return node;
+      }
+    },
+    null,
+    rule,
+  );
+
   const localisations = reduceAST(
     (acc, node) => {
+      if (node.sourceMap?.mecanismName === "non applicable si") {
+        // skip non applicable si nodes
+        return acc;
+      }
       if (node.nodeKind === "operation" && node.operationKind === "=") {
         for (let kind of collectityKinds) {
           if (node.explanation[0]?.dottedName === `localisation . ${kind}`) {
@@ -62,6 +76,7 @@ function extractCollectivityFromAST(rule) {
               kind,
               value: node.explanation[1]?.nodeValue,
             };
+            // Avoid duplicates
             if (!acc.find((l) => l.kind === loc.kind && l.value == loc.value)) {
               acc.push(loc);
             }
@@ -71,7 +86,7 @@ function extractCollectivityFromAST(rule) {
       }
     },
     [],
-    rule
+    applicableSiNode,
   );
 
   if (localisations.length === 0) {
@@ -97,7 +112,10 @@ function extractCollectivityFromAST(rule) {
   });
 
   // FIXME: should handle multiple localisations
-  return normalizedLocalisations[0];
+  return normalizedLocalisations.sort((a, b) => {
+    const order = ["pays", "région", "département", "epci", "code insee"];
+    return order.indexOf(a.kind) - order.indexOf(b.kind);
+  })[0];
 }
 
 // TODO: a bit fragile, we should sync this logic with
