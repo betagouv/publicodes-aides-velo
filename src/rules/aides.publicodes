@@ -3593,6 +3593,24 @@ aides . puisaye forterre:
   dernière mise à jour: 13/08/2025
   date de fin: 31/12/2025
 
+aides . cc nievre et somme:
+  remplace: intercommunalité
+  titre: Communauté de communes Nièvre et Somme
+  description: >
+    Subvention pour l'achat d'un vélo à assistance électrique neuf de 25% du
+    prix d'achat TTC, dans la limite de 100 € par foyer.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CC Nièvre et Somme'
+      - une de ces conditions:
+          - vélo . électrique
+          - vélo . adapté
+  valeur: 25% * vélo . prix
+  plafond: 100€
+  lien: https://www.nievresomme.fr/medias/files/reglement-ccns-vae.pdf
+  dernière mise à jour: 13/08/2025
+  date de fin: 30/06/2026
+
 aides . aurillac:
   remplace: intercommunalité
   titre: Communauté d'agglomération du Bassin d'Aurillac
