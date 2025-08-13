@@ -174,13 +174,14 @@ vélo . prix pour maximiser les aides:
       alors: 100€
     - si:
         une de ces conditions:
-          - localisation . epci = 'Métropole de Lyon'
-          - localisation . epci = 'CC Les Balcons du Dauphiné'
-          - localisation . epci = 'CA Grand Lac'
-          - localisation . code insee = '38140'
           - localisation . département = '07'
+          - localisation . epci = 'CA Grand Lac'
           - localisation . epci = 'CA Saint-Lô Agglo'
           - localisation . epci = 'CA Saint-Louis Agglomération'
+          - localisation . epci = 'CC Les Balcons du Dauphiné'
+          - localisation . epci = 'CU Grand Besançon Métropole'
+          - localisation . epci = 'Métropole de Lyon'
+          - localisation . code insee = '38140'
           - localisation . code insee = '73222'
       alors: 3000 €
     - si: localisation . epci = 'CA Annemasse-Les Voirons-Agglomération'
