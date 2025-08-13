@@ -7220,17 +7220,20 @@ aides . region centre:
   remplace: région
   titre: Région Centre-Val de Loire
   description: >
-    Mobilité rurale - Vélo à assistance électrique ou adapté. L'aide régionale
-    est réservée aux habitant·es d'une commune sur laquelle la Région est
+    Mobilité rurale - Subvention pour l'achat d'un vélo à assistance électrique
+    ou adapté destiné à un usage utilitaire (aller au travail, faire ses
+    courses, transporter ses enfants à l’école, etc.). L'aide régionale est
+    réservée aux habitant·es d'une commune sur laquelle la Région est
     l'autorité organisatrice de la mobilité locale de substitution.
   applicable si:
     toutes ces conditions:
-      - localisation . région = '24'
       - vélo . prix >= 600€
+      - demandeur . âge >= 16 an
       - une de ces conditions:
           - vélo . électrique
           - vélo . adapté
       - une de ces conditions:
+          - localisation . région = '24'
           - localisation . epci = "CC du Perche"
           - localisation . epci = "CC du Bonnevalais"
           - localisation . epci = "CC Coeur de Beauce"
@@ -7242,6 +7245,7 @@ aides . region centre:
           - localisation . epci = "CC de la Sologne des Etangs"
           - localisation . epci = "CC Coeur de Sologne"
           - localisation . epci = "CC de la Sologne des Rivières"
+          - localisation . epci = "CC Val-de-Cher-Controis"
           - localisation . epci = "CC de la Forêt"
           - localisation . epci = "CC des Loges"
           - localisation . epci = "CC du Val de Sully"
@@ -7265,12 +7269,20 @@ aides . region centre:
           - localisation . epci = "CC Coeur de Berry"
           - localisation . epci = "CC FerCher"
           - localisation . epci = "CC Berry Grand Sud"
-          - localisation . epci = "CC Val-de-Cher-Controis"
+          - localisation . epci = "CC le Dunois"
           - localisation . epci = "CC Chabris - Pays de Bazelle"
           - localisation . epci = "CC du Pays d'Issoudun"
           - localisation . epci = "CC Champagne Boischauts"
           - localisation . epci = "CC Coeur de Brenne"
           - localisation . epci = "CC Brenne - Val de Creuse"
+          - localisation . epci = "CC Écueillé-Valençay"
+          - localisation . epci = "CC du Châtillonnais en Berry"
+          - localisation . epci = "CC Levroux Boischaut Champagne"
+          - localisation . epci = "CC Val de l'Indre - Brenne"
+          - localisation . epci = "CC de la Châtre et Sainte-Sévère"
+          - localisation . epci = "CC du Val de Bouzanne"
+          - localisation . epci = "CC de la Marche Berrichonne"
+          - localisation . epci = "CC Éguzon - Argenton - Vallée de la Creuse"
           - localisation . epci = "CC Loches Sud Touraine"
           - localisation . epci = "CC Touraine Val de Vienne"
           - localisation . epci = "CC Touraine Vallée de l'Indre"
@@ -7280,13 +7292,15 @@ aides . region centre:
           - localisation . epci = "CC Autour de Chenonceaux Bléré-Val de Cher"
           - localisation . epci = "CC Touraine-Est Vallées"
           - localisation . epci = "CC du Castelrenaudais"
-          - localisation . epci = "CC Val de l'Indre - Brenne"
-          - localisation . epci = "CC du Val de Bouzanne"
-          - localisation . epci = "CC de la Marche Berrichonne"
-          - localisation . epci = "CC Éguzon - Argenton - Vallée de la Creuse"
-          - localisation . epci = "CC de la Châtre et Sainte-Sévère"
-          - localisation . epci = "CC du Châtillonnais en Berry"
-          - localisation . epci = "CC Écueillé-Valençay"
+  non applicable si:
+    une de ces conditions:
+      - localisation . epci = "Tours Métropole Val de Loire"
+      - localisation . code insee = "37270"
+      - localisation . code insee = "37273"
+      - localisation . epci = "CA Bourges Plus"
+      - localisation . code insee = "18207"
+      - localisation . code insee = "18097"
+      - localisation . code insee = "18179"
   valeur: 25% * vélo . prix
   plafond: 
     variations:
@@ -7294,6 +7308,7 @@ aides . region centre:
         alors: 500€
       - sinon: 200€
   lien: https://www.centre-valdeloire.fr/le-guide-des-aides-de-la-region-centre-val-de-loire/mobilite-rurale-velo-assistance-electrique
+  dernière mise à jour: 13/08/2025
 
 aides . region centre rémi zen:
   remplace: région
