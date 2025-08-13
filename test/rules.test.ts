@@ -1884,4 +1884,41 @@ describe("Aides Vélo", () => {
       expect(engine.evaluate("aides . toulon").nodeValue).toEqual(1000);
     });
   });
+
+  describe("Région Centre-Val de Loire", () => {
+    test("Région Centre-Val de loire devrait être élligible", () => {
+      engine.setSituation({
+        "localisation . région": "'24'",
+        "demandeur . âge": 18,
+        "vélo . prix": 700,
+        "vélo . type": "'électrique'",
+      });
+
+      expect(engine.evaluate("aides . region centre").nodeValue).not.toBeNull();
+    });
+
+    test("CC du Perche devrait être élligible", () => {
+      engine.setSituation({
+        "localisation . epci": "'CC du Perche'",
+        "demandeur . âge": 18,
+        "vélo . prix": 700,
+        "vélo . type": "'électrique'",
+      });
+
+      expect(engine.evaluate("aides . region centre").nodeValue).not.toBeNull();
+    });
+
+    test("Commune de Pigny ne devrait pas être élligible", () => {
+      engine.setSituation({
+        "localisation . région": "'24'",
+        "localisation . epci": "'CC Terres du Haut Berry'",
+        "localisation . code insee": "'18179'",
+        "demandeur . âge": 18,
+        "vélo . prix": 700,
+        "vélo . type": "'électrique'",
+      });
+
+      expect(engine.evaluate("aides . region centre").nodeValue).toBeNull();
+    });
+  });
 });

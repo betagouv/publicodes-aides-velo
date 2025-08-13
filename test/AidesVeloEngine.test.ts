@@ -1,6 +1,6 @@
+import { describe, expect, it } from "vitest";
 import { Aide, AideRuleNames, AidesVeloEngine } from "../src";
 import { Localisation } from "../src/data";
-import { describe, expect, it } from "vitest";
 
 describe("AidesVeloEngine", () => {
   describe("new AidesVeloEngine()", () => {
@@ -88,6 +88,15 @@ describe("AidesVeloEngine", () => {
 
         if (aide.collectivity.kind === "pays") {
           expect(aide.collectivity.value).toMatch("France");
+        }
+
+        // Doit correctement prendre en compte les exclusions et
+        // les différentes échelles.
+        if (aide.id === "aides . region centre") {
+          expect(aide.collectivity).toEqual({
+            kind: "région",
+            value: "24",
+          });
         }
       });
     });
@@ -323,6 +332,41 @@ describe("AidesVeloEngine", () => {
 
         expect(aides).toHaveLength(1);
         expect(contain(aides, "aides . cacl")).toBeTruthy();
+      });
+
+      describe("Région Centre-Val de Loire", () => {
+        it("Nogent-le-Rotrou devrait être élligible", () => {
+          const engine = globalTestEngine.shallowCopy();
+          const aides = engine
+            .setInputs({
+              "localisation . région": "24",
+              "localisation . epci": "CC du Perche",
+              "localisation . code insee": "28280",
+              "demandeur . âge": 18,
+              "vélo . prix": 700,
+              "vélo . type": "électrique",
+            })
+            .computeAides();
+
+          expect(aides).toHaveLength(1);
+          expect(contain(aides, "aides . region centre")).toBeTruthy();
+        });
+
+        it("Commune de Pigny ne devrait pas être élligible", () => {
+          const engine = globalTestEngine.shallowCopy();
+          const aides = engine
+            .setInputs({
+              "localisation . région": "24",
+              "localisation . epci": "CC Terres du Haut Berry",
+              "localisation . code insee": "18179",
+              "demandeur . âge": 18,
+              "vélo . prix": 700,
+              "vélo . type": "électrique",
+            })
+            .computeAides();
+
+          expect(aides).toHaveLength(0);
+        });
       });
     });
   });
