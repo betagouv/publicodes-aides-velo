@@ -367,6 +367,22 @@ describe("AidesVeloEngine", () => {
 
           expect(aides).toHaveLength(0);
         });
+
+        it("Commune d'Illiers-Combray ne devrait pas être élligible", () => {
+          const engine = globalTestEngine.shallowCopy();
+          const aides = engine
+            .setInputs({
+              "localisation . région": "24",
+              "localisation . epci": "CC Entre Beauce et Perche",
+              "localisation . code insee": "28196",
+              "demandeur . âge": 18,
+              "vélo . prix": 700,
+              "vélo . type": "électrique",
+            })
+            .computeAides();
+
+          expect(aides).toHaveLength(0);
+        });
       });
     });
   });
