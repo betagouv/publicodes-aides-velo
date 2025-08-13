@@ -3744,6 +3744,7 @@ aides . portes de sologne:
           valeur: 50% * vélo . prix
           plafond: 100€
   lien: https://www.ccportesdesologne.fr/vivre-et-habiter/coups-de-pouce-pour-lenvironnement/
+  dernière mise à jour: 13/08/2025
 
 # NOTE: valide jusqu'au 31 décembre 2024, à vérifier en 2025
 # TODO: regarder toutes les communes de l'intercommunalité
@@ -4359,6 +4360,7 @@ aides . blois:
   valeur: 25% * vélo . prix
   plafond: 200€
   lien: https://www.agglopolys.fr/1247-le-velo-a-assistance-electrique.htm
+  dernière mise à jour: 13/08/2025
 
 # NOTE: fin de validité en 2024, à vérifier en 2025
 aides . epinal:
