@@ -3568,7 +3568,7 @@ aides . la madeleine:
         alors: 150€
   lien: https://www.ville-lamadeleine.fr/formulaires/transition-ecologique-aides-municipales
 
-# NOTE: info pour 2024, à vérifier en 2025
+# NOTE: info pour 2025, à vérifier en 2026
 aides . puisaye forterre:
   remplace: intercommunalité
   titre: Communauté de communes de Puisaye-Forterre
@@ -3579,7 +3579,7 @@ aides . puisaye forterre:
     vélo adapté aux personnes en situation de handicap.
 
 
-    Date limite de dépôt des dossiers : 31 décembre 2024.
+    Date limite de dépôt des dossiers : 31 décembre 2025.
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'CC de Puisaye-Forterre'
@@ -3590,6 +3590,8 @@ aides . puisaye forterre:
           - vélo . adapté
   valeur: 100€
   lien: https://www.puisaye-forterre.com/vivre/aide-a-la-mobilite/
+  dernière mise à jour: 13/08/2025
+  date de fin: 31/12/2025
 
 aides . aurillac:
   remplace: intercommunalité
