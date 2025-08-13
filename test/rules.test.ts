@@ -1,8 +1,8 @@
 import Engine, { Rule } from "publicodes";
 import { describe, expect, it, test } from "vitest";
 
-import { AideRuleNames, RuleName } from "../src";
 import rules from "../publicodes-build";
+import { AideRuleNames, RuleName } from "../src";
 import { aidesAvecLocalisation, miniatures } from "../src/data";
 
 describe("Aides Vélo", () => {
@@ -1886,7 +1886,8 @@ describe("Aides Vélo", () => {
   });
 
   describe("Région Centre-Val de Loire", () => {
-    test("Région Centre-Val de loire devrait être élligible", () => {
+    // NOTE: car tout le territoire de la région n'est pas couvert
+    test("Région Centre-Val de loire nde devrait pas être élligible seule", () => {
       engine.setSituation({
         "localisation . région": "'24'",
         "demandeur . âge": 18,
@@ -1894,11 +1895,12 @@ describe("Aides Vélo", () => {
         "vélo . type": "'électrique'",
       });
 
-      expect(engine.evaluate("aides . region centre").nodeValue).not.toBeNull();
+      expect(engine.evaluate("aides . region centre").nodeValue).toBeNull();
     });
 
     test("CC du Perche devrait être élligible", () => {
       engine.setSituation({
+        "localisation . région": "'24'",
         "localisation . epci": "'CC du Perche'",
         "demandeur . âge": 18,
         "vélo . prix": 700,

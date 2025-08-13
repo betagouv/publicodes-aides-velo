@@ -7236,11 +7236,11 @@ aides . region centre:
     toutes ces conditions:
       - vélo . prix >= 600€
       - demandeur . âge >= 16 an
+      - localisation . région = '24'
       - une de ces conditions:
           - vélo . électrique
           - vélo . adapté
       - une de ces conditions:
-          - localisation . région = '24'
           - localisation . epci = "CC du Perche"
           - localisation . epci = "CC du Bonnevalais"
           - localisation . epci = "CC Coeur de Beauce"
