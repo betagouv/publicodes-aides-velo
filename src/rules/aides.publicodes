@@ -4592,13 +4592,18 @@ aides . grand cubzaguais:
 aides . bourges:
   remplace: intercommunalité
   titre: Bourges Plus
-  description: Aide à l'achat d'un vélo 2024
+  description: >
+    Aide à l'achat d'un vélo neuf ou d’occasion, auprès de vendeurs
+    professionnels ou associatifs basés sur le territoire de l’agglomération de
+    Bourges (l’achat auprès d’un particulier ne pourra donc pas faire l’objet
+    d’une aide). Les kits de transformation ne sont pas concernés par cette
+    obligation. 
   applicable si: 
     toutes ces conditions:
       - localisation . epci = 'CA Bourges Plus'
       - une de ces conditions:
           - demandeur . en situation de handicap
-          - revenu fiscal de référence par part <= 31593 €/an
+          - revenu fiscal de référence par part <= 32911 €/an
   valeur: 50% * vélo . prix
   plafond:
     variations:
@@ -4628,6 +4633,8 @@ aides . bourges:
         alors: 100€
       - sinon: 0€
   lien: https://www.agglo-bourgesplus.fr/site/aide-achat-velo
+  dernière mise à jour: 13/08/2025
+  date de fin: 31/12/2025
 
 aides . montauban:
   remplace: intercommunalité
