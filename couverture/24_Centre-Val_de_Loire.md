@@ -22,14 +22,14 @@
 | CC          | CC FerCher                                     | 241800457 | ❌               | ❌        | ✅    |
 | CA          | CA Bourges Plus                                | 241800507 | ✅               | ✅        | ✅    |
 | CC          | CC du Pays d'Issoudun                          | 243600236 | ❌               | ❌        | ✅    |
-| Département | Eure-et-Loir                                   | 28        | ❔               | ❌        | ❌    |
+| Département | Eure-et-Loir                                   | 28        | ❌               | ❌        | ✅    |
 | CC          | CC du Perche                                   | 200006971 | ❌               | ❌        | ✅    |
-| CA          | CA Chartres Métropole                          | 200033181 | ❔               | ❌        | ❌    |
-| CA          | CA Agglo du Pays de Dreux                      | 200040277 | ❔               | ❌        | ❌    |
-| CC          | CC Entre Beauce et Perche                      | 200058360 | ❔               | ❌        | ❌    |
-| CC          | CC Interco Normandie Sud Eure                  | 200066462 | ❔               | ❌        | ❌    |
-| CC          | CC des Forêts du Perche                        | 200069912 | ❔               | ❌        | ❌    |
-| CC          | CC des Portes Euréliennes d'Ile de France      | 200069953 | ❔               | ❌        | ❌    |
+| CA          | CA Chartres Métropole                          | 200033181 | ❌               | ❌        | ✅    |
+| CA          | CA Agglo du Pays de Dreux                      | 200040277 | ❌               | ❌        | ✅    |
+| CC          | CC Entre Beauce et Perche                      | 200058360 | ❌               | ❌        | ✅    |
+| CC          | CC Interco Normandie Sud Eure                  | 200066462 | ❌               | ❌        | ✅    |
+| CC          | CC des Forêts du Perche                        | 200069912 | ❌               | ❌        | ✅    |
+| CC          | CC des Portes Euréliennes d'Ile de France      | 200069953 | ✅               | ✅        | ✅    |
 | CC          | CC du Grand Châteaudun                         | 200069961 | ❌               | ❌        | ✅    |
 | CC          | CC Coeur de Beauce                             | 200070159 | ❌               | ❌        | ✅    |
 | CC          | CC Terres de Perche                            | 200070167 | ❔               | ❌        | ❌    |

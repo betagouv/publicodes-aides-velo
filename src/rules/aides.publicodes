@@ -7333,6 +7333,7 @@ aides . region centre rémi zen:
   valeur: 40% * vélo . prix
   plafond: 500€
   lien: https://www.centre-valdeloire.fr/le-guide-des-aides-de-la-region-centre-val-de-loire/remi-zen-velos-pliants-et-trottinettes
+  dernière mise à jour: 13/08/2025
   avec:
     abonné Rémi:
       question: Disposez-vous d'un abonnement Rémi Zen ?
@@ -7358,6 +7359,27 @@ aides . region centre rémi zen:
          - Abonnement Car Rémi Zen jeune interdépartemental
 
         Les abonnements scolaires et les abonnements commerciaux aux abris-vélo Rémi sont exclus de ce dispositif. Les cartes de réduction (Rémi Liberté) ne constituent pas des abonnements et ne donnent donc pas accès à l'aide.
+
+aides . cc portes eureliennes idf:
+  remplace: intercommunalité
+  titre: CC des Portes Euréliennes d'Ile de France
+  description: >
+    Aide jusqu’à 250 € pour l’achat de votre vélo à assistance électrique, neuf
+    ou d'occasion.
+
+
+    La demande doit s’effectuer par mail :
+    transport-mobilite@porteseureliennesidf.fr ou par courrier, dans la limite
+    des 4 mois après l’achat du vélo (date du tampon de la poste ou de la
+    réception du mail faisant foi).
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = "CC des Portes Euréliennes d'Ile de France"
+      - vélo . électrique
+  valeur: 25% * vélo . prix
+  plafond: 250 €
+  lien: https://www.porteseureliennesidf.fr/pages/portes-eureliennes-mobilite-79.html
+  dernière mise à jour: 13/08/2025
 
 aides . perpignan métropole:
   remplace: intercommunalité
