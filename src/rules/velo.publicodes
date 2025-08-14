@@ -126,6 +126,8 @@ vélo . prix . HT:
 
 vélo . prix pour maximiser les aides:
   variations:
+    - si: localisation . code insee = '67218'
+      alors: 800 €
     - si: localisation . epci = "CC Coeur de Savoie"
       alors: 3500 €
     - si: localisation . epci = "CA du Grand Chambéry"
