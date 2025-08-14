@@ -3836,19 +3836,19 @@ aides . portes de sologne:
   lien: https://www.ccportesdesologne.fr/vivre-et-habiter/coups-de-pouce-pour-lenvironnement/
   dernière mise à jour: 13/08/2025
 
-# NOTE: valide jusqu'au 31 décembre 2024, à vérifier en 2025
+# NOTE: valide jusqu'au 31 décembre 2025, à vérifier en 2026
 # TODO: regarder toutes les communes de l'intercommunalité
 # TODO: add unit test?
 aides . grand reims:
   remplace: intercommunalité
   titre: Grand Reims Communauté urbaine
   description: >
-    Subvention jusqu'à 500€ pour l'achat d'un vélo à assistance
-    électrique, sous réserve qu'il soit acheté auprès d'un commerçant ou d'une
-    association locale. Les achats en ligne sont exclus. 
+    Subvention jusqu'à 500€ pour l'achat d'un vélo à assistance électrique,
+    sous réserve qu'il soit acheté auprès d'un commerçant ou d'une association
+    locale. Les achats en ligne sont exclus. 
    
 
-    Dossiers à déposer entre le 1er avril et le 31 octobre 2024, dans la limite des 
+    Dossiers à déposer entre le 1er avril et le 31 octobre 2025, dans la limite des 
     budgets disponibles.
   applicable si: 
     toutes ces conditions:
@@ -3876,8 +3876,10 @@ aides . grand reims:
             alors: 50€
           - sinon: 0€
   lien: https://www.grandreims.fr/se-deplacer/operation-aide-a-lachat-dun-velo-a-assistance-electrique
+  dernière mise à jour: 14/08/2025
+  date de fin: 31/10/2025
 
-# NOTE: valide jusqu'au 31 décembre 2024, à vérifier en 2025
+# NOTE: valide jusqu'au 31 décembre 2025, à vérifier en 2026
 aides . reims:
   remplace: commune
   titre: Ville de Reims
@@ -3887,8 +3889,8 @@ aides . reims:
     domicile ou en magasin sont exclus. 
    
 
-    Dossiers à déposer entre le 1er avril et le 31 octobre 2024, dans la limite des 
-    budgets disponibles.
+    Dossiers à déposer entre le 1er avril et le 31 octobre 2025, dans la limite
+    des budgets disponibles.
   applicable si: 
     toutes ces conditions:
       - localisation . code insee = '51454'
@@ -3926,6 +3928,8 @@ aides . reims:
                 - sinon: 10€
           - sinon: 0€
   lien: https://www.reims.fr/qualite-de-vie-environnement/stationnement-et-deplacements/operation-aide-a-lachat-dun-velo
+  dernière mise à jour: 14/08/2025
+  date de fin: 31/10/2025
 
 # NOTE: valide pour 2024, à vérifier en 2025
 aides . genevois:
