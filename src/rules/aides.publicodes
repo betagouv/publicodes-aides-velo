@@ -352,6 +352,7 @@ aides . cc lysed:
   dernière mise à jour: 09/06/2025
 
 # TODO: différencier vélo adapté mécanique/électrique
+# TODO: à vérifier en 2026
 aides . saône-beaujolais:
   remplace: intercommunalité
   titre: Communauté de communes Saône Beaujolais
@@ -360,6 +361,9 @@ aides . saône-beaujolais:
     traditionnels, de vélos à assistance électrique ou de kit d'électrification
     à destination des habitant·es de la Communauté de Communes
     Saône-Beaujolais.
+
+
+    L'achat doit être effectué chez un professionnel du territoire de la CCSB.
   applicable si: localisation . epci = 'CC Saône-Beaujolais'
   valeur: 30% * vélo . prix
   plafond:
@@ -367,15 +371,16 @@ aides . saône-beaujolais:
       - si: 
           une de ces conditions:
             - vélo . mécanique 
-            - vélo . adapté
         alors: 200€
       - si: 
           une de ces conditions:
             - vélo . électrique
             - vélo . motorisation
-        alors: 600€
+            - vélo . adapté
+        alors: 400€
       - sinon: 0€
-  lien: http://www.ccsb-saonebeaujolais.fr/fr/information/10135/aide-achat-un-velo
+  lien: https://ccsb-saonebeaujolais.fr/au-quotidien/se-deplacer/aide-a-lachat-dun-velo/
+  dernière mise à jour: 14/08/2025
 
 # NOTE: jusqu'au 31 décembre 2026
 # TODO: test intégration sur le plafond
