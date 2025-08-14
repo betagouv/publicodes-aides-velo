@@ -14,10 +14,20 @@ import rules from "../publicodes-build/index.js";
 const engine = new Publicodes(rules);
 const ruleNames = Object.keys(rules);
 
+const rules_to_skip = [
+  "aides . commune",
+  "aides . intercommunalité",
+  "aides . département",
+  "aides . région",
+  "aides . état",
+  "aides . montant",
+  "aides . forfait mobilités durables",
+];
+
 const aidesRuleNames = ruleNames.filter((ruleName) => {
   if (ruleName.startsWith("aides .")) {
     if (!engine.getRule(ruleName).rawNode.titre) {
-      if (ruleName.split(" . ").length === 2) {
+      if (ruleName.split(" . ").length === 2 && !rules_to_skip.includes(ruleName)) {
         console.warn(`No title for ${ruleName}`);
       }
       return false;
@@ -41,6 +51,7 @@ const res = Object.fromEntries(
 );
 
 fs.writeFileSync(getDataPath("aides-collectivities.json"), JSON.stringify(res));
+console.log(`${aidesRuleNames.length} aides écrites.`);
 
 /// Utils
 

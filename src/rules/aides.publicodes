@@ -1668,7 +1668,7 @@ aides . carpiquet:
   valeur: 150€
   lien: https://www.carpiquet.fr/wp-content/uploads/2024/01/CONVENTION-AIDE-FINANCIERE-VAE-ET-TROTTINETTE-ELECTRIQUE-ANNEE-2024.pdf
 
-# NOTE: vérification faite le 10/04/2025. Aide reconduite en 2025. Lien corrigé.
+# TODO: à vérifier en 2026
 aides . ifs:
   remplace: commune
   titre: Ville d'Ifs
@@ -1897,6 +1897,7 @@ aides . saint-germain la blanche herbe:
       - vélo . électrique
   valeur: 100€
   lien: https://www.mairie-stgermainblancheherbe.fr/29-actualites/658-aide-pour-l-achat-d-un-velo-electrique
+
 # NOTE: informations pour 2023, à vérifier en 2025
 aides . trouville sur mer:
   remplace: commune
