@@ -161,6 +161,12 @@ vélo . prix pour maximiser les aides:
       alors: 1500 €
     - si:
         une de ces conditions:
+          - toutes ces conditions:
+              - localisation . epci = "CC de la Plaine de l'Ain"
+              - vélo . électrique
+      alors: 2500 €
+    - si:
+        une de ces conditions:
           - localisation . epci = 'CA Montluçon Communauté'
           - localisation . epci = 'CC Loue-Lison'
           - localisation . code insee = '14327'

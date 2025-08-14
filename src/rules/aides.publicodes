@@ -404,6 +404,7 @@ aides . villefranche beaujolais saône:
     prix déduit des autres aides: 
       valeur: vélo . prix - (aides . état + aides . département + aides . région + aides . commune)
       plancher: 0€
+  dernière mise à jour: 14/08/2025
 
 aides . ville-sur-jarnioux:
   remplace: commune
@@ -4193,15 +4194,19 @@ aides . montlucon:
   remplace: intercommunalité
   titre: Montluçon Communauté
   description: >
-    Aide pour l'acquisition d'un vélo à assistance électrique neuf ou
-    d'occasion ou d'un vélo classique musculaire neuf ou d'occasion à usage
-    personnel.
+    Aide pour l'acquisition d'un vélo à assistance électrique ou musculaire,
+    neuf ou d'occasion à usage personnel. L'achat doit être effectué dans un
+    commerce de Montluçon Communauté.
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'CA Montluçon Communauté'
       - demandeur . âge . majeur
   valeur: 
     variations:
+      - si: vélo . adapté
+        alors: 400€
+      - si: vélo . motorisation
+        alors: 200€
       - si: vélo . électrique
         alors: 
           variations:
@@ -4216,6 +4221,7 @@ aides . montlucon:
             - si: vélo . état . occasion
               alors: 50€
   lien: https://www.montlucon-communaute.com/vivre-au-quotidien/la-mobilite-durable/a-velo-dans-lagglo/
+  dernière mise à jour: 14/08/2025
 
 aides . cotentin:
   remplace: intercommunalité
@@ -4663,7 +4669,6 @@ aides . montauban:
   plafond: 250€
   lien: https://www.montauban.com/au-quotidien/mobilite-et-stationnement/velos-et-pistes-cyclables
 
-# NOTE: valide pour 2024, à vérifier en 2025 
 aides . plaine de l'ain VAE:
   remplace: intercommunalité
   titre: Communauté de communes de la Plaine de l'Ain
@@ -4671,7 +4676,7 @@ aides . plaine de l'ain VAE:
      Aide à l'acquisition de vélos à assistance électrique et trottinette
      électrique. 
 
-     Dossier à envoyer avant le 1er décembre 2024.
+     Dossier à envoyer avant le 1er décembre 2025.
   applicable si: 
     toutes ces conditions:
       - localisation . epci = "CC de la Plaine de l'Ain"
@@ -4684,7 +4689,8 @@ aides . plaine de l'ain VAE:
           - demandeur . statut . retraité
   valeur: 200€
   plafond: vélo . prix
-  lien: https://www.cc-plainedelain.fr/fr/les-subventions.html
+  lien: https://cc-plainedelain.fr/les-services/se-deplacer/se-deplacer-a-velo/
+  dernière mise à jour: 14/08/2025
   avec:
     distance domicile-travail inférieur à 15 km:
       type: booléen
@@ -4702,7 +4708,6 @@ aides . plaine de l'ain VAE:
         votre nom.
       par défaut: non
 
-# NOTE: valide pour 2024, à vérifier en 2025 
 aides . plaine de l'ain vélos spécifiques:
   remplace: intercommunalité
   titre: Communauté de communes de la Plaine de l'Ain
@@ -4721,7 +4726,8 @@ aides . plaine de l'ain vélos spécifiques:
           - vélo . adapté
   valeur: 300€
   plafond: vélo . prix
-  lien: https://www.cc-plainedelain.fr/fr/les-subventions.html
+  lien: https://cc-plainedelain.fr/les-services/se-deplacer/se-deplacer-a-velo/
+  dernière mise à jour: 14/08/2025
 
 aides . divonne-les-bains:
   remplace: commune
@@ -7185,6 +7191,7 @@ aides . la côtière à montluel:
       type: booléen
       question: Êtes-vous abonné au TER ?
       par défaut: non
+  derière mise à jour: 14/08/2025
 
 aides . pays orne moselle:
   remplace: intercommunalité
