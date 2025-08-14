@@ -1507,3 +1507,43 @@ aides . riviera francaise:
   valeur: vélo . prix
   plafond: 300€
   lien: https://www.riviera-francaise.fr/media/attachments/2022/03/30/convention-2022-2024-cc01221.pdf
+
+# NOTE: terminée en juillet 2025 : https://www.luberonmontsdevaucluse.fr/acces/mes-demarches/mobilite/une-subvention-pour-lachat-dun-velo/
+aides . luberon:
+  remplace: intercommunalité
+  titre: Luberon Monts de Vaucluse
+  description: >
+     Lancée le 16 septembre 2020 par LMV Agglomération, l'opération "LMV vous
+     met en selle" vous aide à acheter un vélo, neuf ou d'occasion, avec ou
+     sans assistance électrique. 
+  applicable si: 
+    toutes ces conditions:
+      - localisation . epci = 'CA Luberon Monts de Vaucluse'
+      - demandeur . âge >= 16 an
+      - une de ces conditions:
+          - vélo . électrique
+          - toutes ces conditions:
+              - vélo . mécanique
+              - vélo . état . neuf
+  valeur: 30% * vélo . prix
+  plafond:
+    variations:
+      - si:
+          toutes ces conditions:
+            - vélo . électrique
+            - une de ces conditions:
+                - toutes ces conditions:
+                    - vélo . état . neuf
+                    - vélo . prix <= 2500€
+                - toutes ces conditions:
+                    - vélo . état . occasion
+                    - vélo . prix <= 1500€
+        alors: 300€
+      - si:
+          toutes ces conditions:
+            - vélo . mécanique
+            - vélo . prix <= 1000€
+        alors: 200€
+      - sinon: 0€
+  lien: https://www.luberonmontsdevaucluse.fr/acces/mes-demarches/mobilite/une-subvention-pour-lachat-dun-velo/
+
