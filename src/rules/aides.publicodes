@@ -1291,16 +1291,21 @@ aides . pays de saverne:
     La prime de la collectivité locale est de 10% du prix d'achat du vélo
     plafonnée à 100€ pour les ménages dont le revenu fiscal est inférieur ou
     égal à 15 400 €.
+
+
+    Demande à effectuer dans les 6 mois suivant l'achat du vélo.
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'CC du Pays de Saverne'
+      - demandeur . âge . majeur
       - vélo . électrique
       - revenu fiscal de référence par part <= 15400 €/an
   valeur: 100€
   plafond: 10% * vélo . prix
   lien: http://www.paysdesaverne.fr/Actions/VelosElec/2019-04-VAE-velo-saverne.htm
+  dernière mise à jour: 14/08/2025
 
-# NOTE: renouvelé jusqu'au 31 décembre 2024
+# TODO: à vérifier en 2026
 aides . illkirch:
   remplace: commune
   titre: Ville de Illkirch-Graffenstaden
@@ -1323,6 +1328,7 @@ aides . illkirch:
         alors: 100€
       - sinon: 200€
   lien: http://www.illkirch.eu/aide-a-lachat-dun-velo-a-assistance-electrique/
+  dernière mise à jour: 14/08/2025
 
 aides . vendenheim:
   remplace: commune
@@ -1628,6 +1634,7 @@ aides . thue et mue:
         alors: 150€
       - sinon: 100€
   lien: https://www.thueetmue.fr/aide-lachat-dun-velo-electrique
+  dernière mise à jour: 14/08/2025
 
 # NOTE: infos pour 2023, pas d'infos pour 2024, à vérifier en 2025
 aides . hermanville-sur-mer:
@@ -2879,7 +2886,9 @@ aides . pau:
             - vélo . motorisation
         alors: 200€
       - sinon: 0€
-  lien: https://www.pau.fr/article/aide-a-lachat-velo--profitez-dun-coup-de-pouce-pour-changer-de-braquet
+  lien: https://www.pau.fr/actualites/aide-a-lachat-velo--profitez-dun-coup-de-pouce-pour-changer-de-braquet
+  dernière mise à jour: 14/08/2025
+  date de fin: 31/01/2025
 
 aides . lescar:
   remplace: commune
@@ -4528,6 +4537,9 @@ aides . saintes:
       un kit d'électrification ou 400 € pour un vélo cargo à assistance
       électrique neuf dans la limite de l'enveloppe budgétaire annuelle
       allouée.
+
+
+      La demande doit être effectuée au maximum 30 jours après l'achat.
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'CA "Saintes - Grandes Rives - L'Agglo"'
@@ -4543,7 +4555,8 @@ aides . saintes:
             - vélo . état . neuf
         alors: 400€
       - sinon: 200€
-  lien: https://www.agglo-saintes.fr/l-agglo-au-quotidien/transports-et-mobilites/530-aide-a-l-achat-d-un-velo-a-assistance-electrique.html
+  lien: https://agglo-saintes.fr/au-quotidien/mobilite-et-transport/les-aides-financieres-mobilites/
+  dernière mise à jour: 14/08/2025
 
 # TODO: à vérifier en 2026
 aides . dieppe:
@@ -5187,7 +5200,8 @@ aides . laval:
       - vélo . état . neuf
       - vélo . cargo électrique
   valeur: 300€
-  lien: https://www.agglo-laval.fr/utile-au-quotidien/transports-et-mobilites/lagglo-a-velo/prime-a-lachat-dun-velo-cargo
+  lien: https://www.agglo-laval.fr/utile-au-quotidien/transports-et-mobilites/lagglo-a-velo/passez-au-velo-cargo
+  dernière mise à jour: 14/08/2025
 
 aides . ville de talant:
   remplace: commune
@@ -5868,28 +5882,39 @@ aides . rives de moselle:
       - sinon: 0€
   lien: https://www.rivesdemoselle.fr/mobilites/#tousavelo
 
-# NOTE: peu d'informations, à vérifier en 2025
+# TODO: à vérifier en 2026
 aides . saint-avold:
   remplace: intercommunalité
   titre: Communauté d'Agglomération Saint-Avold Synergie
   description: >
     Aide à l'achat d'un vélo à assistance électrique de 150€ si acheté dans un
-    magasin du territoire de la CASAS, 50€ sinon. 
+    magasin du territoire de la CASAS, 50€ sinon. Pour 2025, une aide
+    forfaitaire de 50€ est également disponible pour l'installation d'un kit
+    d'électrification. 
+
+
+    Fin des dépôt le 16 septembre 2025.
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'CA Saint-Avold Synergie'
-      - vélo . électrique
+      - une de ces conditions:
+          - vélo . électrique
+          - vélo . motorisation
   valeur:
     variations:
+      - si: vélo . motorisation
+        alors: 50€
       - si: vélo acheté localement
         alors: 150€
       - sinon: 50€
   lien: https://casas57.fr/nos-competences/ma-mobilite/velo/aide-a-lachat-dun-velo/
+  dernière mise à jour: 14/08/2025
+  date de fin: 16/09/2025
   avec:
     vélo acheté localement:
       type: booléen
       question: Le vélo est-il acheté sur le territoire de la CASAS ?
-      par défaut: non
+      par défaut: oui
 
 aides . montigny les metz:
   remplace: commune
@@ -7184,12 +7209,14 @@ aides . baud:
   valeur: 50€
   lien: https://www.mairie-baud.fr/7252-2/
 
-# NOTE: vérification le 10/04/2025. l'aide est reconduite en 2025 (article de
-# la voix du Nord) mais il n'y a pas encore de page d'information
+# TODO: vérification en 2026
 aides . longuenesse:
   remplace: commune
   titre: Ville de Longuenesse
-  description: Prime vélo sous forme de chèque Happy Kdo pour l'année 2024.
+  description: >
+    Prime vélo sous forme de chèque Happy Kdo pour l'année 2025. L'achat doit
+    être effectué dans un commerce situé sur le territoire de la CAPSO, durant
+    l'année 2025 et la demande déposée avant le 16 janvier 2026.
   applicable si:
     toutes ces conditions:
       - localisation . code insee = '62525'
@@ -7199,22 +7226,8 @@ aides . longuenesse:
   valeur: 20% * vélo . prix
   plafond: 100€
   lien: https://www.ville-longuenesse.fr/mon-quotidien/cadre-de-vie/developpement-durable/mobilite-douce
-
-aides . castelnau de médoc:
-  remplace: commune
-  titre: Ville de Castelnau de Médoc
-  description: >
-    Aide à l'acquisition d'un vélo à assistance électrique neuf.
-  applicable si:
-    toutes ces conditions:
-      - localisation . code insee = '33104'
-      - demandeur . âge . majeur
-      - revenu fiscal de référence par part <= plafond état
-      - vélo . état . neuf
-      - vélo . électrique
-  valeur: 100€
-  plafond: vélo . prix
-  lien: https://www.mairie-castelnau-medoc.fr/actus/1557-aide-a-l-acquisition-de-velos
+  dernière mise à jour: 14/08/2025
+  date de fin: 16/01/2026
 
 # NOTE: valide jusqu'au 1er octobre 2025 (dans la limite de l'enveloppe
 # budgétaire annuelle), à vérifier en 2025.
@@ -7235,6 +7248,7 @@ aides . saulieu:
   valeur: 100€
   lien: https://www.saulieu-morvan.fr/joomla/tourisme-loisirs
   dernière mise à jour: 13/08/2025
+  date de fin: 01/10/2025
 
 aides . la côtière à montluel:
   remplace: intercommunalité

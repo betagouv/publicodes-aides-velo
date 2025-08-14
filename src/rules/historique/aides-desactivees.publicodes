@@ -1584,3 +1584,21 @@ aides . montagnole:
       - vélo . prix >= 1200 €
   valeur: 200€
   lien: https://www.mairie-montagnole.fr/vae/
+
+# NOTE: plus référencé sur le site
+aides . castelnau de médoc:
+  remplace: commune
+  titre: Ville de Castelnau de Médoc
+  description: >
+    Aide à l'acquisition d'un vélo à assistance électrique neuf.
+  applicable si:
+    toutes ces conditions:
+      - localisation . code insee = '33104'
+      - demandeur . âge . majeur
+      - revenu fiscal de référence par part <= plafond état
+      - vélo . état . neuf
+      - vélo . électrique
+  valeur: 100€
+  plafond: vélo . prix
+  lien: https://www.mairie-castelnau-medoc.fr/actus/1557-aide-a-l-acquisition-de-velos
+
