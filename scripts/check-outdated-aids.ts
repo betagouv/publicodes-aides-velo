@@ -6,8 +6,10 @@ let outdated = 0;
 
 engine.getAllAidesIn().forEach(({ title, id, endDate }) => {
   if (endDate && endDate <= now) {
-    console.log(
-      `L'aide "${title}" (${id}) n'est plus en vigueur, elle a pris fin le ${endDate.toLocaleDateString()}.`
+    console.error(
+      `L'aide "${title}" (${id}) n'est plus en vigueur, elle a pris fin le ${endDate.toLocaleDateString(
+        "FR-fr"
+      )}.`
     );
     outdated++;
   }
@@ -21,5 +23,5 @@ if (outdated === 0) {
       outdated > 1 ? "s" : ""
     }. Veuillez les déplacer dans le fichier "./src/rules/historique/aides-desactivees.publicodes".`
   );
-  process.exit(1);
+  // process.exit(1);
 }

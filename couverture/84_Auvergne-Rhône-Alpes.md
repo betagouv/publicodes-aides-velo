@@ -2,74 +2,74 @@
 
 | Echelle     | Nom                                                  | Code      | Possède une aide | Modélisée | Relue |
 | ----------- | ---------------------------------------------------- | --------- | ---------------- | --------- | ----- |
-| Région      | Auvergne-Rhône-Alpes                                 | 84        | ❔               | ❌        | ❌    |
-| Département | Ain                                                  | 01        | ❔               | ❌        | ❌    |
-| CC          | CC Rives de l'Ain - Pays du Cerdon                   | 200029999 | ❔               | ❌        | ❌    |
-| CC          | CC Bugey Sud                                         | 200040350 | ❔               | ❌        | ❌    |
-| CA          | CA Villefranche Beaujolais Saône                     | 200040590 | ✅               | ✅        | ❌    |
-| CC          | CC Dombes Saône Vallée                               | 200042497 | ❔               | ❌        | ❌    |
-| CA          | CA Haut-Bugey Agglomération                          | 200042935 | ❔               | ❌        | ❌    |
-| CC          | CC de la Dombes                                      | 200069193 | ❔               | ❌        | ❌    |
+| Région      | Auvergne-Rhône-Alpes                                 | 84        | ❌               | ❌        | 🤖    |
+| Département | Ain                                                  | 01        | ❌               | ❌        | 🤖    |
+| CC          | CC Rives de l'Ain - Pays du Cerdon                   | 200029999 | ❌               | ❌        | 🤖    |
+| CC          | CC Bugey Sud                                         | 200040350 | ❌               | ❌        | 🤖    |
+| CA          | CA Villefranche Beaujolais Saône                     | 200040590 | ✅               | ✅        | ✅    |
+| CC          | CC Dombes Saône Vallée                               | 200042497 | ❌               | ❌        | 🤖    |
+| CA          | CA Haut-Bugey Agglomération                          | 200042935 | ❌               | ❌        | 🤖    |
+| CC          | CC de la Dombes                                      | 200069193 | ❌               | ❌        | 🤖    |
 | CC          | CC Val de Saône Centre                               | 200070118 | ✅               | ✅        | ✅    |
-| CA          | CA Mâconnais Beaujolais Agglomération                | 200070308 | ❔               | ❌        | ❌    |
-| CC          | CC de la Veyle                                       | 200070555 | ❔               | ❌        | ❌    |
-| CC          | CC Usses et Rhône                                    | 200070852 | ❔               | ❌        | ❌    |
-| CC          | CC Bresse et Saône                                   | 200071371 | ❔               | ❌        | ❌    |
-| CA          | CA du Bassin de Bourg-en-Bresse                      | 200071751 | ❔               | ❌        | ❌    |
-| CC          | CC de la Côtière à Montluel                          | 240100610 | ✅               | ✅        | ❌    |
-| CA          | CA du Pays de Gex                                    | 240100750 | ❔               | ❌        | ❌    |
-| CC          | CC de Miribel et du Plateau                          | 240100800 | ❔               | ❌        | ❌    |
-| CC          | CC de la Plaine de l'Ain                             | 240100883 | ✅               | ✅        | ❌    |
-| CC          | CC Terre Valserhône (CCTV)                           | 240100891 | ❔               | ❌        | ❌    |
-| Département | Allier                                               | 03        | ❔               | ❌        | ❌    |
-| CA          | CA Montluçon Communauté                              | 200071082 | ✅               | ✅        | ❌    |
-| CA          | CA Moulins Communauté                                | 200071140 | ❔               | ❌        | ❌    |
-| CA          | CA Vichy Communauté                                  | 200071363 | ❔               | ❌        | ❌    |
-| CC          | CC Saint-Pourçain Sioule Limagne                     | 200071389 | ❔               | ❌        | ❌    |
-| CC          | CC Entr'Allier Besbre et Loire                       | 200071470 | ❔               | ❌        | ❌    |
-| CC          | CC du Bocage Bourbonnais                             | 200071496 | ❔               | ❌        | ❌    |
-| CC          | CC Commentry Montmarault Néris Communauté            | 200071512 | ❔               | ❌        | ❌    |
-| CC          | CC Le Grand Charolais                                | 200071884 | ❔               | ❌        | ❌    |
-| CC          | CC du Pays de Lapalisse                              | 240300491 | ❔               | ❌        | ❌    |
-| CC          | CC du Pays de Tronçais                               | 240300558 | ❔               | ❌        | ❌    |
-| CC          | CC du Val de Cher                                    | 240300566 | ❔               | ❌        | ❌    |
-| CC          | CC du Pays d'Huriel                                  | 240300657 | ❔               | ❌        | ❌    |
-| Département | Ardèche                                              | 07        | ✅               | ✅        | ❌    |
-| CC          | CC du Pays de Lamastre                               | 200016905 | ❔               | ❌        | ❌    |
-| CC          | CC de Cèze Cévennes                                  | 200035129 | ❔               | ❌        | ❌    |
-| CC          | CC des Gorges de l'Ardèche                           | 200039808 | ❔               | ❌        | ❌    |
-| CC          | CC Ardèche des Sources et Volcans                    | 200039824 | ❔               | ❌        | ❌    |
-| CC          | CC Pays des Vans en Cévennes                         | 200039832 | ❔               | ❌        | ❌    |
-| CC          | CC Porte de Dromardèche                              | 200040491 | ❔               | ❌        | ❌    |
-| CC          | CC Rhône Crussol                                     | 200041366 | ❔               | ❌        | ❌    |
-| CC          | CC Val Eyrieux                                       | 200041465 | ❔               | ❌        | ❌    |
-| CC          | CC Ardèche Rhône Coiron                              | 200071405 | ❔               | ❌        | ❌    |
-| CA          | CA Privas Centre Ardèche                             | 200071413 | ❔               | ❌        | ❌    |
-| CC          | CC Montagne d'Ardèche                                | 200072007 | ❔               | ❌        | ❌    |
-| CA          | CA Annonay Rhône Agglo                               | 200072015 | ✅               | ✅        | ❌    |
-| CA          | CA Arche Agglo                                       | 200073096 | ✅               | ✅        | ❌    |
-| CC          | CC du Bassin d'Aubenas                               | 200073245 | ❔               | ❌        | ❌    |
-| CC          | CC du Pays Beaume-Drobie                             | 240700302 | ❔               | ❌        | ❌    |
-| CC          | CC Val de Ligne                                      | 240700617 | ❔               | ❌        | ❌    |
-| CC          | CC du Val d'Ay                                       | 240700716 | ❔               | ❌        | ❌    |
-| CC          | CC Berg et Coiron                                    | 240700815 | ❔               | ❌        | ❌    |
-| CC          | CC du Rhône aux Gorges de l'Ardèche                  | 240700864 | ❔               | ❌        | ❌    |
-| Département | Cantal                                               | 15        | ❔               | ❌        | ❌    |
-| CC          | CC Hautes Terres                                     | 200066637 | ❔               | ❌        | ❌    |
-| CC          | CC de Saint-Flour                                    | 200066660 | ❔               | ❌        | ❌    |
-| CC          | CC de la Châtaigneraie Cantalienne                   | 200066678 | ❔               | ❌        | ❌    |
-| CA          | CA du Bassin d'Aurillac                              | 241500230 | ✅               | ✅        | ❌    |
-| CC          | CC du Pays Gentiane                                  | 241500255 | ❔               | ❌        | ❌    |
-| CC          | CC du Pays de Mauriac                                | 241500271 | ❔               | ❌        | ❌    |
-| CC          | CC Sumène - Artense                                  | 241501055 | ❔               | ❌        | ❌    |
-| CC          | CC Cère et Goul en Carladès                          | 241501089 | ❔               | ❌        | ❌    |
-| CC          | CC du Pays de Salers                                 | 241501139 | ❔               | ❌        | ❌    |
-| CC          | CC du Massif du Sancy                                | 246300966 | ❔               | ❌        | ❌    |
-| Département | Drôme                                                | 26        | ❔               | ❌        | ❌    |
+| CA          | CA Mâconnais Beaujolais Agglomération                | 200070308 | ❌               | ❌        | 🤖    |
+| CC          | CC de la Veyle                                       | 200070555 | ❌               | ❌        | 🤖    |
+| CC          | CC Usses et Rhône                                    | 200070852 | ❌               | ❌        | 🤖    |
+| CC          | CC Bresse et Saône                                   | 200071371 | ❌               | ❌        | 🤖    |
+| CA          | CA du Bassin de Bourg-en-Bresse                      | 200071751 | ❌               | ❌        | 🤖    |
+| CC          | CC de la Côtière à Montluel                          | 240100610 | ✅               | ✅        | ✅    |
+| CA          | CA du Pays de Gex                                    | 240100750 | ❌               | ❌        | 🤖    |
+| CC          | CC de Miribel et du Plateau                          | 240100800 | ❌               | ❌        | 🤖    |
+| CC          | CC de la Plaine de l'Ain                             | 240100883 | ✅               | ✅        | ✅    |
+| CC          | CC Terre Valserhône (CCTV)                           | 240100891 | ❌               | ❌        | 🤖    |
+| Département | Allier                                               | 03        | ❌               | ❌        | 🤖    |
+| CA          | CA Montluçon Communauté                              | 200071082 | ✅               | ✅        | ✅    |
+| CA          | CA Moulins Communauté                                | 200071140 | ❌               | ❌        | 🤖    |
+| CA          | CA Vichy Communauté                                  | 200071363 | ❌               | ❌        | 🤖    |
+| CC          | CC Saint-Pourçain Sioule Limagne                     | 200071389 | ❌               | ❌        | 🤖    |
+| CC          | CC Entr'Allier Besbre et Loire                       | 200071470 | ❌               | ❌        | 🤖    |
+| CC          | CC du Bocage Bourbonnais                             | 200071496 | ❌               | ❌        | 🤖    |
+| CC          | CC Commentry Montmarault Néris Communauté            | 200071512 | ❌               | ❌        | 🤖    |
+| CC          | CC Le Grand Charolais                                | 200071884 | ❌               | ❌        | 🤖    |
+| CC          | CC du Pays de Lapalisse                              | 240300491 | ❌               | ❌        | 🤖    |
+| CC          | CC du Pays de Tronçais                               | 240300558 | ❌               | ❌        | 🤖    |
+| CC          | CC du Val de Cher                                    | 240300566 | ❌               | ❌        | 🤖    |
+| CC          | CC du Pays d'Huriel                                  | 240300657 | ❌               | ❌        | 🤖    |
+| Département | Ardèche                                              | 07        | ✅               | ✅        | ✅    |
+| CC          | CC du Pays de Lamastre                               | 200016905 | ❌               | ❌        | ✅    |
+| CC          | CC de Cèze Cévennes                                  | 200035129 | ❌               | ❌        | ✅    |
+| CC          | CC des Gorges de l'Ardèche                           | 200039808 | ❌               | ❌        | ✅    |
+| CC          | CC Ardèche des Sources et Volcans                    | 200039824 | ❌               | ❌        | ✅    |
+| CC          | CC Pays des Vans en Cévennes                         | 200039832 | ❌               | ❌        | 🤖    |
+| CC          | CC Porte de Dromardèche                              | 200040491 | ❌               | ❌        | 🤖    |
+| CC          | CC Rhône Crussol                                     | 200041366 | ❌               | ❌        | 🤖    |
+| CC          | CC Val Eyrieux                                       | 200041465 | ❌               | ❌        | 🤖    |
+| CC          | CC Ardèche Rhône Coiron                              | 200071405 | ❌               | ❌        | 🤖    |
+| CA          | CA Privas Centre Ardèche                             | 200071413 | ❌               | ❌        | ✅    |
+| CC          | CC Montagne d'Ardèche                                | 200072007 | ❌               | ❌        | 🤖    |
+| CA          | CA Annonay Rhône Agglo                               | 200072015 | ✅               | ✅        | ✅    |
+| CA          | CA Arche Agglo                                       | 200073096 | ✅               | ✅        | ✅    |
+| CC          | CC du Bassin d'Aubenas                               | 200073245 | ❌               | ❌        | 🤖    |
+| CC          | CC du Pays Beaume-Drobie                             | 240700302 | ❌               | ❌        | 🤖    |
+| CC          | CC Val de Ligne                                      | 240700617 | ❌               | ❌        | 🤖    |
+| CC          | CC du Val d'Ay                                       | 240700716 | ❌               | ❌        | 🤖    |
+| CC          | CC Berg et Coiron                                    | 240700815 | ❌               | ❌        | 🤖    |
+| CC          | CC du Rhône aux Gorges de l'Ardèche                  | 240700864 | ❌               | ❌        | 🤖    |
+| Département | Cantal                                               | 15        | ❌               | ❌        | ✅    |
+| CC          | CC Hautes Terres                                     | 200066637 | ❌               | ❌        | 🤖    |
+| CC          | CC de Saint-Flour                                    | 200066660 | ❌               | ❌        | 🤖    |
+| CC          | CC de la Châtaigneraie Cantalienne                   | 200066678 | ❌               | ❌        | 🤖    |
+| CA          | CA du Bassin d'Aurillac                              | 241500230 | ✅               | ✅        | ✅    |
+| CC          | CC du Pays Gentiane                                  | 241500255 | ❌               | ❌        | 🤖    |
+| CC          | CC du Pays de Mauriac                                | 241500271 | ❌               | ❌        | 🤖    |
+| CC          | CC Sumène - Artense                                  | 241501055 | ❌               | ❌        | 🤖    |
+| CC          | CC Cère et Goul en Carladès                          | 241501089 | ❌               | ❌        | 🤖    |
+| CC          | CC du Pays de Salers                                 | 241501139 | ❌               | ❌        | 🤖    |
+| CC          | CC du Massif du Sancy                                | 246300966 | ❌               | ❌        | 🤖    |
+| Département | Drôme                                                | 26        | ❔               | ❌        | 🤖    |
 | CC          | CC Ventoux Sud                                       | 200035723 | ❔               | ❌        | ❌    |
 | CA          | CA Montélimar Agglomération                          | 200040459 | ❔               | ❌        | ❌    |
 | CC          | CC Porte de Dromardèche                              | 200040491 | ❔               | ❌        | ❌    |
-| CC          | CC du Crestois et de Pays de Saillans Coeur de Drôme | 200040509 | ✅               | ✅        | ❌    |
+| CC          | CC du Crestois et de Pays de Saillans Coeur de Drôme | 200040509 | ✅               | ✅        | ✅    |
 | CC          | CC Enclave des Papes - Pays de Grignan               | 200040681 | ❔               | ❌        | ❌    |
 | CC          | CC Drôme Sud Provence                                | 200042901 | ❔               | ❌        | ❌    |
 | CC          | CC du Royans-Vercors                                 | 200067767 | ❔               | ❌        | ❌    |
@@ -77,7 +77,7 @@
 | CC          | CC du Sisteronais-Buëch                              | 200068765 | ❔               | ❌        | ❌    |
 | CA          | CA Valence Romans Agglo                              | 200068781 | ❔               | ❌        | ❌    |
 | CC          | CC Jabron-Lure-Vançon-Durance                        | 200071033 | ❔               | ❌        | ❌    |
-| CA          | CA Arche Agglo                                       | 200073096 | ✅               | ✅        | ❌    |
+| CA          | CA Arche Agglo                                       | 200073096 | ✅               | ✅        | ✅    |
 | CC          | CC du Val de Drôme en Biovallée                      | 242600252 | ✅               | ✅        | ❌    |
 | CC          | CC Dieulefit-Bourdeaux                               | 242600492 | ✅               | ✅        | ❌    |
 | CC          | CC du Diois                                          | 242600534 | ❔               | ❌        | ❌    |
@@ -161,7 +161,7 @@
 | CC          | CC Coeur de Savoie                                   | 200041010 | ✅               | ✅        | ❌    |
 | CA          | CA Grand Lac                                         | 200068674 | ❔               | ❌        | ❌    |
 | CA          | CA Arlysère                                          | 200068997 | ❔               | ❌        | ❌    |
-| CA          | CA du Grand Chambéry                                 | 200069110 | ❔               | ❌        | ❌    |
+| CA          | CA du Grand Chambéry                                 | 200069110 | ✅               | ✅        | ✅    |
 | CC          | CC Haute Maurienne Vanoise                           | 200070340 | ❔               | ❌        | ❌    |
 | CC          | CC Coeur de Maurienne Arvan                          | 200070464 | ✅               | ✅        | ❌    |
 | CC          | CC des Vallées d'Aigueblanche                        | 247300015 | ❔               | ❌        | ❌    |
