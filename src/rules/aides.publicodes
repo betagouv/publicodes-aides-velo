@@ -4349,7 +4349,7 @@ aides . granville:
   abattement: aides . état
   lien: https://www.ville-granville.fr/vivre-au-quotidien-demarches-services/se-deplacer/aide-a-lachat-dun-velo/
 
-# NOTE: infos pour 2023, à vérifier en 2025
+# TODO: à vérifier en 2026
 aides . saint-louis:
   remplace: intercommunalité
   titre: Saint-Louis Agglomération
@@ -4375,6 +4375,7 @@ aides . saint-louis:
       - sinon: 100 €
   plafond: 50% * vélo . prix
   lien: https://www.agglo-saint-louis.fr/fr/au-quotidien/mobilite/prime-velo
+  dernière mise à jour: 14/08/2025
 
 aides . saint-pair-sur-mer:
   remplace: commune
@@ -4449,7 +4450,8 @@ aides . blois:
   lien: https://www.agglopolys.fr/1247-le-velo-a-assistance-electrique.htm
   dernière mise à jour: 13/08/2025
 
-# NOTE: fin de validité en 2024, à vérifier en 2025
+# NOTE: fin de validité pas claire
+# TODO: à vérifier en 2026
 aides . epinal:
   remplace: intercommunalité
   titre: Agglomération Épinal
@@ -4460,6 +4462,7 @@ aides . epinal:
   applicable si: 
     toutes ces conditions:
       - localisation . epci = "CA d'Epinal"
+      - demandeur . âge . majeur
       - une de ces conditions:
           - vélo . électrique ou mécanique
           - vélo . motorisation
@@ -4473,6 +4476,7 @@ aides . epinal:
       - si: vélo . mécanique
         alors: 100€
   lien: https://www.agglo-epinal.fr/se-deplacer/velo/subvention-a-lachat-dun-vae/
+  dernière mise à jour: 14/08/2025
 
 aides . rochefort:
   remplace: intercommunalité
