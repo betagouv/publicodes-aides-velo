@@ -5204,14 +5204,12 @@ aides . pays des achards:
 
 
     Les vélos adaptés à un handicap pourront faire l'objet d'une étude
-    spécifique.
+    spécifique. La demande de subvention doit être effectuée dans les 3 mois
+    suivant l'achat.
   applicable si: 
     toutes ces conditions:
       - localisation . epci = 'CC du Pays des Achards'
       - demandeur . âge . majeur
-      - une de ces conditions:
-          - vélo . électrique ou mécanique
-          - vélo . adapté
   valeur: 25% * vélo . prix
   plafond:
     variations:
@@ -5222,6 +5220,7 @@ aides . pays des achards:
         alors: 300€
       - sinon: 200€
   lien: https://www.cc-paysdesachards.fr/amenagement/mobilites/351-bonus-velo.html
+  dernière mise à jour: 14/08/2025
 
 aides . hem:
   remplace: commune
