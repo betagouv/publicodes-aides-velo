@@ -599,13 +599,14 @@ aides . givors:
   plafond: 20% * vélo . prix
   lien: https://www.givors.fr/cadre-de-vie/environnement/aide-a-lacquisition-dun-velo/
 
+# TODO: à vérifier en 2026
 aides . blacé:
   remplace: commune
   titre: Ville de Blacé
   description: >
     La commune de Blacé a adopté́ un dispositif d'aides financières à
     l'acquisition de vélos à assistance électrique (VAE), neufs ou d'occasion
-    jusqu'au 31 décembre 2024.
+    jusqu'au 31 décembre 2025.
   applicable si:
     toutes ces conditions:
       - localisation . code insee = '69023'
@@ -613,6 +614,8 @@ aides . blacé:
   valeur: 25% * vélo . prix
   plafond: 200€
   lien: https://mairie-blace.fr/fr/rb/1541490/prime-velo
+  dernière mise à jour: 14/08/2025
+  date de fin: 31/12/2025
 
 aides . charlieu-belmont:
   remplace: commune
@@ -2634,16 +2637,33 @@ aides . montpellier:
   plafond: 200€
   lien: https://www.montpellier3m.fr/vivre-transport/toutes-les-aides-pour-lachat-ou-la-reparation-de-velos
 
+# TODO: à vérifier en 2027
+aides . montpellier vélo cargo pro:
   remplace: intercommunalité
   titre: Montpellier Méditerranée Métropole
   description: >
+    Jusqu'à 1000€ d'aide pour l'achat d'un vélo cargo ou triporteur à
+    assistance électrique neuf pour les professionnel·les en activités sur le
+    territoire de Montpellier Méditerranée Métropole.
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'Montpellier Méditerranée Métropole'
       - demandeur . âge . majeur
+      - vélo . cargo électrique
       - vélo . état . neuf
+      - est professionnel
   valeur: 50% * vélo . prix
+  plafond: 1000€
   lien: https://www.montpellier3m.fr/vivre-transport/toutes-les-aides-pour-lachat-ou-la-reparation-de-velos
+  avec:
+    est professionnel:
+      question: >
+        Êtes-vous un professionnel exerçant une activité sur le territoire de
+        Montpellier Méditerranée Métropole ?
+      type: booléen
+      par défaut: oui
+  dernière mise à jour: 14/08/2025
+  date de fin: 31/12/2026
 
 aides . sète:
   remplace: intercommunalité
