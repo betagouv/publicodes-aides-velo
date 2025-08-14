@@ -2741,7 +2741,7 @@ aides . romagnat:
   lien: https://www.ville-romagnat.fr/cadre-de-vie-urbanisme/developpement-durable/velo-electrique/
 
 # TODO: ont développé leur propre simulateur, leur partager le lien ?
-# NOTE: reconduite pour 2024, à vérifier en 2025
+# NOTE: reconduite pour 2025, à vérifier en 2026
 aides . cournon d'auvergne:
   remplace: commune
   titre: Ville de Cournon-d'Auvergne
@@ -2764,6 +2764,8 @@ aides . cournon d'auvergne:
       - sinon: 100€
   plafond: vélo . prix
   lien: https://www.cournon-auvergne.fr/actualites/aide-pour-lachat-dun-velo-a-assistance-electrique/
+  dernière mise à jour: 14/08/2025
+  date de fin: 31/12/2025
 
 aides . grand avignon:
   remplace: intercommunalité
@@ -3100,7 +3102,62 @@ aides . montagnole:
   valeur: 200€
   lien: https://www.mairie-montagnole.fr/vae/
 
-# TODO: grand chambéry, à vérifier en 2025 : https://www.grandchambery.fr/mes-demarches/aides-energies/cheque-velo-a-assistance-electrique
+# NOTE: possède un simulateur qui ne fonctionne pas, à contacter
+# TODO: grand chambéry, à vérifier en 2026 : https://www.grandchambery.fr/mes-demarches/aides-energies/cheque-velo-a-assistance-electrique
+aides . grand chambéry:
+  remplace: intercommunalité
+  titre: Grand Chambéry l'Agglomération
+  description: >
+    Chèque utilisable dans les deux mois à compter de son émission, pour
+    l'achat d'un vélo à assistance électrique (VAE) ou d'un vélo cargo
+    électrique neuf auprès d'un vélociste partenaire avec Grand Chambéry (liste
+    consultable sur grandchambery.fr).
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CA du Grand Chambéry'
+      - demandeur . âge . majeur
+      - revenu fiscal de référence par part <= 30800 €/an
+      - vélo . état . neuf
+      - une de ces conditions:
+          - toutes ces conditions:
+              - vélo . électrique simple
+              - vélo . prix >= 1400€
+              - vélo . prix <= 3500€
+          - toutes ces conditions:
+              - vélo . cargo électrique
+              - vélo . prix >= 3500€
+              - vélo . prix <= 6000€
+  valeur: 
+    somme:
+      - variations:
+          - si: salarié d'une entreprise partenaire
+            alors: 100€
+          - sinon: 0€
+      - variations:
+          - si: vélo . cargo électrique
+            alors:
+              variations:
+                - si: revenu fiscal de référence par part <= 15400 €/an
+                  alors: 1500€
+                - sinon: 800€
+          - sinon:
+              variations:
+                - si: revenu fiscal de référence par part <= 15400 €/an
+                  alors: 1000€
+                - sinon: 500€
+  lien: https://www.grandchambery.fr/mes-demarches/aides-ener
+  dernière mise à jour: 14/08/2025
+  date de fin: 31/12/2025
+  avec:
+    salarié d'une entreprise partenaire:
+      question: >
+        Êtes-vous salarié·e d'une entreprise ayant mis en place un Plan de Mobilité Employeurs avec Grand Chambéry ou le Forfait Mobilité Durable ?
+      description: >
+        Liste des entreprises partenaires consultable sur le site de Grand
+        Chambéry :
+        https://www.grandchambery.fr/mes-demarches/aides-energies/cheque-velo-a-assistance-electrique.
+      type: booléen
+      par défaut: oui
 
 # NOTE: valide pour 2024, à vérifier en 2025
 aides . saint alban leysse:
