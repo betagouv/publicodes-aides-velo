@@ -1928,4 +1928,40 @@ describe("Aides Vélo", () => {
       expect(engine.evaluate("aides . region centre").nodeValue).toBeNull();
     });
   });
+
+  describe("CA Grand Chambery", () => {
+    test("électrique simple RFR > 15400 €/an", () => {
+      engine.setSituation({
+        "localisation . epci": "'CA du Grand Chambéry'",
+        "vélo . type": "'électrique'",
+        "vélo . prix": 1000,
+        "revenu fiscal de référence par part": "20000 €/an",
+      });
+
+      expect(engine.evaluate("aides . grand chambéry").nodeValue).toBeNull();
+
+      engine.setSituation(
+        {
+          "vélo . prix": 2000,
+        },
+        { keepPreviousSituation: true }
+      );
+
+      expect(engine.evaluate("aides . grand chambéry").nodeValue).toEqual(
+        500 + 100
+      );
+    });
+
+    test("non salarié entreprise partenaire", () => {
+      engine.setSituation({
+        "localisation . epci": "'CA du Grand Chambéry'",
+        "vélo . type": "'cargo électrique'",
+        "vélo . prix": 5000,
+        "revenu fiscal de référence par part": "10000 €/an",
+        "aides . grand chambéry . salarié d'une entreprise partenaire": "non",
+      });
+
+      expect(engine.evaluate("aides . grand chambéry").nodeValue).toEqual(1500);
+    });
+  });
 });
