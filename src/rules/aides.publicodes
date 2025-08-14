@@ -4540,7 +4540,7 @@ aides . saintes:
       - sinon: 200€
   lien: https://www.agglo-saintes.fr/l-agglo-au-quotidien/transports-et-mobilites/530-aide-a-l-achat-d-un-velo-a-assistance-electrique.html
 
-# NOTE: fin de validité en 2024, à vérifier en 2025
+# TODO: à vérifier en 2026
 aides . dieppe:
   remplace: commune
   titre: Ville de Dieppe
@@ -4550,11 +4550,10 @@ aides . dieppe:
     accordée, sous condition de ressources.
 
 
-    Date limite de dépôt des dossiers : 31 décembre 2024.
+    Date limite de dépôt des dossiers : 31 octobre 2025.
   applicable si:
     toutes ces conditions:
       - localisation . code insee = '76217'
-      - vélo . électrique ou mécanique
       - demandeur . âge >= 16 an
       - vélo . électrique ou mécanique
   valeur:
@@ -4564,7 +4563,9 @@ aides . dieppe:
       - si: revenu fiscal de référence par part <= 13489 €/an
         alors: 100€
       - sinon: 50€
-  lien: https://www.dieppe.fr/menus/vie-quotidienne-3/developpement-durable-49/aide-municipale-pour-acquerir-un-velo
+  lien: https://www.dieppe.fr/annuaires/catalogue-des-demarches/detail/acheter-un-velo
+  dernière mise à jour: 14/08/2025
+  date de fin: 31/10/2025
 
 aides . villes soeurs:
   remplace: intercommunalité
