@@ -2619,24 +2619,6 @@ aides . département hérault vélo adapté:
   lien: https://herault.fr/actualite/127075/2-le-departement-lance-une-enquete-sur-la-construction-du-plan-herault-velo.htm
   # lien: https://herault.fr/aideProjet/3/321-aide-a-l-achat-d-un-velo-electrique-vae.htm
 
-aides . montpellier:
-  remplace: intercommunalité
-  titre: Montpellier Méditerranée Métropole
-  description: >
-    Pour un usage professionnel ou personnel, les habitants de la métropole ont accès à une subvention permettant l'achat d'un vélo électrique ou d'occasion.
-  applicable si: 
-    toutes ces conditions:
-      - localisation . epci = 'Montpellier Méditerranée Métropole'
-      - demandeur . âge . majeur
-      - une de ces conditions:
-        - vélo . motorisation
-        - toutes ces conditions:
-          - vélo . électrique
-          - vélo . état . occasion
-  valeur: 50% * vélo . prix
-  plafond: 200€
-  lien: https://www.montpellier3m.fr/vivre-transport/toutes-les-aides-pour-lachat-ou-la-reparation-de-velos
-
 # TODO: à vérifier en 2027
 aides . montpellier vélo cargo pro:
   remplace: intercommunalité
@@ -2662,6 +2644,32 @@ aides . montpellier vélo cargo pro:
         Montpellier Méditerranée Métropole ?
       type: booléen
       par défaut: oui
+  dernière mise à jour: 14/08/2025
+  date de fin: 31/12/2026
+
+# TODO: à vérifier en 2027
+aides . montpellier vae occasion:
+  remplace: intercommunalité
+  titre: Montpellier Méditerranée Métropole
+  description: >
+    Une subvention d'un montant de 200 € maximum, sans condition de ressource,
+    sera versée à tous les habitants de la Métropole de plus de 18 ans qui
+    feront l'acquisition d'un vélo à assistance électrique d'occasion (VAE) à
+    partir du 1er février 2021 ou l'achat d'un kit d'électrification à partir
+    du 29 juillet 2021 dans un magasin de la métropole jusqu'au 31 décembre
+    2026.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'Montpellier Méditerranée Métropole'
+      - demandeur . âge . majeur
+      - une de ces conditions:
+          - vélo . motorisation
+          - toutes ces conditions:
+              - vélo . électrique
+              - vélo . état . occasion
+  valeur: 50% * vélo . prix
+  plafond: 200€
+  lien: https://www.montpellier3m.fr/vivre-transport/toutes-les-aides-pour-lachat-ou-la-reparation-de-velos
   dernière mise à jour: 14/08/2025
   date de fin: 31/12/2026
 
