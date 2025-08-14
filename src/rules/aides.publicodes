@@ -1410,12 +1410,11 @@ aides . toulon:
   lien: https://metropoletpm.fr/demarches/aide-lachat-dun-velo-assistance-electrique-vae
   dernière mise à jour: 29/07/2025
 
-# TODO: à vérifier en 2025
 aides . provence verte:
   remplace: intercommunalité
   titre: Agglomération Provence Verte
   description: >
-    Aide intercommunale est prévue pour l'année 2024 pour tout achat de vélo
+    Aide intercommunale est prévue pour l'année 2025 pour tout achat de vélo
     neuf (type VTC) à assistance électrique ou non.
   applicable si: 
     toutes ces conditions:
@@ -1435,6 +1434,8 @@ aides . provence verte:
         plafond: 100€
     - sinon: 0€
   lien: https://www.caprovenceverte.fr/vie-pratique/transport-mobilite/aide-a-lacquisition-dun-velo-en-provence-verte/
+  dernière mise à jour: 14/08/2025
+  date de fin: 31/12/2025
 
 aides . bretagne romantique:
   remplace: intercommunalité
@@ -2765,44 +2766,6 @@ aides . grand avignon:
   lien: https://www.grandavignon.fr/fr/actualites/aide-lachat-de-velo-assistance-electrique
   dernière mise à jour: 29/07/2025
 
-aides . luberon:
-  remplace: intercommunalité
-  titre: Luberon Monts de Vaucluse
-  description: >
-     Lancée le 16 septembre 2020 par LMV Agglomération, l'opération "LMV vous
-     met en selle" vous aide à acheter un vélo, neuf ou d'occasion, avec ou
-     sans assistance électrique. 
-  applicable si: 
-    toutes ces conditions:
-      - localisation . epci = 'CA Luberon Monts de Vaucluse'
-      - demandeur . âge >= 16 an
-      - une de ces conditions:
-          - vélo . électrique
-          - toutes ces conditions:
-              - vélo . mécanique
-              - vélo . état . neuf
-  valeur: 30% * vélo . prix
-  plafond:
-    variations:
-      - si:
-          toutes ces conditions:
-            - vélo . électrique
-            - une de ces conditions:
-                - toutes ces conditions:
-                    - vélo . état . neuf
-                    - vélo . prix <= 2500€
-                - toutes ces conditions:
-                    - vélo . état . occasion
-                    - vélo . prix <= 1500€
-        alors: 300€
-      - si:
-          toutes ces conditions:
-            - vélo . mécanique
-            - vélo . prix <= 1000€
-        alors: 200€
-      - sinon: 0€
-  lien: https://www.luberonmontsdevaucluse.fr/acces/mes-demarches/mobilite/une-subvention-pour-lachat-dun-velo/
-
 # NOTE: plus de page sur le site, seulement un formulaire de demande est disponible. A vérifier en 2025
 aides . kremlin-bicetre:
   remplace: commune
@@ -3346,6 +3309,7 @@ aides . sophia antipolis:
                 plafond: 500€
             - sinon: 0€
   lien: https://www.agglo-sophiaantipolis.fr/vivre-et-habiter/se-deplacer/le-velo/demande-subvention-aide-a-lacquisition/demande-aide-achat-a-partir-du-1er-septembre-2023-inclus
+  dernière mise à jour: 14/08/2025
 
 aides . mougins:
   remplace: commune
@@ -6853,7 +6817,9 @@ aides . witry-lès-reims:
 aides . golf de saint-tropez:
   remplace: intercommunalité
   titre: Golf de Saint-Tropez
-  description: Prime a l'acquisition d'un vélo à assistance électrique (VAE).
+  description: >
+    Prime a l'acquisition d'un vélo à assistance électrique (VAE) neuf. La
+    demande doit être formulée dans les 2 mois suivant l'achat du vélo.
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'CC du Golfe de Saint-Tropez'
@@ -6862,6 +6828,7 @@ aides . golf de saint-tropez:
       - vélo . état . neuf
   valeur: 200€
   lien: https://www.golfe-sainttropez.fr/actualite/prime-exceptionnelle-de-200e-pour-lachat-dun-velo-a-assistance-electrique/
+  dernière mise à jour: 14/08/2025
 
 aides . labège:
   remplace: commune
