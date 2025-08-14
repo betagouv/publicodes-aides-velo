@@ -7955,6 +7955,27 @@ aides . creusot-montceau:
   lien: https://www.creusot-montceau.org/actualite/la-communaute-urbaine-vous-aide-financierement-pour-lacquisition-dun-velo
   dernière mise à jour: 13/08/2025
 
+# NOTE: lien mort au 08/10/2024
+aides . sisteronais-buëch:
+  remplace: intercommunalité
+  titre: Communauté de Communes du Sisteronais-Buëch
+  description: >
+    Aide forfaitaire de 200€ pour l'achat d'un vélo à assistance électrique
+    neuf. Le vélo doit être acheté chez un revendeur implanté dans l’un des
+    départements suivants : Hautes-Alpes, Alpes de Haute-Provence ou Drôme.
+
+
+    La demande doit être effectuée au plus tard dans les 2 mois suivant la date
+    de facturation.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CC du Sisteronais-Buëch'
+      - vélo . électrique
+      - demandeur . âge . majeur
+  valeur: 200 €
+  lien: https://www.sisteronais-buech.fr/vivre-en-sisteronais-buech/se-deplacer/aide-a-lachat-dun-velo-a-assistance-electrique/
+  dernière mise à jour: 14/08/2025
+
 aides . territoire de l'ouest:
   remplace: intercommunalité
   titre: Territoire de l'Ouest
