@@ -2132,16 +2132,12 @@ aides . montval sur loir:
     - sinon: 0€
   lien: https://www.montvalsurloir.fr/demarche-administrative/demande-de-subvention-velo-electrique/
 
-# NOTE: informations pour 2024, à vérifier en 2025
 aides . sorgues du comtat:
   remplace: intercommunalité
   titre: Communauté de communes des Sorgues du Comtat
   description: >
-    Cette subvention concerne l'achat d'un seul vélo à assistance électrique
-    neuf, deux ou trois roues, à usage personnel, acquis à partir du 1er
-    janvier 2024. Cette prime s'élève à 20 % du prix TTC du vélo sans pouvoir
-    dépasser un plafond de 120 euros et ne pourra être versée qu'une seule fois
-    par demandeur.
+    Cette subvention concerne l’achat d’un seul vélo à assistance électrique
+    neuf, deux ou trois roues, à usage personnel, acquis durant l’année.
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'CA des Sorgues du Comtat'
@@ -2151,6 +2147,7 @@ aides . sorgues du comtat:
   valeur: 20% * vélo . prix
   plafond: 120€
   lien: https://www.sorgues.fr/vivre/demarches/prime-velo.htm
+  dernière mise à jour: 14/08/2025
 
 # NOTE: informations pour 2024, à vérifier en 2025
 aides . grand périgueux:
@@ -8142,6 +8139,7 @@ aides . cc pays des sorgues:
   valeur: 200€
   plafond: vélo . prix
   lien: https://www.paysdessorgues.fr/aide-velo
+  dernière mise à jour: 14/08/2025
 
 aides . cc val parisis:
   remplace: intercommunalité
