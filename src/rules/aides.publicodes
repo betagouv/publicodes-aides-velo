@@ -3080,27 +3080,8 @@ aides . la motte servolex:
       - si: vélo . cargo
         alors: 300€
       - sinon: 150€
-  lien: https://www.mairie-lamotteservolex.fr/vos-demarches/subventions-eco-citoyennes-la-motte-servolex/
-
-# NOTE: limite 31 décembre 2024, à vérifier en 2025
-aides . montagnole:
-  remplace: commune
-  titre: Ville de Montagnole
-  description: >
-    Aide financière de 200 € net par vélo, d'une valeur minimum  unitaire de 1
-    200 € TTC, et par famille, acheté chez un vélociste implanté dans une
-    commune du périmètre de l'agglomération de Grand Chambéry quel que soit le
-    type de vélo (route, VTT, VTC, Cargo…).
-
-
-    Limite de dépôt des dossiers pour l'année 2024 : 31 décembre 2024.
-  applicable si:
-    toutes ces conditions:
-      - localisation . code insee = '73160'
-      - vélo . électrique
-      - vélo . prix >= 1200 €
-  valeur: 200€
-  lien: https://www.mairie-montagnole.fr/vae/
+  lien: https://www.mairie-lamotteservolex.fr/vos-demarches/subventions-eco-citoyennes-la-motte-servolex/#deux-roues
+  dernière mise à jour: 14/08/2025
 
 # NOTE: possède un simulateur qui ne fonctionne pas, à contacter
 # TODO: grand chambéry, à vérifier en 2026 : https://www.grandchambery.fr/mes-demarches/aides-energies/cheque-velo-a-assistance-electrique
@@ -3145,7 +3126,7 @@ aides . grand chambéry:
                 - si: revenu fiscal de référence par part <= 15400 €/an
                   alors: 1000€
                 - sinon: 500€
-  lien: https://www.grandchambery.fr/mes-demarches/aides-ener
+  lien: https://www.grandchambery.fr/mes-demarches/aides-energies/cheque-velo-a-assistance-electrique
   dernière mise à jour: 14/08/2025
   date de fin: 31/12/2025
   avec:

@@ -128,6 +128,12 @@ vélo . prix pour maximiser les aides:
   variations:
     - si: localisation . epci = "CC Coeur de Savoie"
       alors: 3500 €
+    - si: localisation . epci = "CA du Grand Chambéry"
+      alors:
+        variations:
+          - si: vélo . cargo
+            alors: 6000 €
+          - sinon: 3500 €
     - si: localisation . epci = 'CA de Nevers'
       alors:
         variations:

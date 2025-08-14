@@ -1564,3 +1564,23 @@ aides . montpellier vélo adapté:
   valeur: 50% * vélo . prix
   plafond: 500€
   lien: https://www.montpellier3m.fr/vivre-transport/toutes-les-aides-pour-lachat-ou-la-reparation-de-velos
+
+# NOTE: à vérifier en 2026
+aides . montagnole:
+  remplace: commune
+  titre: Ville de Montagnole
+  description: >
+    Aide financière de 200 € net par vélo, d'une valeur minimum  unitaire de 1
+    200 € TTC, et par famille, acheté chez un vélociste implanté dans une
+    commune du périmètre de l'agglomération de Grand Chambéry quel que soit le
+    type de vélo (route, VTT, VTC, Cargo…).
+
+
+    Limite de dépôt des dossiers pour l'année 2024 : 31 décembre 2024.
+  applicable si:
+    toutes ces conditions:
+      - localisation . code insee = '73160'
+      - vélo . électrique
+      - vélo . prix >= 1200 €
+  valeur: 200€
+  lien: https://www.mairie-montagnole.fr/vae/
