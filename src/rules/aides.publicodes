@@ -7971,10 +7971,27 @@ aides . sisteronais-buëch:
     toutes ces conditions:
       - localisation . epci = 'CC du Sisteronais-Buëch'
       - vélo . électrique
+      - vélo . état . neuf
       - demandeur . âge . majeur
   valeur: 200 €
   lien: https://www.sisteronais-buech.fr/vivre-en-sisteronais-buech/se-deplacer/aide-a-lachat-dun-velo-a-assistance-electrique/
   dernière mise à jour: 14/08/2025
+
+aides . commune barcelonette:
+  remplace: commune
+  titre: Commune de Barcelonnette
+  description: Aide à l'achat d'un vélo à assistance électrique neuf de 200€.
+  applicable si:
+    toutes ces conditions:
+      - localisation . code insee = '04019'
+      - vélo . électrique
+      - vélo . état . neuf
+      - demandeur . âge . majeur
+  valeur: vélo . prix
+  plafond: 200€
+  lien: https://www.ville-barcelonnette.fr/l-achat-d-aide-aux-velos-electrique.html
+  dernière mise à jour: 14/08/2025
+  date de fin: 31/12/2025
 
 aides . territoire de l'ouest:
   remplace: intercommunalité
