@@ -178,17 +178,6 @@ aides . colmar:
     - sinon: 0€
   lien: https://www.colmar.fr/sites/colmar.fr/files/documents/35-fe-participation-achat-velo-neuf.pdf
 
-# NOTE: lien mort au 08/10/2024
-aides . sisteronais-buëch:
-  remplace: intercommunalité
-  titre: Communauté de Communes du Sisteronais-Buëch
-  applicable si:
-    toutes ces conditions:
-      - localisation . epci = 'CC du Sisteronais-Buëch'
-      - vélo . électrique
-  valeur: 200 €
-  lien: https://www.sisteronais-buech.fr/economie-et-tourisme/aide-a-lachat-dun-velo-a-assistance-electrique/
-
 
 # NOTE: fin de l'opération le 31 décembre 2023
 aides . ardenne:
