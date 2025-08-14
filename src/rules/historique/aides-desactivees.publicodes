@@ -1489,3 +1489,21 @@ aides . avignon:
       - sinon: 0€
   lien: https://www.avignon.fr/toutes-les-actualites/actualite/tous-a-velo
   dernière mise à jour: 29/07/2025
+
+# NOTE: valide jusqu'au 31 décembre 2024, à vérifier en 2025
+aides . riviera francaise:
+  remplace: intercommunalité
+  titre: Riviera Française
+  description: >
+    La Communauté d'Agglomération de la Riviera Française propose une aide
+    financière pour l'achat d'un vélo à assistance électrique neuf jusqu'au 31
+    décembre 2024.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CA de la Riviera Française'
+      - demandeur . âge . majeur
+      - vélo . électrique
+      - vélo . état . neuf
+  valeur: vélo . prix
+  plafond: 300€
+  lien: https://www.riviera-francaise.fr/media/attachments/2022/03/30/convention-2022-2024-cc01221.pdf
