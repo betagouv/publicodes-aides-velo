@@ -1547,3 +1547,20 @@ aides . luberon:
       - sinon: 0€
   lien: https://www.luberonmontsdevaucluse.fr/acces/mes-demarches/mobilite/une-subvention-pour-lachat-dun-velo/
 
+# TODO: distinguer vélo adapté et vélo électrique adapté
+# NOTE: valable jusqu'au 31 décembre 2024, à vérifier en 2025
+aides . montpellier vélo adapté:
+  remplace: intercommunalité
+  titre: Montpellier Méditerranée Métropole
+  description: >
+    500€ d'aide à l'achat d'un vélo à assistance électrique adapté pour les
+    personnes en situation de handicap ayant bénéficié du "Chèque Hérault
+    Handi-Vélo".
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'Montpellier Méditerranée Métropole'
+      - aides . département hérault vélo adapté > 0€
+      - vélo . état . neuf
+  valeur: 50% * vélo . prix
+  plafond: 500€
+  lien: https://www.montpellier3m.fr/vivre-transport/toutes-les-aides-pour-lachat-ou-la-reparation-de-velos
