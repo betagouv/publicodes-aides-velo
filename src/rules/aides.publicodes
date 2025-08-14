@@ -7993,6 +7993,34 @@ aides . commune barcelonette:
   dernière mise à jour: 14/08/2025
   date de fin: 31/12/2025
 
+aides . commune gap:
+  remplace: commune
+  titre: Commune de Gap
+  description: >
+    Aide pour l'achat d'un vélo à assistance électrique neuf ou d'un kit
+    d'électrification au près d'un commerçant professionnel implanté dans la
+    commune.
+
+
+    Dispositif disponible jusqu'au 31 octobre 2025.
+  applicable si:
+    toutes ces conditions:
+      - localisation . code insee = '05060'
+      - vélo . état . neuf
+      - demandeur . âge . majeur
+      - une de ces conditions:
+          - vélo . motorisation
+          - vélo . électrique
+  valeur: 25% * vélo . prix
+  plafond: 
+    variations:
+      - si: vélo . électrique
+        alors: 200 €
+      - sinon: 150 €
+  lien: https://www.ville-gap.fr/aides-financieres-ville/
+  dernière mise à jour: 14/08/2025
+  date de fin: 31/10/2025
+
 aides . territoire de l'ouest:
   remplace: intercommunalité
   titre: Territoire de l'Ouest
