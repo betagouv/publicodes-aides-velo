@@ -1,8 +1,8 @@
 import Engine, { Rule } from "publicodes";
 import { describe, expect, it, test } from "vitest";
 
-import { AideRuleNames, RuleName } from "../src";
 import rules from "../publicodes-build";
+import { AideRuleNames, RuleName } from "../src";
 import { aidesAvecLocalisation, miniatures } from "../src/data";
 
 describe("Aides Vélo", () => {
@@ -310,7 +310,9 @@ describe("Aides Vélo", () => {
         "vélo . type": "'électrique'",
         "vélo . prix": "1000€",
       });
-      expect(engine.evaluate("aides . montpellier").nodeValue).toEqual(null);
+      expect(
+        engine.evaluate("aides . montpellier vae occasion").nodeValue
+      ).toEqual(null);
 
       engine.setSituation({
         "localisation . epci": "'Montpellier Méditerranée Métropole'",
@@ -319,7 +321,9 @@ describe("Aides Vélo", () => {
         "vélo . état": "'occasion'",
         "vélo . prix": "1000€",
       });
-      expect(engine.evaluate("aides . montpellier").nodeValue).toEqual(200);
+      expect(
+        engine.evaluate("aides . montpellier vae occasion").nodeValue
+      ).toEqual(200);
 
       engine.setSituation({
         "localisation . epci": "'Montpellier Méditerranée Métropole'",
@@ -327,7 +331,9 @@ describe("Aides Vélo", () => {
         "vélo . type": "'motorisation'",
         "vélo . prix": "1000€",
       });
-      expect(engine.evaluate("aides . montpellier").nodeValue).toEqual(200);
+      expect(
+        engine.evaluate("aides . montpellier vae occasion").nodeValue
+      ).toEqual(200);
     });
 
     it("ne devrait pas être cumulable avec l'aide vélo adapté", () => {
@@ -340,10 +346,9 @@ describe("Aides Vélo", () => {
         "vélo . prix": "2000€",
       });
 
-      expect(engine.evaluate("aides . montpellier").nodeValue).toEqual(null);
       expect(
-        engine.evaluate("aides . montpellier vélo adapté").nodeValue
-      ).toEqual(500);
+        engine.evaluate("aides . montpellier vae occasion").nodeValue
+      ).toEqual(null);
       expect(
         engine.evaluate("aides . département hérault vélo adapté").nodeValue
       ).toEqual(1000);
@@ -1882,6 +1887,81 @@ describe("Aides Vélo", () => {
       });
 
       expect(engine.evaluate("aides . toulon").nodeValue).toEqual(1000);
+    });
+  });
+
+  describe("Région Centre-Val de Loire", () => {
+    // NOTE: car tout le territoire de la région n'est pas couvert
+    test("Région Centre-Val de loire nde devrait pas être élligible seule", () => {
+      engine.setSituation({
+        "localisation . région": "'24'",
+        "demandeur . âge": 18,
+        "vélo . prix": 700,
+        "vélo . type": "'électrique'",
+      });
+
+      expect(engine.evaluate("aides . region centre").nodeValue).toBeNull();
+    });
+
+    test("CC du Perche devrait être élligible", () => {
+      engine.setSituation({
+        "localisation . région": "'24'",
+        "localisation . epci": "'CC du Perche'",
+        "demandeur . âge": 18,
+        "vélo . prix": 700,
+        "vélo . type": "'électrique'",
+      });
+
+      expect(engine.evaluate("aides . region centre").nodeValue).not.toBeNull();
+    });
+
+    test("Commune de Pigny ne devrait pas être élligible", () => {
+      engine.setSituation({
+        "localisation . région": "'24'",
+        "localisation . epci": "'CC Terres du Haut Berry'",
+        "localisation . code insee": "'18179'",
+        "demandeur . âge": 18,
+        "vélo . prix": 700,
+        "vélo . type": "'électrique'",
+      });
+
+      expect(engine.evaluate("aides . region centre").nodeValue).toBeNull();
+    });
+  });
+
+  describe("CA Grand Chambery", () => {
+    test("électrique simple RFR > 15400 €/an", () => {
+      engine.setSituation({
+        "localisation . epci": "'CA du Grand Chambéry'",
+        "vélo . type": "'électrique'",
+        "vélo . prix": 1000,
+        "revenu fiscal de référence par part": "20000 €/an",
+      });
+
+      expect(engine.evaluate("aides . grand chambéry").nodeValue).toBeNull();
+
+      engine.setSituation(
+        {
+          "vélo . prix": 2000,
+        },
+        { keepPreviousSituation: true }
+      );
+
+      expect(engine.evaluate("aides . grand chambéry").nodeValue).toEqual(
+        500 + 100
+      );
+    });
+
+    test("non salarié entreprise partenaire", () => {
+      engine.setSituation({
+        "localisation . epci": "'CA du Grand Chambéry'",
+        "vélo . type": "'cargo électrique'",
+        "vélo . prix": 5000,
+        "revenu fiscal de référence par part": "10000 €/an",
+        "aides . grand chambéry . salarié d'une entreprise partenaire": "non",
+      });
+
+      expect(engine.evaluate("aides . grand chambéry").nodeValue).toEqual(1500);
     });
   });
 });

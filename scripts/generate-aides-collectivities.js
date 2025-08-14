@@ -3,8 +3,8 @@
  */
 
 import fs from "node:fs";
-import Publicodes, { reduceAST } from "publicodes";
 import { exit } from "process";
+import Publicodes, { reduceAST } from "publicodes";
 
 import epci from "@etalab/decoupage-administratif/data/epci.json" with { type: "json" };
 import { getDataPath } from "./utils.js";
@@ -14,10 +14,20 @@ import rules from "../publicodes-build/index.js";
 const engine = new Publicodes(rules);
 const ruleNames = Object.keys(rules);
 
+const rules_to_skip = [
+  "aides . commune",
+  "aides . intercommunalité",
+  "aides . département",
+  "aides . région",
+  "aides . état",
+  "aides . montant",
+  "aides . forfait mobilités durables",
+];
+
 const aidesRuleNames = ruleNames.filter((ruleName) => {
   if (ruleName.startsWith("aides .")) {
     if (!engine.getRule(ruleName).rawNode.titre) {
-      if (ruleName.split(" . ").length === 2) {
+      if (ruleName.split(" . ").length === 2 && !rules_to_skip.includes(ruleName)) {
         console.warn(`No title for ${ruleName}`);
       }
       return false;
@@ -37,10 +47,11 @@ const res = Object.fromEntries(
     const country = getCountry(rule);
 
     return [ruleName, { collectivity, country }];
-  })
+  }),
 );
 
 fs.writeFileSync(getDataPath("aides-collectivities.json"), JSON.stringify(res));
+console.log(`${aidesRuleNames.length} aides écrites.`);
 
 /// Utils
 
@@ -53,8 +64,22 @@ function extractCollectivityFromAST(rule) {
     "code insee",
   ];
 
+  const applicableSiNode = reduceAST(
+    (_, node) => {
+      if (node.sourceMap?.mecanismName === "applicable si") {
+        return node;
+      }
+    },
+    null,
+    rule,
+  );
+
   const localisations = reduceAST(
     (acc, node) => {
+      if (node.sourceMap?.mecanismName === "non applicable si") {
+        // skip non applicable si nodes
+        return acc;
+      }
       if (node.nodeKind === "operation" && node.operationKind === "=") {
         for (let kind of collectityKinds) {
           if (node.explanation[0]?.dottedName === `localisation . ${kind}`) {
@@ -62,6 +87,7 @@ function extractCollectivityFromAST(rule) {
               kind,
               value: node.explanation[1]?.nodeValue,
             };
+            // Avoid duplicates
             if (!acc.find((l) => l.kind === loc.kind && l.value == loc.value)) {
               acc.push(loc);
             }
@@ -71,7 +97,7 @@ function extractCollectivityFromAST(rule) {
       }
     },
     [],
-    rule
+    applicableSiNode,
   );
 
   if (localisations.length === 0) {
@@ -97,7 +123,10 @@ function extractCollectivityFromAST(rule) {
   });
 
   // FIXME: should handle multiple localisations
-  return normalizedLocalisations[0];
+  return normalizedLocalisations.sort((a, b) => {
+    const order = ["pays", "région", "département", "epci", "code insee"];
+    return order.indexOf(a.kind) - order.indexOf(b.kind);
+  })[0];
 }
 
 // TODO: a bit fragile, we should sync this logic with

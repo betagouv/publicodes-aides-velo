@@ -1,6 +1,6 @@
+import { describe, expect, it } from "vitest";
 import { Aide, AideRuleNames, AidesVeloEngine } from "../src";
 import { Localisation } from "../src/data";
-import { describe, expect, it } from "vitest";
 
 describe("AidesVeloEngine", () => {
   describe("new AidesVeloEngine()", () => {
@@ -88,6 +88,15 @@ describe("AidesVeloEngine", () => {
 
         if (aide.collectivity.kind === "pays") {
           expect(aide.collectivity.value).toMatch("France");
+        }
+
+        // Doit correctement prendre en compte les exclusions et
+        // les différentes échelles.
+        if (aide.id === "aides . region centre") {
+          expect(aide.collectivity).toEqual({
+            kind: "région",
+            value: "24",
+          });
         }
       });
     });
@@ -298,7 +307,7 @@ describe("AidesVeloEngine", () => {
           })
           .computeAides();
 
-        expect(aides).toHaveLength(3);
+        expect(aides).toHaveLength(2);
         expect(contain(aides, "aides . occitanie vélo adapté")).toBeTruthy();
         expect(
           contain(
@@ -308,7 +317,6 @@ describe("AidesVeloEngine", () => {
               description?.includes("Chèque Hérault Handi-Vélo")
           )
         ).toBeTruthy();
-        expect(contain(aides, "aides . montpellier vélo adapté")).toBeTruthy();
       });
 
       it("CA du Centre Littoral - vélo électrique", async () => {
@@ -323,6 +331,57 @@ describe("AidesVeloEngine", () => {
 
         expect(aides).toHaveLength(1);
         expect(contain(aides, "aides . cacl")).toBeTruthy();
+      });
+
+      describe("Région Centre-Val de Loire", () => {
+        it("Nogent-le-Rotrou devrait être élligible", () => {
+          const engine = globalTestEngine.shallowCopy();
+          const aides = engine
+            .setInputs({
+              "localisation . région": "24",
+              "localisation . epci": "CC du Perche",
+              "localisation . code insee": "28280",
+              "demandeur . âge": 18,
+              "vélo . prix": 700,
+              "vélo . type": "électrique",
+            })
+            .computeAides();
+
+          expect(aides).toHaveLength(1);
+          expect(contain(aides, "aides . region centre")).toBeTruthy();
+        });
+
+        it("Commune de Pigny ne devrait pas être élligible", () => {
+          const engine = globalTestEngine.shallowCopy();
+          const aides = engine
+            .setInputs({
+              "localisation . région": "24",
+              "localisation . epci": "CC Terres du Haut Berry",
+              "localisation . code insee": "18179",
+              "demandeur . âge": 18,
+              "vélo . prix": 700,
+              "vélo . type": "électrique",
+            })
+            .computeAides();
+
+          expect(aides).toHaveLength(0);
+        });
+
+        it("Commune d'Illiers-Combray ne devrait pas être élligible", () => {
+          const engine = globalTestEngine.shallowCopy();
+          const aides = engine
+            .setInputs({
+              "localisation . région": "24",
+              "localisation . epci": "CC Entre Beauce et Perche",
+              "localisation . code insee": "28196",
+              "demandeur . âge": 18,
+              "vélo . prix": 700,
+              "vélo . type": "électrique",
+            })
+            .computeAides();
+
+          expect(aides).toHaveLength(0);
+        });
       });
     });
   });
