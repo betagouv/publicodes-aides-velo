@@ -310,7 +310,9 @@ describe("Aides Vélo", () => {
         "vélo . type": "'électrique'",
         "vélo . prix": "1000€",
       });
-      expect(engine.evaluate("aides . montpellier").nodeValue).toEqual(null);
+      expect(
+        engine.evaluate("aides . montpellier vae occasion").nodeValue
+      ).toEqual(null);
 
       engine.setSituation({
         "localisation . epci": "'Montpellier Méditerranée Métropole'",
@@ -319,7 +321,9 @@ describe("Aides Vélo", () => {
         "vélo . état": "'occasion'",
         "vélo . prix": "1000€",
       });
-      expect(engine.evaluate("aides . montpellier").nodeValue).toEqual(200);
+      expect(
+        engine.evaluate("aides . montpellier vae occasion").nodeValue
+      ).toEqual(200);
 
       engine.setSituation({
         "localisation . epci": "'Montpellier Méditerranée Métropole'",
@@ -327,7 +331,9 @@ describe("Aides Vélo", () => {
         "vélo . type": "'motorisation'",
         "vélo . prix": "1000€",
       });
-      expect(engine.evaluate("aides . montpellier").nodeValue).toEqual(200);
+      expect(
+        engine.evaluate("aides . montpellier vae occasion").nodeValue
+      ).toEqual(200);
     });
 
     it("ne devrait pas être cumulable avec l'aide vélo adapté", () => {
@@ -340,10 +346,9 @@ describe("Aides Vélo", () => {
         "vélo . prix": "2000€",
       });
 
-      expect(engine.evaluate("aides . montpellier").nodeValue).toEqual(null);
       expect(
-        engine.evaluate("aides . montpellier vélo adapté").nodeValue
-      ).toEqual(500);
+        engine.evaluate("aides . montpellier vae occasion").nodeValue
+      ).toEqual(null);
       expect(
         engine.evaluate("aides . département hérault vélo adapté").nodeValue
       ).toEqual(1000);

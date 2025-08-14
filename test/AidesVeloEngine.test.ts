@@ -307,7 +307,7 @@ describe("AidesVeloEngine", () => {
           })
           .computeAides();
 
-        expect(aides).toHaveLength(3);
+        expect(aides).toHaveLength(2);
         expect(contain(aides, "aides . occitanie vélo adapté")).toBeTruthy();
         expect(
           contain(
@@ -317,7 +317,6 @@ describe("AidesVeloEngine", () => {
               description?.includes("Chèque Hérault Handi-Vélo")
           )
         ).toBeTruthy();
-        expect(contain(aides, "aides . montpellier vélo adapté")).toBeTruthy();
       });
 
       it("CA du Centre Littoral - vélo électrique", async () => {
