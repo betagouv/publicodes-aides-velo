@@ -55,8 +55,8 @@
 | CC          | CC du Val d'Amour                                       | 243900420 | ❌               | ❌        | ✅    |
 | CC          | CC Haut-Jura Arcade Communauté                          | 243900479 | ❔               | ❌        | ❌    |
 | CC          | CC Jura Nord                                            | 243900560 | ❌               | ❌        | ✅    |
-| CC          | CC la Grandvallière                                     | 243900610 | ❔               | ❌        | ❌    |
-| CC          | CC de la Plaine Jurassienne                             | 243901089 | ❔               | ❌        | ❌    |
+| CC          | CC la Grandvallière                                     | 243900610 | ❌               | ❌        | ✅    |
+| CC          | CC de la Plaine Jurassienne                             | 243901089 | ❌               | ❌        | ❌    |
 | Département | Nièvre                                                  | 58        | ❔               | ❌        | ❌    |
 | CC          | CC de Puisaye-Forterre                                  | 200067130 | ✅               | ✅        | ✅    |
 | CC          | CC Haut Nivernais - Val d'Yonne                         | 200067429 | ❔               | ❌        | ❌    |
