@@ -377,7 +377,7 @@ aides . saône-beaujolais:
       - sinon: 0€
   lien: http://www.ccsb-saonebeaujolais.fr/fr/information/10135/aide-achat-un-velo
 
-# NOTE: jusqu'au 31 décembre 2025
+# NOTE: jusqu'au 31 décembre 2026
 # TODO: test intégration sur le plafond
 aides . villefranche beaujolais saône:
   remplace: intercommunalité
@@ -4058,7 +4058,7 @@ aides . châtel:
   lien: https://www.mairie-chatel.com/Aide-Acquisition
   dernière mise à jour: 01/07/2025
 
-# NOTE: valide jusqu'au 31 décembre 2024, à vérifier en 2025
+# NOTE: valide jusqu'au 31 décembre 2025, à vérifier en 2026
 aides . le vigan:
   remplace: commune
   titre: Ville du Vigan
@@ -4068,7 +4068,7 @@ aides . le vigan:
     d'accorder une aide sous forme de subvention aux habitants de la ville qui
     feront l'ac-quisition d'un vélo à assistance électrique (VAE). Cette
     subvention est fixée à 200 euros maximum, sans condition de ressources, à
-    partir du 1er janvier 2024 jusqu'au 31 décembre 2024.
+    partir du 1er janvier 2025 jusqu'au 31 décembre 2025.
   applicable si:
     toutes ces conditions:
       - localisation . code insee = '30350'
@@ -4077,8 +4077,10 @@ aides . le vigan:
   valeur: 50% * vélo . prix
   plafond: 200€
   lien: https://www.levigan.fr/mes-demarches-administratives/velo-finance/
+  dernière mise à jour: 14/08/2025
+  date de fin: 31/12/2025
 
-# NOTE: pas d'information sur la fin de validité, à vérifier en 2025
+# NOTE: pas d'information sur la fin de validité, à vérifier en 2026
 aides . angers:
   remplace: intercommunalité
   titre: Angers Loire Métropole
@@ -4106,8 +4108,9 @@ aides . angers:
         alors: 50€
       - sinon: 0€
   lien: https://www.angersloiremetropole.fr/mon-quotidien/mobilites/velo/aide-a-l-achat-d-un-velo-neuf/index.html
+  dernière mise à jour: 14/08/2025
 
-# NOTE: valide jusqu'au 31 décembre 2024, à vérifier en 2025
+# NOTE: valide jusqu'au 31 décembre 2025, à vérifier en 2026
 aides . haut val de sèvre:
   remplace: intercommunalité
   titre: Communauté de communes Haut Val de Sèvre
@@ -4115,7 +4118,8 @@ aides . haut val de sèvre:
     Depuis 2022, la collectivité propose aux habitants une aide de 150€ pour
     l'achat d'un Vélo à Assistance Electrique (VAE).
 
-    Fin de validité le 31 décembre 2024.
+    Aide réservée aux vélos achetés moins de 6 mois à la date du dépôt de
+    dossier.
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'CC Haut Val de Sèvre'
@@ -4132,17 +4136,15 @@ aides . haut val de sèvre:
               - vélo . prix <= 2000 €
   valeur: 150€
   lien: https://cc-hautvaldesevre.fr/competences/environnement/mobilite/1558-aide-a-l-achat-d-un-velo-a-assistance-electrique.html
+  dernière mise à jour: 14/08/2025
 
-# NOTE: valide jusqu'au 31 décembre 2024, à vérifier en 2025
+# NOTE: valide jusqu'au 31 décembre 2025, à vérifier en 2026
 aides . anjou bleu:
   remplace: intercommunalité
   titre: Anjou Bleu Communauté
   description: >
     Anjou Bleu Communauté propose une aide à l'achat d'un vélo à assistance
     électrique neuf pour les habitant·es s de son territoire.
-
-
-    Fin de validité le 31 décembre 2024.
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'CC Anjou Bleu Communauté'
@@ -4157,9 +4159,10 @@ aides . anjou bleu:
   plafond: 
     variations:
       - si: vélo . cargo
-        alors: 200 €
-      - sinon: 100 €
-  lien: https://www.anjoubleucommunaute.fr/aide-a-lachat-de-velo-a-assistance-electrique/
+        alors: 400 €
+      - sinon: 200 €
+  lien: https://www.anjoubleucommunaute.fr/medias/2025/04/ABC-Aide-a-l-acquisition-de-VAE-reglement.pdf
+  dernière mise à jour: 14/08/2025
 
 # NOTE: relancé en 2025 
 aides . limoges metropole:
