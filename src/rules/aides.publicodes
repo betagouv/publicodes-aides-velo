@@ -4233,7 +4233,7 @@ aides . grand poitiers adapté:
   lien: https://www.grandpoitiers.fr/au-quotidien/deplacements/mobilite-inclusive-et-solidaire/savoir-prendre-le-bus-ou-faire-du-velo
   dernière mise à jour: 30/02/2025
 
-# NOTE: valide jusqu'au 31 décembre 2024, à vérifier en 2025
+# TODO: à vérifier en 2026
 aides . grand orb:
   remplace: intercommunalité
   titre: Grand Orb Communauté de communes
@@ -4244,7 +4244,7 @@ aides . grand orb:
     d'électrification (aide forfaitaire de 80 €).
 
 
-    Date limite de dépôt des dossiers : 10 janvier 2025.
+    Date limite de dépôt des dossiers : 10 janvier 2026.
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'CC Grand Orb Communauté de Communes en Languedoc'
@@ -4257,7 +4257,9 @@ aides . grand orb:
       - si: vélo . électrique
         alors: 100€
       - sinon: 80€
-  lien: https://www.grandorb.fr/phototheque_publique/PCAET/2024/02/convention-aide-achat-VAE-2024pdf.pdf
+  lien: https://www.grandorb.fr/Developpement-durable/Plan-Climat/Aide-a-l-achat-de-velos-electriques/5/7159.html
+  dernière mise à jour: 14/08/2025
+  date de fin: 10/01/2026
 
 aides . montlucon:
   remplace: intercommunalité
