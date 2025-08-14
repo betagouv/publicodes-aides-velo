@@ -3140,21 +3140,23 @@ aides . grand chambéry:
       type: booléen
       par défaut: oui
 
-# NOTE: valide pour 2024, à vérifier en 2025
+# NOTE: valide pour 2025, à vérifier en 2026
 aides . saint alban leysse:
   remplace: commune
   titre: Ville de Saint-Alban-Leysse
   description: >
     La commune de Saint-Alban-Leysse propose une aide de 200€ pour l'achat d'un
-    vélo à assistance électrique (VAE) neuf.
+    vélo à assistance électrique (VAE) dont le prix est compris entre 1200€ et
+    3400€.
   applicable si:
     toutes ces conditions:
       - localisation . code insee = '73222'
       - vélo . électrique
-      - vélo . prix >= 1500 €
-      - vélo . prix <= 3700 €
+      - vélo . prix >= 1200 €
+      - vélo . prix <= 3400 €
   valeur: 200€
   lien: https://www.saintalbanleysse.fr/toutes-les-actualites/200eur-daide-communale-pour-lachat-dun-velo-a-assistance-electrique-vae
+  dernière mise à jour: 14/08/2025
 
 # NOTE: info pour 2023, à vérifier en 2025
 aides . les crêtes préardennaises:
