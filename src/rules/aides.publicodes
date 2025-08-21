@@ -8998,3 +8998,21 @@ aides . cc coeur-de-savoie:
   lien: https://www.coeurdesavoie.fr/4051-se-deplacer-a-velo.htm
   dernière mise à jour: 28/07/2025
   date de fin: 31/03/2026
+
+aides . cc forcalquier lure:
+  remplace: intercommunalité
+  titre: Communauté de communes Pays de Forcalquier-Montagne de Lure
+  description: >
+    A compter du 1er juin 2024, la CCPFM propose un dispositif de
+    subventionnement intitulé « Ma prime vélo » destiné aux habitant·es du
+    territoire souhaitant acheter un vélo mécanique ou à assistance électrique
+    (neuf ou d’occasion) ou souhaitant faire installer un kit de conversion «
+    assistance électrique » pour vélo.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = "CC Pays Forcalquier et Montagne de Lure"
+      - demandeur . âge . majeur
+  valeur: 40% * vélo . prix
+  plafond: 500 €
+  lien: https://www.forcalquier-lure.com/actualites/ma-prime-velo
+  dernière mise à jour: 21/08/2025
