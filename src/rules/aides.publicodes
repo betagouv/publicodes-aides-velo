@@ -655,13 +655,17 @@ aides . blacé:
   dernière mise à jour: 14/08/2025
   date de fin: 31/12/2025
 
+# TODO: à relire en 2026
 aides . charlieu-belmont:
   remplace: commune
   titre: Charlieu-Belmont Communauté
   description: >
-    Aide à l'achat OU aide à la réparation de VAE et de vélos musculaires à
-    usage personnel, neufs ou occasions chez les réparateurs / garages
-    spécialisés au titre de l'exercice 2024.
+    Aide pour l'achat de VAE ou vélos musculaires, neufs ou d'occasion, achetés
+    auprès d'un vendeur de cycle ou un magasin spécialisé dans le sport.
+
+
+    La demande dispose de 60 jours pour transmettre son dossier complet après
+    facturation.
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'CC Charlieu-Belmont'
@@ -669,6 +673,7 @@ aides . charlieu-belmont:
   valeur: 20% * vélo . prix
   plafond: 100€
   lien: https://www.charlieubelmont.com/environnement/plan-climat-air-energie-territorial/mobilite/
+  dernière mise à jour: 22/08/2025
 
 aides . unieux:
   remplace: commune
@@ -7307,6 +7312,38 @@ aides . ceyrat:
         alors: 150€
       - sinon: 0€
   lien: https://www.ceyrat.fr/votre-commune/services-municipaux/aides-communales/
+  dernière mise à jour: 22/08/2025
+
+# NOTE: dépôt des demandes jusqu'au 31 octobre 2025, à vérifier en 2026
+aides . cébazat:
+  remplace: commune
+  titre: Ville de Cébazat
+  description: >
+    Afin de développer la pratique du vélo en ville et ainsi favoriser les
+    modes de déplacement doux, la Ville propose 4 aides à l'achat d'un vélo à
+    assistance électrique et le prêt de vélos à assistance électrique. Clôture
+    des demandes le 31 octobre 2025.
+  applicable si: 
+    toutes ces conditions:
+      - localisation . code insee = '63063'
+      - demandeur . âge . majeur
+      - une de ces conditions:
+          - vélo . électrique
+          - vélo . motorisation
+          - vélo . pliant
+  valeur:
+    variations:
+      - si: vélo . pliant
+        alors: 50€
+      - si: vélo . cargo
+        alors: 200€
+      - si: vélo . électrique
+        alors: 150€
+      - si: vélo . motorisation
+        alors: 100€
+  lien: https://www.cebazat.fr/actualites/plan-velo-communal-pret-aides-financieres-2/
+  dernière mise à jour: 22/08/2025
+  date de fin: 31/10/2025
 
 aides . baud:
   remplace: commune

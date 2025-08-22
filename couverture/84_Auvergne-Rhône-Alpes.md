@@ -101,30 +101,30 @@
 | CC          | CC du Massif du Vercors                              | 243801024 | ✅               | ✅        | ✅    |
 | CC          | CC de Bièvre Est                                     | 243801073 | ❌               | ❌        | 🤖    |
 | CC          | CC Collines Isère Nord Communauté                    | 243801255 | ❌               | ❌        | 🤖    |
-| Département | Loire                                                | 42        | ❌               | ❌        | 🤖    |
-| CC          | CC Charlieu-Belmont                                  | 200035202 | ✅               | ✅        | ❌    |
-| CA          | CA Roannais Agglomération                            | 200035731 | ❔               | ❌        | ❌    |
-| CA          | CA Loire Forez Agglomération (LFA)                   | 200065886 | ❔               | ❌        | ❌    |
-| CC          | CC de Forez-Est                                      | 200065894 | ❔               | ❌        | ❌    |
-| CC          | CC des Monts du Lyonnais                             | 200066587 | ❔               | ❌        | ❌    |
-| CC          | CC des Vals d'Aix et Isable                          | 244200614 | ❔               | ❌        | ❌    |
+| Département | Loire                                                | 42        | ✅               | ❌        | 🤖    |
+| CC          | CC Charlieu-Belmont                                  | 200035202 | ✅               | ✅        | ✅    |
+| CA          | CA Roannais Agglomération                            | 200035731 | ❌               | ❌        | ✅    |
+| CA          | CA Loire Forez Agglomération (LFA)                   | 200065886 | ❌               | ❌        | ✅    |
+| CC          | CC de Forez-Est                                      | 200065894 | ❌               | ❌        | ✅    |
+| CC          | CC des Monts du Lyonnais                             | 200066587 | ❌               | ❌        | ✅    |
+| CC          | CC des Vals d'Aix et Isable                          | 244200614 | ❌               | ❌        | ✅    |
 | CC          | CC des Monts du Pilat                                | 244200622 | ✅               | ✅        | ✅    |
-| CC          | CC du Pays Entre Loire et Rhône                      | 244200630 | ❔               | ❌        | ❌    |
+| CC          | CC du Pays Entre Loire et Rhône                      | 244200630 | ❌               | ❌        | ✅    |
 | METRO       | Saint-Étienne Métropole                              | 244200770 | ✅               | ✅        | ✅    |
-| CC          | CC du Pays d'Urfé                                    | 244200820 | ❔               | ❌        | ❌    |
-| CC          | CC du Pilat Rhodanien                                | 244200895 | ❔               | ❌        | ❌    |
-| Département | Haute-Loire                                          | 43        | ❔               | ❌        | ❌    |
-| CC          | CC des Rives du Haut Allier                          | 200073393 | ❔               | ❌        | ❌    |
-| CC          | CC Mézenc-Loire-Meygal                               | 200073401 | ❔               | ❌        | ❌    |
-| CA          | CA du Puy-en-Velay                                   | 200073419 | ❔               | ❌        | ❌    |
-| CC          | CC Marches du Velay-Rochebaron                       | 200073427 | ❔               | ❌        | ❌    |
-| CC          | CC Brioude Sud Auvergne                              | 200085728 | ❔               | ❌        | ❌    |
-| CC          | CC Haut Pays du Velay                                | 244300307 | ❔               | ❌        | ❌    |
-| CC          | CC des Sucs                                          | 244301016 | ❔               | ❌        | ❌    |
-| CC          | CC Auzon Communauté                                  | 244301099 | ❔               | ❌        | ❌    |
-| CC          | CC du Haut Lignon                                    | 244301107 | ❔               | ❌        | ❌    |
-| CC          | CC des Pays de Cayres et de Pradelles                | 244301123 | ❔               | ❌        | ❌    |
-| CC          | CC Loire et Semène                                   | 244301131 | ❔               | ❌        | ❌    |
+| CC          | CC du Pays d'Urfé                                    | 244200820 | ❌               | ❌        | ✅    |
+| CC          | CC du Pilat Rhodanien                                | 244200895 | ❌               | ❌        | ✅    |
+| Département | Haute-Loire                                          | 43        | ❌               | ❌        | 🤖    |
+| CC          | CC des Rives du Haut Allier                          | 200073393 | ❌               | ❌        | 🤖    |
+| CC          | CC Mézenc-Loire-Meygal                               | 200073401 | ❌               | ❌        | 🤖    |
+| CA          | CA du Puy-en-Velay                                   | 200073419 | ❌               | ❌        | 🤖    |
+| CC          | CC Marches du Velay-Rochebaron                       | 200073427 | ❌               | ❌        | 🤖    |
+| CC          | CC Brioude Sud Auvergne                              | 200085728 | ❌               | ❌        | 🤖    |
+| CC          | CC Haut Pays du Velay                                | 244300307 | ❌               | ❌        | 🤖    |
+| CC          | CC des Sucs                                          | 244301016 | ❌               | ❌        | 🤖    |
+| CC          | CC Auzon Communauté                                  | 244301099 | ❌               | ❌        | 🤖    |
+| CC          | CC du Haut Lignon                                    | 244301107 | ❌               | ❌        | 🤖    |
+| CC          | CC des Pays de Cayres et de Pradelles                | 244301123 | ❌               | ❌        | 🤖    |
+| CC          | CC Loire et Semène                                   | 244301131 | ❌               | ❌        | 🤖    |
 | Département | Puy-de-Dôme                                          | 63        | ❔               | ❌        | ❌    |
 | CC          | CC Billom Communauté                                 | 200067627 | ❔               | ❌        | ❌    |
 | CC          | CC Dômes Sancy Artense                               | 200069169 | ❔               | ❌        | ❌    |
@@ -137,7 +137,7 @@
 | CC          | CC Chavanon Combrailles et Volcans                   | 200071215 | ❔               | ❌        | ❌    |
 | CC          | CC du Pays de Saint-Eloy                             | 200072080 | ❔               | ❌        | ❌    |
 | CC          | CC Combrailles Sioule et Morge                       | 200072098 | ❔               | ❌        | ❌    |
-| METRO       | Clermont Auvergne Métropole                          | 246300701 | ❔               | ❌        | ❌    |
+| METRO       | Clermont Auvergne Métropole                          | 246300701 | ❌               | ❌        | ✅    |
 | CC          | CC du Massif du Sancy                                | 246300966 | ❔               | ❌        | ❌    |
 | CC          | CC Entre Dore et Allier                              | 246301097 | ❔               | ❌        | ❌    |
 | Département | Rhône                                                | 69        | ❔               | ❌        | ❌    |
