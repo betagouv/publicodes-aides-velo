@@ -23,15 +23,15 @@
 | CA          | CA de la Région Nazairienne et de l'Estuaire (CARENE)       | 244400644 | ❔               | ❌        | ❌    |
 | Département | Maine-et-Loire                                              | 49        | ❔               | ❌        | ❌    |
 | CA          | CA Mauges Communauté                                        | 200060010 | ✅               | ✅        | ✅    |
-| CC          | CC Anjou Loir et Sarthe                                     | 200068955 | ❔               | ❌        | ❌    |
+| CC          | CC Anjou Loir et Sarthe                                     | 200068955 | ❌               | ❌        | ✅    |
 | CC          | CC Loire Layon Aubance                                      | 200071553 | ✅               | ✅        | ✅    |
-| CA          | CA Cholet Agglomération                                     | 200071678 | ✅               | ✅        | ❌    |
-| CC          | CC des Vallées du Haut-Anjou                                | 200071868 | ❔               | ❌        | ❌    |
-| CA          | CA Saumur Val de Loire                                      | 200071876 | ✅               | ✅        | ❌    |
-| CC          | CC du Pays d'Ancenis                                        | 244400552 | ❔               | ❌        | ❌    |
-| CU          | CU Angers Loire Métropole                                   | 244900015 | ✅               | ✅        | ❌    |
-| CC          | CC Anjou Bleu Communauté                                    | 244900809 | ✅               | ✅        | ❌    |
-| CC          | CC Baugeois Vallée                                          | 244900882 | ❔               | ❌        | ❌    |
+| CA          | CA Cholet Agglomération                                     | 200071678 | ✅               | ✅        | ✅    |
+| CC          | CC des Vallées du Haut-Anjou                                | 200071868 | ❌               | ❌        | ✅    |
+| CA          | CA Saumur Val de Loire                                      | 200071876 | ✅               | ✅        | ✅    |
+| CC          | CC du Pays d'Ancenis                                        | 244400552 | ❌               | ❌        | ✅    |
+| CU          | CU Angers Loire Métropole                                   | 244900015 | ✅               | ✅        | ✅    |
+| CC          | CC Anjou Bleu Communauté                                    | 244900809 | ✅               | ✅        | ✅    |
+| CC          | CC Baugeois Vallée                                          | 244900882 | ❌               | ❌        | ✅    |
 | Département | Mayenne                                                     | 53        | ❔               | ❌        | ❌    |
 | CC          | CC des Coëvrons                                             | 200033298 | ❔               | ❌        | ❌    |
 | CC          | CC du Mont des Avaloirs                                     | 200042182 | ❔               | ❌        | ❌    |

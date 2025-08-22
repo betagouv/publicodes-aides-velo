@@ -5193,19 +5193,17 @@ aides . ca mauges communauté:
   lien: https://www.mooj.fr/mobilites-alternatives/modes-actifs/vae-aide-achat/
   dernière mise à jour: 22/08/2025
 
-
-
-# NOTE: valide jusqu'au 31 décembre 2024, à vérifier en 2025
+# NOTE: valide jusqu'au 31 octobre 2025, à vérifier en 2026
 aides . cholet:
   remplace: intercommunalité
   titre: Cholet Agglomération
   description: >
     Subvention pour l'achat d'un vélo neuf à assistance électrique. Le vélo
     devra être acheté auprès d'un revendeur professionnel partenaire de cette
-    opération et ayant signé une charte d'engagement avec Cholet Agglomération
+    opération et ayant signé une charte d'engagement avec Cholet Agglomération.
 
 
-    Fin de l'opération le 31 décembre 2024.
+    Fin de l'opération le 31 octobre 2025.
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'CA Cholet Agglomération'
@@ -5217,13 +5215,19 @@ aides . cholet:
   valeur: 25% * vélo . prix
   plafond: 250€
   lien: https://www.cholet.fr/dossiers/dossier_5364_aide+velo+assistance+electrique.html
+  dernière mise à jour: 22/08/2025
+  date de fin: 31/10/2025
 
 aides . saumur val de loire:
   remplace: intercommunalité
-  titre: Communauté d'Agglomération Saumur Val de Loire
+  titre: Saumur Val de Loire Agglomération
   description: >
     Aide à l'acquisition de vélo à assistance électrique neuf ou d'occasion à
     usage personnel.
+
+
+    La demande d'aide doit être effectuée dans les deux mois suivants
+    l'acquisition du vélo.
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'CA Saumur Val de Loire'
@@ -5233,6 +5237,7 @@ aides . saumur val de loire:
   valeur: 10% * vélo . prix
   plafond: 100€
   lien: https://www.saumurvaldeloire.fr/se-deplacer-a-velo
+  dernière mise à jour: 22/08/2025
 
 # NOTE: à vérifier en 2026
 aides . loire layon aubance:
