@@ -22,7 +22,7 @@
 | CA          | CA de la Presqu'île de Guérande Atlantique (Cap Atlantique) | 244400610 | ❔               | ❌        | ❌    |
 | CA          | CA de la Région Nazairienne et de l'Estuaire (CARENE)       | 244400644 | ❔               | ❌        | ❌    |
 | Département | Maine-et-Loire                                              | 49        | ❔               | ❌        | ❌    |
-| CA          | CA Mauges Communauté                                        | 200060010 | ❔               | ❌        | ❌    |
+| CA          | CA Mauges Communauté                                        | 200060010 | ✅               | ✅        | ✅    |
 | CC          | CC Anjou Loir et Sarthe                                     | 200068955 | ❔               | ❌        | ❌    |
 | CC          | CC Loire Layon Aubance                                      | 200071553 | ✅               | ✅        | ✅    |
 | CA          | CA Cholet Agglomération                                     | 200071678 | ✅               | ✅        | ❌    |

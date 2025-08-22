@@ -5149,6 +5149,7 @@ aides . la roche sur yon:
               alors: 100€
             - sinon: 50€
   lien: https://larochesuryon.fr/velo/
+  dernière mise à jour: 22/08/2025
   avec:
     salarié d'une structure membre du PDIE:
       type: booléen
@@ -5157,6 +5158,42 @@ aides . la roche sur yon:
         Êtes-vous salarié d'une structure membre du Plan de Déplacement
         inter-entreprises (PDIE) ?
       par défaut: non
+
+aides . ca mauges communauté:
+  remplace: intercommunalité
+  titre: Mauges Communauté
+  description: >
+    Aide pour l'achat d'un vélo à assistance électrique (neuf ou d'occasion)
+    depuis le 2 janvier 2020.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = "CA Mauges Communauté"
+      - demandeur . âge . majeur
+      - une de ces conditions:
+          - vélo . électrique
+          - vélo . motorisation
+  valeur:
+    variations:
+      - si: vélo . cargo
+        alors:
+          variations: 
+            - si:
+                toutes ces conditions:
+                  - vélo . cargo
+                  - une de ces conditions:
+                      - vélo . état . neuf
+                      - vélo . prix >= 1000 €
+              alors: 350 €
+      - si:
+          une de ces conditions:
+            - vélo . motorisation
+            - vélo . état . neuf
+            - vélo . prix >= 300 €
+        alors: 100 €
+  lien: https://www.mooj.fr/mobilites-alternatives/modes-actifs/vae-aide-achat/
+  dernière mise à jour: 22/08/2025
+
+
 
 # NOTE: valide jusqu'au 31 décembre 2024, à vérifier en 2025
 aides . cholet:
