@@ -1,5 +1,7 @@
 # Couverture des aides en Bourgogne-Franche-Comté (27)
 
+- 2025 : ✅
+
 | Echelle     | Nom                                                     | Code      | Possède une aide | Modélisée | Relue |
 | ----------- | ------------------------------------------------------- | --------- | ---------------- | --------- | ----- |
 | Région      | Bourgogne-Franche-Comté                                 | 27        | ❌               | ❌        | ✅    |
