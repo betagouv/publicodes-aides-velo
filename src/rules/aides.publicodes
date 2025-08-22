@@ -2783,8 +2783,9 @@ aides . aubiere:
   valeur: 150€
   plafond: vélo . prix
   lien: https://ville-aubiere.fr/2024/06/27/passez-au-velo-pedalez-branche/
+  dernière mise à jour: 22/08/2025
 
-# NOTE: info pour 2020, à vérifier en 2025
+# NOTE: info pour 2020, à vérifier en 2026
 aides . romagnat:
   remplace: commune
   titre: Ville de Romagnat
@@ -2798,6 +2799,38 @@ aides . romagnat:
       - vélo . électrique
   valeur: 100€
   lien: https://www.ville-romagnat.fr/cadre-de-vie-urbanisme/developpement-durable/velo-electrique/
+  dernière mise à jour: 22/08/2025
+
+aides . cc plaine limagne:
+  remplace: intercommunalité
+  titre: Communauté de communes Plaine Limagne
+  description: >
+    Aide pour l'achat d'un vélo à assitance électrique, d'un vélo cargo, d'un
+    vélo classique ou d'un kit d'électrification.
+
+
+    La demande doit être déposée dans un délais de 3 mois après l'achat du
+    vélo.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = "CC Plaine Limagne"
+      - demandeur . âge >= 14 an
+      - une de ces conditions:
+          - vélo . électrique
+          - vélo . motorisation
+          - vélo . cargo
+          - vélo . état . neuf
+  valeur: 
+    variations:
+      - si: vélo . motorisation
+        alors: 150 €
+      - si: vélo . mécanique
+        alors: 100 €
+      - si: vélo . état . neuf
+        alors: 200 €
+      - sinon: 150 €
+  lien: https://www.plainelimagne.com/mobilite/
+  dernière mise à jour: 22/08/2025
 
 # TODO: ont développé leur propre simulateur, leur partager le lien ?
 # NOTE: reconduite pour 2025, à vérifier en 2026
