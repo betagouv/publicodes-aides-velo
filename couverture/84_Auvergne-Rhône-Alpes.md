@@ -1,5 +1,7 @@
 # Couverture des aides en Auvergne-Rhône-Alpes (84)
 
+- 2025 : ✅
+
 | Echelle     | Nom                                                  | Code      | Possède une aide | Modélisée | Relue |
 | ----------- | ---------------------------------------------------- | --------- | ---------------- | --------- | ----- |
 | Région      | Auvergne-Rhône-Alpes                                 | 84        | ❌               | ❌        | 🤖    |
@@ -173,25 +175,25 @@
 | CC          | CC du Lac d'Aiguebelette (CCLA)                      | 247300668 | ❌               | ❌        | 🤖    |
 | CC          | CC Porte de Maurienne                                | 247300676 | ❌               | ❌        | 🤖    |
 | CC          | CC Les Versants d'Aime                               | 247300817 | ❌               | ❌        | 🤖    |
-| Département | Haute-Savoie                                         | 74        | ❔               | ❌        | ❌    |
-| CC          | CC Faucigny - Glières                                | 200000172 | ❔               | ❌        | ❌    |
-| CA          | CA Annemasse-Les Voirons-Agglomération               | 200011773 | ❔               | ❌        | ❌    |
-| CC          | CC de la Vallée de Chamonix-Mont-Blanc               | 200023372 | ❔               | ❌        | ❌    |
+| Département | Haute-Savoie                                         | 74        | ❌               | ❌        | 🤖    |
+| CC          | CC Faucigny - Glières                                | 200000172 | ❌               | ❌        | 🤖    |
+| CA          | CA Annemasse-Les Voirons-Agglomération               | 200011773 | ❌               | ❌        | 🤖    |
+| CC          | CC de la Vallée de Chamonix-Mont-Blanc               | 200023372 | ❌               | ❌        | 🤖    |
 | CC          | CC Cluses-Arve et Montagnes                          | 200033116 | ✅               | ✅        | ✅    |
-| CC          | CC des Montagnes du Giffre                           | 200034098 | ❔               | ❌        | ❌    |
-| CC          | CC Pays du Mont-Blanc                                | 200034882 | ❔               | ❌        | ❌    |
-| CA          | CA du Grand Annecy                                   | 200066793 | ❔               | ❌        | ❌    |
-| CA          | CA Thonon Agglomération                              | 200067551 | ❔               | ❌        | ❌    |
-| CC          | CC Usses et Rhône                                    | 200070852 | ❔               | ❌        | ❌    |
-| CC          | CC Pays d'Evian Vallée d'Abondance                   | 200071967 | ❔               | ❌        | ❌    |
-| CC          | CC de la Vallée Verte                                | 247400047 | ❔               | ❌        | ❌    |
+| CC          | CC des Montagnes du Giffre                           | 200034098 | ❌               | ❌        | 🤖    |
+| CC          | CC Pays du Mont-Blanc                                | 200034882 | ❌               | ❌        | 🤖    |
+| CA          | CA du Grand Annecy                                   | 200066793 | ❌               | ❌        | 🤖    |
+| CA          | CA Thonon Agglomération                              | 200067551 | ❌               | ❌        | 🤖    |
+| CC          | CC Usses et Rhône                                    | 200070852 | ❌               | ❌        | 🤖    |
+| CC          | CC Pays d'Evian Vallée d'Abondance                   | 200071967 | ❌               | ❌        | 🤖    |
+| CC          | CC de la Vallée Verte                                | 247400047 | ❌               | ❌        | 🤖    |
 | CC          | CC du Pays de Cruseilles                             | 247400112 | ✅               | ✅        | ✅    |
 | CC          | CC Fier et Usses                                     | 247400567 | ✅               | ✅        | ✅    |
-| CC          | CC Arve et Salève                                    | 247400583 | ❔               | ❌        | ❌    |
-| CC          | CC des Vallées de Thônes                             | 247400617 | ❔               | ❌        | ❌    |
-| CC          | CC des Quatre Rivières                               | 247400666 | ❔               | ❌        | ❌    |
-| CC          | CC du Haut Chablais                                  | 247400682 | ❔               | ❌        | ❌    |
+| CC          | CC Arve et Salève                                    | 247400583 | ❌               | ❌        | 🤖    |
+| CC          | CC des Vallées de Thônes                             | 247400617 | ❌               | ❌        | 🤖    |
+| CC          | CC des Quatre Rivières                               | 247400666 | ❌               | ❌        | 🤖    |
+| CC          | CC du Haut Chablais                                  | 247400682 | ❌               | ❌        | 🤖    |
 | CC          | CC du Genevois                                       | 247400690 | ✅               | ✅        | ✅    |
-| CC          | CC du Pays Rochois                                   | 247400724 | ❔               | ❌        | ❌    |
-| CC          | CC Rumilly Terre de Savoie                           | 247400740 | ❔               | ❌        | ❌    |
-| CC          | CC des Sources du Lac d'Annecy                       | 247400773 | ❔               | ❌        | ❌    |
+| CC          | CC du Pays Rochois                                   | 247400724 | ❌               | ❌        | 🤖    |
+| CC          | CC Rumilly Terre de Savoie                           | 247400740 | ❌               | ❌        | 🤖    |
+| CC          | CC des Sources du Lac d'Annecy                       | 247400773 | ❌               | ❌        | 🤖    |
