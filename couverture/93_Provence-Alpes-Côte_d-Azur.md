@@ -15,7 +15,7 @@
 | CC          | CC Haute-Provence - Pays de Banon               | 200071025 | ❌               | ❌        | ✅    |
 | CC          | CC Jabron-Lure-Vançon-Durance                   | 200071033 | ❌               | ❌        | ✅    |
 | CC          | CC Vallée de l'Ubaye - Serre-Ponçon             | 200072304 | ❌               | ❌        | ✅    |
-| CC          | CC Pays Forcalquier et Montagne de Lure         | 240400440 | 🕒               | ❌        | ✅    |
+| CC          | CC Pays Forcalquier et Montagne de Lure         | 240400440 | ✅               | ✅        | ✅    |
 | Département | Hautes-Alpes                                    | 05        | ❌               | ❌        | 🤖    |
 | CC          | CC Serre-Ponçon Val d'Avance                    | 200067320 | ❌               | ❌        | 🤖    |
 | CC          | CC Buëch-Dévoluy                                | 200067445 | ❌               | ❌        | 🤖    |
