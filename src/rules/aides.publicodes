@@ -4029,30 +4029,37 @@ aides . reims:
   dernière mise à jour: 14/08/2025
   date de fin: 31/10/2025
 
-# NOTE: valide pour 2024, à vérifier en 2025
+# TODO: à vérifier en 2026
 aides . genevois:
   remplace: intercommunalité
   titre: Communauté de communes du Genevois
   description: >
-    La CCG plafonne ce dispositif d'aide à l'achat de VAE à 125 unités (soit
-    une enveloppe budgétaire de 25 000€ à charge de la collectivité). Elle
-    attribue une aide de 200€ maximum pour l'achat d'un VAE, vélo dit "cargo",
-    "rallongé" ou "pliable doté d'une batterie sans plomb.
+    Une enveloppe de 25 000 € est attribué chaque année. L’aide est de 25% du
+    prix d’achat, plafonnée en fonction du type de vélo.
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'CC du Genevois'
       - demandeur . âge . majeur
-      - une de ces conditions:
-          - vélo . pliant électrique
-          - toutes ces conditions:
-              - vélo . cargo électrique
-              - vélo . prix <= 6000€
-          - toutes ces conditions:
-              - vélo . électrique
-              - vélo . prix <= 4000€
-  valeur: vélo . prix
-  plafond: 200€
+  valeur: 25% * vélo . prix
+  plafond: 
+    variations:
+      - si:
+          une de ces conditions:
+            - vélo . cargo
+            - vélo . adapté
+        alors: 500 €
+      - si: 
+          toutes ces conditions:
+            - vélo . mécanique
+            - vélo . prix <= 1500 €
+        alors: 100 €
+      - si: 
+          toutes ces conditions:
+            - vélo . électrique
+            - vélo . prix <= 4000 €
+        alors: 200 €
   lien: https://www.cc-genevois.fr/fr/vie-pratique-et-services/vous-deplacer/velo-ou-pied
+  dernière mise à jour: 22/08/2025
 
 # TODO:  à vérifier en 2026
 aides . cluses arve et montagnes:

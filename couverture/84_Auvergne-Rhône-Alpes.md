@@ -191,7 +191,7 @@
 | CC          | CC des Vallées de Thônes                             | 247400617 | ❔               | ❌        | ❌    |
 | CC          | CC des Quatre Rivières                               | 247400666 | ❔               | ❌        | ❌    |
 | CC          | CC du Haut Chablais                                  | 247400682 | ❔               | ❌        | ❌    |
-| CC          | CC du Genevois                                       | 247400690 | ✅               | ✅        | ❌    |
+| CC          | CC du Genevois                                       | 247400690 | ✅               | ✅        | ✅    |
 | CC          | CC du Pays Rochois                                   | 247400724 | ❔               | ❌        | ❌    |
 | CC          | CC Rumilly Terre de Savoie                           | 247400740 | ❔               | ❌        | ❌    |
 | CC          | CC des Sources du Lac d'Annecy                       | 247400773 | ❔               | ❌        | ❌    |
