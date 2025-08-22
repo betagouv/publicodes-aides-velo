@@ -1534,3 +1534,20 @@ aides . castelnau de médoc:
   plafond: vélo . prix
   lien: https://www.mairie-castelnau-medoc.fr/actus/1557-aide-a-l-acquisition-de-velos
 
+
+# NOTE: plus référencée sur le site
+aides . aix les bains:
+  remplace: commune
+  titre: Ville d'Aix-les-Bains
+  description: >
+    La Ville d'Aix-les-Bains propose une aide financière à hauteur de 10 % du
+    montant TTC du vélo, dans la limite de 250 € et des crédits disponibles.
+  applicable si:
+    toutes ces conditions:
+      - localisation . code insee = '73008'
+      - vélo . électrique
+      - vélo . état . neuf
+  valeur: 10% * vélo . prix
+  plafond: 250€
+  lien: https://www.aixlesbains.fr/Cadre-de-vie/Transports-et-deplacements/A-velo/Aides-financieres-pour-se-deplacer-a-velo
+  dernière mise à jour: 22/08/2025
