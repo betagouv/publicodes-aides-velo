@@ -149,21 +149,21 @@
 | CC          | CC Saône-Beaujolais                                  | 200067817 | ✅               | ✅        | ✅    |
 | CA          | CA Vienne Condrieu                                   | 200077014 | ✅               | ✅        | ✅    |
 | CC          | CC de l'Est Lyonnais (CCEL)                          | 246900575 | ❌               | ❌        | ✅    |
-| CC          | CC du Pays de l'Arbresle (CCPA)                      | 246900625 | ❔               | ❌        | ❌    |
-| CC          | CC des Vallons du Lyonnais (CCVL)                    | 246900724 | ✅               | ✅        | ❌    |
+| CC          | CC du Pays de l'Arbresle (CCPA)                      | 246900625 | ✅               | ✅        | ✅    |
+| CC          | CC des Vallons du Lyonnais (CCVL)                    | 246900724 | ✅               | ✅        | ✅    |
 | CC          | CC du Pays Mornantais (COPAMO)                       | 246900740 | ✅               | ✅        | ❌    |
-| CC          | CC de la Vallée du Garon (CCVG)                      | 246900757 | ❔               | ❌        | ❌    |
-| CC          | CC du Pays de l'Ozon                                 | 246900765 | ✅               | ✅        | ❌    |
+| CC          | CC de la Vallée du Garon (CCVG)                      | 246900757 | ❌               | ❌        | ✅    |
+| CC          | CC du Pays de l'Ozon                                 | 246900765 | ✅               | ✅        | ✅    |
 | Département | Savoie                                               | 73        | ❔               | ❌        | ❌    |
 | CC          | CC Coeur de Tarentaise                               | 200023299 | ❔               | ❌        | ❌    |
 | CC          | CC Coeur de Chartreuse                               | 200040111 | ❔               | ❌        | ❌    |
 | CC          | CC Val Vanoise                                       | 200040798 | ❔               | ❌        | ❌    |
-| CC          | CC Coeur de Savoie                                   | 200041010 | ✅               | ✅        | ❌    |
+| CC          | CC Coeur de Savoie                                   | 200041010 | ✅               | ✅        | ✅    |
 | CA          | CA Grand Lac                                         | 200068674 | ❔               | ❌        | ❌    |
 | CA          | CA Arlysère                                          | 200068997 | ❔               | ❌        | ❌    |
 | CA          | CA du Grand Chambéry                                 | 200069110 | ✅               | ✅        | ✅    |
 | CC          | CC Haute Maurienne Vanoise                           | 200070340 | ❔               | ❌        | ❌    |
-| CC          | CC Coeur de Maurienne Arvan                          | 200070464 | ✅               | ✅        | ❌    |
+| CC          | CC Coeur de Maurienne Arvan                          | 200070464 | ✅               | ✅        | ✅    |
 | CC          | CC des Vallées d'Aigueblanche                        | 247300015 | ❔               | ❌        | ❌    |
 | CC          | CC de Haute-Tarentaise                               | 247300254 | ❔               | ❌        | ❌    |
 | CC          | CC de Yenne                                          | 247300262 | ❔               | ❌        | ❌    |
