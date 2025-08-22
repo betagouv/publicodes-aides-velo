@@ -133,7 +133,7 @@
 | CC          | CC Thiers Dore et Montagne                           | 200070712 | ❔               | ❌        | ❌    |
 | CA          | CA Riom Limagne et Volcans                           | 200070753 | ❔               | ❌        | ❌    |
 | CC          | CC Ambert Livradois Forez                            | 200070761 | ❔               | ❌        | ❌    |
-| CC          | CC Plaine Limagne                                    | 200071199 | ❔               | ❌        | ❌    |
+| CC          | CC Plaine Limagne                                    | 200071199 | ✅               | ✅        | ✅    |
 | CC          | CC Chavanon Combrailles et Volcans                   | 200071215 | ❔               | ❌        | ❌    |
 | CC          | CC du Pays de Saint-Eloy                             | 200072080 | ❔               | ❌        | ❌    |
 | CC          | CC Combrailles Sioule et Morge                       | 200072098 | ❔               | ❌        | ❌    |
