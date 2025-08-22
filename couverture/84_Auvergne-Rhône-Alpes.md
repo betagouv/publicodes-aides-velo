@@ -185,8 +185,8 @@
 | CC          | CC Usses et Rhône                                    | 200070852 | ❔               | ❌        | ❌    |
 | CC          | CC Pays d'Evian Vallée d'Abondance                   | 200071967 | ❔               | ❌        | ❌    |
 | CC          | CC de la Vallée Verte                                | 247400047 | ❔               | ❌        | ❌    |
-| CC          | CC du Pays de Cruseilles                             | 247400112 | ✅               | ✅        | ❌    |
-| CC          | CC Fier et Usses                                     | 247400567 | ✅               | ✅        | ❌    |
+| CC          | CC du Pays de Cruseilles                             | 247400112 | ✅               | ✅        | ✅    |
+| CC          | CC Fier et Usses                                     | 247400567 | ✅               | ✅        | ✅    |
 | CC          | CC Arve et Salève                                    | 247400583 | ❔               | ❌        | ❌    |
 | CC          | CC des Vallées de Thônes                             | 247400617 | ❔               | ❌        | ❌    |
 | CC          | CC des Quatre Rivières                               | 247400666 | ❔               | ❌        | ❌    |
