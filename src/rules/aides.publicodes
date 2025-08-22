@@ -3056,7 +3056,7 @@ aides . lescar:
             alors: 100€
   lien: https://www.lescar.fr/information-transversale/fil-infos/mise-en-place-dune-aide-pour-lacquisition-dun-velo-pour-les-lescariens-1140
 
-# NOTE: pas d'information sur la durée de validité, à vérifier en 2025
+# TODO: pas d'information sur la durée de validité, à vérifier en 2026
 aides . vallée d'ossau:
   remplace: intercommunalité
   titre: Vallée d'Ossau communauté de communes
@@ -3074,6 +3074,7 @@ aides . vallée d'ossau:
   valeur: 20% * vélo . prix
   plafond: 200€
   lien: https://cc-ossau.fr/aide-a-lachat-dun-vae/
+  dernière mise à jour: 22/08/2025
 
 # TODO: relire en 2026
 aides . coeur de maurienne arvan:
@@ -4053,7 +4054,7 @@ aides . genevois:
   plafond: 200€
   lien: https://www.cc-genevois.fr/fr/vie-pratique-et-services/vous-deplacer/velo-ou-pied
 
-# NOTE: limite de budget, à vérifier en 2025
+# TODO:  à vérifier en 2026
 aides . cluses arve et montagnes:
   remplace: intercommunalité
   titre: Communauté de communes Cluses Arve & montagnes
@@ -4104,6 +4105,7 @@ aides . cluses arve et montagnes:
         plafond: 400€
   plafond: 80% * vélo . prix
   lien: https://www.2ccam.fr/2023/06/09/prime-velo/
+  dernière mise à jour: 22/08/2025
   avec:
     participation employeur:
       type: nombre
@@ -7801,69 +7803,76 @@ aides . pays de cruseilles:
   remplace: intercommunalité
   titre: Pays de Cruseilles
   description: >
-    Prime Achat Vélo. A noter qu'un bonus de 300€ est accordé pour l'adaptation
-    d'un vélo pour les personnes à mobilité réduite.
-  applicable si: localisation . epci = 'CC du Pays de Cruseilles'
+    Prime Achat Vélo. Aide éligible pour les vélos achetés à partir du 1er
+    janvier 2025.
+  applicable si: 
+    toutes ces conditions:
+      - localisation . epci = 'CC du Pays de Cruseilles'
+      - demandeur . âge . majeur
   valeur:
     variations:
-      - si:
-          toutes ces conditions:
-            - vélo . cargo électrique
-            - vélo . prix >= 1000€
-            - vélo . prix <= 4500€
+      - si: vélo . adapté
         alors:
           variations:
-            - si: revenu fiscal de référence par part <= 7100€/an
-              alors: 700€
-            - si: revenu fiscal de référence par part <= 15400€/an
-              alors: 600€
-            - si: revenu fiscal de référence par part <= 20000€/an
-              alors: 400€
-            - sinon: 0€
-      - si:
-          toutes ces conditions:
-            - vélo . cargo
-            - vélo . prix >= 1000€
-            - vélo . prix <= 3000€
+            - si: revenu fiscal de référence par part <= 7100 €/an
+              alors: 1000 €
+            - si: revenu fiscal de référence par part <= 15400 €/an
+              alors: 900 €
+            - si: revenu fiscal de référence par part <= 30000 €/an
+              alors: 700 €
+            - si: revenu fiscal de référence par part <= 40000 €/an
+              alors: 500 €
+            - sinon: 0 €
+      - si: vélo . cargo électrique
         alors:
           variations:
-            - si: revenu fiscal de référence par part <= 7100€/an
-              alors: 400€
-            - si: revenu fiscal de référence par part <= 15400€/an
-              alors: 300€
-            - si: revenu fiscal de référence par part <= 20000€/an
-              alors: 200€
-            - sinon: 0€
-      - si:
-          toutes ces conditions:
-            - vélo . électrique
-            - vélo . prix >= 600€
-            - vélo . prix <= 3000€
+            - si: revenu fiscal de référence par part <= 7100 €/an
+              alors: 700 €
+            - si: revenu fiscal de référence par part <= 15400 €/an
+              alors: 600 €
+            - si: revenu fiscal de référence par part <= 30000 €/an
+              alors: 400 €
+            - si: revenu fiscal de référence par part <= 40000 €/an
+              alors: 200 €
+            - sinon: 0 €
+      - si: vélo . cargo
         alors:
           variations:
-            - si: revenu fiscal de référence par part <= 7100€/an
-              alors: 400€
-            - si: revenu fiscal de référence par part <= 15400€/an
-              alors: 300€
-            - si: revenu fiscal de référence par part <= 20000€/an
-              alors: 200€
-            - sinon: 0€
-      - si:
-          toutes ces conditions:
-            - vélo . mécanique
-            - vélo . prix >= 400€
-            - vélo . prix <= 1200€
+            - si: revenu fiscal de référence par part <= 7100 €/an
+              alors: 400 €
+            - si: revenu fiscal de référence par part <= 15400 €/an
+              alors: 300 €
+            - si: revenu fiscal de référence par part <= 30000 €/an
+              alors: 200 €
+            - si: revenu fiscal de référence par part <= 40000 €/an
+              alors: 100 €
+            - sinon: 0 €
+      - si: vélo . électrique
         alors:
           variations:
-            - si: revenu fiscal de référence par part <= 7100€/an
-              alors: 200€
-            - si: revenu fiscal de référence par part <= 15400€/an
-              alors: 150€
-            - si: revenu fiscal de référence par part <= 20000€/an
-              alors: 100€
-            - sinon: 0€
-      - sinon: 0€
+            - si: revenu fiscal de référence par part <= 7100 €/an
+              alors: 400 €
+            - si: revenu fiscal de référence par part <= 15400 €/an
+              alors: 300 €
+            - si: revenu fiscal de référence par part <= 30000 €/an
+              alors: 200 €
+            - si: revenu fiscal de référence par part <= 40000 €/an
+              alors: 100 €
+            - sinon: 0 €
+      - si: vélo . mécanique
+        alors:
+          variations:
+            - si: revenu fiscal de référence par part <= 7100 €/an
+              alors: 200 €
+            - si: revenu fiscal de référence par part <= 15400 €/an
+              alors: 150 €
+            - si: revenu fiscal de référence par part <= 30000 €/an
+              alors: 100 €
+            - sinon: 0 €
+      - sinon: 0 €
+  plancher: 50 €
   lien: https://ccpaysdecruseilles.org/vivre-ici/mobilite/prime-achat-velo/
+  dernière mise à jour: 22/08/2025
 
 aides . tulle:
   remplace: intercommunalité
