@@ -7753,6 +7753,7 @@ aides . perpignan métropole:
       - sinon: 250€
   lien: https://aide-velo.perpignan-mediterranee.org/
 
+# TODO: à vérifier en 2026
 aides . fier et usses:
   remplace: intercommunalité
   titre: Communauté de communes Fier et Usses
@@ -7760,35 +7761,42 @@ aides . fier et usses:
   applicable si: 
     toutes ces conditions:
       - localisation . epci = 'CC Fier et Usses'
+      - demandeur . âge . majeur
       - revenu fiscal de référence par part <= 30000 €/an
   valeur:
     variations:
-      - si: revenu fiscal de référence par part <= 14089€/an
+      - si: revenu fiscal de référence par part <= 15400 €/an
         alors:
           variations:
+            - si: vélo . adapté
+              alors: 600 €
             - si: vélo . cargo électrique
-              alors: 600€
+              alors: 600 €
             - si: vélo . électrique
-              alors: 400€
+              alors: 400 €
             - si: vélo . mécanique
-              alors: 150€
+              alors: 150 €
             - si: vélo . motorisation
-              alors: 200€
-            - sinon: 0€
-      - si: revenu fiscal de référence par part <= 23000€/an
+              alors: 200 €
+            - sinon: 0 €
+      - si: revenu fiscal de référence par part <= 23000 €/an
         alors:
           variations:
+            - si: vélo . adapté
+              alors: 500 €
             - si: vélo . cargo électrique
-              alors: 500€
+              alors: 500 €
             - si: vélo . électrique
-              alors: 300€
+              alors: 300 €
             - si: vélo . mécanique
-              alors: 100€
+              alors: 100 €
             - si: vélo . motorisation
-              alors: 150€
-            - sinon: 0€
+              alors: 150 €
+            - sinon: 0 €
       - sinon:
           variations:
+            - si: vélo . adapté
+              alors: 400€
             - si: vélo . cargo électrique
               alors: 400€
             - si: vélo . électrique
@@ -7798,6 +7806,7 @@ aides . fier et usses:
             - sinon: 0€
   plafond: 50% * vélo . prix
   lien: https://www.fier-et-usses.com/actualite/18078/2048-aide-a-l-achat-velo.htm
+  dernière mise à jour: 22/08/2025
 
 aides . pays de cruseilles:
   remplace: intercommunalité
