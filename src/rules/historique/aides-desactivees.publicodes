@@ -849,34 +849,6 @@ aides . coeur de nacre:
   lien: https://www.courseulles-sur-mer.com/aide-a-lacquisition-dun-velo-a-assistance-electrique-vae/
   dernière mise à jour: 20/02/2025
 
-# NOTE: dépôt des demandes jusqu'au 31 octobre 2024, à vérifier en 2025
-aides . cébazat:
-  remplace: commune
-  titre: Ville de Cébazat
-  description: >
-    Afin de développer la pratique du vélo en ville et ainsi favoriser les
-    modes de déplacement doux, la Ville propose 3 aides à l'achat d'un vélo à
-    assistance électrique et le prêt de vélos à assistance électrique. Clôture
-    des demandes le 31 octobre 2024.
-  applicable si: 
-    toutes ces conditions:
-      - localisation . code insee = '63063'
-      - demandeur . âge . majeur
-      - une de ces conditions:
-          - vélo . électrique
-          - vélo . motorisation
-          - vélo . pliant
-  valeur:
-    variations:
-      - si: vélo . pliant
-        alors: 50€
-      - si: vélo . électrique
-        alors: 150€
-      - si: vélo . motorisation
-        alors: 100€
-  lien: https://www.cebazat.fr/actualites/plan-velo-communal-pret-aides-financieres-2/
-  dernière mise à jour: 20/02/2025
-
 # NOTE: valide jusqu'au 30 novembre 2024, à vérifier en 2025
 aides . arve salève:
   remplace: intercommunalité
