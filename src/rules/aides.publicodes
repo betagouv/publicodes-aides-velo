@@ -444,6 +444,7 @@ aides . villefranche beaujolais saône:
       valeur: vélo . prix - (aides . état + aides . département + aides . région + aides . commune)
       plancher: 0€
   dernière mise à jour: 14/08/2025
+  date de fin: 31/12/2025
 
 aides . ville-sur-jarnioux:
   remplace: commune
@@ -2125,6 +2126,31 @@ aides . vienne condrieu:
       - vélo . état . neuf
   valeur: 150€
   lien: https://www.vienne-condrieu-agglomeration.fr/nos-services-au-quotidien/deplacements/faire-du-velo/aide-financiere-vae/
+  dernière mise à jour: 22/08/2025
+
+# NOTE: valable depuis 2023 jusqu'à abrogation, à vérifier en 2025
+# NOTE: plus référencée depuis le site en janvier 2025.
+aides . pays de l'arbresle:
+  remplace: intercommunalité
+  titre: Communauté de Communes du Pays de L'Arbresle
+  description: >
+    La Communauté de Communes du Pays de L'Arbresle subventionne jusqu'à par
+    foyer pour l'achat d'un Vélo à Assistance Electrique (VAE), un vélo spécial
+    (vélo cargo, vélo rallongé, vélo adapté à un handicap) ou un kit
+    d'électrification, qu'il soit neuf ou d'occasion.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = "CC du Pays de l'Arbresle (CCPA)"
+      - une de ces conditions:
+          - vélo . cargo
+          - vélo . adapté
+          - vélo . motorisation
+          - toutes ces conditions:
+              - vélo . électrique
+              - vélo . prix <= 3000€
+  valeur: 50% * vélo . prix
+  plafond: 250€
+  lien: https://www.paysdelarbresle.fr/aide-a-lachat-dun-velo-a-assistance-electrique/
   dernière mise à jour: 22/08/2025
 
 aides . pont-de-beauvoisin:

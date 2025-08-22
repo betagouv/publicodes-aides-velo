@@ -125,30 +125,30 @@
 | CC          | CC du Haut Lignon                                    | 244301107 | ❌               | ❌        | 🤖    |
 | CC          | CC des Pays de Cayres et de Pradelles                | 244301123 | ❌               | ❌        | 🤖    |
 | CC          | CC Loire et Semène                                   | 244301131 | ❌               | ❌        | 🤖    |
-| Département | Puy-de-Dôme                                          | 63        | ❔               | ❌        | ❌    |
-| CC          | CC Billom Communauté                                 | 200067627 | ❔               | ❌        | ❌    |
-| CC          | CC Dômes Sancy Artense                               | 200069169 | ❔               | ❌        | ❌    |
-| CC          | CC Mond'Arverne Communauté                           | 200069177 | ❔               | ❌        | ❌    |
-| CA          | CA Agglo Pays d'Issoire                              | 200070407 | ❔               | ❌        | ❌    |
-| CC          | CC Thiers Dore et Montagne                           | 200070712 | ❔               | ❌        | ❌    |
-| CA          | CA Riom Limagne et Volcans                           | 200070753 | ❔               | ❌        | ❌    |
-| CC          | CC Ambert Livradois Forez                            | 200070761 | ❔               | ❌        | ❌    |
+| Département | Puy-de-Dôme                                          | 63        | ❌               | ❌        | 🤖    |
+| CC          | CC Billom Communauté                                 | 200067627 | ❌               | ❌        | 🤖    |
+| CC          | CC Dômes Sancy Artense                               | 200069169 | ❌               | ❌        | 🤖    |
+| CC          | CC Mond'Arverne Communauté                           | 200069177 | ❌               | ❌        | 🤖    |
+| CA          | CA Agglo Pays d'Issoire                              | 200070407 | ❌               | ❌        | 🤖    |
+| CC          | CC Thiers Dore et Montagne                           | 200070712 | ❌               | ❌        | 🤖    |
+| CA          | CA Riom Limagne et Volcans                           | 200070753 | ❌               | ❌        | 🤖    |
+| CC          | CC Ambert Livradois Forez                            | 200070761 | ❌               | ❌        | 🤖    |
 | CC          | CC Plaine Limagne                                    | 200071199 | ✅               | ✅        | ✅    |
-| CC          | CC Chavanon Combrailles et Volcans                   | 200071215 | ❔               | ❌        | ❌    |
-| CC          | CC du Pays de Saint-Eloy                             | 200072080 | ❔               | ❌        | ❌    |
-| CC          | CC Combrailles Sioule et Morge                       | 200072098 | ❔               | ❌        | ❌    |
+| CC          | CC Chavanon Combrailles et Volcans                   | 200071215 | ❌               | ❌        | 🤖    |
+| CC          | CC du Pays de Saint-Eloy                             | 200072080 | ❌               | ❌        | 🤖    |
+| CC          | CC Combrailles Sioule et Morge                       | 200072098 | ❌               | ❌        | 🤖    |
 | METRO       | Clermont Auvergne Métropole                          | 246300701 | ❌               | ❌        | ✅    |
-| CC          | CC du Massif du Sancy                                | 246300966 | ❔               | ❌        | ❌    |
-| CC          | CC Entre Dore et Allier                              | 246301097 | ❔               | ❌        | ❌    |
+| CC          | CC du Massif du Sancy                                | 246300966 | ❌               | ❌        | 🤖    |
+| CC          | CC Entre Dore et Allier                              | 246301097 | ❌               | ❌        | 🤖    |
 | Département | Rhône                                                | 69        | ❔               | ❌        | ❌    |
 | CA          | CA de l'Ouest Rhodanien                              | 200040566 | ❔               | ❌        | ❌    |
 | CC          | CC Beaujolais Pierres Dorées                         | 200040574 | ❔               | ❌        | ❌    |
-| CA          | CA Villefranche Beaujolais Saône                     | 200040590 | ✅               | ✅        | ❌    |
-| MET69       | Métropole de Lyon                                    | 200046977 | ✅               | ✅        | ❌    |
-| CC          | CC des Monts du Lyonnais                             | 200066587 | ❔               | ❌        | ❌    |
-| CC          | CC Saône-Beaujolais                                  | 200067817 | ✅               | ✅        | ❌    |
-| CA          | CA Vienne Condrieu                                   | 200077014 | ✅               | ✅        | ❌    |
-| CC          | CC de l'Est Lyonnais (CCEL)                          | 246900575 | ❔               | ❌        | ❌    |
+| CA          | CA Villefranche Beaujolais Saône                     | 200040590 | ✅               | ✅        | ✅    |
+| MET69       | Métropole de Lyon                                    | 200046977 | ✅               | ✅        | ✅    |
+| CC          | CC des Monts du Lyonnais                             | 200066587 | ❌               | ❌        | ✅    |
+| CC          | CC Saône-Beaujolais                                  | 200067817 | ✅               | ✅        | ✅    |
+| CA          | CA Vienne Condrieu                                   | 200077014 | ✅               | ✅        | ✅    |
+| CC          | CC de l'Est Lyonnais (CCEL)                          | 246900575 | ❌               | ❌        | ✅    |
 | CC          | CC du Pays de l'Arbresle (CCPA)                      | 246900625 | ❔               | ❌        | ❌    |
 | CC          | CC des Vallons du Lyonnais (CCVL)                    | 246900724 | ✅               | ✅        | ❌    |
 | CC          | CC du Pays Mornantais (COPAMO)                       | 246900740 | ✅               | ✅        | ❌    |
