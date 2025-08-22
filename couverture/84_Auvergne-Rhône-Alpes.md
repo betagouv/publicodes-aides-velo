@@ -65,52 +65,52 @@
 | CC          | CC Cère et Goul en Carladès                          | 241501089 | ❌               | ❌        | 🤖    |
 | CC          | CC du Pays de Salers                                 | 241501139 | ❌               | ❌        | 🤖    |
 | CC          | CC du Massif du Sancy                                | 246300966 | ❌               | ❌        | 🤖    |
-| Département | Drôme                                                | 26        | ❔               | ❌        | 🤖    |
-| CC          | CC Ventoux Sud                                       | 200035723 | ❔               | ❌        | ❌    |
-| CA          | CA Montélimar Agglomération                          | 200040459 | ❔               | ❌        | ❌    |
-| CC          | CC Porte de Dromardèche                              | 200040491 | ❔               | ❌        | ❌    |
+| Département | Drôme                                                | 26        | ❌               | ❌        | ✅    |
+| CC          | CC Ventoux Sud                                       | 200035723 | ❌               | ❌        | ✅    |
+| CA          | CA Montélimar Agglomération                          | 200040459 | ❌               | ❌        | ✅    |
+| CC          | CC Porte de Dromardèche                              | 200040491 | ❌               | ❌        | ✅    |
 | CC          | CC du Crestois et de Pays de Saillans Coeur de Drôme | 200040509 | ✅               | ✅        | ✅    |
-| CC          | CC Enclave des Papes - Pays de Grignan               | 200040681 | ❔               | ❌        | ❌    |
-| CC          | CC Drôme Sud Provence                                | 200042901 | ❔               | ❌        | ❌    |
-| CC          | CC du Royans-Vercors                                 | 200067767 | ❔               | ❌        | ❌    |
-| CC          | CC des Baronnies en Drôme Provençale                 | 200068229 | ❔               | ❌        | ❌    |
-| CC          | CC du Sisteronais-Buëch                              | 200068765 | ❔               | ❌        | ❌    |
-| CA          | CA Valence Romans Agglo                              | 200068781 | ❔               | ❌        | ❌    |
-| CC          | CC Jabron-Lure-Vançon-Durance                        | 200071033 | ❔               | ❌        | ❌    |
+| CC          | CC Enclave des Papes - Pays de Grignan               | 200040681 | ❌               | ❌        | ✅    |
+| CC          | CC Drôme Sud Provence                                | 200042901 | ❌               | ❌        | ✅    |
+| CC          | CC du Royans-Vercors                                 | 200067767 | ❌               | ❌        | ✅    |
+| CC          | CC des Baronnies en Drôme Provençale                 | 200068229 | ✅               | 📧        | 📧    |
+| CC          | CC du Sisteronais-Buëch                              | 200068765 | ❌               | ❌        | ✅    |
+| CA          | CA Valence Romans Agglo                              | 200068781 | ❌               | ❌        | ✅    |
+| CC          | CC Jabron-Lure-Vançon-Durance                        | 200071033 | ❌               | ❌        | ✅    |
 | CA          | CA Arche Agglo                                       | 200073096 | ✅               | ✅        | ✅    |
-| CC          | CC du Val de Drôme en Biovallée                      | 242600252 | ✅               | ✅        | ❌    |
-| CC          | CC Dieulefit-Bourdeaux                               | 242600492 | ✅               | ✅        | ❌    |
-| CC          | CC du Diois                                          | 242600534 | ❔               | ❌        | ❌    |
-| CC          | CC Vaison Ventoux                                    | 248400335 | ❔               | ❌        | ❌    |
-| Département | Isère                                                | 38        | ❔               | ❌        | ❌    |
-| CC          | CC Le Grésivaudan                                    | 200018166 | ❔               | ❌        | ❌    |
-| CC          | CC du Trièves                                        | 200030658 | ❔               | ❌        | ❌    |
-| CC          | CC Coeur de Chartreuse                               | 200040111 | ❔               | ❌        | ❌    |
-| CC          | CC de la Matheysine                                  | 200040657 | ❔               | ❌        | ❌    |
-| METRO       | Grenoble-Alpes-Métropole                             | 200040715 | ✅               | ✅        | ❌    |
-| CC          | CC Bièvre Isère                                      | 200059392 | ✅               | ✅        | ❌    |
-| CC          | CC Les Balcons du Dauphiné                           | 200068542 | ❔               | ❌        | ❌    |
-| CC          | CC Les Vals du Dauphiné                              | 200068567 | ❔               | ❌        | ❌    |
-| CC          | CC Saint-Marcellin Vercors Isère Communauté          | 200070431 | ✅               | ✅        | ❌    |
-| CA          | CA Vienne Condrieu                                   | 200077014 | ✅               | ✅        | ❌    |
-| CC          | CC Entre Bièvre et Rhône                             | 200085751 | ❔               | ❌        | ❌    |
-| CA          | CA Porte de l'Isère (CAPI)                           | 243800604 | ❔               | ❌        | ❌    |
-| CC          | CC de l'Oisans                                       | 243800745 | ❔               | ❌        | ❌    |
-| CC          | CC Lyon-Saint-Exupéry en Dauphiné                    | 243800935 | ✅               | ✅        | ❌    |
-| CA          | CA du Pays Voironnais                                | 243800984 | ❔               | ❌        | ❌    |
-| CC          | CC du Massif du Vercors                              | 243801024 | ✅               | ✅        | ❌    |
-| CC          | CC de Bièvre Est                                     | 243801073 | ❔               | ❌        | ❌    |
-| CC          | CC Collines Isère Nord Communauté                    | 243801255 | ❔               | ❌        | ❌    |
-| Département | Loire                                                | 42        | ❔               | ❌        | ❌    |
+| CC          | CC du Val de Drôme en Biovallée                      | 242600252 | ✅               | ✅        | ✅    |
+| CC          | CC Dieulefit-Bourdeaux                               | 242600492 | ✅               | ✅        | ✅    |
+| CC          | CC du Diois                                          | 242600534 | ❌               | ❌        | ✅    |
+| CC          | CC Vaison Ventoux                                    | 248400335 | ❌               | ❌        | ✅    |
+| Département | Isère                                                | 38        | ❌               | ❌        | 🤖    |
+| CC          | CC Le Grésivaudan                                    | 200018166 | ❌               | ❌        | 🤖    |
+| CC          | CC du Trièves                                        | 200030658 | ❌               | ❌        | 🤖    |
+| CC          | CC Coeur de Chartreuse                               | 200040111 | ❌               | ❌        | 🤖    |
+| CC          | CC de la Matheysine                                  | 200040657 | ❌               | ❌        | 🤖    |
+| METRO       | Grenoble-Alpes-Métropole                             | 200040715 | ✅               | ✅        | ✅    |
+| CC          | CC Bièvre Isère                                      | 200059392 | ✅               | ✅        | ✅    |
+| CC          | CC Les Balcons du Dauphiné                           | 200068542 | ❌               | ❌        | 🤖    |
+| CC          | CC Les Vals du Dauphiné                              | 200068567 | ❌               | ❌        | 🤖    |
+| CC          | CC Saint-Marcellin Vercors Isère Communauté          | 200070431 | ✅               | 📧        | 📧    |
+| CA          | CA Vienne Condrieu                                   | 200077014 | ✅               | ✅        | ✅    |
+| CC          | CC Entre Bièvre et Rhône                             | 200085751 | ❌               | ❌        | 🤖    |
+| CA          | CA Porte de l'Isère (CAPI)                           | 243800604 | ❌               | ❌        | 🤖    |
+| CC          | CC de l'Oisans                                       | 243800745 | ❌               | ❌        | 🤖    |
+| CC          | CC Lyon-Saint-Exupéry en Dauphiné                    | 243800935 | ✅               | ✅        | ✅    |
+| CA          | CA du Pays Voironnais                                | 243800984 | ❌               | ❌        | 🤖    |
+| CC          | CC du Massif du Vercors                              | 243801024 | ✅               | ✅        | ✅    |
+| CC          | CC de Bièvre Est                                     | 243801073 | ❌               | ❌        | 🤖    |
+| CC          | CC Collines Isère Nord Communauté                    | 243801255 | ❌               | ❌        | 🤖    |
+| Département | Loire                                                | 42        | ❌               | ❌        | 🤖    |
 | CC          | CC Charlieu-Belmont                                  | 200035202 | ✅               | ✅        | ❌    |
 | CA          | CA Roannais Agglomération                            | 200035731 | ❔               | ❌        | ❌    |
 | CA          | CA Loire Forez Agglomération (LFA)                   | 200065886 | ❔               | ❌        | ❌    |
 | CC          | CC de Forez-Est                                      | 200065894 | ❔               | ❌        | ❌    |
 | CC          | CC des Monts du Lyonnais                             | 200066587 | ❔               | ❌        | ❌    |
 | CC          | CC des Vals d'Aix et Isable                          | 244200614 | ❔               | ❌        | ❌    |
-| CC          | CC des Monts du Pilat                                | 244200622 | ❔               | ❌        | ❌    |
+| CC          | CC des Monts du Pilat                                | 244200622 | ✅               | ✅        | ✅    |
 | CC          | CC du Pays Entre Loire et Rhône                      | 244200630 | ❔               | ❌        | ❌    |
-| METRO       | Saint-Étienne Métropole                              | 244200770 | ✅               | ✅        | ❌    |
+| METRO       | Saint-Étienne Métropole                              | 244200770 | ✅               | ✅        | ✅    |
 | CC          | CC du Pays d'Urfé                                    | 244200820 | ❔               | ❌        | ❌    |
 | CC          | CC du Pilat Rhodanien                                | 244200895 | ❔               | ❌        | ❌    |
 | Département | Haute-Loire                                          | 43        | ❔               | ❌        | ❌    |

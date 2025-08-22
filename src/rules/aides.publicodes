@@ -2568,6 +2568,7 @@ aides . les sables d'olonne:
           plafond: 75€
       - sinon: 0€
   lien: https://www.lsoagglo.fr/vivreauxolonnes/vie-pratique/mobilites/subventions-velo/
+  dernière mise à jour: 22/08/2025
 
 # NOTE: informations pour 2024, à vérifier en 2025
 aides . vallons du lyonnais:
@@ -3825,6 +3826,7 @@ aides . les herbiers:
         alors: 300€
       - sinon: 200€
   lien: https://www.paysdesherbiers.fr/velo/
+  dernière mise à jour: 22/08/2025
 
 aides . frejus:
   remplace: commune
@@ -5195,13 +5197,13 @@ aides . saumur val de loire:
   plafond: 100€
   lien: https://www.saumurvaldeloire.fr/se-deplacer-a-velo
 
-# NOTE: à vérifier en 2025
+# NOTE: à vérifier en 2026
 aides . loire layon aubance:
   remplace: intercommunalité
   titre: Communauté de Communes Loire Layon Aubance
   description: >
-    Subvention pour l'achat d'un vélo à assistance électrique en 2024. L'achat
-    doit être effectué physiquement dans un magasin. 
+    Subvention pour l'achat d'un vélo à assistance électrique en 2025. L'achat
+    doit être effectué physiquement dans un magasin après le 1er avril 2024.
 
 
     A noter que le montant de la subvention est plafonnée à 80% du prix d'achat
@@ -5226,6 +5228,7 @@ aides . loire layon aubance:
         alors: 150€
       - sinon: 0€
   lien: https://www.loire-layon-aubance.fr/vivre-et-habiter/transports/velo-a-assistance-electrique/
+  dernière mise à jour: 22/08/2025
 
 aides . laval:
   remplace: intercommunalité
