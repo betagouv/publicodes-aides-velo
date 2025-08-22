@@ -1,5 +1,111 @@
 # @betagouv/aides-velo
 
+## 3.2.0
+
+### Minor Changes
+
+- Suppression - Ville de Castelnau de Médoc ([#72](https://github.com/betagouv/publicodes-aides-velo/pull/72))
+
+- Mise à jour - Région Centre-Val de Loire ([#72](https://github.com/betagouv/publicodes-aides-velo/pull/72))
+
+- Ajout - Montpellier Méditerranée Métropole - vae occasion ([#72](https://github.com/betagouv/publicodes-aides-velo/pull/72))
+
+- Ajout - CC Loue-Lison ([#72](https://github.com/betagouv/publicodes-aides-velo/pull/72))
+
+- Ajout - Commune de Barcelonnette ([#72](https://github.com/betagouv/publicodes-aides-velo/pull/72))
+
+- Suppression - Ville de Montagnole ([#72](https://github.com/betagouv/publicodes-aides-velo/pull/72))
+
+- Ajout - CA Mauges Communauté ([#72](https://github.com/betagouv/publicodes-aides-velo/pull/72))
+
+- Ajout - Montpellier Méditerranée Métropole - vélo cargo pro ([#72](https://github.com/betagouv/publicodes-aides-velo/pull/72))
+
+- Ajout - CC Pays de Forcalquier-Montagne de Lure ([#72](https://github.com/betagouv/publicodes-aides-velo/pull/72))
+
+- Ajout - Grand Chambéry l'Agglomération ([#72](https://github.com/betagouv/publicodes-aides-velo/pull/72))
+
+- Ajout - CC Plaine Limagne ([#72](https://github.com/betagouv/publicodes-aides-velo/pull/72))
+
+- Ajout - Communauté de communes Val-de-Saône-Centre ([#72](https://github.com/betagouv/publicodes-aides-velo/pull/72))
+
+- Suppressio - CC Riviera Française ([#72](https://github.com/betagouv/publicodes-aides-velo/pull/72))
+
+- Ajout - CC des Monts du Pilat ([#72](https://github.com/betagouv/publicodes-aides-velo/pull/72))
+
+- Ajout - CC des Portes Euréliennes d'Ile de France ([#72](https://github.com/betagouv/publicodes-aides-velo/pull/72))
+
+- Ajout - CC du Sisteronais-Buëch ([#72](https://github.com/betagouv/publicodes-aides-velo/pull/72))
+
+- Suppression - Ville d'Aix-les-Bains ([#72](https://github.com/betagouv/publicodes-aides-velo/pull/72))
+
+- Ajout - Communauté de communes Nièvre et Somme ([#72](https://github.com/betagouv/publicodes-aides-velo/pull/72))
+
+- Ajout - CC Du Pays de L'Arbresle ([#72](https://github.com/betagouv/publicodes-aides-velo/pull/72))
+
+- Suppression - CC Luberon Mont de Vaucluse ([#72](https://github.com/betagouv/publicodes-aides-velo/pull/72))
+
+- Suppression - Montpellier Méditerranée Métropole - vélo adapté ([#72](https://github.com/betagouv/publicodes-aides-velo/pull/72))
+
+- Ajout - Commune de Gap ([#72](https://github.com/betagouv/publicodes-aides-velo/pull/72))
+
+- Technique - Amélioration de l'extraction de la collectivité associée à une aide ([#72](https://github.com/betagouv/publicodes-aides-velo/pull/72))
+
+### Patch Changes
+
+- Mise à jour - ville de Dieppe ([#72](https://github.com/betagouv/publicodes-aides-velo/pull/72))
+
+- Mise à jour - CC Saône Beaujolais ([#72](https://github.com/betagouv/publicodes-aides-velo/pull/72))
+
+- Mise à jour - CC du Pays de l'Ozon ([#72](https://github.com/betagouv/publicodes-aides-velo/pull/72))
+
+- Mise à jour - CA Châteauroux Métropole ([#72](https://github.com/betagouv/publicodes-aides-velo/pull/72))
+
+- Mise à jour - CC du Pays de Cruseilles ([#72](https://github.com/betagouv/publicodes-aides-velo/pull/72))
+
+- Ajout - Ville de Cébazat ([#72](https://github.com/betagouv/publicodes-aides-velo/pull/72))
+
+- Mise à jour - Grand Orb Communauté de communes ([#72](https://github.com/betagouv/publicodes-aides-velo/pull/72))
+
+- Mise à jour - Ville de Saint-Alban-Leysse ([#72](https://github.com/betagouv/publicodes-aides-velo/pull/72))
+
+- Mise à jour - Anjou Bleu Communauté ([#72](https://github.com/betagouv/publicodes-aides-velo/pull/72))
+
+- Mise à jour - Ville de Longuenesse ([#72](https://github.com/betagouv/publicodes-aides-velo/pull/72))
+
+- Mise à jour - Saint-Etienne Métropole ([#72](https://github.com/betagouv/publicodes-aides-velo/pull/72))
+
+- Mise à jour - CU Grand Besançon Métropole ([#72](https://github.com/betagouv/publicodes-aides-velo/pull/72))
+
+- Mise à jour - CC du Bassin de Pompey ([#72](https://github.com/betagouv/publicodes-aides-velo/pull/72))
+
+- Mise à jour - CC Fier et Usses ([#72](https://github.com/betagouv/publicodes-aides-velo/pull/72))
+
+- Mise à jour - CC des Vallons du Lyonnais ([#72](https://github.com/betagouv/publicodes-aides-velo/pull/72))
+
+- Mise à jour - Saumur Val de Loire Agglomération ([#72](https://github.com/betagouv/publicodes-aides-velo/pull/72))
+
+- Mise à jour - Cholet Agglomération ([#72](https://github.com/betagouv/publicodes-aides-velo/pull/72))
+
+- Mise à jour - CC du Genevois ([#72](https://github.com/betagouv/publicodes-aides-velo/pull/72))
+
+- Mise à jour - Agglomération Epinal ([#72](https://github.com/betagouv/publicodes-aides-velo/pull/72))
+
+- Mise à jour - Montluçon Communauté ([#72](https://github.com/betagouv/publicodes-aides-velo/pull/72))
+
+- Mise à jour - CC du Val de Drôme en Biovallée ([#72](https://github.com/betagouv/publicodes-aides-velo/pull/72))
+
+- Mise à jour - CC du Pays des Achards ([#72](https://github.com/betagouv/publicodes-aides-velo/pull/72))
+
+- Mise à jour - Bourges Plus ([#72](https://github.com/betagouv/publicodes-aides-velo/pull/72))
+
+- Mise à jour - CC Lyon-Saint-Exupéry en Dauphiné ([#72](https://github.com/betagouv/publicodes-aides-velo/pull/72))
+
+- Mise à jour - CC de Puisaye-Forterre ([#72](https://github.com/betagouv/publicodes-aides-velo/pull/72))
+
+- Mise à jour - CA Saint-Avold Synergie ([#72](https://github.com/betagouv/publicodes-aides-velo/pull/72))
+
+- Mise à jour - CC du Massif du Vercors ([#72](https://github.com/betagouv/publicodes-aides-velo/pull/72))
+
 ## 3.1.0
 
 ### Minor Changes
