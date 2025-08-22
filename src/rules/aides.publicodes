@@ -2601,7 +2601,7 @@ aides . les sables d'olonne:
   lien: https://www.lsoagglo.fr/vivreauxolonnes/vie-pratique/mobilites/subventions-velo/
   dernière mise à jour: 22/08/2025
 
-# NOTE: informations pour 2024, à vérifier en 2025
+# TODO: à vérifier en 2026
 aides . vallons du lyonnais:
   remplace: intercommunalité
   titre: Communauté de Communes des Vallons du Lyonnais
@@ -2614,7 +2614,8 @@ aides . vallons du lyonnais:
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'CC des Vallons du Lyonnais (CCVL)'
-      - vélo . prix <= 3000€
+      - vélo . prix <= 3000 €
+      - revenu fiscal de référence par part <= 20000 €/an
       - une de ces conditions:
           - vélo . électrique
           - vélo . adapté
@@ -2626,8 +2627,10 @@ aides . vallons du lyonnais:
         alors: 400€
       - sinon: 200€
   lien: https://www.ccvl.fr/vivre-au-quotidien/mobilites/vae-aides-a-lachat-et-location-longue-duree/
+  dernière mise à jour: 22/08/2025
+  date de fin: 31/12/2025
 
-# NOTE: limite au 6 décembre 2024, à vérifier en 2025
+# TODO: à relire en 2026
 aides . pays de l'ozon:
   remplace: intercommunalité
   titre: Pays de l'Ozon
@@ -2636,10 +2639,12 @@ aides . pays de l'ozon:
     vélo cargo, VAE pliant, vélo électrifié chez un professionnel ou adapté aux 
     personnes porteuses de handicaps.
     
-    Dossier à déposer avant le 6 décembre 2024.
+    Dossier à déposer avant le 5 décembre 2025 et maximum trois mois après
+    l'achat.
   applicable si:
     toutes ces conditions:
       - localisation . epci = "CC du Pays de l'Ozon"
+      - vélo . prix >= 200€
       - une de ces conditions:
           - vélo . électrique
           - vélo . motorisation
@@ -2648,6 +2653,8 @@ aides . pays de l'ozon:
   valeur: 200€
   plafond: vélo . prix
   lien: https://www.pays-ozon.com/vivre-dans-le-pays-de-lozon/les-transports/subvention-velo-electrique/
+  dernière mise à jour: 22/08/2025
+  date de fin: 05/12/2025
 
 # NOTE: le plan hérault-vélo 2025-2030 en cours de construction, à vérifier en 2025
 aides . département hérault:
