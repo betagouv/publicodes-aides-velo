@@ -247,7 +247,7 @@ aides . paris:
 aides . saint-étienne:
   remplace: intercommunalité
   titre: Saint-Étienne Métropole
-  description: Aide à l'achat d'un vélo à assistance électrique neuf (2024).
+  description: Aide à l'achat d'un vélo à assistance électrique neuf (2025).
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'Saint-Étienne Métropole'
@@ -258,7 +258,33 @@ aides . saint-étienne:
       - si: foyer . imposable
         alors: 200€
       - sinon: 100€
-  lien: https://www.saint-etienne-metropole.fr/form/aide-VAE-2024
+  lien: https://www.saint-etienne-metropole.fr/form/aide-VAE-2025
+  dernière mise à jour: 22/08/2025
+
+# TODO: à relire en 2026
+aides . cc monts du pilat:
+  remplace: intercommunalité
+  titre: Communauté de communes des Monts du Pilat
+  description: >
+    Jusqu'à 200 euros d'aide pour l'achat de vélos musculaires urbain,
+    tout-terrain, à assistance électrique ou VTT à assistance électrique, «
+    speed bikes », utilitaire ou familial, musculaire ou à assistance
+    électrique ou la pose d'un kit d'électrification.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CC des Monts du Pilat'
+  valeur: 20% * vélo . prix
+  plafond:
+    variations:
+      - si: 
+          une de ces conditions:
+            - vélo . électrique
+            - vélo . adapté
+        alors: 200€
+      - sinon: 100€
+  lien: https://www.cc-montsdupilat.fr/mise-place-dune-aide-a-lachat-dun-velo
+  dernière mise à jour: 22/08/2025
+  date de fin: 31/12/2025
 
 # NOTE: à verifier en 2026
 aides . lyon:
@@ -350,10 +376,13 @@ aides . cc lysed:
     toutes ces conditions:
       - localisation . epci = 'CC Lyon-Saint-Exupéry en Dauphiné'
       - vélo . état . neuf
-  valeur: vélo . prix * 25%
+      - une de ces conditions:
+          - vélo . électrique ou mécanique
+          - vélo . adapté
+  valeur: 25% * vélo . prix 
   plafond: 200€
   lien: https://www.lysed.fr/plan-climat-air-energie/mobilite
-  dernière mise à jour: 09/06/2025
+  dernière mise à jour: 22/08/2025
 
 # TODO: différencier vélo adapté mécanique/électrique
 # TODO: à vérifier en 2026
@@ -1070,6 +1099,10 @@ aides . grenoble:
   remplace: intercommunalité
   titre: Syndicat Mixte des Mobilités de l'Aire Grenobloise et Grenoble Alpes Métropole 
   description: >
+    L'aide à l'achat d'un vélo est **temporairement suspendue** depuis le 16
+    mai 2025.
+
+
     Afin d'encourager les déplacements à vélo et de vous aider dans
     l'acquisition d'un équipement, le Syndicat Mixte des Mobilités de l'Aire
     Grenobloise et Grenoble Alpes Métropole mettent en place une aide à l'achat
@@ -1164,6 +1197,7 @@ aides . grenoble:
             - sinon: 90€
       - sinon: 0€
   lien: https://aidevelo.mobilites-m.fr/
+  dernière mise à jour: 22/08/2025
 
 aides . strasbourg:
   remplace: intercommunalité
@@ -2086,6 +2120,7 @@ aides . vienne condrieu:
       - vélo . état . neuf
   valeur: 150€
   lien: https://www.vienne-condrieu-agglomeration.fr/nos-services-au-quotidien/deplacements/faire-du-velo/aide-financiere-vae/
+  dernière mise à jour: 22/08/2025
 
 aides . pont-de-beauvoisin:
   remplace: commune
@@ -2102,6 +2137,7 @@ aides . pont-de-beauvoisin:
       - vélo . état . neuf
   valeur: 100€
   lien: https://www.mairie-pontdebeauvoisin38.fr/aide-a-lachat-dun-velo-a-assistance-electrique/
+  dernière mise à jour: 22/08/2025
 
 aides . saint-marcellin vercors isère:
   remplace: intercommunalité
@@ -2125,7 +2161,7 @@ aides . saint-marcellin vercors isère:
       alors: 200 €
     - sinon: 100 €
   plafond: 50% * vélo . prix
-  lien: http://www.saintmarcellin-vercors-isere.fr/evenement/9916/4451-toute-l-actualite.htm
+  lien: http://www.saintmarcellin-vercors-isere.fr/evenement/9916/4451-toute-l-actualite.html
 
 aides . montval sur loir:
   remplace: commune
@@ -6822,16 +6858,18 @@ aides . grand angouleme:
           plafond: 150 €
   lien: https://www.grandangouleme.fr/tous-a-velo/
 
+# TODO: à relire en 2026
 aides . massif du vercors:
   remplace: intercommunalité
   titre: Communauté de communes du Massif du Vercors 
   description: >
-    Bonus VAE - Aide à l'achat de vélos à assistance électrique.
+    Bonus VAE - Aide à l'achat de vélos à assistance électrique chez un
+    vélociste du territoire de la CCMV.
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'CC du Massif du Vercors'
       - demandeur . âge . majeur
-      - revenu fiscal de référence par part <= 21805 €/an
+      - revenu fiscal de référence par part . revenu de référence <= plafond de ressources
       - vélo . électrique
   valeur:
     variations:
@@ -6843,6 +6881,29 @@ aides . massif du vercors:
               alors: 200 €
             - sinon: 300 €
   lien: https://www.vercors.org/fr/vie-quotidienne/se-deplacer/a-velo/
+  dernière mise à jour: 22/08/2025
+  date de fin: 31/01/2026
+  avec:
+    plafond de ressources:
+      valeur:
+        variations:
+          - si: foyer . personnes = 1
+            alors: 22015 
+          - si: foyer . personnes = 2
+            alors: 32197 
+          - si: foyer . personnes = 3
+            alors: 38719 
+          - si: foyer . personnes = 4
+            alors: 45234 
+          - si: foyer . personnes = 5
+            alors: 51775 
+          - sinon:
+              valeur: 51775 + (6525 * personnes supplémentaires * 1 €/an/personne)
+      unité: €/an
+
+    personnes supplémentaires:
+      valeur: foyer . personnes - 5
+      plancher: 0
 
 aides . portes du luxembourg:
   remplace: intercommunalité
@@ -7917,6 +7978,23 @@ aides . crestois et pays de saillans:
   lien: https://www.cccps.fr/demarches/aide-pour-lelectrification-dun-velo-classique/
   dernière mise à jour: 13/08/2025
 
+# aides . cc baronnies en drome provençale:
+#   remplace: intercommunalité
+#   titre: Communauté de communes des Baronnies en Drôme Provençale
+#   description: >
+#     Aide à l'électrification de vélo classique. La demande de subvention doit
+#     être effectuée dans un délai de 3 mois après la date indiquée sur la
+#     facture de la pose.
+#   applicable si:
+#     toutes ces conditions:
+#       - localisation . epci = 'CC du Crestois et de Pays de Saillans Coeur de Drôme'
+#       - demandeur . âge . majeur
+#       - vélo . motorisation
+#   valeur: 25% * vélo . prix
+#   plafond: 250€
+#   lien: https://www.cccps.fr/demarches/aide-pour-lelectrification-dun-velo-classique/
+#   dernière mise à jour: 13/08/2025
+
 # TODO: à mettre à jour en 2026
 aides . binic etables sur mer:
   remplace: commune
@@ -8864,7 +8942,7 @@ aides . bassin-pompey:
       - demandeur . âge . majeur
   valeur:
     variations:
-      - si: revenu fiscal de référence par part <= plafond de ressources
+      - si: revenu fiscal de référence par part . revenu de référence <= plafond de ressources
         alors: 50% * vélo . prix
       - sinon: 20% * vélo . prix
   plafond:
@@ -8875,7 +8953,7 @@ aides . bassin-pompey:
             - vélo . adapté
         alors:
           variations:
-            - si: revenu fiscal de référence par part <= plafond de ressources
+            - si: revenu fiscal de référence par part . revenu de référence <= plafond de ressources
               alors: 450 € 
             - sinon: 150 €
       - si:
@@ -8884,13 +8962,13 @@ aides . bassin-pompey:
             - vélo . motorisation
         alors:
           variations:
-            - si: revenu fiscal de référence par part <= plafond de ressources
+            - si: revenu fiscal de référence par part . revenu de référence <= plafond de ressources
               alors: 300 €
             - sinon: 100 €
 
       - sinon:
           variations:
-            - si: revenu fiscal de référence par part <= plafond de ressources
+            - si: revenu fiscal de référence par part . revenu de référence <= plafond de ressources
               alors: 135 €
             - sinon: 45 €
   lien: https://planvelo.bassinpompey.fr/primevelo

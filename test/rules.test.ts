@@ -1819,7 +1819,8 @@ describe("Aides Vélo", () => {
         "localisation . epci": "'CC du Bassin de Pompey'",
         "vélo . prix": 1000,
         "vélo . type": "'électrique'",
-        "revenu fiscal de référence par part": "20000 €/an",
+        "revenu fiscal de référence par part . revenu de référence":
+          "20000 €/an",
         "foyer . personnes": 2,
       });
       expect(engine.evaluate("aides . bassin-pompey").nodeValue).toEqual(300);
@@ -1831,7 +1832,8 @@ describe("Aides Vélo", () => {
         "localisation . epci": "'CC du Bassin de Pompey'",
         "vélo . prix": 1000,
         "vélo . type": "'électrique'",
-        "revenu fiscal de référence par part": "20000 €/an",
+        "revenu fiscal de référence par part . revenu de référence":
+          "20000 €/an",
         "foyer . personnes": 7,
       });
       expect(
@@ -1846,7 +1848,8 @@ describe("Aides Vélo", () => {
         "localisation . epci": "'CC du Bassin de Pompey'",
         "vélo . prix": 1000,
         "vélo . type": "'électrique'",
-        "revenu fiscal de référence par part": "20000 €/an",
+        "revenu fiscal de référence par part . revenu de référence":
+          "20000 €/an",
       });
       expect(engine.evaluate("aides . bassin-pompey").nodeValue).toEqual(100);
     });

@@ -20,22 +20,6 @@ aides . écully:
  valeur: 100€
  lien: https://www.ecully.fr/actualites-109/prime-pour-lachat-dun-velo-a-assistance-electrique-3708.html
 
-# NOTE: pas d'indice sur la continuité de l'aide après le 30 novembre 2024
-aides . monts du pilat:
-  remplace: intercommunalité
-  titre: Communauté de communes des Monts du Pilat
-  applicable si:
-    toutes ces conditions:
-      - localisation . epci = 'CC des Monts du Pilat'
-      - vélo . électrique ou mécanique
-  valeur: 20% * vélo . prix
-  plafond:
-    variations:
-      - si: vélo . électrique
-        alors: 200€
-      - sinon: 100€
-  lien: https://www.cc-montsdupilat.fr/mise-place-dune-aide-a-lachat-dun-velo
-
 # NOTE: pas d'indice sur la continuité de l'aide après le 31 décembre 2022
 aides . vesoul:
   remplace: intercommunalité
