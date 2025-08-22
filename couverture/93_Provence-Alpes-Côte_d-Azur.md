@@ -1,5 +1,7 @@
 # Couverture des aides en Provence-Alpes-Côte d'Azur (93)
 
+- 2025 : ✅
+
 | Echelle     | Nom                                             | Code      | Possède une aide | Modélisée | Relue |
 | ----------- | ----------------------------------------------- | --------- | ---------------- | --------- | ----- |
 | Région      | Provence-Alpes-Côte d'Azur                      | 93        | ❌               | ❌        | ✅    |
