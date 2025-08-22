@@ -154,30 +154,30 @@
 | CC          | CC du Pays Mornantais (COPAMO)                       | 246900740 | ✅               | ✅        | ❌    |
 | CC          | CC de la Vallée du Garon (CCVG)                      | 246900757 | ❌               | ❌        | ✅    |
 | CC          | CC du Pays de l'Ozon                                 | 246900765 | ✅               | ✅        | ✅    |
-| Département | Savoie                                               | 73        | ❔               | ❌        | ❌    |
-| CC          | CC Coeur de Tarentaise                               | 200023299 | ❔               | ❌        | ❌    |
-| CC          | CC Coeur de Chartreuse                               | 200040111 | ❔               | ❌        | ❌    |
-| CC          | CC Val Vanoise                                       | 200040798 | ❔               | ❌        | ❌    |
+| Département | Savoie                                               | 73        | ❌               | ❌        | 🤖    |
+| CC          | CC Coeur de Tarentaise                               | 200023299 | ❌               | ❌        | 🤖    |
+| CC          | CC Coeur de Chartreuse                               | 200040111 | ❌               | ❌        | 🤖    |
+| CC          | CC Val Vanoise                                       | 200040798 | ❌               | ❌        | 🤖    |
 | CC          | CC Coeur de Savoie                                   | 200041010 | ✅               | ✅        | ✅    |
-| CA          | CA Grand Lac                                         | 200068674 | ❔               | ❌        | ❌    |
-| CA          | CA Arlysère                                          | 200068997 | ❔               | ❌        | ❌    |
+| CA          | CA Grand Lac                                         | 200068674 | ❌               | ❌        | 🤖    |
+| CA          | CA Arlysère                                          | 200068997 | ❌               | ❌        | 🤖    |
 | CA          | CA du Grand Chambéry                                 | 200069110 | ✅               | ✅        | ✅    |
-| CC          | CC Haute Maurienne Vanoise                           | 200070340 | ❔               | ❌        | ❌    |
+| CC          | CC Haute Maurienne Vanoise                           | 200070340 | ❌               | ❌        | 🤖    |
 | CC          | CC Coeur de Maurienne Arvan                          | 200070464 | ✅               | ✅        | ✅    |
-| CC          | CC des Vallées d'Aigueblanche                        | 247300015 | ❔               | ❌        | ❌    |
-| CC          | CC de Haute-Tarentaise                               | 247300254 | ❔               | ❌        | ❌    |
-| CC          | CC de Yenne                                          | 247300262 | ❔               | ❌        | ❌    |
-| CC          | CC du Canton de La Chambre                           | 247300361 | ❔               | ❌        | ❌    |
-| CC          | CC Maurienne Galibier                                | 247300452 | ❔               | ❌        | ❌    |
-| CC          | CC Val Guiers                                        | 247300528 | ❔               | ❌        | ❌    |
-| CC          | CC du Lac d'Aiguebelette (CCLA)                      | 247300668 | ❔               | ❌        | ❌    |
-| CC          | CC Porte de Maurienne                                | 247300676 | ❔               | ❌        | ❌    |
-| CC          | CC Les Versants d'Aime                               | 247300817 | ❔               | ❌        | ❌    |
+| CC          | CC des Vallées d'Aigueblanche                        | 247300015 | ❌               | ❌        | 🤖    |
+| CC          | CC de Haute-Tarentaise                               | 247300254 | ❌               | ❌        | 🤖    |
+| CC          | CC de Yenne                                          | 247300262 | ❌               | ❌        | 🤖    |
+| CC          | CC du Canton de La Chambre                           | 247300361 | ❌               | ❌        | 🤖    |
+| CC          | CC Maurienne Galibier                                | 247300452 | ❌               | ❌        | 🤖    |
+| CC          | CC Val Guiers                                        | 247300528 | ❌               | ❌        | 🤖    |
+| CC          | CC du Lac d'Aiguebelette (CCLA)                      | 247300668 | ❌               | ❌        | 🤖    |
+| CC          | CC Porte de Maurienne                                | 247300676 | ❌               | ❌        | 🤖    |
+| CC          | CC Les Versants d'Aime                               | 247300817 | ❌               | ❌        | 🤖    |
 | Département | Haute-Savoie                                         | 74        | ❔               | ❌        | ❌    |
 | CC          | CC Faucigny - Glières                                | 200000172 | ❔               | ❌        | ❌    |
 | CA          | CA Annemasse-Les Voirons-Agglomération               | 200011773 | ❔               | ❌        | ❌    |
 | CC          | CC de la Vallée de Chamonix-Mont-Blanc               | 200023372 | ❔               | ❌        | ❌    |
-| CC          | CC Cluses-Arve et Montagnes                          | 200033116 | ✅               | ✅        | ❌    |
+| CC          | CC Cluses-Arve et Montagnes                          | 200033116 | ✅               | ✅        | ✅    |
 | CC          | CC des Montagnes du Giffre                           | 200034098 | ❔               | ❌        | ❌    |
 | CC          | CC Pays du Mont-Blanc                                | 200034882 | ❔               | ❌        | ❌    |
 | CA          | CA du Grand Annecy                                   | 200066793 | ❔               | ❌        | ❌    |
