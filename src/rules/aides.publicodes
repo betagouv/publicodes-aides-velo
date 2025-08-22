@@ -173,8 +173,11 @@ aides . grand est:
 
 aides . corse:
   remplace: région
-  titre: Région Corse
-  description: Aide à l'achat des Vélos à Assistance Electrique.
+  titre: Agence d’Aménagement durable, d’Urbanisme et d’Energie de la Corse
+  description: >
+    Aide pour l'achat d'un premier vélo à assistance électrique (neuf ou
+    reconditionné) au sein d'un des vélocistes du Réseau "Muvemucci Altrimenti"
+    agréés par l'AUE.
   applicable si:
     toutes ces conditions:
       - localisation . région = '94'
@@ -182,6 +185,7 @@ aides . corse:
   valeur: 25% * vélo . prix
   plafond: 500€
   lien: https://www.aue.corsica/Aide-a-l-achat-des-Velos-a-Assistance-Electrique_a856.html
+  dernière mise à jour: 22/08/2025
 
 aides . ardèche:
   remplace: département
