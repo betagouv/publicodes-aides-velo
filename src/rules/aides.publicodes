@@ -1819,7 +1819,7 @@ aides . mondeville:
   lien: https://www.mondeville.fr/mes-demarches/besoin-dune-aide/prime-velo-la-dynamo/
   dernière mise à jour: 11/09/2025
 
-# NOTE: informations pour 2024, à vérifier en 2025
+# NOTE: informations pour 2025, à vérifier en 2026
 aides . flers:
   remplace: intercommunalité
   titre: Flers Agglo
@@ -1836,6 +1836,7 @@ aides . flers:
   valeur: 30% * vélo . prix
   plafond: 200€
   lien: https://www.flers-agglo.fr/mon-quotidien/mobilite/se-deplacer-a-velo/aide-acquisition-velos/
+  dernière mise à jour: 11/09/2025
 
 aides . dreux:
   remplace: commune
@@ -2058,6 +2059,9 @@ aides . honfleur:
         plafond: 120€
   lien: https://www.ccphb.fr/amenager-et-developper/grands-projets/plan-velo/
   dernière mise à jour: 10/04/2025
+
+# TODO: à vérifier en 2026
+# aides . ca mont-saint-michel:
 
 # NOTE: limitée à 250 vélos depuis 2017, sûrement plus d'actualité.
 aides . istres:
@@ -4474,6 +4478,7 @@ aides . cotentin:
   valeur: 40% * vélo . prix
   plafond: 350 €
   lien: https://www.capcotentin.fr/velo/
+  dernière mise à jour: 11/09/2025
 
 aides . granville:
   remplace: commune
@@ -4752,6 +4757,7 @@ aides . villes soeurs:
   valeur: 25% * vélo . prix
   plafond: 150 €
   lien: https://www.villes-soeurs.fr/vie-quotidienne/transport-mobilite/aide-velo-electrique/
+  dernière mise à jour: 11/09/2025
 
 aides . cote albatre:
   remplace: intercommunalité
@@ -4775,6 +4781,23 @@ aides . cote albatre:
         alors: 600€
       - sinon: 200€
   lien: https://cote-albatre.fr/aide-velo
+  dernière mise à jour: 11/09/2025
+
+aides . cc falaises du talou:
+  remplace: intercommunalité
+  titre: Communauté de communes des Falaises du Talou
+  description: >
+    Aide à l'achat d'un vélo à assistance électrique (VAE) avec le financement
+    à hauteur de 150€ pour le 1er VAE et 75€ pour le 2ème VAE. Le vélo doit
+    être acheté après le 1er décembre 2024 dans un magasin situé sur le
+    territoire du PETR Dieppe Pays Normand.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = "CC Falaises du Talou"
+      - vélo . électrique
+  valeur: 150 €
+  lien: https://www.falaisesdutalou.fr/vivre/mobilites/aide-a-la-mobilite
+  dernière mise à jour: 11/09/2025
 
 aides . arcachon:
   remplace: commune
@@ -7246,10 +7269,29 @@ aides . vallées de l'orne et de l'odon:
             - vélo . cargo
             - vélo . adapté
         alors: 300€
-      - si: revenu fiscal de référence par part <= 20805€/an
+      - si: revenu fiscal de référence par part . revenu de référence <= plafond de ressources
         alors: 200€
-      - sinon: 0€
   lien: https://cdc.vallees-orne-odon.fr/environnement/transition-energetique/aide-acquisition-velo/
+  dernière mise à jour: 11/09/2025
+  avec:
+    plafond de ressources:
+      valeur:
+        variations:
+          - si: foyer . personnes = 1
+            alors: 25805 
+          - si: foyer . personnes = 2
+            alors: 35427 
+          - si: foyer . personnes = 3
+            alors: 41591 
+          - si: foyer . personnes = 4
+            alors: 47748 
+          - sinon:
+              valeur: 53930 + (6165 * personnes supplémentaires * 1 €/an/personne)
+      unité: €/an
+
+    personnes supplémentaires:
+      valeur: foyer . personnes - 5
+      plancher: 0
 
 aides . joinville-le-pont:
   remplace: commune
@@ -9187,8 +9229,6 @@ aides . bassin-pompey:
             alors: 33547 
           - si: foyer . personnes = 4
             alors: 39192 
-          - si: foyer . personnes = 5
-            alors: 44860 
           - sinon:
               valeur: 44860 + (5668 * personnes supplémentaires * 1 €/an/personne)
       unité: €/an
