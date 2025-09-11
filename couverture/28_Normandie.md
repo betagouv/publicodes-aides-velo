@@ -1,5 +1,7 @@
 # Couverture des aides en Normandie (28)
 
+- 2025 : ✅
+
 | Echelle     | Nom                                          | Code      | Possède une aide | Modélisée | Relue |
 | ----------- | -------------------------------------------- | --------- | ---------------- | --------- | ----- |
 | Région      | Normandie                                    | 28        | ❌               | ❌        | 🤖    |
@@ -70,14 +72,14 @@
 | CC          | CC des Quatre Rivières en Bray               | 200069730 | ❌               | ❌        | ✅    |
 | CA          | CA Fécamp Caux Littoral Agglomération        | 200069821 | ❌               | ❌        | ✅    |
 | CC          | CC de la Côte d'Albâtre                      | 200069839 | ✅               | ✅        | ✅    |
-| CC          | CC Plateau de Caux                           | 200069847 | ❔               | ❌        | ✅    |
-| CC          | CC Bray-Eawy                                 | 200070068 | ❔               | ❌        | ✅    |
-| CC          | CC Inter-Caux-Vexin                          | 200070449 | ❔               | ❌        | ✅    |
-| CU          | CU Le Havre Seine Métropole                  | 200084952 | ❔               | ❌        | ✅    |
-| CC          | CC Campagne-de-Caux                          | 247600505 | ❔               | ❌        | ✅    |
+| CC          | CC Plateau de Caux                           | 200069847 | ❌               | ❌        | ✅    |
+| CC          | CC Bray-Eawy                                 | 200070068 | ❌               | ❌        | ✅    |
+| CC          | CC Inter-Caux-Vexin                          | 200070449 | ❌               | ❌        | ✅    |
+| CU          | CU Le Havre Seine Métropole                  | 200084952 | ❌               | ❌        | ✅    |
+| CC          | CC Campagne-de-Caux                          | 247600505 | ❌               | ❌        | ✅    |
 | CC          | CC des Villes Soeurs                         | 247600588 | ✅               | ✅        | ✅    |
-| CC          | CC de Londinières                            | 247600604 | ❔               | ❌        | ✅    |
-| CC          | CC Yvetot Normandie                          | 247600620 | ❔               | ❌        | ✅    |
-| CC          | CC Caux - Austreberthe                       | 247600646 | ❔               | ❌        | ✅    |
+| CC          | CC de Londinières                            | 247600604 | ❌               | ❌        | ✅    |
+| CC          | CC Yvetot Normandie                          | 247600620 | ❌               | ❌        | ✅    |
+| CC          | CC Caux - Austreberthe                       | 247600646 | ❌               | ❌        | ✅    |
 | CC          | CC Falaises du Talou                         | 247600729 | ✅               | ✅        | ✅    |
 | CA          | CA de la Région Dieppoise                    | 247600786 | ❔               | ❌        | ❌    |
