@@ -93,7 +93,7 @@
 | CC          | CC Bièvre Isère                                      | 200059392 | ✅               | ✅        | ✅    |
 | CC          | CC Les Balcons du Dauphiné                           | 200068542 | ❌               | ❌        | 🤖    |
 | CC          | CC Les Vals du Dauphiné                              | 200068567 | ❌               | ❌        | 🤖    |
-| CC          | CC Saint-Marcellin Vercors Isère Communauté          | 200070431 | ✅               | 📧        | 📧    |
+| CC          | CC Saint-Marcellin Vercors Isère Communauté          | 200070431 | ✅               | ✅        | ✅    |
 | CA          | CA Vienne Condrieu                                   | 200077014 | ✅               | ✅        | ✅    |
 | CC          | CC Entre Bièvre et Rhône                             | 200085751 | ❌               | ❌        | 🤖    |
 | CA          | CA Porte de l'Isère (CAPI)                           | 243800604 | ❌               | ❌        | 🤖    |

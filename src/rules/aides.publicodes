@@ -1588,7 +1588,8 @@ aides . caen:
   titre: Ville de Caen
   description: >
     La Ville de Caen propose une aide à l'achat sous-conditions de ressources
-    pour l'achat d'un vélo à assistance électrique neuf ou d'un kit.
+    pour l'achat d'un vélo à assistance électrique neuf ou d'un kit
+    d'électrification.
   applicable si:
     toutes ces conditions:
       - localisation . code insee = '14118'
@@ -1604,6 +1605,7 @@ aides . caen:
       - sinon: 300€
   plafond: vélo . prix
   lien: https://caen.fr/velo-pied
+  dernière mise jour: 11/09/2025
 
 aides . caen jeune:
   remplace: commune
@@ -1621,6 +1623,7 @@ aides . caen jeune:
   valeur: 50€
   plafond: vélo . prix
   lien: https://caen.fr/velo-pied
+  dernière mise à jour: 11/09/2025
 
 aides . caen vélo adapté:
   remplace: commune
@@ -1640,6 +1643,7 @@ aides . caen vélo adapté:
   valeur: 30% * vélo . prix
   plafond: 400€
   lien: https://caen.fr/velo-pied
+  dernière mise à jour: 11/09/2025
 
 aides . caen la mer:
   remplace: intercommunalité
@@ -1658,6 +1662,7 @@ aides . caen la mer:
       - vélo . électrique
   valeur: 50€
   lien: https://caenlamer.fr/aide-achat-velo-assistance-electrique
+  dernière mise à jour: 11/09/2025
 
 # NOTE: Pas trop d'infos depuis 2021, à vérifier en 2025
 aides . thue et mue:
@@ -1679,6 +1684,40 @@ aides . thue et mue:
       - sinon: 100€
   lien: https://www.thueetmue.fr/aide-lachat-dun-velo-electrique
   dernière mise à jour: 14/08/2025
+
+aides . démouville:
+  remplace: commune
+  titre: Ville de Démouville
+  description: >
+    « Démouv'élo» - Aide pour l'acquisition d'un vélo de tout type sans
+    conditions de revenus cumulables avec l’aide de Caen la Mer. La demande
+    doit être effectuée dans les trois mois après la date d'achat.
+  applicable si:
+    toutes ces conditions:
+      - localisation . code insee = '14221'
+      - demandeur . âge . majeur
+      - une de ces conditions:
+          - vélo . électrique ou mécanique
+          - vélo . adapté
+  valeur:
+    variations:
+      - si: vélo . pliant électrique
+        alors: 80 €
+      - si: 
+          une de ces conditions:
+            - vélo . électrique
+            - vélo . cargo
+        alors: 
+          variations:
+            - si: revenu fiscal de référence par part <= 7500 €/an
+              alors: 150 €
+            - si: revenu fiscal de référence par part <= 15000 €/an
+              alors: 100 €
+            - sinon: 50 €
+      - sinon: 50 €
+  plafond: 40% * vélo . prix
+  lien: https://www.demouville.fr/demouvelo-aide-lachat-dun-velo
+  dernière mise à jour: 11/09/2025
 
 # NOTE: infos pour 2023, pas d'infos pour 2024, à vérifier en 2025
 aides . hermanville-sur-mer:
@@ -1778,6 +1817,7 @@ aides . mondeville:
               alors: 80€
             - sinon: 0€
   lien: https://www.mondeville.fr/mes-demarches/besoin-dune-aide/prime-velo-la-dynamo/
+  dernière mise à jour: 11/09/2025
 
 # NOTE: informations pour 2024, à vérifier en 2025
 aides . flers:
@@ -2170,6 +2210,7 @@ aides . pont-de-beauvoisin:
   lien: https://www.mairie-pontdebeauvoisin38.fr/aide-a-lachat-dun-velo-a-assistance-electrique/
   dernière mise à jour: 22/08/2025
 
+# NOTE: site down mais aide toujours d'actualité (confirmation par mail en septembre 2025)
 aides . saint-marcellin vercors isère:
   remplace: intercommunalité
   titre: Saint-Marcellin Vercors Isère Communauté
@@ -2193,6 +2234,7 @@ aides . saint-marcellin vercors isère:
     - sinon: 100 €
   plafond: 50% * vélo . prix
   lien: http://www.saintmarcellin-vercors-isere.fr/evenement/9916/4451-toute-l-actualite.html
+  dernière mise à jour: 11/09/2025
 
 aides . montval sur loir:
   remplace: commune
@@ -8137,6 +8179,7 @@ aides . crestois et pays de saillans:
   lien: https://www.cccps.fr/demarches/aide-pour-lelectrification-dun-velo-classique/
   dernière mise à jour: 13/08/2025
 
+# TODO: A vérifier en 2026 (contacté par mail, clôturé en juillet 2025 sans info pour la reconduite en 2026)
 # aides . cc baronnies en drome provençale:
 #   remplace: intercommunalité
 #   titre: Communauté de communes des Baronnies en Drôme Provençale
