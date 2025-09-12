@@ -3037,59 +3037,6 @@ aides . chevilly-larue:
   lien: https://www.ville-chevilly-larue.fr/demarches-administratives/aide-a-lachat-dun-velo/
   dernière mise à jour: 01/07/2025
 
-aides . lescar:
-  remplace: commune
-  titre: Ville de Lescar
-  description: >
-    La Ville de Lescar propose une aide forfaitaire supplémentaire à
-    destination des habitant·es de la commune, en complément de celle accordée
-    par Pau Béarn Pyrénées Mobilités.
-  applicable si:
-    toutes ces conditions: 
-      - localisation . code insee = '64335'
-      - revenu fiscal de référence par part <= 20000 €/an
-      # - aides . pau > 0€
-  variations:
-    - si: revenu fiscal de référence par part < 12000 €/an
-      alors:
-        variations:
-          - si: 
-              une de ces conditions:
-                - vélo . cargo
-                - vélo . adapté
-            alors: 450€
-          - si: 
-              une de ces conditions:
-                - vélo . électrique
-                - vélo . pliant
-            alors: 300€
-    - si: revenu fiscal de référence par part < 16000 €/an
-      alors:
-        variations:
-          - si: 
-              une de ces conditions:
-                - vélo . cargo
-                - vélo . adapté
-            alors: 350€
-          - si: 
-              une de ces conditions:
-                - vélo . électrique
-                - vélo . pliant
-            alors: 200€
-    - sinon:
-        variations:
-          - si: 
-              une de ces conditions:
-                - vélo . cargo
-                - vélo . adapté
-            alors: 250€
-          - si: 
-              une de ces conditions:
-                - vélo . électrique
-                - vélo . pliant
-            alors: 100€
-  lien: https://www.lescar.fr/information-transversale/fil-infos/mise-en-place-dune-aide-pour-lacquisition-dun-velo-pour-les-lescariens-1140
-
 # TODO: pas d'information sur la durée de validité, à vérifier en 2026
 aides . vallée d'ossau:
   remplace: intercommunalité
