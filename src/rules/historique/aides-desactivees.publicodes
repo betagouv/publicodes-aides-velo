@@ -1538,3 +1538,21 @@ aides . aix les bains:
   plafond: 250€
   lien: https://www.aixlesbains.fr/Cadre-de-vie/Transports-et-deplacements/A-velo/Aides-financieres-pour-se-deplacer-a-velo
   dernière mise à jour: 22/08/2025
+
+# NOTE: confirmation par mail en septembre 2025 de sa suppression
+aides . coeur d'ostrevent:
+  remplace: intercommunalité
+  titre: Cœur d'Ostrevent
+  description: >
+    Prime pour l'achat d'un vélo neuf à assistance électrique effectué entre le
+    1er janvier 2024 et le 31 décembre 2024.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = "CA Coeur d'Ostrevent"
+      - demandeur . âge . majeur
+      - vélo . électrique
+      - vélo . état . neuf
+  valeur: 25% * vélo . prix
+  plafond: 200€
+  lien: https://coeurdostrevent.fr/la-prime-a-lachat-dun-velo-electrique-cest-reconduit/
+  dernière mise à jour: 12/09/2025
