@@ -40,7 +40,7 @@
 | CU          | CU de Dunkerque                                     | 245900428 | ✅               | ✅        | ✅    |
 | CC          | CC Flandre Lys                                      | 245900758 | ✅               | ✅        | ✅    |
 | CC          | CC du Pays Solesmois                                | 245901038 | ❌               | ❌        | ✅    |
-| CA          | CA Coeur d'Ostrevent                                | 245901152 | ✅               | ✅        | 📧    |
+| CA          | CA Coeur d'Ostrevent                                | 245901152 | ❌               | ❌        | ✅    |
 | CA          | CA Valenciennes Métropole                           | 245901160 | ✅               | ✅        | ✅    |
 | Département | Oise                                                | 60        | ✅               | ✅        | ❌    |
 | CC          | CC Senlis Sud Oise                                  | 200066975 | ❔               | ❌        | ❌    |
