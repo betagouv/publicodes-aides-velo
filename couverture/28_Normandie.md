@@ -5,7 +5,7 @@
 | Echelle     | Nom                                          | Code      | Possède une aide | Modélisée | Relue |
 | ----------- | -------------------------------------------- | --------- | ---------------- | --------- | ----- |
 | Région      | Normandie                                    | 28        | ❌               | ❌        | 🤖    |
-| Département | Calvados                                     | 14        | ❌               | 📧        | 📧    |
+| Département | Calvados                                     | 14        | ❌               | ❌        | ✅    |
 | CC          | CC Normandie-Cabourg-Pays d'Auge             | 200065563 | ❌               | ❌        | 🤖    |
 | CC          | CC Val ès Dunes                              | 200065589 | ❌               | ❌        | 🤖    |
 | CU          | CU Caen la Mer                               | 200065597 | ✅               | ✅        | ✅    |

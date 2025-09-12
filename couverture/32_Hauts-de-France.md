@@ -44,33 +44,32 @@
 | CA          | CA Valenciennes Métropole                           | 245901160 | ✅               | ✅        | ✅    |
 | Département | Oise                                                | 60        | ✅               | ✅        | 📧    |
 | CC          | CC Senlis Sud Oise                                  | 200066975 | ❌               | ❌        | ✅    |
-| CA          | CA de la Région de Compiègne et de la Basse Automne | 200067965 | ❔               | ❌        | ❌    |
-| CC          | CC Thelloise                                        | 200067973 | ❔               | ❌        | ❌    |
+| CA          | CA de la Région de Compiègne et de la Basse Automne | 200067965 | ❌               | ❌        | ✅    |
+| CC          | CC Thelloise                                        | 200067973 | ❌               | ❌        | ✅    |
 | CA          | CA du Beauvaisis                                    | 200067999 | ✅               | ✅        | ✅    |
-| CC          | CC de l'Oise Picarde                                | 200068005 | ❔               | ❌        | ❌    |
-| CA          | CA Creil Sud Oise                                   | 200068047 | ❔               | ❌        | ❌    |
-| CC          | CC du Liancourtois                                  | 246000129 | ❔               | ❌        | ❌    |
-| CC          | CC du Clermontois                                   | 246000376 | ❔               | ❌        | ❌    |
-| CC          | CC du Plateau Picard                                | 246000566 | ❔               | ❌        | ❌    |
-| CC          | CC des Sablons                                      | 246000582 | ❔               | ❌        | ❌    |
-| CC          | CC du Vexin-Thelle                                  | 246000707 | ❔               | ❌        | ❌    |
-| CC          | CC des Lisières de l'Oise                           | 246000749 | ❔               | ❌        | ❌    |
-| CC          | CC du Pays Noyonnais                                | 246000756 | ❔               | ❌        | ❌    |
-| CC          | CC de l'Aire Cantilienne                            | 246000764 | ❔               | ❌        | ❌    |
-| CC          | CC des Deux Vallées                                 | 246000772 | ❔               | ❌        | ❌    |
+| CC          | CC de l'Oise Picarde                                | 200068005 | ❌               | ❌        | ✅    |
+| CA          | CA Creil Sud Oise                                   | 200068047 | ❌               | ❌        | ✅    |
+| CC          | CC du Liancourtois                                  | 246000129 | ❌               | ❌        | ✅    |
+| CC          | CC du Clermontois                                   | 246000376 | ❌               | ❌        | ✅    |
+| CC          | CC du Plateau Picard                                | 246000566 | ❌               | ❌        | ✅    |
+| CC          | CC des Sablons                                      | 246000582 | ❌               | ❌        | ✅    |
+| CC          | CC du Vexin-Thelle                                  | 246000707 | ❌               | ❌        | ✅    |
+| CC          | CC des Lisières de l'Oise                           | 246000749 | ❌               | ❌        | ✅    |
+| CC          | CC du Pays Noyonnais                                | 246000756 | ❌               | ❌        | ✅    |
+| CC          | CC de l'Aire Cantilienne                            | 246000764 | ❌               | ❌        | ✅    |
+| CC          | CC des Deux Vallées                                 | 246000772 | ❌               | ❌        | ✅    |
 | CC          | CC de la Picardie Verte                             | 246000848 | ❌               | ❌        | ✅    |
-| CC          | CC du Pays des Sources                              | 246000855 | ❔               | ❌        | ❌    |
-| CC          | CC du Pays de Valois                                | 246000871 | ❔               | ❌        | ❌    |
-| CC          | CC de la Plaine d'Estrées                           | 246000897 | ❔               | ❌        | ❌    |
-| CC          | CC du Pays de Bray                                  | 246000913 | ❔               | ❌        | ❌    |
-| CC          | CC des Pays d'Oise et d'Halatte                     | 246000921 | ❔               | ❌        | ❌    |
-| Département | Pas-de-Calais                                       | 62        | ❔               | ❌        | ❌    |
-| CC          | CC de Desvres-Samer                                 | 200018083 | ❔               | ❌        | ❌    |
-| CU          | CU d'Arras                                          | 200033579 | ✅               | ✅        | ❌    |
-| CC          | CC du Sud Artois                                    | 200035442 | ❔               | ❌        | ❌    |
-| CC          | CC des 7 Vallées                                    | 200044030 | ✅               | ✅        | ❌    |
-| CC          | CC Osartis Marquion                                 | 200044048 | ✅               | ✅        | ❌    |
-| CA          | CA des Deux Baies en Montreuillois                  | 200069029 | ❔               | ❌        | ❌    |
+| CC          | CC du Pays des Sources                              | 246000855 | ❌               | ❌        | ✅    |
+| CC          | CC de la Plaine d'Estrées                           | 246000897 | ❌               | ❌        | ✅    |
+| CC          | CC du Pays de Bray                                  | 246000913 | ❌               | ❌        | ✅    |
+| CC          | CC des Pays d'Oise et d'Halatte                     | 246000921 | ❌               | ❌        | ✅    |
+| Département | Pas-de-Calais                                       | 62        | ❌               | ❌        | ✅    |
+| CC          | CC de Desvres-Samer                                 | 200018083 | ❌               | ❌        | ✅    |
+| CU          | CU d'Arras                                          | 200033579 | ✅               | ✅        | ✅    |
+| CC          | CC du Sud Artois                                    | 200035442 | ✅               | ✅        | ✅    |
+| CC          | CC des 7 Vallées                                    | 200044030 | ✅               | ✅        | ✅    |
+| CC          | CC Osartis Marquion                                 | 200044048 | ✅               | ✅        | ✅    |
+| CA          | CA des Deux Baies en Montreuillois                  | 200069029 | ✅               | ✅        | ✅    |
 | CA          | CA du Pays de Saint-Omer                            | 200069037 | ❔               | ❌        | ❌    |
 | CC          | CC du Haut Pays du Montreuillois                    | 200069235 | ❔               | ❌        | ❌    |
 | CC          | CC des Campagnes de l'Artois                        | 200069482 | ✅               | ✅        | ❌    |
