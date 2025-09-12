@@ -170,7 +170,7 @@
 | CC          | CC Centre Tarn                                         | 200034049 | ❔               | ❌        | ❌    |
 | CC          | CC du Lautrécois et du Pays d'Agout                    | 200034056 | ❔               | ❌        | ❌    |
 | CC          | CC du Cordais et du Causse (4 C)                       | 200034064 | ❔               | ❌        | ❌    |
-| CC          | CC Carmausin-Ségala                                    | 200040905 | ❔               | ❌        | ❌    |
+| CC          | CC Carmausin-Ségala                                    | 200040905 | ✅               | ✅        | ✅    |
 | CA          | CA Gaillac-Graulhet                                    | 200066124 | ❔               | ❌        | ❌    |
 | CC          | CC du Haut-Languedoc                                   | 200066553 | ❔               | ❌        | ❌    |
 | CC          | CC Sidobre Vals et Plateaux                            | 200066561 | ❔               | ❌        | ❌    |
