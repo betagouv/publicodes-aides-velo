@@ -42,7 +42,7 @@
 | CC          | CC du Pays Solesmois                                | 245901038 | ❌               | ❌        | ✅    |
 | CA          | CA Coeur d'Ostrevent                                | 245901152 | ❌               | ❌        | ✅    |
 | CA          | CA Valenciennes Métropole                           | 245901160 | ✅               | ✅        | ✅    |
-| Département | Oise                                                | 60        | ✅               | ✅        | ❌    |
+| Département | Oise                                                | 60        | ✅               | ✅        | 📧    |
 | CC          | CC Senlis Sud Oise                                  | 200066975 | ❔               | ❌        | ❌    |
 | CA          | CA de la Région de Compiègne et de la Basse Automne | 200067965 | ❔               | ❌        | ❌    |
 | CC          | CC Thelloise                                        | 200067973 | ❔               | ❌        | ❌    |

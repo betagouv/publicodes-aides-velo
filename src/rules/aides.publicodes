@@ -3037,39 +3037,6 @@ aides . chevilly-larue:
   lien: https://www.ville-chevilly-larue.fr/demarches-administratives/aide-a-lachat-dun-velo/
   dernière mise à jour: 01/07/2025
 
-# NOTE: à vérifier en 2026
-aides . pau:
-  remplace: intercommunalité
-  titre: Pau Béarn Pyrénées Mobilité
-  description: >
-    La prochaine session de dépôt des dossiers aura lieu du 2 au 31 janvier
-    2025.
-
-
-    Cette aide est réservée sans condition de ressources aux habitants des 37
-    communes membres du Syndicat Mixte Pau Béarn Pyrénées Mobilités, aux
-    professionnels de très petite entreprise de moins de 10 salariés, aux
-    acteurs de la cyclo-logistique implantés sur le territoire.
-  applicable si: localisation . epci = 'CA Pau Béarn Pyrénées'
-  valeur: 15% * vélo . prix
-  plafond:
-    variations:
-      - si: 
-          une de ces conditions:
-            - vélo . cargo
-            - vélo . adapté
-        alors: 350€
-      - si: 
-          une de ces conditions:
-            - vélo . pliant
-            - vélo . électrique
-            - vélo . motorisation
-        alors: 200€
-      - sinon: 0€
-  lien: https://www.pau.fr/actualites/aide-a-lachat-velo--profitez-dun-coup-de-pouce-pour-changer-de-braquet
-  dernière mise à jour: 14/08/2025
-  date de fin: 31/01/2025
-
 aides . lescar:
   remplace: commune
   titre: Ville de Lescar
@@ -3081,7 +3048,7 @@ aides . lescar:
     toutes ces conditions: 
       - localisation . code insee = '64335'
       - revenu fiscal de référence par part <= 20000 €/an
-      - aides . pau > 0€
+      # - aides . pau > 0€
   variations:
     - si: revenu fiscal de référence par part < 12000 €/an
       alors:
