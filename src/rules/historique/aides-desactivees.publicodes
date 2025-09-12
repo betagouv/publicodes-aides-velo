@@ -1590,3 +1590,56 @@ aides . pau:
   dernière mise à jour: 14/08/2025
   date de fin: 31/01/2025
 
+# TODO: à vérifier en 2026
+aides . lescar:
+  remplace: commune
+  titre: Ville de Lescar
+  description: >
+    La Ville de Lescar propose une aide forfaitaire supplémentaire à
+    destination des habitant·es de la commune, en complément de celle accordée
+    par Pau Béarn Pyrénées Mobilités.
+  applicable si:
+    toutes ces conditions: 
+      - localisation . code insee = '64335'
+      - revenu fiscal de référence par part <= 20000 €/an
+      - aides . pau > 0€
+  variations:
+    - si: revenu fiscal de référence par part < 12000 €/an
+      alors:
+        variations:
+          - si: 
+              une de ces conditions:
+                - vélo . cargo
+                - vélo . adapté
+            alors: 450€
+          - si: 
+              une de ces conditions:
+                - vélo . électrique
+                - vélo . pliant
+            alors: 300€
+    - si: revenu fiscal de référence par part < 16000 €/an
+      alors:
+        variations:
+          - si: 
+              une de ces conditions:
+                - vélo . cargo
+                - vélo . adapté
+            alors: 350€
+          - si: 
+              une de ces conditions:
+                - vélo . électrique
+                - vélo . pliant
+            alors: 200€
+    - sinon:
+        variations:
+          - si: 
+              une de ces conditions:
+                - vélo . cargo
+                - vélo . adapté
+            alors: 250€
+          - si: 
+              une de ces conditions:
+                - vélo . électrique
+                - vélo . pliant
+            alors: 100€
+  lien: https://www.lescar.fr/information-transversale/fil-infos/mise-en-place-dune-aide-pour-lacquisition-dun-velo-pour-les-lescariens-1140
