@@ -128,6 +128,12 @@ vélo . prix pour maximiser les aides:
   variations:
     - si: localisation . code insee = '67218'
       alors: 800 €
+    - si: localisation . epci = "CA du Pays de Laon"
+      alors: 
+        variations:
+          - si: vélo . cargo
+            alors: 5000 €
+          - sinon: 3000 €
     - si: localisation . epci = "CC du Genevois"
       alors: 
         variations:
