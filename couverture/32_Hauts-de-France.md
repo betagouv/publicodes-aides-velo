@@ -2,46 +2,46 @@
 
 | Echelle     | Nom                                                 | Code      | Possède une aide | Modélisée | Relue |
 | ----------- | --------------------------------------------------- | --------- | ---------------- | --------- | ----- |
-| Région      | Hauts-de-France                                     | 32        | ❔               | ❌        | ❌    |
-| Département | Aisne                                               | 02        | ❔               | ❌        | ❌    |
-| CC          | CC du Val de l'Oise                                 | 200040426 | ❔               | ❌        | ❌    |
-| CA          | CA du Pays de Laon                                  | 200043495 | ❔               | ❌        | ❌    |
-| CC          | CC de l'Est de la Somme                             | 200070985 | ❔               | ❌        | ❌    |
-| CC          | CC Picardie des Châteaux                            | 200071769 | ❔               | ❌        | ❌    |
-| CA          | CA Chauny Tergnier La Fère                          | 200071785 | ❔               | ❌        | ❌    |
-| CA          | CA du Saint-Quentinois                              | 200071892 | ❔               | ❌        | ❌    |
-| CC          | CC Thiérache Sambre et Oise                         | 200071983 | ❔               | ❌        | ❌    |
-| CC          | CC Retz en Valois                                   | 200071991 | ❔               | ❌        | ❌    |
-| CA          | CA de la Région de Château-Thierry                  | 200072031 | ❔               | ❌        | ❌    |
-| CC          | CC de la Thiérache du Centre                        | 240200444 | ❔               | ❌        | ❌    |
-| CC          | CC du Pays de la Serre                              | 240200469 | ❔               | ❌        | ❌    |
-| CA          | CA GrandSoissons Agglomération                      | 240200477 | ❔               | ❌        | ❌    |
-| CC          | CC du Pays du Vermandois                            | 240200493 | ❔               | ❌        | ❌    |
-| CC          | CC du Val de l'Aisne                                | 240200501 | ❔               | ❌        | ❌    |
-| CC          | CC du Canton d'Oulchy-le-Château                    | 240200519 | ❔               | ❌        | ❌    |
-| CC          | CC de la Champagne Picarde                          | 240200576 | ❔               | ❌        | ❌    |
-| CC          | CC du Canton de Charly-sur-Marne                    | 240200584 | ❔               | ❌        | ❌    |
-| CC          | CC du Chemin des Dames                              | 240200592 | ❔               | ❌        | ❌    |
-| CC          | CC des Trois Rivières                               | 240200600 | ❔               | ❌        | ❌    |
-| CC          | CC des Portes de la Thiérache                       | 240200634 | ❔               | ❌        | ❌    |
-| Département | Nord                                                | 59        | ❔               | ❌        | ❌    |
-| CA          | CA du Caudrésis et du Catésis                       | 200030633 | ❔               | ❌        | ❌    |
-| CA          | CA Coeur de Flandre                                 | 200040947 | ❔               | ❌        | ❌    |
-| CC          | CC des Hauts de Flandre                             | 200040954 | ❔               | ❌        | ❌    |
-| CC          | CC Pévèle-Carembault                                | 200041960 | ✅               | ✅        | ❌    |
-| CA          | CA de la Porte du Hainaut                           | 200042190 | ✅               | ✅        | ❌    |
-| CC          | CC Coeur de l'Avesnois                              | 200043263 | ❔               | ❌        | ❌    |
-| CC          | CC du Pays de Mormal                                | 200043321 | ✅               | ✅        | ❌    |
-| CA          | CA Maubeuge Val de Sambre                           | 200043396 | ❔               | ❌        | ❌    |
-| CC          | CC du Sud Avesnois                                  | 200043404 | ❔               | ❌        | ❌    |
-| CA          | CA Douaisis Agglo                                   | 200044618 | ❔               | ❌        | ❌    |
-| CA          | CA de Cambrai                                       | 200068500 | ✅               | ✅        | ❌    |
-| METRO       | Métropole Européenne de Lille                       | 200093201 | ❔               | ❌        | ❌    |
-| CU          | CU de Dunkerque                                     | 245900428 | ✅               | ✅        | ❌    |
-| CC          | CC Flandre Lys                                      | 245900758 | ❔               | ❌        | ❌    |
-| CC          | CC du Pays Solesmois                                | 245901038 | ❔               | ❌        | ❌    |
-| CA          | CA Coeur d'Ostrevent                                | 245901152 | ✅               | ✅        | ❌    |
-| CA          | CA Valenciennes Métropole                           | 245901160 | ✅               | ✅        | ❌    |
+| Région      | Hauts-de-France                                     | 32        | ❌               | ❌        | 🤖    |
+| Département | Aisne                                               | 02        | ❌               | ❌        | 🤖    |
+| CC          | CC du Val de l'Oise                                 | 200040426 | ❌               | ❌        | 🤖    |
+| CA          | CA du Pays de Laon                                  | 200043495 | ✅               | ✅        | ✅    |
+| CC          | CC de l'Est de la Somme                             | 200070985 | ❌               | ❌        | 🤖    |
+| CC          | CC Picardie des Châteaux                            | 200071769 | ❌               | ❌        | 🤖    |
+| CA          | CA Chauny Tergnier La Fère                          | 200071785 | ❌               | ❌        | 🤖    |
+| CA          | CA du Saint-Quentinois                              | 200071892 | ❌               | ❌        | 🤖    |
+| CC          | CC Thiérache Sambre et Oise                         | 200071983 | ❌               | ❌        | 🤖    |
+| CC          | CC Retz en Valois                                   | 200071991 | ❌               | ❌        | 🤖    |
+| CA          | CA de la Région de Château-Thierry                  | 200072031 | ❌               | ❌        | 🤖    |
+| CC          | CC de la Thiérache du Centre                        | 240200444 | ❌               | ❌        | 🤖    |
+| CC          | CC du Pays de la Serre                              | 240200469 | ❌               | ❌        | 🤖    |
+| CA          | CA GrandSoissons Agglomération                      | 240200477 | ❌               | ❌        | 🤖    |
+| CC          | CC du Pays du Vermandois                            | 240200493 | ❌               | ❌        | 🤖    |
+| CC          | CC du Val de l'Aisne                                | 240200501 | ❌               | ❌        | 🤖    |
+| CC          | CC du Canton d'Oulchy-le-Château                    | 240200519 | ❌               | ❌        | 🤖    |
+| CC          | CC de la Champagne Picarde                          | 240200576 | ❌               | ❌        | 🤖    |
+| CC          | CC du Canton de Charly-sur-Marne                    | 240200584 | ❌               | ❌        | 🤖    |
+| CC          | CC du Chemin des Dames                              | 240200592 | ❌               | ❌        | 🤖    |
+| CC          | CC des Trois Rivières                               | 240200600 | ❌               | ❌        | 🤖    |
+| CC          | CC des Portes de la Thiérache                       | 240200634 | ❌               | ❌        | 🤖    |
+| Département | Nord                                                | 59        | ❌               | ❌        | ❌    |
+| CA          | CA du Caudrésis et du Catésis                       | 200030633 | ❌               | ❌        | ✅    |
+| CA          | CA Coeur de Flandre                                 | 200040947 | ❌               | ❌        | ✅    |
+| CC          | CC des Hauts de Flandre                             | 200040954 | ❌               | ❌        | ✅    |
+| CC          | CC Pévèle-Carembault                                | 200041960 | ✅               | ✅        | ✅    |
+| CA          | CA de la Porte du Hainaut                           | 200042190 | ✅               | ✅        | ✅    |
+| CC          | CC Coeur de l'Avesnois                              | 200043263 | ❌               | ❌        | ✅    |
+| CC          | CC du Pays de Mormal                                | 200043321 | ✅               | ✅        | ✅    |
+| CA          | CA Maubeuge Val de Sambre                           | 200043396 | ❌               | ❌        | ✅    |
+| CC          | CC du Sud Avesnois                                  | 200043404 | ❌               | ❌        | ✅    |
+| CA          | CA Douaisis Agglo                                   | 200044618 | ❌               | ❌        | ✅    |
+| CA          | CA de Cambrai                                       | 200068500 | ✅               | ✅        | ✅    |
+| METRO       | Métropole Européenne de Lille                       | 200093201 | ❌               | ❌        | ✅    |
+| CU          | CU de Dunkerque                                     | 245900428 | ✅               | ✅        | ✅    |
+| CC          | CC Flandre Lys                                      | 245900758 | ✅               | ✅        | ✅    |
+| CC          | CC du Pays Solesmois                                | 245901038 | ❌               | ❌        | ✅    |
+| CA          | CA Coeur d'Ostrevent                                | 245901152 | ✅               | ✅        | 📧    |
+| CA          | CA Valenciennes Métropole                           | 245901160 | ✅               | ✅        | ✅    |
 | Département | Oise                                                | 60        | ✅               | ✅        | ❌    |
 | CC          | CC Senlis Sud Oise                                  | 200066975 | ❔               | ❌        | ❌    |
 | CA          | CA de la Région de Compiègne et de la Basse Automne | 200067965 | ❔               | ❌        | ❌    |

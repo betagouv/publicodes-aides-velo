@@ -66,18 +66,6 @@ aides . plobsheim:
   plafond: 100€
   lien: https://www.plobsheim.fr/subvention-pour-lachat-dun-velo/
 
-# TODO: cloturé pour 2024, à vérifier en 2025
-aides . laon:
- remplace: intercommunalité
- titre: Pays de Laon
- applicable si:
-   toutes ces conditions:
-     - localisation . epci = 'CA du Pays de Laon'
-     - vélo . électrique
- valeur: 300€
- plafond: vélo . prix
- lien: http://www.ca-paysdelaon.fr/Aide_VAE/index.html
-
 # NOTE: plus d'information sur le site, ne semble plus d'actualité.
 aides . ouistreham:
   remplace: commune

@@ -5768,14 +5768,14 @@ aides . lezenne:
             - sinon: 0€
   lien: http://www.lezennes.fr/index.php?id=167
 
-# NOTE: valide jusqu'au 31 décembre 2024, à vérifier en 2025
+# TODO: à vérifier en 2026
 aides . dunkerque:
   remplace: intercommunalité
   titre: Communauté urbaine de Dunkerque
   description: >
     Cette aide est octroyée sous forme de subvention pour tout achat d'un vélo
     neuf quel qu'en soit le type (classique, pliant, à assistance électrique,
-    cargo…) acheté avant le 31 décembre 2024. Au prix initial du vélo, peuvent
+    cargo…) acheté avant le 31 décembre 2025. Au prix initial du vélo, peuvent
     s'ajouter 3 accessoires : éclairage, antivol et casque. L'achat doit être
     effectué chez un commerce de la Communauté Urbaine de Dunkerque.
   applicable si:
@@ -5816,6 +5816,41 @@ aides . dunkerque:
               alors: 150€
             - sinon: 80€
   lien: https://www.communaute-urbaine-dunkerque.fr/aide-a-lacquisition-dun-velo
+  date de fin: 31/12/2025
+  dernière mise à jour: 12/09/2025
+
+aides . cc flandre lys:
+  remplace: intercommunalité
+  titre: Communauté de communes Flandre de Lys
+  description: >
+    Aide de 200 euros pour l'achat d'un vélo à assitance électrique neuf et
+    homologué.
+
+
+    Cette aide pourra être majorée de 100 euros, soit 300 €, pour les
+    demandeurs ayant souscrits à compter du 15 juillet 2024 au service VELYSOO,
+    uniquement via un contrat « VELYSOO 365 » arrivé à son terme.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = "CC Flandre Lys"
+      - demandeur . âge . majeur
+      - vélo . état . neuf
+      - vélo . électrique
+  valeur: vélo . prix
+  plafond:
+    variations:
+      - si: souscrit VELYSOO
+        alors: 300 €
+      - sinon: 200 €
+  lien: https://www.cc-flandrelys.fr/vivre-et-s-installer/mobilite/aide-vae
+  date de fin: 31/12/2025
+  dernière mise à jour: 12/09/2025
+  avec:
+    souscrit VELYSOO:
+      type: booléen
+      question: >
+        Avez-vous souscrit au service VELYSOO via un contrat « VELYSOO 365 » ?
+      par défaut: non
 
 # NOTE: info pour 2023, à vérifier en 2025
 aides . grande-synthe:
@@ -5837,14 +5872,14 @@ aides . grande-synthe:
   plafond: 200€
   lien: https://www.ville-grande-synthe.fr/ma-ville-verte/aide-a-lachat-de-velo/
 
-# NOTE: fin de validité en 2024, à vérifier en 2025
+# TODO: à vérifier en 2026
 aides . valenciennes:
   remplace: intercommunalité
   titre: Valenciennes Métropole
   description: >
     Aide à l'achat d'un vélo neuf ou d'occasion, à assistance électrique ou
-    non. L'achat du véhicule devra se faire entre le 1er janvier 2024 et le 31
-    décembre 2024, chez un professionnel situé sur le territoire de
+    non. L'achat du véhicule devra se faire entre le 1er janvier 2025 et le 31
+    décembre 2025, chez un professionnel situé sur le territoire de
     Valenciennes Métropole (l'achat via un site web ne sera pas pris en
     compte).
   applicable si: 
@@ -5889,14 +5924,20 @@ aides . valenciennes:
             - sinon: 0€
       - sinon: 0€
   lien: https://www.valenciennes-metropole.fr/competences/amenagement-du-territoire/mode-doux-mobilite/
+  date de fin: 31/12/2025
+  dernière mise à jour: 12/09/2025
 
+# TODO: à vérifier en 2026
 aides . cambrai:
   remplace: intercommunalité
   titre: Communauté d'agglomération de Cambrai
   description: >
     Aide à l'acquisition d'un vélo classique ou à assistance électrique neuf
     acheté chez un commerçant professionnel implanté sur le territoire de la CA
-    de Cambrai.
+    de Cambrai. 
+
+
+    La demande doit être effectuée dans les trois mois suivant l'achat.
   applicable si: 
     toutes ces conditions:
       - localisation . epci = 'CA de Cambrai'
@@ -5912,6 +5953,7 @@ aides . cambrai:
         alors: 300€
       - sinon: 150€
   lien: https://www.agglo-cambrai.fr/nos-missions/transport/aides-a-la-mobilite/laide-a-lacquisition-de-velo
+  dernière mise à jour: 12/09/2025
 
 # NOTE: à supprimer à terme
 aides . coeur d'ostrevent:
@@ -8515,6 +8557,32 @@ aides . cc arc sud bretagne:
         alors: 200€
       - sinon: 100€
   lien: https://www.arc-sud-bretagne.fr/au-quotidien/mobilite
+
+# TODO: à vérifier en 2026
+aides . laon:
+  remplace: intercommunalité
+  titre: Pays de Laon
+  description: >
+    Une aide forfaitaire de 300 € est accordée aux particuliers pour
+    l'acquisition d’un VAE acheté chez un commerçant du territoire et ce, sans
+    condition de ressource. 
+    
+    
+    L'achat doit être effectué au plus tard avant le 31 décembre 2025.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CA du Pays de Laon'
+      - vélo . électrique
+      - une de ces conditions:
+          - vélo . prix <= 3000 €
+          - toutes ces conditions:
+              - vélo . cargo
+              - vélo . prix <= 5000 €
+  valeur: 300 €
+  plafond: vélo . prix
+  lien: http://www.ca-paysdelaon.fr/Aide_VAE/index.html
+  dernière mise à jour: 12/09/2025
+  date de fin: 31/12/2025
 
 aides . cc pévèle carembault:
   remplace: intercommunalité
