@@ -1498,3 +1498,28 @@ aides . lescar:
                 - vélo . pliant
             alors: 100€
   lien: https://www.lescar.fr/information-transversale/fil-infos/mise-en-place-dune-aide-pour-lacquisition-dun-velo-pour-les-lescariens-1140
+
+# NOTE: plus référencée sur le site et remplacé par de la location longue durée
+aides . boulonnais:
+  remplace: intercommunalité
+  titre: Agglo Boulonnais
+  description: >
+     Aide financière pour l'achat d'un VAE dans le cadre d'un déplacement
+     domicile-travail. Elle concerne les salariés (privé / public), et les
+     personnes en recherche d'emploi.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CA du Boulonnais'
+      - demandeur . âge . majeur
+      - une de ces conditions:
+          - demandeur . statut . salarié
+          - demandeur . statut . demandeur d'emploi
+          - demandeur . statut . apprenti
+      - vélo . électrique
+      - vélo . état . neuf
+      - vélo . prix <= 3000€
+  valeur: 30% * vélo . prix
+  plafond: 200€
+  lien: https://www.agglo-boulonnais.fr/a-votre-service/mobilite/a-velo-dans-lagglo
+  dernière mise à jour: 12/09/2025
+

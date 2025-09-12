@@ -3802,8 +3802,9 @@ aides . terre des 2 caps:
   valeur: 40% * vélo . prix
   plafond: 250€
   lien: https://www.terredes2caps.fr/prime-lachat-de-velo
+  dernière mise à jour: 12/09/2025
 
-# NOTE: à vérifier à partir de février 2025
+# TODO: à vérifier en 2026
 aides . saint-omer:
   remplace: commune
   titre: Ville de Saint-Omer
@@ -3812,9 +3813,6 @@ aides . saint-omer:
     de vélo à assistance électrique. L'achat du vélo doit être effectué dans
     une enseigne présente sur le territoire de la Communauté d'Agglomération du
     Pays de Saint-Omer. 
-
-
-    Date limite de dépôt des dossiers : 31 décembre 2024.
   applicable si:
     toutes ces conditions:
       - localisation . code insee = '62765'
@@ -3822,7 +3820,7 @@ aides . saint-omer:
   valeur:
     variations:
       - si: vélo . adapté
-        alors: 600€
+        alors: 650 €
       - si: vélo . électrique
         alors:
           variations:
@@ -3836,6 +3834,8 @@ aides . saint-omer:
             - sinon: 250 €
       - sinon: 100 €
   lien: https://www.ville-saint-omer.fr/aides-lacquisition-de-velo
+  dernière mise à jour: 12/09/2025
+  date de fin: 31/12/2025
 
 # NOTE: valide pour 2024, à vérifier en 2025
 aides . les herbiers:
@@ -6671,7 +6671,7 @@ aides . grand calais:
   description: >
     ide est octroyée sous forme d'une subvention pour tout achat d'un vélo neuf
     ou d'occasion, à assistance électrique ou non, entre le 1er décembre 2024
-    et le 31 mai 2025 inclus.
+    et le 31 décembre 2025 inclus.
   applicable si:
     toutes ces conditions:
       - une de ces conditions:
@@ -6687,8 +6687,10 @@ aides . grand calais:
       - sinon: 100€
   plafond: vélo . prix
   lien: https://www.grandcalais.fr/aide-achat-velo/
+  date de fin: 31/12/2025
+  dernière mise à jour: 12/09/2025
 
-# NOTE: fin de validité en 2024, à vérifier en 2025
+# TODO: à vérifier en 2027
 aides . pays de lumbres:
   remplace: intercommunalité
   titre: Pays de Lumbres
@@ -6697,8 +6699,7 @@ aides . pays de lumbres:
     d'occasion. 
 
 
-    Demande possible jusqu'à épuisement du budget, entre le 1er janvier et le
-    31 décembre 2024
+    La demande doit être effectuée dans les 2 mois suivant l'achat du vélo.
   applicable si: 
     toutes ces conditions:
       - localisation . epci = 'CC du Pays de Lumbres'
@@ -6719,6 +6720,8 @@ aides . pays de lumbres:
                 alors: 125€
               - sinon: 50€
   lien: https://cc-paysdelumbres.fr/fr/vivre-et-habiter/mobilites-durables/aides-a-l-achat-d-un-velo
+  date de fin: 31/12/2026
+  dernière mise à jour: 12/09/2025
 
 aides . amboise:
   remplace: commune
@@ -6764,28 +6767,6 @@ aides . moselle et madon:
   plafond: 200€
   lien: https://www.cc-mosellemadon.fr/fr/aide-a-l-achat-de-velo.html
 
-aides . boulonnais:
-  remplace: intercommunalité
-  titre: Agglo Boulonnais
-  description: >
-     Aide financière pour l'achat d'un VAE dans le cadre d'un déplacement
-     domicile-travail. Elle concerne les salariés (privé / public), et les
-     personnes en recherche d'emploi.
-  applicable si:
-    toutes ces conditions:
-      - localisation . epci = 'CA du Boulonnais'
-      - demandeur . âge . majeur
-      - une de ces conditions:
-          - demandeur . statut . salarié
-          - demandeur . statut . demandeur d'emploi
-          - demandeur . statut . apprenti
-      - vélo . électrique
-      - vélo . état . neuf
-      - vélo . prix <= 3000€
-  valeur: 30% * vélo . prix
-  plafond: 200€
-  lien: https://www.agglo-boulonnais.fr/a-votre-service/mobilite/a-velo-dans-lagglo
-
 aides . osartis-marquion:
   remplace: intercommunalité
   titre: Communauté de communes Osartis-Marquion
@@ -6803,7 +6784,7 @@ aides . osartis-marquion:
 
 aides . ca2bm:
   remplace: intercommunalité
-  titre: Communauté d'Agglomération des Deux Baies du Montreuillois
+  titre: Communauté d'Agglomération des 2 Baies en Montreuillois
   description: >
     Aide jusqu'à 250 € pour l'achat d'un vélo à assistance électrique sur le
     territoire de la Communauté d'Agglomération des Deux Baies en
@@ -8020,18 +8001,41 @@ aides . campagnes de l'artois:
     subvention pourra être portée à 25% du prix d'achat TTC pour les achats
     réalisés dans une boutique située sur le territoire des Campagnes de
     l'Artois.
-  applicable si: localisation . epci = "CC des Campagnes de l'Artois"
-  valeur: 20% * vélo . prix
-  plafond:
-    variations:
-      - si: 
-          une de ces conditions:
-            - vélo . électrique
-            - vélo . motorisation
-        alors: 240€
-      - si: vélo . mécanique simple
-        alors: 80€
+  applicable si: 
+    toutes ces conditions:
+      - localisation . epci = "CC des Campagnes de l'Artois"
+      - demandeur . âge >= 16 an
+      - une de ces conditions:
+          - vélo . électrique ou mécanique
+          - vélo . motorisation
+  variations:
+    - si: vélo . mécanique
+      alors:
+        variations:
+          - si: achat local
+            alors:
+              valeur: 25% * vélo . prix
+              plafond: 100 €
+          - sinon:
+              valeur: 20% * vélo . prix
+              plafond: 80 €
+    - sinon:
+        variations:
+          - si: achat local
+            alors:
+              valeur: 25% * vélo . prix
+              plafond: 300 €
+          - sinon:
+              valeur: 20% * vélo . prix
+              plafond: 240 €
   lien: https://campagnesartois.fr/vivre/mobilite/48534-2/
+  dernière mise à jour: 12/09/2025
+  date de fin: 31/12/2025
+  avec:
+    achat local:
+      type: booléen
+      question: Avez-vous acheté votre vélo dans une boutique située sur le territoire des Campagnes de l'Artois ?
+      par défaut: oui
 
 aides . cévennes gangeoises et suménoises:
   remplace: intercommunalité

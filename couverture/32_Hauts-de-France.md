@@ -70,20 +70,19 @@
 | CC          | CC des 7 Vallées                                    | 200044030 | ✅               | ✅        | ✅    |
 | CC          | CC Osartis Marquion                                 | 200044048 | ✅               | ✅        | ✅    |
 | CA          | CA des Deux Baies en Montreuillois                  | 200069029 | ✅               | ✅        | ✅    |
-| CA          | CA du Pays de Saint-Omer                            | 200069037 | ❔               | ❌        | ❌    |
-| CC          | CC du Haut Pays du Montreuillois                    | 200069235 | ❔               | ❌        | ❌    |
-| CC          | CC des Campagnes de l'Artois                        | 200069482 | ✅               | ✅        | ❌    |
-| CC          | CC du Ternois                                       | 200069672 | ❔               | ❌        | ❌    |
+| CA          | CA du Pays de Saint-Omer                            | 200069037 | ❌               | ❌        | ✅    |
+| CC          | CC du Haut Pays du Montreuillois                    | 200069235 | ❌               | ❌        | ✅    |
+| CC          | CC des Campagnes de l'Artois                        | 200069482 | ✅               | ✅        | ✅    |
+| CC          | CC du Ternois                                       | 200069672 | ❌               | ❌        | ✅    |
 | CA          | CA de Béthune-Bruay, Artois-Lys Romane              | 200072460 | ✅               | ✅        | ✅    |
-| CC          | CC Pays d'Opale                                     | 200072478 | ❔               | ❌        | ❌    |
-| CA          | CA Grand Calais Terres et Mers                      | 200090751 | ✅               | ✅        | ❌    |
-| CC          | CC Flandre Lys                                      | 245900758 | ❔               | ❌        | ❌    |
-| CA          | CA d'Hénin-Carvin                                   | 246200299 | ❔               | ❌        | ❌    |
-| CA          | CA de Lens - Liévin                                 | 246200364 | ❔               | ❌        | ❌    |
-| CC          | CC de la Terre des Deux Caps                        | 246200380 | ✅               | ✅        | ❌    |
-| CA          | CA du Boulonnais                                    | 246200729 | ✅               | ✅        | ❌    |
-| CC          | CC de la Région d'Audruicq                          | 246200844 | ❔               | ❌        | ❌    |
-| CC          | CC du Pays de Lumbres                               | 246201016 | ✅               | ✅        | ❌    |
+| CC          | CC Pays d'Opale                                     | 200072478 | ❌               | ❌        | ✅    |
+| CA          | CA Grand Calais Terres et Mers                      | 200090751 | ✅               | ✅        | ✅    |
+| CA          | CA d'Hénin-Carvin                                   | 246200299 | ❌               | ❌        | ✅    |
+| CA          | CA de Lens - Liévin                                 | 246200364 | ❌               | ❌        | ✅    |
+| CC          | CC de la Terre des Deux Caps                        | 246200380 | ✅               | ✅        | ✅    |
+| CA          | CA du Boulonnais                                    | 246200729 | ❌               | ❌        | ✅    |
+| CC          | CC de la Région d'Audruicq                          | 246200844 | ❌               | ❌        | ✅    |
+| CC          | CC du Pays de Lumbres                               | 246201016 | ✅               | ✅        | ✅    |
 | Département | Somme                                               | 80        | ✅               | ✅        | ❌    |
 | CC          | CC de la Haute Somme (Combles - Péronne - Roisel)   | 200037059 | ❔               | ❌        | ❌    |
 | CC          | CC du Ternois                                       | 200069672 | ❔               | ❌        | ❌    |
