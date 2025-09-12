@@ -57,7 +57,7 @@
 | CC          | CC Isle Double Landais                       | 200040384 | ❔               | ❌        | ❌    |
 | CA          | CA Le Grand Périgueux                        | 200040392 | ✅               | ✅        | ❌    |
 | CC          | CC du Périgord Ribéracois                    | 200040400 | ❔               | ❌        | ❌    |
-| CC          | CC du Pays de Fénelon                        | 200040830 | ❔               | ❌        | ❌    |
+| CC          | CC du Pays de Fénelon                        | 200040830 | ✅               | ✅        | ✅    |
 | CC          | CC de Portes Sud Périgord                    | 200040889 | ❔               | ❌        | ❌    |
 | CC          | CC Vallée de la Dordogne et Forêt Bessède    | 200041051 | ❔               | ❌        | ❌    |
 | CC          | CC Terrassonnais Haut Périgord Noir          | 200041150 | ❔               | ❌        | ❌    |
@@ -145,7 +145,7 @@
 | CC          | CC de la Vallée d'Ossau                      | 246400337 | ✅               | ✅        | ❌    |
 | CC          | CC Pays de Nay                               | 246401756 | ❔               | ❌        | ❌    |
 | Département | Deux-Sèvres                                  | 79        | ❔               | ❌        | ❌    |
-| CA          | CA du Bocage Bressuirais                     | 200040244 | ❔               | ❌        | ❌    |
+| CA          | CA du Bocage Bressuirais                     | 200040244 | ✅               | ✅        | ✅    |
 | CA          | CA du Niortais                               | 200041317 | ❔               | ❌        | ❌    |
 | CC          | CC de Parthenay-Gâtine                       | 200041333 | ❔               | ❌        | ❌    |
 | CC          | CC Airvaudais-Val du Thouet                  | 200041416 | ❔               | ❌        | ❌    |

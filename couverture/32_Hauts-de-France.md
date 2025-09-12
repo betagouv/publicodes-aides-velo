@@ -43,10 +43,10 @@
 | CA          | CA Coeur d'Ostrevent                                | 245901152 | ❌               | ❌        | ✅    |
 | CA          | CA Valenciennes Métropole                           | 245901160 | ✅               | ✅        | ✅    |
 | Département | Oise                                                | 60        | ✅               | ✅        | 📧    |
-| CC          | CC Senlis Sud Oise                                  | 200066975 | ❔               | ❌        | ❌    |
+| CC          | CC Senlis Sud Oise                                  | 200066975 | ❌               | ❌        | ✅    |
 | CA          | CA de la Région de Compiègne et de la Basse Automne | 200067965 | ❔               | ❌        | ❌    |
 | CC          | CC Thelloise                                        | 200067973 | ❔               | ❌        | ❌    |
-| CA          | CA du Beauvaisis                                    | 200067999 | ✅               | ✅        | ❌    |
+| CA          | CA du Beauvaisis                                    | 200067999 | ✅               | ✅        | ✅    |
 | CC          | CC de l'Oise Picarde                                | 200068005 | ❔               | ❌        | ❌    |
 | CA          | CA Creil Sud Oise                                   | 200068047 | ❔               | ❌        | ❌    |
 | CC          | CC du Liancourtois                                  | 246000129 | ❔               | ❌        | ❌    |
@@ -58,7 +58,7 @@
 | CC          | CC du Pays Noyonnais                                | 246000756 | ❔               | ❌        | ❌    |
 | CC          | CC de l'Aire Cantilienne                            | 246000764 | ❔               | ❌        | ❌    |
 | CC          | CC des Deux Vallées                                 | 246000772 | ❔               | ❌        | ❌    |
-| CC          | CC de la Picardie Verte                             | 246000848 | ❔               | ❌        | ❌    |
+| CC          | CC de la Picardie Verte                             | 246000848 | ❌               | ❌        | ✅    |
 | CC          | CC du Pays des Sources                              | 246000855 | ❔               | ❌        | ❌    |
 | CC          | CC du Pays de Valois                                | 246000871 | ❔               | ❌        | ❌    |
 | CC          | CC de la Plaine d'Estrées                           | 246000897 | ❔               | ❌        | ❌    |
@@ -75,7 +75,7 @@
 | CC          | CC du Haut Pays du Montreuillois                    | 200069235 | ❔               | ❌        | ❌    |
 | CC          | CC des Campagnes de l'Artois                        | 200069482 | ✅               | ✅        | ❌    |
 | CC          | CC du Ternois                                       | 200069672 | ❔               | ❌        | ❌    |
-| CA          | CA de Béthune-Bruay, Artois-Lys Romane              | 200072460 | ❔               | ❌        | ❌    |
+| CA          | CA de Béthune-Bruay, Artois-Lys Romane              | 200072460 | ✅               | ✅        | ✅    |
 | CC          | CC Pays d'Opale                                     | 200072478 | ❔               | ❌        | ❌    |
 | CA          | CA Grand Calais Terres et Mers                      | 200090751 | ✅               | ✅        | ❌    |
 | CC          | CC Flandre Lys                                      | 245900758 | ❔               | ❌        | ❌    |

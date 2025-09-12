@@ -50,7 +50,7 @@
 | CC          | CC Montagne d'Ardèche                                | 200072007 | ❌               | ❌        | 🤖    |
 | CA          | CA Annonay Rhône Agglo                               | 200072015 | ✅               | ✅        | ✅    |
 | CA          | CA Arche Agglo                                       | 200073096 | ✅               | ✅        | ✅    |
-| CC          | CC du Bassin d'Aubenas                               | 200073245 | ❌               | ❌        | 🤖    |
+| CC          | CC du Bassin d'Aubenas                               | 200073245 | ✅               | ✅        | ✅    |
 | CC          | CC du Pays Beaume-Drobie                             | 240700302 | ❌               | ❌        | 🤖    |
 | CC          | CC Val de Ligne                                      | 240700617 | ❌               | ❌        | 🤖    |
 | CC          | CC du Val d'Ay                                       | 240700716 | ❌               | ❌        | 🤖    |
@@ -134,7 +134,7 @@
 | CA          | CA Agglo Pays d'Issoire                              | 200070407 | ❌               | ❌        | 🤖    |
 | CC          | CC Thiers Dore et Montagne                           | 200070712 | ❌               | ❌        | 🤖    |
 | CA          | CA Riom Limagne et Volcans                           | 200070753 | ❌               | ❌        | 🤖    |
-| CC          | CC Ambert Livradois Forez                            | 200070761 | ❌               | ❌        | 🤖    |
+| CC          | CC Ambert Livradois Forez                            | 200070761 | ❌               | ❌        | 📧    |
 | CC          | CC Plaine Limagne                                    | 200071199 | ✅               | ✅        | ✅    |
 | CC          | CC Chavanon Combrailles et Volcans                   | 200071215 | ❌               | ❌        | 🤖    |
 | CC          | CC du Pays de Saint-Eloy                             | 200072080 | ❌               | ❌        | 🤖    |

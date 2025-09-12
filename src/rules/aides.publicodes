@@ -6932,6 +6932,7 @@ aides . oise:
         à partir depuis le 1er juillet 2023 ?
       par défaut: non
 
+# TODO: à vérifier en 2026
 aides . beauvais:
   remplace: intercommunalité
   titre: Communauté d'Agglomération du Beauvaisis
@@ -6944,14 +6945,22 @@ aides . beauvais:
       - localisation . epci = 'CA du Beauvaisis'
       - une de ces conditions:
           - vélo . électrique ou mécanique
-          - vélo . motorisation
-  valeur: 30% * vélo . prix
-  plafond: 
-    variations:
-      - si: vélo . mécanique
-        alors: 100€
-      - sinon: 200€
+          - vélo . adapté
+  variations:
+    - si: vélo . adapté
+      alors:
+        valeur: 30% * vélo . prix
+        plafond: 300 €
+    - si: vélo . état . neuf
+      alors:
+        valeur: 50% * vélo . prix
+        plafond: 100 €
+    - sinon:
+        valeur: 30% * vélo . prix
+        plafond: 100 €
   lien: http://www.beauvais.fr/velo/
+  date de fin: 31/12/2025
+  dernière mise à jour: 12/09/2025
 
 aides . grand angouleme:
   remplace: intercommunalité
@@ -9325,3 +9334,207 @@ aides . cc forcalquier lure:
   plafond: 500 €
   lien: https://www.forcalquier-lure.com/actualites/ma-prime-velo
   dernière mise à jour: 21/08/2025
+
+# TODO: à vérifier en 2026
+aides . carmausin-ségala:
+  remplace: intercommunalité
+  titre: Communauté de communes du Carmausin-Ségala
+  description: Aide à l'achat d'un vélo neuf, électrique ou mécanique.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CC Carmausin-Ségala'
+      - demandeur . âge . majeur
+      - vélo . état . neuf
+      - une de ces conditions:
+          - vélo . électrique ou mécanique
+          - vélo . adapté
+  valeur:
+    variations:
+      - si:
+          une de ces conditions:
+            - vélo . cargo
+            - vélo . adapté
+        alors: 200 €
+      - si: vélo . électrique
+        alors: 150 €
+      - sinon: 100 €
+  plafond: 20% * vélo . prix
+  lien: https://www.carmausin-segala.fr/velo
+  date de fin: 31/12/2025
+  dernière mise à jour: 12/09/2025
+
+# TODO: à vérifier en 2026
+aides . béthune bruay:
+  remplace: intercommunalité
+  titre: Communauté d'Agglomération de Béthune-Bruay, Artois-Lys Romane
+  description: >
+    Pass'Mobil'Agglo - Aide financière pour les habitants souhaitant acheter un
+    vélo (mécanique, électrique, cargo, adapté PMR, pliant) et des accessoires
+    de sécurité (sous condition d'achat d'un vélo). 
+
+    La première session 2025 du Pass'Mobil'Agglo est organisée du 17 mars au 25
+    avril. Deux autres sessions sont prévues du 16 juin au 26 juillet et du 15
+    septembre au 25 octobre (sous réserve de disponibilité des chèques).
+  applicable si:  localisation . epci = 'CA de Béthune-Bruay, Artois-Lys Romane'
+  valeur:
+    variations:
+      - si: vélo . adapté
+        alors: 500€
+      - si: vélo . électrique simple
+        alors: 300€
+      - si: vélo . motorisation
+        alors: 300€
+      - si: vélo . cargo
+        alors: 500€
+      - si: vélo . pliant
+        alors: 200€
+      - si: vélo . mécanique
+        alors: 70€
+      - sinon: 0€
+  lien: https://www.bethunebruay.fr/fr/passmobilagglo
+  date de fin: 25/10/2025
+  dernière mise à jour: 12/09/2025
+
+# TODO: à vérifier en 2026
+aides . agglo bocage bressuirais:
+  remplace: intercommunalité
+  titre: Agglo Bocage-Bressuirais
+  description: >
+    Aide à l'achat d'un vélo (mécanique, électrique, cargo) pour les
+    habitant·es de l'Agglo Bocage Bressuirais. Le vélo doit être acheté dans
+    une boutique du territoire.
+  applicable si: 
+    toutes ces conditions:
+      - localisation . epci = 'CA du Bocage Bressuirais'
+      - demandeur . âge . majeur
+  variations:
+    - si: vélo . cargo
+      alors: 150€
+    - si: vélo . électrique
+      alors: 100€
+    - si: vélo . mécanique
+      alors: 
+        variations:
+          - si: vélo . état . neuf
+            alors: 50 €
+          - sinon: 30 €
+    - sinon: 0€
+  lien: https://www.agglo2b.fr/transports-mobilite/1027-aide-a-l-achat-d-un-velo
+  dernière mise à jour: 12/09/2025
+
+# TODO: à vérifier en 2026
+aides . marignier:
+  remplace: commune
+  titre: Ville de Marignier
+  description: >
+    Aide de 100 euros pour l'achat d'un vélo à assistance électrique ou d'un
+    vélo pliant neuf acheté dans une boutique du territoire.
+  applicable si:
+    toutes ces conditions:
+      - localisation . code insee = '74164'
+      - demandeur . âge . majeur
+      - vélo . état . neuf
+      - une de ces conditions:
+          - vélo . électrique
+          - vélo . pliant
+  valeur: 100€
+  plafond: vélo . prix
+  lien: https://www.marignier.fr/mon-quotidien/mobilite/
+  date de fin: 31/12/2025
+  dernière mise à jour: 12/09/2025
+
+# TODO: à vérifier en 2026
+aides . courbevoie:
+  remplace: commune
+  titre: Ville de Courbevoie
+  description: >
+    Aide à l'achat d'un VAE neuf ou reconditionné et est versée pour les
+    particuliers ayant leur résidence principale sur le territoire de
+    Courbevoie
+  applicable si:
+    toutes ces conditions:
+      - localisation . code insee = '92026'
+      - une de ces conditions:
+          - vélo . électrique
+          - vélo . motorisation
+  variations:
+    - si: revenu fiscal de référence par part < 20000 €/an
+      alors: 25% * vélo . prix
+    - si: revenu fiscal de référence par part < 40000 €/an
+      alors: 20% * vélo . prix
+    - sinon: 15% * vélo . prix
+  plafond: 300€
+  lien: https://www.ville-courbevoie.fr/1844/subvention-pour-l-achat-d-un-velo-electrique.htm
+  dernière mise à jour: 12/09/2025
+
+# TODO: à vérifier en 2026
+aides . loue lison:
+  remplace: intercommunalité
+  titre: Communauté de communes Loue Lison
+  description: >
+    Aide à l’acquisition de 20% du prix d’achat TTC limitée à 200€ maximum pour
+    l’achat d’un vélo à assistance électrique neuf, dans la limite de
+    l’enveloppe budgétaire annuelle allouée.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CC Loue-Lison'
+      - demandeur . âge . majeur
+      - vélo . électrique
+      - vélo . prix <= 2500€
+  valeur: 20% * vélo . prix
+  plafond: 200€
+  lien: https://cclouelison.fr/fr/rb/1729730/mobilite-21
+
+# NOTE: confirmation par mail le 12/09/2025 que l'aide est toujours en vigueur en 2025
+aides . pays de fénelon:
+  remplace: intercommunalité
+  titre: Communauté de communes du Pays de Fénelon
+  description: >
+    Aide de 100 euros pour l'achat d'un vélo à assistance électrique neuf.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CC du Pays de Fénelon'
+      - vélo . état . neuf
+      - vélo . électrique
+  valeur: 100€
+  lien: https://www.paysdefenelon.fr/2022/07/07/en-route-pour-une-autre-mobilite/
+  dernière mise à jour: 12/09/2025
+
+# TODO: à vérifier en 2026, confirmation par mail le 12/09/2025 que l'aide est toujours en vigueur en 2025
+aides . tour du pin:
+  remplace: commune
+  titre: Ville de La Tour du Pin
+  description: >
+    Aide de 100 euros pour l'achat d'un vélo à assistance électrique neuf pour
+    les habitant·es de La Tour du Pin dont le revenu fiscal de référence par
+    part ne dépasse pas 13 489 €.
+  applicable si:
+    toutes ces conditions:
+      - localisation . code insee = '38509'
+      - vélo . état . neuf
+      - vélo . électrique
+      - revenu fiscal de référence par part <= 13489 €/an
+  valeur: 100€
+  lien: https://www.latourdupin.fr/citoyenne/grands-projets/subvention-velos-electriques/
+  dernière mise à jour: 12/09/2025
+
+# TODO: à vérifier en 2026
+# NOTE: confirmation par mail le 12/09/2025 que l'aide est toujours en vigueur en 2025
+aides . bassin d'aubenas:
+  remplace: intercommunalité
+  titre: Bassin d'Aubenas Communauté
+  description: >
+    Subvention de 10% du prix d'un vélo à assistance électrique neuf (cargo ou adapté PMR) dans la
+    limite de 200 euros.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CC du Bassin d'Aubenas'
+      - demandeur . âge . majeur
+      - vélo . état . neuf
+      - une de ces conditions:
+          - vélo . électrique
+          - vélo . adapté
+  valeur: 10% * vélo . prix
+  plafond: 200€
+  lien: https://www.bassin-aubenas.fr/actualites/aide-a-lachat-dun-velo-a-assistance-electrique/
+  dernière mise à jour: 12/09/2025
