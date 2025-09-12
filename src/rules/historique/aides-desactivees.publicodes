@@ -321,7 +321,6 @@ aides . elbeuf:
     - sinon: 0€
   lien: https://www.mairie-elbeuf.fr/aides/aides-financieres-de-ville/aide-a-lacquisition-de-velos/
 
-
 # NOTE: semble ne plus avoir de budget, à vérifier en 2025
 # http://www.agglodebrive.fr/velo/#1631112994855-09923425-e07a
 aides . brive:

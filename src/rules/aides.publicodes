@@ -6799,6 +6799,32 @@ aides . osartis-marquion:
       - vélo . état . neuf
   valeur: 150 €
   lien: https://www.cc-osartis.com/obtenez-une-aide-pour-lachat-dun-velo-assistance-electrique
+  dernière mise à jour: 12/09/2025
+
+aides . ca2bm:
+  remplace: intercommunalité
+  titre: Communauté d'Agglomération des Deux Baies du Montreuillois
+  description: >
+    Aide jusqu'à 250 € pour l'achat d'un vélo à assistance électrique sur le
+    territoire de la Communauté d'Agglomération des Deux Baies en
+    Montreuillois.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = "CA des Deux Baies en Montreuillois"
+      - demandeur . âge >= 16 an
+      - vélo . électrique
+  valeur: 
+    variations:
+      - si: achat local
+        alors: 250 €
+      - sinon: 200 €
+  lien: https://www.ca2bm.fr/service-au-public/transports/aide-a-lachat-dun-velo-a-assistance-electrique-1
+  dernière mise à jour: 12/09/2025
+  date de fin: 30/06/2026
+  avec:
+    achat local:
+      question: L'achat a-t-il été effectué dans un magasin situé sur le territoire de la CA2BM ?
+      par défaut: oui
 
 aides . pontivy:
   remplace: intercommunalité
@@ -8421,6 +8447,8 @@ aides . cc sept vallées:
         valeur: 15% * vélo . prix
         plafond: 150€
   lien: https://7vallees.fr/la-communaute-de-communes-des-7-vallees-peut-vous-aider-a-acheter-un-velo
+  date de fin: 31/12/2025
+  dernière mise à jour: 12/09/2025
 
 aides . villiers-en-bière:
   remplace: commune
@@ -8655,6 +8683,31 @@ aides . cu arras:
   valeur: 30% * vélo . prix
   plafond: 300 €
   lien: https://www.demarches-simplifiees.fr/commencer/cua-aide-velo-elec
+  dernière mise à jour: 12/09/2025
+
+# TODO: à vérifier en 2026
+aides . cc sud artois:
+  remplace: intercommunalité
+  titre: Communauté de communes du Sud Artois
+  description: >
+    Aide pour l'achat d'un vélo neuf auprès d’un distributeur situé en
+    Hauts-de-France. L'achat doit être effectué à partir du 1er janvier 2025 et
+    l'aide sera accordée dans la limite des crédits disponibles et uniquement
+    pour les demandes reçues dans les 6 mois suivant l'achat.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = "CC du Sud Artois"
+      - demandeur . âge >= 16 an
+      - vélo . état . neuf
+      - vélo . électrique ou mécanique
+  valeur: 20% * vélo . prix
+  plafond: 
+    variations:
+      - si: vélo . électrique
+        alors: 200 €
+      - sinon: 80 €
+  lien: https://www.cc-sudartois.fr/mes-services/mobilite/aide-a-lachat-dun-velo
+  dernière mise à jour: 12/09/2025
 
 aides . st2b:
   remplace: intercommunalité
