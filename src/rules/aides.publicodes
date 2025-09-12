@@ -2811,6 +2811,27 @@ aides . montpellier vae occasion:
   dernière mise à jour: 14/08/2025
   date de fin: 31/12/2026
 
+aides . ca pays de l'or:
+  remplace: intercommunalité
+  titre: Pays de l'Or Agglomération
+  description: >
+    Une subvention d'un montant de 200 € maximum, pour l'achat d'un vélo à
+    assistance électrique, cargo ou adapté. Le vélo doit être acheté auprès
+    d'un commerçant de l'Agglomération.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = "CA du Pays de l'Or"
+      - demandeur . âge . majeur
+      - une de ces conditions:
+          - vélo . électrique
+          - vélo . cargo
+          - vélo . adapté
+  valeur: 20% * vélo . prix
+  plafond: 200€
+  lien: https://paysdelor.fr/vivre-ici/transports/velo/
+  dernière mise à jour: 12/09/2025
+  date de fin: 31/12/2025
+
 aides . sète:
   remplace: intercommunalité
   titre: Sète Agglopôle méditerranée
