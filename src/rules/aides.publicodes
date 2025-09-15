@@ -2386,15 +2386,13 @@ aides . département somme situation handicap:
       - localisation . département = '80'
       - vélo . état . neuf
       - demandeur . en situation de handicap
-      - une de ces conditions:
-          - vélo . adapté
-          - vélo . électrique
+      - vélo . adapté
   valeur: 80% * vélo . prix
-  plafond: 3000€
+  plafond: 3000 €
   lien: https://www.somme.fr/services/loisirs-et-sports/soutien-au-mouvement-sportif/aide-a-lachat-de-materiel-pour-les-personnes-en-situation-de-handicap
   dernière mise à jour: 01/07/2025
 
-# NOTE: valable pour 2024, à vérifier en 2025
+# TODO: à vérifier en 2026
 aides . amiens:
   remplace: commune
   titre: Ville d'Amiens
@@ -2402,6 +2400,9 @@ aides . amiens:
     Afin d'encourager la remise en selle, depuis 2021, la Ville d'Amiens a mis
     en place un remboursement de 25% du coût d'achat d'un vélo électrique dans
     la limite de 200€.
+
+    
+    Dépôt du dossier de subvention jusqu'au 31 mars 2026.
   applicable si:
     toutes ces conditions:
       - localisation . code insee = '80021'
@@ -2411,8 +2412,10 @@ aides . amiens:
   valeur: 25% * vélo . prix
   plafond: 200€
   lien: https://www.amiens.fr/Vivre-a-Amiens/Mobilite/Se-deplacer-a-velo/La-pratique-du-velo-au-quotidien/AIDE-A-L-ACHAT-D-UN-VELO-ELECTRIQUE
+  dernière mise à jour: 15/09/2025
+  date de fin: 31/12/2025
 
-# NOTE: valable jusqu'au 31 décembre 2024, à vérifier en 2025
+# TODO: à vérifier en 2026
 aides . grand roye:
   remplace: intercommunalité
   titre: Communauté de communes du Grand Roye
@@ -2431,6 +2434,8 @@ aides . grand roye:
   valeur: 10% * vélo . prix
   plafond: 100 €
   lien: https://www.grandroye.fr/1-presentation/175-subventions.html
+  dernière mise à jour: 15/09/2025
+  date de fin: 31/12/2025
 
 # NOTE: informations pour 2024, à vérifier en 2025
 aides . somme sud-ouest:
@@ -2451,6 +2456,8 @@ aides . somme sud-ouest:
   valeur: 200€
   plafond: vélo . prix
   lien: https://www.cc2so.fr/aide-velo/
+  date de fin: 31/10/2025
+  dernière mise à jour: 15/09/2025
 
 aides . albert:
   remplace: commune
