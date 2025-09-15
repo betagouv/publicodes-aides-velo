@@ -47,7 +47,11 @@ plafond état:
     Plafond fixé par l'État sur le revenu fiscal de référence par part par part pour
     bénéficier du Bonus vélo.
   valeur: 15400 €/an  
-aides . forfait mobilités durables: 500 €/an
+
+aides . forfait mobilités durables: 
+  valeur: 600 €/an
+  lien: https://www.ecologie.gouv.fr/politiques-publiques/faq-forfait-mobilites-durables-fmd
+  dernière mise à jour: 15/09/2025
 
 aides . ile de france:
   remplace: région
