@@ -1,5 +1,7 @@
 # Couverture des aides en Hauts-de-France (32)
 
+- 2025 : ✅
+
 | Echelle     | Nom                                                 | Code      | Possède une aide | Modélisée | Relue |
 | ----------- | --------------------------------------------------- | --------- | ---------------- | --------- | ----- |
 | Région      | Hauts-de-France                                     | 32        | ❌               | ❌        | 🤖    |
@@ -83,21 +85,19 @@
 | CA          | CA du Boulonnais                                    | 246200729 | ❌               | ❌        | ✅    |
 | CC          | CC de la Région d'Audruicq                          | 246200844 | ❌               | ❌        | ✅    |
 | CC          | CC du Pays de Lumbres                               | 246201016 | ✅               | ✅        | ✅    |
-| Département | Somme                                               | 80        | ✅               | ✅        | ❌    |
-| CC          | CC de la Haute Somme (Combles - Péronne - Roisel)   | 200037059 | ❔               | ❌        | ❌    |
-| CC          | CC du Ternois                                       | 200069672 | ❔               | ❌        | ❌    |
-| CC          | CC Interrégionale Aumale - Blangy-sur-Bresle        | 200069722 | ❔               | ❌        | ❌    |
-| CC          | CC Terre de Picardie                                | 200070928 | ❔               | ❌        | ❌    |
-| CC          | CC Ponthieu-Marquenterre                            | 200070936 | ❔               | ❌        | ❌    |
-| CC          | CC du Vimeu                                         | 200070944 | ❔               | ❌        | ❌    |
-| CC          | CC du Territoire Nord Picardie                      | 200070951 | ❔               | ❌        | ❌    |
-| CC          | CC Avre Luce Noye                                   | 200070969 | ❔               | ❌        | ❌    |
-| CC          | CC du Grand Roye                                    | 200070977 | ✅               | ✅        | ❌    |
-| CC          | CC de l'Est de la Somme                             | 200070985 | ❔               | ❌        | ❌    |
-| CA          | CA de la Baie de Somme                              | 200070993 | ❔               | ❌        | ❌    |
-| CC          | CC Somme Sud-Ouest                                  | 200071181 | ✅               | ✅        | ❌    |
+| Département | Somme                                               | 80        | ✅               | ✅        | 📧    |
+| CC          | CC de la Haute Somme (Combles - Péronne - Roisel)   | 200037059 | ❌               | ❌        | ✅    |
+| CC          | CC Terre de Picardie                                | 200070928 | ❌               | ❌        | ✅    |
+| CC          | CC Ponthieu-Marquenterre                            | 200070936 | ❌               | ❌        | ✅    |
+| CC          | CC du Vimeu                                         | 200070944 | ❌               | ❌        | ✅    |
+| CC          | CC du Territoire Nord Picardie                      | 200070951 | ❌               | ❌        | ✅    |
+| CC          | CC Avre Luce Noye                                   | 200070969 | ❌               | ❌        | ✅    |
+| CC          | CC du Grand Roye                                    | 200070977 | ✅               | ✅        | ✅    |
+| CC          | CC de l'Est de la Somme                             | 200070985 | ❌               | ❌        | ✅    |
+| CA          | CA de la Baie de Somme                              | 200070993 | ❌               | ❌        | ✅    |
+| CC          | CC Somme Sud-Ouest                                  | 200071181 | ✅               | ✅        | ✅    |
 | CC          | CC Nièvre et Somme                                  | 200071223 | ✅               | ✅        | ✅    |
-| CC          | CC des Villes Soeurs                                | 247600588 | ✅               | ✅        | ❌    |
-| CC          | CC du Val de Somme                                  | 248000499 | ❔               | ❌        | ❌    |
-| CA          | CA Amiens Métropole                                 | 248000531 | ❔               | ❌        | ❌    |
-| CC          | CC du Pays du Coquelicot                            | 248000747 | ❔               | ❌        | ❌    |
+| CC          | CC des Villes Soeurs                                | 247600588 | ✅               | ✅        | ✅    |
+| CC          | CC du Val de Somme                                  | 248000499 | ❌               | ❌        | ✅    |
+| CA          | CA Amiens Métropole                                 | 248000531 | ❌               | ❌        | ✅    |
+| CC          | CC du Pays du Coquelicot                            | 248000747 | ❌               | ❌        | ✅    |
