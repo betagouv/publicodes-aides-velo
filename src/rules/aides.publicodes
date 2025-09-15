@@ -84,7 +84,12 @@ aides . ile de france:
 aides . occitanie:
   remplace: région
   titre: Région Occitanie
-  description: Éco-chèque mobilité - Achat d'un vélo à assistance électrique.
+  description: >
+    « Éco-chèque mobilité - Achat d’un vélo à assistance électrique neuf ». Aide
+    de 200 € pour l'achat d'un vélo à assistance électrique neuf.
+
+
+    La demande doit être effectuée dans les 6 mois suivant la date d'achat du vélo.
   applicable si:
     toutes ces conditions:
       - localisation . région = '76'
@@ -103,6 +108,7 @@ aides . occitanie:
     Nous avons donc décidé de ne pas l'appliquer.
   # plafond: vélo . prix
   lien: https://www.laregion.fr/Eco-cheque-mobilite-velo-a-assistance-electrique
+  dernière mise à jour: 15/09/2025
 
 aides . occitanie vélo adapté:
   remplace: région
@@ -123,6 +129,29 @@ aides . occitanie vélo adapté:
       valeur: vélo . prix - (aides . état + aides . département + aides . intercommunalité)
       plancher: 0€
 
+aides . ca foix-varilhes:
+  remplace: intercommunalité
+  titre: L'Agglo Foix-Varilhes
+  description: >
+    Aide pour l'achat d'un vélo à assistance électrique ou non, neuf ou
+    d'occasion et la pose d'un kit d'éléctrification. La demande doit être
+    effectuée dans les 6 mois suivant la date d'achat du vélo.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = "CA L'Agglo Foix-Varilhes"
+      - revenu fiscal de référence par part <= 15400 €/an
+      - une de ces conditions:
+          - vélo . électrique ou mécanique
+          - vélo . motorisation
+  valeur: 25% * vélo . prix
+  plafond:
+    variations:
+      - si: vélo . mécanique
+        alors: 50 €
+      - sinon: 200 €
+  lien: https://www.agglo-foix-varilhes.fr/Aide-%c3%a0-l-achat-d-un-v%c3%a9lo/45/
+  dernière mise à jour: 15/09/2025
+    
 aides . grand est:
   remplace: région
   titre: Région Grand Est

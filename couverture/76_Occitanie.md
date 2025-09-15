@@ -2,17 +2,17 @@
 
 | Echelle     | Nom                                                    | Code      | Possède une aide | Modélisée | Relue |
 | ----------- | ------------------------------------------------------ | --------- | ---------------- | --------- | ----- |
-| Région      | Occitanie                                              | 76        | ✅               | ✅        | ❌    |
-| Département | Ariège                                                 | 09        | ❔               | ❌        | ❌    |
-| CC          | CC du Pays de Mirepoix                                 | 200044469 | ❔               | ❌        | ❌    |
-| CC          | CC Arize Lèze                                          | 200066223 | ❔               | ❌        | ❌    |
-| CC          | CC des Portes d'Ariège Pyrénées                        | 200066231 | ❔               | ❌        | ❌    |
-| CC          | CC de la Haute Ariège                                  | 200066363 | ❔               | ❌        | ❌    |
-| CA          | CA L'Agglo Foix-Varilhes                               | 200067791 | ❔               | ❌        | ❌    |
-| CC          | CC Couserans-Pyrénées                                  | 200067940 | ❔               | ❌        | ❌    |
-| CC          | CC du Pays de Tarascon                                 | 240900431 | ❔               | ❌        | ❌    |
-| CC          | CC du Pays d'Olmes                                     | 240900464 | ❔               | ❌        | ❌    |
-| Département | Aude                                                   | 11        | ❔               | ❌        | ❌    |
+| Région      | Occitanie                                              | 76        | ✅               | ✅        | ✅    |
+| Département | Ariège                                                 | 09        | ❔               | ❌        | 📧    |
+| CC          | CC du Pays de Mirepoix                                 | 200044469 | ❌               | ❌        | ✅    |
+| CC          | CC Arize Lèze                                          | 200066223 | ❌               | ❌        | ✅    |
+| CC          | CC des Portes d'Ariège Pyrénées                        | 200066231 | ✅               | ❌        | 📧    |
+| CC          | CC de la Haute Ariège                                  | 200066363 | ❔               | ❌        | ✅    |
+| CA          | CA L'Agglo Foix-Varilhes                               | 200067791 | ✅               | ✅        | ✅    |
+| CC          | CC Couserans-Pyrénées                                  | 200067940 | ❌               | ❌        | ✅    |
+| CC          | CC du Pays de Tarascon                                 | 240900431 | ❌               | ❌        | ✅    |
+| CC          | CC du Pays d'Olmes                                     | 240900464 | ❌               | ❌        | ✅    |
+| Département | Aude                                                   | 11        | ❌               | ❌        | ❌    |
 | CC          | CC Piège Lauragais Malepère                            | 200035707 | ❔               | ❌        | ❌    |
 | CA          | CA Carcassonne Agglo                                   | 200035715 | ❔               | ❌        | ❌    |
 | CC          | CC Castelnaudary Lauragais Audois                      | 200035855 | ❔               | ❌        | ❌    |
