@@ -1493,30 +1493,52 @@ aides . vendenheim:
       - sinon: 0€
   lien: https://vendenheim.fr/demarches/subventions/
 
+# TODO: à vérifier en 2026
 aides . albi:
   remplace: intercommunalité
   titre: Communauté d'Agglomération de l'Albigeois
   description: >
-    Aide à l'achat d'un vélo neuf pour les habitant·es d'une des 16 communes de
-    l'agglomération albigeoise. Cette aide est couplée à la réalisation d'un
-    mini-stage Circuler en ville. D'une durée de 3h, ce stage permet, en
-    situation de circulation, de bénéficier des conseils d'un moniteur diplômé.
+    Cette aide est couplée à la réalisation d'un mini-stage Circuler en ville
+    (10 euros). D'une durée de 3h, ce stage permet, en situation de
+    circulation, de bénéficier des conseils d'un moniteur diplômé.
   applicable si: 
     toutes ces conditions:
       - localisation . epci = "CA de l'Albigeois (C2A)"
-      - vélo . état . neuf
-      - vélo . électrique ou mécanique
-  valeur: 25% * vélo . prix
+      - demandeur . âge . majeur
+      - une de ces conditions:
+          - vélo . électrique ou mécanique
+          - vélo . adapté
+  valeur: 
+    variations:
+      - si: revenu fiscal de référence par part <= 14089 €/an
+        alors: 40% * vélo . prix
+      - sinon: 25% * vélo . prix
   plafond:
     variations:
-      - si: vélo . cargo
-        alors: 500 €
+      - si: 
+          une de ces conditions:
+            - vélo . cargo
+            - vélo . adapté
+        alors: 
+          variations:
+            - si: revenu fiscal de référence par part <= 14089 €/an
+              alors: 750 €
+            - sinon: 500 €
       - si: vélo . électrique
-        alors: 250 €
+        alors: 
+          variations:
+            - si: revenu fiscal de référence par part <= 14089 €/an
+              alors: 400 €
+            - sinon: 250 €
       - si: vélo . mécanique
-        alors: 100 €
+        alors:
+          variations:
+            - si: revenu fiscal de référence par part <= 14089 €/an
+              alors: 150 €
+            - sinon: 100 €
       - sinon: 0 €
   lien: https://www.libea-mobilites.fr/se-deplacer/velo/aide-lachat-velo
+  dernière mise à jour: 16/09/2025
 
 aides . toulon:
   remplace: intercommunalité
@@ -2882,7 +2904,7 @@ aides . sète:
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'CA Sète Agglopôle Méditerranée'
-      - revenu fiscal de référence par part <= 28797 €/an
+      - revenu fiscal de référence par part <= ISR . deuxième tranche
       - vélo . prix < 3000€
       - une de ces conditions:
           - vélo . électrique
@@ -2903,11 +2925,12 @@ aides . sète:
             alors: 50€
           - sinon: 0€
   lien: https://www.agglopole.fr/bougerdecouvrir/se-deplacer/l-aide-a-l-achat-de-velos-et-trottinettes-electriques/
+  dernière mise à jour: 16/09/2025
   avec:
     acheté dans un commerce local:
       question: Le vélo est-il acheté dans un commerce de Sètre agglopôle méditerranée ?
       type: booléen
-      par défaut: non
+      par défaut: oui
 
 aides . aubiere:
   remplace: commune
@@ -4910,6 +4933,7 @@ aides . montauban:
   valeur: vélo . prix
   plafond: 250€
   lien: https://www.montauban.com/au-quotidien/mobilite-et-stationnement/velos-et-pistes-cyclables
+  dernière mise à jour: 16/09/2025
 
 aides . plaine de l'ain VAE:
   remplace: intercommunalité
@@ -7135,6 +7159,7 @@ aides . cazouls-lès-béziers:
   valeur: 20% * vélo . prix
   plafond: 200€
   lien: https://www.cazoulslesbeziers.com/vivre-a-cazouls/les-aides-financieres
+  dernière mise à jour: 16/09/2025
 
 aides . ecommoy:
   remplace: commune
@@ -7261,9 +7286,11 @@ aides . avant-monts:
       - demandeur . âge . majeur
       - vélo . électrique
       - revenu fiscal de référence par part <= 24000 €/an
-  valeur: 100€
+  valeur: 100 €
   plafond: vélo . prix
   lien: https://www.avant-monts.fr/vivre-sinstaller/environnement/mobilite/
+  date de fin: 30/12/2025
+  dernière mise à jour: 16/09/2025
 
 aides . vallées de l'orne et de l'odon:
   remplace: intercommunalité
@@ -7815,25 +7842,29 @@ aides . cc portes eureliennes idf:
   lien: https://www.porteseureliennesidf.fr/pages/portes-eureliennes-mobilite-79.html
   dernière mise à jour: 13/08/2025
 
+# TODO: à vérifier en 2026
 aides . perpignan métropole:
   remplace: intercommunalité
   titre: Perpignan Méditerranée Métropole
   description: >
-    Aide à l'achat d'un vélo neuf, reconditionné ou d'occasion, mais aussi pour les vélos pliants, à assistance électrique, un kit d'électrification et même une aide à la réparation de vélo.
+    Aide à l'achat d'un vélo neuf, reconditionné ou d'occasion, mais aussi pour
+    les vélos pliants, à assistance électrique, un kit d'électrification et
+    même une aide à la réparation de vélo.
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'CU Perpignan Méditerranée Métropole'
+      - demandeur . âge . majeur
       - une de ces conditions:
           - vélo . adapté
+          - toutes ces conditions:
+              - vélo . pliant mécanique
+              - vélo . état . neuf
+              - vélo . prix >= 600€
+              - vélo . prix <= 2000€
           - toutes ces conditions:
               - vélo . mécanique
               - vélo . prix >= 600€
               - vélo . prix <= 1500€
-          - toutes ces conditions:
-              - vélo . pliant
-              - vélo . état . neuf
-              - vélo . prix >= 600€
-              - vélo . prix <= 2000€
           - toutes ces conditions:
               - vélo . électrique
               - variations:
@@ -7857,6 +7888,8 @@ aides . perpignan métropole:
         alors: 350€
       - sinon: 250€
   lien: https://aide-velo.perpignan-mediterranee.org/
+  date de fin: 31/12/2025
+  dernière mise à jour: 16/09/2025
 
 # TODO: à vérifier en 2026
 aides . fier et usses:
@@ -8154,6 +8187,7 @@ aides . grand besançon:
   lien: https://www.grandbesancon.fr/demarche-administrative/subvention-pour-lachat-dun-velo-electrique/
   dernière mise à jour: 13/08/2025
 
+# TODO: à vérifier en 2026
 aides . haut vallespir:
   remplace: intercommunalité
   titre: Communauté de communes du Haut Vallespir
@@ -8169,6 +8203,7 @@ aides . haut vallespir:
       - vélo . électrique
   valeur: 100 € 
   lien: https://www.haut-vallespir.fr/?page_id=5276
+  dernière mise à jour: 16/09/2025
 
 aides . val de drôme:
   remplace: intercommunalité

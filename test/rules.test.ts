@@ -853,6 +853,7 @@ describe("Aides Vélo", () => {
         "vélo . prix": "1000€",
         "revenu fiscal de référence par part": "10000€/an",
         "vélo . type": "'électrique'",
+        "aides . sète . acheté dans un commerce local": "non",
       });
       expect(engine.evaluate("aides . sète").nodeValue).toEqual(200);
 
@@ -862,6 +863,7 @@ describe("Aides Vélo", () => {
         "revenu fiscal de référence par part": "10000€/an",
         "vélo . type": "'électrique'",
         "vélo . état": "'occasion'",
+        "aides . sète . acheté dans un commerce local": "non",
       });
       expect(engine.evaluate("aides . sète").nodeValue).toEqual(250);
 
@@ -871,9 +873,6 @@ describe("Aides Vélo", () => {
         "revenu fiscal de référence par part": "10000€/an",
         "vélo . type": "'électrique'",
         "vélo . état": "'occasion'",
-        // TODO: use generated types instead of the json
-        // @ts-ignore
-        "aides . sète . acheté dans un commerce local": "oui",
       });
       expect(engine.evaluate("aides . sète").nodeValue).toEqual(300);
     });

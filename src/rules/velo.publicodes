@@ -126,6 +126,20 @@ vélo . prix . HT:
 
 vélo . prix pour maximiser les aides:
   variations:
+    - si: localisation . epci = 'CU Perpignan Méditerranée Métropole'
+      alors:
+        variations:
+          - si: vélo . adapté
+            alors: 5000 €
+          - si: vélo . pliant mécanique
+            alors: 2000 €
+          - si: vélo . cargo
+            alors: 4000 €
+          - si: vélo . électrique 
+            alors: 2500 €
+          - sinon: 1500 €
+    - si: localisation . epci = 'CA Sète Agglopôle Méditerranée'
+      alors: 2900 €
     - si: localisation . code insee = '67218'
       alors: 800 €
     - si: localisation . epci = "CA du Pays de Laon"
