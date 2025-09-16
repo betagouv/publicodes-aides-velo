@@ -97,24 +97,23 @@
 | CC          | CC du Saves                                            | 243200599 | ❔               | ❌        | ❌    |
 | CC          | CC Artagnan de Fezensac                                | 243200607 | ❔               | ❌        | ❌    |
 | CC          | CC des Deux Rives                                      | 248200016 | ❔               | ❌        | ❌    |
-| Département | Hérault                                                | 34        | ✅               | ✅        | 📧    |
-| CC          | CC Lodévois et Larzac                                  | 200017341 | ❔               | ❌        | ❌    |
-| CC          | CC du Grand Pic Saint-Loup                             | 200022986 | ❔               | ❌        | ❌    |
-| CC          | CC Grand Orb Communauté de Communes en Languedoc       | 200042646 | ✅               | ✅        | ❌    |
-| CC          | CC Sud-Hérault                                         | 200042653 | ❔               | ❌        | ❌    |
-| CC          | CC du Minervois au Caroux                              | 200066348 | ❔               | ❌        | ❌    |
-| CA          | CA Sète Agglopôle Méditerranée                         | 200066355 | ✅               | ✅        | ❌    |
-| CC          | CC du Haut-Languedoc                                   | 200066553 | ❔               | ❌        | ❌    |
-| CC          | CC Les Avant-Monts                                     | 200071058 | ✅               | ✅        | ❌    |
-| METRO       | Montpellier Méditerranée Métropole                     | 243400017 | ✅               | ✅        | ❌    |
-| CC          | CC du Clermontais                                      | 243400355 | ❔               | ❌        | ❌    |
+| Département | Hérault                                                | 34        | ❌               | ❌        | ✅    |
+| CC          | CC Lodévois et Larzac                                  | 200017341 | ❌               | ❌        | ✅    |
+| CC          | CC du Grand Pic Saint-Loup                             | 200022986 | ❌               | ❌        | ✅    |
+| CC          | CC Grand Orb Communauté de Communes en Languedoc       | 200042646 | ✅               | ✅        | ✅    |
+| CC          | CC Sud-Hérault                                         | 200042653 | ❌               | ❌        | ✅    |
+| CC          | CC du Minervois au Caroux                              | 200066348 | ❌               | ❌        | ✅    |
+| CA          | CA Sète Agglopôle Méditerranée                         | 200066355 | ✅               | ✅        | ✅    |
+| CC          | CC du Haut-Languedoc                                   | 200066553 | ❌               | ❌        | ✅    |
+| CC          | CC Les Avant-Monts                                     | 200071058 | ✅               | ✅        | ✅    |
+| METRO       | Montpellier Méditerranée Métropole                     | 243400017 | ✅               | ✅        | ✅    |
+| CC          | CC du Clermontais                                      | 243400355 | ❌               | ❌        | ✅    |
 | CA          | CA du Pays de l'Or                                     | 243400470 | ✅               | ✅        | ✅    |
-| CC          | CC la Domitienne                                       | 243400488 | ❔               | ❌        | ❌    |
-| CA          | CA Lunel Agglo                                         | 243400520 | ❔               | ❌        | ❌    |
-| CC          | CC Vallée de l'Hérault                                 | 243400694 | ❔               | ❌        | ❌    |
-| CC          | CC des Cévennes Gangeoises et Suménoises               | 243400736 | ✅               | ✅        | ❌    |
-| CA          | CA de Béziers-Méditerranée                             | 243400769 | ❔               | ❌        | ❌    |
-| CA          | CA Hérault-Méditerranée                                | 243400819 | ❔               | ❌        | ❌    |
+| CC          | CC la Domitienne                                       | 243400488 | ❌               | ❌        | ✅    |
+| CA          | CA Lunel Agglo                                         | 243400520 | ❌               | ❌        | ✅    |
+| CC          | CC Vallée de l'Hérault                                 | 243400694 | ❌               | ❌        | ✅    |
+| CA          | CA de Béziers-Méditerranée                             | 243400769 | ❌               | ❌        | ✅    |
+| CA          | CA Hérault-Méditerranée                                | 243400819 | ❌               | ❌        | ✅    |
 | Département | Lot                                                    | 46        | ❔               | ❌        | ❌    |
 | CA          | CA du Grand Cahors                                     | 200023737 | ❔               | ❌        | ❌    |
 | CC          | CC Cazals-Salviac                                      | 200035327 | ❔               | ❌        | ❌    |
@@ -139,7 +138,7 @@
 | CC          | CC Coeur de Lozère                                     | 244800405 | ❔               | ❌        | ❌    |
 | CC          | CC du Gévaudan                                         | 244800470 | ❔               | ❌        | ❌    |
 | Département | Hautes-Pyrénées                                        | 65        | ❔               | ❌        | ❌    |
-| CA          | CA Tarbes-Lourdes-Pyrénées                             | 200069300 | ✅               | ✅        | ❌    |
+| CA          | CA Tarbes-Lourdes-Pyrénées                             | 200069300 | ✅               | ✅        | ✅    |
 | CC          | CC du Plateau de Lannemezan                            | 200070787 | ❔               | ❌        | ❌    |
 | CC          | CC du Pays de Trie et du Magnoac                       | 200070795 | ❔               | ❌        | ❌    |
 | CC          | CC des Coteaux du Val d'Arros                          | 200070803 | ❔               | ❌        | ❌    |
@@ -150,7 +149,7 @@
 | CC          | CC de la Haute-Bigorre                                 | 246500482 | ❔               | ❌        | ❌    |
 | CC          | CC Aure Louron                                         | 246500573 | ❔               | ❌        | ❌    |
 | Département | Pyrénées-Orientales                                    | 66        | ❔               | ❌        | ❌    |
-| CU          | CU Perpignan Méditerranée Métropole                    | 200027183 | ✅               | ✅        | ❌    |
+| CU          | CU Perpignan Méditerranée Métropole                    | 200027183 | ✅               | ✅        | ✅    |
 | CC          | CC des Albères, de la Côte Vermeille et de l'Illibéris | 200043602 | ❔               | ❌        | ❌    |
 | CC          | CC Conflent-Canigó                                     | 200049211 | ❔               | ❌        | ❌    |
 | CC          | CC Corbières Salanque Méditerranée                     | 200070365 | ❔               | ❌        | ❌    |
@@ -161,7 +160,7 @@
 | CC          | CC Agly Fenouillèdes                                   | 246600423 | ❔               | ❌        | ❌    |
 | CC          | CC des Aspres                                          | 246600449 | ❔               | ❌        | ❌    |
 | CC          | CC Pyrénées Catalanes                                  | 246600464 | ❔               | ❌        | ❌    |
-| CC          | CC du Haut Vallespir                                   | 246600548 | ✅               | ✅        | ❌    |
+| CC          | CC du Haut Vallespir                                   | 246600548 | ✅               | ✅        | ✅    |
 | Département | Tarn                                                   | 81        | ❔               | ❌        | ❌    |
 | CC          | CC Tarn-Agout                                          | 200034023 | ❔               | ❌        | ❌    |
 | CC          | CC des Monts d'Alban et du Villefranchois              | 200034031 | ❔               | ❌        | ❌    |
@@ -175,7 +174,7 @@
 | CC          | CC du Sor et de l'Agout                                | 248100158 | ❔               | ❌        | ❌    |
 | CA          | CA de Castres Mazamet                                  | 248100430 | ❔               | ❌        | ❌    |
 | CC          | CC Val 81                                              | 248100497 | ❔               | ❌        | ❌    |
-| CA          | CA de l'Albigeois (C2A)                                | 248100737 | ✅               | ✅        | ❌    |
+| CA          | CA de l'Albigeois (C2A)                                | 248100737 | ✅               | ✅        | ✅    |
 | CC          | CC Thoré Montagne Noire                                | 248100745 | ❔               | ❌        | ❌    |
 | CC          | CC du Quercy Rouergue et des Gorges de l'Aveyron       | 248200107 | ❔               | ❌        | ❌    |
 | Département | Tarn-et-Garonne                                        | 82        | ❔               | ❌        | ❌    |
@@ -187,5 +186,5 @@
 | CC          | CC des Deux Rives                                      | 248200016 | ❔               | ❌        | ❌    |
 | CC          | CC du Quercy Caussadais                                | 248200057 | ❔               | ❌        | ❌    |
 | CC          | CC de la Lomagne Tarn-et-Garonnaise                    | 248200065 | ❔               | ❌        | ❌    |
-| CA          | CA Grand Montauban                                     | 248200099 | ✅               | ✅        | ❌    |
+| CA          | CA Grand Montauban                                     | 248200099 | ✅               | ✅        | ✅    |
 | CC          | CC du Quercy Rouergue et des Gorges de l'Aveyron       | 248200107 | ❔               | ❌        | ❌    |
