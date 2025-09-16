@@ -89,8 +89,8 @@ aides . occitanie:
   remplace: région
   titre: Région Occitanie
   description: >
-    « Éco-chèque mobilité - Achat d’un vélo à assistance électrique neuf ». Aide
-    de 200 € pour l'achat d'un vélo à assistance électrique neuf.
+    « Éco-chèque mobilité » - Achat d’un vélo à assistance électrique neuf.
+    Aide de 200 € pour l'achat d'un vélo à assistance électrique neuf.
 
 
     La demande doit être effectuée dans les 6 mois suivant la date d'achat du vélo.
@@ -100,6 +100,7 @@ aides . occitanie:
       - revenu fiscal de référence par part <= 14089 €/an
       - vélo . état . neuf
       - vélo . électrique
+  non applicable si: occitanie bonus forfait mobilité durable
   valeur: 200€
   note: >
     ### Note sur le plafond
@@ -117,7 +118,7 @@ aides . occitanie:
 aides . occitanie vélo adapté:
   remplace: région
   titre: Région Occitanie
-  description: Éco-chèque mobilité - Bonus vélo adapté PMR.
+  description: « Éco-chèque mobilité » - Bonus vélo adapté PMR.
   applicable si:
     toutes ces conditions:
       - localisation . région = '76'
@@ -128,10 +129,57 @@ aides . occitanie vélo adapté:
   valeur: 50% * prix déduit des autres aides
   plafond: 1000€
   lien: https://www.laregion.fr/Eco-cheque-mobilite-Bonus-velo-adapte-PMR
+  dernière mise à jour: 16/09/2025
   avec:
     prix déduit des autres aides: 
       valeur: vélo . prix - (aides . état + aides . département + aides . intercommunalité)
       plancher: 0€
+
+aides . occitanie bonus forfait mobilité durable:
+  remplace: région
+  titre: Région Occitanie
+  description: >
+    « Éco-chèque mobilité » - Bonus forfait mobilité durable. Aide pour l'achat
+    d'un cycle neuf (électrique ou mécanique) par les salarié·es pouvant
+    justifier percevoir de son employeur le Forfait Mobilités Durables.
+
+
+    Dispositif non-cumulable avec les autres aides « Éco-chèque mobilité » de
+    la région.
+  applicable si:
+    toutes ces conditions:
+      - localisation . région = '76'
+      - demandeur . âge . majeur
+      - vélo . état . neuf
+      - vélo . électrique ou mécanique
+      - demandeur . statut . salarié
+      - perçoit le forfait mobilités durables
+      - revenu fiscal de référence par part <= ISR . deuxième tranche
+  valeur: 
+    variations:
+      - si: foyer . imposable
+        alors: 80% * vélo . prix
+      - sinon: 50% * vélo . prix
+  plafond:
+    variations:
+      - si: vélo . électrique
+        alors:
+          variations:
+            - si: foyer . imposable
+              alors: 250 €
+            - sinon: 400 €
+      - sinon:
+          variations:
+            - si: foyer . imposable
+              alors: 150 €
+            - sinon: 240 €
+  lien: https://www.laregion.fr/Eco-cheque-mobilite-Bonus-forfait-mobilite-durable
+  dernière mise à jour: 16/09/2025
+  avec:
+    perçoit le forfait mobilités durables:
+      type: booléen
+      question: Votre employeur vous verse-t-il le Forfait mobilités durables (FMD) ?
+      par défaut: non
 
 aides . ca foix-varilhes:
   remplace: intercommunalité
