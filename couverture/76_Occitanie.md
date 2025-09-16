@@ -6,7 +6,7 @@
 | Département | Ariège                                                 | 09        | ❔               | ❌        | 📧    |
 | CC          | CC du Pays de Mirepoix                                 | 200044469 | ❌               | ❌        | ✅    |
 | CC          | CC Arize Lèze                                          | 200066223 | ❌               | ❌        | ✅    |
-| CC          | CC des Portes d'Ariège Pyrénées                        | 200066231 | ✅               | ❌        | 📧    |
+| CC          | CC des Portes d'Ariège Pyrénées                        | 200066231 | ❌               | ❌        | ✅    |
 | CC          | CC de la Haute Ariège                                  | 200066363 | ❔               | ❌        | ✅    |
 | CA          | CA L'Agglo Foix-Varilhes                               | 200067791 | ✅               | ✅        | ✅    |
 | CC          | CC Couserans-Pyrénées                                  | 200067940 | ❌               | ❌        | ✅    |
@@ -97,7 +97,7 @@
 | CC          | CC du Saves                                            | 243200599 | ❔               | ❌        | ❌    |
 | CC          | CC Artagnan de Fezensac                                | 243200607 | ❔               | ❌        | ❌    |
 | CC          | CC des Deux Rives                                      | 248200016 | ❔               | ❌        | ❌    |
-| Département | Hérault                                                | 34        | ✅               | ✅        | ❌    |
+| Département | Hérault                                                | 34        | ✅               | ✅        | 📧    |
 | CC          | CC Lodévois et Larzac                                  | 200017341 | ❔               | ❌        | ❌    |
 | CC          | CC du Grand Pic Saint-Loup                             | 200022986 | ❔               | ❌        | ❌    |
 | CC          | CC Grand Orb Communauté de Communes en Languedoc       | 200042646 | ✅               | ✅        | ❌    |
