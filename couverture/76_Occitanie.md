@@ -13,75 +13,73 @@
 | CC          | CC du Pays de Tarascon                                 | 240900431 | ❌               | ❌        | ✅    |
 | CC          | CC du Pays d'Olmes                                     | 240900464 | ❌               | ❌        | ✅    |
 | Département | Aude                                                   | 11        | ❌               | ❌        | ❌    |
-| CC          | CC Piège Lauragais Malepère                            | 200035707 | ❔               | ❌        | ❌    |
-| CA          | CA Carcassonne Agglo                                   | 200035715 | ❔               | ❌        | ❌    |
-| CC          | CC Castelnaudary Lauragais Audois                      | 200035855 | ❔               | ❌        | ❌    |
-| CC          | CC Région Lézignanaise, Corbières et Minervois         | 200035863 | ❔               | ❌        | ❌    |
-| CC          | CC de la Montagne Noire                                | 200042463 | ❔               | ❌        | ❌    |
-| CC          | CC Pyrénées audoises                                   | 200043776 | ❔               | ❌        | ❌    |
-| CC          | CC Corbières Salanque Méditerranée                     | 200070365 | ❔               | ❌        | ❌    |
-| CC          | CC du Limouxin                                         | 200071926 | ❔               | ❌        | ❌    |
-| CA          | CA Le Grand Narbonne                                   | 241100593 | ❔               | ❌        | ❌    |
-| CC          | CC Aux sources du Canal du Midi                        | 243100567 | ❔               | ❌        | ❌    |
-| Département | Aveyron                                                | 12        | ❔               | ❌        | ❌    |
-| CC          | CC Decazeville Communauté                              | 200067064 | ❔               | ❌        | ❌    |
-| CC          | CC Saint Affricain, Roquefort, Sept Vallons            | 200067155 | ❔               | ❌        | ❌    |
-| CC          | CC Monts, Rance et Rougier                             | 200067163 | ❔               | ❌        | ❌    |
-| CC          | CC Aubrac, Carladez et Viadène                         | 200067171 | ❔               | ❌        | ❌    |
-| CC          | CC Grand-Figeac                                        | 200067361 | ❔               | ❌        | ❌    |
-| CC          | CC Comtal Lot et Truyère                               | 200067478 | ❔               | ❌        | ❌    |
-| CC          | CC des Causses à l'Aubrac                              | 200068484 | ❔               | ❌        | ❌    |
-| CC          | CC Pays Ségali Communauté                              | 200068831 | ❔               | ❌        | ❌    |
-| CC          | CC Ouest Aveyron Communauté                            | 200069383 | ❔               | ❌        | ❌    |
-| CA          | CA Rodez Agglomération                                 | 241200187 | ❔               | ❌        | ❌    |
-| CC          | CC du Réquistanais                                     | 241200542 | ❔               | ❌        | ❌    |
-| CC          | CC de Millau Grands Causses                            | 241200567 | ❔               | ❌        | ❌    |
-| CC          | CC du Pays Rignacois                                   | 241200625 | ❔               | ❌        | ❌    |
-| CC          | CC Conques-Marcillac                                   | 241200641 | ❔               | ❌        | ❌    |
-| CC          | CC du Pays de Salars                                   | 241200658 | ❔               | ❌        | ❌    |
-| CC          | CC du Plateau de Montbazens                            | 241200674 | ❔               | ❌        | ❌    |
-| CC          | CC de Lévézou Pareloup                                 | 241200765 | ❔               | ❌        | ❌    |
-| CC          | CC Aveyron Bas Ségala Viaur                            | 241200807 | ❔               | ❌        | ❌    |
-| CC          | CC Larzac et Vallées                                   | 241200906 | ❔               | ❌        | ❌    |
-| CC          | CC de la Muse et des Raspes du Tarn                    | 241200914 | ❔               | ❌        | ❌    |
-| Département | Gard                                                   | 30        | ❔               | ❌        | ❌    |
-| CC          | CC Pays d'Uzès                                         | 200034379 | ❔               | ❌        | ❌    |
-| CC          | CC du Piémont Cévenol                                  | 200034411 | ❔               | ❌        | ❌    |
-| CC          | CC Causses Aigoual Cévennes                            | 200034601 | ❔               | ❌        | ❌    |
-| CA          | CA du Gard Rhodanien                                   | 200034692 | ❔               | ❌        | ❌    |
-| CC          | CC de Cèze Cévennes                                    | 200035129 | ❔               | ❌        | ❌    |
-| CA          | CA Alès Agglomération                                  | 200066918 | ❔               | ❌        | ❌    |
-| CC          | CC Mont Lozère                                         | 200069128 | ❔               | ❌        | ❌    |
-| CC          | CC du Pays Viganais                                    | 243000270 | ❔               | ❌        | ❌    |
-| CC          | CC du Pays de Sommières                                | 243000296 | ❔               | ❌        | ❌    |
-| CC          | CC Rhony, Vistre, Vidourle                             | 243000569 | ❔               | ❌        | ❌    |
-| CC          | CC Beaucaire Terre d'Argence                           | 243000585 | ❔               | ❌        | ❌    |
-| CC          | CC de Petite Camargue                                  | 243000593 | ❔               | ❌        | ❌    |
-| CA          | CA de Nîmes Métropole                                  | 243000643 | ❔               | ❌        | ❌    |
-| CC          | CC Terre de Camargue                                   | 243000650 | ❔               | ❌        | ❌    |
-| CC          | CC du Pont du Gard                                     | 243000684 | ❔               | ❌        | ❌    |
-| CC          | CC des Cévennes Gangeoises et Suménoises               | 243400736 | ✅               | ✅        | ❌    |
-| CA          | CA du Grand Avignon (COGA)                             | 248400251 | ✅               | ✅        | ❌    |
-| Département | Haute-Garonne                                          | 31        | ❔               | ❌        | ❌    |
-| CC          | CC Tarn-Agout                                          | 200034023 | ❔               | ❌        | ❌    |
-| CC          | CC du Frontonnais                                      | 200034957 | ❔               | ❌        | ❌    |
-| CC          | CC du Volvestre                                        | 200066819 | ❔               | ❌        | ❌    |
-| CA          | CA Le Muretain Agglo                                   | 200068641 | ❔               | ❌        | ❌    |
-| CC          | CC du Bassin Auterivain Haut-Garonnais                 | 200068807 | ❔               | ❌        | ❌    |
-| CC          | CC Coeur de Garonne                                    | 200068815 | ❔               | ❌        | ❌    |
-| CC          | CC des Terres du Lauragais                             | 200071298 | ❔               | ❌        | ❌    |
-| CC          | CC des Hauts-Tolosans                                  | 200071314 | ❔               | ❌        | ❌    |
-| CC          | CC Pyrénées Haut Garonnaises                           | 200072635 | ❔               | ❌        | ❌    |
-| CC          | CC Coeur et Coteaux du Comminges                       | 200072643 | ❔               | ❌        | ❌    |
-| CC          | CC Cagire Garonne Salat                                | 200073146 | ❔               | ❌        | ❌    |
-| METRO       | Toulouse Métropole                                     | 243100518 | ✅               | ✅        | ❌    |
-| CC          | CC Aux sources du Canal du Midi                        | 243100567 | ❔               | ❌        | ❌    |
-| CA          | CA du Sicoval                                          | 243100633 | ❔               | ❌        | ❌    |
-| CC          | CC des Coteaux du Girou                                | 243100732 | ❔               | ❌        | ❌    |
-| CC          | CC Val'Aïgo                                            | 243100773 | ❔               | ❌        | ❌    |
-| CC          | CC Le Grand Ouest Toulousain                           | 243100781 | ❔               | ❌        | ❌    |
-| CC          | CC des Coteaux Bellevue                                | 243100815 | ❔               | ❌        | ❌    |
-| Département | Gers                                                   | 32        | ❔               | ❌        | ❌    |
+| CC          | CC Piège Lauragais Malepère                            | 200035707 | ❌               | ❌        | ✅    |
+| CA          | CA Carcassonne Agglo                                   | 200035715 | ❌               | ❌        | ✅    |
+| CC          | CC Castelnaudary Lauragais Audois                      | 200035855 | ❌               | ❌        | ✅    |
+| CC          | CC Région Lézignanaise, Corbières et Minervois         | 200035863 | ❌               | ❌        | ✅    |
+| CC          | CC de la Montagne Noire                                | 200042463 | ❌               | ❌        | ✅    |
+| CC          | CC Pyrénées audoises                                   | 200043776 | ❌               | ❌        | ✅    |
+| CC          | CC Corbières Salanque Méditerranée                     | 200070365 | ❌               | ❌        | ✅    |
+| CC          | CC du Limouxin                                         | 200071926 | ❌               | ❌        | ✅    |
+| CA          | CA Le Grand Narbonne                                   | 241100593 | ❌               | ❌        | ✅    |
+| CC          | CC Aux sources du Canal du Midi                        | 243100567 | ❌               | ❌        | ✅    |
+| Département | Aveyron                                                | 12        | ❌               | ❌        | ✅    |
+| CC          | CC Decazeville Communauté                              | 200067064 | ❌               | ❌        | ✅    |
+| CC          | CC Saint Affricain, Roquefort, Sept Vallons            | 200067155 | ❌               | ❌        | ✅    |
+| CC          | CC Monts, Rance et Rougier                             | 200067163 | ❌               | ❌        | ✅    |
+| CC          | CC Aubrac, Carladez et Viadène                         | 200067171 | ❌               | ❌        | ✅    |
+| CC          | CC Grand-Figeac                                        | 200067361 | ❌               | ❌        | ✅    |
+| CC          | CC Comtal Lot et Truyère                               | 200067478 | ❌               | ❌        | ✅    |
+| CC          | CC des Causses à l'Aubrac                              | 200068484 | ❌               | ❌        | ✅    |
+| CC          | CC Pays Ségali Communauté                              | 200068831 | ❌               | ❌        | ✅    |
+| CC          | CC Ouest Aveyron Communauté                            | 200069383 | ❌               | ❌        | ✅    |
+| CA          | CA Rodez Agglomération                                 | 241200187 | ❌               | ❌        | ✅    |
+| CC          | CC du Réquistanais                                     | 241200542 | ❌               | ❌        | ✅    |
+| CC          | CC de Millau Grands Causses                            | 241200567 | ❌               | ❌        | ✅    |
+| CC          | CC du Pays Rignacois                                   | 241200625 | ❌               | ❌        | ✅    |
+| CC          | CC Conques-Marcillac                                   | 241200641 | ❌               | ❌        | ✅    |
+| CC          | CC du Pays de Salars                                   | 241200658 | ❌               | ❌        | ✅    |
+| CC          | CC du Plateau de Montbazens                            | 241200674 | ❌               | ❌        | ✅    |
+| CC          | CC de Lévézou Pareloup                                 | 241200765 | ❌               | ❌        | ✅    |
+| CC          | CC Aveyron Bas Ségala Viaur                            | 241200807 | ❌               | ❌        | ✅    |
+| CC          | CC Larzac et Vallées                                   | 241200906 | ❌               | ❌        | ✅    |
+| CC          | CC de la Muse et des Raspes du Tarn                    | 241200914 | ❌               | ❌        | ✅    |
+| Département | Gard                                                   | 30        | ❌               | ❌        | ✅    |
+| CC          | CC pays d'uzès                                         | 200034379 | ❌               | ❌        | ✅    |
+| CC          | CC du Piémont Cévenol                                  | 200034411 | ❌               | ❌        | ✅    |
+| CC          | CC Causses Aigoual Cévennes                            | 200034601 | ❌               | ❌        | ✅    |
+| CA          | CA du Gard Rhodanien                                   | 200034692 | ❌               | ❌        | ✅    |
+| CA          | CA Alès Agglomération                                  | 200066918 | ❌               | ❌        | ✅    |
+| CC          | CC Mont Lozère                                         | 200069128 | ❌               | ❌        | ✅    |
+| CC          | CC du Pays Viganais                                    | 243000270 | ❌               | ❌        | ✅    |
+| CC          | CC du Pays de Sommières                                | 243000296 | ❌               | ❌        | ✅    |
+| CC          | CC Rhony, Vistre, Vidourle                             | 243000569 | ❌               | ❌        | ✅    |
+| CC          | CC Beaucaire Terre d'Argence                           | 243000585 | ❌               | ❌        | ✅    |
+| CC          | CC de Petite Camargue                                  | 243000593 | ❌               | ❌        | ✅    |
+| CA          | CA de Nîmes Métropole                                  | 243000643 | ❌               | ❌        | ✅    |
+| CC          | CC Terre de Camargue                                   | 243000650 | ❌               | ❌        | ✅    |
+| CC          | CC du Pont du Gard                                     | 243000684 | ❌               | ❌        | ✅    |
+| CC          | CC des Cévennes Gangeoises et Suménoises               | 243400736 | ✅               | ✅        | ✅    |
+| CA          | CA du Grand Avignon (COGA)                             | 248400251 | ✅               | ✅        | ✅    |
+| Département | Haute-Garonne                                          | 31        | ❌               | ❌        | ✅    |
+| CC          | CC Tarn-Agout                                          | 200034023 | ❌               | ❌        | ✅    |
+| CC          | CC du Frontonnais                                      | 200034957 | ❌               | ❌        | ✅    |
+| CC          | CC du Volvestre                                        | 200066819 | ❌               | ❌        | ✅    |
+| CA          | CA Le Muretain Agglo                                   | 200068641 | ❌               | ❌        | ✅    |
+| CC          | CC du Bassin Auterivain Haut-Garonnais                 | 200068807 | ❌               | ❌        | ✅    |
+| CC          | CC Coeur de Garonne                                    | 200068815 | ❌               | ❌        | ✅    |
+| CC          | CC des Terres du Lauragais                             | 200071298 | ❌               | ❌        | ✅    |
+| CC          | CC des Hauts-Tolosans                                  | 200071314 | ❌               | ❌        | ✅    |
+| CC          | CC Pyrénées Haut Garonnaises                           | 200072635 | ❌               | ❌        | ✅    |
+| CC          | CC Coeur et Coteaux du Comminges                       | 200072643 | ❌               | ❌        | ✅    |
+| CC          | CC Cagire Garonne Salat                                | 200073146 | ❌               | ❌        | ✅    |
+| METRO       | Toulouse Métropole                                     | 243100518 | ✅               | ✅        | ✅    |
+| CA          | CA du Sicoval                                          | 243100633 | ❌               | ❌        | ✅    |
+| CC          | CC des Coteaux du Girou                                | 243100732 | ❌               | ❌        | ✅    |
+| CC          | CC Val'Aïgo                                            | 243100773 | ❌               | ❌        | ✅    |
+| CC          | CC Le Grand Ouest Toulousain                           | 243100781 | ❌               | ❌        | ✅    |
+| CC          | CC des Coteaux Bellevue                                | 243100815 | ❌               | ❌        | ✅    |
+| Département | Gers                                                   | 32        | ❌               | ❌        | ✅    |
 | CC          | CC de la Gascogne Toulousaine                          | 200023620 | ❔               | ❌        | ❌    |
 | CC          | CC d'Aire-sur-l'Adour                                  | 200030435 | ❔               | ❌        | ❌    |
 | CC          | CC Bastides de Lomagne                                 | 200034726 | ❔               | ❌        | ❌    |
@@ -174,7 +172,6 @@
 | CA          | CA Gaillac-Graulhet                                    | 200066124 | ❔               | ❌        | ❌    |
 | CC          | CC du Haut-Languedoc                                   | 200066553 | ❔               | ❌        | ❌    |
 | CC          | CC Sidobre Vals et Plateaux                            | 200066561 | ❔               | ❌        | ❌    |
-| CC          | CC Aux sources du Canal du Midi                        | 243100567 | ❔               | ❌        | ❌    |
 | CC          | CC du Sor et de l'Agout                                | 248100158 | ❔               | ❌        | ❌    |
 | CA          | CA de Castres Mazamet                                  | 248100430 | ❔               | ❌        | ❌    |
 | CC          | CC Val 81                                              | 248100497 | ❔               | ❌        | ❌    |
