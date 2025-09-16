@@ -12,10 +12,10 @@ foyer . personnes:
   unité: personne
 
 foyer . imposable:
-  titre: Imposition du foyer en 2024
-  valeur: revenu fiscal de référence par part >= 11295 €/an
+  titre: Imposition du foyer en 2025
+  valeur: revenu fiscal de référence par part >= ISR . première tranche
   note: >
     ### Source
    
 
-    [Infographie - Impôt sur le revenu : barème 2024](https://www.service-public.fr/particuliers/vosdroits/F1419)
+    [Tableau - Barème progressif applicable aux revenus de 2024](https://www.service-public.fr/particuliers/vosdroits/F1419)
