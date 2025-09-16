@@ -8254,10 +8254,14 @@ aides . val de drôme:
   lien: https://www.valdedrome.com/8257-bonus-velo.htm
   dernière mise à jour: 13/08/2025
 
+# TODO: à vérifier en 2026
 aides . cacl:
   remplace: intercommunalité
   titre: Communauté d'Agglomération du Centre Littoral
   description: >
+    Aide clôturée pour l'année 2025. Rendez-vous en 2026.
+
+
     La demande doit être faite avant l'achat du vélo. Une aide de 100€ est
     également disponible pour l'achat d'un vélo classique Enfant.
   applicable si:
@@ -8273,8 +8277,8 @@ aides . cacl:
       - si: vélo . mécanique
         alors: 300€
   plafond: 50% * vélo . prix
-  lien: https://www.cacl-guyane.fr/achetez-un-velo-avec-la-cacl/
-  dernière mise à jour: 12/08/2025
+  lien: https://www.cacl-guyane.fr/mes-services/la-cacl-vous-aide-a-acheter-un-velo/
+  dernière mise à jour: 16/09/2025
 
 aides . crestois et pays de saillans:
   remplace: intercommunalité
@@ -8807,7 +8811,7 @@ aides . st2b:
   plafond: 300 €
   lien: https://www.st2b.fr/fileo/prime-a-lacquisition-dun-velo-a-assistance-electrique
 
-# NOTE: problème de lien, à revérifier
+# TODO: à vérifier en 2026
 aides . cc ouest vosgien:
   remplace: intercommunalité
   titre: Communauté de communes de l'Ouest Vosgien
@@ -8818,12 +8822,11 @@ aides . cc ouest vosgien:
     toutes ces conditions:
       - localisation . epci = 'CC de l'Ouest Vosgien'
       - demandeur . âge . majeur
-      - revenu fiscal de référence par part <= 14089 €/an
       - vélo . électrique
       - vélo . état . neuf
   valeur: 300 €
   plafond: 25% * vélo . prix
-  lien: https://ccov.fr/communaute-de-communes/vie-quotidienne/mobilite/subvention-vae
+  lien: https://ccov.fr/contenu/subvention-vae/
   dernière mise à jour: 20/02/2025
 
 # NOTE: valide jusqu'au 31/12/2026
