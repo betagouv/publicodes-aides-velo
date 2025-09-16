@@ -2791,61 +2791,6 @@ aides . pays de l'ozon:
   dernière mise à jour: 22/08/2025
   date de fin: 05/12/2025
 
-# NOTE: le plan hérault-vélo 2025-2030 en cours de construction, à vérifier en 2025
-aides . département hérault:
-  remplace: département
-  titre: Département Hérault
-  description: >
-    Chèque Hérault Vélo - En pause en attendant le plan Hérault Vélo 2025-2030. 
-
-
-  # Chèque Hérault Vélo - Aide à l'achat d'un vélo électrique neuf réalisé
-  # auprès d'un professionnel exerçant son activité professionnelle sur le
-  # territoire du Département de l'Hérault. Cette aide peut être complétées par
-  # un bonus « Hérault Pichòt » de 20€ pour l'achat d'un siège enfant ou de 50€
-  # pour une carriole.
-  applicable si:
-    toutes ces conditions:
-      - localisation . département = '34'
-      - demandeur . âge . majeur
-      - vélo . électrique
-      - vélo . état . neuf
-      - revenu fiscal de référence par part <= 25660 €/an
-  valeur: 250€
-  note: >
-    ### Note sur le plafond
-
-
-    Dans les versions précédentes, un plafond du montant du prix du vélo était
-    appliqué. Cependant, rien n'indique la présence de ce plafond dans la
-    [documentation
-    officielle](https://herault.fr/cms_viewFile.php?idtf=9118&path=Reglement-des-cheques-Herault-Velo-et-Herault-Handi-Velo.pdf).
-    Nous avons donc décidé de ne pas l'appliquer.
-  # plafond: 250€
-  lien: https://herault.fr/actualite/127075/2-le-departement-lance-une-enquete-sur-la-construction-du-plan-herault-velo.htm
-  # lien: https://herault.fr/aideProjet/3/321-aide-a-l-achat-d-un-velo-electrique-vae.htm
-
-aides . département hérault vélo adapté:
-  remplace: département
-  titre: Département Hérault
-  description: >
-    Chèque Hérault Handi-Vélo - En pause en attendant le plan Hérault Vélo
-    2025-2030. 
-
-# Chèque Hérault Handi-Vélo - Aide à l'achat d'un vélo électrique adapté ou
-# de matériel adapté (dispositif de troisième roue, guidons électriques…)
-# neuf et d'occasion. 
-  applicable si:
-    toutes ces conditions:
-      - localisation . département = '34'
-      - demandeur . en situation de handicap
-      - demandeur . âge . majeur
-      - vélo . adapté
-  valeur: 50% * vélo . prix
-  plafond: 1000€
-  lien: https://herault.fr/actualite/127075/2-le-departement-lance-une-enquete-sur-la-construction-du-plan-herault-velo.htm
-  # lien: https://herault.fr/aideProjet/3/321-aide-a-l-achat-d-un-velo-electrique-vae.htm
-
 # TODO: à vérifier en 2027
 aides . montpellier vélo cargo pro:
   remplace: intercommunalité

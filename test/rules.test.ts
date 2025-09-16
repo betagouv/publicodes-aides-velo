@@ -304,7 +304,7 @@ describe("Aides Vélo", () => {
     });
   });
 
-  describe("Département Hérault", () => {
+  describe.skip("Département Hérault", () => {
     it("devrait correctement prendre en compte les vélo adaptés pour les personnes en situation de handicap", () => {
       engine.setSituation({
         "localisation . département": "'34'",
@@ -384,9 +384,9 @@ describe("Aides Vélo", () => {
       expect(
         engine.evaluate("aides . montpellier vae occasion").nodeValue
       ).toEqual(null);
-      expect(
-        engine.evaluate("aides . département hérault vélo adapté").nodeValue
-      ).toEqual(1000);
+      // expect(
+      //   engine.evaluate("aides . département hérault vélo adapté").nodeValue
+      // ).toEqual(1000);
     });
   });
 
