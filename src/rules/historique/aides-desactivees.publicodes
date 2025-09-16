@@ -1523,3 +1523,20 @@ aides . boulonnais:
   lien: https://www.agglo-boulonnais.fr/a-votre-service/mobilite/a-velo-dans-lagglo
   dernière mise à jour: 12/09/2025
 
+# NOTE: remplacé par un service de location
+aides . tulle:
+  remplace: intercommunalité
+  titre: Tulle agglo
+  description: Chèque Vélo Electrique du dispositif "L'agglo à vélo !" 2024.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CA Tulle Agglo'
+      - vélo . électrique
+  variations:
+    - si: revenu fiscal de référence par part <= 1799€/mois
+      alors: 200€
+    - si: revenu fiscal de référence par part <= 2999€/mois
+      alors: 150€
+    - sinon: 100€
+  lien: https://www.tulleagglo.fr/actualites/lagglo-a-velo/
+  dernière mise à jour: 16/09/2025

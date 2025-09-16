@@ -1143,9 +1143,6 @@ aides . toulouse:
     toutes ces conditions:
       - localisation . epci = 'Toulouse Métropole'
       - revenu fiscal de référence par part <= 35052 €/an
-      - une de ces conditions:
-          - vélo . électrique ou mécanique
-          - vélo . motorisation
   formule:
     valeur: 40% * vélo . prix . HT
     arrondi: oui
@@ -1155,14 +1152,17 @@ aides . toulouse:
         alors:
           variations:
             - si: revenu fiscal de référence par part <= 18800 €/an
-              alors: 600€
-            - sinon: 500€
-      - si: vélo . cargo
+              alors: 600 €
+            - sinon: 500 €
+      - si: 
+          une de ces conditions:
+            - vélo . cargo
+            - vélo . adapté
         alors:
           variations:
             - si: revenu fiscal de référence par part <= 18800 €/an
-              alors: 400€
-            - sinon: 350€
+              alors: 400 €
+            - sinon: 350 €
       - si: 
           une de ces conditions:
             - vélo . électrique
@@ -1170,16 +1170,17 @@ aides . toulouse:
         alors:
           variations:
             - si: revenu fiscal de référence par part <= 18800 €/an
-              alors: 250€
-            - sinon: 200€
+              alors: 250 €
+            - sinon: 200 €
       - si: vélo . mécanique
         alors:
           variations:
             - si: revenu fiscal de référence par part <= 18800 €/an
-              alors: 100€
-            - sinon: 0€
+              alors: 100 €
+            - sinon: 80 €
       - sinon: 0€
   lien: https://www.toulouse-metropole.fr/missions/environnement/qualite-de-l-air/prime-velo
+  dernière mise à jour: 16/09/2025
 
 # TODO: add unit tests?
 aides . grenoble:
@@ -1745,7 +1746,7 @@ aides . caen la mer:
   lien: https://caenlamer.fr/aide-achat-velo-assistance-electrique
   dernière mise à jour: 11/09/2025
 
-# NOTE: Pas trop d'infos depuis 2021, à vérifier en 2025
+# TODO: à vérifier en 2026
 aides . thue et mue:
   remplace: commune
   titre: Ville de Thue et Mue
@@ -1763,8 +1764,8 @@ aides . thue et mue:
       - si: revenu fiscal de référence par part <= 13489 €/an
         alors: 150€
       - sinon: 100€
-  lien: https://www.thueetmue.fr/aide-lachat-dun-velo-electrique
-  dernière mise à jour: 14/08/2025
+  lien: https://www.thueetmue.fr/des-aides-pour-lachat-de-votre-velo-electrique
+  dernière mise à jour: 15/09/2025
 
 aides . démouville:
   remplace: commune
@@ -5488,8 +5489,8 @@ aides . pays des achards:
             - vélo . adapté
         alors: 300€
       - sinon: 200€
-  lien: https://www.cc-paysdesachards.fr/amenagement/mobilites/351-bonus-velo.html
-  dernière mise à jour: 14/08/2025
+  lien: https://www.cc-paysdesachards.fr/bonus-velo/
+  dernière mise à jour: 16/09/2025
 
 aides . hem:
   remplace: commune
@@ -7053,7 +7054,7 @@ aides . beauvais:
     - sinon:
         valeur: 30% * vélo . prix
         plafond: 100 €
-  lien: http://www.beauvais.fr/velo/
+  lien: https://subventions-velos.beauvaisis.fr/demande-subvention/decf87d7-af09-4aa3-a9c1-7c5542e832b4/accepter-conditions
   date de fin: 31/12/2025
   dernière mise à jour: 12/09/2025
 
@@ -8037,22 +8038,6 @@ aides . pays de cruseilles:
   lien: https://ccpaysdecruseilles.org/vivre-ici/mobilite/prime-achat-velo/
   dernière mise à jour: 22/08/2025
 
-aides . tulle:
-  remplace: intercommunalité
-  titre: Tulle agglo
-  description: Chèque Vélo Electrique du dispositif "L'agglo à vélo !" 2024.
-  applicable si:
-    toutes ces conditions:
-      - localisation . epci = 'CA Tulle Agglo'
-      - vélo . électrique
-  variations:
-    - si: revenu fiscal de référence par part <= 1799€/mois
-      alors: 200€
-    - si: revenu fiscal de référence par part <= 2999€/mois
-      alors: 150€
-    - sinon: 100€
-  lien: https://www.tulleagglo.fr/actualites/lagglo-a-velo/
-
 aides . val d'yerres val de seine:
   remplace: intercommunalité
   titre: Val d'Yerres Val de Seine
@@ -8128,7 +8113,7 @@ aides . campagnes de l'artois:
 aides . cévennes gangeoises et suménoises:
   remplace: intercommunalité
   titre: Cévennes Gangeoises et Suménoises
-  description: Aides à l'achat d'un vélo 2024.
+  description: Aides à l'achat d'un vélo 2025.
   applicable si: localisation . epci = 'CC des Cévennes Gangeoises et Suménoises'
   valeur: 30% * (vélo . prix - aides . département - aides . région - aides . état)
   plancher: 0€
@@ -8138,6 +8123,7 @@ aides . cévennes gangeoises et suménoises:
         alors: 350€
       - sinon: 300€
   lien: https://cdcgangesumene.fr/au-quotidien/mobilite/velo/
+  dernière mise à jour: 16/09/2025
 
 aides . montmorillon:
   remplace: commune

@@ -289,8 +289,9 @@ describe("AidesVeloEngine", () => {
           })
           .computeAides();
 
-        expect(aides).toHaveLength(1);
+        expect(aides).toHaveLength(2);
         expect(contain(aides, "aides . occitanie vélo adapté")).toBeTruthy();
+        expect(contain(aides, "aides . toulouse")).toBeTruthy();
       });
 
       it("Montpellier - vélo adapté et en situation de handicap", async () => {
