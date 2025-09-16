@@ -1,5 +1,7 @@
 # Couverture des aides en Occitanie (76)
 
+- 2025 : ✅
+
 | Echelle     | Nom                                                    | Code      | Possède une aide | Modélisée | Relue |
 | ----------- | ------------------------------------------------------ | --------- | ---------------- | --------- | ----- |
 | Région      | Occitanie                                              | 76        | ✅               | ✅        | ✅    |
@@ -7,12 +9,12 @@
 | CC          | CC du Pays de Mirepoix                                 | 200044469 | ❌               | ❌        | ✅    |
 | CC          | CC Arize Lèze                                          | 200066223 | ❌               | ❌        | ✅    |
 | CC          | CC des Portes d'Ariège Pyrénées                        | 200066231 | ❌               | ❌        | ✅    |
-| CC          | CC de la Haute Ariège                                  | 200066363 | ❔               | ❌        | ✅    |
+| CC          | CC de la Haute Ariège                                  | 200066363 | ❌               | ❌        | ✅    |
 | CA          | CA L'Agglo Foix-Varilhes                               | 200067791 | ✅               | ✅        | ✅    |
 | CC          | CC Couserans-Pyrénées                                  | 200067940 | ❌               | ❌        | ✅    |
 | CC          | CC du Pays de Tarascon                                 | 240900431 | ❌               | ❌        | ✅    |
 | CC          | CC du Pays d'Olmes                                     | 240900464 | ❌               | ❌        | ✅    |
-| Département | Aude                                                   | 11        | ❌               | ❌        | ❌    |
+| Département | Aude                                                   | 11        | ❌               | ❌        | ✅    |
 | CC          | CC Piège Lauragais Malepère                            | 200035707 | ❌               | ❌        | ✅    |
 | CA          | CA Carcassonne Agglo                                   | 200035715 | ❌               | ❌        | ✅    |
 | CC          | CC Castelnaudary Lauragais Audois                      | 200035855 | ❌               | ❌        | ✅    |
@@ -80,23 +82,23 @@
 | CC          | CC Le Grand Ouest Toulousain                           | 243100781 | ❌               | ❌        | ✅    |
 | CC          | CC des Coteaux Bellevue                                | 243100815 | ❌               | ❌        | ✅    |
 | Département | Gers                                                   | 32        | ❌               | ❌        | ✅    |
-| CC          | CC de la Gascogne Toulousaine                          | 200023620 | ❔               | ❌        | ❌    |
-| CC          | CC d'Aire-sur-l'Adour                                  | 200030435 | ❔               | ❌        | ❌    |
-| CC          | CC Bastides de Lomagne                                 | 200034726 | ❔               | ❌        | ❌    |
-| CC          | CC Armagnac Adour                                      | 200035632 | ❔               | ❌        | ❌    |
-| CC          | CC Astarac Arros en Gascogne                           | 200035756 | ❔               | ❌        | ❌    |
-| CC          | CC des Coteaux Arrats Gimone                           | 200042372 | ❔               | ❌        | ❌    |
-| CA          | CA Grand Auch Coeur de Gascogne                        | 200066926 | ❔               | ❌        | ❌    |
-| CC          | CC Val de Gers                                         | 200072320 | ❔               | ❌        | ❌    |
-| CC          | CC de la Lomagne Gersoise                              | 243200391 | ❔               | ❌        | ❌    |
-| CC          | CC du Bas Armagnac                                     | 243200409 | ❔               | ❌        | ❌    |
-| CC          | CC de la Tenarèze                                      | 243200417 | ❔               | ❌        | ❌    |
-| CC          | CC Coeur d'Astarac en Gascogne                         | 243200425 | ❔               | ❌        | ❌    |
-| CC          | CC du Grand Armagnac                                   | 243200458 | ❔               | ❌        | ❌    |
-| CC          | CC Bastides et Vallons du Gers                         | 243200508 | ❔               | ❌        | ❌    |
-| CC          | CC du Saves                                            | 243200599 | ❔               | ❌        | ❌    |
-| CC          | CC Artagnan de Fezensac                                | 243200607 | ❔               | ❌        | ❌    |
-| CC          | CC des Deux Rives                                      | 248200016 | ❔               | ❌        | ❌    |
+| CC          | CC de la Gascogne Toulousaine                          | 200023620 | ❌               | ❌        | 🤖    |
+| CC          | CC d'Aire-sur-l'Adour                                  | 200030435 | ❌               | ❌        | 🤖    |
+| CC          | CC Bastides de Lomagne                                 | 200034726 | ❌               | ❌        | 🤖    |
+| CC          | CC Armagnac Adour                                      | 200035632 | ❌               | ❌        | 🤖    |
+| CC          | CC Astarac Arros en Gascogne                           | 200035756 | ❌               | ❌        | 🤖    |
+| CC          | CC des Coteaux Arrats Gimone                           | 200042372 | ❌               | ❌        | 🤖    |
+| CA          | CA Grand Auch Coeur de Gascogne                        | 200066926 | ❌               | ❌        | 🤖    |
+| CC          | CC Val de Gers                                         | 200072320 | ❌               | ❌        | 🤖    |
+| CC          | CC de la Lomagne Gersoise                              | 243200391 | ❌               | ❌        | 🤖    |
+| CC          | CC du Bas Armagnac                                     | 243200409 | ❌               | ❌        | 🤖    |
+| CC          | CC de la Tenarèze                                      | 243200417 | ❌               | ❌        | 🤖    |
+| CC          | CC Coeur d'Astarac en Gascogne                         | 243200425 | ❌               | ❌        | 🤖    |
+| CC          | CC du Grand Armagnac                                   | 243200458 | ❌               | ❌        | 🤖    |
+| CC          | CC Bastides et Vallons du Gers                         | 243200508 | ❌               | ❌        | 🤖    |
+| CC          | CC du Saves                                            | 243200599 | ❌               | ❌        | 🤖    |
+| CC          | CC Artagnan de Fezensac                                | 243200607 | ❌               | ❌        | 🤖    |
+| CC          | CC des Deux Rives                                      | 248200016 | ❌               | ❌        | 🤖    |
 | Département | Hérault                                                | 34        | ❌               | ❌        | ✅    |
 | CC          | CC Lodévois et Larzac                                  | 200017341 | ❌               | ❌        | ✅    |
 | CC          | CC du Grand Pic Saint-Loup                             | 200022986 | ❌               | ❌        | ✅    |
@@ -114,77 +116,77 @@
 | CC          | CC Vallée de l'Hérault                                 | 243400694 | ❌               | ❌        | ✅    |
 | CA          | CA de Béziers-Méditerranée                             | 243400769 | ❌               | ❌        | ✅    |
 | CA          | CA Hérault-Méditerranée                                | 243400819 | ❌               | ❌        | ✅    |
-| Département | Lot                                                    | 46        | ❔               | ❌        | ❌    |
-| CA          | CA du Grand Cahors                                     | 200023737 | ❔               | ❌        | ❌    |
-| CC          | CC Cazals-Salviac                                      | 200035327 | ❔               | ❌        | ❌    |
-| CC          | CC du Quercy Blanc                                     | 200039519 | ❔               | ❌        | ❌    |
-| CC          | CC Causses et Vallée de la Dordogne                    | 200066371 | ❔               | ❌        | ❌    |
-| CC          | CC Grand-Figeac                                        | 200067361 | ❔               | ❌        | ❌    |
-| CC          | CC Ouest Aveyron Communauté                            | 200069383 | ❔               | ❌        | ❌    |
-| CC          | CC de la Vallée du Lot et du Vignoble                  | 244600433 | ❔               | ❌        | ❌    |
-| CC          | CC Quercy - Bouriane                                   | 244600482 | ❔               | ❌        | ❌    |
-| CC          | CC du Pays de Lalbenque-Limogne                        | 244600532 | ❔               | ❌        | ❌    |
-| CC          | CC du Causse de Labastide Murat                        | 244600573 | ❔               | ❌        | ❌    |
-| Département | Lozère                                                 | 48        | ❔               | ❌        | ❌    |
-| CC          | CC du Haut Allier Margeride                            | 200006930 | ❔               | ❌        | ❌    |
-| CC          | CC Randon - Margeride                                  | 200069102 | ❔               | ❌        | ❌    |
-| CC          | CC Mont Lozère                                         | 200069128 | ❔               | ❌        | ❌    |
-| CC          | CC des Cévennes au Mont Lozère                         | 200069136 | ❔               | ❌        | ❌    |
-| CC          | CC des Hautes Terres de l'Aubrac                       | 200069144 | ❔               | ❌        | ❌    |
-| CC          | CC Gorges Causses Cévennes                             | 200069151 | ❔               | ❌        | ❌    |
-| CC          | CC des Terres d'Apcher-Margeride-Aubrac                | 200069185 | ❔               | ❌        | ❌    |
-| CC          | CC Aubrac Lot Causses Tarn                             | 200069268 | ❔               | ❌        | ❌    |
-| CC          | CC de Millau Grands Causses                            | 241200567 | ❔               | ❌        | ❌    |
-| CC          | CC Coeur de Lozère                                     | 244800405 | ❔               | ❌        | ❌    |
-| CC          | CC du Gévaudan                                         | 244800470 | ❔               | ❌        | ❌    |
-| Département | Hautes-Pyrénées                                        | 65        | ❔               | ❌        | ❌    |
+| Département | Lot                                                    | 46        | ❌               | ❌        | 🤖    |
+| CA          | CA du Grand Cahors                                     | 200023737 | ❌               | ❌        | 🤖    |
+| CC          | CC Cazals-Salviac                                      | 200035327 | ❌               | ❌        | 🤖    |
+| CC          | CC du Quercy Blanc                                     | 200039519 | ❌               | ❌        | 🤖    |
+| CC          | CC Causses et Vallée de la Dordogne                    | 200066371 | ❌               | ❌        | 🤖    |
+| CC          | CC Grand-Figeac                                        | 200067361 | ❌               | ❌        | 🤖    |
+| CC          | CC Ouest Aveyron Communauté                            | 200069383 | ❌               | ❌        | 🤖    |
+| CC          | CC de la Vallée du Lot et du Vignoble                  | 244600433 | ❌               | ❌        | 🤖    |
+| CC          | CC Quercy - Bouriane                                   | 244600482 | ❌               | ❌        | 🤖    |
+| CC          | CC du Pays de Lalbenque-Limogne                        | 244600532 | ❌               | ❌        | 🤖    |
+| CC          | CC du Causse de Labastide Murat                        | 244600573 | ❌               | ❌        | 🤖    |
+| Département | Lozère                                                 | 48        | ❌               | ❌        | 🤖    |
+| CC          | CC du Haut Allier Margeride                            | 200006930 | ❌               | ❌        | 🤖    |
+| CC          | CC Randon - Margeride                                  | 200069102 | ❌               | ❌        | 🤖    |
+| CC          | CC Mont Lozère                                         | 200069128 | ❌               | ❌        | 🤖    |
+| CC          | CC des Cévennes au Mont Lozère                         | 200069136 | ❌               | ❌        | 🤖    |
+| CC          | CC des Hautes Terres de l'Aubrac                       | 200069144 | ❌               | ❌        | 🤖    |
+| CC          | CC Gorges Causses Cévennes                             | 200069151 | ❌               | ❌        | 🤖    |
+| CC          | CC des Terres d'Apcher-Margeride-Aubrac                | 200069185 | ❌               | ❌        | 🤖    |
+| CC          | CC Aubrac Lot Causses Tarn                             | 200069268 | ❌               | ❌        | 🤖    |
+| CC          | CC de Millau Grands Causses                            | 241200567 | ❌               | ❌        | 🤖    |
+| CC          | CC Coeur de Lozère                                     | 244800405 | ❌               | ❌        | 🤖    |
+| CC          | CC du Gévaudan                                         | 244800470 | ❌               | ❌        | 🤖    |
+| Département | Hautes-Pyrénées                                        | 65        | ❌               | ❌        | 🤖    |
 | CA          | CA Tarbes-Lourdes-Pyrénées                             | 200069300 | ✅               | ✅        | ✅    |
-| CC          | CC du Plateau de Lannemezan                            | 200070787 | ❔               | ❌        | ❌    |
-| CC          | CC du Pays de Trie et du Magnoac                       | 200070795 | ❔               | ❌        | ❌    |
-| CC          | CC des Coteaux du Val d'Arros                          | 200070803 | ❔               | ❌        | ❌    |
-| CC          | CC Pyrénées Vallées des Gaves                          | 200070811 | ❔               | ❌        | ❌    |
-| CC          | CC Neste Barousse                                      | 200070829 | ❔               | ❌        | ❌    |
-| CC          | CC Adour Madiran                                       | 200072106 | ❔               | ❌        | ❌    |
-| CC          | CC Pays de Nay                                         | 246401756 | ❔               | ❌        | ❌    |
-| CC          | CC de la Haute-Bigorre                                 | 246500482 | ❔               | ❌        | ❌    |
-| CC          | CC Aure Louron                                         | 246500573 | ❔               | ❌        | ❌    |
-| Département | Pyrénées-Orientales                                    | 66        | ❔               | ❌        | ❌    |
+| CC          | CC du Plateau de Lannemezan                            | 200070787 | ❌               | ❌        | 🤖    |
+| CC          | CC du Pays de Trie et du Magnoac                       | 200070795 | ❌               | ❌        | 🤖    |
+| CC          | CC des Coteaux du Val d'Arros                          | 200070803 | ❌               | ❌        | 🤖    |
+| CC          | CC Pyrénées Vallées des Gaves                          | 200070811 | ❌               | ❌        | 🤖    |
+| CC          | CC Neste Barousse                                      | 200070829 | ❌               | ❌        | 🤖    |
+| CC          | CC Adour Madiran                                       | 200072106 | ❌               | ❌        | 🤖    |
+| CC          | CC Pays de Nay                                         | 246401756 | ❌               | ❌        | 🤖    |
+| CC          | CC de la Haute-Bigorre                                 | 246500482 | ❌               | ❌        | 🤖    |
+| CC          | CC Aure Louron                                         | 246500573 | ❌               | ❌        | 🤖    |
+| Département | Pyrénées-Orientales                                    | 66        | ❌               | ❌        | 🤖    |
 | CU          | CU Perpignan Méditerranée Métropole                    | 200027183 | ✅               | ✅        | ✅    |
-| CC          | CC des Albères, de la Côte Vermeille et de l'Illibéris | 200043602 | ❔               | ❌        | ❌    |
-| CC          | CC Conflent-Canigó                                     | 200049211 | ❔               | ❌        | ❌    |
-| CC          | CC Corbières Salanque Méditerranée                     | 200070365 | ❔               | ❌        | ❌    |
-| CC          | CC Sud-Roussillon                                      | 246600282 | ❔               | ❌        | ❌    |
-| CC          | CC du Vallespir                                        | 246600373 | ❔               | ❌        | ❌    |
-| CC          | CC Pyrénées Cerdagne                                   | 246600399 | ❔               | ❌        | ❌    |
-| CC          | CC Roussillon-Conflent                                 | 246600415 | ❔               | ❌        | ❌    |
-| CC          | CC Agly Fenouillèdes                                   | 246600423 | ❔               | ❌        | ❌    |
-| CC          | CC des Aspres                                          | 246600449 | ❔               | ❌        | ❌    |
-| CC          | CC Pyrénées Catalanes                                  | 246600464 | ❔               | ❌        | ❌    |
+| CC          | CC des Albères, de la Côte Vermeille et de l'Illibéris | 200043602 | ❌               | ❌        | 🤖    |
+| CC          | CC Conflent-Canigó                                     | 200049211 | ❌               | ❌        | 🤖    |
+| CC          | CC Corbières Salanque Méditerranée                     | 200070365 | ❌               | ❌        | 🤖    |
+| CC          | CC Sud-Roussillon                                      | 246600282 | ❌               | ❌        | 🤖    |
+| CC          | CC du Vallespir                                        | 246600373 | ❌               | ❌        | 🤖    |
+| CC          | CC Pyrénées Cerdagne                                   | 246600399 | ❌               | ❌        | 🤖    |
+| CC          | CC Roussillon-Conflent                                 | 246600415 | ❌               | ❌        | 🤖    |
+| CC          | CC Agly Fenouillèdes                                   | 246600423 | ❌               | ❌        | 🤖    |
+| CC          | CC des Aspres                                          | 246600449 | ❌               | ❌        | 🤖    |
+| CC          | CC Pyrénées Catalanes                                  | 246600464 | ❌               | ❌        | 🤖    |
 | CC          | CC du Haut Vallespir                                   | 246600548 | ✅               | ✅        | ✅    |
-| Département | Tarn                                                   | 81        | ❔               | ❌        | ❌    |
-| CC          | CC Tarn-Agout                                          | 200034023 | ❔               | ❌        | ❌    |
-| CC          | CC des Monts d'Alban et du Villefranchois              | 200034031 | ❔               | ❌        | ❌    |
-| CC          | CC Centre Tarn                                         | 200034049 | ❔               | ❌        | ❌    |
-| CC          | CC du Lautrécois et du Pays d'Agout                    | 200034056 | ❔               | ❌        | ❌    |
-| CC          | CC du Cordais et du Causse (4 C)                       | 200034064 | ❔               | ❌        | ❌    |
+| Département | Tarn                                                   | 81        | ❌               | ❌        | 🤖    |
+| CC          | CC Tarn-Agout                                          | 200034023 | ❌               | ❌        | 🤖    |
+| CC          | CC des Monts d'Alban et du Villefranchois              | 200034031 | ❌               | ❌        | 🤖    |
+| CC          | CC Centre Tarn                                         | 200034049 | ❌               | ❌        | 🤖    |
+| CC          | CC du Lautrécois et du Pays d'Agout                    | 200034056 | ❌               | ❌        | 🤖    |
+| CC          | CC du Cordais et du Causse (4 C)                       | 200034064 | ❌               | ❌        | 🤖    |
 | CC          | CC Carmausin-Ségala                                    | 200040905 | ✅               | ✅        | ✅    |
-| CA          | CA Gaillac-Graulhet                                    | 200066124 | ❔               | ❌        | ❌    |
-| CC          | CC du Haut-Languedoc                                   | 200066553 | ❔               | ❌        | ❌    |
-| CC          | CC Sidobre Vals et Plateaux                            | 200066561 | ❔               | ❌        | ❌    |
-| CC          | CC du Sor et de l'Agout                                | 248100158 | ❔               | ❌        | ❌    |
-| CA          | CA de Castres Mazamet                                  | 248100430 | ❔               | ❌        | ❌    |
-| CC          | CC Val 81                                              | 248100497 | ❔               | ❌        | ❌    |
+| CA          | CA Gaillac-Graulhet                                    | 200066124 | ❌               | ❌        | 🤖    |
+| CC          | CC du Haut-Languedoc                                   | 200066553 | ❌               | ❌        | 🤖    |
+| CC          | CC Sidobre Vals et Plateaux                            | 200066561 | ❌               | ❌        | 🤖    |
+| CC          | CC du Sor et de l'Agout                                | 248100158 | ❌               | ❌        | 🤖    |
+| CA          | CA de Castres Mazamet                                  | 248100430 | ❌               | ❌        | 🤖    |
+| CC          | CC Val 81                                              | 248100497 | ❌               | ❌        | 🤖    |
 | CA          | CA de l'Albigeois (C2A)                                | 248100737 | ✅               | ✅        | ✅    |
-| CC          | CC Thoré Montagne Noire                                | 248100745 | ❔               | ❌        | ❌    |
-| CC          | CC du Quercy Rouergue et des Gorges de l'Aveyron       | 248200107 | ❔               | ❌        | ❌    |
-| Département | Tarn-et-Garonne                                        | 82        | ❔               | ❌        | ❌    |
-| CC          | CC du Pays de Serres en Quercy                         | 200040418 | ❔               | ❌        | ❌    |
-| CC          | CC Terres des Confluences                              | 200066322 | ❔               | ❌        | ❌    |
-| CC          | CC Grand Sud Tarn-et-Garonne                           | 200066652 | ❔               | ❌        | ❌    |
-| CC          | CC Quercy Vert-Aveyron                                 | 200066884 | ❔               | ❌        | ❌    |
-| CC          | CC du Pays de Lafrançaise                              | 200067122 | ❔               | ❌        | ❌    |
-| CC          | CC des Deux Rives                                      | 248200016 | ❔               | ❌        | ❌    |
-| CC          | CC du Quercy Caussadais                                | 248200057 | ❔               | ❌        | ❌    |
-| CC          | CC de la Lomagne Tarn-et-Garonnaise                    | 248200065 | ❔               | ❌        | ❌    |
+| CC          | CC Thoré Montagne Noire                                | 248100745 | ❌               | ❌        | 🤖    |
+| CC          | CC du Quercy Rouergue et des Gorges de l'Aveyron       | 248200107 | ❌               | ❌        | 🤖    |
+| Département | Tarn-et-Garonne                                        | 82        | ❌               | ❌        | 🤖    |
+| CC          | CC du Pays de Serres en Quercy                         | 200040418 | ❌               | ❌        | 🤖    |
+| CC          | CC Terres des Confluences                              | 200066322 | ❌               | ❌        | 🤖    |
+| CC          | CC Grand Sud Tarn-et-Garonne                           | 200066652 | ❌               | ❌        | 🤖    |
+| CC          | CC Quercy Vert-Aveyron                                 | 200066884 | ❌               | ❌        | 🤖    |
+| CC          | CC du Pays de Lafrançaise                              | 200067122 | ❌               | ❌        | 🤖    |
+| CC          | CC des Deux Rives                                      | 248200016 | ❌               | ❌        | 🤖    |
+| CC          | CC du Quercy Caussadais                                | 248200057 | ❌               | ❌        | 🤖    |
+| CC          | CC de la Lomagne Tarn-et-Garonnaise                    | 248200065 | ❌               | ❌        | 🤖    |
 | CA          | CA Grand Montauban                                     | 248200099 | ✅               | ✅        | ✅    |
-| CC          | CC du Quercy Rouergue et des Gorges de l'Aveyron       | 248200107 | ❔               | ❌        | ❌    |
+| CC          | CC du Quercy Rouergue et des Gorges de l'Aveyron       | 248200107 | ❌               | ❌        | 🤖    |
