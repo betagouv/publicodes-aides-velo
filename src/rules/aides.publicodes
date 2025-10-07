@@ -5663,7 +5663,7 @@ aides . denain:
   valeur: 50% * aides . porte du hainaut
   lien: https://www.ville-denain.fr/Urbanisme-habitat-et-cadre-de-vie/Developpement-durable/Aide-en-faveur-des-mobilites-actives
 
-# NOTE: info pour 2023, à vérifier en 2025
+# TODO: à vérifier en 2026
 aides . wambrechies:
   remplace: commune
   titre: Ville de Wambrechies
@@ -5671,7 +5671,11 @@ aides . wambrechies:
     Subvention d'aide à l'achat de vélos à assistance électrique ou mécanique
     ainsi que d'accessoires. L'achat d'un vélo neuf ou d'occasion doit se faire
     chez un professionnel avec facture.
-  applicable si: localisation . code insee = '59636'
+  applicable si: 
+    toutes ces conditions:
+      - localisation . code insee = '59636'
+      - une de ces conditions:
+          - vélo . électrique ou mécanique
   valeur: 50% * vélo . prix
   plafond:
     variations:
@@ -5679,10 +5683,9 @@ aides . wambrechies:
         alors: 200€
       - si: vélo . électrique
         alors: 200€
-      - si: vélo . mécanique
-        alors: 100€
-      - sinon: 0€
-  lien: https://www.wambrechies.fr/actualites/prime-velo-jusqua-250eu-daide
+      - sinon: 150€
+  lien: https://www.wambrechies.fr/prime-velo
+  dernière mise à jour: 07/10/2025
 
 # NOTE: fin de validité le 31 décembre 2024, à vérifier en 2025
 aides . lesquin:

@@ -115,19 +115,6 @@ aides . ambert livradois forez:
   plafond: vélo . prix
   lien: https://www.ambertlivradoisforez.fr/actualites/ambert-livradois-forez-propose-une-aide-a-lachat-de-velo-a-assistance-electrique/
 
-# NOTE: lien mort + aucunes informations sur le site de la ville
-aides . colmar:
-  remplace: commune
-  titre: Ville de Colmar
-  applicable si: localisation . code insee = '68066'
-  variations:
-    - si: vélo . électrique
-      alors: 200€
-    - si: vélo . mécanique
-      alors: 120€
-    - sinon: 0€
-  lien: https://www.colmar.fr/sites/colmar.fr/files/documents/35-fe-participation-achat-velo-neuf.pdf
-
 
 # NOTE: fin de l'opération le 31 décembre 2023
 aides . ardenne:
@@ -632,24 +619,6 @@ aides . eckbolsheim:
   lien: https://www.eckbolsheim.com/ville-verte/actions-pour-lenvironnement/aide_achat_velo_electrique_neuf/
   dernière mise à jour: 20/02/2025
 
-# NOTE: informations pour 2023, à vérifier en 2025
-aides . coeur de nacre:
-  remplace: intercommunalité
-  titre: Communauté de Communes Cœur de Nacre
-  description: Aide pour l'achat d'un vélo à assistance électrique, neuf ou d'occasion.
-  applicable si:
-    toutes ces conditions:
-      - localisation . epci = 'CC Coeur de Nacre'
-      - vélo . électrique
-  variations:
-    - si: revenu fiscal de référence par part <= 15000 €/an
-      alors: 200€
-    - si: revenu fiscal de référence par part <= 30000 €/an
-      alors: 100€
-    - sinon: 50€
-  lien: https://www.courseulles-sur-mer.com/aide-a-lacquisition-dun-velo-a-assistance-electrique-vae/
-  dernière mise à jour: 20/02/2025
-
 # NOTE: pas d'information en février 2025, mauvais lien de base
 aides . coeur de nacre:
   remplace: intercommunalité
@@ -1037,22 +1006,22 @@ aides . département somme:
   dernière mise à jour: 01/07/2025
 
 # NOTE: remplacé par un service de location
-aides . lannion-trégor:
-  remplace: intercommunalité
-  titre: Lannion-Trégor Communauté
-  description: >
-    Aide de 10% du prix du vélo à assistance électrique neuf, plafonnée à 100€.
-  applicable si:
-    toutes ces conditions:
-      - localisation . epci = 'CA Lannion-Trégor Communauté'
-      - demandeur . âge . majeur
-      - foyer . imposable = non
-      - vélo . état . neuf
-      - vélo . électrique
-  valeur: 10% * vélo . prix
-  plafond: 100€
-  lien: https://www.lannion-tregor.com/fr/deplacements/les-mobilites-electriques/les-aides-a-l-acquisition.html
-  dernière mise à jour: 01/07/2025
+# aides . lannion-trégor:
+#   remplace: intercommunalité
+#   titre: Lannion-Trégor Communauté
+#   description: >
+#     Aide de 10% du prix du vélo à assistance électrique neuf, plafonnée à 100€.
+#   applicable si:
+#     toutes ces conditions:
+#       - localisation . epci = 'CA Lannion-Trégor Communauté'
+#       - demandeur . âge . majeur
+#       - foyer . imposable = non
+#       - vélo . état . neuf
+#       - vélo . électrique
+#   valeur: 10% * vélo . prix
+#   plafond: 100€
+#   lien: https://www.lannion-tregor.com/fr/deplacements/les-mobilites-electriques/les-aides-a-l-acquisition.html
+#   dernière mise à jour: 01/07/2025
 
 # NOTE: valide pour 2024, pas de date de fin précisée, à vérifier en 2025
 aides . pays ancenis:
