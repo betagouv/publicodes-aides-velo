@@ -208,12 +208,10 @@ aides . grand est:
   remplace: région
   titre: Région Grand Est
   description: >
-    En raison de l’arrêt du dispositif, le dépôt de dossier doit être finalisé
-    le 30 septembre 2025 au plus tard.
-
-
-    Soutien à l'acquisition de vélos adaptés, de vélos-cargos, de vélos
-    longtails et à l'installation de kits de conversion de vélos.
+    Les demandes concernant l’achat d’un vélo-cargo ou cargo-longtail ou d’un kit
+    de conversion doivent être finalisées le 31 octobre 2025 au plus tard. Passé
+    cette date, aucune demande relative à ces deux types d’aide ne sera
+    recevable, quelle que soit la date d’achat du vélo.
   applicable si: 
     toutes ces conditions:
       - localisation . région = '44'
@@ -253,8 +251,8 @@ aides . grand est:
           plafond: vélo . prix
       - sinon: 0€
   lien: https://www.grandest.fr/vos-aides-regionales/achat-velos/
-  dernière mise à jour: 16/09/2025
-  date de fin: 30/09/2025
+  date de fin: 31/10/2025
+  dernière mise à jour: 07/10/2025
 
 aides . corse:
   remplace: région
@@ -1442,8 +1440,7 @@ aides . illkirch:
   description: >
     La Ville d'Illkirch-Graffenstaden s'engage à vos côtés en subventionnant
     jusqu'à 200€ votre achat de Vélo à Assistance électrique (VAE) neuf ou
-    d'occasion ou votre transformation de vélo en VAE. (Renouvelé jusqu'au 31
-    décembre 2024).
+    d'occasion ou votre transformation de vélo en VAE.
   applicable si:
     toutes ces conditions:
       - localisation . code insee = '67218'
@@ -1458,7 +1455,7 @@ aides . illkirch:
         alors: 100€
       - sinon: 200€
   lien: http://www.illkirch.eu/aide-a-lachat-dun-velo-a-assistance-electrique/
-  date de fin: 31/12/2024
+  date de fin: 31/12/2025
   dernière mise à jour: 16/09/2025
 
 aides . vendenheim:
@@ -7568,6 +7565,7 @@ aides . longuenesse:
 
 # NOTE: valide jusqu'au 1er octobre 2025 (dans la limite de l'enveloppe
 # budgétaire annuelle), à vérifier en 2025.
+# NOTE: demande d'information sur la reconduction envoyée par mail le 07/10/2025.
 aides . saulieu:
   remplace: commune
   titre: Communauté de communes de Saulieu-Morvan
