@@ -1,11 +1,14 @@
 import { env } from "bun";
 import { AidesVeloEngine } from "../src";
 
-const now = new Date();
+const nextWeek = new Date();
+nextWeek.setDate(nextWeek.getDate() + 7);
 const engine = new AidesVeloEngine();
 
 const outdated = engine.getAllAidesIn().filter((aide) => {
-  return aide.endDate && aide.endDate <= now;
+  // NOTE: nous voulons anticiper les aides qui vont expirer dans la semaine
+  // pour être proactif·ve.
+  return aide.endDate && aide.endDate <= nextWeek;
 });
 
 if (outdated.length === 0) {
