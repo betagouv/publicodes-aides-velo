@@ -1,5 +1,11 @@
 # @betagouv/aides-velo
 
+## 3.4.0
+
+### Minor Changes
+
+- Technique - Vérification automatique des dates limites des aides toutes les semaines ([#78](https://github.com/betagouv/publicodes-aides-velo/pull/78))
+
 ## 3.3.0
 
 > PR liée : [#74](https://github.com/betagouv/publicodes-aides-velo/pull/74) par @EmileRolley
