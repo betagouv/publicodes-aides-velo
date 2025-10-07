@@ -6967,41 +6967,6 @@ aides . grand villeneuvois:
       - sinon: 0€
   lien: https://www.grand-villeneuvois.fr/aide-a-l-achat-d-un-velo-a-assistance-electrique-335.html
 
-# NOTE: à verifier en 2025
-aides . oise:
-  remplace: département
-  titre: Département de l'Oise
-  description: >
-    Aide pour l'acquisition de vélos adultes classiques ou électriques (pour
-    tout achat effectué entre 1er juillet 2023 et le 31 mars 2024).
-  applicable si: 
-    toutes ces conditions:
-      - localisation . département = '60'
-      - une de ces conditions:
-          - vélo . électrique ou mécanique
-          - vélo . motorisation
-  valeur: 50% * vélo . prix
-  plafond:
-    variations:
-      # FIXME: devrait pouvoir être gérer dans la condition d'applicabilité.
-      - si: aide à la conversion bioéthanol
-        alors: 0€
-      - si: vélo . électrique
-        alors: 300€
-      - si: vélo . mécanique
-        alors: 150€
-      - si: vélo . motorisation
-        alors: 150€
-      - sinon: 0€
-  lien: https://www.oise.fr/actions/environnement/plan-oxygene-60/bouquet-oxygene-60/aide-a-lacquisition-dun-velo-classique-ou-electrique/faq-aide-a-lacquisition-dun-velo-classique-ou-electrique
-  avec:
-    aide à la conversion bioéthanol:
-      type: booléen
-      question: >
-        Avez-vous bénéficié d'une aide à la conversion bioéthanol des véhicules
-        à partir depuis le 1er juillet 2023 ?
-      par défaut: non
-
 # TODO: à vérifier en 2026
 aides . beauvais:
   remplace: intercommunalité
