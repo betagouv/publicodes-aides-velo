@@ -22,7 +22,7 @@ async function run() {
       issue_number: inputs.issueNumber,
       state: "open",
       body:
-        "_Une fois par semaine, une GH Action vient mettre à jour cette issue avec la liste des liens cassés._\n\n" +
+        "_Une fois par semaine, une GH Action vient mettre à jour cette issue avec la liste des liens cassés et des aides expirées._\n\n" +
         "### Liens invalides au " +
         new Intl.DateTimeFormat("fr-FR", {
           timeZone: "Europe/Paris",

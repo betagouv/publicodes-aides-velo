@@ -18,11 +18,11 @@ if (outdated.length === 0) {
     const message = outdated
       .map(
         ({ title, endDate }) =>
-          `- ${title} : clôturée le ${endDate!.toLocaleDateString("FR-fr")}`
+          `- [ ] ${title} : clôturée le ${endDate!.toLocaleDateString("FR-fr")}`
       )
-      .join("</br>");
+      .join("<br />");
     console.log(
-      `::set-output name=comment::</br>### Liste des aides obsolètes</br>${message}`
+      `::set-output name=comment::<br />### Liste des aides obsolètes<br />${message}`
     );
   } else {
     outdated.forEach(({ id, title, endDate }) => {
