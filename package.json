@@ -41,8 +41,8 @@
     "release": "bun run compile && changeset publish"
   },
   "dependencies": {
-    "publicodes": "^1.8.5",
-    "@etalab/decoupage-administratif": "^5.2.0"
+    "@etalab/decoupage-administratif": "^5.2.0",
+    "publicodes": "^1.8.5"
   },
   "devDependencies": {
     "@actions/core": "^1.11.1",
@@ -50,8 +50,9 @@
     "@changesets/cli": "^2.29.4",
     "@publicodes/tools": "^1.7.2",
     "@svitejs/changesets-changelog-github-compact": "^1.2.0",
+    "@types/bun": "^1.2.23",
     "@types/jest": "^29.5.14",
-    "bun": "^1.2.14",
+    "bun": "^1.2.23",
     "terser": "^5.39.2",
     "tsdown": "^0.12.7",
     "typescript": "^5.8.3",

@@ -1,63 +1,51 @@
-import aidesVeloRules from "../publicodes-build/aides-velo.model.json" assert { type: "json" };
-
-// cli param --grep to filter the links to check
-const grepOptionIndex = process.argv
-  .slice(2)
-  .findIndex((arg) => arg.includes("--grep") || arg.includes("-g"));
-
-const grepFilter =
-  grepOptionIndex !== -1 ? process.argv.slice(2)[grepOptionIndex + 1] : null;
+import { env } from "bun";
+import { AidesVeloEngine } from "../src";
+const engine = new AidesVeloEngine();
 
 // Extrait la liste des liens référencés dans la base de règles
-const links = Object.entries(aidesVeloRules)
-  .reduce(
-    (acc, [, rule]) => [
-      ...acc,
-      { title: rule?.titre ?? null, link: rule?.lien ?? null },
-    ],
-    []
-  )
-  .filter(
-    ({ link }) =>
-      link !== null && (grepFilter === null || link.includes(grepFilter))
-  );
+const links = engine.getAllAidesIn().map(({ title, url }) => ({
+  title: title ?? null,
+  url: url ?? null,
+}));
 
 // Certains sites référencés ont des problèmes de certificats, mais ce n'est pas
 // ce que nous cherchons à détecter ici.
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0;
+env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
 // Création d'une queue permettant de paralléliser la vérification des liens
 const queue = [...links];
-const detectedErrors = [];
+const detectedErrors: Array<{ status: string; url: string; title: string }> =
+  [];
 const simultaneousItems = 5;
 
 async function processNextQueueItem() {
   if (queue.length !== 0) {
-    await fetchAndReport(queue.shift());
+    await fetchAndReport(queue.shift()!);
     await processNextQueueItem();
   }
 }
 
-async function fetchAndReport({ link, title }) {
-  let status = await getHTTPStatus(link);
+async function fetchAndReport({ title, url }) {
+  let status = await getHTTPStatus(url);
 
   // Retries in case of timeout
   let remainingRetries = 3;
   while (status === 499 && remainingRetries > 0) {
     remainingRetries--;
     await sleep(20_000);
-    status = await getHTTPStatus(link);
+    status = await getHTTPStatus(url);
   }
-  report({ status, link, title });
+
+  report({ status, url, title });
 }
 
-async function getHTTPStatus(link) {
+async function getHTTPStatus(url: string) {
   const maxTime = 15_000;
   const controller = new AbortController();
   setTimeout(() => controller.abort(), maxTime);
 
   try {
-    const res = await fetch(link, {
+    const res = await fetch(url, {
       signal: controller.signal,
       headers: {
         "User-Agent":
@@ -70,14 +58,15 @@ async function getHTTPStatus(link) {
   }
 }
 
-async function report({ status, link, title }) {
-  console.log(status === 200 ? "✅" : "❌", status, link);
+async function report({ status, url, title }) {
+  console.log(status === 200 ? "✅" : "❌", status, url);
+
   if (status === 404 || status >= 500) {
-    detectedErrors.push({ status, link, title });
+    detectedErrors.push({ status, url, title });
   }
 }
 
-function sleep(ms) {
+function sleep(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
@@ -85,25 +74,26 @@ function sleep(ms) {
   await Promise.allSettled(
     Array.from({ length: simultaneousItems }).map(processNextQueueItem)
   );
+
   if (detectedErrors.length > 0) {
     // Formattage spécifique pour récupérer le résultat avec l'action Github
-    if (process.argv.slice(2).includes("--ci")) {
+    if (env.CI) {
       const message = detectedErrors
         .map(
-          ({ status, title, link }) => `- [ ] \`${status}\` [${title}](${link})`
+          ({ status, title, url }) => `- [ ] \`${status}\` [${title}](${url})`
         )
         .join("\n");
 
-      const format = (msg) =>
+      const format = (msg: string) =>
         msg
           .trim()
           .split("\n")
-          .map((line) => line.trim())
+          .map((line: string) => line.trim())
           .join("<br />");
       console.log(`::set-output name=comment::${format(message)}`);
     } else if (detectedErrors) {
       console.log(
-        "Liens invalides :" + detectedErrors.map(({ link }) => `\n- ${link}`)
+        "Liens invalides :" + detectedErrors.map(({ url }) => `\n- ${url}`)
       );
     }
 

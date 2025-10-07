@@ -10,14 +10,23 @@ jobs:
       - uses: actions/checkout@v4
         with:
           submodules: true
-      - uses: actions/setup-node@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
       - run: npm ci
       - run: npm run compile:rules
       - id: invalid_links
-        run: node ./scripts/check-links-validity.js --ci
+        run: bun ./scripts/check-links-validity.ts
+        env:
+          CI: true
+        timeout-minutes: 15
+      - id: invalid_date
+        run: bun ./scripts/check-outdated-aids.ts
+        env:
+          CI: true
         timeout-minutes: 15
       - if: steps.invalid_links.outputs.comment
         uses: ./.github/actions/reopen-issue-with-comment
         with:
           issue-number: 2
-          comment: ${{ steps.invalid_links.outputs.comment }}
+          comment: ${{ steps.invalid_links.outputs.comment }}${{ steps.invalid_date.outputs.comment }}
