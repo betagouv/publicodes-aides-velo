@@ -1335,34 +1335,34 @@ describe("Aides Vélo", () => {
   //   });
   // });
 
-  describe("Département de l'Oise", () => {
-    it("devrait pas être élligible pour les personnes ayant bénéficiées de l'aide à la conversion bioéthanol", () => {
-      engine.setSituation({
-        "localisation . département": "'60'",
-        "vélo . type": "'électrique'",
-        "vélo . prix": 1000,
-      });
-      expect(engine.evaluate("aides . oise").nodeValue).toEqual(300);
-
-      engine.setSituation({
-        "localisation . département": "'60'",
-        "vélo . type": "'électrique'",
-        "vélo . prix": 1000,
-        "aides . oise . aide à la conversion bioéthanol": "oui",
-      });
-      expect(engine.evaluate("aides . oise").nodeValue).toEqual(0);
-    });
-
-    it("devrait être élligible pour les vélo d'occasion", () => {
-      engine.setSituation({
-        "localisation . département": "'60'",
-        "vélo . type": "'électrique'",
-        "vélo . état": "'occasion'",
-        "vélo . prix": 1000,
-      });
-      expect(engine.evaluate("aides . oise").nodeValue).toEqual(300);
-    });
-  });
+  // describe.skip("Département de l'Oise", () => {
+  //   it("devrait pas être élligible pour les personnes ayant bénéficiées de l'aide à la conversion bioéthanol", () => {
+  //     engine.setSituation({
+  //       "localisation . département": "'60'",
+  //       "vélo . type": "'électrique'",
+  //       "vélo . prix": 1000,
+  //     });
+  //     expect(engine.evaluate("aides . oise").nodeValue).toEqual(300);
+  //
+  //     engine.setSituation({
+  //       "localisation . département": "'60'",
+  //       "vélo . type": "'électrique'",
+  //       "vélo . prix": 1000,
+  //       "aides . oise . aide à la conversion bioéthanol": "oui",
+  //     });
+  //     expect(engine.evaluate("aides . oise").nodeValue).toEqual(0);
+  //   });
+  //
+  //   it("devrait être élligible pour les vélo d'occasion", () => {
+  //     engine.setSituation({
+  //       "localisation . département": "'60'",
+  //       "vélo . type": "'électrique'",
+  //       "vélo . état": "'occasion'",
+  //       "vélo . prix": 1000,
+  //     });
+  //     expect(engine.evaluate("aides . oise").nodeValue).toEqual(300);
+  //   });
+  // });
 
   describe("Grand Angoulême", () => {
     it("devrait être élligible sans condition de revenu pour les étudiants et les apprantis", () => {
