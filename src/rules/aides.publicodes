@@ -4677,6 +4677,8 @@ aides . rochefort:
         alors: 100€
       - sinon: 0€
   lien: https://www.agglo-rochefortocean.fr/velo-tricycle-et-kit-delectrification-aide-lacquisition
+  date de fin: 30/11/2025
+  dernière mise à jour: 08/10/2025
 
 aides . saintes:
   remplace: intercommunalité
@@ -5474,10 +5476,11 @@ aides . hem:
   applicable si:
     toutes ces conditions:
       - localisation . code insee = '59299'
-      - demandeur . âge . majeur
+      - demandeur . âge >= 12 an
   valeur: 25% * vélo . prix
   plafond: 300 €
   lien: https://www.ville-hem.fr/cadre-de-vie/environnement/prime-a-lachat-dun-velo-ou-dune-trottinette/
+  dernière mise à jour: 08/10/2025
 
 aides . liévin:
   remplace: commune
@@ -7531,6 +7534,7 @@ aides . longuenesse:
 # NOTE: valide jusqu'au 1er octobre 2025 (dans la limite de l'enveloppe
 # budgétaire annuelle), à vérifier en 2025.
 # NOTE: demande d'information sur la reconduction envoyée par mail le 07/10/2025.
+# NOTE: réponse : reste à débattre mais certainement reconduit.
 aides . saulieu:
   remplace: commune
   titre: Communauté de communes de Saulieu-Morvan
@@ -7547,7 +7551,7 @@ aides . saulieu:
       - vélo . prix >= 650€
   valeur: 100€
   lien: https://www.saulieu-morvan.fr/joomla/tourisme-loisirs
-  dernière mise à jour: 13/08/2025
+  dernière mise à jour: 14/10/2025
   date de fin: 01/10/2025
 
 aides . la côtière à montluel:
@@ -8288,6 +8292,7 @@ aides . binic etables sur mer:
   lien: https://www.binic-etables-sur-mer.fr/actualites/aide-financiere-pour-lachat-dun-velo-ou-broyeur-de-vegetaux-ou-recuperateur-deau-de-pluie$
   dernière mise à jour: 20/02/2025
 
+# NOTE: lien plus à jour. Demande d'info par mail envoyé le 14/10/2025
 aides . creusot-montceau:
   remplace: intercommunalité
   titre: Communauté Urbaine Creusot-Montceau
