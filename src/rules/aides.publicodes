@@ -4677,6 +4677,8 @@ aides . rochefort:
         alors: 100€
       - sinon: 0€
   lien: https://www.agglo-rochefortocean.fr/velo-tricycle-et-kit-delectrification-aide-lacquisition
+  date de fin: 30/11/2025
+  dernière mise à jour: 08/10/2025
 
 aides . saintes:
   remplace: intercommunalité
@@ -5474,10 +5476,11 @@ aides . hem:
   applicable si:
     toutes ces conditions:
       - localisation . code insee = '59299'
-      - demandeur . âge . majeur
+      - demandeur . âge >= 12 an
   valeur: 25% * vélo . prix
   plafond: 300 €
   lien: https://www.ville-hem.fr/cadre-de-vie/environnement/prime-a-lachat-dun-velo-ou-dune-trottinette/
+  dernière mise à jour: 08/10/2025
 
 aides . liévin:
   remplace: commune
