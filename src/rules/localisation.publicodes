@@ -5,8 +5,8 @@ localisation:
     localisation. Ils sont nécessaires pour le calcul des aides.
 
 
-    A noter cependant, qu'il est fort probable que vous ne souhaitez pas
-    exposer ces questions à l'utilisateuri·ce final·e. 
+    A noter cependant, qu'il est fort probable que vous ne souhaitez pas exposer
+    ces questions à l'utilisateuri·ce final·e. 
 
 
     Vous pouvez les renseigner automatiquement en utilisant le fichier
@@ -14,18 +14,17 @@ localisation:
     d'un code postal.
 
 localisation . code insee:
-  type: string
+  type: texte
   titre: Code INSEE
-  question: Quel est le code INSEE de votre commune ?
-  par défaut: "''"
   note: >
     Voir [Code officiel
     géographique](https://fr.wikipedia.org/wiki/Code_officiel_g%C3%A9ographique)
+  meta:
+    question: Quel est le code INSEE de votre commune ?
 
 localisation . epci:
-  type: string
+  type: texte
   titre: Etablissement public de coopération intercommunale (EPCI)
-  question: Quel est l'EPCI de votre commune ?
   description: >
     ### Définition
 
@@ -35,29 +34,31 @@ localisation . epci:
     compétences en commun.
 
 
-    Ils sont soumis à des règles communes, homogènes et comparables à celles
-    de collectivités locales. Les communautés urbaines, communautés
+    Ils sont soumis à des règles communes, homogènes et comparables à celles de
+    collectivités locales. Les communautés urbaines, communautés
     d'agglomération, communautés de communes, syndicats d'agglomération
     nouvelle, syndicats de communes et les syndicats mixtes sont des EPCI.
 
 
     > Source : [insee.fr](https://www.insee.fr/fr/metadonnees/definition/c1160)
-  par défaut: "''"
+  meta:
+    question: Quel est l'EPCI de votre commune ?
 
 localisation . département:
-  type: string
+  type: texte
   titre: Code du département
-  question: Quel est le code de votre département ?
-  par défaut: "''"
+  meta:
+    question: Quel est le code de votre département ?
 
 localisation . région:
-  type: string
+  type: texte
   titre: Code de la région
-  question: Quel est le code de votre région ?
-  par défaut: "''"
+  meta:
+    question: Quel est le code de votre région ?
 
 localisation . pays:
-  question: Quel est le votre pays ?
+  meta:
+    question: Quel est le votre pays ?
   une possibilité:
     - France
     - Monaco
@@ -65,16 +66,18 @@ localisation . pays:
   par défaut:
     variations:
       - si: code insee = '99138'
-        alors: "'Monaco'"
+        alors: "Monaco"
       - si: code insee = '99137'
-        alors: "'Luxembourg'"
-      - sinon: "'France'"
+        alors: "Luxembourg"
+      - sinon: "France"
   avec:
     France:
     Monaco:
     Luxembourg:
 
-localisation . ZFE: 
-  type: boolean
-  question: Êtes-vous dans une zone à faibles émissions (ZFE) ?
+
+localisation . ZFE:
+  type: booléen
   par défaut: non
+  meta:
+    question: Êtes-vous dans une zone à faibles émissions (ZFE) ?

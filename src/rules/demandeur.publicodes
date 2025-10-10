@@ -7,38 +7,41 @@ demandeur:
 
 demandeur . bénéficie du forfait mobilités durables:
   type: booléen
-  question: Percevez-vous le forfait mobilités durables ?
   description: >
-    Le forfait mobilités durables est une prise en charge par vous employeur
-    des frais liés à vos déplacements domicile-travail réalisés à vélo.
-   
+    Le forfait mobilités durables est une prise en charge par vous employeur des
+    frais liés à vos déplacements domicile-travail réalisés à vélo.
+
 
     [En savoir plus](/forfait-mobilite-durable).
   par défaut: oui
+  meta:
+    question: Percevez-vous le forfait mobilités durables ?
 
 demandeur . bénéficiaire du RSA:
   type: booléen
-  question: Percevez-vous le RSA ?
   par défaut: non
+  meta:
+    question: Percevez-vous le RSA ?
 
 demandeur . bénéficiaire de l'AAH:
   type: booléen
-  question: Percevez-vous l'allocation adulte handicapé (AAH) ?
   par défaut: non
+  meta:
+    question: Percevez-vous l'allocation adulte handicapé (AAH) ?
 
 demandeur . bénéficiaire de minima sociaux:
   type: booléen
-  question: Percevez-vous le RSA, l'AAH, l'ASS ou ASPA ?
   description: |
     - RSA : Revenu de solidarité active
     - AAH : Allocation aux adultes handicapés
     - ASS : Allocation de solidarité spécifique
     - ASPA : Allocation de solidarité aux personnes âgées
   par défaut: non
+  meta:
+    question: Percevez-vous le RSA, l'AAH, l'ASS ou ASPA ?
 
 demandeur . en situation de handicap:
   type: booléen
-  question: Êtes-vous en situation de handicap ?
   description: >
     Pour certaines aides, les conditions de ressources sont ignorées pour les
     personnes en situation de handicap.
@@ -49,9 +52,10 @@ demandeur . en situation de handicap:
     pour plus d'informations sur les différents matériels et les moyens de les
     financer.
   par défaut: non
+  meta:
+    question: Êtes-vous en situation de handicap ?
 
 demandeur . statut:
-  question: Quel est votre statut ?
   une possibilité:
     - étudiant
     - apprenti
@@ -60,7 +64,7 @@ demandeur . statut:
     - retraité
     - reconversion
     - autre
-  par défaut: "'autre'"
+  par défaut: "autre"
   avec:
     étudiant:
       titre: Étudiant·e
@@ -83,15 +87,18 @@ demandeur . statut:
     autre:
       titre: Autre
       valeur: statut = 'autre'
+  meta:
+    question: Quel est votre statut ?
 
 demandeur . âge:
   type: nombre
-  question: Quel est votre âge ?
   par défaut: 30
   unité: an
   note: >
     Il se pourrait que certaines règles soient conditionnées par l'âge du
     demandeur mais que ce ne soit pas pris en compte dans toutes les règles. 
+  meta:
+    question: Quel est votre âge ?
 
 demandeur . âge . majeur:
   valeur: demandeur . âge >= 18 an
@@ -99,7 +106,7 @@ demandeur . âge . majeur:
 demandeur . âge . mineur:
   valeur: demandeur . âge < 18 an
 
-demandeur . âge . de 15 à 25 ans: 
+demandeur . âge . de 15 à 25 ans:
   valeur:
     toutes ces conditions:
       - demandeur . âge >= 15 an

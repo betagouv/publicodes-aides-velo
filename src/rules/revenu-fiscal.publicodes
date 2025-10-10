@@ -9,24 +9,22 @@ revenu fiscal de référence par part:
     Voir également le [calcul du quotient
     familial](https://www.economie.gouv.fr/particuliers/quotient-familial).
   valeur: revenu de référence / nombre de parts
-  unite: €/an
   avec:
     revenu de référence:
       type: nombre
       titre: Revenu fiscal de référence
-      question: Quel est votre revenu fiscal de référence ?
       description: >
         Le revenu fiscal de référence se trouve sur la 1re et 3e page de votre
-        dernier avis d’impôt sur le revenu.
-        Voire également [Revenu fiscal de
+        dernier avis d’impôt sur le revenu. Voire également [Revenu fiscal de
         référence](https://www.economie.gouv.fr/particuliers/revenu-imposable-revenu-fiscal-reference)
-      par défaut: 800 
+      par défaut: 800
       unité: €/an
+      meta:
+        question: Quel est votre revenu fiscal de référence ?
 
     nombre de parts:
       type: nombre
       titre: Nombre de parts fiscales
-      question: Combien de parts fiscales représente votre foyer fiscal ?
       description: >
         Le nombre de parts fiscales est indiqué sur votre avis d'imposition.
 
@@ -35,3 +33,7 @@ revenu fiscal de référence par part:
         familial](https://www.economie.gouv.fr/particuliers/quotient-familial).
       par défaut: 1
       plancher: 1
+      meta:
+        question: Combien de parts fiscales représente votre foyer fiscal ?
+  meta:
+    unite: €/an

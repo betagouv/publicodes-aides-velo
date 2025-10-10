@@ -5,7 +5,6 @@ vélo:
 # règle booléenne supplémentaire.
 # TODO: à refactorer avec `une possibilité`
 vélo . type:
-  question: Quel type de vélo souhaitez-vous acheter ?
   une possibilité:
     - mécanique simple
     - électrique
@@ -15,7 +14,9 @@ vélo . type:
     - pliant électrique
     - motorisation
     - adapté
-  par défaut: "'électrique'"
+  par défaut: "électrique"
+  meta:
+    question: Quel type de vélo souhaitez-vous acheter ?
 
 vélo . adapté:
   valeur: vélo . type = 'adapté'
@@ -78,22 +79,21 @@ vélo . motorisation:
   valeur: vélo . type = 'motorisation'
   description: >
     Un kit de conversion permet de transformer un vélo mécanique classique en
-    vélo à assistance électrique. Il est constitué d'un moteur électrique,
-    d'une batterie, ainsi que d'un contrôleur et d'un afficheur.
-
+    vélo à assistance électrique. Il est constitué d'un moteur électrique, d'une
+    batterie, ainsi que d'un contrôleur et d'un afficheur.
 
 vélo . fabriqué en france:
   type: booléen
-  question: Le vélo est-il conçu et fabriqué en France ?
   par défaut: non
+  meta:
+    question: Le vélo est-il conçu et fabriqué en France ?
 
 # NOTE: souhaitons-nous faire la distinction entre occasion et reconditionné ?
 vélo . état:
-  question: S'agit-t-il d'un vélo neuf ou d'occasion ?
   description: >
     Par occasion est généralement entendu un vélo reconditionné acheté auprès
     d'un revendeur agréé.
-  par défaut: "'neuf'"
+  par défaut: "neuf"
   une possibilité:
     - neuf
     - occasion
@@ -104,16 +104,19 @@ vélo . état:
     occasion:
       titre: Vélo d'occasion
       valeur: état = 'occasion'
+  meta:
+    question: S'agit-t-il d'un vélo neuf ou d'occasion ?
 
 vélo . prix:
-  question:
-    variations:
-      - si: vélo . type = 'motorisation'
-        alors: "'Quel est le prix du kit de motorisation ?'"
-      - sinon: "'Quel est le prix du vélo ?'"
   unité: €
   par défaut: prix pour maximiser les aides
   plancher: 1€
+  meta:
+    question:
+      variations:
+        - si: vélo . type = 'motorisation'
+          alors: "Quel est le prix du kit de motorisation ?"
+        - sinon: "Quel est le prix du vélo ?"
 
 vélo . taux TVA:
   variations:
@@ -135,7 +138,7 @@ vélo . prix pour maximiser les aides:
             alors: 2000 €
           - si: vélo . cargo
             alors: 4000 €
-          - si: vélo . électrique 
+          - si: vélo . électrique
             alors: 2500 €
           - sinon: 1500 €
     - si: localisation . epci = 'CA Sète Agglopôle Méditerranée'
@@ -143,13 +146,13 @@ vélo . prix pour maximiser les aides:
     - si: localisation . code insee = '67218'
       alors: 800 €
     - si: localisation . epci = "CA du Pays de Laon"
-      alors: 
+      alors:
         variations:
           - si: vélo . cargo
             alors: 5000 €
           - sinon: 3000 €
     - si: localisation . epci = "CC du Genevois"
-      alors: 
+      alors:
         variations:
           - si: vélo . mécanique
             alors: 1500 €
