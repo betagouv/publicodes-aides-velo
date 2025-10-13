@@ -42,17 +42,22 @@
   },
   "dependencies": {
     "@etalab/decoupage-administratif": "^5.2.0",
+    "@publicodes/cli": "file:../../publicodes/publicodes/packages/cli",
+    "@publicodes/runtime": "file:../../publicodes/publicodes/packages/runtime",
     "publicodes": "^1.8.5"
   },
   "devDependencies": {
     "@actions/core": "^1.11.1",
     "@actions/github": "^6.0.1",
+    "@betagouv/aides-velo": "^3.3.0",
     "@changesets/cli": "^2.29.4",
+    "@mitata/counters": "^0.0.8",
     "@publicodes/tools": "^1.7.2",
     "@svitejs/changesets-changelog-github-compact": "^1.2.0",
     "@types/bun": "^1.2.23",
     "@types/jest": "^29.5.14",
     "bun": "^1.2.23",
+    "mitata": "^1.0.34",
     "terser": "^5.39.2",
     "tsdown": "^0.12.7",
     "typescript": "^5.8.3",

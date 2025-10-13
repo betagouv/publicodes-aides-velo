@@ -35,6 +35,7 @@ aides:
     état: 0 €
 
 aides . montant:
+  public: oui
   somme:
     - commune
     - intercommunalité
@@ -323,7 +324,7 @@ aides . ardèche:
 aides . paris:
   remplace:
     références à: commune
-    priorité: 1
+    priorité: 10000
   titre: Ville de Paris
   description: >
     Aide à l'achat pour tous types de vélo sous conditions de ressources sauf

@@ -1,8 +1,7 @@
-import Engine, {
-  formatValue,
-  Situation as PublicodesSituation,
-} from "publicodes";
-import rules, { Questions, RuleName, Situation } from "../../publicodes-build";
+import { PublicodesEngine } from "@publicodes/runtime";
+import type { Outputs, Publicodes } from "@publicodes/runtime";
+import rules from "../../model.publicodes.json";
+import { Questions, RuleName, Situation } from "../../publicodes-build";
 import {
   AideRuleNames,
   aidesAvecLocalisation,
@@ -61,7 +60,7 @@ const aidesAvecLocalisationEntries = Object.entries(
  */
 export class AidesVeloEngine {
   private inputs: Questions = {};
-  private engine: Engine<RuleName>;
+  private engine: PublicodesEngine<Outputs>;
 
   /**
    * Create a new instance of the engine with a initialized set of rules.
@@ -71,7 +70,7 @@ export class AidesVeloEngine {
    */
   constructor(empty = false) {
     this.inputs = {};
-    this.engine = empty ? new Engine<RuleName>() : new Engine<RuleName>(rules);
+    this.engine = new PublicodesEngine(rules);
   }
 
   /**
@@ -87,9 +86,9 @@ export class AidesVeloEngine {
    */
   public setInputs(inputs: Questions): this {
     this.inputs = inputs;
-    this.engine.setSituation(
-      formatInputs(inputs) as PublicodesSituation<RuleName>
-    );
+    // this.engine.setSituation(
+    //   formatInputs(inputs) as PublicodesSituation<RuleName>
+    // );
     return this;
   }
 
@@ -103,7 +102,7 @@ export class AidesVeloEngine {
    * @note This is a low-level method prefer using {@link setInputs} instead.
    */
   public setSituation(situation: Situation): this {
-    this.engine.setSituation(situation as PublicodesSituation<RuleName>);
+    // this.engine.setSituation(situation as PublicodesSituation<RuleName>);
     return this;
   }
 
@@ -123,7 +122,7 @@ export class AidesVeloEngine {
     return aidesAvecLocalisationEntries
       .filter(([, { country: aideCountry }]) => aideCountry === country)
       .map(([ruleName]) => {
-        const rule = this.engine.getRule(ruleName);
+        const rule = this.engine.getMeta(ruleName);
         // PERF: could simplify this by simply extracting the collectivity from
         // the AST instead of the data object. And removing Luxembourg and
         // Monaco to avoid needing to import the whole
