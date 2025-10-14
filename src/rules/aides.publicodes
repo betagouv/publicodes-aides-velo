@@ -7,6 +7,7 @@ maximiser les aides:
   par défaut: non
   avec:
     maximiser prix vélo:
+      applicable si: maximiser les aides
       valeur: vélo . prix pour maximiser les aides
       remplace:
         références à: vélo . prix
@@ -51,12 +52,14 @@ plafond état:
   valeur: 15400 €/an
 
 aides . forfait mobilités durables:
+  public: oui
   valeur: 600 €/an
   meta:
     lien: https://www.ecologie.gouv.fr/politiques-publiques/faq-forfait-mobilites-durables-fmd
     dernière mise à jour: 15/09/2025
 
 aides . ile de france:
+  public: oui
   remplace:
     références à: région
     priorité: 1
@@ -93,6 +96,7 @@ aides . ile de france:
     dernière mise à jour: 12/08/2025
 
 aides . occitanie:
+  public: oui
   remplace:
     références à: région
     priorité: 3
@@ -110,7 +114,7 @@ aides . occitanie:
       - revenu fiscal de référence par part <= 14089 €/an
       - vélo . état . neuf
       - vélo . électrique
-  non applicable si: 
+  non applicable si:
     est applicable: occitanie bonus forfait mobilité durable
   valeur: 200€
   note: >
@@ -128,6 +132,7 @@ aides . occitanie:
     dernière mise à jour: 15/09/2025
 
 aides . occitanie vélo adapté:
+  public: oui
   remplace:
     références à: région
     priorité: 5
@@ -144,14 +149,14 @@ aides . occitanie vélo adapté:
   plafond: 1000€
   avec:
     prix déduit des autres aides:
-      valeur: vélo . prix - (aides . état + aides . département + aides .
-        intercommunalité)
+      valeur: vélo . prix - (aides . état + aides . département + aides . intercommunalité)
       plancher: 0€
   meta:
     lien: https://www.laregion.fr/Eco-cheque-mobilite-Bonus-velo-adapte-PMR
     dernière mise à jour: 16/09/2025
 
 aides . occitanie bonus forfait mobilité durable:
+  public: oui
   remplace:
     références à: région
     priorité: 7
@@ -202,6 +207,7 @@ aides . occitanie bonus forfait mobilité durable:
     dernière mise à jour: 16/09/2025
 
 aides . ca foix-varilhes:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 1
@@ -228,6 +234,7 @@ aides . ca foix-varilhes:
     dernière mise à jour: 15/09/2025
 
 aides . grand est:
+  public: oui
   remplace:
     références à: région
     priorité: 9
@@ -283,6 +290,7 @@ aides . grand est:
     date de fin: 30/09/2025
 
 aides . corse:
+  public: oui
   remplace:
     références à: région
     priorité: 11
@@ -302,6 +310,7 @@ aides . corse:
     dernière mise à jour: 22/08/2025
 
 aides . ardèche:
+  public: oui
   remplace:
     références à: département
     priorité: 1
@@ -322,6 +331,7 @@ aides . ardèche:
     dernière mise à jour: 14/08/2025
 
 aides . paris:
+  public: oui
   remplace:
     références à: commune
     priorité: 10000
@@ -365,6 +375,7 @@ aides . paris:
     lien: https://www.paris.fr/pages/lutte-contre-la-pollution-les-aides-a-la-mobilite-5373
 
 aides . saint-étienne:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 3
@@ -386,6 +397,7 @@ aides . saint-étienne:
 
 # TODO: à relire en 2026
 aides . cc monts du pilat:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 5
@@ -414,6 +426,7 @@ aides . cc monts du pilat:
 
 # NOTE: à verifier en 2026
 aides . lyon:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 7
@@ -495,6 +508,7 @@ aides . lyon:
     date de fin: 31/12/2025
 
 aides . cc lysed:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 9
@@ -519,6 +533,7 @@ aides . cc lysed:
 # TODO: différencier vélo adapté mécanique/électrique
 # TODO: à vérifier en 2026
 aides . saône-beaujolais:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 11
@@ -552,6 +567,7 @@ aides . saône-beaujolais:
 # NOTE: jusqu'au 31 décembre 2026
 # TODO: test intégration sur le plafond
 aides . villefranche beaujolais saône:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 13
@@ -576,15 +592,22 @@ aides . villefranche beaujolais saône:
   plafond: prix déduit des autres aides
   avec:
     prix déduit des autres aides:
-      valeur: vélo . prix - (aides . état + aides . département + aides . région +
-        aides . commune)
+      valeur: vélo . prix #- (aides . état + aides . département + aides . région + aides . commune)
       plancher: 0€
   meta:
     lien: https://www.agglo-villefranche.fr/aide-a-lachat-velo.html
     dernière mise à jour: 14/08/2025
     date de fin: 31/12/2025
 
+test:
+  public: oui
+  valeur: 
+    toutes ces conditions:
+      - aides . villefranche beaujolais saône > 0 €
+      - non
+
 aides . ville-sur-jarnioux:
+  public: oui
   remplace:
     références à: commune
     priorité: 3
@@ -596,7 +619,7 @@ aides . ville-sur-jarnioux:
   applicable si:
     toutes ces conditions:
       - localisation . code insee = '69265'
-      - aides . villefranche beaujolais saône > 0€
+      - aides . villefranche beaujolais saône > 0 €
   valeur: 50% * vélo . prix
   plafond:
     variations:
@@ -607,6 +630,7 @@ aides . ville-sur-jarnioux:
     lien: https://www.ville-sur-jarnioux.fr/aide-velo/
 
 aides . sainte-foy-lès-lyon:
+  public: oui
   remplace:
     références à: commune
     priorité: 5
@@ -629,6 +653,7 @@ aides . sainte-foy-lès-lyon:
     lien: https://www.saintefoyleslyon.fr/demarches-services/mobilites/velo/
 
 aides . pays mornantais:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 15
@@ -654,6 +679,7 @@ aides . pays mornantais:
     lien: https://www.cc-paysmornantais.fr/velo-electrique-on-vous-aide.html
 
 aides . mornant:
+  public: oui
   remplace:
     références à: commune
     priorité: 7
@@ -666,7 +692,7 @@ aides . mornant:
     toutes ces conditions:
       - localisation . code insee = '69141'
       - vélo . état . neuf
-      - revenu fiscal de référence par part < (1600 €/mois * 12 mois/an) 
+      - revenu fiscal de référence par part < (1600 €/mois * 12 mois/an)
       - une de ces conditions:
           - vélo . électrique
           - vélo . cargo
@@ -682,6 +708,7 @@ aides . mornant:
     lien: https://www.ville-mornant.fr/Aide-a-l-acquisition-d-un-velo-specifique-ou-d-un-VAE-mornant-art-535.html
 
 aides . dardilly:
+  public: oui
   remplace:
     références à: commune
     priorité: 9
@@ -703,6 +730,7 @@ aides . dardilly:
     lien: https://www.dardilly.fr/mes-infos-quotidiennes/actus-evenements/31-vie-citoyenne/91-subventions-eco-citoyennes
 
 aides . igny:
+  public: oui
   remplace:
     références à: commune
     priorité: 11
@@ -722,6 +750,7 @@ aides . igny:
     lien: https://igny.fr/les-actions-ecologiques/
 
 aides . irigny:
+  public: oui
   remplace:
     références à: commune
     priorité: 13
@@ -746,6 +775,7 @@ aides . irigny:
     dernière mise à jour: 01/07/2025
 
 aides . oullins:
+  public: oui
   remplace:
     références à: commune
     priorité: 15
@@ -762,6 +792,7 @@ aides . oullins:
     lien: https://www.oullins.fr/deplacements/a-velo/subvention-pour-l-achat-d-un-velo-electrique-563.html
 
 aides . pierre-bénite:
+  public: oui
   remplace:
     références à: commune
     priorité: 17
@@ -780,6 +811,7 @@ aides . pierre-bénite:
     lien: https://www.pierrebenite.fr/wp-content/uploads/CONVENTIONVAE.pdf
 
 aides . givors:
+  public: oui
   remplace:
     références à: commune
     priorité: 19
@@ -808,6 +840,7 @@ aides . givors:
 
 # TODO: à vérifier en 2026
 aides . blacé:
+  public: oui
   remplace:
     références à: commune
     priorité: 21
@@ -829,6 +862,7 @@ aides . blacé:
 
 # TODO: à relire en 2026
 aides . charlieu-belmont:
+  public: oui
   remplace:
     références à: commune
     priorité: 23
@@ -851,6 +885,7 @@ aides . charlieu-belmont:
     dernière mise à jour: 22/08/2025
 
 aides . unieux:
+  public: oui
   remplace:
     références à: commune
     priorité: 25
@@ -868,6 +903,7 @@ aides . unieux:
     lien: https://www.ville-unieux.fr/actualites/583-aide-aux-economies-d-energie.html
 
 aides . bordeaux:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 17
@@ -916,6 +952,7 @@ aides . bordeaux:
     lien: https://sedeplacer.bordeaux-metropole.fr/a-velo/se-deplacer-a-velo/offres-velo/laide-a-lachat-velo
 
 aides . mérignac:
+  public: oui
   remplace:
     références à: commune
     priorité: 27
@@ -966,6 +1003,7 @@ aides . mérignac:
     lien: https://www.merignac.com/aides-financieres-pour-lachat-dun-velo-ou-la-pose-dun-kit-delectrification
 
 aides . bègles vélo spécifique:
+  public: oui
   remplace:
     références à: commune
     priorité: 29
@@ -991,6 +1029,7 @@ aides . bègles vélo spécifique:
     lien: https://www.mairie-begles.fr/actualite/recuperateur-deau-et-velo-electrique-la-ville-vous-soutient-pour-vous-equiper/
 
 aides . bègles vélo classique:
+  public: oui
   remplace:
     références à: commune
     priorité: 31
@@ -1010,6 +1049,7 @@ aides . bègles vélo classique:
     lien: https://www.mairie-begles.fr/actualite/recuperateur-deau-et-velo-electrique-la-ville-vous-soutient-pour-vous-equiper/
 
 aides . cenon:
+  public: oui
   remplace:
     références à: commune
     priorité: 33
@@ -1041,6 +1081,7 @@ aides . cenon:
     lien: https://www.cenon.fr/demarches/transport-voirie/aide-a-lachat-dun-velo
 
 aides . la cali:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 19
@@ -1103,6 +1144,7 @@ aides . la cali:
     lien: https://www.lacali.fr/actualites-de-la-cali/aide-lacquisition-dun-velo
 
 aides . saint-rémy:
+  public: oui
   remplace:
     références à: commune
     priorité: 35
@@ -1134,6 +1176,7 @@ aides . saint-rémy:
     lien: https://www.saint-remy71.fr/plan-velo/
 
 aides . nantes:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 21
@@ -1223,6 +1266,7 @@ aides . nantes:
 # cela pourrait être intéressant de leur proposer une intégration de notre
 # simulateur.
 aides . pornic:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 23
@@ -1256,6 +1300,7 @@ aides . pornic:
     dernière mise à jour: 02/07/2025
 
 aides . toulouse:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 25
@@ -1307,6 +1352,7 @@ aides . toulouse:
 
 # TODO: add unit tests?
 aides . grenoble:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 27
@@ -1415,6 +1461,7 @@ aides . grenoble:
     dernière mise à jour: 22/08/2025
 
 aides . strasbourg:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 29
@@ -1463,6 +1510,7 @@ aides . strasbourg:
 
 # NOTE : aide vérifiée le 10/04/2025. Renouvellée pour 2025 avec une nouvelle url.
 aides . entzheim:
+  public: oui
   remplace:
     références à: commune
     priorité: 37
@@ -1495,6 +1543,7 @@ aides . entzheim:
     date de fin: 31/12/2025
 
 aides . geispolsheim:
+  public: oui
   remplace:
     références à: commune
     priorité: 39
@@ -1521,6 +1570,7 @@ aides . geispolsheim:
     lien: https://www.geispolsheim.fr/fr/subventions-transport-et-velo-a-assistance-electrique
 
 aides . eschau:
+  public: oui
   remplace:
     références à: commune
     priorité: 41
@@ -1549,6 +1599,7 @@ aides . eschau:
 
 # NOTE: Infos pour 2023, toujours d'actualité ?
 aides . pays de saverne:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 31
@@ -1574,6 +1625,7 @@ aides . pays de saverne:
 
 # TODO: à vérifier en 2026
 aides . illkirch:
+  public: oui
   remplace:
     références à: commune
     priorité: 43
@@ -1602,6 +1654,7 @@ aides . illkirch:
     dernière mise à jour: 16/09/2025
 
 aides . vendenheim:
+  public: oui
   remplace:
     références à: commune
     priorité: 45
@@ -1638,6 +1691,7 @@ aides . vendenheim:
 
 # TODO: à vérifier en 2026
 aides . albi:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 33
@@ -1687,6 +1741,7 @@ aides . albi:
     dernière mise à jour: 16/09/2025
 
 aides . toulon:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 35
@@ -1728,6 +1783,7 @@ aides . toulon:
     dernière mise à jour: 29/07/2025
 
 aides . provence verte:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 37
@@ -1758,6 +1814,7 @@ aides . provence verte:
     date de fin: 31/12/2025
 
 aides . bretagne romantique:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 39
@@ -1777,6 +1834,7 @@ aides . bretagne romantique:
     lien: https://bretagneromantique.fr/prime-velo/
 
 aides . fougères:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 41
@@ -1797,6 +1855,7 @@ aides . fougères:
     lien: https://fougeres-agglo.bzh/mobilites-transports/mobilites-durables-et-alternatives/les-aides-financieres-pour-lachat-dun-velo-electrique/
 
 aides . quimper:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 43
@@ -1824,6 +1883,7 @@ aides . quimper:
     lien: https://www.quimper-bretagne-occidentale.bzh/1763-deplacements-a-velo.htm
 
 aides . quimperlé:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 45
@@ -1856,6 +1916,7 @@ aides . quimperlé:
     lien: https://www.quimperle-communaute.bzh/vos-demarches/deplacements/aide-a-lachat-de-velo-electrique/
 
 aides . caen:
+  public: oui
   remplace:
     références à: commune
     priorité: 47
@@ -1883,6 +1944,7 @@ aides . caen:
     dernière mise jour: 11/09/2025
 
 aides . caen jeune:
+  public: oui
   remplace:
     références à: commune
     priorité: 49
@@ -1904,6 +1966,7 @@ aides . caen jeune:
     dernière mise à jour: 11/09/2025
 
 aides . caen vélo adapté:
+  public: oui
   remplace:
     références à: commune
     priorité: 51
@@ -1927,6 +1990,7 @@ aides . caen vélo adapté:
     dernière mise à jour: 11/09/2025
 
 aides . caen la mer:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 47
@@ -1950,6 +2014,7 @@ aides . caen la mer:
 
 # TODO: à vérifier en 2026
 aides . thue et mue:
+  public: oui
   remplace:
     références à: commune
     priorité: 53
@@ -1973,6 +2038,7 @@ aides . thue et mue:
     dernière mise à jour: 15/09/2025
 
 aides . démouville:
+  public: oui
   remplace:
     références à: commune
     priorité: 55
@@ -2011,6 +2077,7 @@ aides . démouville:
 
 # NOTE: infos pour 2023, pas d'infos pour 2024, à vérifier en 2025
 aides . hermanville-sur-mer:
+  public: oui
   remplace:
     références à: commune
     priorité: 57
@@ -2033,6 +2100,7 @@ aides . hermanville-sur-mer:
 
 # NOTE: valide jusqu'au 31 décembre 2024, à vérifier en 2025
 aides . carpiquet:
+  public: oui
   remplace:
     références à: commune
     priorité: 59
@@ -2049,6 +2117,7 @@ aides . carpiquet:
 
 # TODO: à vérifier en 2026
 aides . ifs:
+  public: oui
   remplace:
     références à: commune
     priorité: 61
@@ -2071,6 +2140,7 @@ aides . ifs:
 
 # NOTE: informations pour 2023, à vérifier en 2025
 aides . mondeville:
+  public: oui
   remplace:
     références à: commune
     priorité: 63
@@ -2123,6 +2193,7 @@ aides . mondeville:
 
 # NOTE: informations pour 2025, à vérifier en 2026
 aides . flers:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 49
@@ -2144,6 +2215,7 @@ aides . flers:
     dernière mise à jour: 11/09/2025
 
 aides . dreux:
+  public: oui
   remplace:
     références à: commune
     priorité: 65
@@ -2173,6 +2245,7 @@ aides . dreux:
 
 # NOTE: informations depuis 2021, à vérifier en 2025
 aides . val-au-perche:
+  public: oui
   remplace:
     références à: commune
     priorité: 67
@@ -2190,6 +2263,7 @@ aides . val-au-perche:
     lien: https://valauperche.fr/transports/
 
 aides . ronchin:
+  public: oui
   remplace:
     références à: commune
     priorité: 69
@@ -2217,6 +2291,7 @@ aides . ronchin:
     lien: https://www.ville-ronchin.fr/aide-lachat-dun-velo
 
 aides . wasquehal:
+  public: oui
   remplace:
     références à: commune
     priorité: 71
@@ -2245,6 +2320,7 @@ aides . wasquehal:
     dernière mise à jour: 29/07/2025
 
 aides . belfort:
+  public: oui
   remplace:
     références à: commune
     priorité: 73
@@ -2266,6 +2342,7 @@ aides . belfort:
     lien: https://www.belfort.fr/cadre-de-vie/vie-quotidienne/aide-a-lachat-dun-velo-electrique
 
 aides . verson:
+  public: oui
   remplace:
     références à: commune
     priorité: 75
@@ -2293,6 +2370,7 @@ aides . verson:
 
 # NOTE: informations pour 2023, à vérifier en 2025
 aides . saint-germain la blanche herbe:
+  public: oui
   remplace:
     références à: commune
     priorité: 77
@@ -2310,6 +2388,7 @@ aides . saint-germain la blanche herbe:
 
 # NOTE: informations pour 2023, à vérifier en 2025
 aides . trouville sur mer:
+  public: oui
   remplace:
     références à: commune
     priorité: 79
@@ -2337,6 +2416,7 @@ aides . trouville sur mer:
 
 # NOTE: fin du dispositif en novembre 2024.
 aides . deauville:
+  public: oui
   remplace:
     références à: commune
     priorité: 81
@@ -2369,6 +2449,7 @@ aides . deauville:
     lien: https://www.mairie-deauville.fr/ville/mobilite-la-ville-renouvelle-laide-lachat-de-votre-velo
 
 aides . honfleur:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 51
@@ -2399,6 +2480,7 @@ aides . honfleur:
 
 # NOTE: limitée à 250 vélos depuis 2017, sûrement plus d'actualité.
 aides . istres:
+  public: oui
   remplace:
     références à: commune
     priorité: 83
@@ -2416,6 +2498,7 @@ aides . istres:
 
 # NOTE: informations pour 2023, à vérifier en 2025
 aides . montbéliard agglo:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 53
@@ -2435,6 +2518,7 @@ aides . montbéliard agglo:
     dernière mise à jour: 13/08/2025
 
 aides . cc loue-lison:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 55
@@ -2457,6 +2541,7 @@ aides . cc loue-lison:
 
 # NOTE: convention jusqu'au 22 mars 2026
 aides . montbéliard:
+  public: oui
   remplace:
     références à: commune
     priorité: 85
@@ -2475,6 +2560,7 @@ aides . montbéliard:
 
 # NOTE: jusqu'au 31 décembre 2024, à vérifier en 2025
 aides . vienne gartempe:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 57
@@ -2505,6 +2591,7 @@ aides . vienne gartempe:
     lien: https://www.vienneetgartempe.fr/vivre/aide-a-lachat-dun-velo-a-assistance-electrique-vae/
 
 aides . vienne condrieu:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 59
@@ -2528,6 +2615,7 @@ aides . vienne condrieu:
 # NOTE: valable depuis 2023 jusqu'à abrogation, à vérifier en 2025
 # NOTE: plus référencée depuis le site en janvier 2025.
 aides . pays de l'arbresle:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 61
@@ -2554,6 +2642,7 @@ aides . pays de l'arbresle:
     dernière mise à jour: 22/08/2025
 
 aides . pont-de-beauvoisin:
+  public: oui
   remplace:
     références à: commune
     priorité: 87
@@ -2575,6 +2664,7 @@ aides . pont-de-beauvoisin:
 
 # NOTE: site down mais aide toujours d'actualité (confirmation par mail en septembre 2025)
 aides . saint-marcellin vercors isère:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 63
@@ -2603,6 +2693,7 @@ aides . saint-marcellin vercors isère:
     dernière mise à jour: 11/09/2025
 
 aides . montval sur loir:
+  public: oui
   remplace:
     références à: commune
     priorité: 89
@@ -2632,6 +2723,7 @@ aides . montval sur loir:
     lien: https://www.montvalsurloir.fr/demarche-administrative/demande-de-subvention-velo-electrique/
 
 aides . sorgues du comtat:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 65
@@ -2653,6 +2745,7 @@ aides . sorgues du comtat:
 
 # NOTE: informations pour 2024, à vérifier en 2025
 aides . grand périgueux:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 67
@@ -2693,6 +2786,7 @@ aides . grand périgueux:
 # Le site est en maintenance et certaines pages sont inaccessibles. 
 # Nous choisissons de mettre le lien de la page d'actualités qui présente l'aide.
 aides . sarlat:
+  public: oui
   remplace:
     références à: commune
     priorité: 91
@@ -2709,6 +2803,7 @@ aides . sarlat:
     dernière mise à jour: 10/04/2025
 
 aides . vallée de l'homme:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 69
@@ -2732,6 +2827,7 @@ aides . vallée de l'homme:
     dernière mise à jour: 10/04/2025
 
 aides . sablé sur sarthe:
+  public: oui
   remplace:
     références à: commune
     priorité: 93
@@ -2754,6 +2850,7 @@ aides . sablé sur sarthe:
     dernière mise à jour: 20/02/2025
 
 aides . département somme situation handicap:
+  public: oui
   remplace:
     références à: département
     priorité: 3
@@ -2777,6 +2874,7 @@ aides . département somme situation handicap:
 
 # TODO: à vérifier en 2026
 aides . amiens:
+  public: oui
   remplace:
     références à: commune
     priorité: 95
@@ -2803,6 +2901,7 @@ aides . amiens:
 
 # TODO: à vérifier en 2026
 aides . grand roye:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 71
@@ -2828,6 +2927,7 @@ aides . grand roye:
 
 # NOTE: informations pour 2024, à vérifier en 2025
 aides . somme sud-ouest:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 73
@@ -2852,6 +2952,7 @@ aides . somme sud-ouest:
     dernière mise à jour: 15/09/2025
 
 aides . albert:
+  public: oui
   remplace:
     références à: commune
     priorité: 97
@@ -2871,6 +2972,7 @@ aides . albert:
 
 # NOTE: informations pour 2022, à vérifier en 2025
 aides . faches-thumesnil:
+  public: oui
   remplace:
     références à: commune
     priorité: 99
@@ -2897,6 +2999,7 @@ aides . faches-thumesnil:
 
 # NOTE: prolongé juqu'au 31 octobre 2025
 aides . pays sainte odile:
+  public: oui
   remplace:
     références à: commune
     priorité: 101
@@ -2935,6 +3038,7 @@ aides . pays sainte odile:
 
 # NOTE: informations pour 2024, à vérifier en 2025
 aides . portes de rosheim:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 75
@@ -2976,6 +3080,7 @@ aides . portes de rosheim:
     lien: https://www.cc-portesderosheim.fr/vivre-au-quotidien/se-deplacer/en-velo/dispositif-daide-a-lachat-dun-velo-neuf/
 
 aides . pays de barr:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 77
@@ -3011,6 +3116,7 @@ aides . pays de barr:
 
 # NOTE: jusqu'au 31 décembre 2024, à vérifier en 2025
 aides . molsheim-mutzig:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 79
@@ -3038,6 +3144,7 @@ aides . molsheim-mutzig:
 
 # NOTE: semble être valable au moins pour 2025
 aides . les sables d'olonne:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 81
@@ -3070,6 +3177,7 @@ aides . les sables d'olonne:
 
 # TODO: à vérifier en 2026
 aides . vallons du lyonnais:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 83
@@ -3102,6 +3210,7 @@ aides . vallons du lyonnais:
 
 # TODO: à relire en 2026
 aides . pays de l'ozon:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 85
@@ -3131,6 +3240,7 @@ aides . pays de l'ozon:
 
 # TODO: à vérifier en 2027
 aides . montpellier vélo cargo pro:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 87
@@ -3163,6 +3273,7 @@ aides . montpellier vélo cargo pro:
 
 # TODO: à vérifier en 2027
 aides . montpellier vae occasion:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 89
@@ -3190,6 +3301,7 @@ aides . montpellier vae occasion:
     date de fin: 31/12/2026
 
 aides . ca pays de l'or:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 91
@@ -3214,6 +3326,7 @@ aides . ca pays de l'or:
     date de fin: 31/12/2025
 
 aides . sète:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 93
@@ -3258,6 +3371,7 @@ aides . sète:
     dernière mise à jour: 16/09/2025
 
 aides . aubiere:
+  public: oui
   remplace:
     références à: commune
     priorité: 103
@@ -3277,6 +3391,7 @@ aides . aubiere:
 
 # NOTE: info pour 2020, à vérifier en 2026
 aides . romagnat:
+  public: oui
   remplace:
     références à: commune
     priorité: 105
@@ -3295,6 +3410,7 @@ aides . romagnat:
     dernière mise à jour: 22/08/2025
 
 aides . cc plaine limagne:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 95
@@ -3330,6 +3446,7 @@ aides . cc plaine limagne:
 # TODO: ont développé leur propre simulateur, leur partager le lien ?
 # NOTE: reconduite pour 2025, à vérifier en 2026
 aides . cournon d'auvergne:
+  public: oui
   remplace:
     références à: commune
     priorité: 107
@@ -3358,6 +3475,7 @@ aides . cournon d'auvergne:
     date de fin: 31/12/2025
 
 aides . grand avignon:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 97
@@ -3382,6 +3500,7 @@ aides . grand avignon:
 
 # NOTE: plus de page sur le site, seulement un formulaire de demande est disponible. A vérifier en 2025
 aides . kremlin-bicetre:
+  public: oui
   remplace:
     références à: commune
     priorité: 109
@@ -3412,6 +3531,7 @@ aides . kremlin-bicetre:
 
 # NOTE: ne semble plus vraiment d'actualité, à vérifier en 2025
 aides . chevilly-larue:
+  public: oui
   remplace:
     références à: commune
     priorité: 111
@@ -3446,6 +3566,7 @@ aides . chevilly-larue:
 
 # TODO: pas d'information sur la durée de validité, à vérifier en 2026
 aides . vallée d'ossau:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 99
@@ -3469,6 +3590,7 @@ aides . vallée d'ossau:
 
 # TODO: relire en 2026
 aides . coeur de maurienne arvan:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 101
@@ -3492,6 +3614,7 @@ aides . coeur de maurienne arvan:
 
 # NOTE: période 2023-2025, à vérifier en 2026
 aides . morzine-avoriaz:
+  public: oui
   remplace:
     références à: commune
     priorité: 113
@@ -3516,6 +3639,7 @@ aides . morzine-avoriaz:
 
 # NOTE: convention de 5 ans à partir de 2024, à vérifier en 2029
 aides . bourg-saint-maurice:
+  public: oui
   remplace:
     références à: commune
     priorité: 115
@@ -3569,6 +3693,7 @@ aides . bourg-saint-maurice:
     lien: https://www.bourgsaintmaurice.fr/transports/subvention-achat-velo
 
 aides . la motte servolex:
+  public: oui
   remplace:
     références à: commune
     priorité: 117
@@ -3603,6 +3728,7 @@ aides . la motte servolex:
 # NOTE: possède un simulateur qui ne fonctionne pas, à contacter
 # TODO: grand chambéry, à vérifier en 2026 : https://www.grandchambery.fr/mes-demarches/aides-energies/cheque-velo-a-assistance-electrique
 aides . grand chambéry:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 103
@@ -3665,6 +3791,7 @@ aides . grand chambéry:
 
 # NOTE: valide pour 2025, à vérifier en 2026
 aides . saint alban leysse:
+  public: oui
   remplace:
     références à: commune
     priorité: 119
@@ -3686,6 +3813,7 @@ aides . saint alban leysse:
 
 # NOTE: info pour 2023, à vérifier en 2025
 aides . les crêtes préardennaises:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 105
@@ -3706,6 +3834,7 @@ aides . les crêtes préardennaises:
 
 # NOTE: info de 2020, mais plan jusqu'en 2024. A vérifier en 2025
 aides . clisson:
+  public: oui
   remplace:
     références à: commune
     priorité: 121
@@ -3749,6 +3878,7 @@ aides . clisson:
     lien: https://www.mairie-clisson.fr/vue-detaillee/news/dispositif-clisson-a-velo-ou-trottinette
 
 aides . sèvre et loire:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 107
@@ -3781,6 +3911,7 @@ aides . sèvre et loire:
     date de fin: 31/12/2025
 
 aides . romilly-sur-seine:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 109
@@ -3799,6 +3930,7 @@ aides . romilly-sur-seine:
 
 # NOTE: valide jusqu'en 2026, à vérifier en 2027
 aides . boé:
+  public: oui
   remplace:
     références à: commune
     priorité: 123
@@ -3821,6 +3953,7 @@ aides . boé:
 
 # NOTE: information pour 2023, à vérifier en 2025
 aides . sophia antipolis:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 111
@@ -3915,6 +4048,7 @@ aides . sophia antipolis:
     dernière mise à jour: 14/08/2025
 
 aides . mougins:
+  public: oui
   remplace:
     références à: commune
     priorité: 125
@@ -3941,6 +4075,7 @@ aides . mougins:
 
 # NOTE: durée de la convention 5 ans, à vérifier en 2029
 aides . mandelieu:
+  public: oui
   remplace:
     références à: commune
     priorité: 127
@@ -3963,6 +4098,7 @@ aides . mandelieu:
     lien: https://www.mandelieu.fr/17219-pistes-cyclable-et-plan-velo.htm
 
 aides . pantin:
+  public: oui
   remplace:
     références à: commune
     priorité: 129
@@ -3984,6 +4120,7 @@ aides . pantin:
 
 # NOTE: valide pour 2024, à vérifier en 2025
 aides . aubervilliers:
+  public: oui
   remplace:
     références à: commune
     priorité: 131
@@ -4008,6 +4145,7 @@ aides . aubervilliers:
     lien: https://www.aubervilliers.fr/Aide-a-l-achat-d-un-velo
 
 aides . mons en baroeul:
+  public: oui
   remplace:
     références à: commune
     priorité: 133
@@ -4107,6 +4245,7 @@ aides . mons en baroeul:
 
 # NOTE: info pour 2024, à vérifier en 2025
 aides . annoeullin:
+  public: oui
   remplace:
     références à: commune
     priorité: 135
@@ -4129,6 +4268,7 @@ aides . annoeullin:
     lien: https://www.annoeullin.fr/aide-pour-lachat-velo-electrique
 
 aides . la madeleine:
+  public: oui
   remplace:
     références à: commune
     priorité: 137
@@ -4159,6 +4299,7 @@ aides . la madeleine:
 
 # NOTE: info pour 2025, à vérifier en 2026
 aides . puisaye forterre:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 113
@@ -4186,6 +4327,7 @@ aides . puisaye forterre:
     date de fin: 31/12/2025
 
 aides . cc nievre et somme:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 115
@@ -4207,6 +4349,7 @@ aides . cc nievre et somme:
     date de fin: 30/06/2026
 
 aides . cc val-de-saone-centre:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 117
@@ -4238,6 +4381,7 @@ aides . cc val-de-saone-centre:
     date de fin: 30/06/2026
 
 aides . aurillac:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 119
@@ -4265,6 +4409,7 @@ aides . aurillac:
 
 # NOTE: fixée jusqu'à 2026, à vérifier en 2027 (dans la limite des crédits)
 aides . terre des 2 caps:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 121
@@ -4292,6 +4437,7 @@ aides . terre des 2 caps:
 
 # TODO: à vérifier en 2026
 aides . saint-omer:
+  public: oui
   remplace:
     références à: commune
     priorité: 139
@@ -4328,6 +4474,7 @@ aides . saint-omer:
 
 # NOTE: valide pour 2024, à vérifier en 2025
 aides . les herbiers:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 123
@@ -4360,6 +4507,7 @@ aides . les herbiers:
     dernière mise à jour: 22/08/2025
 
 aides . frejus:
+  public: oui
   remplace:
     références à: commune
     priorité: 141
@@ -4383,6 +4531,7 @@ aides . frejus:
     lien: https://www.ville-frejus.fr/ma-ville/valorisation-et-preservation/dossier-de-demande-daide-a-lachat-dun-vae/
 
 aides . portes de sologne:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 125
@@ -4417,6 +4566,7 @@ aides . portes de sologne:
 # TODO: regarder toutes les communes de l'intercommunalité
 # TODO: add unit test?
 aides . grand reims:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 127
@@ -4461,6 +4611,7 @@ aides . grand reims:
 
 # NOTE: valide jusqu'au 31 décembre 2025, à vérifier en 2026
 aides . reims:
+  public: oui
   remplace:
     références à: commune
     priorité: 143
@@ -4516,6 +4667,7 @@ aides . reims:
 
 # TODO: à vérifier en 2026
 aides . genevois:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 129
@@ -4551,6 +4703,7 @@ aides . genevois:
 
 # TODO:  à vérifier en 2026
 aides . cluses arve et montagnes:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 131
@@ -4613,6 +4766,7 @@ aides . cluses arve et montagnes:
     dernière mise à jour: 22/08/2025
 
 aides . évian-les-bains:
+  public: oui
   remplace:
     références à: commune
     priorité: 145
@@ -4640,6 +4794,7 @@ aides . évian-les-bains:
 
 # NOTE: fin de validité en 2026, à vérifier en 2027
 aides . combloux:
+  public: oui
   remplace:
     références à: commune
     priorité: 147
@@ -4663,6 +4818,7 @@ aides . combloux:
 
 # NOTE: valide 2025, à vérifier en 2026
 aides . châtel:
+  public: oui
   remplace:
     références à: commune
     priorité: 149
@@ -4684,6 +4840,7 @@ aides . châtel:
 
 # NOTE: valide jusqu'au 31 décembre 2025, à vérifier en 2026
 aides . le vigan:
+  public: oui
   remplace:
     références à: commune
     priorité: 151
@@ -4709,6 +4866,7 @@ aides . le vigan:
 
 # NOTE: pas d'information sur la fin de validité, à vérifier en 2026
 aides . angers:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 133
@@ -4742,6 +4900,7 @@ aides . angers:
 
 # NOTE: valide jusqu'au 31 décembre 2025, à vérifier en 2026
 aides . haut val de sèvre:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 135
@@ -4772,6 +4931,7 @@ aides . haut val de sèvre:
 
 # NOTE: valide jusqu'au 31 décembre 2025, à vérifier en 2026
 aides . anjou bleu:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 137
@@ -4801,6 +4961,7 @@ aides . anjou bleu:
 
 # NOTE: relancé en 2025 
 aides . limoges metropole:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 139
@@ -4831,6 +4992,7 @@ aides . limoges metropole:
 
 # NOTE: fin d'utilisation le 15 novembre 2025 mais probablement prolongée en 2026.
 aides . grand poitiers:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 141
@@ -4858,6 +5020,7 @@ aides . grand poitiers:
     date de fin: 15/11/2025
 
 aides . grand poitiers adapté:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 143
@@ -4879,6 +5042,7 @@ aides . grand poitiers adapté:
 
 # TODO: à vérifier en 2026
 aides . grand orb:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 145
@@ -4909,6 +5073,7 @@ aides . grand orb:
     date de fin: 10/01/2026
 
 aides . montlucon:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 147
@@ -4945,6 +5110,7 @@ aides . montlucon:
     dernière mise à jour: 14/08/2025
 
 aides . cotentin:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 149
@@ -4965,6 +5131,7 @@ aides . cotentin:
     dernière mise à jour: 11/09/2025
 
 aides . granville:
+  public: oui
   remplace:
     références à: commune
     priorité: 153
@@ -5008,6 +5175,7 @@ aides . granville:
 
 # TODO: à vérifier en 2026
 aides . saint-louis:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 151
@@ -5038,6 +5206,7 @@ aides . saint-louis:
     dernière mise à jour: 14/08/2025
 
 aides . saint-pair-sur-mer:
+  public: oui
   remplace:
     références à: commune
     priorité: 155
@@ -5071,6 +5240,7 @@ aides . saint-pair-sur-mer:
 
 # NOTE: à vérifier en 2026
 aides . aunis atlantique:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 153
@@ -5102,6 +5272,7 @@ aides . aunis atlantique:
     date de fin: 31/12/2025
 
 aides . blois:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 155
@@ -5123,6 +5294,7 @@ aides . blois:
 # NOTE: fin de validité pas claire
 # TODO: à vérifier en 2026
 aides . epinal:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 157
@@ -5151,6 +5323,7 @@ aides . epinal:
     dernière mise à jour: 14/08/2025
 
 aides . rochefort:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 159
@@ -5190,6 +5363,7 @@ aides . rochefort:
     lien: https://www.agglo-rochefortocean.fr/velo-tricycle-et-kit-delectrification-aide-lacquisition
 
 aides . saintes:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 161
@@ -5223,6 +5397,7 @@ aides . saintes:
 
 # TODO: à vérifier en 2026
 aides . dieppe:
+  public: oui
   remplace:
     références à: commune
     priorité: 157
@@ -5252,6 +5427,7 @@ aides . dieppe:
     date de fin: 31/10/2025
 
 aides . villes soeurs:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 163
@@ -5273,6 +5449,7 @@ aides . villes soeurs:
     dernière mise à jour: 11/09/2025
 
 aides . cote albatre:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 165
@@ -5300,6 +5477,7 @@ aides . cote albatre:
     dernière mise à jour: 11/09/2025
 
 aides . cc falaises du talou:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 167
@@ -5319,6 +5497,7 @@ aides . cc falaises du talou:
     dernière mise à jour: 11/09/2025
 
 aides . arcachon:
+  public: oui
   remplace:
     références à: commune
     priorité: 159
@@ -5338,6 +5517,7 @@ aides . arcachon:
 
 # NOTE: valide jusqu'à 2026
 aides . canélan:
+  public: oui
   remplace:
     références à: commune
     priorité: 161
@@ -5366,6 +5546,7 @@ aides . canélan:
 
 # NOTE: fin de validité en 2024, à vérifier en 2025
 aides . grand cubzaguais:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 169
@@ -5404,6 +5585,7 @@ aides . grand cubzaguais:
     lien: https://www.grand-cubzaguais.fr/amenagement-durable/jusqua-150e-daide-a-lachat-dun-velo-pour-les-habitants-du-grand-cubzaguais-2024/
 
 aides . bourges:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 171
@@ -5454,6 +5636,7 @@ aides . bourges:
     date de fin: 31/12/2025
 
 aides . montauban:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 173
@@ -5473,6 +5656,7 @@ aides . montauban:
     dernière mise à jour: 16/09/2025
 
 aides . plaine de l'ain VAE:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 175
@@ -5517,6 +5701,7 @@ aides . plaine de l'ain VAE:
     dernière mise à jour: 14/08/2025
 
 aides . plaine de l'ain vélos spécifiques:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 177
@@ -5541,6 +5726,7 @@ aides . plaine de l'ain vélos spécifiques:
     dernière mise à jour: 14/08/2025
 
 aides . divonne-les-bains:
+  public: oui
   remplace:
     références à: commune
     priorité: 163
@@ -5573,6 +5759,7 @@ aides . divonne-les-bains:
 
 # TODO: vérifier toutes les communes
 aides . dieulefit-bourdeaux:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 179
@@ -5629,6 +5816,7 @@ aides . dieulefit-bourdeaux:
 
 # NOTE: Valide jusqu'en 2026, à vérifier en 2027
 aides . arche agglo:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 181
@@ -5663,6 +5851,7 @@ aides . arche agglo:
     dernière mise à jour: 14/08/2025
 
 aides . annonay:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 183
@@ -5697,6 +5886,7 @@ aides . annonay:
 
 # TODO: à vérifier en 2026
 aides . lorient agglo:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 185
@@ -5751,6 +5941,7 @@ aides . lorient agglo:
     lien: https://www.lorient-agglo.bzh/services/deplacements/aide-achat-velo
 
 aides . lanester:
+  public: oui
   remplace:
     références à: commune
     priorité: 165
@@ -5780,6 +5971,7 @@ aides . lanester:
     lien: https://www.lanester.bzh/services/demt-services-en-ligne/particuliers/aide-achat-velo/
 
 aides . la roche sur yon:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 187
@@ -5857,6 +6049,7 @@ aides . la roche sur yon:
     dernière mise à jour: 22/08/2025
 
 aides . ca mauges communauté:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 189
@@ -5873,21 +6066,20 @@ aides . ca mauges communauté:
           - vélo . motorisation
   valeur:
     variations:
-      - si: vélo . cargo
+      - si: vélo . cargo électrique
         alors:
           variations:
             - si:
-                toutes ces conditions:
-                  - vélo . cargo
-                  - une de ces conditions:
-                      - vélo . état . neuf
-                      - vélo . prix >= 1000 €
+                une de ces conditions:
+                  - vélo . état . neuf
+                  - vélo . prix >= 1000 €
               alors: 350 €
       - si:
           une de ces conditions:
-            - vélo . motorisation
-            - vélo . état . neuf
             - vélo . prix >= 300 €
+            - toutes ces conditions:
+                - vélo . état . neuf
+                - vélo . motorisation = non
         alors: 100 €
   meta:
     lien: https://www.mooj.fr/mobilites-alternatives/modes-actifs/vae-aide-achat/
@@ -5895,6 +6087,7 @@ aides . ca mauges communauté:
 
 # NOTE: valide jusqu'au 31 octobre 2025, à vérifier en 2026
 aides . cholet:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 191
@@ -5922,6 +6115,7 @@ aides . cholet:
     date de fin: 31/10/2025
 
 aides . saumur val de loire:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 193
@@ -5947,6 +6141,7 @@ aides . saumur val de loire:
 
 # NOTE: à vérifier en 2026
 aides . loire layon aubance:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 195
@@ -5982,6 +6177,7 @@ aides . loire layon aubance:
     dernière mise à jour: 22/08/2025
 
 aides . laval:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 197
@@ -6001,6 +6197,7 @@ aides . laval:
     dernière mise à jour: 14/08/2025
 
 aides . ville de talant:
+  public: oui
   remplace:
     références à: commune
     priorité: 167
@@ -6024,6 +6221,7 @@ aides . ville de talant:
 # NOTE: règlement pour 2023 mais semble d'actualité jusqu'en 2030, à vérifier
 # en 2025.
 aides . pays des achards:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 199
@@ -6055,6 +6253,7 @@ aides . pays des achards:
     dernière mise à jour: 16/09/2025
 
 aides . hem:
+  public: oui
   remplace:
     références à: commune
     priorité: 169
@@ -6074,6 +6273,7 @@ aides . hem:
     lien: https://www.ville-hem.fr/cadre-de-vie/environnement/prime-a-lachat-dun-velo-ou-dune-trottinette/
 
 aides . liévin:
+  public: oui
   remplace:
     références à: commune
     priorité: 171
@@ -6094,6 +6294,7 @@ aides . liévin:
 
 # NOTE: valide pour 2024, à vérifier en 2025
 aides . baisieux:
+  public: oui
   remplace:
     références à: commune
     priorité: 173
@@ -6127,6 +6328,7 @@ aides . baisieux:
 
 # NOTE: fin de validité en 2024, à vérifier en 2025
 aides . bonningues-lès-calais:
+  public: oui
   remplace:
     références à: commune
     priorité: 175
@@ -6155,6 +6357,7 @@ aides . bonningues-lès-calais:
 
 # NOTE: fin de validité en 2025, à vérifier en 2026
 aides . loos-en-gohelle:
+  public: oui
   remplace:
     références à: commune
     priorité: 177
@@ -6180,6 +6383,7 @@ aides . loos-en-gohelle:
 
 # NOTE: valide pour 2024, à vérifier en 2025
 aides . gruson:
+  public: oui
   remplace:
     références à: commune
     priorité: 179
@@ -6201,6 +6405,7 @@ aides . gruson:
     lien: https://www.mairie-gruson.fr/environnement/developpement-durable/aides-a-lachat-dun-velo-electrique
 
 aides . iwuy:
+  public: oui
   remplace:
     références à: commune
     priorité: 181
@@ -6217,6 +6422,7 @@ aides . iwuy:
     lien: https://www.iwuy.fr/page.php?id=6#53
 
 aides . porte du hainaut:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 201
@@ -6265,6 +6471,7 @@ aides . porte du hainaut:
     date de fin: 31/12/2025
 
 aides . denain:
+  public: oui
   remplace:
     références à: commune
     priorité: 183
@@ -6283,6 +6490,7 @@ aides . denain:
 
 # NOTE: info pour 2023, à vérifier en 2025
 aides . wambrechies:
+  public: oui
   remplace:
     références à: commune
     priorité: 185
@@ -6307,6 +6515,7 @@ aides . wambrechies:
 
 # NOTE: fin de validité le 31 décembre 2024, à vérifier en 2025
 aides . lesquin:
+  public: oui
   remplace:
     références à: commune
     priorité: 187
@@ -6333,6 +6542,7 @@ aides . lesquin:
 
 # NOTE: aide pour 2023, à vérifier en 2025
 aides . lezenne:
+  public: oui
   remplace:
     références à: commune
     priorité: 189
@@ -6374,6 +6584,7 @@ aides . lezenne:
 
 # TODO: à vérifier en 2026
 aides . dunkerque:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 203
@@ -6427,6 +6638,7 @@ aides . dunkerque:
     dernière mise à jour: 12/09/2025
 
 aides . cc flandre lys:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 205
@@ -6465,6 +6677,7 @@ aides . cc flandre lys:
 
 # NOTE: info pour 2023, à vérifier en 2025
 aides . grande-synthe:
+  public: oui
   remplace:
     références à: commune
     priorité: 191
@@ -6488,6 +6701,7 @@ aides . grande-synthe:
 
 # TODO: à vérifier en 2026
 aides . valenciennes:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 207
@@ -6545,6 +6759,7 @@ aides . valenciennes:
 
 # TODO: à vérifier en 2026
 aides . cambrai:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 209
@@ -6575,6 +6790,7 @@ aides . cambrai:
     dernière mise à jour: 12/09/2025
 
 aides . thiais:
+  public: oui
   remplace:
     références à: commune
     priorité: 193
@@ -6592,6 +6808,7 @@ aides . thiais:
     lien: https://www.ville-thiais.fr/subvention-pour-lachat-dun-velo-electrique/
 
 aides . nanterre:
+  public: oui
   remplace:
     références à: commune
     priorité: 195
@@ -6673,6 +6890,7 @@ aides . nanterre:
     lien: https://www.nanterre.fr/1687-velo-les-dispositifs-d-aide.htm
 
 aides . puteaux:
+  public: oui
   remplace:
     références à: commune
     priorité: 197
@@ -6701,6 +6919,7 @@ aides . puteaux:
     lien: https://www.puteaux.fr/decouvrir-puteaux/developpement-durable/aides-et-primes/
 
 aides . genneviliers:
+  public: oui
   remplace:
     références à: commune
     priorité: 199
@@ -6721,6 +6940,7 @@ aides . genneviliers:
     lien: https://www.ville-gennevilliers.fr/671/cadre-de-vie/acces-transports-stationnement/aides-a-l-achat-d-un-velo.htm
 
 aides . drancy:
+  public: oui
   remplace:
     références à: commune
     priorité: 201
@@ -6747,6 +6967,7 @@ aides . drancy:
     dernière mise à jour: 29/07/2025
 
 aides . rives de moselle:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 211
@@ -6783,6 +7004,7 @@ aides . rives de moselle:
 
 # TODO: à vérifier en 2026
 aides . saint-avold:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 213
@@ -6820,6 +7042,7 @@ aides . saint-avold:
     date de fin: 16/09/2025
 
 aides . montigny les metz:
+  public: oui
   remplace:
     références à: commune
     priorité: 203
@@ -6844,6 +7067,7 @@ aides . montigny les metz:
 
 # NOTE: document de 2021
 aides . mennecy:
+  public: oui
   remplace:
     références à: commune
     priorité: 205
@@ -6868,6 +7092,7 @@ aides . mennecy:
 
 # NOTE: Reconduit en 2025
 aides . betheny:
+  public: oui
   remplace:
     références à: commune
     priorité: 207
@@ -6905,6 +7130,7 @@ aides . betheny:
 
 # NOTE: valide jusqu'au 31 décembre 2025, à vérifier en 2026
 aides . brest:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 215
@@ -6953,6 +7179,7 @@ aides . brest:
 
 # NOTE: fin de validité le 31 décembre 2024, à vérifier en 2025
 aides . relecq-kerhuon:
+  public: oui
   remplace:
     références à: commune
     priorité: 209
@@ -7003,6 +7230,7 @@ aides . relecq-kerhuon:
     lien: https://www.lerelecqkerhuon.bzh/environnement-et-cadre-de-vie/se-deplacer/a-velo/
 
 aides . plougastel-daoulas:
+  public: oui
   remplace:
     références à: commune
     priorité: 211
@@ -7040,6 +7268,7 @@ aides . plougastel-daoulas:
 
 # NOTE: pas sûr que ce soit toujours d'actualité.
 aides . pays d'iroise:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 217
@@ -7067,6 +7296,7 @@ aides . pays d'iroise:
 
 # NOTE: fin de validité en 2024, à vérifier en 2025
 aides . haute-cornouaille:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 219
@@ -7087,6 +7317,7 @@ aides . haute-cornouaille:
     lien: https://haute-cornouaille.bzh/vivre-sortir-et-se-divertir-en-haute-cornouaille/aide-achat-velo-a-assistance-electrique/
 
 aides . gouesnou:
+  public: oui
   remplace:
     références à: commune
     priorité: 213
@@ -7113,6 +7344,7 @@ aides . gouesnou:
 
 # NOTE: info pour 2022, à vérifier en 2025
 aides . saint-pol-de-léon:
+  public: oui
   remplace:
     références à: commune
     priorité: 215
@@ -7130,6 +7362,7 @@ aides . saint-pol-de-léon:
     lien: https://www.saintpoldeleon.bzh/la-ville-vous-aide-pour-lachat-dun-velo-a-assistance-electrique/
 
 aides . baie du mont saint-michel:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 221
@@ -7153,6 +7386,7 @@ aides . baie du mont saint-michel:
     lien: https://www.ccdol-baiemsm.bzh/favoriser-lusage-du-velo/
 
 aides . montfort:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 223
@@ -7201,6 +7435,7 @@ aides . montfort:
     lien: https://www.montfortcommunaute.bzh/mes-demarches/mobilite-deplacements/aide-a-lachat-dun-vae/
 
 aides . liffré-cormier:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 225
@@ -7228,6 +7463,7 @@ aides . liffré-cormier:
     lien: https://www.liffre-cormier.fr/vivre/transport-mobilite-2/aidevelo/
 
 aides . vallons de haute bretagne:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 227
@@ -7250,6 +7486,7 @@ aides . vallons de haute bretagne:
     lien: https://www.vallons-de-haute-bretagne-communaute.fr/les-velos-a-assistance-electrique/
 
 aides . guichen:
+  public: oui
   remplace:
     références à: commune
     priorité: 217
@@ -7267,6 +7504,7 @@ aides . guichen:
     dernière mise à jour: 20/02/2025
 
 aides . cote d'emeraude:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 229
@@ -7285,6 +7523,7 @@ aides . cote d'emeraude:
     lien: https://www.cote-emeraude.fr/laide-a-lachat-dun-velo-a-assitance-electrique/
 
 aides . saint-brieuc armor:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 231
@@ -7306,6 +7545,7 @@ aides . saint-brieuc armor:
     lien: https://www.saintbrieuc-armor-agglo.bzh/vivre-et-habiter/mes-deplacements/je-circule-a-velo/aide-a-lachat-dun-velo-electrique
 
 aides . lannion-trégor:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 233
@@ -7325,6 +7565,7 @@ aides . lannion-trégor:
     lien: https://www.lannion-tregor.com/fr/deplacements/les-mobilites-electriques/les-aides-a-l-acquisition.html
 
 aides . morlaix:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 235
@@ -7352,6 +7593,7 @@ aides . morlaix:
     lien: https://www.morlaix-communaute.bzh/mon-quotidien/les-deplacements/a-velo/demander-la-prime-a-lacquisition-dun-velo-a-assistance-electrique
 
 aides . poher:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 237
@@ -7371,6 +7613,7 @@ aides . poher:
     lien: https://www.poher.bzh/accueil_poher/les_services/mobilites/veloelectrique
 
 aides . crozon:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 239
@@ -7393,6 +7636,7 @@ aides . crozon:
 
 # NOTE: fin de validité en 2024, à vérifier en 2025
 aides . saint-jacques de la lande:
+  public: oui
   remplace:
     références à: commune
     priorité: 219
@@ -7422,6 +7666,7 @@ aides . saint-jacques de la lande:
 
 # NOTE: fin de validité en 2024, à vérifier en 2025
 aides . quesnoy-sur-deûle:
+  public: oui
   remplace:
     références à: commune
     priorité: 221
@@ -7441,6 +7686,7 @@ aides . quesnoy-sur-deûle:
     lien: https://quesnoysurdeule.fr/fr/nw/1990042/999182/primes-velos-informations-et-formulaire
 
 aides . sainghin en melantois:
+  public: oui
   remplace:
     références à: commune
     priorité: 223
@@ -7465,6 +7711,7 @@ aides . sainghin en melantois:
 
 # NOTE: à vérifier après le 31 mai 2025
 aides . grand calais:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 241
@@ -7494,6 +7741,7 @@ aides . grand calais:
 
 # TODO: à vérifier en 2027
 aides . pays de lumbres:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 243
@@ -7529,6 +7777,7 @@ aides . pays de lumbres:
     dernière mise à jour: 12/09/2025
 
 aides . amboise:
+  public: oui
   remplace:
     références à: commune
     priorité: 225
@@ -7558,6 +7807,7 @@ aides . amboise:
     lien: https://www.ville-amboise.fr/57-1229/fiche/demande-d-aide-a-l-achat-d-un-velo
 
 aides . moselle et madon:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 245
@@ -7579,6 +7829,7 @@ aides . moselle et madon:
     lien: https://www.cc-mosellemadon.fr/fr/aide-a-l-achat-de-velo.html
 
 aides . osartis-marquion:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 247
@@ -7597,6 +7848,7 @@ aides . osartis-marquion:
     dernière mise à jour: 12/09/2025
 
 aides . ca2bm:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 249
@@ -7626,6 +7878,7 @@ aides . ca2bm:
     date de fin: 30/06/2026
 
 aides . pontivy:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 251
@@ -7646,6 +7899,7 @@ aides . pontivy:
     lien: https://www.pontivy-communaute.bzh/aide-a-lacquisition-dun-velo-a-assistante-electrique/
 
 aides . chateauroux:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 253
@@ -7675,6 +7929,7 @@ aides . chateauroux:
     dernière mise à jour: 13/08/2025
 
 aides . auray quiberon:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 255
@@ -7710,6 +7965,7 @@ aides . auray quiberon:
     lien: https://www.auray-quiberon.fr/a-votre-service/mobilites/aide-a-lacquisition-d-un-velo-a-assistance-electrique-1336.html
 
 aides . grand villeneuvois:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 257
@@ -7736,6 +7992,7 @@ aides . grand villeneuvois:
 
 # NOTE: à verifier en 2025
 aides . oise:
+  public: oui
   remplace:
     références à: département
     priorité: 5
@@ -7775,6 +8032,7 @@ aides . oise:
 
 # TODO: à vérifier en 2026
 aides . beauvais:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 259
@@ -7807,6 +8065,7 @@ aides . beauvais:
     dernière mise à jour: 12/09/2025
 
 aides . grand angouleme:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 261
@@ -7830,7 +8089,8 @@ aides . grand angouleme:
           variations:
             - si:
                 une de ces conditions:
-                  - revenu fiscal de référence par part <= (2000 €/mois * 12 mois/an)
+                  - revenu fiscal de référence par part <= (2000 €/mois * 12
+                    mois/an)
                   - demandeur . statut . apprenti
                   - demandeur . statut . étudiant
               alors:
@@ -7851,6 +8111,7 @@ aides . grand angouleme:
 
 # TODO: à relire en 2026
 aides . massif du vercors:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 263
@@ -7901,6 +8162,7 @@ aides . massif du vercors:
     date de fin: 31/01/2026
 
 aides . portes du luxembourg:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 265
@@ -7931,6 +8193,7 @@ aides . portes du luxembourg:
     lien: https://www.portesduluxembourg.fr/la-prime-velo
 
 aides . cazouls-lès-béziers:
+  public: oui
   remplace:
     références à: commune
     priorité: 227
@@ -7950,6 +8213,7 @@ aides . cazouls-lès-béziers:
     dernière mise à jour: 16/09/2025
 
 aides . ecommoy:
+  public: oui
   remplace:
     références à: commune
     priorité: 229
@@ -7965,6 +8229,7 @@ aides . ecommoy:
     lien: https://www.ecommoy.fr/vie-quotidienne/mobilite/aide-a-lachat-dun-velo-electrique/
 
 aides . bannalec:
+  public: oui
   remplace:
     références à: commune
     priorité: 231
@@ -7984,6 +8249,7 @@ aides . bannalec:
 
 # NOTE: fin le 31 décembre 2024, à vérifier en 2025
 aides . witry-lès-reims:
+  public: oui
   remplace:
     références à: commune
     priorité: 233
@@ -8002,6 +8268,7 @@ aides . witry-lès-reims:
     lien: http://www.witry-les-reims.fr/actualite_witry-les-reims-402
 
 aides . golf de saint-tropez:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 267
@@ -8021,6 +8288,7 @@ aides . golf de saint-tropez:
     dernière mise à jour: 14/08/2025
 
 aides . labège:
+  public: oui
   remplace:
     références à: commune
     priorité: 235
@@ -8042,6 +8310,7 @@ aides . labège:
     lien: http://www.labege.fr/dans-ma-ville/aide-a-la-mobilite/
 
 aides . hennebont:
+  public: oui
   remplace:
     références à: commune
     priorité: 237
@@ -8063,6 +8332,7 @@ aides . hennebont:
     lien: https://www.hennebont.bzh/mon-quotidien/deplacements-stationnement/hennebont-a-velo/
 
 aides . couesnon:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 269
@@ -8083,6 +8353,7 @@ aides . couesnon:
     lien: https://www.couesnon-marchesdebretagne.fr/attractivite-territoriale/mobilites/
 
 aides . avant-monts:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 271
@@ -8104,6 +8375,7 @@ aides . avant-monts:
     dernière mise à jour: 16/09/2025
 
 aides . vallées de l'orne et de l'odon:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 273
@@ -8150,6 +8422,7 @@ aides . vallées de l'orne et de l'odon:
     dernière mise à jour: 11/09/2025
 
 aides . joinville-le-pont:
+  public: oui
   remplace:
     références à: commune
     priorité: 239
@@ -8169,6 +8442,7 @@ aides . joinville-le-pont:
     lien: https://www.joinville-le-pont.fr/demarche-administrative/subvention-velo-electrique/
 
 aides . haut-béarn:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 275
@@ -8192,6 +8466,7 @@ aides . haut-béarn:
 
 # NOTE: date de 2021, à vérifier
 aides . joinville:
+  public: oui
   remplace:
     références à: commune
     priorité: 241
@@ -8209,6 +8484,7 @@ aides . joinville:
     lien: https://mairie-joinville.fr/fr/nw/509875/699194/aide-a-lacquisition-de-velos-a-assistance-electrique
 
 aides . villers-sur-mer:
+  public: oui
   remplace:
     références à: commune
     priorité: 243
@@ -8248,6 +8524,7 @@ aides . villers-sur-mer:
     lien: https://www.villers-sur-mer.fr/fiche-information/mobilite/mobilite-douce/
 
 aides . pays de châteaugiron:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 277
@@ -8268,6 +8545,7 @@ aides . pays de châteaugiron:
 
 # NOTE: à vérifier en 2026
 aides . bièvre isère:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 279
@@ -8313,6 +8591,7 @@ aides . bièvre isère:
     dernière mise à jour: 20/02/2025
 
 aides . ceyrat:
+  public: oui
   remplace:
     références à: commune
     priorité: 245
@@ -8337,6 +8616,7 @@ aides . ceyrat:
 
 # NOTE: dépôt des demandes jusqu'au 31 octobre 2025, à vérifier en 2026
 aides . cébazat:
+  public: oui
   remplace:
     références à: commune
     priorité: 247
@@ -8370,6 +8650,7 @@ aides . cébazat:
     date de fin: 31/10/2025
 
 aides . baud:
+  public: oui
   remplace:
     références à: commune
     priorité: 249
@@ -8386,6 +8667,7 @@ aides . baud:
 
 # TODO: vérification en 2026
 aides . longuenesse:
+  public: oui
   remplace:
     références à: commune
     priorité: 251
@@ -8410,6 +8692,7 @@ aides . longuenesse:
 # NOTE: valide jusqu'au 1er octobre 2025 (dans la limite de l'enveloppe
 # budgétaire annuelle), à vérifier en 2025.
 aides . saulieu:
+  public: oui
   remplace:
     références à: commune
     priorité: 253
@@ -8432,6 +8715,7 @@ aides . saulieu:
     date de fin: 01/10/2025
 
 aides . la côtière à montluel:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 281
@@ -8475,6 +8759,7 @@ aides . la côtière à montluel:
     derière mise à jour: 14/08/2025
 
 aides . pays orne moselle:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 283
@@ -8494,6 +8779,7 @@ aides . pays orne moselle:
 
 # NOTE: valide jusqu'au 1er décembre 2024, à vérifier en 2025
 aides . bram:
+  public: oui
   remplace:
     références à: commune
     priorité: 255
@@ -8542,6 +8828,7 @@ aides . bram:
     lien: https://www.villedebram.fr/actualite/une-aide-a-lachat-de-velos-pour-les-bramais/
 
 aides . region centre:
+  public: oui
   remplace:
     références à: région
     priorité: 13
@@ -8640,6 +8927,7 @@ aides . region centre:
     dernière mise à jour: 13/08/2025
 
 aides . region centre rémi zen:
+  public: oui
   remplace:
     références à: région
     priorité: 15
@@ -8687,6 +8975,7 @@ aides . region centre rémi zen:
     dernière mise à jour: 13/08/2025
 
 aides . cc portes eureliennes idf:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 285
@@ -8712,6 +9001,7 @@ aides . cc portes eureliennes idf:
 
 # TODO: à vérifier en 2026
 aides . perpignan métropole:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 287
@@ -8764,6 +9054,7 @@ aides . perpignan métropole:
 
 # TODO: à vérifier en 2026
 aides . fier et usses:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 289
@@ -8821,6 +9112,7 @@ aides . fier et usses:
     dernière mise à jour: 22/08/2025
 
 aides . pays de cruseilles:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 291
@@ -8899,6 +9191,7 @@ aides . pays de cruseilles:
     dernière mise à jour: 22/08/2025
 
 aides . val d'yerres val de seine:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 293
@@ -8932,6 +9225,7 @@ aides . val d'yerres val de seine:
     lien: https://www.vyvs.fr/lagglo-vous-aide-a-acheter-un-velo/
 
 aides . campagnes de l'artois:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 295
@@ -8981,13 +9275,14 @@ aides . campagnes de l'artois:
     date de fin: 31/12/2025
 
 aides . cévennes gangeoises et suménoises:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 297
   titre: Cévennes Gangeoises et Suménoises
   description: Aides à l'achat d'un vélo 2025.
   applicable si: localisation . epci = 'CC des Cévennes Gangeoises et Suménoises'
-  valeur: 30% * (vélo . prix - aides . département - aides . région - aides . état)
+  valeur: 30% * (vélo . prix) #- aides . département - aides . région - aides . état)
   plancher: 0€
   plafond:
     variations:
@@ -8999,6 +9294,7 @@ aides . cévennes gangeoises et suménoises:
     dernière mise à jour: 16/09/2025
 
 aides . montmorillon:
+  public: oui
   remplace:
     références à: commune
     priorité: 257
@@ -9029,6 +9325,7 @@ aides . montmorillon:
     lien: https://www.montmorillon.fr/plan-velo/
 
 aides . monaco:
+  public: oui
   remplace:
     références à: commune
     priorité: 259
@@ -9045,6 +9342,7 @@ aides . monaco:
     lien: https://www.gouv.mc/Action-Gouvernementale/L-Environnement/Une-mobilite-plus-douce/Dispositif-de-subventions-des-vehicules-electriques-et-hybrides
 
 aides . luxembourg:
+  public: oui
   remplace: état
   titre: Luxembourg
   description: >
@@ -9061,6 +9359,7 @@ aides . luxembourg:
     lien: https://guichet.public.lu/fr/citoyens/transport/transports-individuels/aides-financieres/deduction-mobilite-durable-velo.html
 
 aides . grand besançon:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 299
@@ -9089,6 +9388,7 @@ aides . grand besançon:
 
 # TODO: à vérifier en 2026
 aides . haut vallespir:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 301
@@ -9109,6 +9409,7 @@ aides . haut vallespir:
     dernière mise à jour: 16/09/2025
 
 aides . val de drôme:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 303
@@ -9147,6 +9448,7 @@ aides . val de drôme:
 
 # TODO: à vérifier en 2026
 aides . cacl:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 305
@@ -9175,6 +9477,7 @@ aides . cacl:
     dernière mise à jour: 16/09/2025
 
 aides . crestois et pays de saillans:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 307
@@ -9215,6 +9518,7 @@ aides . crestois et pays de saillans:
 
 # TODO: à mettre à jour en 2026
 aides . binic etables sur mer:
+  public: oui
   remplace:
     références à: commune
     priorité: 261
@@ -9239,6 +9543,7 @@ aides . binic etables sur mer:
     dernière mise à jour: 20/02/2025
 
 aides . creusot-montceau:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 309
@@ -9314,6 +9619,7 @@ aides . creusot-montceau:
 
 # NOTE: lien mort au 08/10/2024
 aides . sisteronais-buëch:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 311
@@ -9338,6 +9644,7 @@ aides . sisteronais-buëch:
     dernière mise à jour: 14/08/2025
 
 aides . commune barcelonette:
+  public: oui
   remplace:
     références à: commune
     priorité: 263
@@ -9357,6 +9664,7 @@ aides . commune barcelonette:
     date de fin: 31/12/2025
 
 aides . commune gap:
+  public: oui
   remplace:
     références à: commune
     priorité: 265
@@ -9388,6 +9696,7 @@ aides . commune gap:
     date de fin: 31/10/2025
 
 aides . territoire de l'ouest:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 313
@@ -9414,6 +9723,7 @@ aides . territoire de l'ouest:
     lien: https://www.tco.re/vae-du-territoire-de-louest
 
 aides . cc sept vallées:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 315
@@ -9452,6 +9762,7 @@ aides . cc sept vallées:
     dernière mise à jour: 12/09/2025
 
 aides . villiers-en-bière:
+  public: oui
   remplace:
     références à: commune
     priorité: 267
@@ -9477,6 +9788,7 @@ aides . villiers-en-bière:
     lien: https://www.mairievilliersenbiere.fr/aide-a-lacquisition-de-velos
 
 aides . cc arc sud bretagne:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 317
@@ -9500,6 +9812,7 @@ aides . cc arc sud bretagne:
 
 # TODO: à vérifier en 2026
 aides . laon:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 319
@@ -9528,6 +9841,7 @@ aides . laon:
     date de fin: 31/12/2025
 
 aides . cc pévèle carembault:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 321
@@ -9563,6 +9877,7 @@ aides . cc pévèle carembault:
 # pour 2025 disponible en ligne) mais la page d'information n'a pas encore été
 # mise à jour.
 aides . cc les portes briardes:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 323
@@ -9597,6 +9912,7 @@ aides . cc les portes briardes:
     dernière mise à jour: 10/04/2025
 
 aides . cc pays des sorgues:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 325
@@ -9618,6 +9934,7 @@ aides . cc pays des sorgues:
     dernière mise à jour: 14/08/2025
 
 aides . cc val parisis:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 327
@@ -9645,6 +9962,7 @@ aides . cc val parisis:
     lien: https://valparisis.fr/aide-achat-velo
 
 aides . dlvagglo:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 329
@@ -9670,6 +9988,7 @@ aides . dlvagglo:
     dernière mise à jour: 20/02/2025
 
 aides . charenton-le-pont:
+  public: oui
   remplace:
     références à: commune
     priorité: 269
@@ -9688,6 +10007,7 @@ aides . charenton-le-pont:
     lien: https://www.charenton.fr/velo/velo_pass-velo
 
 aides . vaucresson:
+  public: oui
   remplace:
     références à: commune
     priorité: 271
@@ -9705,6 +10025,7 @@ aides . vaucresson:
     lien: https://www.vaucresson.fr/mon-cadre-de-vie/mobilite/velos-electriques
 
 aides . cu arras:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 331
@@ -9725,6 +10046,7 @@ aides . cu arras:
 
 # TODO: à vérifier en 2026
 aides . cc sud artois:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 333
@@ -9751,6 +10073,7 @@ aides . cc sud artois:
     dernière mise à jour: 12/09/2025
 
 aides . st2b:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 335
@@ -9775,6 +10098,7 @@ aides . st2b:
 
 # TODO: à vérifier en 2026
 aides . cc ouest vosgien:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 337
@@ -9796,6 +10120,7 @@ aides . cc ouest vosgien:
 
 # NOTE: valide jusqu'au 31/12/2026
 aides . cc pays haut val d'alzette:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 339
@@ -9815,6 +10140,7 @@ aides . cc pays haut val d'alzette:
     lien: https://www.ccphva.com/VAE
 
 aides . cc cattenom et environs:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 341
@@ -9856,6 +10182,7 @@ aides . cc cattenom et environs:
 
 # NOTE: référencée à nouveau en avril 2025 sur le site de la commune
 aides . camon:
+  public: oui
   remplace:
     références à: commune
     priorité: 273
@@ -9888,6 +10215,7 @@ aides . camon:
 
 # NOTE: aide renouvellée en 2025.
 aides . bidart:
+  public: oui
   remplace:
     références à: commune
     priorité: 275
@@ -9942,6 +10270,7 @@ aides . bidart:
 
 # NOTE: aide renouvellée en 2025.
 aides . herouville:
+  public: oui
   remplace:
     références à: commune
     priorité: 277
@@ -9967,6 +10296,7 @@ aides . herouville:
 
 # NOTE: aide renouvellée en 2025.
 aides . pays de mormal:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 343
@@ -10013,6 +10343,7 @@ aides . pays de mormal:
 
 # NOTE: aide renouvellée en 2025.
 aides . trébeurden:
+  public: oui
   remplace:
     références à: commune
     priorité: 279
@@ -10036,6 +10367,7 @@ aides . trébeurden:
 
 # NOTE: aide renouvellée en 2025.
 aides . saint-lô:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 345
@@ -10077,6 +10409,7 @@ aides . saint-lô:
 
 # NOTE: aide relancée en 2025.
 aides . rueil-malmaison:
+  public: oui
   remplace:
     références à: commune
     priorité: 281
@@ -10110,6 +10443,7 @@ aides . rueil-malmaison:
 
 # NOTE: aide relancée en 2025
 aides . colmar:
+  public: oui
   remplace:
     références à: commune
     priorité: 283
@@ -10141,6 +10475,7 @@ aides . colmar:
 
 # NOTE: nouvelle aide ajoutée (présente dans le listing des aides vélos d'Aides Jeunes)
 aides . vauvert:
+  public: oui
   remplace:
     références à: commune
     priorité: 285
@@ -10163,6 +10498,7 @@ aides . vauvert:
 
 # NOTE: nouvelle aide ajoutée (présente dans le listing des aides vélos d'Aides Jeunes)
 aides . tarbes-lourdes-pyrénées:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 347
@@ -10190,6 +10526,7 @@ aides . tarbes-lourdes-pyrénées:
     date de fin: 31/12/2025
 
 aides . elbeuf-sur-seine:
+  public: oui
   remplace:
     références à: commune
     priorité: 287
@@ -10209,6 +10546,7 @@ aides . elbeuf-sur-seine:
 
 # NOTE: formulaire de 2024, à vérifier si c'est toujour d'actualité
 aides . cc kreiz breizh:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 349
@@ -10233,6 +10571,7 @@ aides . cc kreiz breizh:
     date de fin: 31/12/2026
 
 aides . metropole-rouen-normandie:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 351
@@ -10291,6 +10630,7 @@ aides . metropole-rouen-normandie:
     date de fin: 31/12/2026
 
 aides . petit-quevilly:
+  public: oui
   remplace:
     références à: commune
     priorité: 289
@@ -10317,6 +10657,7 @@ aides . petit-quevilly:
     dernière mise à jour: 01/07/2025
 
 aides . bassin-pompey:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 353
@@ -10365,6 +10706,8 @@ aides . bassin-pompey:
             - sinon: 45 €
   avec:
     plafond de ressources:
+      # NOTE: seulement utilisé pour les tests, à voir ce que l'on souhaite en faire.
+      public: oui
       valeur:
         variations:
           - si: foyer . personnes = 1
@@ -10387,6 +10730,7 @@ aides . bassin-pompey:
     dernière mise à jour: 11/07/2025
 
 aides . cc terre d'eau:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 355
@@ -10409,6 +10753,7 @@ aides . cc terre d'eau:
     dernière mise à jour: 11/07/2025
 
 aides . ville lodève:
+  public: oui
   remplace:
     références à: commune
     priorité: 291
@@ -10427,6 +10772,7 @@ aides . ville lodève:
     dernière mise à jour: 11/07/2025
 
 aides . cc coeur-de-savoie:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 357
@@ -10482,6 +10828,7 @@ aides . cc coeur-de-savoie:
     date de fin: 31/03/2026
 
 aides . cc forcalquier lure:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 359
@@ -10504,6 +10851,7 @@ aides . cc forcalquier lure:
 
 # TODO: à vérifier en 2026
 aides . carmausin-ségala:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 361
@@ -10535,6 +10883,7 @@ aides . carmausin-ségala:
 
 # TODO: à vérifier en 2026
 aides . béthune bruay:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 363
@@ -10570,6 +10919,7 @@ aides . béthune bruay:
 
 # TODO: à vérifier en 2026
 aides . agglo bocage bressuirais:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 365
@@ -10600,6 +10950,7 @@ aides . agglo bocage bressuirais:
 
 # TODO: à vérifier en 2026
 aides . marignier:
+  public: oui
   remplace:
     références à: commune
     priorité: 293
@@ -10624,6 +10975,7 @@ aides . marignier:
 
 # TODO: à vérifier en 2026
 aides . courbevoie:
+  public: oui
   remplace:
     références à: commune
     priorité: 295
@@ -10650,6 +11002,7 @@ aides . courbevoie:
 
 # TODO: à vérifier en 2026
 aides . loue lison:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 367
@@ -10671,6 +11024,7 @@ aides . loue lison:
 
 # NOTE: confirmation par mail le 12/09/2025 que l'aide est toujours en vigueur en 2025
 aides . pays de fénelon:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 369
@@ -10689,6 +11043,7 @@ aides . pays de fénelon:
 
 # TODO: à vérifier en 2026, confirmation par mail le 12/09/2025 que l'aide est toujours en vigueur en 2025
 aides . tour du pin:
+  public: oui
   remplace:
     références à: commune
     priorité: 297
@@ -10711,6 +11066,7 @@ aides . tour du pin:
 # TODO: à vérifier en 2026
 # NOTE: confirmation par mail le 12/09/2025 que l'aide est toujours en vigueur en 2025
 aides . bassin d'aubenas:
+  public: oui
   remplace:
     références à: intercommunalité
     priorité: 371

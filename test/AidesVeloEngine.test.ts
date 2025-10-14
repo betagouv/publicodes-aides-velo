@@ -107,7 +107,7 @@ describe("AidesVeloEngine", () => {
      * user to check if the description is defined before using it allowing us
      * to remove the constraint in the future if needed without breaking the API.
      */
-    it("should have a description", function () {
+    it("should have a description", function() {
       const engine = globalTestEngine.shallowCopy();
       const countries: Array<Localisation["country"]> = [
         "france",
@@ -121,11 +121,11 @@ describe("AidesVeloEngine", () => {
           expect(aide.description).toBeDefined();
           expect(
             typeof aide.description,
-            `Description should be a string for benefit: ${aide.title} (${country})`
+            `Description should be a string for benefit: ${aide.title} (${country})`,
           ).toBe("string");
           expect(
             aide.description?.length,
-            `Description cannot be empty for benefit: ${aide.title} (${country})`
+            `Description cannot be empty for benefit: ${aide.title} (${country})`,
           ).toBeGreaterThan(0);
           const innerText = aide.description
             ?.replace(/<\/?[^>]+>/gi, "")
@@ -133,11 +133,11 @@ describe("AidesVeloEngine", () => {
             .trim();
           expect(
             innerText?.length,
-            `Description must be at least 10 characters for benefit: ${aide.title} (${country})`
+            `Description must be at least 10 characters for benefit: ${aide.title} (${country})`,
           ).toBeGreaterThanOrEqual(10);
           if (innerText?.length! > 420) {
             console.warn(
-              `Description text length (${innerText?.length}) exceeds maximum allowed length of 420 characters for benefit: ${aide.title} (${country})`
+              `Description text length (${innerText?.length}) exceeds maximum allowed length of 420 characters for benefit: ${aide.title} (${country})`,
             );
           }
         });
@@ -391,7 +391,7 @@ describe("AidesVeloEngine", () => {
 function contain(
   aides: Aide[],
   id: AideRuleNames,
-  fn?: (aide: Aide) => boolean | undefined
+  fn?: (aide: Aide) => boolean | undefined,
 ): boolean {
   return aides.some((aide) => aide.id === id && (!fn || fn(aide) === true));
 }

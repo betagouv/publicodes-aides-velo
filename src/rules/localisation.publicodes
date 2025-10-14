@@ -1,3 +1,14 @@
+# importer!:
+#   depuis:
+#     nom: "@betagouv/publicodes-decoupage-administratif"
+#     url: https://github.com/betagouv/publicodes-decoupage-administratif
+#   dans: localisation
+#   les règles:
+#     - commune . code
+#     - epci . nom
+#     - département . code
+#     - région . code
+#
 localisation:
   titre: Paramètres de localisation
   description: >
@@ -16,6 +27,7 @@ localisation:
 localisation . code insee:
   type: texte
   titre: Code INSEE
+  par défaut: ""
   note: >
     Voir [Code officiel
     géographique](https://fr.wikipedia.org/wiki/Code_officiel_g%C3%A9ographique)
@@ -25,6 +37,7 @@ localisation . code insee:
 localisation . epci:
   type: texte
   titre: Etablissement public de coopération intercommunale (EPCI)
+  par défaut: ""
   description: >
     ### Définition
 
@@ -47,12 +60,14 @@ localisation . epci:
 localisation . département:
   type: texte
   titre: Code du département
+  par défaut: ""
   meta:
     question: Quel est le code de votre département ?
 
 localisation . région:
   type: texte
   titre: Code de la région
+  par défaut: ""
   meta:
     question: Quel est le code de votre région ?
 

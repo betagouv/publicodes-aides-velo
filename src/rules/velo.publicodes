@@ -125,10 +125,20 @@ vélo . taux TVA:
     - sinon: 20%
 
 vélo . prix . HT:
-  valeur: prix / (1 + taux TVA)
+  valeur: prix / (100% + taux TVA)
 
+# TODO: le remplacement devrait être fait au niveau de chacune des aides
 vélo . prix pour maximiser les aides:
   variations:
+    - si: localisation . epci = "CA Mauges Communauté"
+      alors: 
+        variations:
+          - si: vélo . état . occasion
+            alors: 
+              variations:
+                - si: vélo . cargo
+                  alors: 1000 €
+                - sinon: 300 €
     - si: localisation . epci = 'CU Perpignan Méditerranée Métropole'
       alors:
         variations:

@@ -1,13 +1,8 @@
-import { PublicodesEngine } from "@publicodes/runtime";
-import type { Outputs, Publicodes } from "@publicodes/runtime";
-import rules from "../../model.publicodes.json";
+// import { PublicodesEngine } from "@publicodes/runtime";
+// import type { Outputs, Publicodes } from "@publicodes/runtime";
+import PublicodesVelo from "model.publicodes.js";
 import { Questions, RuleName, Situation } from "../../publicodes-build";
-import {
-  AideRuleNames,
-  aidesAvecLocalisation,
-  Localisation,
-  miniatures,
-} from "../data";
+import { AideRuleNames, aidesAvecLocalisation, Localisation, miniatures } from "../data";
 import { extractOptions } from "./utils";
 
 /**
@@ -44,7 +39,7 @@ export type Aide = {
 };
 
 const aidesAvecLocalisationEntries = Object.entries(
-  aidesAvecLocalisation
+  aidesAvecLocalisation,
 ) as readonly [AideRuleNames, Localisation][];
 
 /**
@@ -84,7 +79,7 @@ export class AidesVeloEngine {
    * format. For example, boolean values are represented as `true` or `false`
    * instead of `oui` or `non` and the values are not wrapped in single quotes.
    */
-  public setInputs(inputs: Questions): this {
+  public setInputs(inputs: Inputs): this {
     this.inputs = inputs;
     // this.engine.setSituation(
     //   formatInputs(inputs) as PublicodesSituation<RuleName>
@@ -117,7 +112,7 @@ export class AidesVeloEngine {
    * aids.
    */
   public getAllAidesIn(
-    country: Localisation["country"] = "france"
+    country: Localisation["country"] = "france",
   ): Omit<Aide, "amount">[] {
     return aidesAvecLocalisationEntries
       .filter(([, { country: aideCountry }]) => aideCountry === country)
@@ -137,7 +132,7 @@ export class AidesVeloEngine {
           collectivity,
           logo: miniatures[ruleName],
           lastUpdate: parsePublicodesDate(
-            rule.rawNode["dernière mise à jour"] as string
+            rule.rawNode["dernière mise à jour"] as string,
           ),
           endDate: parsePublicodesDate(rule.rawNode["date de fin"] as string),
         };
@@ -151,8 +146,8 @@ export class AidesVeloEngine {
    */
   public computeAides(): Aide[] {
     return this.getAllAidesIn(
-      (this.inputs["localisation . pays"]?.toLowerCase() ??
-        "france") as Localisation["country"]
+      (this.inputs["localisation . pays"]?.toLowerCase()
+        ?? "france") as Localisation["country"],
     ).flatMap((metadata) => {
       const ruleName = metadata.id;
       const { nodeValue } = this.engine.evaluate({
@@ -167,7 +162,7 @@ export class AidesVeloEngine {
             description: this.formatDescription({
               ruleName,
               veloCat: this.engine.evaluate("vélo . type")
-                .nodeValue as Questions["vélo . type"],
+                .nodeValue as Inputs["vélo . type"],
               ville: "votre ville",
             }),
             amount: nodeValue,
@@ -208,9 +203,7 @@ export class AidesVeloEngine {
    * @returns The list of options or `undefined` if the question doesn't have
    * any.
    */
-  public getOptions<T extends keyof Questions>(
-    name: T
-  ): Questions[T][] | undefined {
+  public getOptions<T extends keyof Inputs>(name: T): Inputs[T][] | undefined {
     return extractOptions(this.engine.getRule(name));
   }
 
@@ -235,14 +228,14 @@ export class AidesVeloEngine {
     ville,
   }: {
     ruleName: RuleName;
-    veloCat: Questions["vélo . type"];
+    veloCat: Inputs["vélo . type"];
     ville: string;
   }) {
     const { rawNode } = this.engine.getRule(ruleName);
     const description = rawNode?.description ?? "";
     const plafondRuleName = `${ruleName} . $plafond`;
     const plafondIsDefined = Object.keys(this.engine.getParsedRules()).includes(
-      plafondRuleName
+      plafondRuleName,
     );
     const plafond = plafondIsDefined && this.engine.evaluate(plafondRuleName);
     return (
@@ -250,12 +243,12 @@ export class AidesVeloEngine {
         // NOTE: no longer used, should be removed
         .replace(
           /\$vélo/g,
-          veloCat === "motorisation" ? "kit de motorisation" : `vélo ${veloCat}`
+          veloCat === "motorisation" ? "kit de motorisation" : `vélo ${veloCat}`,
         )
         .replace(
           /\$plafond/,
           // @ts-ignore
-          formatValue(plafond?.nodeValue, { displayedUnit: "€" })
+          formatValue(plafond?.nodeValue, { displayedUnit: "€" }),
         )
         // NOTE:only used in the ZFE related rules
         .replace(/\$ville/, ville)
@@ -263,7 +256,7 @@ export class AidesVeloEngine {
   }
 }
 
-function formatInputs(inputs: Questions): Partial<Situation> {
+function formatInputs(inputs: Inputs): Partial<Situation> {
   const entries = Object.entries(inputs);
 
   const transformedEntries = entries
@@ -295,7 +288,7 @@ const epciSirenToName = Object.fromEntries(
       return [];
     }
     return [[(collectivity as any).code, collectivity.value]];
-  })
+  }),
 );
 
 function parsePublicodesDate(date: string | undefined): Date | undefined {
