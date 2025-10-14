@@ -1,5 +1,19 @@
 # @betagouv/aides-velo
 
+## 3.4.0
+
+### Minor Changes
+
+- Suppression - Département de l'Oise ([#77](https://github.com/betagouv/publicodes-aides-velo/pull/77))
+
+- Technique - Vérification automatique des dates limites des aides toutes les semaines ([#78](https://github.com/betagouv/publicodes-aides-velo/pull/78))
+
+### Patch Changes
+
+- Maj - Ville de Wambrechies ([#77](https://github.com/betagouv/publicodes-aides-velo/pull/77))
+
+- Maj - Ville de Hem ([#77](https://github.com/betagouv/publicodes-aides-velo/pull/77))
+
 ## 3.3.0
 
 > PR liée : [#74](https://github.com/betagouv/publicodes-aides-velo/pull/74) par @EmileRolley
