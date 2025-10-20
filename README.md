@@ -11,12 +11,6 @@ France.
 > rapatrié dans l'organisation @betagouv pour faciliter sa maintenance et son
 > évolution.
 
-> [!WARNING]
-> Ce modèle est en cours de développement et n'est pas encore complet. L'API
-> d'utilisation est susceptible d'évoluer, veuillez en tenir compte lors de
-> l'utilisation de ce paquet. (N'hésitez pas à ouvrir une issue si vous avez
-> des suggestions ou des retours à faire).
-
 L'état de la couverture des aides par région est disponible dans `./couverture/`.
 
 ## Installation
