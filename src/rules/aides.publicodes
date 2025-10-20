@@ -5302,24 +5302,23 @@ aides . ca mauges communauté:
           - vélo . motorisation
   valeur:
     variations:
-      - si: vélo . cargo
+      - si: vélo . cargo électrique
         alors:
-          variations: 
+          variations:
             - si:
-                toutes ces conditions:
-                  - vélo . cargo
-                  - une de ces conditions:
-                      - vélo . état . neuf
-                      - vélo . prix >= 1000 €
+                une de ces conditions:
+                  - vélo . état . neuf
+                  - vélo . prix >= 1000 €
               alors: 350 €
       - si:
           une de ces conditions:
-            - vélo . motorisation
-            - vélo . état . neuf
             - vélo . prix >= 300 €
+            - toutes ces conditions:
+                - vélo . état . neuf
+                - vélo . motorisation = non
         alors: 100 €
   lien: https://www.mooj.fr/mobilites-alternatives/modes-actifs/vae-aide-achat/
-  dernière mise à jour: 22/08/2025
+  dernière mise à jour: 20/10/2025
 
 # NOTE: valide jusqu'au 31 octobre 2025, à vérifier en 2026
 aides . cholet:
