@@ -1,5 +1,26 @@
 # @betagouv/aides-velo
 
+## 3.4.0
+
+> PR liées : [#77](https://github.com/betagouv/publicodes-aides-velo/pull/77), [#78](https://github.com/betagouv/publicodes-aides-velo/pull/78) et [#80](https://github.com/betagouv/publicodes-aides-velo/pull/80) par @EmileRolley
+
+Mise à jour d'octobre 2025.
+
+### Aides supprimées
+
+- Communauté Urbaine Creusot-Montceau ([#80](https://github.com/betagouv/publicodes-aides-velo/pull/80))
+- Département de l'Oise ([#77](https://github.com/betagouv/publicodes-aides-velo/pull/77))
+
+### Aides mises à jour
+
+- CA Mauges Communauté ([#80](https://github.com/betagouv/publicodes-aides-velo/pull/80))
+- Ville de Hem ([#77](https://github.com/betagouv/publicodes-aides-velo/pull/77))
+- Ville de Wambrechies ([#77](https://github.com/betagouv/publicodes-aides-velo/pull/77))
+
+### Technique
+
+- Vérification automatique des dates limites des aides toutes les semaines ([#78](https://github.com/betagouv/publicodes-aides-velo/pull/78))
+
 ## 3.3.0
 
 > PR liée : [#74](https://github.com/betagouv/publicodes-aides-velo/pull/74) par @EmileRolley
