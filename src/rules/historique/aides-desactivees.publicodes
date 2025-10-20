@@ -1604,3 +1604,76 @@ aides . oise:
         à partir depuis le 1er juillet 2023 ?
       par défaut: non
 
+# TODO: à vérifier en 2026
+# NOTE: lien plus à jour. Demande d'info par mail envoyé le 14/10/2025
+# - budget écoulé, mais redemande de confirmation si l'aide sera reconduite
+aides . creusot-montceau:
+  remplace: intercommunalité
+  titre: Communauté Urbaine Creusot-Montceau
+  description: >
+    Aide financière à l'acquisition de vélos traditionnels, de vélos à
+    assistance électrique ou de kits d'électrification de vélos.
+
+
+    L'aide est exclusivement réservée aux personnes dont la résidence
+    principale et le lieu de travail ou de scolarisation se situent sur l'une
+    des 34 communes membres de la Communauté Urbaine Creusot-Montceau.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CU Le Creusot Montceau-les-Mines'
+      - revenu fiscal de référence par part <= 2314 €/mois
+      - une de ces conditions:
+          - vélo . électrique ou mécanique
+          - vélo . motorisation
+          - vélo . adapté
+  valeur: 50% * vélo . prix
+  plafond:
+    variations:
+      - si: 
+          toutes ces conditions:
+            - demandeur . âge <= 14 an
+            - demandeur . statut . étudiant
+            - vélo . mécanique simple
+        alors: 100€
+      - si: 
+          toutes ces conditions:
+            - demandeur . âge > 14 an
+            - demandeur . statut . étudiant
+        alors:
+          variations:
+            - si: vélo . mécanique simple
+              alors: 150€
+            - si: vélo . électrique simple
+              alors: 300€
+            - si: vélo . motorisation
+              alors: 350€
+            - sinon: 0€
+      - si: 
+          une de ces conditions:
+            - demandeur . statut . salarié
+            - demandeur . statut . retraité
+            - demandeur . statut . reconversion
+        alors:
+          variations:
+            - si:
+                une de ces conditions: 
+                  - vélo . cargo électrique
+                  - vélo . pliant électrique
+                  - vélo . adapté # TODO: faire la distinction entre électrique et mécanique
+              alors: 1500€
+            - si:
+                une de ces conditions: 
+                  - vélo . cargo 
+                  - vélo . pliant
+                  - vélo . adapté
+              alors: 1000€
+            - si: vélo . électrique
+              alors: 300€
+            - si: vélo . mécanique
+              alors: 150€
+            - si: vélo . motorisation
+              alors: 350€
+            - sinon: 0€
+      - sinon: 0€
+  lien: https://www.creusot-montceau.org/actualite/la-communaute-urbaine-vous-aide-financierement-pour-lacquisition-dun-velo
+  dernière mise à jour: 20/10/2025
