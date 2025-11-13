@@ -4354,6 +4354,44 @@ aides . limoges metropole:
   lien: https://www.limoges-metropole.fr/informations-transversales/actualites/laide-a-lachat-de-velo-repart-pour-un-tour-1991
   dernière mise à jour: 20/02/2025
 
+
+aides . lille:
+  remplace: commune
+  titre: Ville de Lille
+  description: >
+    Aide pour l'achat d'un vélo (électrique ou mécanique, neuf ou d'occasion) 
+    rattachée au foyer fiscal. Les Lillois et Lilloises âgés de 16 à 25 ans 
+    (ou moins de 30 ans dans les cas suivants : création d'entreprise ou de 
+    son propre emploi, personne en situation de handicap) et en recherche d'emploi 
+    peuvent en bénéficier en échange de 25 heures de bénévolat auprès d'une 
+    association lilloise.
+  applicable si:
+    toutes ces conditions:
+      - localisation . code insee = '59350'
+      - foyer . imposable = non
+      - vélo . électrique ou mécanique
+      - une de ces conditions:
+          - toutes ces conditions:
+              - demandeur . âge >= 16 an
+              - demandeur . âge <= 25 an
+              - une de ces conditions:
+                  - demandeur . statut . apprenti
+                  - demandeur . statut . reconversion
+                  - demandeur . statut . demandeur d'emploi
+          - toutes ces conditions:
+              - demandeur . âge >= 16 an
+              - demandeur . âge < 30 an
+              - une de ces conditions:
+                  - demandeur . statut . reconversion
+                  - demandeur . en situation de handicap
+  valeur: vélo . prix
+  plafond: 200€
+  note: >
+    Un complément de 100€ peut être accordé pour l'achat d'équipements de 
+    sécurité achetés en même temps que le vélo.
+  lien: https://www.lille.fr/Jeune2/Le-dispositif-d-aide-financiere-mobilite-douce
+  dernière mise à jour: 13/11/2025
+
 # NOTE: fin d'utilisation le 15 novembre 2025 mais probablement prolongée en 2026.
 aides . grand poitiers:
   remplace: intercommunalité
