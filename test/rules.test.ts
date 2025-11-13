@@ -2048,7 +2048,7 @@ describe("Aides Vélo", () => {
         "localisation . code insee": "'59350'",
         "foyer . imposable": "non",
         "demandeur . âge": 22,
-        "demandeur . statut . demandeur d'emploi": "'oui'",
+        "demandeur . statut": "'demandeur d'emploi'",
         "vélo . type": "'électrique'",
         "vélo . prix": 500,
       });
@@ -2073,7 +2073,7 @@ describe("Aides Vélo", () => {
         "localisation . code insee": "'59350'",
         "foyer . imposable": "non",
         "demandeur . âge": 29,
-        "demandeur . statut . reconversion": "'oui'",
+        "demandeur . statut": "'reconversion'",
         "vélo . type": "'mécanique simple'",
         "vélo . prix": 500,
       });
@@ -2086,7 +2086,7 @@ describe("Aides Vélo", () => {
         "localisation . code insee": "'59350'",
         "foyer . imposable": "non",
         "demandeur . âge": 29,
-        "demandeur . statut . reconversion": "'non'",
+        "demandeur . statut": "'autre'",
         "demandeur . en situation de handicap": "'oui'",
         "vélo . type": "'mécanique simple'",
         "vélo . prix": 180,
