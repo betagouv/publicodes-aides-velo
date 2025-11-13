@@ -2041,4 +2041,58 @@ describe("Aides Vélo", () => {
       );
     });
   });
+
+  describe("Ville de Lille", () => {
+    test("éligible standard — 22 ans, non imposable, demandeur d'emploi, vélo électrique", () => {
+      engine.setSituation({
+        "localisation . code insee": "'59350'",
+        "foyer . imposable": "non",
+        "demandeur . âge": 22,
+        "demandeur . statut . demandeur d'emploi": "'oui'",
+        "vélo . électrique": "'oui'",
+        "vélo . prix": 500,
+      });
+
+      expect(engine.evaluate("aides . lille").nodeValue).toEqual(200);
+    });
+
+    test("non éligible — âge supérieur à 25 ans sans reconversion ni handicap", () => {
+      engine.setSituation({
+        "localisation . code insee": "'59350'",
+        "foyer . imposable": "non",
+        "demandeur . âge": 26,
+        "vélo . mécanique": "'oui'",
+        "vélo . prix": 500,
+      });
+
+      expect(engine.evaluate("aides . lille").nodeValue).toBeNull();
+    });
+
+    test("éligible — reconversion jusqu’à 29 ans", () => {
+      engine.setSituation({
+        "localisation . code insee": "'59350'",
+        "foyer . imposable": "non",
+        "demandeur . âge": 29,
+        "demandeur . statut . reconversion": "'oui'",
+        "vélo . mécanique": "'oui'",
+        "vélo . prix": 500,
+      });
+
+      expect(engine.evaluate("aides . lille").nodeValue).toEqual(200);
+    });
+
+    test("éligible — en situation de handicap jusqu’à 29 ans", () => {
+      engine.setSituation({
+        "localisation . code insee": "'59350'",
+        "foyer . imposable": "non",
+        "demandeur . âge": 29,
+        "demandeur . statut . reconversion": "'non'",
+        "demandeur . en situation de handicap": "'oui'",
+        "vélo . mécanique": "'oui'",
+        "vélo . prix": 180,
+      });
+
+      expect(engine.evaluate("aides . lille").nodeValue).toEqual(180);
+    });
+  });
 });
