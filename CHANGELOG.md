@@ -1,5 +1,11 @@
 # @betagouv/aides-velo
 
+## 3.5.0
+
+### Minor Changes
+
+- Ajout - Ville de Lille (Mobilité Douce) ([#81](https://github.com/betagouv/publicodes-aides-velo/pull/81))
+
 ## 3.4.0
 
 > PR liées : [#77](https://github.com/betagouv/publicodes-aides-velo/pull/77), [#78](https://github.com/betagouv/publicodes-aides-velo/pull/78) et [#80](https://github.com/betagouv/publicodes-aides-velo/pull/80) par @EmileRolley
