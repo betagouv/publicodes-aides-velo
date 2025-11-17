@@ -4370,22 +4370,21 @@ aides . lille:
       - localisation . code insee = '59350'
       - foyer . imposable = non
       - vélo . électrique ou mécanique
+      - demandeur . âge >= 16 an
       - une de ces conditions:
           - toutes ces conditions:
-              - demandeur . âge >= 16 an
               - demandeur . âge <= 25 an
               - une de ces conditions:
                   - demandeur . statut . apprenti
                   - demandeur . statut . reconversion
                   - demandeur . statut . demandeur d'emploi
           - toutes ces conditions:
-              - demandeur . âge >= 16 an
               - demandeur . âge < 30 an
               - une de ces conditions:
                   - demandeur . statut . reconversion
                   - demandeur . en situation de handicap
   valeur: vélo . prix
-  plafond: 200€
+  plafond: 200 €
   note: >
     Un complément de 100€ peut être accordé pour l'achat d'équipements de 
     sécurité achetés en même temps que le vélo.
