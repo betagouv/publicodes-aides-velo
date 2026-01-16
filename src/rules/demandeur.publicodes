@@ -87,7 +87,7 @@ demandeur . statut:
 demandeur . âge:
   type: nombre
   question: Quel est votre âge ?
-  par défaut: 30
+  par défaut: 18
   unité: an
   note: >
     Il se pourrait que certaines règles soient conditionnées par l'âge du
