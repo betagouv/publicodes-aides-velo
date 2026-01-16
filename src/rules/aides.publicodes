@@ -369,7 +369,7 @@ aides . cc monts du pilat:
   dernière mise à jour: 22/08/2025
   date de fin: 31/12/2025
 
-# NOTE: à verifier en 2026
+# TODO: à verifier en 2026
 aides . lyon:
   remplace: intercommunalité
   titre: Métropole Grand Lyon
@@ -1307,8 +1307,8 @@ aides . strasbourg:
                   - vélo . électrique
                   - vélo . adapté
           - vélo . motorisation
-  valeur: 50% * vélo . prix
-  plafond:
+  plafond: 50% * vélo . prix
+  valeur:
     variations:
       - si:
           une de ces conditions:
@@ -1332,6 +1332,7 @@ aides . strasbourg:
         alors: 150€
       - sinon: 0€
   lien: https://www.strasbourg.eu/aides-achat
+  dernière mise à jour: 16/01/2026
 
 # NOTE : aide vérifiée le 10/04/2025. Renouvellée pour 2025 avec une nouvelle url.
 aides . entzheim:
@@ -1440,7 +1441,8 @@ aides . illkirch:
   description: >
     La Ville d'Illkirch-Graffenstaden s'engage à vos côtés en subventionnant
     jusqu'à 200€ votre achat de Vélo à Assistance électrique (VAE) neuf ou
-    d'occasion ou votre transformation de vélo en VAE.
+    d'occasion ou votre transformation de vélo en VAE. (Reconduction du
+    dispostif pour 2026 voté en décembre 2025 par le conseil municipal).
   applicable si:
     toutes ces conditions:
       - localisation . code insee = '67218'
@@ -1455,8 +1457,8 @@ aides . illkirch:
         alors: 100€
       - sinon: 200€
   lien: http://www.illkirch.eu/aide-a-lachat-dun-velo-a-assistance-electrique/
-  date de fin: 31/12/2025
-  dernière mise à jour: 16/09/2025
+  date de fin: 31/12/2026
+  dernière mise à jour: 16/01/2026
 
 aides . vendenheim:
   remplace: commune
@@ -9592,3 +9594,18 @@ aides . bassin d'aubenas:
   plafond: 200€
   lien: https://www.bassin-aubenas.fr/actualites/aide-a-lachat-dun-velo-a-assistance-electrique/
   dernière mise à jour: 12/09/2025
+
+aides . villeneuve lez avignon:
+  remplace: commune
+  titre: Villeneuve lez Avignon
+  description: >
+    Subvention de 100 € pour l’achat d’un vélo électrique et 200 € pour l’achat
+    d’un scooter électrique, acheté neuf, dans la limite de deux aides par
+    foyer.
+  applicable si:
+    toutes ces conditions:
+      - localisation . code insee = '30351'
+      - vélo . électrique
+  valeur: 100€
+  lien: https://www.villeneuvelezavignon.com/formulaires-en-ligne/subvention-vae-et-pieges-a-moustiques/
+  dernière mise à jour: 16/01/2026
