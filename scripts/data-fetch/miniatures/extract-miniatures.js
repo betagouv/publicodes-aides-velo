@@ -1,8 +1,8 @@
 import fs from "node:fs";
 import { join } from "node:path";
 import { URL } from "node:url";
-import { getDataPath } from "../../utils";
 import aidesAvecLocalisation from "../../../src/data/aides-collectivities.json" with { type: "json" };
+import { getDataPath } from "../../utils";
 import fallbackMiniatures from "./fallback-miniatures.json" with { type: "json" };
 
 const currentPath = new URL("./", import.meta.url).pathname;
@@ -10,8 +10,7 @@ const repoPath = join(currentPath, "aides-jeunes/");
 const rootPath = join(currentPath, "../../../");
 const metadataDirectory = join(repoPath, "data/institutions/");
 
-const RAW_GITHUB_URL =
-  "https://raw.githubusercontent.com/betagouv/aides-jeunes/refs/heads/main/public/";
+const RAW_GITHUB_URL = "https://raw.githubusercontent.com/betagouv/aides-jeunes/refs/heads/main/public/";
 
 if (!fs.existsSync(metadataDirectory)) {
   console.warn("Impossible de télécharger les miniatures");
@@ -30,31 +29,26 @@ fs.mkdirSync(miniatureDirectory, { recursive: true });
 
 const thumbnailsManifest = Object.entries(aidesAvecLocalisation).reduce(
   (acc, [id, aide]) => {
-    const aideId = `${aide.collectivity.kind} - ${
-      aide.collectivity.code ?? aide.collectivity.value
-    }`;
+    const aideId = `${aide.collectivity.kind} - ${aide.collectivity.code ?? aide.collectivity.value}`;
+    const fallbackImg = fallbackMiniatures[aideId];
+    if (fallbackImg) {
+      return { ...acc, [id]: fallbackImg };
+    }
 
     const img = imagesFromAidesJeunes[aideId];
-
     if (img) {
       return { ...acc, [id]: RAW_GITHUB_URL + img.imgSrc };
-    }
-    else {
-      const fallbackImg = fallbackMiniatures[aideId];
-      if (!fallbackImg) {
-        console.warn(`No image found for (${id}): ${aideId}`);
-        return acc;
-      }
-
-      return {...acc, [id]: fallbackImg};
+    } else {
+      console.warn(`No image found for (${id}): ${aideId}`);
+      return acc;
     }
   },
-  {}
+  {},
 );
 
 fs.writeFileSync(
   getDataPath("miniatures.json"),
-  JSON.stringify(thumbnailsManifest)
+  JSON.stringify(thumbnailsManifest),
 );
 
 /// Utils
@@ -68,7 +62,7 @@ function getImageFromAidesJeunes(metadataDirectory) {
       fileContent
         .split("\n")
         .map((line) => line.split(":").map((field) => field.trim()))
-        .filter(([key]) => fieldsToRetrieve.includes(key))
+        .filter(([key]) => fieldsToRetrieve.includes(key)),
     );
 
     return [imgKey(data), data];
