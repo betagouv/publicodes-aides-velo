@@ -77,6 +77,7 @@ describe("Aides Vélo", () => {
         "localisation . région": "'11'",
         "vélo . type": "'mécanique simple'",
         "vélo . prix": "1000€",
+        "demandeur . âge": "30 an",
       });
       expect(engine.evaluate("aides . ile de france").nodeValue).toEqual(0);
     });
