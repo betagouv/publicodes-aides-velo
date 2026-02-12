@@ -1108,34 +1108,31 @@ aides . pornic:
   remplace: intercommunalité
   titre: Pornic agglo Pays de Retz
   description: >
-    Pornic agglo Pays de Retz vous rembourse jusqu'à 400 € sur l'achat de votre
-    vélo mécanique ou électrique et jusqu'à 50 € pour la réparation d'un vélo.
-    Seules les factures de moins de 6 mois sont prises en compte (dans la limite
-    des crédits disponibles).
+    Pornic agglo Pays de Retz vous rembourse jusqu'à 1000 € sur l'achat de
+    votre vélo mécanique ou électrique et jusqu'à 50 € pour la réparation d'un
+    vélo. Seules les factures de moins de 6 mois sont prises en compte (dans la
+    limite des crédits disponibles).
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'CA Pornic Agglo Pays de Retz'
       - revenu fiscal de référence par part <= 1300 €/mois
   variations:
-    - si: 
-        une de ces conditions:
-          - vélo . cargo
-          - vélo . adapté
+    - si: vélo . motorisation
+      alors:
+        valeur: 50 €
+    - si: vélo . adapté
       alors:
         valeur: 40% * vélo . prix
-        plafond: 400 €
+        plafond: 1000 €
+    - si: vélo . cargo
+      alors:
+        valeur: 40% * vélo . prix
+        plafond: 600 €
     - sinon:
-        variations:
-          - si: revenu fiscal de référence par part <= 600 €/mois
-            alors:
-              valeur: 30% * vélo . prix
-              plafond: 300 €
-          - sinon:
-              valeur: 20% * vélo . prix
-              plafond: 200 €
-    - sinon: 0 €
+        valeur: 30% * vélo . prix
+        plafond: 300 €
   lien: https://www.pornicagglo.fr/mobilites/mobilites-douces/velo-aide-a-lachat-et-a-la-reparation
-  dernière mise à jour: 02/07/2025
+  dernière mise à jour: 12/02/2026
 
 aides . toulouse:
   remplace: intercommunalité
