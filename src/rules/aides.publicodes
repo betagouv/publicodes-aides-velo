@@ -2391,7 +2391,7 @@ aides . sorgues du comtat:
   lien: https://www.sorgues.fr/vivre/demarches/prime-velo.htm
   dernière mise à jour: 14/08/2025
 
-# NOTE: informations pour 2024, à vérifier en 2025
+# NOTE: informations pour 2026, à vérifier en 2027
 aides . grand périgueux:
   remplace: intercommunalité
   titre: Grand Périgueux
@@ -2423,7 +2423,8 @@ aides . grand périgueux:
             - si: vélo . mécanique
               alors: 50€
   plafond: 50% * vélo . prix
-  lien: https://www.grandperigueux.fr/au-quotidien/deplacements/velo/aides-a-lachat-velo
+  lien: https://www.grandperigueux.fr/mon-quotidien/transports-mobilite/se-deplacer-a-velo/aide-a-lachat/
+  dernière mise à jour: 12/02/2026
 
 # NOTE :Appel à la mairie de Sarlat le 10/04/2025. 
 # L'aide existe toujours. 
