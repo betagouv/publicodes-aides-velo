@@ -9085,6 +9085,7 @@ aides . vauvert:
   date de fin: 31/12/2025
 
 # NOTE: nouvelle aide ajoutée (présente dans le listing des aides vélos d'Aides Jeunes)
+# - 12/02/2026 : pas de date de fin trouvée
 aides . tarbes-lourdes-pyrénées:
   remplace: intercommunalité
   titre: Communauté d'agglomération Tarbes-Lourdes-Pyrénées
@@ -9105,8 +9106,8 @@ aides . tarbes-lourdes-pyrénées:
               - vélo . prix <= 2000€
   valeur: 200€
   lien: "https://www.agglo-tlp.fr/page/le-velo-et-lagglo#:~:text=L'aide%20de%20200%E2%82%AC%20est%20ouverte%20%C3%A0%20tous%20les%20habitants"
-  dernière mise à jour: 29/04/2025
-  date de fin: 31/12/2025
+  dernière mise à jour: 12/02/2026
+  # date de fin: 31/12/2025
 
 aides . elbeuf-sur-seine:
   remplace: commune
@@ -9392,6 +9393,7 @@ aides . cc forcalquier lure:
   dernière mise à jour: 21/08/2025
 
 # TODO: à vérifier en 2026
+# - 12/02/2026 : contacté par mail
 aides . carmausin-ségala:
   remplace: intercommunalité
   titre: Communauté de communes du Carmausin-Ségala
@@ -9420,6 +9422,7 @@ aides . carmausin-ségala:
   dernière mise à jour: 12/09/2025
 
 # TODO: à vérifier en 2026
+# au 12/02/2026 : toujours référencée sur le site
 aides . béthune bruay:
   remplace: intercommunalité
   titre: Communauté d'Agglomération de Béthune-Bruay, Artois-Lys Romane
@@ -9478,7 +9481,9 @@ aides . agglo bocage bressuirais:
   lien: https://www.agglo2b.fr/transports-mobilite/1027-aide-a-l-achat-d-un-velo
   dernière mise à jour: 12/09/2025
 
-# TODO: à vérifier en 2026
+# TODO: à vérifier en 2026 
+# - au 12/02/2026 : toujours référencée sur le site mais toujours avec une
+# convention se terminant le 31/12/2025
 aides . marignier:
   remplace: commune
   titre: Ville de Marignier
