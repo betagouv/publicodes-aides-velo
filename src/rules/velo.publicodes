@@ -227,4 +227,9 @@ vélo . prix pour maximiser les aides:
       alors: 3000 €
     - si: localisation . epci = 'CA Annemasse-Les Voirons-Agglomération'
       alors: 4500 €
+    - si:
+        toutes ces conditions:
+          - localisation . epci = "CC du Pays de l'Arbresle (CCPA)"
+          - vélo . électrique
+      alors: 3000 €
     - sinon: 5000 €
