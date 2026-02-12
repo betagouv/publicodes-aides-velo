@@ -179,7 +179,6 @@ vélo . prix pour maximiser les aides:
         une de ces conditions:
           - localisation . epci = 'CA du Grand Annecy'
           - localisation . epci = 'CA Luberon Monts de Vaucluse'
-          - localisation . epci = 'CA Tarbes-Lourdes-Pyrénées'
           - localisation . epci = 'CC Saint-Marcellin Vercors Isère Communauté'
           - localisation . epci = 'CC Le Grésivaudan'
       alors: 1000 €
@@ -232,4 +231,9 @@ vélo . prix pour maximiser les aides:
           - localisation . epci = "CC du Pays de l'Arbresle (CCPA)"
           - vélo . électrique
       alors: 3000 €
+    - si:
+        toutes ces conditions:
+          - localisation . epci = "CA Tarbes-Lourdes-Pyrénées"
+          - vélo . électrique simple
+      alors: 2000 €
     - sinon: 5000 €
