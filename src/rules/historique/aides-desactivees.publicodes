@@ -216,30 +216,6 @@ aides . haut-poitou:
   lien: https://cc-hautpoitou.fr/amenagement-territoire/developpement-durable/mobilite-3/
   dernière mise à jour: 12/09/2025
 
-# TODO: à vérifier en 2026
-# https://www.grand-chatellerault.fr/vivre/demande-aide-velo-electrique
-aides . châtellrault:
-  remplace: intercommunalité
-  titre: Ville de Châtellerault
-  applicable si:
-    toutes ces conditions:
-      - localisation . epci = 'CA Grand Châtellerault'
-      - vélo . électrique
-  valeur:
-    variations:
-      - si: ancien abonné vélibleu
-        alors: 300€
-      - sinon: 200€
-  lien: https://www.ville-chatellerault.fr/a-votre-service/deplacements/aide-%C3%A0-l-achat-de-v%C3%A9lo
-  dernière mise à jour: 16/01/2026
-  avec:
-    ancien abonné vélibleu:
-      type: booléen
-      question:
-        Êtes-vous un ancien abonné Vélibleu d'au moins 6 mois avant le 31
-        décembre 2021 ?
-      par défaut: non
-
 # NOTE: ne semble plus d'actualité
 aides . saint-jean-de-védas:
   remplace: commune

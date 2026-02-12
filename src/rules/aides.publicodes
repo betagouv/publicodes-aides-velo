@@ -7214,7 +7214,7 @@ aides . witry-lès-reims:
 
 aides . golf de saint-tropez:
   remplace: intercommunalité
-  titre: Golf de Saint-Tropez
+  titre: Golfe de Saint-Tropez
   description: >
     Prime a l'acquisition d'un vélo à assistance électrique (VAE) neuf. La
     demande doit être formulée dans les 2 mois suivant l'achat du vélo.
@@ -9610,3 +9610,32 @@ aides . villeneuve lez avignon:
   valeur: 100€
   lien: https://www.villeneuvelezavignon.com/formulaires-en-ligne/subvention-vae-et-pieges-a-moustiques/
   dernière mise à jour: 16/01/2026
+
+# TODO: à vérifier en février 2026
+# https://www.grand-chatellerault.fr/vivre/demande-aide-velo-electrique
+aides . châtellrault:
+  remplace: intercommunalité
+  titre: Grand Châtellerault
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CA Grand Châtellerault'
+      - une de ces conditions:
+          - vélo . électrique
+          - vélo . motorisation
+  description: >
+    La prochaine campagne d'aide à l’achat d’un vélo à assistance électrique
+    (VAE) débutera le 1er avril 2026 à 10h. Les modalités et conditions seront
+    précisées courant février 2026.
+  valeur:
+    variations:
+      - si: ancien abonné vélibleu
+        alors: 300€
+      - sinon: 200€
+  lien: https://www.grand-chatellerault.fr/vivre/demande-aide-velo-electrique
+  dernière mise à jour: 12/02/2026
+  avec:
+    ancien abonné vélibleu:
+      type: booléen
+      question: Êtes-vous un ancien abonné Vélibleu d'au moins 6 mois avant le 31 décembre 2021 ?
+      par défaut: non
+
