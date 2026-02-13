@@ -4253,34 +4253,6 @@ aides . angers:
   dernière mise à jour: 14/08/2025
 
 # NOTE: valide jusqu'au 31 décembre 2025, à vérifier en 2026
-aides . haut val de sèvre:
-  remplace: intercommunalité
-  titre: Communauté de communes Haut Val de Sèvre
-  description:
-    Depuis 2022, la collectivité propose aux habitants une aide de 150€ pour
-    l'achat d'un Vélo à Assistance Electrique (VAE).
-
-    Aide réservée aux vélos achetés moins de 6 mois à la date du dépôt de
-    dossier.
-  applicable si:
-    toutes ces conditions:
-      - localisation . epci = 'CC Haut Val de Sèvre'
-      - demandeur . âge . majeur
-      - vélo . électrique
-      - une de ces conditions:
-          - toutes ces conditions:
-              - vélo . état . neuf
-              - vélo . prix >= 950 €
-              - vélo . prix <= 3000 €
-          - toutes ces conditions:
-              - vélo . état . occasion
-              - vélo . prix >= 700 €
-              - vélo . prix <= 2000 €
-  valeur: 150€
-  lien: https://cc-hautvaldesevre.fr/competences/environnement/mobilite/1558-aide-a-l-achat-d-un-velo-a-assistance-electrique.html
-  dernière mise à jour: 14/08/2025
-
-# NOTE: valide jusqu'au 31 décembre 2025, à vérifier en 2026
 aides . anjou bleu:
   remplace: intercommunalité
   titre: Anjou Bleu Communauté
