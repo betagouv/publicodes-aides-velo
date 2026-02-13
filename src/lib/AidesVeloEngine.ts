@@ -1,14 +1,6 @@
-import Engine, {
-  formatValue,
-  Situation as PublicodesSituation,
-} from "publicodes";
+import Engine, { formatValue, Situation as PublicodesSituation } from "publicodes";
 import rules, { Questions, RuleName, Situation } from "../../publicodes-build";
-import {
-  AideRuleNames,
-  aidesAvecLocalisation,
-  Localisation,
-  miniatures,
-} from "../data";
+import { AideRuleNames, aidesWithLocalisation, Localisation, miniatures } from "../data";
 import { extractOptions } from "./utils";
 
 /**
@@ -44,8 +36,8 @@ export type Aide = {
   endDate?: Date;
 };
 
-const aidesAvecLocalisationEntries = Object.entries(
-  aidesAvecLocalisation
+const aidesWithLocalisationEntries = Object.entries(
+  aidesWithLocalisation,
 ) as readonly [AideRuleNames, Localisation][];
 
 /**
@@ -88,7 +80,7 @@ export class AidesVeloEngine {
   public setInputs(inputs: Questions): this {
     this.inputs = inputs;
     this.engine.setSituation(
-      formatInputs(inputs) as PublicodesSituation<RuleName>
+      formatInputs(inputs) as PublicodesSituation<RuleName>,
     );
     return this;
   }
@@ -118,9 +110,9 @@ export class AidesVeloEngine {
    * aids.
    */
   public getAllAidesIn(
-    country: Localisation["country"] = "france"
+    country: Localisation["country"] = "france",
   ): Omit<Aide, "amount">[] {
-    return aidesAvecLocalisationEntries
+    return aidesWithLocalisationEntries
       .filter(([, { country: aideCountry }]) => aideCountry === country)
       .map(([ruleName]) => {
         const rule = this.engine.getRule(ruleName);
@@ -128,7 +120,7 @@ export class AidesVeloEngine {
         // the AST instead of the data object. And removing Luxembourg and
         // Monaco to avoid needing to import the whole
         // aides-collectivities.json file?
-        const collectivity = aidesAvecLocalisation[ruleName].collectivity;
+        const collectivity = aidesWithLocalisation[ruleName].collectivity;
 
         return {
           id: ruleName,
@@ -138,7 +130,7 @@ export class AidesVeloEngine {
           collectivity,
           logo: miniatures[ruleName],
           lastUpdate: parsePublicodesDate(
-            rule.rawNode["dernière mise à jour"] as string
+            rule.rawNode["dernière mise à jour"] as string,
           ),
           endDate: parsePublicodesDate(rule.rawNode["date de fin"] as string),
         };
@@ -152,8 +144,8 @@ export class AidesVeloEngine {
    */
   public computeAides(): Aide[] {
     return this.getAllAidesIn(
-      (this.inputs["localisation . pays"]?.toLowerCase() ??
-        "france") as Localisation["country"]
+      (this.inputs["localisation . pays"]?.toLowerCase()
+        ?? "france") as Localisation["country"],
     ).flatMap((metadata) => {
       const ruleName = metadata.id;
       const { nodeValue } = this.engine.evaluate({
@@ -210,7 +202,7 @@ export class AidesVeloEngine {
    * any.
    */
   public getOptions<T extends keyof Questions>(
-    name: T
+    name: T,
   ): Questions[T][] | undefined {
     return extractOptions(this.engine.getRule(name));
   }
@@ -243,7 +235,7 @@ export class AidesVeloEngine {
     const description = rawNode?.description ?? "";
     const plafondRuleName = `${ruleName} . $plafond`;
     const plafondIsDefined = Object.keys(this.engine.getParsedRules()).includes(
-      plafondRuleName
+      plafondRuleName,
     );
     const plafond = plafondIsDefined && this.engine.evaluate(plafondRuleName);
     return (
@@ -251,12 +243,12 @@ export class AidesVeloEngine {
         // NOTE: no longer used, should be removed
         .replace(
           /\$vélo/g,
-          veloCat === "motorisation" ? "kit de motorisation" : `vélo ${veloCat}`
+          veloCat === "motorisation" ? "kit de motorisation" : `vélo ${veloCat}`,
         )
         .replace(
           /\$plafond/,
           // @ts-ignore
-          formatValue(plafond?.nodeValue, { displayedUnit: "€" })
+          formatValue(plafond?.nodeValue, { displayedUnit: "€" }),
         )
         // NOTE:only used in the ZFE related rules
         .replace(/\$ville/, ville)
@@ -291,12 +283,12 @@ function formatInputs(inputs: Questions): Partial<Situation> {
 }
 
 const epciSirenToName = Object.fromEntries(
-  aidesAvecLocalisationEntries.flatMap(([, { collectivity }]) => {
+  aidesWithLocalisationEntries.flatMap(([, { collectivity }]) => {
     if (collectivity.kind !== "epci") {
       return [];
     }
     return [[(collectivity as any).code, collectivity.value]];
-  })
+  }),
 );
 
 function parsePublicodesDate(date: string | undefined): Date | undefined {

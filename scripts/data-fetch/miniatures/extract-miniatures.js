@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import { join } from "node:path";
 import { URL } from "node:url";
-import aidesAvecLocalisation from "../../../src/data/aides-collectivities.json" with { type: "json" };
+import aidesWithLocalisation from "../../../src/data/aides-collectivities.json" with { type: "json" };
 import { getDataPath } from "../../utils";
 import fallbackMiniatures from "./fallback-miniatures.json" with { type: "json" };
 
@@ -27,7 +27,7 @@ if (fs.existsSync(miniatureDirectory)) {
 }
 fs.mkdirSync(miniatureDirectory, { recursive: true });
 
-const thumbnailsManifest = Object.entries(aidesAvecLocalisation).reduce(
+const thumbnailsManifest = Object.entries(aidesWithLocalisation).reduce(
   (acc, [id, aide]) => {
     const aideId = `${aide.collectivity.kind} - ${aide.collectivity.code ?? aide.collectivity.value}`;
     const fallbackImg = fallbackMiniatures[aideId];

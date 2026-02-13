@@ -3,7 +3,7 @@ import { describe, expect, it, test } from "vitest";
 
 import rules from "../publicodes-build";
 import { AideRuleNames, RuleName } from "../src";
-import { aidesAvecLocalisation, miniatures } from "../src/data";
+import { aidesWithLocalisation, miniatures } from "../src/data";
 
 describe("Aides Vélo", () => {
   const engine = new Engine(rules);
@@ -32,7 +32,7 @@ describe("Aides Vélo", () => {
           !noNeedToAssociatesLoc.includes(key)
         ) {
           expect(
-            aidesAvecLocalisation[key as AideRuleNames]
+            aidesWithLocalisation[key as AideRuleNames],
           ).not.toBeUndefined();
         }
       });
@@ -149,7 +149,7 @@ describe("Aides Vélo", () => {
 
       const expectedAmount = 0.5 * 1000;
       expect(
-        engine.evaluate("aides . occitanie vélo adapté").nodeValue
+        engine.evaluate("aides . occitanie vélo adapté").nodeValue,
       ).toEqual(expectedAmount);
 
       engine.setSituation({
@@ -160,7 +160,7 @@ describe("Aides Vélo", () => {
         "vélo . prix": "25000€",
       });
       expect(
-        engine.evaluate("aides . occitanie vélo adapté").nodeValue
+        engine.evaluate("aides . occitanie vélo adapté").nodeValue,
       ).toEqual(1000);
     });
 
@@ -176,7 +176,7 @@ describe("Aides Vélo", () => {
         "aides . département": "400€",
       });
       expect(
-        engine.evaluate("aides . occitanie vélo adapté").nodeValue
+        engine.evaluate("aides . occitanie vélo adapté").nodeValue,
       ).toBeGreaterThanOrEqual(0);
     });
 
@@ -193,7 +193,7 @@ describe("Aides Vélo", () => {
 
       expect(
         engine.evaluate("aides . occitanie bonus forfait mobilité durable")
-          .nodeValue
+          .nodeValue,
       ).toEqual(400);
     });
 
@@ -210,7 +210,7 @@ describe("Aides Vélo", () => {
 
       expect(
         engine.evaluate("aides . occitanie bonus forfait mobilité durable")
-          .nodeValue
+          .nodeValue,
       ).toEqual(400);
       expect(engine.evaluate("aides . occitanie").nodeValue).toBeNull();
     });
@@ -316,10 +316,10 @@ describe("Aides Vélo", () => {
       });
 
       expect(engine.evaluate("aides . département hérault").nodeValue).toEqual(
-        null
+        null,
       );
       expect(
-        engine.evaluate("aides . département hérault vélo adapté").nodeValue
+        engine.evaluate("aides . département hérault vélo adapté").nodeValue,
       ).toEqual(500);
 
       engine.setSituation({
@@ -330,10 +330,10 @@ describe("Aides Vélo", () => {
         "vélo . prix": "25000€",
       });
       expect(engine.evaluate("aides . département hérault").nodeValue).toEqual(
-        null
+        null,
       );
       expect(
-        engine.evaluate("aides . département hérault vélo adapté").nodeValue
+        engine.evaluate("aides . département hérault vélo adapté").nodeValue,
       ).toEqual(1000);
     });
   });
@@ -347,7 +347,7 @@ describe("Aides Vélo", () => {
         "vélo . prix": "1000€",
       });
       expect(
-        engine.evaluate("aides . montpellier vae occasion").nodeValue
+        engine.evaluate("aides . montpellier vae occasion").nodeValue,
       ).toEqual(null);
 
       engine.setSituation({
@@ -358,7 +358,7 @@ describe("Aides Vélo", () => {
         "vélo . prix": "1000€",
       });
       expect(
-        engine.evaluate("aides . montpellier vae occasion").nodeValue
+        engine.evaluate("aides . montpellier vae occasion").nodeValue,
       ).toEqual(200);
 
       engine.setSituation({
@@ -368,7 +368,7 @@ describe("Aides Vélo", () => {
         "vélo . prix": "1000€",
       });
       expect(
-        engine.evaluate("aides . montpellier vae occasion").nodeValue
+        engine.evaluate("aides . montpellier vae occasion").nodeValue,
       ).toEqual(200);
     });
 
@@ -383,7 +383,7 @@ describe("Aides Vélo", () => {
       });
 
       expect(
-        engine.evaluate("aides . montpellier vae occasion").nodeValue
+        engine.evaluate("aides . montpellier vae occasion").nodeValue,
       ).toEqual(null);
       // expect(
       //   engine.evaluate("aides . département hérault vélo adapté").nodeValue
@@ -401,7 +401,7 @@ describe("Aides Vélo", () => {
       });
 
       expect(engine.evaluate("aides . perpignan métropole").nodeValue).toEqual(
-        250
+        250,
       );
     });
 
@@ -414,7 +414,7 @@ describe("Aides Vélo", () => {
       });
 
       expect(engine.evaluate("aides . perpignan métropole").nodeValue).toEqual(
-        350
+        350,
       );
     });
 
@@ -427,7 +427,7 @@ describe("Aides Vélo", () => {
       });
 
       expect(engine.evaluate("aides . perpignan métropole").nodeValue).toEqual(
-        1000
+        1000,
       );
     });
   });
@@ -441,7 +441,7 @@ describe("Aides Vélo", () => {
         "revenu fiscal de référence par part": "20000€/an",
       });
       expect(engine.evaluate("aides . sophia antipolis").nodeValue).toEqual(
-        250
+        250,
       );
 
       engine.setSituation({
@@ -451,7 +451,7 @@ describe("Aides Vélo", () => {
         "revenu fiscal de référence par part": "20000€/an",
       });
       expect(engine.evaluate("aides . sophia antipolis").nodeValue).toEqual(
-        250
+        250,
       );
     });
 
@@ -464,7 +464,7 @@ describe("Aides Vélo", () => {
         "demandeur . en situation de handicap": "oui",
       });
       expect(engine.evaluate("aides . sophia antipolis").nodeValue).toEqual(
-        400
+        400,
       );
 
       engine.setSituation({
@@ -475,7 +475,7 @@ describe("Aides Vélo", () => {
         "demandeur . en situation de handicap": "oui",
       });
       expect(engine.evaluate("aides . sophia antipolis").nodeValue).toEqual(
-        750
+        750,
       );
     });
 
@@ -487,7 +487,7 @@ describe("Aides Vélo", () => {
         "revenu fiscal de référence par part": "15000€/an",
       });
       expect(engine.evaluate("aides . sophia antipolis").nodeValue).toEqual(
-        null
+        null,
       );
 
       engine.setSituation({
@@ -497,7 +497,7 @@ describe("Aides Vélo", () => {
         "revenu fiscal de référence par part": "15000€/an",
       });
       expect(engine.evaluate("aides . sophia antipolis").nodeValue).toEqual(
-        null
+        null,
       );
     });
   });
@@ -527,7 +527,7 @@ describe("Aides Vélo", () => {
       });
 
       expect(engine.evaluate("aides . pays de cruseilles").nodeValue).toEqual(
-        300
+        300,
       );
     });
   });
@@ -651,7 +651,7 @@ describe("Aides Vélo", () => {
         "revenu fiscal de référence par part": "10000€/an",
       });
       expect(engine.evaluate("aides . saône-beaujolais").nodeValue).toEqual(
-        300
+        300,
       );
 
       engine.setSituation({
@@ -662,7 +662,7 @@ describe("Aides Vélo", () => {
         "revenu fiscal de référence par part": "10000€/an",
       });
       expect(engine.evaluate("aides . saône-beaujolais").nodeValue).toEqual(
-        200
+        200,
       );
     });
   });
@@ -696,7 +696,7 @@ describe("Aides Vélo", () => {
       });
 
       expect(engine.evaluate("aides . pays mornantais").nodeValue).toEqual(
-        null
+        null,
       );
     });
   });
@@ -771,7 +771,7 @@ describe("Aides Vélo", () => {
       expect(engine.evaluate("aides . caen jeune").nodeValue).toEqual(null);
       expect(engine.evaluate("aides . caen").nodeValue).toEqual(null);
       expect(engine.evaluate("aides . caen vélo adapté").nodeValue).toEqual(
-        300
+        300,
       );
 
       // Pas nécessairement adapté
@@ -785,7 +785,7 @@ describe("Aides Vélo", () => {
       expect(engine.evaluate("aides . caen jeune").nodeValue).toEqual(null);
       expect(engine.evaluate("aides . caen").nodeValue).toEqual(null);
       expect(engine.evaluate("aides . caen vélo adapté").nodeValue).toEqual(
-        300
+        300,
       );
     });
 
@@ -842,7 +842,7 @@ describe("Aides Vélo", () => {
         "demandeur . bénéficiaire du RSA": "oui",
       });
       expect(engine.evaluate("aides . montval sur loir").nodeValue).toEqual(
-        100
+        100,
       );
     });
   });
@@ -963,7 +963,7 @@ describe("Aides Vélo", () => {
         "vélo . type": "'électrique'",
       });
       expect(engine.evaluate("aides . la motte servolex").nodeValue).toEqual(
-        150
+        150,
       );
 
       engine.setSituation({
@@ -973,7 +973,7 @@ describe("Aides Vélo", () => {
         "vélo . type": "'cargo électrique'",
       });
       expect(engine.evaluate("aides . la motte servolex").nodeValue).toEqual(
-        null
+        null,
       );
 
       engine.setSituation({
@@ -983,7 +983,7 @@ describe("Aides Vélo", () => {
         "vélo . type": "'mécanique simple'",
       });
       expect(engine.evaluate("aides . la motte servolex").nodeValue).toEqual(
-        null
+        null,
       );
 
       engine.setSituation({
@@ -993,7 +993,7 @@ describe("Aides Vélo", () => {
         "vélo . type": "'pliant'",
       });
       expect(engine.evaluate("aides . la motte servolex").nodeValue).toEqual(
-        null
+        null,
       );
     });
   });
@@ -1159,7 +1159,7 @@ describe("Aides Vélo", () => {
         "vélo . prix": "1000€",
       });
       expect(engine.evaluate("aides . la roche sur yon").nodeValue).toEqual(
-        100
+        100,
       );
 
       engine.setSituation({
@@ -1168,7 +1168,7 @@ describe("Aides Vélo", () => {
         "vélo . prix": "2000€",
       });
       expect(engine.evaluate("aides . la roche sur yon").nodeValue).toEqual(
-        null
+        null,
       );
 
       engine.setSituation({
@@ -1186,7 +1186,7 @@ describe("Aides Vélo", () => {
         "vélo . prix": "1500€",
       });
       expect(engine.evaluate("aides . la roche sur yon").nodeValue).toEqual(
-        null
+        null,
       );
     });
 
@@ -1200,7 +1200,7 @@ describe("Aides Vélo", () => {
           "oui",
       });
       expect(engine.evaluate("aides . la roche sur yon").nodeValue).toEqual(
-        200
+        200,
       );
     });
   });
@@ -1215,7 +1215,7 @@ describe("Aides Vélo", () => {
       });
       expect(engine.evaluate("aides . denain").nodeValue).toEqual(150);
       expect(engine.evaluate("aides . denain").nodeValue).toEqual(
-        (engine.evaluate("aides . porte du hainaut").nodeValue as number) / 2
+        (engine.evaluate("aides . porte du hainaut").nodeValue as number) / 2,
       );
 
       engine.setSituation({
@@ -1227,7 +1227,7 @@ describe("Aides Vélo", () => {
       });
       expect(engine.evaluate("aides . denain").nodeValue).toEqual(100);
       expect(engine.evaluate("aides . denain").nodeValue).toEqual(
-        (engine.evaluate("aides . porte du hainaut").nodeValue as number) / 2
+        (engine.evaluate("aides . porte du hainaut").nodeValue as number) / 2,
       );
     });
   });
@@ -1288,7 +1288,7 @@ describe("Aides Vélo", () => {
         "vélo . prix": 200,
       });
       expect(engine.evaluate("aides . amboise").nodeValue).not.toBeLessThan(
-        200
+        200,
       );
 
       engine.setSituation({
@@ -1298,7 +1298,7 @@ describe("Aides Vélo", () => {
         "vélo . prix": 200,
       });
       expect(engine.evaluate("aides . amboise").nodeValue).not.toBeLessThan(
-        200
+        200,
       );
     });
 
@@ -1415,7 +1415,7 @@ describe("Aides Vélo", () => {
         "vélo . prix": 1000,
       });
       expect(engine.evaluate("aides . portes du luxembourg").nodeValue).toEqual(
-        200
+        200,
       );
     });
 
@@ -1427,7 +1427,7 @@ describe("Aides Vélo", () => {
         "aides . portes du luxembourg . assemblé en France": "oui",
       });
       expect(engine.evaluate("aides . portes du luxembourg").nodeValue).toEqual(
-        300
+        300,
       );
     });
   });
@@ -1500,7 +1500,7 @@ describe("Aides Vélo", () => {
         "revenu fiscal de référence par part": "5000 €/mois",
       });
       expect(
-        engine.evaluate("aides . villefranche beaujolais saône").nodeValue
+        engine.evaluate("aides . villefranche beaujolais saône").nodeValue,
       ).toBeGreaterThanOrEqual(0);
 
       engine.setSituation({
@@ -1511,7 +1511,7 @@ describe("Aides Vélo", () => {
         "aides . département": 400,
       });
       expect(
-        engine.evaluate("aides . villefranche beaujolais saône").nodeValue
+        engine.evaluate("aides . villefranche beaujolais saône").nodeValue,
       ).toBeGreaterThanOrEqual(0);
     });
   });
@@ -1524,7 +1524,7 @@ describe("Aides Vélo", () => {
         "revenu fiscal de référence par part": "10000 €/an",
       });
       expect(engine.evaluate("aides . val de drôme").nodeValue).toEqual(
-        200 * 0.4
+        200 * 0.4,
       );
     });
 
@@ -1568,7 +1568,7 @@ describe("Aides Vélo", () => {
         "vélo . type": "'mécanique simple'",
       });
       expect(engine.evaluate("aides . creusot-montceau").nodeValue).toEqual(
-        100
+        100,
       );
     });
 
@@ -1585,7 +1585,7 @@ describe("Aides Vélo", () => {
         "demandeur . statut": "'étudiant'",
       });
       expect(engine.evaluate("aides . creusot-montceau").nodeValue).toEqual(
-        200
+        200,
       );
 
       engine.setSituation({
@@ -1595,7 +1595,7 @@ describe("Aides Vélo", () => {
         "vélo . type": "'mécanique simple'",
       });
       expect(engine.evaluate("aides . creusot-montceau").nodeValue).toEqual(
-        150
+        150,
       );
 
       engine.setSituation({
@@ -1618,7 +1618,7 @@ describe("Aides Vélo", () => {
         "demandeur . statut": "'salarié'",
       });
       expect(engine.evaluate("aides . creusot-montceau").nodeValue).toEqual(
-        200
+        200,
       );
 
       engine.setSituation({
@@ -1627,7 +1627,7 @@ describe("Aides Vélo", () => {
         "vélo . type": "'mécanique simple'",
       });
       expect(engine.evaluate("aides . creusot-montceau").nodeValue).toEqual(
-        150
+        150,
       );
 
       engine.setSituation({
@@ -1637,7 +1637,7 @@ describe("Aides Vélo", () => {
         "vélo . prix": 2500,
       });
       expect(engine.evaluate("aides . creusot-montceau").nodeValue).toEqual(
-        1000
+        1000,
       );
 
       engine.setSituation({
@@ -1647,7 +1647,7 @@ describe("Aides Vélo", () => {
         "vélo . prix": 2500,
       });
       expect(engine.evaluate("aides . creusot-montceau").nodeValue).toEqual(
-        1250
+        1250,
       );
 
       engine.setSituation({
@@ -1657,7 +1657,7 @@ describe("Aides Vélo", () => {
         "vélo . prix": 2500,
       });
       expect(engine.evaluate("aides . creusot-montceau").nodeValue).toEqual(
-        1250
+        1250,
       );
 
       engine.setSituation({
@@ -1751,7 +1751,7 @@ describe("Aides Vélo", () => {
     test("par défaut", () => {
       engine.setSituation(baseSituation);
       expect(engine.evaluate("aides . cc arc sud bretagne").nodeValue).toEqual(
-        100
+        100,
       );
     });
 
@@ -1761,7 +1761,7 @@ describe("Aides Vélo", () => {
         "vélo . type": "'cargo électrique'",
       });
       expect(engine.evaluate("aides . cc arc sud bretagne").nodeValue).toEqual(
-        200
+        200,
       );
     });
   });
@@ -1874,7 +1874,7 @@ describe("Aides Vélo", () => {
       });
       expect(
         engine.evaluate("aides . bassin-pompey . plafond de ressources")
-          .nodeValue
+          .nodeValue,
       ).toEqual(44860 + 5668 * 2);
     });
 
@@ -1899,7 +1899,7 @@ describe("Aides Vélo", () => {
       });
       expect(
         engine.evaluate("aides . bassin-pompey . plafond de ressources")
-          .nodeValue
+          .nodeValue,
       ).toEqual(19074);
     });
   });
@@ -1983,11 +1983,11 @@ describe("Aides Vélo", () => {
         {
           "vélo . prix": 2000,
         },
-        { keepPreviousSituation: true }
+        { keepPreviousSituation: true },
       );
 
       expect(engine.evaluate("aides . grand chambéry").nodeValue).toEqual(
-        500 + 100
+        500 + 100,
       );
     });
 
@@ -2014,7 +2014,7 @@ describe("Aides Vélo", () => {
       });
 
       expect(
-        engine.evaluate("aides . ca mauges communauté").nodeValue
+        engine.evaluate("aides . ca mauges communauté").nodeValue,
       ).toBeNull();
     });
 
@@ -2026,7 +2026,7 @@ describe("Aides Vélo", () => {
       });
 
       expect(engine.evaluate("aides . ca mauges communauté").nodeValue).toEqual(
-        350
+        350,
       );
 
       engine.setSituation(
@@ -2034,11 +2034,11 @@ describe("Aides Vélo", () => {
           "vélo . type": "'électrique'",
           "vélo . état": "'occasion'",
         },
-        { keepPreviousSituation: true }
+        { keepPreviousSituation: true },
       );
 
       expect(engine.evaluate("aides . ca mauges communauté").nodeValue).toEqual(
-        100
+        100,
       );
     });
   });
