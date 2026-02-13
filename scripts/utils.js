@@ -1,5 +1,5 @@
-import path from "path";
 import fs from "fs";
+import path from "path";
 
 /**
  * Get the path to the data directory and create the directory if it doesn't exist.

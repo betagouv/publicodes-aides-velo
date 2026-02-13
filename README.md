@@ -75,7 +75,8 @@ engine
 
 > [!TIP]
 > Pour récupérer les informations de localisation (code INSEE, EPCI, etc...)
-> nécessaires pour le calcul des aides, il est possible d'utiliser le paquet
+> nécessaires pour le calcul des aides, il est possible d'utiliser
+> `aidesWithLocalisation` ou bien directement le paquet
 > [`@etalab/decoupage-administratif`](https://github.com/datagouv/decoupage-administratif).
 
 ### Avec les règles Publicodes
