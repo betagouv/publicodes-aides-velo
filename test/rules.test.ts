@@ -502,7 +502,7 @@ describe("Aides Vélo", () => {
     });
   });
 
-  describe("Communauté de communes Fier et Usses", () => {
+  describe.skip("Communauté de communes Fier et Usses", () => {
     it("devrait être élligible pour les vélo d'occasion", () => {
       engine.setSituation({
         "localisation . epci": "'CC Fier et Usses'",

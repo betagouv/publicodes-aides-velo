@@ -7819,61 +7819,6 @@ aides . perpignan métropole:
   date de fin: 31/12/2025
   dernière mise à jour: 16/09/2025
 
-# TODO: à vérifier en 2026
-aides . fier et usses:
-  remplace: intercommunalité
-  titre: Communauté de communes Fier et Usses
-  description: Aide à l'achat d'un vélo
-  applicable si: 
-    toutes ces conditions:
-      - localisation . epci = 'CC Fier et Usses'
-      - demandeur . âge . majeur
-      - revenu fiscal de référence par part <= 30000 €/an
-  valeur:
-    variations:
-      - si: revenu fiscal de référence par part <= 15400 €/an
-        alors:
-          variations:
-            - si: vélo . adapté
-              alors: 600 €
-            - si: vélo . cargo électrique
-              alors: 600 €
-            - si: vélo . électrique
-              alors: 400 €
-            - si: vélo . mécanique
-              alors: 150 €
-            - si: vélo . motorisation
-              alors: 200 €
-            - sinon: 0 €
-      - si: revenu fiscal de référence par part <= 23000 €/an
-        alors:
-          variations:
-            - si: vélo . adapté
-              alors: 500 €
-            - si: vélo . cargo électrique
-              alors: 500 €
-            - si: vélo . électrique
-              alors: 300 €
-            - si: vélo . mécanique
-              alors: 100 €
-            - si: vélo . motorisation
-              alors: 150 €
-            - sinon: 0 €
-      - sinon:
-          variations:
-            - si: vélo . adapté
-              alors: 400€
-            - si: vélo . cargo électrique
-              alors: 400€
-            - si: vélo . électrique
-              alors: 200€
-            - si: vélo . motorisation
-              alors: 100€
-            - sinon: 0€
-  plafond: 50% * vélo . prix
-  lien: https://www.fier-et-usses.com/actualite/18078/2048-aide-a-l-achat-velo.htm
-  dernière mise à jour: 22/08/2025
-
 aides . pays de cruseilles:
   remplace: intercommunalité
   titre: Pays de Cruseilles
@@ -8542,28 +8487,6 @@ aides . cc val parisis:
   plafond: 50% * vélo . prix
   lien: https://valparisis.fr/aide-achat-velo
 
-aides . dlvagglo:
-  remplace: intercommunalité
-  titre: Durance-Lubéron-Verdon Agglomération
-  description: >
-    Subvention de 200€ pour l'achat d'un vélo à assistance électrique pour les
-    habitant·es majeur·es en activité professionnelle.
-
-
-    Limitée à 50 demandes pour 2025.
-  applicable si:
-    toutes ces conditions:
-      - localisation . epci = 'CA Durance-Lubéron-Verdon Agglomération'
-      - demandeur . âge . majeur
-      - vélo . électrique
-      - une de ces conditions:
-          - demandeur . statut . salarié
-          - demandeur . statut . reconversion
-          - demandeur . statut . autre
-  valeur: 200 €
-  lien: https://www.espace-citoyens.net/manosque-dlva/espace-citoyens/Demande/NouvelleDemande/ENV/V_ELEC2025
-  dernière mise à jour: 20/02/2025
-
 aides . charenton-le-pont:
   remplace: commune
   titre: Ville de Charenton-le-Pont
@@ -8724,36 +8647,6 @@ aides . cc cattenom et environs:
           valeur: 50% * vélo . prix 
           plafond: 300€
   lien: https://www.ccce.fr/aide-achat-vae
-
-# NOTE: référencée à nouveau en avril 2025 sur le site de la commune
-aides . camon:
-  remplace: commune
-  titre: Ville de Camon
-  description: >
-    La Commune de Camon a décidé de renouveler son aide à l'achat de vélo pour
-    2025. La subvention est valable sur l'achat d'un vélo neuf à assistance
-    électrique et homologué ou sans assistance électrique. Le vélo devra
-    avoir été acheté dans un magasin du territoire d'Amiens Métropole :
-    vélociste, grande surface, etc. Les achats sur internet ne sont pas
-    acceptés.
-  applicable si: 
-    toutes ces conditions:
-      - localisation . code insee = '80164'
-      - demandeur . âge . majeur
-      - vélo . état . neuf
-  valeur: 25% * vélo . prix
-  plafond:
-    variations:
-      - si: vélo . cargo
-        alors: 300€
-      - si: vélo . électrique
-        alors: 200€
-      - si: vélo . mécanique
-        alors: 100€
-      - sinon: 0€
-  lien: https://www.camon.fr/renouvellement-de-laide-a-lachat-de-velo/
-  dernière mise à jour: 14/04/2025
-  date de fin: 31/12/2025
 
 # NOTE: aide renouvellée en 2025.
 aides . bidart:
