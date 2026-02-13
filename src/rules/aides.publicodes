@@ -468,7 +468,7 @@ aides . cc lysed:
   dernière mise à jour: 22/08/2025
 
 # TODO: différencier vélo adapté mécanique/électrique
-# TODO: à vérifier en 2026
+# TODO: à vérifier en 2027
 aides . saône-beaujolais:
   remplace: intercommunalité
   titre: Communauté de communes Saône Beaujolais
@@ -484,9 +484,7 @@ aides . saône-beaujolais:
   valeur: 30% * vélo . prix
   plafond:
     variations:
-      - si: 
-          une de ces conditions:
-            - vélo . mécanique 
+      - si: vélo . mécanique 
         alors: 200€
       - si: 
           une de ces conditions:
@@ -496,7 +494,7 @@ aides . saône-beaujolais:
         alors: 400€
       - sinon: 0€
   lien: https://ccsb-saonebeaujolais.fr/au-quotidien/se-deplacer/aide-a-lachat-dun-velo/
-  dernière mise à jour: 14/08/2025
+  dernière mise à jour: 13/02/2026
 
 # NOTE: jusqu'au 31 décembre 2026
 # TODO: test intégration sur le plafond
@@ -2545,28 +2543,6 @@ aides . grand roye:
   dernière mise à jour: 15/09/2025
   date de fin: 31/12/2025
 
-# NOTE: informations pour 2024, à vérifier en 2025
-aides . somme sud-ouest:
-  remplace: intercommunalité
-  titre: Communauté de communes Sommes Sud-Ouest
-  description: >
-    Pour une mobilité plus vertueuse, la CC2SO vous aide à changer vos
-    habitudes. Bénéficiez d'une aide de 200€ pour l'achat d'un vélo à
-    assistance électrique. Une seule condition : être majeur et avoir sa
-    résidence principale sur le territoire de la CC2SO. En plus, cette aide est
-    rétroactive pour les vélos achetés depuis le 1er janvier 2023.
-  applicable si:
-    toutes ces conditions:
-      - localisation . epci = 'CC Somme Sud-Ouest'
-      - demandeur . âge . majeur
-      - vélo . état . neuf
-      - vélo . électrique
-  valeur: 200€
-  plafond: vélo . prix
-  lien: https://www.cc2so.fr/aide-velo/
-  date de fin: 31/10/2025
-  dernière mise à jour: 15/09/2025
-
 aides . albert:
   remplace: commune
   titre: Ville d'Albert
@@ -3865,7 +3841,7 @@ aides . terre des 2 caps:
   lien: https://www.terredes2caps.fr/prime-lachat-de-velo
   dernière mise à jour: 12/09/2025
 
-# TODO: à vérifier en 2026
+# TODO: à vérifier en 2027
 aides . saint-omer:
   remplace: commune
   titre: Ville de Saint-Omer
@@ -3881,7 +3857,7 @@ aides . saint-omer:
   valeur:
     variations:
       - si: vélo . adapté
-        alors: 650 €
+        alors: 600 €
       - si: vélo . électrique
         alors:
           variations:
@@ -3893,10 +3869,11 @@ aides . saint-omer:
                       - demandeur . statut . demandeur d'emploi
               alors: 350 €
             - sinon: 250 €
-      - sinon: 100 €
-  lien: https://www.ville-saint-omer.fr/aides-lacquisition-de-velo
-  dernière mise à jour: 12/09/2025
-  date de fin: 31/12/2025
+      - si: vélo . mécanique simple
+        alors: 100 €
+  lien: https://www.ville-saint-omer.fr/mon-quotidien/mobilite-et-stationnement/velo/aide-a-lachat
+  dernière mise à jour: 13/02/2026
+  date de fin: 31/12/2026
 
 # NOTE: valide pour 2024, à vérifier en 2025
 aides . les herbiers:
@@ -9040,6 +9017,7 @@ aides . rueil-malmaison:
   date de fin: 31/12/2025
 
 # NOTE: aide relancée en 2025
+# - pas de date de fin renseignée
 aides . colmar:
   remplace: commune
   titre: Ville de Colmar
@@ -9062,8 +9040,7 @@ aides . colmar:
         alors: 100€
       - sinon: 0€
   lien: "https://www.colmar.fr/engagements#:~:text=35%20:%20Dispositif%20de%20participation%20de%20la%20ville%20pour%20l'achat%20d'un%20v%C3%A9lo%20neuf"
-  dernière mise à jour: 29/04/2025
-  date de fin: 31/12/2025
+  dernière mise à jour: 12/02/2026
 
 # NOTE: nouvelle aide ajoutée (présente dans le listing des aides vélos d'Aides Jeunes)
 aides . vauvert:

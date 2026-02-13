@@ -1654,3 +1654,26 @@ aides . creusot-montceau:
       - sinon: 0€
   lien: https://www.creusot-montceau.org/actualite/la-communaute-urbaine-vous-aide-financierement-pour-lacquisition-dun-velo
   dernière mise à jour: 20/10/2025
+
+# NOTE: informations pour 2024, à vérifier en 2025
+aides . somme sud-ouest:
+  remplace: intercommunalité
+  titre: Communauté de communes Sommes Sud-Ouest
+  description: >
+    Pour une mobilité plus vertueuse, la CC2SO vous aide à changer vos
+    habitudes. Bénéficiez d'une aide de 200€ pour l'achat d'un vélo à
+    assistance électrique. Une seule condition : être majeur et avoir sa
+    résidence principale sur le territoire de la CC2SO. En plus, cette aide est
+    rétroactive pour les vélos achetés depuis le 1er janvier 2023.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CC Somme Sud-Ouest'
+      - demandeur . âge . majeur
+      - vélo . état . neuf
+      - vélo . électrique
+  valeur: 200€
+  plafond: vélo . prix
+  lien: https://www.cc2so.fr/aide-velo/
+  date de fin: 31/10/2025
+  dernière mise à jour: 13/02/2026
+
