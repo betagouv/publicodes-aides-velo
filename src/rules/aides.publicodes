@@ -4859,6 +4859,7 @@ aides . grand cubzaguais:
       - sinon: 0€
   lien: https://www.grand-cubzaguais.fr/amenagement-durable/jusqua-150e-daide-a-lachat-dun-velo-pour-les-habitants-du-grand-cubzaguais-2024/
 
+# TODO: aide renouvellée pour 2026 mais le lien crash pour l'instant
 aides . bourges:
   remplace: intercommunalité
   titre: Bourges Plus
@@ -5421,36 +5422,6 @@ aides . ville de talant:
   valeur: 20% * vélo . prix
   plafond: 100€
   lien: https://talant.fr/pratique/primes-municipales
-
-# NOTE: règlement pour 2023 mais semble d'actualité jusqu'en 2030, à vérifier
-# en 2025.
-aides . pays des achards:
-  remplace: intercommunalité
-  titre: Communauté de communes du Pays des Achards
-  description: >
-    L'aide financière vise l'acquisition d'un vélo, d'un vélo pliant, d'un Vélo
-    à Assistance Électrique, d'un kit d'électrification ou d'un vélo spécial
-    (vélo cargo, biporteur, triporteur, vélo rallongé) pour adulte.
-
-
-    Les vélos adaptés à un handicap pourront faire l'objet d'une étude
-    spécifique. La demande de subvention doit être effectuée dans les 3 mois
-    suivant l'achat.
-  applicable si: 
-    toutes ces conditions:
-      - localisation . epci = 'CC du Pays des Achards'
-      - demandeur . âge . majeur
-  valeur: 25% * vélo . prix
-  plafond:
-    variations:
-      - si: 
-          une de ces conditions:
-            - vélo . cargo
-            - vélo . adapté
-        alors: 300€
-      - sinon: 200€
-  lien: https://www.cc-paysdesachards.fr/bonus-velo/
-  dernière mise à jour: 16/09/2025
 
 aides . hem:
   remplace: commune
