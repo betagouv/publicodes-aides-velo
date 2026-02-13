@@ -9341,17 +9341,15 @@ aides . cc forcalquier lure:
   lien: https://www.forcalquier-lure.com/actualites/ma-prime-velo
   dernière mise à jour: 21/08/2025
 
-# TODO: à vérifier en 2026
-# - 12/02/2026 : contacté par mail
+# TODO: à vérifier en 2027
 aides . carmausin-ségala:
   remplace: intercommunalité
   titre: Communauté de communes du Carmausin-Ségala
-  description: Aide à l'achat d'un vélo neuf, électrique ou mécanique.
+  description: La Communauté de Communes propose désormais aux habitant·es du Carmausin-Ségala une aide à l’achat de vélo électrique ou musculaire (neuf ou occasion).
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'CC Carmausin-Ségala'
       - demandeur . âge . majeur
-      - vélo . état . neuf
       - une de ces conditions:
           - vélo . électrique ou mécanique
           - vélo . adapté
@@ -9367,8 +9365,8 @@ aides . carmausin-ségala:
       - sinon: 100 €
   plafond: 20% * vélo . prix
   lien: https://www.carmausin-segala.fr/velo
-  date de fin: 31/12/2025
-  dernière mise à jour: 12/09/2025
+  date de fin: 31/12/2026
+  dernière mise à jour: 13/02/2026
 
 # TODO: à vérifier en 2026
 # au 12/02/2026 : toujours référencée sur le site
