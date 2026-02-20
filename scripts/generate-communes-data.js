@@ -1,4 +1,6 @@
 /**
+ * /!\ There is a duplicate of this script on mesaidesvelo client.
+ *
  * Script to generate a static json file with communes data enriched with EPCI.
  * This is used by other scripts to map collectivities to communes.
  * The slug field is not included here - that's handled by the client.
@@ -8,7 +10,7 @@ import fs from "node:fs";
 
 import communes from "@etalab/decoupage-administratif/data/communes.json" assert { type: "json" };
 import epci from "@etalab/decoupage-administratif/data/epci.json" assert { type: "json" };
-import { getDataPath, getDistDataPath } from "./utils";
+import { getDataPath } from "./utils";
 
 // Create a map of communes to their EPCI
 const communesInEpci = Object.fromEntries(
@@ -65,10 +67,5 @@ const data = [
 ];
 
 fs.writeFileSync(getDataPath("communes.json"), JSON.stringify(data, null, 2));
-
-fs.writeFileSync(
-  getDistDataPath("communes.json"),
-  JSON.stringify(data, null, 2),
-);
 
 console.log(`${data.length} communes traitées.`);
