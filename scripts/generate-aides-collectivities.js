@@ -68,6 +68,7 @@ const extractCollectivityFromAST = (rule) => {
     (acc, node) => {
       if (acc) return acc;
       if (node.sourceMap?.mecanismName === "non applicable si") {
+        // skip non applicable si nodes
         return acc;
       }
       if (node.nodeKind === "operation" && node.operationKind === "=") {
@@ -85,7 +86,7 @@ const extractCollectivityFromAST = (rule) => {
       }
     },
     null,
-    applicableSiNode ?? rule,
+    applicableSiNode,
   );
 
   // In our rule basis we reference EPCI by their name but for interoperability
@@ -105,7 +106,7 @@ const extractCollectivityFromAST = (rule) => {
 };
 
 const getCodeInseeForCollectivity = (collectivity) => {
-  const { kind, value, code } = collectivity;
+  const { kind, value } = collectivity;
   switch (kind) {
     case "région":
       return regions.find(({ code: c }) => c === value)?.chefLieu;
@@ -124,6 +125,8 @@ const getCodeInseeForCollectivity = (collectivity) => {
 const getCommune = (codeInsee) =>
   codeInsee && communesSorted.find(({ code }) => code === codeInsee);
 
+// TODO: a bit fragile, we should sync this logic with
+// `engine.evaluate('localisation . pays')
 const getCountry = (rule) =>
   rule.dottedName === "aides . monaco"
     ? "monaco"
