@@ -24,8 +24,7 @@
       "require": "./dist/src/data/index.cjs",
       "import": "./dist/src/data/index.js"
     },
-    "./data/aides-collectivities.json": "./dist/src/data/aides-collectivities.json",
-    "./data/communes.json": "./dist/src/data/communes.json"
+    "./data/aides-collectivities.json": "./dist/src/data/aides-collectivities.json"
   },
   "files": [
     "dist",
