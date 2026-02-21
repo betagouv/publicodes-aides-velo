@@ -64,30 +64,32 @@ const extractCollectivityFromAST = (rule) => {
     rule,
   );
 
-  const { kind, value } = reduceAST(
-    (acc, node) => {
-      if (acc) return acc;
-      if (node.sourceMap?.mecanismName === "non applicable si") {
-        // skip non applicable si nodes
-        return acc;
-      }
-      if (node.nodeKind === "operation" && node.operationKind === "=") {
-        for (let localisationKind of localisationKinds) {
-          if (
-            node.explanation[0]?.dottedName ===
-            `localisation . ${localisationKind}`
-          ) {
-            return {
-              kind: localisationKind,
-              value: node.explanation[1]?.nodeValue,
-            };
+  const { kind, value } =
+    reduceAST(
+      (acc, node) => {
+        if (acc) return acc;
+        if (!node) return acc;
+        if (node.sourceMap?.mecanismName === "non applicable si") {
+          // skip non applicable si nodes
+          return acc;
+        }
+        if (node.nodeKind === "operation" && node.operationKind === "=") {
+          for (let localisationKind of localisationKinds) {
+            if (
+              node.explanation[0]?.dottedName ===
+              `localisation . ${localisationKind}`
+            ) {
+              return {
+                kind: localisationKind,
+                value: node.explanation[1]?.nodeValue,
+              };
+            }
           }
         }
-      }
-    },
-    null,
-    applicableSiNode,
-  );
+      },
+      null,
+      applicableSiNode,
+    ) || {};
 
   // In our rule basis we reference EPCI by their name but for interoperability
   // with third-party systems it is more robust to expose their SIREN code.
@@ -103,6 +105,207 @@ const extractCollectivityFromAST = (rule) => {
   }
 
   return { kind, value };
+};
+
+// const SHOULD_NOT_IMPACT_DEFAULT_APPLICABILITY = [
+//   "localisation . région",
+//   "demandeur . en situation de handicap",
+//   "demandeur . âge . majeur",
+//   "revenu fiscal de référence par part",
+//   "vélo . état . neuf",
+// ];
+
+const VELO_TYPE_POSSIBILITIES = [
+  "mécanique simple",
+  "électrique",
+  "cargo",
+  "cargo électrique",
+  "pliant",
+  "pliant électrique",
+  "motorisation",
+  "adapté",
+];
+
+const VELO_KIND_RULES = [
+  "vélo . type",
+  "vélo . mécanique",
+  "vélo . mécanique simple",
+  "vélo . électrique",
+  "vélo . électrique simple",
+  "vélo . électrique ou mécanique",
+  "vélo . cargo",
+  "vélo . cargo mécanique",
+  "vélo . cargo électrique",
+  "vélo . pliant",
+  "vélo . pliant mécanique",
+  "vélo . pliant électrique",
+  "vélo . motorisation",
+  "vélo . adapté",
+];
+
+const getMaxAideAmountPerVeloKind = (rule, conditions = []) => {
+  const isVeloKindReference = (node) =>
+    node?.nodeKind === "reference" &&
+    VELO_KIND_RULES.includes(node.dottedName ?? node.name);
+
+  const nodeHasVeloKind = (value) => {
+    if (!value) return false;
+    if (Array.isArray(value)) return value.some(nodeHasVeloKind);
+    if (typeof value === "string") return conditionStringHasVeloKind(value);
+    if (typeof value !== "object") return false;
+    if (isVeloKindReference(value)) return true;
+    if (typeof value.rawNode === "string") {
+      return conditionStringHasVeloKind(value.rawNode);
+    }
+    return Object.values(value).some(nodeHasVeloKind);
+  };
+
+  const hasVeloKindReference = (node) =>
+    nodeHasVeloKind(node) ||
+    reduceAST(
+      (acc, currentNode) => acc || isVeloKindReference(currentNode),
+      false,
+      node,
+    );
+
+  const replaceWithTrue = (node) => ({
+    nodeKind: "constant",
+    type: "boolean",
+    nodeValue: true,
+  });
+
+  const conditionStringHasVeloKind = (value) =>
+    typeof value === "string" &&
+    VELO_KIND_RULES.some((veloRule) => value.includes(veloRule));
+
+  let plafondDepth = 0;
+
+  const lightenNode = (node) => {
+    if (!node || typeof node !== "object") return node;
+    if (Array.isArray(node)) return node.map(lightenNode);
+
+    let newNode = { ...node };
+
+    // Détecter si on entre dans un mécanisme "plafond"
+    const isPlafondMechanism = newNode.sourceMap?.mecanismName === "plafond";
+    const shouldSkipReplacement = plafondDepth > 0;
+
+    if (isPlafondMechanism) plafondDepth++;
+
+    try {
+      if (
+        newNode.nodeKind === "operation" &&
+        Array.isArray(newNode.explanation) &&
+        !shouldSkipReplacement
+      ) {
+        const hasVelo = hasVeloKindReference(newNode);
+        const isEt = newNode.operationKind === "et";
+        const isOu = newNode.operationKind === "ou";
+        const isToutesCesConditions =
+          newNode.sourceMap?.mecanismName === "toutes ces conditions";
+        const isUneDeCesConditions =
+          newNode.sourceMap?.mecanismName === "une de ces conditions";
+
+        if (
+          (isEt || isOu || isToutesCesConditions || isUneDeCesConditions) &&
+          !hasVelo
+        ) {
+          return replaceWithTrue(newNode);
+        }
+
+        if (isEt || isOu || isToutesCesConditions || isUneDeCesConditions) {
+          const replacement = (node) =>
+            hasVeloKindReference(node)
+              ? node
+              : isOu || isUneDeCesConditions
+              ? {
+                  nodeKind: "constant",
+                  type: "boolean",
+                  nodeValue: false,
+                }
+              : replaceWithTrue(node);
+
+          newNode.explanation = newNode.explanation.map(replacement);
+
+          if (Array.isArray(newNode.sourceMap?.args?.valeur)) {
+            newNode = {
+              ...newNode,
+              sourceMap: {
+                ...newNode.sourceMap,
+                args: {
+                  ...newNode.sourceMap.args,
+                  valeur: newNode.sourceMap.args.valeur.map(replacement),
+                },
+              },
+            };
+          }
+        }
+      }
+
+      if (
+        Array.isArray(newNode["toutes ces conditions"]) &&
+        !shouldSkipReplacement
+      ) {
+        newNode["toutes ces conditions"] = newNode["toutes ces conditions"].map(
+          (condition) =>
+            conditionStringHasVeloKind(condition)
+              ? condition
+              : { nodeKind: "constant", type: "boolean", nodeValue: true },
+        );
+      }
+
+      if (Array.isArray(newNode.et) && !shouldSkipReplacement) {
+        newNode.et = newNode.et.map((condition) =>
+          conditionStringHasVeloKind(condition)
+            ? condition
+            : { nodeKind: "constant", type: "boolean", nodeValue: true },
+        );
+      }
+
+      if (Array.isArray(newNode.ou) && !shouldSkipReplacement) {
+        newNode.ou = newNode.ou.map((condition) =>
+          conditionStringHasVeloKind(condition)
+            ? condition
+            : { nodeKind: "constant", type: "boolean", nodeValue: false },
+        );
+      }
+
+      if (
+        Array.isArray(newNode["une de ces conditions"]) &&
+        !shouldSkipReplacement
+      ) {
+        newNode["une de ces conditions"] = newNode["une de ces conditions"].map(
+          (condition) =>
+            conditionStringHasVeloKind(condition)
+              ? condition
+              : { nodeKind: "constant", type: "boolean", nodeValue: false },
+        );
+      }
+
+      for (const [key, value] of Object.entries(newNode)) {
+        newNode[key] = lightenNode(value);
+      }
+
+      return newNode;
+    } finally {
+      if (isPlafondMechanism) plafondDepth--;
+    }
+  };
+
+  // Parcourir l'AST. Filtrer les conditions pour garder seulement celles qui
+  // concernent les types de vélo (VELO_KIND_RULES). Les autres conditions
+  // sont remplacées par une condition toujours vraie.
+  const lightenedAST = lightenNode(rule);
+
+  // Evaluate la règle avec l'AST allégé pour obtenir le montant de l'aide en fonction du type de vélo uniquement
+  const maxAmountPerVeloKind = {};
+  for (const veloKind of VELO_TYPE_POSSIBILITIES) {
+    engine.setSituation({ "vélo . type": `'${veloKind}'` });
+    const evaluation = engine.evaluate(lightenedAST);
+    maxAmountPerVeloKind[veloKind] = evaluation.nodeValue;
+  }
+  console.log(rule.dottedName, maxAmountPerVeloKind);
+  return maxAmountPerVeloKind;
 };
 
 const getCodeInseeForCollectivity = (collectivity) => {
@@ -139,6 +342,7 @@ const associateCollectivityMetadata = (rule) => {
   const codeInsee = getCodeInseeForCollectivity(collectivity);
   const commune = getCommune(codeInsee);
   const country = getCountry(rule);
+  const maxAideAmountPerVeloKind = getMaxAideAmountPerVeloKind(rule);
 
   return {
     collectivity,
@@ -147,6 +351,7 @@ const associateCollectivityMetadata = (rule) => {
     departement: commune?.departement,
     population: commune?.population,
     country,
+    maxAideAmountPerVeloKind,
   };
 };
 
