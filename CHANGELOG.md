@@ -1,5 +1,36 @@
 # @betagouv/aides-velo
 
+## 3.6.0
+
+### Aides supprimées
+
+- Brest Métropole ([#83](https://github.com/betagouv/publicodes-aides-velo/pull/83))
+- CC du Pays des Achards ([#83](https://github.com/betagouv/publicodes-aides-velo/pull/83))
+- CC Fier et Usses ([#83](https://github.com/betagouv/publicodes-aides-velo/pull/83))
+- CC Haut Val de Sèvre ([#83](https://github.com/betagouv/publicodes-aides-velo/pull/83))
+- CC Sommes Sud-Ouest ([#83](https://github.com/betagouv/publicodes-aides-velo/pull/83))
+- Durance-Lubéron-Verdon Agglomération ([#83](https://github.com/betagouv/publicodes-aides-velo/pull/83))
+- Ville de Camon ([#83](https://github.com/betagouv/publicodes-aides-velo/pull/83))
+
+### Aides ajoutées
+
+- CA Grand Châtellerault ([#83](https://github.com/betagouv/publicodes-aides-velo/pull/83))
+- Villeneuve lez Avignon ([#83](https://github.com/betagouv/publicodes-aides-velo/pull/83))
+
+### Aides modifiées
+
+- CA de Blois 'Agglopolys' - utilise 2000 euros par défaut pour le prix du vélo ([#83](https://github.com/betagouv/publicodes-aides-velo/pull/83))
+- CA Tarbes-Lourdes-Pyrénées ([#83](https://github.com/betagouv/publicodes-aides-velo/pull/83))
+- CC du Carmausin-Ségala ([#83](https://github.com/betagouv/publicodes-aides-velo/pull/83))
+- CC du Pays de L'Arbresle ([#83](https://github.com/betagouv/publicodes-aides-velo/pull/83))
+- Pornic agglo Pays de Retz ([#83](https://github.com/betagouv/publicodes-aides-velo/pull/83))
+- Ville de Illkirch-Graffenstaden ([#83](https://github.com/betagouv/publicodes-aides-velo/pull/83))
+- Ville de Saint-Omer ([#83](https://github.com/betagouv/publicodes-aides-velo/pull/83))
+
+### Questions modifiées
+
+- L'âge par défaut est maintenant de 18 ans au lieu de 30 ans ([#83](https://github.com/betagouv/publicodes-aides-velo/pull/83))
+
 ## 3.5.0
 
 ### Minor Changes
