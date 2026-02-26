@@ -42,11 +42,12 @@
   },
   "dependencies": {
     "@etalab/decoupage-administratif": "^5.2.0",
+    "glob": "^13.0.6",
     "publicodes": "^1.8.5"
   },
   "devDependencies": {
     "@actions/core": "^1.11.1",
-    "@actions/github": "^6.0.1",
+    "@actions/github": "^9.0.0",
     "@changesets/cli": "^2.29.4",
     "@publicodes/tools": "^1.7.2",
     "@svitejs/changesets-changelog-github-compact": "^1.2.0",
