@@ -1,13 +1,16 @@
 /**
- * Associates for each aid the corresponding collectivity.
+ * Associates for each aid the corresponding collectivity and enriches with metadata.
  */
 
 import fs from "node:fs";
 import { exit } from "process";
 import Publicodes, { reduceAST } from "publicodes";
 
-import epci from "@etalab/decoupage-administratif/data/epci.json" with { type: "json" };
-import { getDataPath } from "./utils.js";
+import epci from "@etalab/decoupage-administratif/data/epci.json" assert { type: "json" };
+import communes from "../src/data/communes.json" assert { type: "json" };
+import departements from "@etalab/decoupage-administratif/data/departements.json" assert { type: "json" };
+import regions from "@etalab/decoupage-administratif/data/regions.json" assert { type: "json" };
+import { getDataPath, getDistDataPath } from "./utils.js";
 
 import rules from "../publicodes-build/index.js";
 
@@ -27,7 +30,10 @@ const rules_to_skip = [
 const aidesRuleNames = ruleNames.filter((ruleName) => {
   if (ruleName.startsWith("aides .")) {
     if (!engine.getRule(ruleName).rawNode.titre) {
-      if (ruleName.split(" . ").length === 2 && !rules_to_skip.includes(ruleName)) {
+      if (
+        ruleName.split(" . ").length === 2 &&
+        !rules_to_skip.includes(ruleName)
+      ) {
         console.warn(`No title for ${ruleName}`);
       }
       return false;
@@ -37,26 +43,10 @@ const aidesRuleNames = ruleNames.filter((ruleName) => {
   return false;
 });
 
-const res = Object.fromEntries(
-  aidesRuleNames.map((ruleName) => {
-    const rule = engine.getRule(ruleName);
-    const collectivity = extractCollectivityFromAST(rule);
-    if (!collectivity) {
-      return [ruleName, undefined];
-    }
-    const country = getCountry(rule);
+const communesSorted = communes.sort((a, b) => b.population - a.population);
 
-    return [ruleName, { collectivity, country }];
-  }),
-);
-
-fs.writeFileSync(getDataPath("aides-collectivities.json"), JSON.stringify(res));
-console.log(`${aidesRuleNames.length} aides écrites.`);
-
-/// Utils
-
-function extractCollectivityFromAST(rule) {
-  const collectityKinds = [
+const extractCollectivityFromAST = (rule) => {
+  const localisationKinds = [
     "pays",
     "région",
     "département",
@@ -74,67 +64,107 @@ function extractCollectivityFromAST(rule) {
     rule,
   );
 
-  const localisations = reduceAST(
+  const { kind, value } = reduceAST(
     (acc, node) => {
+      if (acc) return acc;
       if (node.sourceMap?.mecanismName === "non applicable si") {
         // skip non applicable si nodes
         return acc;
       }
       if (node.nodeKind === "operation" && node.operationKind === "=") {
-        for (let kind of collectityKinds) {
-          if (node.explanation[0]?.dottedName === `localisation . ${kind}`) {
-            const loc = {
-              kind,
+        for (let localisationKind of localisationKinds) {
+          if (
+            node.explanation[0]?.dottedName ===
+            `localisation . ${localisationKind}`
+          ) {
+            return {
+              kind: localisationKind,
               value: node.explanation[1]?.nodeValue,
             };
-            // Avoid duplicates
-            if (!acc.find((l) => l.kind === loc.kind && l.value == loc.value)) {
-              acc.push(loc);
-            }
-            return acc;
           }
         }
       }
     },
-    [],
+    null,
     applicableSiNode,
   );
 
-  if (localisations.length === 0) {
-    console.warn(`No localisation found for ${rule.dottedName}`);
-    return;
-  }
+  // In our rule basis we reference EPCI by their name but for interoperability
+  // with third-party systems it is more robust to expose their SIREN code.
+  if (kind === "epci") {
+    const code = epci.find(({ nom }) => nom === value)?.code;
 
-  const normalizedLocalisations = localisations.map((loc) => {
-    // In our rule basis we reference EPCI by their name but for iteroperability
-    // with third-party systems it is more robust to expose their SIREN code.
-    if (loc.kind === "epci") {
-      const code = epci.find(({ nom }) => nom === loc.value)?.code;
-
-      if (!code) {
-        console.error(`Bad EPCI code: ${loc.value}`);
-        exit(1);
-      }
-
-      return { ...loc, code };
+    if (!code) {
+      console.error(`Bad EPCI code: ${value}`);
+      exit(1);
     }
 
-    return loc;
-  });
+    return { kind, value, code };
+  }
 
-  // FIXME: should handle multiple localisations
-  return normalizedLocalisations.sort((a, b) => {
-    const order = ["pays", "région", "département", "epci", "code insee"];
-    return order.indexOf(a.kind) - order.indexOf(b.kind);
-  })[0];
-}
+  return { kind, value };
+};
+
+const getCodeInseeForCollectivity = (collectivity) => {
+  const { kind, value } = collectivity;
+  switch (kind) {
+    case "région":
+      return regions.find(({ code: c }) => c === value)?.chefLieu;
+    case "département":
+      return departements.find(({ code: c }) => c === value)?.chefLieu;
+    case "epci":
+      // value est le nom de l'EPCI, chercher une commune dans cet EPCI par le nom
+      return communesSorted.find(({ epci }) => epci === value)?.code;
+    case "code insee":
+      return value;
+    default:
+      return undefined;
+  }
+};
+
+const getCommune = (codeInsee) =>
+  codeInsee && communesSorted.find(({ code }) => code === codeInsee);
 
 // TODO: a bit fragile, we should sync this logic with
 // `engine.evaluate('localisation . pays')
-function getCountry(rule) {
-  return rule.dottedName === "aides . monaco"
+const getCountry = (rule) =>
+  rule.dottedName === "aides . monaco"
     ? "monaco"
     : rule.dottedName === "aides . luxembourg"
     ? "luxembourg"
     : "france";
-}
+
+const associateCollectivityMetadata = (rule) => {
+  const collectivity = extractCollectivityFromAST(rule);
+  const codeInsee = getCodeInseeForCollectivity(collectivity);
+  const commune = getCommune(codeInsee);
+  const country = getCountry(rule);
+
+  return {
+    collectivity,
+    codeInsee,
+    region: commune?.region,
+    departement: commune?.departement,
+    population: commune?.population,
+    country,
+  };
+};
+
+const res = Object.fromEntries(
+  aidesRuleNames.map((ruleName) => [
+    ruleName,
+    associateCollectivityMetadata(engine.getRule(ruleName)),
+  ]),
+);
+
+fs.writeFileSync(
+  getDataPath("aides-collectivities.json"),
+  JSON.stringify(res, null, 2),
+);
+
+fs.writeFileSync(
+  getDistDataPath("aides-collectivities.json"),
+  JSON.stringify(res, null, 2),
+);
+
+console.log(`${aidesRuleNames.length} aides écrites.`);
