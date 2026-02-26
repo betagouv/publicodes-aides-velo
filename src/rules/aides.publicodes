@@ -6191,51 +6191,6 @@ aides . betheny:
   lien: https://ville-betheny.fr/mobilites-douces-et-transports-publics
   dernière mise à jour: 02/07/2025
 
-# NOTE: valide jusqu'au 31 décembre 2025, à vérifier en 2026
-aides . brest:
-  remplace: intercommunalité
-  titre: Brest Métropole
-  description: >
-    Aide à l'achat d'un vélo à assistance électrique classique, pliant ou non,
-    allant jusqu'à 500€ selon le type de VAE et selon des conditions de
-    ressources.L'aide s'applique également pour l'acquisition d'un vélo cargo à
-    assistance électrique, de type biporteur, triporteur, long tail ou
-    tricycles. 
-
-
-    L'achat doit être réalisé auprès d'un revendeur du territoire de Brest
-    Métropole (pas d'achat en ligne).
-  applicable si:
-    toutes ces conditions:
-      - localisation . epci = 'Brest Métropole'
-      - demandeur . âge . majeur
-      - vélo . électrique
-      - vélo . état . neuf
-  valeur:
-    variations:
-      - si: vélo . cargo électrique
-        alors:
-          variations:
-            - si: revenu fiscal de référence par part <= 6538 €/an
-              alors: 500 €
-            - si: revenu fiscal de référence par part <= 14089 €/an
-              alors: 400 €
-            - si: revenu fiscal de référence par part <= 22983 €/an
-              alors: 200 €
-            - sinon: 0 €
-      - sinon:
-          variations:
-            - si: revenu fiscal de référence par part <= 6538 €/an
-              alors:
-                valeur: 30% * vélo . prix
-                plafond: 300 €
-            - si: revenu fiscal de référence par part <= 14089 €/an
-              alors:
-                valeur: 20% * vélo . prix
-                plafond: 150 €
-            - sinon: 0 €
-  lien: https://brest.fr/gerer-mon-quotidien/demarches/demander-la-subvention-velo-assistance-electrique
-
 # NOTE: fin de validité le 31 décembre 2024, à vérifier en 2025
 aides . relecq-kerhuon:
   remplace: commune
