@@ -1,5 +1,11 @@
 # @betagouv/aides-velo
 
+## 3.6.1
+
+### Patch Changes
+
+- Technique - Mise à jours des dépendances ([`e5b5e45`](https://github.com/betagouv/publicodes-aides-velo/commit/e5b5e45a931637df7ca8897eca0c054278c06d43))
+
 ## 3.6.0
 
 ### Aides supprimées
