@@ -4,12 +4,7 @@
 
 import fs from "node:fs";
 import { exit } from "process";
-import Publicodes, {
-  ASTNode,
-  Evaluation,
-  reduceAST,
-  RuleNode,
-} from "publicodes";
+import Publicodes, { ASTNode, reduceAST, RuleNode } from "publicodes";
 
 import epci from "@etalab/decoupage-administratif/data/epci.json" assert { type: "json" };
 import communes from "../src/data/communes.json" assert { type: "json" };
@@ -50,6 +45,10 @@ interface AssociatedAideCollectivity {
   departement?: string;
   population?: number;
   country: string;
+  maxAideAmountPerVeloKind?: Record<
+    string,
+    string | number | boolean | null | undefined
+  >;
 }
 
 const engine = new Publicodes(rules);
@@ -171,6 +170,37 @@ const extractCollectivityFromAST = (rule: RuleNode): Collectivity => {
   return { kind, value };
 };
 
+const getCodeInseeForCollectivity = (
+  collectivity: Collectivity,
+): string | undefined => {
+  const { kind, value } = collectivity;
+  switch (kind) {
+    case "région":
+      return regions.find(({ code: c }) => c === value)?.chefLieu;
+    case "département":
+      return departements.find(({ code: c }) => c === value)?.chefLieu;
+    // We use the most populated commune of the EPCI as the code insee for the EPCI.
+    case "epci":
+      return communesSorted.find(({ epci }) => epci === value)?.code;
+    case "code insee":
+      return value;
+    default:
+      return undefined;
+  }
+};
+
+const getCommune = (codeInsee: string | undefined): Commune | undefined =>
+  codeInsee ? communesSorted.find(({ code }) => code === codeInsee) : undefined;
+
+// TODO: a bit fragile, we should sync this logic with
+// `engine.evaluate('localisation . pays')
+const getCountry = (rule: RuleNode) =>
+  rule.dottedName === "aides . monaco"
+    ? "monaco"
+    : rule.dottedName === "aides . luxembourg"
+    ? "luxembourg"
+    : "france";
+
 // const SHOULD_NOT_IMPACT_DEFAULT_APPLICABILITY = [
 //   "localisation . région",
 //   "demandeur . en situation de handicap",
@@ -207,162 +237,146 @@ const VELO_KIND_RULES = [
   "vélo . adapté",
 ];
 
-const getMaxAideAmountPerVeloKind = (rule, conditions = []) => {
-  const isVeloKindReference = (node) =>
+const getMaxAideAmountPerVeloKind = (rule: RuleNode, conditions = []) => {
+  const isVeloKindReference = (node: ASTNode) =>
     node?.nodeKind === "reference" &&
     VELO_KIND_RULES.includes(node.dottedName ?? node.name);
 
-  const nodeHasVeloKind = (value) => {
-    if (!value) return false;
-    if (Array.isArray(value)) return value.some(nodeHasVeloKind);
-    if (typeof value === "string") return conditionStringHasVeloKind(value);
-    if (typeof value !== "object") return false;
-    if (isVeloKindReference(value)) return true;
-    if (typeof value.rawNode === "string") {
-      return conditionStringHasVeloKind(value.rawNode);
-    }
-    return Object.values(value).some(nodeHasVeloKind);
+  // TODO: check why there are isNodeWithVeloKindReference and hasVeloKindReference functions and if we can unify them
+  const isNodeWithVeloKindReference = (node: ASTNode) => {
+    if (!node || typeof node !== "object") return false;
+
+    if (typeof node === "string") return isConditionStringWithVeloKind(node);
+
+    if (typeof node.rawNode === "string")
+      return isConditionStringWithVeloKind(node.rawNode);
+
+    if (isVeloKindReference(node)) return true;
+
+    if (Array.isArray(node)) return node.some(isNodeWithVeloKindReference);
+
+    return Object.values(node).some(isNodeWithVeloKindReference);
   };
 
-  const hasVeloKindReference = (node) =>
-    nodeHasVeloKind(node) ||
+  const hasVeloKindReference = (node: ASTNode): boolean =>
+    isNodeWithVeloKindReference(node) ||
     reduceAST(
       (acc, currentNode) => acc || isVeloKindReference(currentNode),
       false,
       node,
     );
 
-  const replaceWithTrue = (node) => ({
+  const booleanNode = (nodeValue: boolean): ASTNode => ({
     nodeKind: "constant",
     type: "boolean",
-    nodeValue: true,
+    nodeValue: nodeValue,
   });
 
-  const conditionStringHasVeloKind = (value) =>
-    typeof value === "string" &&
-    VELO_KIND_RULES.some((veloRule) => value.includes(veloRule));
+  const isConditionStringWithVeloKind = (condition: string): boolean =>
+    typeof condition === "string" &&
+    VELO_KIND_RULES.some((veloRule) => condition.includes(veloRule));
 
-  let plafondDepth = 0;
-
-  const lightenNode = (node) => {
+  const lightenNode = (
+    node: ASTNode | ASTNode[],
+    inPlafond = false,
+  ): ASTNode | ASTNode[] => {
     if (!node || typeof node !== "object") return node;
-    if (Array.isArray(node)) return node.map(lightenNode);
 
-    let newNode = { ...node };
+    if (Array.isArray(node))
+      return node.map((child) => lightenNode(child, inPlafond)) as ASTNode[];
 
-    // Détecter si on entre dans un mécanisme "plafond"
+    let newNode = {
+      ...node,
+    } as ASTNode & Record<string, unknown>;
+
     const isPlafondMechanism = newNode.sourceMap?.mecanismName === "plafond";
-    const shouldSkipReplacement = plafondDepth > 0;
+    const isInPlafond = inPlafond || isPlafondMechanism;
+    const shouldSkipReplacement = isInPlafond;
 
-    if (isPlafondMechanism) plafondDepth++;
+    if (
+      newNode.nodeKind === "operation" &&
+      Array.isArray(newNode.explanation) &&
+      !shouldSkipReplacement
+    ) {
+      const hasVelo = hasVeloKindReference(newNode);
+      const isEt = newNode.operationKind === "et";
+      const isOu = newNode.operationKind === "ou";
+      const isToutesCesConditions =
+        newNode.sourceMap?.mecanismName === "toutes ces conditions";
+      const isUneDeCesConditions =
+        newNode.sourceMap?.mecanismName === "une de ces conditions";
 
-    try {
-      if (
-        newNode.nodeKind === "operation" &&
-        Array.isArray(newNode.explanation) &&
-        !shouldSkipReplacement
-      ) {
-        const hasVelo = hasVeloKindReference(newNode);
-        const isEt = newNode.operationKind === "et";
-        const isOu = newNode.operationKind === "ou";
-        const isToutesCesConditions =
-          newNode.sourceMap?.mecanismName === "toutes ces conditions";
-        const isUneDeCesConditions =
-          newNode.sourceMap?.mecanismName === "une de ces conditions";
-
-        if (
-          (isEt || isOu || isToutesCesConditions || isUneDeCesConditions) &&
-          !hasVelo
-        ) {
-          return replaceWithTrue(newNode);
+      if (isEt || isOu || isToutesCesConditions || isUneDeCesConditions) {
+        if (!hasVelo) {
+          return booleanNode(true);
         }
 
-        if (isEt || isOu || isToutesCesConditions || isUneDeCesConditions) {
-          const replacement = (node) =>
-            hasVeloKindReference(node)
-              ? node
-              : isOu || isUneDeCesConditions
-              ? {
-                  nodeKind: "constant",
-                  type: "boolean",
-                  nodeValue: false,
-                }
-              : replaceWithTrue(node);
+        const replacement = (node: ASTNode): ASTNode =>
+          hasVeloKindReference(node)
+            ? node
+            : isOu || isUneDeCesConditions
+            ? booleanNode(false)
+            : booleanNode(true);
 
-          newNode.explanation = newNode.explanation.map(replacement);
+        newNode.explanation = newNode.explanation.map(replacement) as [
+          ASTNode,
+          ASTNode,
+        ];
 
-          if (Array.isArray(newNode.sourceMap?.args?.valeur)) {
-            newNode = {
-              ...newNode,
-              sourceMap: {
-                ...newNode.sourceMap,
-                args: {
-                  ...newNode.sourceMap.args,
-                  valeur: newNode.sourceMap.args.valeur.map(replacement),
-                },
+        if (Array.isArray(newNode.sourceMap?.args?.valeur)) {
+          newNode = {
+            ...newNode,
+            sourceMap: {
+              ...newNode.sourceMap,
+              args: {
+                ...newNode.sourceMap.args,
+                valeur: newNode.sourceMap.args.valeur.map(replacement),
               },
-            };
-          }
+            },
+          };
         }
       }
-
-      if (
-        Array.isArray(newNode["toutes ces conditions"]) &&
-        !shouldSkipReplacement
-      ) {
-        newNode["toutes ces conditions"] = newNode["toutes ces conditions"].map(
-          (condition) =>
-            conditionStringHasVeloKind(condition)
-              ? condition
-              : { nodeKind: "constant", type: "boolean", nodeValue: true },
-        );
-      }
-
-      if (Array.isArray(newNode.et) && !shouldSkipReplacement) {
-        newNode.et = newNode.et.map((condition) =>
-          conditionStringHasVeloKind(condition)
-            ? condition
-            : { nodeKind: "constant", type: "boolean", nodeValue: true },
-        );
-      }
-
-      if (Array.isArray(newNode.ou) && !shouldSkipReplacement) {
-        newNode.ou = newNode.ou.map((condition) =>
-          conditionStringHasVeloKind(condition)
-            ? condition
-            : { nodeKind: "constant", type: "boolean", nodeValue: false },
-        );
-      }
-
-      if (
-        Array.isArray(newNode["une de ces conditions"]) &&
-        !shouldSkipReplacement
-      ) {
-        newNode["une de ces conditions"] = newNode["une de ces conditions"].map(
-          (condition) =>
-            conditionStringHasVeloKind(condition)
-              ? condition
-              : { nodeKind: "constant", type: "boolean", nodeValue: false },
-        );
-      }
-
-      for (const [key, value] of Object.entries(newNode)) {
-        newNode[key] = lightenNode(value);
-      }
-
-      return newNode;
-    } finally {
-      if (isPlafondMechanism) plafondDepth--;
     }
+
+    if (!shouldSkipReplacement) {
+      const conditionKeys: ReadonlyArray<{
+        key: "toutes ces conditions" | "et" | "ou" | "une de ces conditions";
+        fallback: boolean;
+      }> = [
+        { key: "toutes ces conditions", fallback: true },
+        { key: "et", fallback: true },
+        { key: "ou", fallback: false },
+        { key: "une de ces conditions", fallback: false },
+      ];
+
+      for (const { key, fallback } of conditionKeys) {
+        const conditions = newNode[key];
+        if (Array.isArray(conditions)) {
+          newNode[key] = conditions.map((condition) =>
+            typeof condition === "string" &&
+            isConditionStringWithVeloKind(condition)
+              ? condition
+              : booleanNode(fallback),
+          );
+        }
+      }
+    }
+
+    for (const [key, value] of Object.entries(newNode)) {
+      newNode[key] = lightenNode(value, isInPlafond);
+    }
+
+    return newNode;
   };
 
-  // Parcourir l'AST. Filtrer les conditions pour garder seulement celles qui
-  // concernent les types de vélo (VELO_KIND_RULES). Les autres conditions
-  // sont remplacées par une condition toujours vraie.
-  const lightenedAST = lightenNode(rule);
+  // Traverse the AST. Filter the conditions to keep only those that concern the types of bikes (VELO_KIND_RULES). The other conditions are replaced by an always true condition.
+  const lightenedAST = lightenNode(rule) as ASTNode;
 
-  // Evaluate la règle avec l'AST allégé pour obtenir le montant de l'aide en fonction du type de vélo uniquement
-  const maxAmountPerVeloKind = {};
+  // Evaluate the rule with the lightened AST to get the amount of aid based on the type of bike only
+  const maxAmountPerVeloKind: Record<
+    string,
+    string | number | boolean | null | undefined
+  > = {};
   for (const veloKind of VELO_TYPE_POSSIBILITIES) {
     engine.setSituation({ "vélo . type": `'${veloKind}'` });
     const evaluation = engine.evaluate(lightenedAST);
@@ -371,37 +385,6 @@ const getMaxAideAmountPerVeloKind = (rule, conditions = []) => {
   console.log(rule.dottedName, maxAmountPerVeloKind);
   return maxAmountPerVeloKind;
 };
-
-const getCodeInseeForCollectivity = (
-  collectivity: Collectivity,
-): string | undefined => {
-  const { kind, value } = collectivity;
-  switch (kind) {
-    case "région":
-      return regions.find(({ code: c }) => c === value)?.chefLieu;
-    case "département":
-      return departements.find(({ code: c }) => c === value)?.chefLieu;
-    // We use the most populated commune of the EPCI as the code insee for the EPCI.
-    case "epci":
-      return communesSorted.find(({ epci }) => epci === value)?.code;
-    case "code insee":
-      return value;
-    default:
-      return undefined;
-  }
-};
-
-const getCommune = (codeInsee: string | undefined): Commune | undefined =>
-  codeInsee ? communesSorted.find(({ code }) => code === codeInsee) : undefined;
-
-// TODO: a bit fragile, we should sync this logic with
-// `engine.evaluate('localisation . pays')
-const getCountry = (rule: RuleNode) =>
-  rule.dottedName === "aides . monaco"
-    ? "monaco"
-    : rule.dottedName === "aides . luxembourg"
-    ? "luxembourg"
-    : "france";
 
 const associateCollectivityMetadata = (
   rule: RuleNode,
