@@ -8197,7 +8197,7 @@ aides . commune gap:
     commune.
 
 
-    Dispositif disponible jusqu'au 31 octobre 2025.
+    Dispositif disponible jusqu'au 30 juin 2026.
   applicable si:
     toutes ces conditions:
       - localisation . code insee = '05061'
@@ -8213,8 +8213,8 @@ aides . commune gap:
         alors: 200 €
       - sinon: 150 €
   lien: https://www.ville-gap.fr/aides-financieres-ville/
-  dernière mise à jour: 14/08/2025
-  date de fin: 31/10/2025
+  dernière mise à jour: 25/03/2026
+  date de fin: 30/06/2026
 
 aides . territoire de l'ouest:
   remplace: intercommunalité
