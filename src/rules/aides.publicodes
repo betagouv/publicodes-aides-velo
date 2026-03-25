@@ -9409,3 +9409,26 @@ aides . châtellrault:
       question: Êtes-vous un ancien abonné Vélibleu d'au moins 6 mois avant le 31 décembre 2021 ?
       par défaut: non
 
+aides . cc vie et boulogne:
+  remplace: intercommunalité
+  titre: Communauté de communes Vie et Boulogne
+  description: Aide à l'achat pour les VAE, pliants et adapté PMR dans la limite du budget alloué.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CC de Vie et Boulogne'
+      - demandeur . âge . majeur
+      - une de ces conditions:
+        - vélo . électrique
+        - vélo . adapté
+        - vélo . motorisation
+  valeur: 20% * vélo . prix
+  plafond:
+    variations:
+      - si: 
+          une de ces conditions:
+            - vélo . cargo électrique
+            - vélo . adapté
+        alors: 300 €
+      - sinon: 200 €
+  lien: https://www.vie-et-boulogne.fr/vivre-ici/mobilite/actions-velo/
+  dernière mise à jour: 25/03/2026
