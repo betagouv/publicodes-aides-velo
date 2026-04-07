@@ -9432,3 +9432,18 @@ aides . cc vie et boulogne:
       - sinon: 200 €
   lien: https://www.vie-et-boulogne.fr/vivre-ici/mobilite/actions-velo/
   dernière mise à jour: 25/03/2026
+
+aides . ccvo:
+  remplace: intercommunalité
+  titre: Communauté de communes du Val de l'Oise
+  description: >
+    Aide de 300 euros pour l'achat d'un vélo à assistance électrique. Aide
+    rétroative pour les vélos achetés depuis le 1er janvier 2024.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = "CC du Val de l'Oise"
+      - demandeur . âge . majeur
+      - vélo . électrique
+  valeur: 300 €
+  lien: https://www.ccvo.fr/ma-prime-velo
+  dernière mise à jour: 07/04/2026
