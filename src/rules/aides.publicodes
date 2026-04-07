@@ -3273,22 +3273,24 @@ aides . grand chambéry:
       par défaut: oui
 
 # NOTE: valide pour 2025, à vérifier en 2026
+# TODO: ajouter la possibilité de rajouter la condition de fin 'nombre de
+# demandes, enveloppe allouée, etc..' en plus de la date de fin.
 aides . saint alban leysse:
   remplace: commune
   titre: Ville de Saint-Alban-Leysse
   description: >
     La commune de Saint-Alban-Leysse propose une aide de 200€ pour l'achat d'un
-    vélo à assistance électrique (VAE) dont le prix est compris entre 1200€ et
-    3400€.
+    vélo à assistance électrique (VAE) dont le prix est compris entre 1500€ et
+    3700€. Limitée à 20 demandes.
   applicable si:
     toutes ces conditions:
       - localisation . code insee = '73222'
       - vélo . électrique
-      - vélo . prix >= 1200 €
-      - vélo . prix <= 3400 €
+      - vélo . prix >= 1500 €
+      - vélo . prix <= 3700 €
   valeur: 200€
   lien: https://www.saintalbanleysse.fr/toutes-les-actualites/200eur-daide-communale-pour-lachat-dun-velo-a-assistance-electrique-vae
-  dernière mise à jour: 14/08/2025
+  dernière mise à jour: 07/04/2026
 
 # NOTE: info pour 2023, à vérifier en 2025
 aides . les crêtes préardennaises:
@@ -5706,14 +5708,14 @@ aides . lezenne:
             - sinon: 0€
   lien: http://www.lezennes.fr/index.php?id=167
 
-# TODO: à vérifier en 2026
+# TODO: à vérifier en 2027
 aides . dunkerque:
   remplace: intercommunalité
   titre: Communauté urbaine de Dunkerque
   description: >
     Cette aide est octroyée sous forme de subvention pour tout achat d'un vélo
     neuf quel qu'en soit le type (classique, pliant, à assistance électrique,
-    cargo…) acheté avant le 31 décembre 2025. Au prix initial du vélo, peuvent
+    cargo…) acheté avant le 31 décembre 2026. Au prix initial du vélo, peuvent
     s'ajouter 3 accessoires : éclairage, antivol et casque. L'achat doit être
     effectué chez un commerce de la Communauté Urbaine de Dunkerque.
   applicable si:
@@ -5754,8 +5756,8 @@ aides . dunkerque:
               alors: 150€
             - sinon: 80€
   lien: https://www.communaute-urbaine-dunkerque.fr/aide-a-lacquisition-dun-velo
-  date de fin: 31/12/2025
-  dernière mise à jour: 12/09/2025
+  date de fin: 31/12/2026
+  dernière mise à jour: 07/04/2026
 
 aides . cc flandre lys:
   remplace: intercommunalité
