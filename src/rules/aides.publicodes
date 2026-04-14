@@ -496,56 +496,6 @@ aides . saône-beaujolais:
   lien: https://ccsb-saonebeaujolais.fr/au-quotidien/se-deplacer/aide-a-lachat-dun-velo/
   dernière mise à jour: 13/02/2026
 
-# NOTE: jusqu'au 31 décembre 2026
-# TODO: test intégration sur le plafond
-aides . villefranche beaujolais saône:
-  remplace: intercommunalité
-  titre: Villefranche Agglomération Beaujolais Saône
-  description: >
-     la Communauté d'Agglomération Villefranche-Beaujolais-Saône a inscrit dans
-     son Plan Vélo adopté le 24 février 2022 un dispositif d'aides financières
-     à l'acquisition de vélos ou vélos à assistance électrique, neufs ou
-     d'occasion.
-
-     Le dispositif est prolongé jusqu'au 31 décembre 2025.
-  applicable si: localisation . epci = 'CA Villefranche Beaujolais Saône'
-  valeur:
-    variations:
-      - si: vélo . électrique
-        alors: 500€
-      - si: vélo . mécanique
-        alors: 200€
-      - si: vélo . motorisation
-        alors: 200€
-      - sinon: 0€
-  plafond: prix déduit des autres aides
-  lien: https://www.agglo-villefranche.fr/aide-a-lachat-velo.html
-  avec:
-    prix déduit des autres aides: 
-      valeur: vélo . prix - (aides . état + aides . département + aides . région + aides . commune)
-      plancher: 0€
-  dernière mise à jour: 14/08/2025
-  date de fin: 31/12/2025
-
-aides . ville-sur-jarnioux:
-  remplace: commune
-  titre: Ville-sur-Jarnioux
-  description: >
-    Le Conseil Municipal de Ville-sur-Jarnioux a voté la mise en place d'une «
-    aide-vélo » aux Villésiens. Cette participation financière est versée aux
-    habitant·es qui ont bénéficié de l'aide de la CAVBS.
-  applicable si:
-    toutes ces conditions:
-      - localisation . code insee = '69265'
-      - aides . villefranche beaujolais saône > 0€
-  valeur: 50% * vélo . prix
-  plafond: 
-    variations:
-      - si: vélo . état . neuf
-        alors: 100€
-      - sinon: 50€
-  lien: https://www.ville-sur-jarnioux.fr/aide-velo/
-
 aides . sainte-foy-lès-lyon:
   remplace: commune
   titre: Ville de Sainte-Foy-lès-Lyon
@@ -3350,35 +3300,6 @@ aides . clisson:
           plafond: 100 €
   lien: https://www.mairie-clisson.fr/vue-detaillee/news/dispositif-clisson-a-velo-ou-trottinette
 
-aides . sèvre et loire:
-  remplace: intercommunalité
-  titre: Communauté de communes Sèvre et Loire
-  description: >
-    Pour encourager la pratique du vélo, la Communauté de communes Sèvre &
-    Loire attribue une aide financière pour l'achat d'un vélo à assistance
-    électrique, un vélo-cargo, ou un vélo pliant.
-  applicable si:
-    toutes ces conditions:
-      - localisation . epci = 'CC Sèvre et Loire'
-      - demandeur . âge . majeur
-      - vélo . électrique
-  valeur:
-    variations:
-      - si: revenu fiscal de référence par part <= 750€/mois
-        alors:
-          valeur: 30% * vélo . prix
-          plafond: 200€
-      - si: revenu fiscal de référence par part <= 1500€/mois
-        alors:
-          valeur: 20% * vélo . prix
-          plafond: 150€
-      - sinon:
-          valeur: 10% * vélo . prix
-          plafond: 100€
-  lien: https://www.cc-sevreloire.fr/se-deplacer-a-velo/une-aide-pour-lachat-dun-velo-electrique/
-  dernière mise à jour: 14/04/2025
-  date de fin: 31/12/2025
-
 aides . romilly-sur-seine:
   remplace: intercommunalité
   titre: Communauté de Communes des Portes de Romilly-sur-Seine
@@ -3391,7 +3312,8 @@ aides . romilly-sur-seine:
       - demandeur . âge . majeur
       - vélo . électrique
   valeur: 100€
-  lien: https://www.ville-romilly-sur-seine.fr/node/1514
+  lien: https://ccprs.fr/fr/actualites/prime-velo
+  dernière mise à jour: 14/04/2026
 
 # NOTE: valide jusqu'en 2026, à vérifier en 2027
 aides . boé:
@@ -4082,65 +4004,6 @@ aides . genevois:
   lien: https://www.cc-genevois.fr/fr/vie-pratique-et-services/vous-deplacer/velo-ou-pied
   dernière mise à jour: 22/08/2025
 
-# TODO:  à vérifier en 2026
-aides . cluses arve et montagnes:
-  remplace: intercommunalité
-  titre: Communauté de communes Cluses Arve & montagnes
-  description: >
-    La 2CCAM propose à tous les habitant·es s majeurs de son territoire une
-    prime vélo pour l'acquisition d'un vélo neuf ou d'un vélo d'occasion
-    (acheté auprès d'un revendeur professionnel) ! Les VTT, gravels, et vélos
-    de route sont exclus du dispositif.
-
-
-    Un bonus de 100€ est accordé pour l'achat d'un vélo d'occasion et double
-    l'apport de la participation financière de votre employeur (dans la limite
-    de 400€).
-  applicable si:
-    toutes ces conditions:
-      - localisation . epci = 'CC Cluses-Arve et Montagnes'
-      - demandeur . âge . majeur
-      - revenu fiscal de référence par part <= 36000 €/an
-  valeur:
-    somme:
-      - variations:
-          - si: revenu fiscal de référence par part <= 20000 €/an
-            alors:
-              variations:
-                - si:
-                    une de ces conditions:
-                      - vélo . cargo
-                      - vélo . adapté
-                  alors: 1000 €
-                - si: vélo . électrique
-                  alors: 300 €
-                - sinon: 150 €
-          - sinon:
-              variations:
-                - si:
-                    une de ces conditions:
-                      - vélo . cargo
-                      - vélo . adapté
-                  alors: 800 €
-                - si: vélo . électrique
-                  alors: 200 €
-                - sinon: 100 €
-      - variations:
-          - si: vélo . état . occasion
-            alors: 100€
-          - sinon: 0€
-      - valeur: participation employeur
-        plafond: 400€
-  plafond: 80% * vélo . prix
-  lien: https://www.2ccam.fr/2023/06/09/prime-velo/
-  dernière mise à jour: 22/08/2025
-  avec:
-    participation employeur:
-      type: nombre
-      question: Quel est le montant de la participation financière de votre employeur ?
-      par défaut: 0
-      unite: €
-
 aides . évian-les-bains:
   remplace: commune
   titre: Ville d'Évian-les-Bains
@@ -4344,14 +4207,13 @@ aides . lille:
   lien: https://www.lille.fr/Jeune2/Le-dispositif-d-aide-financiere-mobilite-douce
   dernière mise à jour: 13/11/2025
 
-# NOTE: fin d'utilisation le 15 novembre 2025 mais probablement prolongée en 2026.
+# TODO: à vérifier printemps 2026 pour les informations plus précises
 aides . grand poitiers:
   remplace: intercommunalité
   titre: Grand Poitiers
   description: >
-    Chèque VAE - Aide financière pour l'achat d'un VAE. Le chèque doit
-    obligatoirement retiré avant l'achat et être utilisé avant le 15 novembre
-    de l'année en cours.
+    Chèque VAE - Aide financière pour l'achat d'un VAE. L'opération pour 2025
+    est close mais le dispositif pour 2026 sera lancé d'ici peu. 
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'CU du Grand Poitiers'
@@ -4366,25 +4228,8 @@ aides . grand poitiers:
         valeur: 25% * vélo . prix
         plafond: 250€
   lien: https://www.grandpoitiers.fr/au-quotidien/deplacements/velos-et-mobilites-actives/aide-a-lachat-dun-velo-a-assistance-electrique-vae
-  dernière mise à jour: 30/02/2025
-  date de fin: 15/11/2025
-
-aides . grand poitiers adapté:
-  remplace: intercommunalité
-  titre: Grand Poitiers
-  description: >
-    Pour l’achat d’un vélo adapté, Grand Poitiers peut vous apporter une aide
-    représentant 25% du prix d’achat, jusqu’à 1000€. A noter que vous devez
-    retirer votre dossier de demande de subvention avant l’achat du vélo.
-  applicable si:
-    toutes ces conditions:
-      - localisation . epci = 'CU du Grand Poitiers'
-      - demandeur . âge . majeur
-      - vélo . adapté
-  valeur: 25% * vélo . prix
-  plafond: 1000€
-  lien: https://www.grandpoitiers.fr/au-quotidien/deplacements/mobilite-inclusive-et-solidaire/savoir-prendre-le-bus-ou-faire-du-velo
-  dernière mise à jour: 30/02/2025
+  dernière mise à jour: 14/04/2026
+  date de fin: 31/12/2026
 
 # TODO: à vérifier en 2026
 aides . grand orb:
@@ -5986,6 +5831,7 @@ aides . nanterre:
         pour plus d'informations).
       par défaut: non
 
+# TODO: à vérifier en 2027
 aides . puteaux:
   remplace: commune
   titre: Ville de Puteaux
@@ -6009,7 +5855,8 @@ aides . puteaux:
       - si: vélo . électrique
         alors: 100€
       - sinon: 300€
-  lien: https://www.puteaux.fr/decouvrir-puteaux/developpement-durable/aides-et-primes/
+  lien: https://www.puteaux.fr/cadre-de-vie/developpement-durable/aides-et-primes/
+  dernière mise à jour: 14/04/2026
 
 aides . genneviliers:
   remplace: commune
@@ -6489,6 +6336,7 @@ aides . cote d'emeraude:
   valeur: 100€
   lien: https://www.cote-emeraude.fr/laide-a-lachat-dun-velo-a-assitance-electrique/
 
+# TODO: à vérifier, contacter depuis le site le 14/04/2026
 aides . saint-brieuc armor:
   remplace: intercommunalité
   titre: Saint-Brieuc Armor Agglomération
@@ -7140,22 +6988,6 @@ aides . hennebont:
   plafond: 100€
   lien: https://www.hennebont.bzh/mon-quotidien/deplacements-stationnement/hennebont-a-velo/
 
-aides . couesnon:
-  remplace: intercommunalité
-  titre: Couesnon Marches de Bretagne
-  description: Aide à l'acquisition d'un Vélo à Assistance Electrique (VAE).
-  applicable si:
-    toutes ces conditions:
-      - localisation . epci = 'CC Couesnon Marches de Bretagne'
-      - demandeur . âge . majeur
-      - vélo . état . neuf
-      - vélo . électrique
-  valeur:
-    variations:
-      - si: revenu fiscal de référence par part <= plafond état
-        alors: 100€
-      - sinon: 50€
-  lien: https://www.couesnon-marchesdebretagne.fr/attractivite-territoriale/mobilites/
 
 aides . avant-monts:
   remplace: intercommunalité
@@ -7268,42 +7100,6 @@ aides . joinville:
   valeur: 200€
   lien: https://mairie-joinville.fr/fr/nw/509875/699194/aide-a-lacquisition-de-velos-a-assistance-electrique
 
-aides . villers-sur-mer:
-  remplace: commune
-  titre: Ville de Villers-sur-mer
-  description: >
-    Aide à l'acquisition d'un vélo classique ou à assistance électrique neuf.
-  applicable si:
-    toutes ces conditions:
-      - localisation . code insee = '14754'
-      - vélo . état . neuf
-      - une de ces conditions:
-          - vélo . électrique ou mécanique
-          - vélo . adapté
-  valeur:
-    variations:
-      - si: 
-          une de ces conditions:
-            - vélo . cargo
-            - vélo . adapté
-        alors:
-          valeur: 50% * vélo . prix
-          plafond: 400€
-      - si: vélo . électrique
-        alors:
-          valeur: 50% * vélo . prix
-          plafond: 300€
-      - si: vélo . pliant
-        alors:
-          valeur: 50% * vélo . prix
-          plafond: 150€
-      - si: vélo . mécanique
-        alors:
-          valeur: 25% * vélo . prix
-          plafond: 100€
-      - sinon: 0€
-  lien: https://www.villers-sur-mer.fr/fiche-information/mobilite/mobilite-douce/
-
 aides . pays de châteaugiron:
   remplace: intercommunalité
   titre: Pays de Châteaugiron
@@ -7383,37 +7179,6 @@ aides . ceyrat:
   lien: https://www.ceyrat.fr/votre-commune/services-municipaux/aides-communales/
   dernière mise à jour: 22/08/2025
 
-# NOTE: dépôt des demandes jusqu'au 31 octobre 2025, à vérifier en 2026
-aides . cébazat:
-  remplace: commune
-  titre: Ville de Cébazat
-  description: >
-    Afin de développer la pratique du vélo en ville et ainsi favoriser les
-    modes de déplacement doux, la Ville propose 4 aides à l'achat d'un vélo à
-    assistance électrique et le prêt de vélos à assistance électrique. Clôture
-    des demandes le 31 octobre 2025.
-  applicable si: 
-    toutes ces conditions:
-      - localisation . code insee = '63063'
-      - demandeur . âge . majeur
-      - une de ces conditions:
-          - vélo . électrique
-          - vélo . motorisation
-          - vélo . pliant
-  valeur:
-    variations:
-      - si: vélo . pliant
-        alors: 50€
-      - si: vélo . cargo
-        alors: 200€
-      - si: vélo . électrique
-        alors: 150€
-      - si: vélo . motorisation
-        alors: 100€
-  lien: https://www.cebazat.fr/actualites/plan-velo-communal-pret-aides-financieres-2/
-  dernière mise à jour: 22/08/2025
-  date de fin: 31/10/2025
-
 aides . baud:
   remplace: commune
   titre: Ville de Baud
@@ -7426,26 +7191,6 @@ aides . baud:
   valeur: 50€
   lien: https://www.mairie-baud.fr/7252-2/
 
-# TODO: vérification en 2026
-aides . longuenesse:
-  remplace: commune
-  titre: Ville de Longuenesse
-  description: >
-    Prime vélo sous forme de chèque Happy Kdo pour l'année 2025. L'achat doit
-    être effectué dans un commerce situé sur le territoire de la CAPSO, durant
-    l'année 2025 et la demande déposée avant le 16 janvier 2026.
-  applicable si:
-    toutes ces conditions:
-      - localisation . code insee = '62525'
-      - une de ces conditions:
-          - vélo . électrique
-          - vélo . adapté
-  valeur: 20% * vélo . prix
-  plafond: 100€
-  lien: https://www.ville-longuenesse.fr/mon-quotidien/cadre-de-vie/developpement-durable/mobilite-douce
-  dernière mise à jour: 14/08/2025
-  date de fin: 16/01/2026
-
 # NOTE: valide jusqu'au 1er octobre 2025 (dans la limite de l'enveloppe
 # budgétaire annuelle), à vérifier en 2025.
 # NOTE: demande d'information sur la reconduction envoyée par mail le 07/10/2025.
@@ -7454,7 +7199,8 @@ aides . saulieu:
   remplace: commune
   titre: Communauté de communes de Saulieu-Morvan
   description: >
-    Subvention de 100€ pour l'achat d'un vélo électrique neuf à partir de 650€.
+    Subvention de 100€ pour l'achat d'un vélo électrique neuf à partir de 650€
+    dans la limite de l'enveloppe budgétaire annuelle.
 
     Le dossier est à déposer dans les trentes jours suivants l'achat.
   applicable si:
@@ -7465,9 +7211,9 @@ aides . saulieu:
       - vélo . état . neuf
       - vélo . prix >= 650€
   valeur: 100€
-  lien: https://www.saulieu-morvan.fr/joomla/tourisme-loisirs
-  dernière mise à jour: 14/10/2025
-  date de fin: 01/10/2025
+  lien: https://www.saulieu-morvan.fr/1/index.php/economie/aide-achat-de-velo-electrique
+  dernière mise à jour: 14/04/2026
+  # date de fin: 01/10/2026
 
 aides . la côtière à montluel:
   remplace: intercommunalité
