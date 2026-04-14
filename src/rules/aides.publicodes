@@ -204,56 +204,6 @@ aides . ca foix-varilhes:
   lien: https://www.agglo-foix-varilhes.fr/Aide-%c3%a0-l-achat-d-un-v%c3%a9lo/45/
   dernière mise à jour: 15/09/2025
     
-aides . grand est:
-  remplace: région
-  titre: Région Grand Est
-  description: >
-    Les demandes concernant l’achat d’un vélo-cargo ou cargo-longtail ou d’un kit
-    de conversion doivent être finalisées le 31 octobre 2025 au plus tard. Passé
-    cette date, aucune demande relative à ces deux types d’aide ne sera
-    recevable, quelle que soit la date d’achat du vélo.
-  applicable si: 
-    toutes ces conditions:
-      - localisation . région = '44'
-      - une de ces conditions:
-          - demandeur . âge . majeur
-          - demandeur . en situation de handicap
-      - une de ces conditions:
-          - vélo . cargo
-          - vélo . adapté
-          - vélo . motorisation
-          - toutes ces conditions:
-              - vélo . électrique simple
-              - demandeur . en situation de handicap
-  valeur:
-    variations:
-      - si: 
-          toutes ces conditions:
-            - demandeur . en situation de handicap
-            - vélo . électrique simple
-        alors:
-          valeur: 70% * vélo . prix
-          plafond: 500€
-      - si: 
-          toutes ces conditions:
-            - demandeur . en situation de handicap
-            - vélo . adapté
-        alors:
-          valeur: 70% * vélo . prix
-          plafond: 3000€
-      - si: vélo . cargo
-        alors:
-          valeur: 500€
-          plafond: vélo . prix
-      - si: vélo . motorisation
-        alors:
-          valeur: 200€
-          plafond: vélo . prix
-      - sinon: 0€
-  lien: https://www.grandest.fr/vos-aides-regionales/achat-velos/
-  date de fin: 31/10/2025
-  dernière mise à jour: 07/10/2025
-
 aides . corse:
   remplace: région
   titre: Agence d’Aménagement durable, d’Urbanisme et d’Energie de la Corse
@@ -366,17 +316,17 @@ aides . cc monts du pilat:
         alors: 200€
       - sinon: 100€
   lien: https://www.cc-montsdupilat.fr/mise-place-dune-aide-a-lachat-dun-velo
-  dernière mise à jour: 22/08/2025
-  date de fin: 31/12/2025
+  date de fin: 31/12/2026
+  dernière mise à jour: 14/04/2026
 
-# TODO: à verifier en 2026
 aides . lyon:
   remplace: intercommunalité
   titre: Métropole Grand Lyon
-  description: Aide à l'achat d'un vélo 2025.
+  description: Aide à l'achat d'un vélo 2026.
   applicable si: 
     toutes ces conditions:
       - localisation . epci = 'Métropole de Lyon'
+      - demandeur . âge >= 16 an
       - revenu fiscal de référence par part <= 26200 €/an
   variations:
     - si: vélo . adapté
@@ -385,8 +335,8 @@ aides . lyon:
         plafond:
           variations:
             - si: revenu fiscal de référence par part <= 12231 €/an
-              alors: 1000€
-            - sinon: 200€
+              alors: 1500€
+            - sinon: 400€
     - si: vélo . cargo électrique
       alors:
         valeur: 50% * vélo . prix
@@ -445,8 +395,8 @@ aides . lyon:
         valeur: vélo . prix
         plafond: 100€
   lien: https://avelo.grandlyon.com/choisir-son-velo/les-aides
-  dernière mise à jour: 30/04/2025
-  date de fin: 31/12/2025
+  date de fin: 31/01/2027
+  dernière mise à jour: 14/04/2026
 
 aides . cc lysed:
   remplace: intercommunalité
@@ -1279,12 +1229,11 @@ aides . strasbourg:
   lien: https://www.strasbourg.eu/aides-achat
   dernière mise à jour: 16/01/2026
 
-# NOTE : aide vérifiée le 10/04/2025. Renouvellée pour 2025 avec une nouvelle url.
 aides . entzheim:
   remplace: commune
   titre: Ville de Entzheim
   description: >
-    Jusqu'au 31 décembre 2025, la commune d'Entzheim subventionne l'achat d'un
+    Jusqu'au 31 décembre 2026, la commune d'Entzheim subventionne l'achat d'un
     vélo neuf ou la réparation d'un vélo.
   applicable si: 
     toutes ces conditions:
@@ -1306,8 +1255,8 @@ aides . entzheim:
           plafond: 80€
       - sinon: 0€
   lien: https://www.entzheim.fr/demarches/subventions/velo/
-  dernière mise à jour: 10/04/2025
-  date de fin: 31/12/2025
+  date de fin: 31/12/2026
+  dernière mise à jour: 14/04/2026
 
 aides . geispolsheim:
   remplace: commune
@@ -1522,6 +1471,7 @@ aides . toulon:
   lien: https://metropoletpm.fr/demarches/aide-lachat-dun-velo-assistance-electrique-vae
   dernière mise à jour: 29/07/2025
 
+# NOTE: mail envoyé pour demander si l'aide est toujours d'actualité en 2026
 aides . provence verte:
   remplace: intercommunalité
   titre: Agglomération Provence Verte
@@ -1546,8 +1496,8 @@ aides . provence verte:
         plafond: 100€
     - sinon: 0€
   lien: https://www.caprovenceverte.fr/vie-pratique/transport-mobilite/aide-a-lacquisition-dun-velo-en-provence-verte/
-  dernière mise à jour: 14/08/2025
   date de fin: 31/12/2025
+  dernière mise à jour: 14/04/2026
 
 aides . bretagne romantique:
   remplace: intercommunalité
@@ -1804,7 +1754,6 @@ aides . carpiquet:
   valeur: 150€
   lien: https://www.carpiquet.fr/wp-content/uploads/2024/01/CONVENTION-AIDE-FINANCIERE-VAE-ET-TROTTINETTE-ELECTRIQUE-ANNEE-2024.pdf
 
-# TODO: à vérifier en 2026
 aides . ifs:
   remplace: commune
   titre: Ville d'Ifs
@@ -1820,8 +1769,8 @@ aides . ifs:
   valeur: 10% * vélo . prix
   plafond: 150€
   lien: https://www.ville-ifs.fr/mon-quotidien/la-mobilite-et-les-transports/ifs-a-velo/
-  dernière mise à jour: 10/04/2025
-  date de fin: 31/12/2025
+  date de fin: 31/12/2026
+  dernière mise à jour: 14/04/2026
 
 # NOTE: informations pour 2023, à vérifier en 2025
 aides . mondeville:
@@ -2448,7 +2397,7 @@ aides . département somme situation handicap:
   lien: https://www.somme.fr/services/loisirs-et-sports/soutien-au-mouvement-sportif/aide-a-lachat-de-materiel-pour-les-personnes-en-situation-de-handicap
   dernière mise à jour: 01/07/2025
 
-# TODO: à vérifier en 2026
+# TODO: à vérifier en 2026, contacté par mail
 aides . amiens:
   remplace: commune
   titre: Ville d'Amiens
@@ -2471,7 +2420,7 @@ aides . amiens:
   dernière mise à jour: 15/09/2025
   date de fin: 31/12/2025
 
-# TODO: à vérifier en 2026
+# TODO: à vérifier en 2026, mail envoyé
 aides . grand roye:
   remplace: intercommunalité
   titre: Communauté de communes du Grand Roye
@@ -2490,8 +2439,8 @@ aides . grand roye:
   valeur: 10% * vélo . prix
   plafond: 100 €
   lien: https://www.grandroye.fr/1-presentation/175-subventions.html
-  dernière mise à jour: 15/09/2025
   date de fin: 31/12/2025
+  dernière mise à jour: 14/04/2026
 
 aides . albert:
   remplace: commune
@@ -2688,7 +2637,6 @@ aides . les sables d'olonne:
   lien: https://www.lsoagglo.fr/vivreauxolonnes/vie-pratique/mobilites/subventions-velo/
   dernière mise à jour: 22/08/2025
 
-# TODO: à vérifier en 2026
 aides . vallons du lyonnais:
   remplace: intercommunalité
   titre: Communauté de Communes des Vallons du Lyonnais
@@ -2705,8 +2653,10 @@ aides . vallons du lyonnais:
       - revenu fiscal de référence par part <= 20000 €/an
       - une de ces conditions:
           - vélo . électrique
-          - vélo . adapté
           - vélo . motorisation
+          - vélo . adapté
+          - vélo . cargo
+          - vélo . pliant
   valeur: 50% * vélo . prix
   plafond: 
     variations:
@@ -2714,10 +2664,9 @@ aides . vallons du lyonnais:
         alors: 400€
       - sinon: 200€
   lien: https://www.ccvl.fr/vivre-au-quotidien/mobilites/vae-aides-a-lachat-et-location-longue-duree/
-  dernière mise à jour: 22/08/2025
-  date de fin: 31/12/2025
+  date de fin: 31/12/2026
+  dernière mise à jour: 14/04/2026
 
-# TODO: à relire en 2026
 aides . pays de l'ozon:
   remplace: intercommunalité
   titre: Pays de l'Ozon
@@ -2726,7 +2675,7 @@ aides . pays de l'ozon:
     vélo cargo, VAE pliant, vélo électrifié chez un professionnel ou adapté aux 
     personnes porteuses de handicaps.
     
-    Dossier à déposer avant le 5 décembre 2025 et maximum trois mois après
+    Dossier à déposer avant le 4 décembre 2026 et maximum trois mois après
     l'achat.
   applicable si:
     toutes ces conditions:
@@ -2740,8 +2689,8 @@ aides . pays de l'ozon:
   valeur: 200€
   plafond: vélo . prix
   lien: https://www.pays-ozon.com/vivre-dans-le-pays-de-lozon/les-transports/subvention-velo-electrique/
-  dernière mise à jour: 22/08/2025
-  date de fin: 05/12/2025
+  date de fin: 04/12/2026
+  dernière mise à jour: 14/04/2026
 
 # TODO: à vérifier en 2027
 aides . montpellier vélo cargo pro:
@@ -2797,6 +2746,7 @@ aides . montpellier vae occasion:
   dernière mise à jour: 14/08/2025
   date de fin: 31/12/2026
 
+# TODO: à relire en 2027, pas de date explicite renseignée
 aides . ca pays de l'or:
   remplace: intercommunalité
   titre: Pays de l'Or Agglomération
@@ -2815,8 +2765,7 @@ aides . ca pays de l'or:
   valeur: 20% * vélo . prix
   plafond: 200€
   lien: https://paysdelor.fr/vivre-ici/transports/velo/
-  dernière mise à jour: 12/09/2025
-  date de fin: 31/12/2025
+  dernière mise à jour: 14/04/2026
 
 aides . sète:
   remplace: intercommunalité
@@ -2920,7 +2869,6 @@ aides . cc plaine limagne:
   dernière mise à jour: 22/08/2025
 
 # TODO: ont développé leur propre simulateur, leur partager le lien ?
-# NOTE: reconduite pour 2025, à vérifier en 2026
 aides . cournon d'auvergne:
   remplace: commune
   titre: Ville de Cournon-d'Auvergne
@@ -2931,20 +2879,20 @@ aides . cournon d'auvergne:
   applicable si:
     toutes ces conditions:
       - localisation . code insee = '63124'
-      - revenu fiscal de référence par part <= 2967 €/mois
+      - revenu fiscal de référence par part <= 3062 €/mois
       - vélo . état . neuf
       - vélo . électrique
   valeur:
     variations:
-      - si: revenu fiscal de référence par part <= 1365 €/mois
+      - si: revenu fiscal de référence par part <= 1409 €/mois
         alors: 200€
-      - si: revenu fiscal de référence par part <= 2142 €/mois
+      - si: revenu fiscal de référence par part <= 2211 €/mois
         alors: 150€
       - sinon: 100€
   plafond: vélo . prix
   lien: https://www.cournon-auvergne.fr/actualites/aide-pour-lachat-dun-velo-a-assistance-electrique/
-  dernière mise à jour: 14/08/2025
-  date de fin: 31/12/2025
+  date de fin: 31/12/2026
+  dernière mise à jour: 14/04/2026
 
 aides . grand avignon:
   remplace: intercommunalité
@@ -3175,6 +3123,11 @@ aides . grand chambéry:
     l'achat d'un vélo à assistance électrique (VAE) ou d'un vélo cargo
     électrique neuf auprès d'un vélociste partenaire avec Grand Chambéry (liste
     consultable sur grandchambery.fr).
+
+
+    La campagne 2025 est clôturée, les chèques ayant tous été attribués. La
+    décision de renouvellement du dispositif pour 2026 sera prise dans le
+    courant du printemps.
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'CA du Grand Chambéry'
@@ -3209,8 +3162,8 @@ aides . grand chambéry:
                   alors: 1000€
                 - sinon: 500€
   lien: https://www.grandchambery.fr/mes-demarches/aides-energies/cheque-velo-a-assistance-electrique
-  dernière mise à jour: 14/08/2025
   date de fin: 31/12/2025
+  dernière mise à jour: 14/04/2026
   avec:
     salarié d'une entreprise partenaire:
       question: >
@@ -3647,7 +3600,6 @@ aides . la madeleine:
         alors: 150€
   lien: https://www.ville-lamadeleine.fr/formulaires/transition-ecologique-aides-municipales
 
-# NOTE: info pour 2025, à vérifier en 2026
 aides . puisaye forterre:
   remplace: intercommunalité
   titre: Communauté de communes de Puisaye-Forterre
@@ -3656,9 +3608,6 @@ aides . puisaye forterre:
     Puisaye-Forterre attribue une aide financière de 100 euros pour l'achat
     d'un vélo électrique, d'un kit de motorisation, d'un vélo cargo ou d'un
     vélo adapté aux personnes en situation de handicap.
-
-
-    Date limite de dépôt des dossiers : 31 décembre 2025.
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'CC de Puisaye-Forterre'
@@ -3669,8 +3618,8 @@ aides . puisaye forterre:
           - vélo . adapté
   valeur: 100€
   lien: https://www.puisaye-forterre.com/vivre/aide-a-la-mobilite/
-  dernière mise à jour: 13/08/2025
-  date de fin: 31/12/2025
+  date de fin: 31/12/2026
+  dernière mise à jour: 14/04/2026
 
 aides . cc nievre et somme:
   remplace: intercommunalité
@@ -3877,9 +3826,7 @@ aides . portes de sologne:
   lien: https://www.ccportesdesologne.fr/vivre-et-habiter/coups-de-pouce-pour-lenvironnement/
   dernière mise à jour: 13/08/2025
 
-# NOTE: valide jusqu'au 31 décembre 2025, à vérifier en 2026
-# TODO: regarder toutes les communes de l'intercommunalité
-# TODO: add unit test?
+# NOTE: valide jusqu'au 31 décembre 2026, à vérifier en 2027
 aides . grand reims:
   remplace: intercommunalité
   titre: Grand Reims Communauté urbaine
@@ -3889,8 +3836,8 @@ aides . grand reims:
     locale. Les achats en ligne sont exclus. 
    
 
-    Dossiers à déposer entre le 1er avril et le 31 octobre 2025, dans la limite des 
-    budgets disponibles.
+    Dossiers à déposer jusqu'au 31 octobre 2026, dans la limite des budgets
+    disponibles.
   applicable si: 
     toutes ces conditions:
       - localisation . epci = 'CU du Grand Reims'
@@ -3917,20 +3864,19 @@ aides . grand reims:
             alors: 50€
           - sinon: 0€
   lien: https://www.grandreims.fr/se-deplacer/operation-aide-a-lachat-dun-velo-a-assistance-electrique
-  dernière mise à jour: 14/08/2025
-  date de fin: 31/10/2025
+  dernière mise à jour: 14/04/2026
+  date de fin: 31/10/2026
 
-# NOTE: valide jusqu'au 31 décembre 2025, à vérifier en 2026
 aides . reims:
   remplace: commune
   titre: Ville de Reims
   description: >
-    Aide jusqu'à 250€ pour l'achat d'un vélo, sous réserve qu'il soit acquis auprès d'un 
-    commerçant ou d'une association du Grand Reims. Les achats en ligne livrés à  
-    domicile ou en magasin sont exclus. 
+    Aide jusqu'à 250€ pour l'achat d'un vélo, sous réserve qu'il soit acquis
+    auprès d'un commerçant ou d'une association du Grand Reims. Les achats en
+    ligne livrés à  domicile ou en magasin sont exclus. 
    
 
-    Dossiers à déposer entre le 1er avril et le 31 octobre 2025, dans la limite
+    Dossiers à déposer entre le 31 mars et le 31 octobre 2026, dans la limite
     des budgets disponibles.
   applicable si: 
     toutes ces conditions:
@@ -3969,10 +3915,10 @@ aides . reims:
                 - sinon: 10€
           - sinon: 0€
   lien: https://www.reims.fr/qualite-de-vie-environnement/stationnement-et-deplacements/operation-aide-a-lachat-dun-velo
-  dernière mise à jour: 14/08/2025
-  date de fin: 31/10/2025
+  date de fin: 31/10/2026
+  dernière mise à jour: 14/04/2026
 
-# TODO: à vérifier en 2026
+# TODO: à revérifier en 2026, contacté par mail
 aides . genevois:
   remplace: intercommunalité
   titre: Communauté de communes du Genevois
@@ -4002,7 +3948,7 @@ aides . genevois:
             - vélo . prix <= 4000 €
         alors: 200 €
   lien: https://www.cc-genevois.fr/fr/vie-pratique-et-services/vous-deplacer/velo-ou-pied
-  dernière mise à jour: 22/08/2025
+  dernière mise à jour: 14/04/2026
 
 aides . évian-les-bains:
   remplace: commune
@@ -4065,7 +4011,6 @@ aides . châtel:
   lien: https://www.mairie-chatel.com/Aide-Acquisition
   dernière mise à jour: 01/07/2025
 
-# NOTE: valide jusqu'au 31 décembre 2025, à vérifier en 2026
 aides . le vigan:
   remplace: commune
   titre: Ville du Vigan
@@ -4075,7 +4020,7 @@ aides . le vigan:
     d'accorder une aide sous forme de subvention aux habitants de la ville qui
     feront l'ac-quisition d'un vélo à assistance électrique (VAE). Cette
     subvention est fixée à 200 euros maximum, sans condition de ressources, à
-    partir du 1er janvier 2025 jusqu'au 31 décembre 2025.
+    partir du 1er mars 2026 jusqu'au 31 décembre 2026.
   applicable si:
     toutes ces conditions:
       - localisation . code insee = '30350'
@@ -4084,8 +4029,8 @@ aides . le vigan:
   valeur: 50% * vélo . prix
   plafond: 200€
   lien: https://www.levigan.fr/mes-demarches-administratives/velo-finance/
-  dernière mise à jour: 14/08/2025
-  date de fin: 31/12/2025
+  date de fin: 31/12/2026
+  dernière mise à jour: 14/04/2026
 
 # NOTE: pas d'information sur la fin de validité, à vérifier en 2026
 aides . angers:
@@ -4231,7 +4176,7 @@ aides . grand poitiers:
   dernière mise à jour: 14/04/2026
   date de fin: 31/12/2026
 
-# TODO: à vérifier en 2026
+# TODO: à vérifier courant 2026, contacté par mail car infos uniquement pour 2025.
 aides . grand orb:
   remplace: intercommunalité
   titre: Grand Orb Communauté de communes
@@ -4256,8 +4201,8 @@ aides . grand orb:
         alors: 100€
       - sinon: 80€
   lien: https://www.grandorb.fr/Developpement-durable/Plan-Climat/Aide-a-l-achat-de-velos-electriques/5/7159.html
-  dernière mise à jour: 14/08/2025
   date de fin: 10/01/2026
+  dernière mise à jour: 14/04/2026
 
 aides . montlucon:
   remplace: intercommunalité
@@ -4405,7 +4350,6 @@ aides . saint-pair-sur-mer:
   lien: https://saintpairsurmer.fr/prime-a-lacquisition-dun-velo-a-assistance-electrique-2025/
   dernière mise à jour: 20/02/2025
 
-# NOTE: à vérifier en 2026
 aides . aunis atlantique:
   remplace: intercommunalité
   titre: Communauté de Communes Aunis Atlantique
@@ -4422,8 +4366,8 @@ aides . aunis atlantique:
       - est sociétaire de la COOPEC
   valeur: 500 €
   lien: https://coopec.fr/nos-aides-financieres/aides-financieres/aide-scooter-velo-electrique
-  dernière mise à jour: 30/04/2025
-  date de fin: 31/12/2025
+  date de fin: 31/12/2026
+  dernière mise à jour: 14/04/2026
   avec:
     est sociétaire de la COOPEC:
       type: booléen
@@ -4431,7 +4375,7 @@ aides . aunis atlantique:
       par défaut: oui
       description: >
         Pour bénéficier de l'aide, vous devez être sociétaire de la COOPEC
-        (nécessite d'acquérir au minimum 1 part spécial de 50€).
+        (nécessite d'acquérir au minimum 1 part sociale de 50€).
 
 aides . blois:
   remplace: intercommunalité
@@ -4487,7 +4431,8 @@ aides . rochefort:
 
 
     La période d'attribution de la prime locale se déroule du 1er avril au 30
-    novembre de l'année civile.  
+    novembre de l'année civile dans la limite de l’enveloppe budgétaire
+    annuelle allouée.
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'CA Rochefort Océan'
@@ -4512,8 +4457,7 @@ aides . rochefort:
         alors: 100€
       - sinon: 0€
   lien: https://www.agglo-rochefortocean.fr/velo-tricycle-et-kit-delectrification-aide-lacquisition
-  date de fin: 30/11/2025
-  dernière mise à jour: 08/10/2025
+  dernière mise à jour: 14/04/2026
 
 aides . saintes:
   remplace: intercommunalité
@@ -4545,7 +4489,7 @@ aides . saintes:
   lien: https://agglo-saintes.fr/au-quotidien/mobilite-et-transport/les-aides-financieres-mobilites/
   dernière mise à jour: 14/08/2025
 
-# TODO: à vérifier en 2026
+# TODO: contacté par mail
 aides . dieppe:
   remplace: commune
   titre: Ville de Dieppe
@@ -4569,8 +4513,8 @@ aides . dieppe:
         alors: 100€
       - sinon: 50€
   lien: https://www.dieppe.fr/annuaires/catalogue-des-demarches/detail/acheter-un-velo
-  dernière mise à jour: 14/08/2025
   date de fin: 31/10/2025
+  dernière mise à jour: 14/04/2026
 
 aides . villes soeurs:
   remplace: intercommunalité
@@ -4706,7 +4650,6 @@ aides . grand cubzaguais:
       - sinon: 0€
   lien: https://www.grand-cubzaguais.fr/amenagement-durable/jusqua-150e-daide-a-lachat-dun-velo-pour-les-habitants-du-grand-cubzaguais-2024/
 
-# TODO: aide renouvellée pour 2026 mais le lien crash pour l'instant
 aides . bourges:
   remplace: intercommunalité
   titre: Bourges Plus
@@ -4721,7 +4664,7 @@ aides . bourges:
       - localisation . epci = 'CA Bourges Plus'
       - une de ces conditions:
           - demandeur . en situation de handicap
-          - revenu fiscal de référence par part <= 32911 €/an
+          - revenu fiscal de référence par part <= 34467 €/an
   valeur: 50% * vélo . prix
   plafond:
     variations:
@@ -4751,8 +4694,8 @@ aides . bourges:
         alors: 100€
       - sinon: 0€
   lien: https://www.agglo-bourgesplus.fr/site/aide-achat-velo
-  dernière mise à jour: 13/08/2025
-  date de fin: 31/12/2025
+  date de fin: 31/12/2026
+  dernière mise à jour: 14/04/2026
 
 aides . montauban:
   remplace: intercommunalité
@@ -5156,7 +5099,7 @@ aides . ca mauges communauté:
   lien: https://www.mooj.fr/mobilites-alternatives/modes-actifs/vae-aide-achat/
   dernière mise à jour: 20/10/2025
 
-# NOTE: valide jusqu'au 31 octobre 2025, à vérifier en 2026
+# NOTE: valide jusqu'au 31 octobre 2026, à vérifier en 2027
 aides . cholet:
   remplace: intercommunalité
   titre: Cholet Agglomération
@@ -5166,7 +5109,7 @@ aides . cholet:
     opération et ayant signé une charte d'engagement avec Cholet Agglomération.
 
 
-    Fin de l'opération le 31 octobre 2025.
+    Fin de l'opération le 31 octobre 2026.
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'CA Cholet Agglomération'
@@ -5178,8 +5121,8 @@ aides . cholet:
   valeur: 25% * vélo . prix
   plafond: 250€
   lien: https://www.cholet.fr/dossiers/dossier_5364_aide+velo+assistance+electrique.html
-  dernière mise à jour: 22/08/2025
-  date de fin: 31/10/2025
+  dernière mise à jour: 14/04/2026
+  date de fin: 31/10/2026
 
 aides . saumur val de loire:
   remplace: intercommunalité
@@ -5942,12 +5885,14 @@ aides . saint-avold:
     d'électrification. 
 
 
-    Fin des dépôt le 16 septembre 2025.
+    Fin des dépôt le 31 août 2026.
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'CA Saint-Avold Synergie'
       - une de ces conditions:
-          - vélo . électrique
+          - toutes ces conditions:
+              - vélo . électrique
+              - vélo . état . neuf
           - vélo . motorisation
   valeur:
     variations:
@@ -5957,8 +5902,8 @@ aides . saint-avold:
         alors: 150€
       - sinon: 50€
   lien: https://casas57.fr/nos-competences/ma-mobilite/velo/aide-a-lachat-dun-velo/
-  dernière mise à jour: 14/08/2025
-  date de fin: 16/09/2025
+  dernière mise à jour: 14/04/2026
+  date de fin: 31/08/2026
   avec:
     vélo acheté localement:
       type: booléen
@@ -6493,14 +6438,13 @@ aides . sainghin en melantois:
       - sinon: 150€
   lien: https://www.sainghin-en-melantois.fr/aide-lachat-dun-velo
 
-# NOTE: à vérifier après le 31 mai 2025
 aides . grand calais:
   remplace: intercommunalité
   titre: Grand Calais Terres et Mers - SITAC
   description: >
-    ide est octroyée sous forme d'une subvention pour tout achat d'un vélo neuf
-    ou d'occasion, à assistance électrique ou non, entre le 1er décembre 2024
-    et le 31 décembre 2025 inclus.
+    L'aide est octroyée sous forme d'une subvention pour tout achat d'un vélo
+    neuf ou d'occasion, à assistance électrique ou non, entre le 1er décembre
+    2024 et le 30 juin 2026.
   applicable si:
     toutes ces conditions:
       - une de ces conditions:
@@ -6516,8 +6460,8 @@ aides . grand calais:
       - sinon: 100€
   plafond: vélo . prix
   lien: https://www.grandcalais.fr/aide-achat-velo/
-  date de fin: 31/12/2025
-  dernière mise à jour: 12/09/2025
+  date de fin: 30/06/2026
+  dernière mise à jour: 14/04/2026
 
 # TODO: à vérifier en 2027
 aides . pays de lumbres:
@@ -6733,7 +6677,6 @@ aides . grand villeneuvois:
       - sinon: 0€
   lien: https://www.grand-villeneuvois.fr/aide-a-l-achat-d-un-velo-a-assistance-electrique-335.html
 
-# TODO: à vérifier en 2026
 aides . beauvais:
   remplace: intercommunalité
   titre: Communauté d'Agglomération du Beauvaisis
@@ -6741,6 +6684,10 @@ aides . beauvais:
     Aide à l'achat d'un vélo neuf ou d'occasion effectué auprès d'un
     équipementier ou vélociste situé sur le territoire de la Communauté
     d'Agglomération du Beauvaisis.
+
+    
+    Les dossiers sont à déposés à partir du 4 mai jusqu'au 11 décembre 2026,
+    dans la limite de l'enveloppe allouée.
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'CA du Beauvaisis'
@@ -6759,9 +6706,9 @@ aides . beauvais:
     - sinon:
         valeur: 30% * vélo . prix
         plafond: 100 €
-  lien: https://subventions-velos.beauvaisis.fr/demande-subvention/decf87d7-af09-4aa3-a9c1-7c5542e832b4/accepter-conditions
-  date de fin: 31/12/2025
-  dernière mise à jour: 12/09/2025
+  lien: https://www.beauvaisis.fr/vie-pratique/se-deplacer/se-deplacer-a-velo-ou-en-trottinette-dans-le-beauvaisis/
+  date de fin: 11/12/2026
+  dernière mise à jour: 14/04/2026
 
 aides . grand angouleme:
   remplace: intercommunalité
@@ -6803,7 +6750,6 @@ aides . grand angouleme:
           plafond: 150 €
   lien: https://www.grandangouleme.fr/tous-a-velo/
 
-# TODO: à relire en 2026
 aides . massif du vercors:
   remplace: intercommunalité
   titre: Communauté de communes du Massif du Vercors 
@@ -6825,25 +6771,23 @@ aides . massif du vercors:
             - si: vélo . état . neuf
               alors: 200 €
             - sinon: 300 €
-  lien: https://www.vercors.org/fr/vie-quotidienne/se-deplacer/a-velo/
-  dernière mise à jour: 22/08/2025
-  date de fin: 31/01/2026
+  lien: https://www.vercors.org/fr/vie-quotidienne/se-deplacer/a-velo/pedalez-branche/
+  date de fin: 31/01/2027
+  dernière mise à jour: 14/04/2026
   avec:
     plafond de ressources:
       valeur:
         variations:
           - si: foyer . personnes = 1
-            alors: 22015 
+            alors: 22259 
           - si: foyer . personnes = 2
-            alors: 32197 
+            alors: 32553 
           - si: foyer . personnes = 3
-            alors: 38719 
+            alors: 39148 
           - si: foyer . personnes = 4
-            alors: 45234 
-          - si: foyer . personnes = 5
-            alors: 51775 
+            alors: 45735 
           - sinon:
-              valeur: 51775 + (6525 * personnes supplémentaires * 1 €/an/personne)
+              valeur: 45735 + (6598 * personnes supplémentaires * 1 €/an/personne)
       unité: €/an
 
     personnes supplémentaires:
@@ -7004,8 +6948,8 @@ aides . avant-monts:
   valeur: 100 €
   plafond: vélo . prix
   lien: https://www.avant-monts.fr/vivre-sinstaller/environnement/mobilite/
-  date de fin: 30/12/2025
-  dernière mise à jour: 16/09/2025
+  date de fin: 30/12/2026
+  dernière mise à jour: 14/04/2026
 
 aides . vallées de l'orne et de l'odon:
   remplace: intercommunalité
@@ -7473,7 +7417,6 @@ aides . cc portes eureliennes idf:
   lien: https://www.porteseureliennesidf.fr/pages/portes-eureliennes-mobilite-79.html
   dernière mise à jour: 13/08/2025
 
-# TODO: à vérifier en 2026
 aides . perpignan métropole:
   remplace: intercommunalité
   titre: Perpignan Méditerranée Métropole
@@ -7519,8 +7462,8 @@ aides . perpignan métropole:
         alors: 350€
       - sinon: 250€
   lien: https://aide-velo.perpignan-mediterranee.org/
-  date de fin: 31/12/2025
-  dernière mise à jour: 16/09/2025
+  date de fin: 31/12/2026
+  dernière mise à jour: 14/04/2026
 
 aides . pays de cruseilles:
   remplace: intercommunalité
@@ -7661,8 +7604,8 @@ aides . campagnes de l'artois:
               valeur: 20% * vélo . prix
               plafond: 240 €
   lien: https://campagnesartois.fr/vivre/mobilite/48534-2/
-  dernière mise à jour: 12/09/2025
-  date de fin: 31/12/2025
+  dernière mise à jour: 14/04/2026
+  date de fin: 31/12/2026
   avec:
     achat local:
       type: booléen
@@ -7920,6 +7863,7 @@ aides . sisteronais-buëch:
   lien: https://www.sisteronais-buech.fr/vivre-en-sisteronais-buech/se-deplacer/aide-a-lachat-dun-velo-a-assistance-electrique/
   dernière mise à jour: 14/08/2025
 
+# TODO: toujours les infos de 2025 sur leur site
 aides . commune barcelonette:
   remplace: commune
   titre: Commune de Barcelonnette
@@ -7987,6 +7931,7 @@ aides . territoire de l'ouest:
       - sinon: 300€
   lien: https://www.tco.re/vae-du-territoire-de-louest
 
+# TODO: à vérifier courant 2026, infos pour 2025
 aides . cc sept vallées:
   remplace: intercommunalité
   titre: Communauté de communes des 7 Vallées
@@ -8063,32 +8008,6 @@ aides . cc arc sud bretagne:
       - sinon: 100€
   lien: https://www.arc-sud-bretagne.fr/au-quotidien/mobilite
 
-# TODO: à vérifier en 2026
-aides . laon:
-  remplace: intercommunalité
-  titre: Pays de Laon
-  description: >
-    Une aide forfaitaire de 300 € est accordée aux particuliers pour
-    l'acquisition d’un VAE acheté chez un commerçant du territoire et ce, sans
-    condition de ressource. 
-    
-    
-    L'achat doit être effectué au plus tard avant le 31 décembre 2025.
-  applicable si:
-    toutes ces conditions:
-      - localisation . epci = 'CA du Pays de Laon'
-      - vélo . électrique
-      - une de ces conditions:
-          - vélo . prix <= 3000 €
-          - toutes ces conditions:
-              - vélo . cargo
-              - vélo . prix <= 5000 €
-  valeur: 300 €
-  plafond: vélo . prix
-  lien: http://www.ca-paysdelaon.fr/Aide_VAE/index.html
-  dernière mise à jour: 12/09/2025
-  date de fin: 31/12/2025
-
 aides . cc pévèle carembault:
   remplace: intercommunalité
   titre: Communauté de communes Pévèle Carembault
@@ -8100,8 +8019,7 @@ aides . cc pévèle carembault:
       - localisation . epci = 'CC Pévèle-Carembault'
       - demandeur . âge . majeur
       - une de ces conditions:
-          - toutes ces conditions:
-              - vélo . électrique
+          - vélo . électrique
           - vélo . motorisation
   valeur:
     variations:
@@ -8110,9 +8028,9 @@ aides . cc pévèle carembault:
       - sinon:
           valeur: 50% * vélo . prix
           plafond: 200€
-  lien: https://www.pevelecarembault.fr/actualites/velo-electrique-laide-lachat-est-de-retour-le-3-mars
-  dernière mise à jour: 14/04/2025
-  date de fin: 31/12/2025
+  lien: https://demarches.pevelecarembault.fr/mobilite/aide-lachat-dun-velo-ou-dun-kit-electrique
+  date de fin: 31/12/2026
+  dernière mise à jour: 14/04/2026
 
 # NOTE: l'aide est reconduite en 2025 (fichier pdf du règlement d'attribution
 # pour 2025 disponible en ligne) mais la page d'information n'a pas encore été
@@ -8399,10 +8317,10 @@ aides . bidart:
             - sinon: 100€
       - sinon: 0€
   lien: https://www.bidart.fr/demande-daide-a-lachat-de-velos
-  dernière mise à jour: 14/04/2025
   date de fin: 31/12/2025
+  dernière mise à jour: 14/04/2026
 
-# NOTE: aide renouvellée en 2025.
+# TODO: à vérifier, pour l'instant uniquement les infos pour 2025
 aides . herouville:
   remplace: commune
   titre: Ville d'Hérouville Saint-Clair
@@ -8424,7 +8342,6 @@ aides . herouville:
   dernière mise à jour: 14/04/2025
   date de fin: 31/12/2025
 
-# NOTE: aide renouvellée en 2025.
 aides . pays de mormal:
   remplace: intercommunalité
   titre: Communauté de communes du Pays de Mormal
@@ -8432,6 +8349,10 @@ aides . pays de mormal:
     Le Pays de Mormal propose une aide financière pour l’achat d'un vélo (avec
     ou sans assistance électrique), d'une trottinette ou encore d’un kit
     homologué d’électrification pour vélos musculaires
+
+    
+    L'achat doit être effectué entre le 1er janvier 2026 et le 1er décember
+    2026.
   applicable si:
     toutes ces conditions:
       - localisation . epci = 'CC du Pays de Mormal'
@@ -8464,10 +8385,10 @@ aides . pays de mormal:
                     alors: 150€
                   - sinon: 200€
   lien: https://www.cc-paysdemormal.fr/presentation-du-dispositif-velo-et-trottinette/
-  dernière mise à jour: 14/04/2025
-  date de fin: 31/12/2025
+  date de fin: 01/12/2026
+  dernière mise à jour: 14/04/2026
 
-# NOTE: aide renouvellée en 2025.
+# TODO: à vérifier en 2026
 aides . trébeurden:
   remplace: commune
   titre: Ville de Trébeurden
@@ -8484,10 +8405,8 @@ aides . trébeurden:
   valeur: 20% * vélo . prix
   plafond: 200€
   lien: https://www.trebeurden.fr/actualite/subvention-pour-lachat-dun-velo-a-assistance-electrique-2/
-  dernière mise à jour: 14/04/2025
-  date de fin: 31/12/2025
+  dernière mise à jour: 14/04/2026
 
-# NOTE: aide renouvellée en 2025.
 aides . saint-lô:
   remplace: intercommunalité
   titre: Saint-Lô Agglo
@@ -8517,13 +8436,13 @@ aides . saint-lô:
             - vélo . cargo
             - vélo . adapté
         alors: 400 €
-      - si: revenu fiscal de référence par part <= 14089 €/an
+      - si: revenu fiscal de référence par part <= 15400 €/an
         alors: 200 €
       - sinon: 100 €
   plafond: 20% * vélo . prix
   lien: https://www.saint-lo-agglo.fr/fr/la-prime-lachat-dun-velo-assistance-electrique
-  dernière mise à jour: 14/04/2025
-  date de fin: 31/12/2025
+  date de fin: 31/12/2026
+  dernière mise à jour: 14/04/2026
 
 # NOTE: aide relancée en 2025.
 aides . rueil-malmaison:
@@ -8534,6 +8453,12 @@ aides . rueil-malmaison:
     d'un vélo électrique dont le montant plafond est compris entre 200 € et 500
     € en fonction du revenu fiscal de référence par part. Une seule aide est
     versée par ménage et pendant une période de 3 ans.
+
+
+    En 2026, pour étaler les demandes et leur instruction, le portail pour la
+    demande de subvention sera accessible uniquement pendant ces trois créneaux
+    : du 15 janvier au 15 mars, du 15 mai au 15 juillet et du 15 septembre au
+    15 novembre sous réserve de budget disponible.
   applicable si:
     toutes ces conditions:
       - localisation . code insee = '92063'
@@ -8552,8 +8477,8 @@ aides . rueil-malmaison:
         valeur: 20% * vélo . prix
         plafond: 200€
   lien: https://www.villederueil.fr/fr/aide-lachat-dun-velo-electrique
-  dernière mise à jour: 29/04/2025
-  date de fin: 31/12/2025
+  date de fin: 15/12/2026
+  dernière mise à jour: 14/04/2026
 
 # NOTE: aide relancée en 2025
 # - pas de date de fin renseignée
@@ -8581,7 +8506,7 @@ aides . colmar:
   lien: "https://www.colmar.fr/engagements#:~:text=35%20:%20Dispositif%20de%20participation%20de%20la%20ville%20pour%20l'achat%20d'un%20v%C3%A9lo%20neuf"
   dernière mise à jour: 12/02/2026
 
-# NOTE: nouvelle aide ajoutée (présente dans le listing des aides vélos d'Aides Jeunes)
+# TODO: à verifier courant 2026, infos uniquement pour 2025
 aides . vauvert:
   remplace: commune
   titre: Ville de Vauvert
@@ -8844,8 +8769,13 @@ aides . cc coeur-de-savoie:
   description: >
     Aide à l'achat d'un vélo (classique et vélo-cargo) à assistance électrique.
     Le prix d'achat du vélo doit être compris entre 1200 € et 3500 € pour un
-    vélo électrique simple ou entre 2700 € et 5500 € pour un vélo-cargos
+    vélo électrique simple ou entre 2400 € et 5500 € pour un vélo-cargos
     électrique.
+
+
+    Le dispositif est mis en place à compter du 1er avril 2026 jusqu’au 31 mars
+    2027. Toute facture reçue ou datée antérieurement au 1er janvier 2026 ne
+    pourra être éligible.
   applicable si:
     toutes ces conditions:
       - localisation . epci = "CC Coeur de Savoie"
@@ -8858,37 +8788,31 @@ aides . cc coeur-de-savoie:
               - vélo . prix <= 3500 €
           - toutes ces conditions:
               - vélo . cargo électrique
-              - vélo . prix >= 2700 €
+              - vélo . prix >= 2400 €
               - vélo . prix <= 5500 €
   valeur:
     variations:
-      - si: revenu fiscal de référence par part < 7500 €/an
+      - si: revenu fiscal de référence par part < 16300 €/an
         alors:
           variations:
             - si: vélo . cargo électrique
-              alors: 1000 €
-            - sinon: 650 €
-      - si: revenu fiscal de référence par part < 16300 €/an
+              alors: 650 €
+            - sinon: 1000 €
+      - si: revenu fiscal de référence par part < 26200 €/an
         alors:
           variations:
             - si: vélo . cargo électrique
               alors: 600 €
             - sinon: 450 €
-      - si: revenu fiscal de référence par part < 26200 €/an
-        alors:
+      - sinon:
           variations:
             - si: vélo . cargo électrique
               alors: 450 €
             - sinon: 250 €
-      - sinon:
-          variations:
-            - si: vélo . cargo électrique
-              alors: 300 €
-            - sinon: 150 €
   plafond: 50% * vélo . prix
   lien: https://www.coeurdesavoie.fr/4051-se-deplacer-a-velo.htm
-  dernière mise à jour: 28/07/2025
-  date de fin: 31/03/2026
+  date de fin: 31/03/2027
+  dernière mise à jour: 14/04/2026
 
 aides . cc forcalquier lure:
   remplace: intercommunalité
@@ -8935,8 +8859,7 @@ aides . carmausin-ségala:
   date de fin: 31/12/2026
   dernière mise à jour: 13/02/2026
 
-# TODO: à vérifier en 2026
-# au 12/02/2026 : toujours référencée sur le site
+# TODO: à vérifier en 2027
 aides . béthune bruay:
   remplace: intercommunalité
   titre: Communauté d'Agglomération de Béthune-Bruay, Artois-Lys Romane
@@ -8945,9 +8868,11 @@ aides . béthune bruay:
     vélo (mécanique, électrique, cargo, adapté PMR, pliant) et des accessoires
     de sécurité (sous condition d'achat d'un vélo). 
 
-    La première session 2025 du Pass'Mobil'Agglo est organisée du 17 mars au 25
-    avril. Deux autres sessions sont prévues du 16 juin au 26 juillet et du 15
-    septembre au 25 octobre (sous réserve de disponibilité des chèques).
+
+    La première session 2026 du Pass'Mobil'Agglo est organisée du 2 mars à
+    partir de 9h au 17 avril. Deux autres sessions sont prévues du 1er juin au
+    17 juillet et du 21 septembre au 6 novembre (sous réserve de disponibilité
+    des chèques).
   applicable si:  localisation . epci = 'CA de Béthune-Bruay, Artois-Lys Romane'
   valeur:
     variations:
@@ -8965,8 +8890,8 @@ aides . béthune bruay:
         alors: 70€
       - sinon: 0€
   lien: https://www.bethunebruay.fr/fr/passmobilagglo
-  date de fin: 25/10/2025
-  dernière mise à jour: 12/09/2025
+  date de fin: 06/11/2026
+  dernière mise à jour: 14/04/2026
 
 # TODO: à vérifier en 2026
 aides . agglo bocage bressuirais:

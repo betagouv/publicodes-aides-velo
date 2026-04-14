@@ -2158,3 +2158,80 @@ aides . longuenesse:
   lien: https://www.ville-longuenesse.fr/mon-quotidien/cadre-de-vie/developpement-durable/mobilite-douce
   dernière mise à jour: 14/04/2026
   date de fin: 16/01/2026
+
+aides . grand est:
+  remplace: région
+  titre: Région Grand Est
+  description: >
+    Les demandes concernant l’achat d’un vélo-cargo ou cargo-longtail ou d’un kit
+    de conversion doivent être finalisées le 31 octobre 2025 au plus tard. Passé
+    cette date, aucune demande relative à ces deux types d’aide ne sera
+    recevable, quelle que soit la date d’achat du vélo.
+  applicable si: 
+    toutes ces conditions:
+      - localisation . région = '44'
+      - une de ces conditions:
+          - demandeur . âge . majeur
+          - demandeur . en situation de handicap
+      - une de ces conditions:
+          - vélo . cargo
+          - vélo . adapté
+          - vélo . motorisation
+          - toutes ces conditions:
+              - vélo . électrique simple
+              - demandeur . en situation de handicap
+  valeur:
+    variations:
+      - si: 
+          toutes ces conditions:
+            - demandeur . en situation de handicap
+            - vélo . électrique simple
+        alors:
+          valeur: 70% * vélo . prix
+          plafond: 500€
+      - si: 
+          toutes ces conditions:
+            - demandeur . en situation de handicap
+            - vélo . adapté
+        alors:
+          valeur: 70% * vélo . prix
+          plafond: 3000€
+      - si: vélo . cargo
+        alors:
+          valeur: 500€
+          plafond: vélo . prix
+      - si: vélo . motorisation
+        alors:
+          valeur: 200€
+          plafond: vélo . prix
+      - sinon: 0€
+  lien: https://www.grandest.fr/vos-aides-regionales/achat-velos/
+  date de fin: 31/10/2025
+  dernière mise à jour: 14/04/2026
+
+# TODO: à vérifier en 2027
+aides . laon:
+  remplace: intercommunalité
+  titre: Pays de Laon
+  description: >
+    Une aide forfaitaire de 300 € est accordée aux particuliers pour
+    l'acquisition d’un VAE acheté chez un commerçant du territoire et ce, sans
+    condition de ressource. 
+    
+    
+    L'achat doit être effectué au plus tard avant le 31 décembre 2025.
+  applicable si:
+    toutes ces conditions:
+      - localisation . epci = 'CA du Pays de Laon'
+      - vélo . électrique
+      - une de ces conditions:
+          - vélo . prix <= 3000 €
+          - toutes ces conditions:
+              - vélo . cargo
+              - vélo . prix <= 5000 €
+  valeur: 300 €
+  plafond: vélo . prix
+  lien: http://www.ca-paysdelaon.fr/Aide_VAE/index.html
+  date de fin: 31/12/2025
+  dernière mise à jour: 14/04/2026
+

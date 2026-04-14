@@ -184,8 +184,8 @@ describe("AidesVeloEngine", () => {
 
       allAides.forEach((aide) => {
         if (aide.id === "aides . entzheim") {
-          expect(aide.lastUpdate).toEqual(new Date(2025, 3, 10));
-          expect(aide.endDate).toEqual(new Date(2025, 11, 31));
+          expect(aide.lastUpdate).toEqual(new Date(2026, 3, 14));
+          expect(aide.endDate).toEqual(new Date(2026, 11, 31));
           return;
         }
       });

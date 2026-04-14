@@ -126,6 +126,18 @@ vélo . prix . HT:
 
 vélo . prix pour maximiser les aides:
   variations:
+    - si: localisation . epci = 'CA Bourges Plus'
+      alors:
+        variations:
+          - si: vélo . cargo
+            alors: 6000 €
+          - si: vélo . pliant
+            alors: 1500 €
+          - si: vélo . électrique 
+            alors: 2500 €
+          - si: vélo . mécanique simple 
+            alors: 1000 €
+          - sinon: 5000 €
     - si: localisation . epci = 'CU Perpignan Méditerranée Métropole'
       alors:
         variations:
@@ -155,7 +167,11 @@ vélo . prix pour maximiser les aides:
             alors: 1500 €
           - sinon: 4000 €
     - si: localisation . epci = "CC Coeur de Savoie"
-      alors: 3500 €
+      alors: 
+        variations:
+          - si: vélo . cargo électrique
+            alors: 5500 €
+          - sinon: 3500 €
     - si: localisation . epci = "CA du Grand Chambéry"
       alors:
         variations:

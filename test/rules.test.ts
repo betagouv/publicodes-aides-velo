@@ -593,7 +593,7 @@ describe("Aides Vélo", () => {
         "vélo . prix": "15000€",
         "revenu fiscal de référence par part": "10000€/an",
       });
-      expect(engine.evaluate("aides . lyon").nodeValue).toEqual(1000);
+      expect(engine.evaluate("aides . lyon").nodeValue).toEqual(1500);
 
       engine.setSituation({
         "localisation . epci": "'Métropole de Lyon'",
@@ -601,7 +601,7 @@ describe("Aides Vélo", () => {
         "vélo . prix": "15000€",
         "revenu fiscal de référence par part": "20000€/an",
       });
-      expect(engine.evaluate("aides . lyon").nodeValue).toEqual(200);
+      expect(engine.evaluate("aides . lyon").nodeValue).toEqual(400);
     });
 
     it("devrait correctement prendre en compte les vélo cargo", () => {
