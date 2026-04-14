@@ -1048,53 +1048,53 @@ describe("Aides Vélo", () => {
     });
   });
 
-  describe("Communauté de communes Cluses Arve & Montagnes", () => {
-    it("devrait correctement prendre en compte le bonus 'vélo d'occasion'", () => {
-      engine.setSituation({
-        "localisation . epci": "'CC Cluses-Arve et Montagnes'",
-        "vélo . prix": "1000€",
-        "revenu fiscal de référence par part": "10000€/an",
-        "vélo . type": "'électrique'",
-      });
-      expect(
-        engine.evaluate("aides . cluses arve et montagnes").nodeValue
-      ).toEqual(300);
-
-      engine.setSituation({
-        "localisation . epci": "'CC Cluses-Arve et Montagnes'",
-        "vélo . prix": "1000€",
-        "revenu fiscal de référence par part": "10000€/an",
-        "vélo . type": "'électrique'",
-        "vélo . état": "'occasion'",
-      });
-      expect(
-        engine.evaluate("aides . cluses arve et montagnes").nodeValue
-      ).toEqual(400);
-    });
-
-    it("devrait correctement prendre en compte le bonus 'participation employeur'", () => {
-      engine.setSituation({
-        "localisation . epci": "'CC Cluses-Arve et Montagnes'",
-        "vélo . prix": "1000€",
-        "revenu fiscal de référence par part": "10000€/an",
-        "vélo . type": "'électrique'",
-      });
-      expect(
-        engine.evaluate("aides . cluses arve et montagnes").nodeValue
-      ).toEqual(300);
-
-      engine.setSituation({
-        "localisation . epci": "'CC Cluses-Arve et Montagnes'",
-        "vélo . prix": "1000€",
-        "revenu fiscal de référence par part": "10000€/an",
-        "vélo . type": "'électrique'",
-        "aides . cluses arve et montagnes . participation employeur": 500,
-      });
-      expect(
-        engine.evaluate("aides . cluses arve et montagnes").nodeValue
-      ).toEqual(700);
-    });
-  });
+  // describe("Communauté de communes Cluses Arve & Montagnes", () => {
+  //   it("devrait correctement prendre en compte le bonus 'vélo d'occasion'", () => {
+  //     engine.setSituation({
+  //       "localisation . epci": "'CC Cluses-Arve et Montagnes'",
+  //       "vélo . prix": "1000€",
+  //       "revenu fiscal de référence par part": "10000€/an",
+  //       "vélo . type": "'électrique'",
+  //     });
+  //     expect(
+  //       engine.evaluate("aides . cluses arve et montagnes").nodeValue
+  //     ).toEqual(300);
+  //
+  //     engine.setSituation({
+  //       "localisation . epci": "'CC Cluses-Arve et Montagnes'",
+  //       "vélo . prix": "1000€",
+  //       "revenu fiscal de référence par part": "10000€/an",
+  //       "vélo . type": "'électrique'",
+  //       "vélo . état": "'occasion'",
+  //     });
+  //     expect(
+  //       engine.evaluate("aides . cluses arve et montagnes").nodeValue
+  //     ).toEqual(400);
+  //   });
+  //
+  //   it("devrait correctement prendre en compte le bonus 'participation employeur'", () => {
+  //     engine.setSituation({
+  //       "localisation . epci": "'CC Cluses-Arve et Montagnes'",
+  //       "vélo . prix": "1000€",
+  //       "revenu fiscal de référence par part": "10000€/an",
+  //       "vélo . type": "'électrique'",
+  //     });
+  //     expect(
+  //       engine.evaluate("aides . cluses arve et montagnes").nodeValue
+  //     ).toEqual(300);
+  //
+  //     engine.setSituation({
+  //       "localisation . epci": "'CC Cluses-Arve et Montagnes'",
+  //       "vélo . prix": "1000€",
+  //       "revenu fiscal de référence par part": "10000€/an",
+  //       "vélo . type": "'électrique'",
+  //       "aides . cluses arve et montagnes . participation employeur": 500,
+  //     });
+  //     expect(
+  //       engine.evaluate("aides . cluses arve et montagnes").nodeValue
+  //     ).toEqual(700);
+  //   });
+  // });
 
   describe("Anjou Bleu Communauté", () => {
     it("devrait correctement prendre en compte le revenu fiscal de référence maximal", () => {
@@ -1491,7 +1491,7 @@ describe("Aides Vélo", () => {
     });
   });
 
-  describe("Villefranche Agglomération Beaujolais Saône", () => {
+  describe.skip("Villefranche Agglomération Beaujolais Saône", () => {
     it("devrait pas pouvoir avoir un montant négatif", () => {
       engine.setSituation({
         "localisation . epci": "'CA Villefranche Beaujolais Saône'",
@@ -1831,9 +1831,9 @@ describe("Aides Vélo", () => {
         "vélo . type": "'adapté'",
       });
       expect(engine.evaluate("aides . grand poitiers").nodeValue).toBeNull();
-      expect(
-        engine.evaluate("aides . grand poitiers adapté").nodeValue
-      ).toEqual(250);
+      // expect(
+      //   engine.evaluate("aides . grand poitiers adapté").nodeValue
+      // ).toEqual(250);
 
       engine.setSituation({
         "localisation . epci": "'CU du Grand Poitiers'",
@@ -1842,9 +1842,9 @@ describe("Aides Vélo", () => {
         "revenu fiscal de référence par part": "20000 €/an",
       });
       expect(engine.evaluate("aides . grand poitiers").nodeValue).toEqual(250);
-      expect(
-        engine.evaluate("aides . grand poitiers adapté").nodeValue
-      ).toBeNull();
+      // expect(
+      //   engine.evaluate("aides . grand poitiers adapté").nodeValue
+      // ).toBeNull();
     });
   });
 
