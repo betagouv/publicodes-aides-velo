@@ -1,5 +1,64 @@
 # @betagouv/aides-velo
 
+## 3.7.0
+
+### Aides supprimées
+
+- CA du Pays de Laon ([#89](https://github.com/betagouv/publicodes-aides-velo/pull/89))
+- CA Villefranche Beaujolais Saône ([#89](https://github.com/betagouv/publicodes-aides-velo/pull/89))
+- CC Cluses-Arve et Montagnes ([#89](https://github.com/betagouv/publicodes-aides-velo/pull/89))
+- CC Sèvre et Loire ([#89](https://github.com/betagouv/publicodes-aides-velo/pull/89))
+- CU du Grand Poitiers (Vélo adapté) ([#89](https://github.com/betagouv/publicodes-aides-velo/pull/89))
+- Région Grand Est ([#89](https://github.com/betagouv/publicodes-aides-velo/pull/89))
+- Ville de Cébazat ([#89](https://github.com/betagouv/publicodes-aides-velo/pull/89))
+- Ville de Longuenesse ([#89](https://github.com/betagouv/publicodes-aides-velo/pull/89))
+- Ville de Villers-sur-mer ([#89](https://github.com/betagouv/publicodes-aides-velo/pull/89))
+- Ville-sur-Jarnioux ([#89](https://github.com/betagouv/publicodes-aides-velo/pull/89))
+
+### Aides ajoutées
+
+- CC du Val de l'Oise ([#89](https://github.com/betagouv/publicodes-aides-velo/pull/89))
+- CC Vie et Boulogne ([#89](https://github.com/betagouv/publicodes-aides-velo/pull/89))
+
+### Aides modifiées
+
+- CA Bourges Plus ([#89](https://github.com/betagouv/publicodes-aides-velo/pull/89))
+- CA Cholet Agglomération ([#89](https://github.com/betagouv/publicodes-aides-velo/pull/89))
+- CA de Béthune-Bruay, Artois-Lys Romane ([#89](https://github.com/betagouv/publicodes-aides-velo/pull/89))
+- CA du Beauvaisis ([#89](https://github.com/betagouv/publicodes-aides-velo/pull/89))
+- CA du Grand Chambéry ([#89](https://github.com/betagouv/publicodes-aides-velo/pull/89))
+- CA du Pays de l'Or ([#89](https://github.com/betagouv/publicodes-aides-velo/pull/89))
+- CA Grand Calais Terres et Mers ([#89](https://github.com/betagouv/publicodes-aides-velo/pull/89))
+- CA Rochefort Océan ([#89](https://github.com/betagouv/publicodes-aides-velo/pull/89))
+- CA Saint-Avold Synergie ([#89](https://github.com/betagouv/publicodes-aides-velo/pull/89))
+- CA Saint-Lô Agglo ([#89](https://github.com/betagouv/publicodes-aides-velo/pull/89))
+- CC Aunis Atlantique ([#89](https://github.com/betagouv/publicodes-aides-velo/pull/89))
+- CC Coeur de Savoie ([#89](https://github.com/betagouv/publicodes-aides-velo/pull/89))
+- CC de Puisaye-Forterre ([#89](https://github.com/betagouv/publicodes-aides-velo/pull/89))
+- CC de Saulieu-Morvan ([#89](https://github.com/betagouv/publicodes-aides-velo/pull/89))
+- CC des Campagnes de l'Artois ([#89](https://github.com/betagouv/publicodes-aides-velo/pull/89))
+- CC des Monts du Pilat ([#89](https://github.com/betagouv/publicodes-aides-velo/pull/89))
+- CC des Portes de Romilly sur Seine ([#89](https://github.com/betagouv/publicodes-aides-velo/pull/89))
+- CC des Vallons du Lyonnais ([#89](https://github.com/betagouv/publicodes-aides-velo/pull/89))
+- CC du Massif du Vercors ([#89](https://github.com/betagouv/publicodes-aides-velo/pull/89))
+- CC du Pays de l'Ozon ([#89](https://github.com/betagouv/publicodes-aides-velo/pull/89))
+- CC du Pays de Mormal ([#89](https://github.com/betagouv/publicodes-aides-velo/pull/89))
+- CC Les Avant-Monts ([#89](https://github.com/betagouv/publicodes-aides-velo/pull/89))
+- CC Pévèle-Carembault ([#89](https://github.com/betagouv/publicodes-aides-velo/pull/89))
+- Commune de gap ([#89](https://github.com/betagouv/publicodes-aides-velo/pull/89))
+- CU du Grand Reims ([#89](https://github.com/betagouv/publicodes-aides-velo/pull/89))
+- CU Perpignan Méditerranée Métropole ([#89](https://github.com/betagouv/publicodes-aides-velo/pull/89))
+- Métropole Grand Lyon ([#89](https://github.com/betagouv/publicodes-aides-velo/pull/89))
+- Ville de Cournon-d'Auvergne ([#89](https://github.com/betagouv/publicodes-aides-velo/pull/89))
+- Ville de Entzheim ([#89](https://github.com/betagouv/publicodes-aides-velo/pull/89))
+- Ville de Puteaux ([#89](https://github.com/betagouv/publicodes-aides-velo/pull/89))
+- Ville de Reims ([#89](https://github.com/betagouv/publicodes-aides-velo/pull/89))
+- Ville de Rueil-Malmaison ([#89](https://github.com/betagouv/publicodes-aides-velo/pull/89))
+- Ville de Saint-Alban-Leysse ([#89](https://github.com/betagouv/publicodes-aides-velo/pull/89))
+- Ville de Trébeurden ([#89](https://github.com/betagouv/publicodes-aides-velo/pull/89))
+- Ville d'Ifs ([#89](https://github.com/betagouv/publicodes-aides-velo/pull/89))
+- Ville du Vigan ([#89](https://github.com/betagouv/publicodes-aides-velo/pull/89))
+
 ## 3.6.1
 
 ### Patch Changes
