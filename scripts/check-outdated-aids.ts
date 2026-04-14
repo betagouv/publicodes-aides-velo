@@ -1,15 +1,33 @@
 import { env } from "bun";
-import { AidesVeloEngine } from "../src";
+import { Aide, AidesVeloEngine } from "../src";
+
+const COLLECTIVITY_PRIORITY: Array<Aide["collectivity"]["kind"]> = [
+  "pays",
+  "région",
+  "département",
+  "epci",
+  "code insee",
+];
 
 const nextWeek = new Date();
 nextWeek.setDate(nextWeek.getDate() + 7);
 const engine = new AidesVeloEngine();
 
-const outdated = engine.getAllAidesIn().filter((aide) => {
-  // NOTE: nous voulons anticiper les aides qui vont expirer dans la semaine
-  // pour être proactif·ve.
-  return aide.endDate && aide.endDate <= nextWeek;
-});
+const outdated = engine
+  .getAllAidesIn()
+  .filter((aide) => {
+    // NOTE: nous voulons anticiper les aides qui vont expirer dans la semaine
+    // pour être proactif·ve.
+    return aide.endDate && aide.endDate <= nextWeek;
+  })
+  .toSorted((a, b) => {
+    const collectivityA = COLLECTIVITY_PRIORITY.indexOf(a.collectivity.kind);
+    const collectivityB = COLLECTIVITY_PRIORITY.indexOf(b.collectivity.kind);
+    if (collectivityA !== collectivityB) {
+      return collectivityA - collectivityB;
+    }
+    return a.endDate!.getTime() - b.endDate!.getTime();
+  });
 
 if (outdated.length === 0) {
   console.log("Toutes les aides sont en vigueur.");
