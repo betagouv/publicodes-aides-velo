@@ -41,7 +41,7 @@
     "release": "bun run compile && changeset publish"
   },
   "dependencies": {
-    "@etalab/decoupage-administratif": "^5.2.0",
+    "@etalab/decoupage-administratif": "6.0.0",
     "glob": "^13.0.6",
     "publicodes": "^1.8.5"
   },
