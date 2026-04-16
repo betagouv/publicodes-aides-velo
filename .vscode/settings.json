@@ -1,0 +1,29 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "gplane.dprint2",
+  "[typescript]": {
+    "editor.defaultFormatter": "gplane.dprint2"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "gplane.dprint2"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "gplane.dprint2"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "gplane.dprint2"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "gplane.dprint2"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "gplane.dprint2"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "gplane.dprint2"
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "gplane.dprint2"
+  },
+  "dprint.config": "./dprint.json"
+}

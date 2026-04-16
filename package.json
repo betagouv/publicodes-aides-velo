@@ -55,6 +55,7 @@
     "@types/bun": "^1.2.23",
     "@types/jest": "^29.5.14",
     "bun": "^1.2.23",
+    "dprint": "^0.54.0",
     "terser": "^5.39.2",
     "tsdown": "^0.12.7",
     "typescript": "^5.8.3",
