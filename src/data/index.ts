@@ -1,5 +1,5 @@
-import collectivities from "./aides-collectivities.json" assert { type: "json" };
-import rawMiniatures from "./miniatures.json" assert { type: "json" };
+import collectivities from "./aides-collectivities.json" with { type: "json" };
+import rawMiniatures from "./miniatures.json" with { type: "json" };
 
 /**
  * Full localisation of a commune, departement, region, or EPCI.
@@ -7,19 +7,31 @@ import rawMiniatures from "./miniatures.json" assert { type: "json" };
  * @note This is useful to fill the `localisation` namespace in the Publicodes
  * situation before evaluating the rules.
  */
+export type CollectivityKind =
+  | "pays"
+  | "région"
+  | "département"
+  | "epci"
+  | "code insee";
+
+export type Collectivity = {
+  kind: CollectivityKind;
+  value: string;
+  code?: string;
+};
+
 export type Localisation = {
-  /** The collectivity scale and value */
-  collectivity: {
-    kind: "pays" | "région" | "département" | "epci" | "code insee";
-    value: string;
-    code?: string;
-  };
+  collectivity: Collectivity;
+  codeInsee?: string;
+  region?: string;
+  departement?: string;
+  population?: number;
   country: "france" | "monaco" | "luxembourg";
 };
 
 /**
  * All rule name that are considered to be aids and have a corresponding
- * localisation in {@link aidesAvecLocalisation}.
+ * localisation in {@link aidesWithLocalisation}.
  */
 export type AideRuleNames = keyof typeof collectivities;
 
@@ -31,7 +43,7 @@ export type AideRuleNames = keyof typeof collectivities;
  * localisation even when the user has only provided the city name or postal
  * code.
  */
-export const aidesAvecLocalisation = collectivities as Record<
+export const aidesWithLocalisation = collectivities as Record<
   AideRuleNames,
   Localisation
 >;
