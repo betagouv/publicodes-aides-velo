@@ -2096,24 +2096,6 @@ aides . montbéliard agglo:
   lien: https://aidevelo.agglo-montbeliard.fr/
   dernière mise à jour: 13/08/2025
 
-aides . cc loue-lison:
-  remplace: intercommunalité
-  titre: Communauté de communes Loue-Lison
-  description: >
-    Aide à l’acquisition de 20% du prix d’achat TTC limitée à 200€ maximum pour
-    l’achat d’un vélo à assistance électrique neuf, dans la limite de
-    l’enveloppe budgétaire annuelle allouée.
-  applicable si:
-    toutes ces conditions:
-      - localisation . epci = 'CC Loue-Lison'
-      - vélo . électrique
-      - vélo . état . neuf
-      - vélo . prix <= 2500 €
-  valeur: 20% * vélo . prix
-  plafond: 200€
-  lien: https://cclouelison.fr/fr/rb/1729730/mobilite-21
-  dernière mise à jour: 13/08/2025
-
 # NOTE: convention jusqu'au 22 mars 2026
 aides . montbéliard:
   remplace: commune
@@ -8967,7 +8949,7 @@ aides . courbevoie:
   lien: https://www.ville-courbevoie.fr/1844/subvention-pour-l-achat-d-un-velo-electrique.htm
   dernière mise à jour: 12/09/2025
 
-# TODO: à vérifier en 2026
+# TODO: à vérifier en 2027
 aides . loue lison:
   remplace: intercommunalité
   titre: Communauté de communes Loue Lison
