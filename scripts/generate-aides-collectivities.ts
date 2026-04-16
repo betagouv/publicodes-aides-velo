@@ -128,7 +128,10 @@ const extractCollectivityFromAST = (rule: RuleNode): Collectivity => {
   }
 
   // Should handle multiple localisations but in our current rule basis we only have one localisation per aide (see https://github.com/betagouv/publicodes-aides-velo/issues/25).
-  const { kind, value } = localisationResult[0];
+  const { kind, value } = localisationResult.sort((a, b) => {
+    const order = ["pays", "région", "département", "epci", "code insee"];
+    return order.indexOf(a.kind) - order.indexOf(b.kind);
+  })[0];
 
   // In our rule basis we reference EPCI by their name but for interoperability
   // with third-party systems it is more robust to expose their SIREN code.
