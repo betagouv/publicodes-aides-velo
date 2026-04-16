@@ -7,7 +7,6 @@
   Ajout d'informations supplémentaires concernant la collectivité associée à
   une aide. Il est désormais possible de récupérer les informations concernant
   la commune la plus peuplée liée à une aide depuis `aidesWithLocalisation` :
-
   - `codeInsee` - le code Insee (ex: 31555),
   - `epci` - le nom de l'EPCI (ex: "Toulouse Métropole"),
   - `departement` - le code département (ex: "31"),

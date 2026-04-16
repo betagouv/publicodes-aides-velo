@@ -1,4 +1,4 @@
-import { defineConfig } from "tsdown";
+import { defineConfig } from "tsdown"
 
 export default defineConfig(() => {
   return {
@@ -13,5 +13,5 @@ export default defineConfig(() => {
     cjsInterop: true,
     splitting: true,
     treeshake: true,
-  };
-});
+  }
+})
