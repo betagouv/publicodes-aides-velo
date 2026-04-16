@@ -6,10 +6,10 @@
  * wrapper functions, and the types.
  */
 
-export type { Questions, RuleName, Situation } from "../publicodes-build";
-export type { AideRuleNames, Localisation } from "./data";
-export { aidesWithLocalisation } from "./data";
+export type { Questions, RuleName, Situation } from "../publicodes-build"
+export type { AideRuleNames, Localisation } from "./data"
+export { aidesWithLocalisation } from "./data"
 
-export { AidesVeloEngine } from "./lib/AidesVeloEngine";
-export type { Aide } from "./lib/AidesVeloEngine";
-export { slugify } from "./lib/utils";
+export { AidesVeloEngine } from "./lib/AidesVeloEngine"
+export type { Aide } from "./lib/AidesVeloEngine"
+export { slugify } from "./lib/utils"

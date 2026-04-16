@@ -1,28 +1,36 @@
-import Engine, { formatValue, Situation as PublicodesSituation } from "publicodes";
-import rules, { Questions, RuleName, Situation } from "../../publicodes-build";
-import { AideRuleNames, aidesWithLocalisation, Localisation, miniatures } from "../data";
-import { extractOptions } from "./utils";
+import Engine, {
+  formatValue,
+  Situation as PublicodesSituation,
+} from "publicodes"
+import rules, { Questions, RuleName, Situation } from "../../publicodes-build"
+import {
+  AideRuleNames,
+  aidesWithLocalisation,
+  Localisation,
+  miniatures,
+} from "../data"
+import { extractOptions } from "./utils"
 
 /**
  * Represents an aid with its metadata.
  */
 export type Aide = {
   /** The rule name of the aid (see {@link AideRuleNames}). */
-  id: AideRuleNames;
+  id: AideRuleNames
   /** The title of the aid (as defined in the Publicodes rules). */
-  title: string;
+  title: string
   /** The description of the aid (with resolved placeholders). */
-  description: string | undefined;
+  description: string | undefined
   /** The URL of the aid (as defined in the Publicodes rules). */
-  url: string;
+  url: string
   /** The collectivity that provides the aid. */
   collectivity: {
-    kind: "pays" | "région" | "département" | "epci" | "code insee";
-    value: string;
-    code?: string;
-  };
+    kind: "pays" | "région" | "département" | "epci" | "code insee"
+    value: string
+    code?: string
+  }
   /** The amount of the aid in euros. */
-  amount: number;
+  amount: number
   /**
    * The miniature URL of the collectivity providing the aid.
    *
@@ -31,14 +39,14 @@ export type Aide = {
    * probably want to extract the miniature from the URL and format them
    * according to your needs.
    */
-  logo: string | undefined;
-  lastUpdate?: Date;
-  endDate?: Date;
-};
+  logo: string | undefined
+  lastUpdate?: Date
+  endDate?: Date
+}
 
 const aidesWithLocalisationEntries = Object.entries(
-  aidesWithLocalisation,
-) as readonly [AideRuleNames, Localisation][];
+  aidesWithLocalisation
+) as readonly [AideRuleNames, Localisation][]
 
 /**
  * A wrapper around the {@link Engine} class to compute the available aids for the
@@ -52,8 +60,8 @@ const aidesWithLocalisationEntries = Object.entries(
  * inputs.
  */
 export class AidesVeloEngine {
-  private inputs: Questions = {};
-  private engine: Engine<RuleName>;
+  private inputs: Questions = {}
+  private engine: Engine<RuleName>
 
   /**
    * Create a new instance of the engine with a initialized set of rules.
@@ -62,8 +70,8 @@ export class AidesVeloEngine {
    * rules. Otherwise, it will be created with the default set of rules.
    */
   constructor(empty = false) {
-    this.inputs = {};
-    this.engine = empty ? new Engine<RuleName>() : new Engine<RuleName>(rules);
+    this.inputs = {}
+    this.engine = empty ? new Engine<RuleName>() : new Engine<RuleName>(rules)
   }
 
   /**
@@ -78,11 +86,11 @@ export class AidesVeloEngine {
    * instead of `oui` or `non` and the values are not wrapped in single quotes.
    */
   public setInputs(inputs: Questions): this {
-    this.inputs = inputs;
+    this.inputs = inputs
     this.engine.setSituation(
-      formatInputs(inputs) as PublicodesSituation<RuleName>,
-    );
-    return this;
+      formatInputs(inputs) as PublicodesSituation<RuleName>
+    )
+    return this
   }
 
   /**
@@ -95,8 +103,8 @@ export class AidesVeloEngine {
    * @note This is a low-level method prefer using {@link setInputs} instead.
    */
   public setSituation(situation: Situation): this {
-    this.engine.setSituation(situation as PublicodesSituation<RuleName>);
-    return this;
+    this.engine.setSituation(situation as PublicodesSituation<RuleName>)
+    return this
   }
 
   /**
@@ -110,17 +118,17 @@ export class AidesVeloEngine {
    * aids.
    */
   public getAllAidesIn(
-    country: Localisation["country"] = "france",
+    country: Localisation["country"] = "france"
   ): Omit<Aide, "amount">[] {
     return aidesWithLocalisationEntries
       .filter(([, { country: aideCountry }]) => aideCountry === country)
       .map(([ruleName]) => {
-        const rule = this.engine.getRule(ruleName);
+        const rule = this.engine.getRule(ruleName)
         // PERF: could simplify this by simply extracting the collectivity from
         // the AST instead of the data object. And removing Luxembourg and
         // Monaco to avoid needing to import the whole
         // aides-collectivities.json file?
-        const collectivity = aidesWithLocalisation[ruleName].collectivity;
+        const collectivity = aidesWithLocalisation[ruleName].collectivity
 
         return {
           id: ruleName,
@@ -130,11 +138,11 @@ export class AidesVeloEngine {
           collectivity,
           logo: miniatures[ruleName],
           lastUpdate: parsePublicodesDate(
-            rule.rawNode["dernière mise à jour"] as string,
+            rule.rawNode["dernière mise à jour"] as string
           ),
           endDate: parsePublicodesDate(rule.rawNode["date de fin"] as string),
-        };
-      });
+        }
+      })
   }
 
   /**
@@ -144,14 +152,14 @@ export class AidesVeloEngine {
    */
   public computeAides(): Aide[] {
     return this.getAllAidesIn(
-      (this.inputs["localisation . pays"]?.toLowerCase()
-        ?? "france") as Localisation["country"],
+      (this.inputs["localisation . pays"]?.toLowerCase() ??
+        "france") as Localisation["country"]
     ).flatMap((metadata) => {
-      const ruleName = metadata.id;
+      const ruleName = metadata.id
       const { nodeValue } = this.engine.evaluate({
         valeur: metadata.id,
         unité: "€",
-      });
+      })
 
       if (typeof nodeValue === "number" && nodeValue > 0) {
         return [
@@ -165,11 +173,11 @@ export class AidesVeloEngine {
             }),
             amount: nodeValue,
           },
-        ];
+        ]
       } else {
-        return [];
+        return []
       }
-    });
+    })
   }
 
   /**
@@ -179,10 +187,10 @@ export class AidesVeloEngine {
    * @returns A new instance of the engine with the same rules and inputs.
    */
   public shallowCopy() {
-    const newEngine = new AidesVeloEngine(true);
-    newEngine.inputs = { ...this.inputs };
-    newEngine.engine = this.engine.shallowCopy();
-    return newEngine;
+    const newEngine = new AidesVeloEngine(true)
+    newEngine.inputs = { ...this.inputs }
+    newEngine.engine = this.engine.shallowCopy()
+    return newEngine
   }
 
   /**
@@ -191,7 +199,7 @@ export class AidesVeloEngine {
    * it.
    */
   public getEngine(): Engine<RuleName> {
-    return this.engine.shallowCopy();
+    return this.engine.shallowCopy()
   }
 
   /**
@@ -202,9 +210,9 @@ export class AidesVeloEngine {
    * any.
    */
   public getOptions<T extends keyof Questions>(
-    name: T,
+    name: T
   ): Questions[T][] | undefined {
-    return extractOptions(this.engine.getRule(name));
+    return extractOptions(this.engine.getRule(name))
   }
 
   /**
@@ -227,73 +235,73 @@ export class AidesVeloEngine {
     veloCat,
     ville,
   }: {
-    ruleName: RuleName;
-    veloCat: Questions["vélo . type"];
-    ville: string;
+    ruleName: RuleName
+    veloCat: Questions["vélo . type"]
+    ville: string
   }) {
-    const { rawNode } = this.engine.getRule(ruleName);
-    const description = rawNode?.description ?? "";
-    const plafondRuleName = `${ruleName} . $plafond`;
+    const { rawNode } = this.engine.getRule(ruleName)
+    const description = rawNode?.description ?? ""
+    const plafondRuleName = `${ruleName} . $plafond`
     const plafondIsDefined = Object.keys(this.engine.getParsedRules()).includes(
-      plafondRuleName,
-    );
-    const plafond = plafondIsDefined && this.engine.evaluate(plafondRuleName);
+      plafondRuleName
+    )
+    const plafond = plafondIsDefined && this.engine.evaluate(plafondRuleName)
     return (
       description
         // NOTE: no longer used, should be removed
         .replace(
           /\$vélo/g,
-          veloCat === "motorisation" ? "kit de motorisation" : `vélo ${veloCat}`,
+          veloCat === "motorisation" ? "kit de motorisation" : `vélo ${veloCat}`
         )
         .replace(
           /\$plafond/,
           // @ts-ignore
-          formatValue(plafond?.nodeValue, { displayedUnit: "€" }),
+          formatValue(plafond?.nodeValue, { displayedUnit: "€" })
         )
         // NOTE:only used in the ZFE related rules
         .replace(/\$ville/, ville)
-    );
+    )
   }
 }
 
 function formatInputs(inputs: Questions): Partial<Situation> {
-  const entries = Object.entries(inputs);
+  const entries = Object.entries(inputs)
 
   const transformedEntries = entries
     .filter(([, val]) => val !== undefined)
     .map(([key, val]) => {
-      let transformedVal: string | number | boolean | null;
+      let transformedVal: string | number | boolean | null
 
       if (typeof val === "boolean") {
-        transformedVal = val ? "oui" : "non";
+        transformedVal = val ? "oui" : "non"
       } else if (key === "localisation . epci") {
-        transformedVal = val ? `'${epciSirenToName[val] || val}'` : null;
+        transformedVal = val ? `'${epciSirenToName[val] || val}'` : null
       } else if (typeof val === "string") {
-        transformedVal = `'${val}'`;
+        transformedVal = `'${val}'`
       } else {
-        transformedVal = val;
+        transformedVal = val
       }
 
-      return [key, transformedVal];
-    });
+      return [key, transformedVal]
+    })
 
-  const transformedInput = Object.fromEntries(transformedEntries);
+  const transformedInput = Object.fromEntries(transformedEntries)
 
-  return transformedInput;
+  return transformedInput
 }
 
 const epciSirenToName = Object.fromEntries(
   aidesWithLocalisationEntries.flatMap(([, { collectivity }]) => {
     if (collectivity.kind !== "epci") {
-      return [];
+      return []
     }
-    return [[(collectivity as any).code, collectivity.value]];
-  }),
-);
+    return [[(collectivity as any).code, collectivity.value]]
+  })
+)
 
 function parsePublicodesDate(date: string | undefined): Date | undefined {
   if (date) {
-    const [day, month, year] = date.split("/").map(Number);
-    return new Date(year, month - 1, day);
+    const [day, month, year] = date.split("/").map(Number)
+    return new Date(year, month - 1, day)
   }
 }

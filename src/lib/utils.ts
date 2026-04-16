@@ -1,4 +1,4 @@
-import { ASTNode, reduceAST } from "publicodes";
+import { ASTNode, reduceAST } from "publicodes"
 
 /**
  * Slugify a string by removing accents, converting to lowercase, and replacing
@@ -17,7 +17,7 @@ export function slugify(str: string): string {
     .toLowerCase() // convert to lowercase
     .replace(/[^a-z0-9 -]/g, "") // remove non-alphanumeric characters
     .replace(/\s+/g, "-") // replace spaces with hyphens
-    .replace(/-+/g, "-"); // remove consecutive hyphens
+    .replace(/-+/g, "-") // remove consecutive hyphens
 }
 
 /**
@@ -35,13 +35,13 @@ export function extractOptions<T>(rule: ASTNode): T[] | undefined {
         return node.explanation
           .map((e) => {
             if (e.nodeKind === "reference") {
-              return e.name;
+              return e.name
             }
           })
-          .filter(Boolean) as T[];
+          .filter(Boolean) as T[]
       }
     },
     undefined,
-    rule,
-  );
+    rule
+  )
 }

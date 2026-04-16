@@ -45,10 +45,10 @@ JS et _type-safe_ (voir le type
 ### Avec la classe `AidesVeloEngine`
 
 ```typescript
-import { AidesVeloEngine } from "@betagouv/aides-velo";
+import { AidesVeloEngine } from "@betagouv/aides-velo"
 
 // Initialisation du moteur
-const engine = new AidesVeloEngine();
+const engine = new AidesVeloEngine()
 
 // Définition de la situation
 engine.setInputs({
@@ -62,12 +62,12 @@ engine.setInputs({
   "vélo . prix": 1000,
   "revenu fiscal de référence par part . revenu de référence": 20000,
   "revenu fiscal de référence par part . nombre de parts": 2,
-});
+})
 
 // Calcul des aides
 engine
   .computeAides()
-  .forEach(({ title, amount }) => console.log(`Aide ${title} : ${amount}€`));
+  .forEach(({ title, amount }) => console.log(`Aide ${title} : ${amount}€`))
 
 // Aide Bordeaux Métropole : 200€
 // Aide Ville de Bègles : 200€
@@ -85,10 +85,10 @@ Il est également possible d'utiliser les règles Publicodes directement avec
 `@betagouv/aides-velo/rules`.
 
 ```typescript
-import Engine, { formatValue } from "publicodes";
-import rules from "@betagouv/aides-velo/rules";
+import Engine, { formatValue } from "publicodes"
+import rules from "@betagouv/aides-velo/rules"
 
-const engine = new Engine(rules);
+const engine = new Engine(rules)
 
 // Permet de définir les valeurs de chaques règles et pas seulement celles qui
 // correspondent à des questions.
@@ -98,14 +98,14 @@ engine.setSituation({
   "vélo . état": "'occasion'",
   "vélo . prix": 1000,
   "revenu fiscal de référence par part": 2000,
-});
+})
 
-const result = engine.evaluate("aides . grand angouleme");
+const result = engine.evaluate("aides . grand angouleme")
 
-console.log(result.nodeValue);
+console.log(result.nodeValue)
 // 400
 
-console.log(formatValue(result));
+console.log(formatValue(result))
 // 400 €
 ```
 

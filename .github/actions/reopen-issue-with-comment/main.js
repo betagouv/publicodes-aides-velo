@@ -1,5 +1,5 @@
-import * as core from "@actions/core";
-import * as github from "@actions/github";
+import * as core from "@actions/core"
+import * as github from "@actions/github"
 
 async function run() {
   try {
@@ -7,15 +7,15 @@ async function run() {
       token: core.getInput("token"),
       issueNumber: Number(core.getInput("issue-number")),
       comment: core.getInput("comment"),
-    };
+    }
 
-    const repository = process.env.GITHUB_REPOSITORY;
-    const [owner, repo] = repository.split("/");
+    const repository = process.env.GITHUB_REPOSITORY
+    const [owner, repo] = repository.split("/")
 
-    const octokit = github.getOctokit(inputs.token);
+    const octokit = github.getOctokit(inputs.token)
 
-    core.info("Updating the issue");
-    const now = new Date();
+    core.info("Updating the issue")
+    const now = new Date()
     await octokit.rest.issues.update({
       owner: owner,
       repo: repo,
@@ -30,10 +30,10 @@ async function run() {
         }).format(now) +
         "\n" +
         inputs.comment.replace(/<br \/>/g, `\n`),
-    });
+    })
   } catch (error) {
-    core.setFailed(error.message);
+    core.setFailed(error.message)
   }
 }
 
-run();
+run()
