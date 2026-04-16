@@ -27,6 +27,7 @@ export type Localisation = {
   departement?: string;
   population?: number;
   country: "france" | "monaco" | "luxembourg";
+  slug: string | undefined;
 };
 
 /**

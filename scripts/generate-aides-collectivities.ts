@@ -24,6 +24,7 @@ type Commune = {
   zfe: boolean;
   epci: string;
   codesPostaux: string[];
+  slug: string | undefined;
 };
 
 const engine = new Publicodes(rules);
@@ -195,6 +196,7 @@ const associateCollectivityMetadata = (
     departement: commune?.departement,
     population: commune?.population,
     country,
+    slug: commune?.slug,
   };
 };
 
