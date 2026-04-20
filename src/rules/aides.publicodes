@@ -567,33 +567,21 @@ aides . irigny:
   lien: https://www.irigny.fr/B%c3%a9n%c3%a9ficier-de-l-aide-%c3%a0-l-achat-d-un-v%c3%a9lo-%c3%a9lectrique/164/
   dernière mise à jour: 01/07/2025
 
-aides . oullins:
+aides . oullins-pierre-benite:
   remplace: commune
-  titre: Ville d'Oullins
+  titre: Ville d'Oullins-Pierre-Bénite
   description: >
-    La Ville subventionne votre achat d'un vélo électrique neuf ou d'occasion
-    par une prime de 100€.
+    Ville d'Oullins-Pierre-Bénite propose une aide financière de 100€ pour
+    l'achat d'un vélo à assistance électrique neuf.
   applicable si:
     toutes ces conditions:
       - localisation . code insee = '69149'
       - vélo . électrique
-  valeur: 100€
-  lien: https://www.oullins.fr/deplacements/a-velo/subvention-pour-l-achat-d-un-velo-electrique-563.html
-
-aides . pierre-bénite:
-  remplace: commune
-  titre: Ville de Pierre-Bénite
-  description: >
-    La Ville de Pierre-Bénite propose une aide financière de 100€ pour l'achat
-    d'un vélo à assistance électrique neuf.
-  applicable si:
-    toutes ces conditions:
-      - localisation . code insee = '69152'
-      - vélo . électrique
       - vélo . état . neuf
   valeur: 100€
   plafond: vélo . prix
-  lien: https://www.pierrebenite.fr/wp-content/uploads/CONVENTIONVAE.pdf
+  lien: https://www.oullinspierrebenite.fr/mes-demarches/cadre-de-vie/subvention-achat-velo-electrique/
+  dernière mise à jour: 20/04/2026
 
 aides . givors:
   remplace: commune
