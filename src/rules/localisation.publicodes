@@ -74,7 +74,7 @@ localisation . pays:
     Monaco:
     Luxembourg:
 
-localisation . ZFE: 
+localisation . ZFE:
   type: boolean
   question: Êtes-vous dans une zone à faibles émissions (ZFE) ?
   par défaut: non

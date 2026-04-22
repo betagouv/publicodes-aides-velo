@@ -20,7 +20,7 @@ revenu fiscal de référence par part:
         dernier avis d’impôt sur le revenu.
         Voire également [Revenu fiscal de
         référence](https://www.economie.gouv.fr/particuliers/revenu-imposable-revenu-fiscal-reference)
-      par défaut: 800 
+      par défaut: 800
       unité: €/an
 
     nombre de parts:

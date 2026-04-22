@@ -81,7 +81,6 @@ vélo . motorisation:
     vélo à assistance électrique. Il est constitué d'un moteur électrique,
     d'une batterie, ainsi que d'un contrôleur et d'un afficheur.
 
-
 vélo . fabriqué en france:
   type: booléen
   question: Le vélo est-il conçu et fabriqué en France ?
@@ -133,9 +132,9 @@ vélo . prix pour maximiser les aides:
             alors: 6000 €
           - si: vélo . pliant
             alors: 1500 €
-          - si: vélo . électrique 
+          - si: vélo . électrique
             alors: 2500 €
-          - si: vélo . mécanique simple 
+          - si: vélo . mécanique simple
             alors: 1000 €
           - sinon: 5000 €
     - si: localisation . epci = 'CU Perpignan Méditerranée Métropole'
@@ -147,7 +146,7 @@ vélo . prix pour maximiser les aides:
             alors: 2000 €
           - si: vélo . cargo
             alors: 4000 €
-          - si: vélo . électrique 
+          - si: vélo . électrique
             alors: 2500 €
           - sinon: 1500 €
     - si: localisation . epci = 'CA Sète Agglopôle Méditerranée'
@@ -155,19 +154,19 @@ vélo . prix pour maximiser les aides:
     - si: localisation . code insee = '67218'
       alors: 800 €
     - si: localisation . epci = "CA du Pays de Laon"
-      alors: 
+      alors:
         variations:
           - si: vélo . cargo
             alors: 5000 €
           - sinon: 3000 €
     - si: localisation . epci = "CC du Genevois"
-      alors: 
+      alors:
         variations:
           - si: vélo . mécanique
             alors: 1500 €
           - sinon: 4000 €
     - si: localisation . epci = "CC Coeur de Savoie"
-      alors: 
+      alors:
         variations:
           - si: vélo . cargo électrique
             alors: 5500 €
