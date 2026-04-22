@@ -1,20 +1,20 @@
-Anah: 
+Anah:
   titre: Agence nationale de l'habitat (Anah)
   description: >
     L'[Anah](https://www.anah.gouv.fr/) a pour mission d'améliorer le parc
     privé de logements existants. Elle accorde des aides financières aux
     propriétaires et accompagne les collectivités dans la mise en œuvre de leur
-    politique de l'habitat privé. 
+    politique de l'habitat privé.
 
-Anah . plafond ménage modeste: 
+Anah . plafond ménage modeste:
   description: >
     Plafond de ressources pour un ménage aux revenus modestes au 1er janvier
     2024.
-  valeur: 
+  valeur:
     variations:
       # plafond en Ile-de-France
-      - si: localisation . région = '11' 
-        alors: 
+      - si: localisation . région = '11'
+        alors:
           variations:
             - si: foyer . personnes = 1
               alors: 28657 €/an
