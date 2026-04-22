@@ -1292,7 +1292,6 @@ aides . eschau:
       - si: vélo . électrique
         alors: 100€
   lien: https://www.eschau.fr/cadre-de-vie/transport-deplacements/
-
 # NOTE: Infos pour 2023, toujours d'actualité ?
 aides . pays de saverne:
   remplace: intercommunalité
@@ -1915,7 +1914,6 @@ aides . wasquehal:
       - sinon: 0€
   lien: https://www.ville-wasquehal.fr/mon-quotidien/environnement/deplacement-doux
   dernière mise à jour: 29/07/2025
-
 aides . belfort:
   remplace: commune
   titre: Ville de Belfort
@@ -4082,7 +4080,6 @@ aides . limoges metropole:
   plafond: 25% * vélo . prix
   lien: https://www.limoges-metropole.fr/informations-transversales/actualites/laide-a-lachat-de-velo-repart-pour-un-tour-1991
   dernière mise à jour: 20/02/2025
-
 aides . lille:
   remplace: commune
   titre: Ville de Lille
@@ -6727,7 +6724,7 @@ aides . massif du vercors:
     toutes ces conditions:
       - localisation . epci = 'CC du Massif du Vercors'
       - demandeur . âge . majeur
-      - revenu fiscal de référence par part . revenu de référence <= plafond de ressources
+      - revenu fiscal de référence par part <= plafond de ressources par part
       - vélo . électrique
   valeur:
     variations:
@@ -6742,6 +6739,9 @@ aides . massif du vercors:
   date de fin: 31/01/2027
   dernière mise à jour: 14/04/2026
   avec:
+    plafond de ressources par part:
+      valeur: plafond de ressources / foyer . personnes
+      unité: €/an
     plafond de ressources:
       valeur:
         variations:
@@ -6898,7 +6898,6 @@ aides . hennebont:
   valeur: 30% * vélo . prix
   plafond: 100€
   lien: https://www.hennebont.bzh/mon-quotidien/deplacements-stationnement/hennebont-a-velo/
-
 aides . avant-monts:
   remplace: intercommunalité
   titre: Communauté de communes Les Avant-Monts
@@ -6935,11 +6934,14 @@ aides . vallées de l'orne et de l'odon:
             - vélo . cargo
             - vélo . adapté
         alors: 300€
-      - si: revenu fiscal de référence par part . revenu de référence <= plafond de ressources
+      - si: revenu fiscal de référence par part <= plafond de ressources par part
         alors: 200€
   lien: https://cdc.vallees-orne-odon.fr/environnement/transition-energetique/aide-acquisition-velo/
   dernière mise à jour: 11/09/2025
   avec:
+    plafond de ressources par part:
+      valeur: plafond de ressources / foyer . personnes
+      unité: €/an
     plafond de ressources:
       valeur:
         variations:
@@ -7625,6 +7627,8 @@ aides . monaco:
   titre: Monaco
   description: >
     Monaco subventionne l'achat d'un vélo électrique neuf.
+
+    Il y a certaines restrictions liées à l'empreinte par km. (Voir https://monservicepublic.gouv.mc/thematiques/transports-et-mobilite/acces-circulation-et-stationnement/vehicules-ecologiques/actions-en-faveur-des-vehicules-ecologiques).
   applicable si:
     toutes ces conditions:
       - vélo . électrique
@@ -8644,7 +8648,7 @@ aides . bassin-pompey:
       - demandeur . âge . majeur
   valeur:
     variations:
-      - si: revenu fiscal de référence par part . revenu de référence <= plafond de ressources
+      - si: revenu fiscal de référence par part <= plafond de ressources par part
         alors: 50% * vélo . prix
       - sinon: 20% * vélo . prix
   plafond:
@@ -8655,7 +8659,7 @@ aides . bassin-pompey:
             - vélo . adapté
         alors:
           variations:
-            - si: revenu fiscal de référence par part . revenu de référence <= plafond de ressources
+            - si: revenu fiscal de référence par part <= plafond de ressources par part
               alors: 450 €
             - sinon: 150 €
       - si:
@@ -8664,18 +8668,21 @@ aides . bassin-pompey:
             - vélo . motorisation
         alors:
           variations:
-            - si: revenu fiscal de référence par part . revenu de référence <= plafond de ressources
+            - si: revenu fiscal de référence par part <= plafond de ressources par part
               alors: 300 €
             - sinon: 100 €
 
       - sinon:
           variations:
-            - si: revenu fiscal de référence par part . revenu de référence <= plafond de ressources
+            - si: revenu fiscal de référence par part <= plafond de ressources par part
               alors: 135 €
             - sinon: 45 €
   lien: https://planvelo.bassinpompey.fr/primevelo
   dernière mise à jour: 11/07/2025
   avec:
+    plafond de ressources par part:
+      valeur: plafond de ressources / foyer . personnes
+      unité: €/an
     plafond de ressources:
       valeur:
         variations:
