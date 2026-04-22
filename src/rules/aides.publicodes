@@ -6737,7 +6737,7 @@ aides . massif du vercors:
             - sinon: 300 €
   lien: https://www.vercors.org/fr/vie-quotidienne/se-deplacer/a-velo/pedalez-branche/
   date de fin: 31/01/2027
-  dernière mise à jour: 14/04/2026
+  dernière mise à jour: 24/04/2026
   avec:
     plafond de ressources par part:
       valeur: plafond de ressources / foyer . personnes
@@ -6937,7 +6937,7 @@ aides . vallées de l'orne et de l'odon:
       - si: revenu fiscal de référence par part <= plafond de ressources par part
         alors: 200€
   lien: https://cdc.vallees-orne-odon.fr/environnement/transition-energetique/aide-acquisition-velo/
-  dernière mise à jour: 11/09/2025
+  dernière mise à jour: 24/04/2026
   avec:
     plafond de ressources par part:
       valeur: plafond de ressources / foyer . personnes
@@ -7628,29 +7628,54 @@ aides . monaco:
   description: >
     Monaco subventionne l'achat d'un vélo électrique neuf.
 
-    Il y a certaines restrictions liées à l'empreinte par km. (Voir https://monservicepublic.gouv.mc/thematiques/transports-et-mobilite/acces-circulation-et-stationnement/vehicules-ecologiques/actions-en-faveur-des-vehicules-ecologiques).
+    Il y a certaines restrictions liées à l'empreinte par km. (Voir
+    https://monservicepublic.gouv.mc/thematiques/transports-et-mobilite/acces-circulation-et-stationnement/vehicules-ecologiques/actions-en-faveur-des-vehicules-ecologiques).
   applicable si:
     toutes ces conditions:
       - vélo . électrique
       - localisation . pays = 'Monaco'
   valeur: 30% * vélo . prix
   plafond: 400€
-  lien: https://www.gouv.mc/Action-Gouvernementale/L-Environnement/Une-mobilite-plus-douce/Dispositif-de-subventions-des-vehicules-electriques-et-hybrides
+  lien: https://monservicepublic.gouv.mc/thematiques/transports-et-mobilite/acces-circulation-et-stationnement/vehicules-ecologiques/actions-en-faveur-des-vehicules-ecologiques
+  dernière mise à jour: 24/04/2026
 
 aides . luxembourg:
   remplace: état
   titre: Luxembourg
   description: >
     L'État du Luxembourg instaure une prime jusqu'à 600€ pour l'achat d'un vélo
-    mécanique ou électrique (pedelec25) à des fins privées. Cette aide est
-    plafonnée à 50% du prix du vélo hors taxes.
+    mécanique ou électrique (pedelec25), 1000€ pour l'achat d'un vélo cargo, à des fins privées. Cette aide est plafonnée à 50% du prix du vélo hors taxes.
+
+    Les aides pour l'achat d'un vélo classique (électrique ou non) sont réservées aux personnes qui bénéficient d’une allocation de vie chère ou d’une prime énergie.
   applicable si:
     toutes ces conditions:
-      - vélo . électrique ou mécanique
       - localisation . pays = 'Luxembourg'
+      - une de ces conditions:
+          - vélo . cargo
+          - toutes ces conditions:
+              - vélo . électrique ou mécanique
+              - revenu fiscal de référence par part <= plafond de ressources par part
   valeur: 50% * vélo . prix . HT
-  plafond: 600€
+  plafond:
+    variations:
+      - si: vélo . cargo
+        alors: 1000€
+      - sinon: 600€
   lien: https://guichet.public.lu/fr/citoyens/transport/transports-individuels/aides-financieres/deduction-mobilite-durable-velo.html
+  dernière mise à jour: 20/04/2026
+  avec:
+    plafond de ressources par part:
+      valeur: plafond de ressources * 12 mois/an / foyer . personnes
+      unité: €/an
+    plafond de ressources:
+      description: On considère ici les plafonds de revenude la prime énergie, moins restrifs que ceux de l'allocation de vie chère.
+      valeur:
+        variations:
+          - si: foyer . personnes = 1
+            alors: 3388
+          - sinon:
+              valeur: 5082 + (1016 * (foyer . personnes - 2) * 1 €/mois/personne)
+      unité: €/mois
 
 aides . grand besançon:
   remplace: intercommunalité
@@ -8678,7 +8703,7 @@ aides . bassin-pompey:
               alors: 135 €
             - sinon: 45 €
   lien: https://planvelo.bassinpompey.fr/primevelo
-  dernière mise à jour: 11/07/2025
+  dernière mise à jour: 24/04/2026
   avec:
     plafond de ressources par part:
       valeur: plafond de ressources / foyer . personnes
