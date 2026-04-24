@@ -2,7 +2,7 @@ name: Release
 
 on:
   workflow_run:
-    workflows: ["Test package"]
+    workflows: ["Test package and pre-release package"]
     types:
       - completed
     branches:

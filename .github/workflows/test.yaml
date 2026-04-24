@@ -1,11 +1,6 @@
 name: Test package and pre-release package
 
-on:
-  pull_request:
-    types: [opened, synchronize]
-  push:
-    branches:
-      - "!main"
+on: push
 
 jobs:
   main:
