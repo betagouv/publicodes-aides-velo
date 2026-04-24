@@ -33,5 +33,5 @@ revenu fiscal de référence par part:
 
         Voir également le [calcul du quotient
         familial](https://www.economie.gouv.fr/particuliers/quotient-familial).
-      par défaut: 1
+      par défaut: foyer . personnes / 1 personne
       plancher: 1
