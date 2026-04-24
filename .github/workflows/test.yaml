@@ -1,6 +1,11 @@
-name: Test package
+name: Test package and pre-release package
 
-on: push
+on:
+  pull_request:
+    types: [opened, synchronize]
+  push:
+    branches:
+      - "!main"
 
 jobs:
   main:
@@ -18,3 +23,7 @@ jobs:
 
       - name: Compile the package
         run: npm run compile
+
+      - name: Continuously Release
+        if: github.event_name == 'pull_request'
+        run: npx pkg-pr-new publish --packageManager=npm
