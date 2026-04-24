@@ -7669,7 +7669,7 @@ aides . luxembourg:
       valeur: plafond de ressources * 12 mois/an / foyer . personnes * 1 personne
       unité: €/an
     plafond de ressources:
-      description: On considère ici les plafonds de revenude la prime énergie, moins restrifs que ceux de l'allocation de vie chère.
+      description: On considère ici les plafonds de revenu de la prime énergie, moins restrifs que ceux de l'allocation de vie chère.
       valeur:
         variations:
           - si: foyer . personnes = 1

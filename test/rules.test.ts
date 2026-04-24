@@ -1817,8 +1817,7 @@ describe("Aides Vélo", () => {
         "localisation . epci": "'CC du Bassin de Pompey'",
         "vélo . prix": 1000,
         "vélo . type": "'électrique'",
-        "revenu fiscal de référence par part . revenu de référence":
-          "20000 €/an",
+        "revenu fiscal de référence par part": "10000 €/an",
         "foyer . personnes": 2,
       })
       expect(engine.evaluate("aides . bassin-pompey").nodeValue).toEqual(300)
@@ -1830,8 +1829,7 @@ describe("Aides Vélo", () => {
         "localisation . epci": "'CC du Bassin de Pompey'",
         "vélo . prix": 1000,
         "vélo . type": "'électrique'",
-        "revenu fiscal de référence par part . revenu de référence":
-          "20000 €/an",
+        "revenu fiscal de référence par part": "3000 €/an",
         "foyer . personnes": 7,
       })
       expect(
@@ -1846,8 +1844,7 @@ describe("Aides Vélo", () => {
         "localisation . epci": "'CC du Bassin de Pompey'",
         "vélo . prix": 1000,
         "vélo . type": "'électrique'",
-        "revenu fiscal de référence par part . revenu de référence":
-          "20000 €/an",
+        "revenu fiscal de référence par part": "20000 €/an",
       })
       expect(engine.evaluate("aides . bassin-pompey").nodeValue).toEqual(100)
     })
@@ -2056,6 +2053,18 @@ describe("Aides Vélo", () => {
       })
 
       expect(engine.evaluate("aides . lille").nodeValue).toEqual(180)
+    })
+  })
+
+  describe("Luxembourg", () => {
+    it("devrait être éligible pour un vélo classique sous conditions de revenus (7 personnes) ", () => {
+      engine.setSituation({
+        "localisation . pays": "'Luxembourg'",
+        "vélo . type": "'mécanique simple'",
+        "revenu fiscal de référence par part": "10000 €/an",
+        "foyer . personnes": 7,
+      })
+      expect(engine.evaluate("aides . luxembourg").nodeValue).toEqual(600)
     })
   })
 })
