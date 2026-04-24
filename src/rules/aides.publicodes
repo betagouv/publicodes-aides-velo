@@ -6740,7 +6740,7 @@ aides . massif du vercors:
   dernière mise à jour: 24/04/2026
   avec:
     plafond de ressources par part:
-      valeur: plafond de ressources / foyer . personnes
+      valeur: plafond de ressources / foyer . personnes * 1 personne
       unité: €/an
 
     plafond de ressources:
@@ -6941,7 +6941,7 @@ aides . vallées de l'orne et de l'odon:
   dernière mise à jour: 24/04/2026
   avec:
     plafond de ressources par part:
-      valeur: plafond de ressources / foyer . personnes
+      valeur: plafond de ressources / foyer . personnes * 1 personne
       unité: €/an
     plafond de ressources:
       valeur:
@@ -7666,7 +7666,7 @@ aides . luxembourg:
   dernière mise à jour: 20/04/2026
   avec:
     plafond de ressources par part:
-      valeur: plafond de ressources * 12 mois/an / foyer . personnes
+      valeur: plafond de ressources * 12 mois/an / foyer . personnes * 1 personne
       unité: €/an
     plafond de ressources:
       description: On considère ici les plafonds de revenude la prime énergie, moins restrifs que ceux de l'allocation de vie chère.
@@ -8697,7 +8697,6 @@ aides . bassin-pompey:
             - si: revenu fiscal de référence par part <= plafond de ressources par part
               alors: 300 €
             - sinon: 100 €
-
       - sinon:
           variations:
             - si: revenu fiscal de référence par part <= plafond de ressources par part
@@ -8707,7 +8706,7 @@ aides . bassin-pompey:
   dernière mise à jour: 24/04/2026
   avec:
     plafond de ressources par part:
-      valeur: plafond de ressources / foyer . personnes
+      valeur: plafond de ressources / foyer . personnes * 1 personne
       unité: €/an
     plafond de ressources:
       valeur:
@@ -8723,7 +8722,6 @@ aides . bassin-pompey:
           - sinon:
               valeur: 44860 + (5668 * personnes supplémentaires * 1 €/an/personne)
       unité: €/an
-
     personnes supplémentaires:
       valeur: foyer . personnes - 5
       plancher: 0
