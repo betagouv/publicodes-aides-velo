@@ -1,3 +1,14 @@
+> [!IMPORTANT]
+> Maxime Quendalle [a décidé de reprendre la maintenance](https://github.com/mquandalle/mesaidesvelo/issues/277) et le développement de
+> [Mes Aides Vélo](https://mesaidesvelo.fr/). Il a donc forké ce répo et créé un
+> nouveau paquet [`aides-velo`](https://github.com/mquandalle/aides-velo/).
+> Il y existe d’ores et déjà des [divergences sur la mise à jour des
+> aides](https://github.com/mquandalle/aides-velo/commit/dc248270f29b6d19740bf212297db668075ad2b7#diff-06572a96a58dc510037d5efa622f9bec8519bc1beab13c9f251e97e657a9d4ed).
+>
+> Bien que nous ([Calinou](https://calinou.coop)) pourrions envisager d'intégrer
+> les mises à jour de ce paquet, nous ne pouvons garantir que nous pourrons
+> continuer de le faire bénévolement.
+
 # `@betagouv/aides-velo`
 
 ![NPM Version](https://img.shields.io/npm/v/%40betagouv%2Faides-velo) [![jsDocs.io](https://img.shields.io/badge/jsDocs.io-reference-blue)](https://www.jsdocs.io/package/@betagouv/aides-velo)
